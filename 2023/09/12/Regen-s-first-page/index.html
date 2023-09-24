@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">447</span>
+            <span class="post-count">198</span>
         </span>
     </span>
 
@@ -106,34 +106,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="汇编语言基本信息"><a href="#汇编语言基本信息" class="headerlink" title="汇编语言基本信息"></a>汇编语言基本信息</h1><p>​	1.汇编语言（ assembly language）是二进制指令的文本形式，与指令是一一对应的关系。</p>
-<p>​	2.每一种 CPU 的机器指令都是不一样的，因此对应的汇编语言也不一样。例如: 最常见的INTEL X86汇编语言。</p>
-<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. CPU只负责运算，数据都在内存中。</span><br><span class="line">2. CPU本身包含一二三级缓存和寄存器。（优先读写）</span><br></pre></td></tr></table></figure>
-
-<h1 id="寄存器种类"><a href="#寄存器种类" class="headerlink" title="寄存器种类"></a>寄存器种类</h1><p>​	1.早期的 X 86架构CPU只有8个寄存器，ESP 寄存器有特定用途，保存当前 Stack 的地址。现在都变成通用寄存器。</p>
-<ul>
-<li><pre><code>-  EAX
--  EBX
--  ECX
--  EDX
--  EDI
--  ESI
--  EBP
--  ESP
-</code></pre>
-<ol start="2">
-<li>32位 CPU、64位 CPU 这样的名称，其实指的就是寄存器的大小。32 位 CPU 的寄存器大小就是4个字节。</li>
-</ol>
-</li>
-</ul>
-<h1 id="内存模型：heap"><a href="#内存模型：heap" class="headerlink" title="内存模型：heap"></a>内存模型：heap</h1><p>​	1.从低位到高位。</p>
-<p>​	2.用户主动请求而划分出来的内存区域，叫做 Heap（堆）。必须手动释放，或者由垃圾回收机制来回收。</p>
-<p>​	<img src="https://www.ruanyifeng.com/blogimg/asset/2018/bg2018012208.png" alt="img"></p>
-<h1 id="内存模型：Stack"><a href="#内存模型：Stack" class="headerlink" title="内存模型：Stack"></a>内存模型：Stack</h1><p>​	1.除了 Heap 以外，其他的内存占用叫做 Stack（栈）。</p>
-<p>​	2.函数执行时，会为它在内存里面建立一个帧（frame）。一般来说，调用栈有多少层，就有多少帧。</p>
-<p>​	3.所有的帧都存放在 Stack，由于帧是一层层叠加的，所以 Stack 叫做栈。</p>
-<p>​	4.生成新的帧，叫做”入栈”，英文是 push；栈的回收叫做”出栈”，英文是 pop。</p>
-<p>​	5.Stack 的特点就是，最晚入栈的帧最早出栈（因为最内层的函数调用，最先结束运行），这就叫做”后进先出”的数据结构。每一次函数执行结束，就自动释放一个帧，所有函数执行结束，整个 Stack 就都释放了。</p>
+  <h1 id="HOLA"><a href="#HOLA" class="headerlink" title="HOLA!!!!"></a>HOLA!!!!</h1><h1 id="INTRODUCTION-TOTHISBLOG"><a href="#INTRODUCTION-TOTHISBLOG" class="headerlink" title="INTRODUCTION 	TO	THIS	BLOG !!!!!!"></a>INTRODUCTION 	TO	THIS	BLOG !!!!!!</h1><p>​	<strong>这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的</strong>。</p>
+<p>​	<strong>这个博客是基于开源框架HEXO,全站都是静态的，也许后续会更换框架试试WordPress等开源框架，不过需要购买云服务器了，这都是后话。</strong></p>
+<p>​		查看链接：<a href="(https://github.com/hexojs/hexo)">HEXO</a></p>
+<p>​	<strong>同时这个博客的主题也是开源的。名字是ayer。可以在github上面搜到。</strong></p>
+<p>​		查看链接：<a href="(https://github.com/Shen-Yu/hexo-theme-ayer)">AYER</a></p>
+<p>​	感谢开源大佬们的贡献，让我这样的小白也可以有自己的博客，同时也希望自己在不久的将来也能在开源社区做出一点贡献。</p>
  
       <!-- reward -->
       

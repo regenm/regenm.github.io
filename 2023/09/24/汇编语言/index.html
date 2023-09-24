@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>leetcode刷题笔记 |  Regen</title>
+      <title>汇编语言 |  Regen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/touxiang.png" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-leetcode刷题笔记"
+  id="post-汇编语言"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  leetcode刷题笔记
+  汇编语言
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-20T16:05:26.000Z" itemprop="datePublished">2023-09-21</time>
+      <a href="/2023/09/24/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" class="article-date">
+  <time datetime="2023-09-24T12:18:41.000Z" itemprop="datePublished">2023-09-24</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">347</span>
+            <span class="post-count">447</span>
         </span>
     </span>
 
@@ -106,21 +106,34 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-两数之和。"><a href="#1-两数之和。" class="headerlink" title="1.两数之和。"></a>1.两数之和。</h1><p>获得技能：哈希表，c++容器MAP。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; a;<span class="comment">//提供一对一的hash</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(<span class="number">2</span>,<span class="number">-1</span>)</span></span>;<span class="comment">//用来承载结果，初始化一个大小为2，值为-1的容器b</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a.<span class="built_in">count</span>(target-nums[i])&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                b[<span class="number">0</span>]=a[target-nums[i]];</span><br><span class="line">                b[<span class="number">1</span>]=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            a[nums[i]]=i;<span class="comment">//反过来放入map中，用来获取结果下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+  <h1 id="汇编语言基本信息"><a href="#汇编语言基本信息" class="headerlink" title="汇编语言基本信息"></a>汇编语言基本信息</h1><p>​	1.汇编语言（ assembly language）是二进制指令的文本形式，与指令是一一对应的关系。</p>
+<p>​	2.每一种 CPU 的机器指令都是不一样的，因此对应的汇编语言也不一样。例如: 最常见的INTEL X86汇编语言。</p>
+<h1 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. CPU只负责运算，数据都在内存中。</span><br><span class="line">2. CPU本身包含一二三级缓存和寄存器。（优先读写）</span><br></pre></td></tr></table></figure>
 
-
-
-<h1 id="2-链表逆转。（非-力扣-）"><a href="#2-链表逆转。（非-力扣-）" class="headerlink" title="2.链表逆转。（非 力扣 ）"></a>2.链表逆转。（非 力扣 ）</h1><h3 id="1-迭代法"><a href="#1-迭代法" class="headerlink" title="1.迭代法"></a>1.迭代法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List <span class="title function_">Reverse</span><span class="params">( List L )</span></span><br><span class="line">&#123;    </span><br><span class="line">    List first=<span class="literal">NULL</span>;</span><br><span class="line">    List tmp;</span><br><span class="line">    <span class="keyword">while</span>(L!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=L-&gt;Next;</span><br><span class="line">        L-&gt;Next=first;</span><br><span class="line">        first=L;</span><br><span class="line">        L=tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-栈"><a href="#2-栈" class="headerlink" title="2.栈"></a>2.栈</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">translateLinklist</span><span class="params">(Linklist&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="type">int</span>&gt; stk;<span class="comment">//定义栈</span></span><br><span class="line">	</span><br><span class="line">	Linklist p = L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span> (p)  <span class="comment">//依次读取栈的内容，也就是第一步</span></span><br><span class="line">	&#123;</span><br><span class="line">		stk.<span class="built_in">push</span>(p-&gt;data);</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p = L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span> (p)   <span class="comment">//依次出栈，更换链表中的数据，也就是第二步</span></span><br><span class="line">	&#123;</span><br><span class="line">		p-&gt;data = stk.<span class="built_in">top</span>();</span><br><span class="line">		stk.<span class="built_in">pop</span>();</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="3-无重复字符的最长子串。"><a href="#3-无重复字符的最长子串。" class="headerlink" title="3.无重复字符的最长子串。"></a>3.无重复字符的最长子串。</h1><p>获得技能：队列，滑动窗口</p>
-<p>​	</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        unordered_set&lt;<span class="type">char</span>&gt; lookup; <span class="comment">//队列模板</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> maxStr = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (lookup.<span class="built_in">find</span>(s[i]) != lookup.<span class="built_in">end</span>())&#123;</span><br><span class="line">                lookup.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left ++;</span><br><span class="line">            &#125;</span><br><span class="line">            maxStr = <span class="built_in">max</span>(maxStr,i-left+<span class="number">1</span>);</span><br><span class="line">            lookup.<span class="built_in">insert</span>(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> maxStr;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+<h1 id="寄存器种类"><a href="#寄存器种类" class="headerlink" title="寄存器种类"></a>寄存器种类</h1><p>​	1.早期的 X 86架构CPU只有8个寄存器，ESP 寄存器有特定用途，保存当前 Stack 的地址。现在都变成通用寄存器。</p>
+<ul>
+<li><pre><code>-  EAX
+-  EBX
+-  ECX
+-  EDX
+-  EDI
+-  ESI
+-  EBP
+-  ESP
+</code></pre>
+<ol start="2">
+<li>32位 CPU、64位 CPU 这样的名称，其实指的就是寄存器的大小。32 位 CPU 的寄存器大小就是4个字节。</li>
+</ol>
+</li>
+</ul>
+<h1 id="内存模型：heap"><a href="#内存模型：heap" class="headerlink" title="内存模型：heap"></a>内存模型：heap</h1><p>​	1.从低位到高位。</p>
+<p>​	2.用户主动请求而划分出来的内存区域，叫做 Heap（堆）。必须手动释放，或者由垃圾回收机制来回收。</p>
+<p>​	<img src="https://www.ruanyifeng.com/blogimg/asset/2018/bg2018012208.png" alt="img"></p>
+<h1 id="内存模型：Stack"><a href="#内存模型：Stack" class="headerlink" title="内存模型：Stack"></a>内存模型：Stack</h1><p>​	1.除了 Heap 以外，其他的内存占用叫做 Stack（栈）。</p>
+<p>​	2.函数执行时，会为它在内存里面建立一个帧（frame）。一般来说，调用栈有多少层，就有多少帧。</p>
+<p>​	3.所有的帧都存放在 Stack，由于帧是一层层叠加的，所以 Stack 叫做栈。</p>
+<p>​	4.生成新的帧，叫做”入栈”，英文是 push；栈的回收叫做”出栈”，英文是 pop。</p>
+<p>​	5.Stack 的特点就是，最晚入栈的帧最早出栈（因为最内层的函数调用，最先结束运行），这就叫做”后进先出”的数据结构。每一次函数执行结束，就自动释放一个帧，所有函数执行结束，整个 Stack 就都释放了。</p>
  
       <!-- reward -->
       
@@ -191,7 +204,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/09/24/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -204,19 +217,10 @@
    
   <nav class="article-nav">
     
+    
       <a href="/2023/09/21/%E5%86%8D%E7%A9%B7%E4%B9%9F%E8%A6%81%E5%8E%BB%E6%97%85%E6%B8%B8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            再穷也要去旅游
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2023/09/20/about-me/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">about me</div>
+        <div class="article-nav-title">再穷也要去旅游</div>
       </a>
     
   </nav>
