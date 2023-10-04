@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Archives: 2023 |  Regen</title>
+      <title>python脚本制作 |  Regen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/touxiang.png" />
@@ -54,88 +54,178 @@
       
     <main class="content on">
       <section class="outer">
-  
-  <ul class="ads">
+  <article
+  id="post-python脚本制作"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  python脚本制作
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/04/python%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" class="article-date">
+  <time datetime="2023-10-04T05:25:57.000Z" itemprop="datePublished">2023-10-04</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">483</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">1 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>​	我突然打算不用知识点记录的方式记录我的学习笔记，打算以发现问题解决问题的方法记录学习过程。</p>
+<h1 id="1-记录的第一个脚本。"><a href="#1-记录的第一个脚本。" class="headerlink" title="1.记录的第一个脚本。"></a>1.记录的第一个脚本。</h1><h2 id="1-问题导入"><a href="#1-问题导入" class="headerlink" title="1.问题导入"></a>1.问题导入</h2><p>​	过去我常常把我拍的照片导入桌面，p完图之后再粘贴到我的移动硬盘留底，过程虽然不长，但是我就是懒。</p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2.分析"></a>2.分析</h2><p>​	我的桌面一般没有东西，所以我可以直接将整个桌面文件夹复制到我的目标目录，或者在匹配后缀位jpg或者png的文件转移到目标文件夹。</p>
+<p><img src="/images/desktop.png" alt="desktop"></p>
+<h2 id="3-实现过程"><a href="#3-实现过程" class="headerlink" title="3.实现过程"></a>3.实现过程</h2><pre><code>1. 转移工作目录到桌面
+1. 在目标文件夹创建文件夹
+1. 复制文件到该文件夹
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line">fileName=<span class="string">&quot;null&quot;</span></span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">&#x27;C:/Users/Regen/Desktop&#x27;</span>)<span class="comment">#转到desktop</span></span><br><span class="line"></span><br><span class="line">desktopPath=os.getcwd()<span class="comment">#记录桌面路径</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileName=datetime.datetime.now().strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)<span class="comment">#以当前时间为文件夹名字</span></span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">&#x27;E:/代存外部硬盘&#x27;</span>)</span><br><span class="line">os.mkdir(fileName)<span class="comment">#创建文件夹</span></span><br><span class="line"></span><br><span class="line">fileDir=os.getcwd()</span><br><span class="line">fileDir=fileDir+<span class="string">&quot;\\&quot;</span>+fileName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">src = desktopPath</span><br><span class="line">des = fileDir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(src):</span><br><span class="line">    <span class="comment">#遍历原文件夹中的文件</span></span><br><span class="line">    full_file_name = os.path.join(src, file)<span class="comment">#把文件的完整路径得到</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;要被复制的全文件路径全名:&quot;</span>,full_file_name)</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(full_file_name):<span class="comment">#用于判断某一对象(需提供绝对路径)是否为文件</span></span><br><span class="line">        shutil.copy(full_file_name, des)<span class="comment">#shutil.copy函数放入原文件的路径文件全名  然后放入目标文件夹</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-遇到的问题"><a href="#4-遇到的问题" class="headerlink" title="4.遇到的问题"></a>4.遇到的问题</h2><pre><code>1. 一开始想要直接复制整个文件夹，但是会遇到权限问题，windows的权限问题没有Linux好解决，进而转向遍历文件夹
+1. 发现其实可以用windows自带的脚本语言，CMD实现（相当于Linux的shell脚本）
+</code></pre>
+<h2 id="5-收尾"><a href="#5-收尾" class="headerlink" title="5.收尾"></a>5.收尾</h2><p>​	很简单的脚本还写了两个小时。不过过程中又学会了一点东西。可以，好玩！</p>
+<p>​	<img src="/images/wenjianzhuanyi.PNG" alt="result"></p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
         <li>
-            <a target="_blank" rel="noopener" href="https://www.bilibili.com">
-                <img src="/images/cover1.jpg" width="300" alt="Bilibili">
-            </a>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
         </li>
-    
-</ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">2023</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2023" class="archive-year">2023</a>
+      </ul>
     </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  <time datetime="2023-09-16T14:25:58.000Z" itemprop="datePublished">09/16</time>
-</a>
+    
+    <footer class="article-footer">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/"
-    >MD语法尝试插入图片到博客</a> 
-</h2>
- 
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2023/09/12/Regen-s-first-page/" class="archive-article-date">
-  <time datetime="2023-09-12T02:41:04.000Z" itemprop="datePublished">09/12</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2023/09/12/Regen-s-first-page/"
-    >Regen&#39;s first page</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-      
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/10/04/python%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" alt="微信分享二维码">
     </div>
-  </div>
-  
-  
+</div>
 
-  
-  <nav class="page-nav">
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
     
-    <a class="extend prev" rel="prev" href="/archives/2023/">上一页</a><a class="page-number" href="/archives/2023/">1</a><span class="page-number current">2</span>
+    
+      <a href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">C语言二级指针</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -280,6 +370,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
