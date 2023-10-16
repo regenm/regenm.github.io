@@ -166,6 +166,114 @@
     
     
     <article
+  id="post-java学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >java学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-10-16T15:55:18.000Z" itemprop="datePublished">2023-10-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="JAVA学习笔记"><a href="#JAVA学习笔记" class="headerlink" title="JAVA学习笔记"></a>JAVA学习笔记</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-String"><a href="#1-String" class="headerlink" title="1.String"></a>1.String</h3><ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=“Java”；// 字符串常量值</span><br><span class="line">String str3=“Java”;  //  字符串常量，并且与str1地址相同</span><br><span class="line">String str2=new String(“Java”);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><ul>
+<li><p>初始化</p>
+<p>  int [] a;&#x2F;&#x2F;创建一个数组引用<br>  a&#x3D;new int[4];<br>  int [] b&#x3D;{1,2,3,4};</p>
+</li>
+<li><p>数组的接口</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//数组的长度</span><br><span class="line">int Alength=a.length;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Arrays数组工具类</li>
+</ul>
+<ol>
+<li>&#x2F;&#x2F;转化为String</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//转化为String</span><br><span class="line">String str=Arrays.tString(array);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>数组拷贝和扩容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] tmp = Arrays.copyOf(array,2*array.length);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Arrays.binarySearch</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//查找成功的话会返回数据的位置</span><br><span class="line">int index = Arrays.binarySearch(arr, 55);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Arrays.equals（比较两个数组是否相等）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.equals(int[] a, int [] b);</span><br><span class="line">//当且仅当a.b非空，长度相同，元素相同时返回true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>Arrays.fill(填充；一般用于初始化)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.fill(array,val);</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>Arrays.sort(arr)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(arr);//默认升序</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-数据类型转换"><a href="#3-数据类型转换" class="headerlink" title="3.数据类型转换"></a>3.数据类型转换</h3><h2 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h2><h3 id="1-JVM内存结构"><a href="#1-JVM内存结构" class="headerlink" title="1.JVM内存结构"></a>1.JVM内存结构</h3><pre><code>        * 对象的存储结构
+                对象应该看作一个地址
+                对象名指向堆中的首地址（swap 案例）
+</code></pre>
+<h3 id="2-包"><a href="#2-包" class="headerlink" title="2. 包"></a>2. 包</h3><h4 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h4><h4 id="包的权限"><a href="#包的权限" class="headerlink" title="包的权限"></a>包的权限</h4><pre><code>        * public 共有
+        * protected 
+</code></pre>
+<h3 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a>3. 多态</h3><h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><h3 id="抽象类-abstract-class"><a href="#抽象类-abstract-class" class="headerlink" title="抽象类(abstract class )"></a>抽象类(abstract class )</h3><h3 id="接口。"><a href="#接口。" class="headerlink" title="接口。"></a>接口。</h3><pre><code>        Java不允许多重继承，但是接口可以实现多重继承，即一个类可以实现多个接口。
+</code></pre>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-诗"
   class="article article-type-post"
   itemscope
@@ -730,64 +838,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-vim-学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >vim 学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-16T15:49:02.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="vim命令模式"><a href="#vim命令模式" class="headerlink" title="vim命令模式"></a>vim命令模式</h1><p>​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复</p>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yy //1.复制本行</span><br><span class="line">数字（几行） + yy //复制多行</span><br></pre></td></tr></table></figure>
-
-<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p   //小写p,复制到光标后的一行</span><br></pre></td></tr></table></figure>
-
-<h2 id="剪切删除"><a href="#剪切删除" class="headerlink" title="剪切删除"></a>剪切删除</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dd  //删除光标所在行</span><br><span class="line">组合技：剪切</span><br><span class="line">输入dd后再输入 p //剪切</span><br></pre></td></tr></table></figure>
-
-<h2 id="撤销恢复"><a href="#撤销恢复" class="headerlink" title="撤销恢复"></a>撤销恢复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u (undo)</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
