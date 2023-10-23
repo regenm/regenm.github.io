@@ -198,7 +198,64 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=“Java”；// 字符串常量值</span><br><span class="line">String str3=“Java”;  //  字符串常量，并且与str1地址相同</span><br><span class="line">String str2=new String(“Java”);</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li>返回长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str1.length()   <span class="comment">//带括号,与数组不同！！！</span></span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><strong>字符串查找</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str1.charAt(0);  // J</span><br><span class="line">str1.charAt(1);  // a</span><br><span class="line">str1.charAt(2);  // v</span><br><span class="line">str1.charAt(4);  // a</span><br><span class="line">str1.charAt(5);  // 报错</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符出现的第一个位置下标，否则返回-1</li>
+</ul>
+<p>a. 从字符串的头开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int index = str1.indexOf(&#x27;J&#x27;);</span><br><span class="line">System.out.println(index);//  0</span><br></pre></td></tr></table></figure>
+
+<p>b. 从下表x开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int index1 = str1.indexOf(&#x27;a&#x27;,2);</span><br><span class="line">System.out.println(index1);  //3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符串出现的位置下标, 从index 开始向<strong>后</strong>找 , 否则返回-1</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;helloxawllxhxawllxh&quot;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="type">int</span> <span class="variable">index3</span> <span class="operator">=</span> s2.lastIndexOf(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    System.out.println(index3);<span class="comment">//13</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符串出现的位置下标, 从index 开始向<strong>前</strong>找 , 否则返回-1</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String s2 = &quot;helloxawllxhxawllxh&quot;;</span><br><span class="line"> </span><br><span class="line">    int index3 = s2.lastIndexOf(&#x27;xawl&#x27;);</span><br><span class="line">    System.out.println(index3);//12</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串的截取</strong></li>
+</ul>
+<ol>
+<li>截取后面的字符串内容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = &quot;adsasdasdasdasd&quot;;</span><br><span class="line">    String ret = str.substring(4);// 保留第4个</span><br><span class="line">    System.out.println(ret);//sdasdasdasd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>截取指定部分</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = &quot;adsasdasdasdasd&quot;;</span><br><span class="line">    String ret = str.substring(4,7);//截取[4,7)里面的字符</span><br><span class="line">    System.out.println(ret);//sda</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串的替换</strong></li>
+</ul>
+<ol>
+<li>使用replace或者replaceAll</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;xawlxawlxawlxawl&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret</span> <span class="operator">=</span> str1.replace(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret1</span> <span class="operator">=</span> str1.replaceAll(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    System.out.println(ret);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(ret1);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(str1);<span class="comment">//xawlxawlxawlxawl</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>字符串的拆分</strong></p>
+</li>
+<li><p><strong>字符串的转化</strong></p>
+</li>
+<li><p><strong>字符串的比较</strong></p>
+</li>
+</ul>
 <h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><ul>
 <li><p>初始化</p>
 <p>  int [] a;&#x2F;&#x2F;创建一个数组引用<br>  a&#x3D;new int[4];<br>  int [] b&#x3D;{1,2,3,4};</p>
