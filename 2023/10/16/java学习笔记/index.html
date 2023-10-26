@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">709</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -162,13 +162,27 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;xawlxawlxawlxawl&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret</span> <span class="operator">=</span> str1.replace(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret1</span> <span class="operator">=</span> str1.replaceAll(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    System.out.println(ret);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(ret1);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(str1);<span class="comment">//xawlxawlxawlxawl</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p><strong>字符串的拆分</strong></p>
-</li>
+<li><strong>字符串的拆分</strong></li>
+</ul>
+<p>​		使用split方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str1 = &quot;Hello this is xawl rjgc professional&quot;;</span><br><span class="line">    String[] ret = str1.split(&quot; &quot;);			//以空格为分隔符，拆分整个字符串为多个字符串</span><br><span class="line">    for (String s : ret) &#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/******************************************************/</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">    String str1 = &quot;Hello this is xawl rjgc professional&quot;;</span><br><span class="line">    String[] ret = str1.split(&quot; &quot;,3);		//以空格为分隔符，拆分3个字符串</span><br><span class="line">    for (String s : ret) &#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> 特殊字符(| + * . ,)作为分割符可能无法正确切分, 需要加上转义.</p>
+<ul>
 <li><p><strong>字符串的转化</strong></p>
-</li>
-<li><p><strong>字符串的比较</strong></p>
+<pre><code>  1. 将别的数据类型转为字符串**valueOf( elementType i)**
+</code></pre>
 </li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = String.valueOf(1234);</span><br><span class="line">    String str1 = String.valueOf(12.34);</span><br><span class="line">    System.out.println(str);</span><br><span class="line">    System.out.println(str1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>小写字母转大写字母或者相反 <strong>toUpperCase()</strong>&amp;<strong>toLowerCase()</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"> </span><br><span class="line">    String str3 = &quot;abcdef阿凡达&quot;;</span><br><span class="line">    String ret = str3.toUpperCase();</span><br><span class="line">    System.out.println(ret);//ABCDEF阿凡达</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><ul>
 <li><p>初始化</p>
 <p>  int [] a;&#x2F;&#x2F;创建一个数组引用<br>  a&#x3D;new int[4];<br>  int [] b&#x3D;{1,2,3,4};</p>
@@ -213,8 +227,7 @@
 
 
 
-<h3 id="3-数据类型转换"><a href="#3-数据类型转换" class="headerlink" title="3.数据类型转换"></a>3.数据类型转换</h3><p>[&#x2F;]</p>
-<h2 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h2><h3 id="1-JVM内存结构"><a href="#1-JVM内存结构" class="headerlink" title="1.JVM内存结构"></a>1.JVM内存结构</h3><pre><code>        * 对象的存储结构
+<h3 id="3-数据类型转换"><a href="#3-数据类型转换" class="headerlink" title="3.数据类型转换"></a>3.数据类型转换</h3><h2 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h2><h3 id="1-JVM内存结构"><a href="#1-JVM内存结构" class="headerlink" title="1.JVM内存结构"></a>1.JVM内存结构</h3><pre><code>        * 对象的存储结构
                 对象应该看作一个地址
                 对象名指向堆中的首地址（swap 案例）
 </code></pre>
@@ -224,6 +237,26 @@
 <h3 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a>3. 多态</h3><h2 id="Java集成体系框架"><a href="#Java集成体系框架" class="headerlink" title="Java集成体系框架"></a>Java集成体系框架</h2><h3 id="整体框架："><a href="#整体框架：" class="headerlink" title="整体框架："></a>整体框架：</h3><p><img src="/images/JavaIntegrationFrame.png"></p>
 <p>​			Java集合类主要由两个根接口Collection和Map派生出来。</p>
 <h3 id="1-Collection"><a href="#1-Collection" class="headerlink" title="1. Collection"></a>1. Collection</h3><p><img src="/images/JavaIntegrationFrameCollection.png"></p>
+<ul>
+<li><strong>ArrayLIst</strong></li>
+</ul>
+<p>​		1.增删查改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Object&gt; arrl =new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">//增</span><br><span class="line">arr1.add( E e );</span><br><span class="line">//删</span><br><span class="line">remove(Object o) //从该集合中删除指定元素的单个实例</span><br><span class="line">clear() 		//从此集合中删除所有元素</span><br><span class="line">//查</span><br><span class="line">arr1.getI(int index);		//获取第 i 个数，从零开始</span><br><span class="line">//改</span><br><span class="line">set(int index, E element)  //用指定的元素替换此列表中指定位置的元素。</span><br></pre></td></tr></table></figure>
+
+<pre><code>    2. 迭代器
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr1.iterator() 		//返回一个集合的迭代器</span><br><span class="line">arr1.toArray()  		//转数组</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>常见方法</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>* </p>
 <h3 id="2-Map"><a href="#2-Map" class="headerlink" title="2. Map"></a>2. Map</h3><p><img src="/images/JavaIntegrationFrameMap.png"></p>
 <h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><h3 id="抽象类-abstract-class"><a href="#抽象类-abstract-class" class="headerlink" title="抽象类(abstract class )"></a>抽象类(abstract class )</h3><h3 id="接口。"><a href="#接口。" class="headerlink" title="接口。"></a>接口。</h3><pre><code>        Java不允许多重继承，但是接口可以实现多重继承，即一个类可以实现多个接口。
 </code></pre>
