@@ -423,9 +423,48 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num_1=<span class="number">20</span>;</span><br><span class="line"><span class="type">byte</span> num_2=(<span class="type">byte</span>) a;</span><br><span class="line"><span class="type">int</span> num_3=<span class="number">300</span>;</span><br><span class="line"><span class="type">byte</span> num_4=(<span class="type">byte</span>)num_3;<span class="comment">//数据丢失 num_4值为44</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="4-Java-中super的用法"><a href="#4-Java-中super的用法" class="headerlink" title="4. Java 中super的用法"></a>4. Java 中super的用法</h3><p>​	<strong>当子类的构造方法内第一行没有出现“super()”时，系统会默认给它加上无参数的”super()”方法</strong>。</p>
+<p>注意：</p>
+<ol>
+<li>当子类构造方法的第一行执行super()无参数方法，那么父类中一定要有无参数构造方法。</li>
+<li>在一个类中写了有参数的构造方法时，无参数构造方法就会不存在，需要自己补上无参数的构造方法。</li>
+</ol>
+<ul>
+<li>super使用案例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">father</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">father</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">    	<span class="keyword">public</span> <span class="title function_">father</span><span class="params">(<span class="type">int</span> a)</span>&#123;<span class="built_in">this</span>.age=age;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">son</span> <span class="keyword">extends</span> <span class="title class_">father</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">son</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ol start="4">
+<li><h3 id="Java-中-final-的用法"><a href="#Java-中-final-的用法" class="headerlink" title="Java 中   final  的用法"></a>Java 中   final  的用法</h3></li>
+</ol>
+<ul>
+<li><p>解释：<strong>Java中，final 表示最终，也可以称为完结器，表示对象是最终形态的，不可改变的意思。</strong></p>
+</li>
+<li><p>使用时的注意事项</p>
+</li>
+</ul>
+<blockquote>
+<p>1）final 修饰变量，表示变量的值不可改变，此时该变量可被称为常量。</p>
+<p>2）final 修饰方法，表示方法不能被子类重写；</p>
+<blockquote>
+<p>重写：子类中如果创建了一个与父类中相同名称、相同返回值类型、相同参数列表的方法，只是方法体中的实现不同，以实现不同于父类的功能，这种方式被称为方法重写，又称为方法覆盖。</p>
+</blockquote>
+<p>3）final 用在类的前面表示该类不能有子类，即该类不可以被继承。</p>
+</blockquote>
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修饰变量</span></span><br><span class="line"><span class="comment">//final 变量经常和 static 关键字一起使用，作为常量</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">NAME</span> <span class="operator">=</span> <span class="string">&quot;regen&quot;</span>;</span><br><span class="line">NAME = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;regen&quot;</span>); <span class="comment">//invalid compilation error</span></span><br><span class="line"><span class="comment">//修饰方法</span></span><br><span class="line"><span class="comment">//被修饰的方法禁止被重写</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;user：&quot;</span>张三<span class="string">&quot;;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">class Reader extends User&#123;</span></span><br><span class="line"><span class="string">    @Override</span></span><br><span class="line"><span class="string">    public final String getName()&#123;</span></span><br><span class="line"><span class="string">        return &quot;</span>李四<span class="string">&quot;; //compilation error: overridden method is final</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//final修饰类</span></span><br><span class="line"><span class="string">//例如 java 中的String类</span></span><br><span class="line"><span class="string">//表示该类 具有完整的功能，不能被继承</span></span><br><span class="line"><span class="string">public final class String</span></span><br><span class="line"><span class="string">    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;</span></span><br><span class="line"><span class="string">    /** The value is used for character storage. */</span></span><br><span class="line"><span class="string">    private final char value[];</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">    ...</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
 
-
+<ul>
+<li>优点</li>
+</ul>
+<ol>
+<li><p>final 关键字，提高了性能，JVM 和 Java 应用都会缓存 final 变量。</p>
+</li>
+<li><p>final 变量，可以安全的在多线程环境下进行共享，而不需要额外的同步开销。</p>
+</li>
+</ol>
 <h2 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h2><h3 id="1-JVM内存结构"><a href="#1-JVM内存结构" class="headerlink" title="1.JVM内存结构"></a>1.JVM内存结构</h3><pre><code>        * 对象的存储结构
                 对象应该看作一个地址
                 对象名指向堆中的首地址（swap 案例）
