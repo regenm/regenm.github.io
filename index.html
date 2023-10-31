@@ -193,7 +193,27 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="MySQL学习笔记（8-0）"><a href="#MySQL学习笔记（8-0）" class="headerlink" title="MySQL学习笔记（8.0）"></a>MySQL学习笔记（8.0）</h1><p>​		一切只因花几十块买了一年的云服务器。刚好目前需要用 用 JDBC ，于是就把数据库部署到了服务器上面。然而这其中却遇到了难以想象的困难。</p>
+<h2 id="1-部署环境以及初始化配置"><a href="#1-部署环境以及初始化配置" class="headerlink" title="1.部署环境以及初始化配置"></a>1.部署环境以及初始化配置</h2><ul>
+<li>Ubuntu</li>
+</ul>
+<h3 id="1-下载安装，配置密码"><a href="#1-下载安装，配置密码" class="headerlink" title="1.下载安装，配置密码"></a>1.下载安装，配置密码</h3><p>以root用户登录之后：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade	#不解释</span><br><span class="line">apt install mysql-server -y	#下载</span><br></pre></td></tr></table></figure>
+
+<p><strong>此时你可以直接进入mysql</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string<span class="operator">=</span><span class="string">&#x27;&#x27;</span> <span class="keyword">where</span> <span class="keyword">user</span><span class="operator">=</span><span class="string">&#x27;root&#x27;</span>; #（将密码置为空）</span><br><span class="line">mysql<span class="operator">&gt;</span> quit;</span><br><span class="line">#	然后重启mysql，再次进入</span><br><span class="line">systemstl restart mysql</span><br><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> (如果不用远程链接则为<span class="string">&#x27;localhost&#x27;</span>)IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit #修改完成</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启远程链接功能</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; update user set host = &#x27;%&#x27; where user = &#x27;root&#x27;; #修改访问权限，默认只能本地访问。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改MySQL配置文件</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line">将[mysqld]下面的 bind-address ***以及mysqlx-bind-address ****注释</span><br><span class="line">同时取消注释</span><br><span class="line">port</span><br><span class="line">user</span><br><span class="line">socket</span><br><span class="line">server-id</span><br><span class="line">重启测试即可</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-开始正式学习mysql"><a href="#2-开始正式学习mysql" class="headerlink" title="2. 开始正式学习mysql"></a>2. 开始正式学习mysql</h2> 
       <!-- reward -->
       
     </div>
@@ -203,6 +223,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
     </footer>
   </div>
 
