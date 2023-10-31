@@ -166,6 +166,53 @@
     
     
     <article
+  id="post-MySql学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >MySql学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-10-31T04:27:48.000Z" itemprop="datePublished">2023-10-31</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-51单片机笔记"
   class="article article-type-post"
   itemscope
@@ -1036,92 +1083,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-leetcode刷题笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"
-    >leetcode刷题笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-20T16:05:26.000Z" itemprop="datePublished">2023-09-21</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="1-两数之和。"><a href="#1-两数之和。" class="headerlink" title="1.两数之和。"></a>1.两数之和。</h1><p>获得技能：哈希表，c++容器MAP。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; a;<span class="comment">//提供一对一的hash</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(<span class="number">2</span>,<span class="number">-1</span>)</span></span>;<span class="comment">//用来承载结果，初始化一个大小为2，值为-1的容器b</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a.<span class="built_in">count</span>(target-nums[i])&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                b[<span class="number">0</span>]=a[target-nums[i]];</span><br><span class="line">                b[<span class="number">1</span>]=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            a[nums[i]]=i;<span class="comment">//反过来放入map中，用来获取结果下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="2-链表逆转。（非-力扣-）"><a href="#2-链表逆转。（非-力扣-）" class="headerlink" title="2.链表逆转。（非 力扣 ）"></a>2.链表逆转。（非 力扣 ）</h1><h3 id="1-迭代法"><a href="#1-迭代法" class="headerlink" title="1.迭代法"></a>1.迭代法</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List <span class="title function_">Reverse</span><span class="params">( List L )</span></span><br><span class="line">&#123;    </span><br><span class="line">    List first=<span class="literal">NULL</span>;</span><br><span class="line">    List tmp;</span><br><span class="line">    <span class="keyword">while</span>(L!=<span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp=L-&gt;Next;</span><br><span class="line">        L-&gt;Next=first;</span><br><span class="line">        first=L;</span><br><span class="line">        L=tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> first;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-栈"><a href="#2-栈" class="headerlink" title="2.栈"></a>2.栈</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">translateLinklist</span><span class="params">(Linklist&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	stack&lt;<span class="type">int</span>&gt; stk;<span class="comment">//定义栈</span></span><br><span class="line">	</span><br><span class="line">	Linklist p = L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span> (p)  <span class="comment">//依次读取栈的内容，也就是第一步</span></span><br><span class="line">	&#123;</span><br><span class="line">		stk.<span class="built_in">push</span>(p-&gt;data);</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	p = L-&gt;next;</span><br><span class="line">	<span class="keyword">while</span> (p)   <span class="comment">//依次出栈，更换链表中的数据，也就是第二步</span></span><br><span class="line">	&#123;</span><br><span class="line">		p-&gt;data = stk.<span class="built_in">top</span>();</span><br><span class="line">		stk.<span class="built_in">pop</span>();</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="3-无重复字符的最长子串。"><a href="#3-无重复字符的最长子串。" class="headerlink" title="3.无重复字符的最长子串。"></a>3.无重复字符的最长子串。</h1><p>获得技能：队列，滑动窗口</p>
-<p>​	</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        unordered_set&lt;<span class="type">char</span>&gt; lookup; <span class="comment">//队列模板</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> maxStr = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (lookup.<span class="built_in">find</span>(s[i]) != lookup.<span class="built_in">end</span>())&#123;</span><br><span class="line">                lookup.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left ++;</span><br><span class="line">            &#125;</span><br><span class="line">            maxStr = <span class="built_in">max</span>(maxStr,i-left+<span class="number">1</span>);</span><br><span class="line">            lookup.<span class="built_in">insert</span>(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> maxStr;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-寻找两个正序数组的中位数。"><a href="#4-寻找两个正序数组的中位数。" class="headerlink" title="4.寻找两个正序数组的中位数。"></a>4.寻找两个正序数组的中位数。</h1><p>​	获得技能：二分查找。</p>
-<p>​	</p>
-<p>​	由于数列是有序的，其实我们完全可以一半儿一半儿的排除。假设我们要找第 <code>k</code> 个数，我们可以每次循环排除掉 <code>k/2</code> 个数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> nums2.length;</span><br><span class="line">        <span class="comment">//因为数组是从索引0开始的，因此我们在这里必须+1，即索引(k+1)的数，才是第k个数。</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> (n + m + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> (n + m + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="comment">//将偶数和奇数的情况合并，如果是奇数，会求两次同样的 k</span></span><br><span class="line">        <span class="keyword">return</span> (getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, left) + getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, right)) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getKth</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span> start1, <span class="type">int</span> end1, <span class="type">int</span>[] nums2, <span class="type">int</span> start2, <span class="type">int</span> end2, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="comment">//因为索引和算数不同6-0=6，但是是有7个数的，因为end初始就是数组长度-1构成的。</span></span><br><span class="line">        <span class="comment">//最后len代表当前数组(也可能是经过递归排除后的数组)，符合当前条件的元素的个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> end1 - start1 + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> end2 - start2 + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//让 len1 的长度小于 len2，这样就能保证如果有数组空了，一定是 len1</span></span><br><span class="line">        <span class="comment">//就是如果len1长度小于len2，把getKth()中参数互换位置，即原来的len2就变成了len1，即len1，永远比len2小</span></span><br><span class="line">        <span class="keyword">if</span> (len1 &gt; len2) <span class="keyword">return</span> getKth(nums2, start2, end2, nums1, start1, end1, k);</span><br><span class="line">        <span class="comment">//如果一个数组中没有了元素，那么即从剩余数组nums2的其实start2开始加k再-1.</span></span><br><span class="line">        <span class="comment">//因为k代表个数，而不是索引，那么从nums2后再找k个数，那个就是start2 + k-1索引处就行了。因为还包含nums2[start2]也是一个数。因为它在上次迭代时并没有被排除</span></span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span>) <span class="keyword">return</span> nums2[start2 + k - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果k=1，表明最接近中位数了，即两个数组中start索引处，谁的值小，中位数就是谁(start索引之前表示经过迭代已经被排出的不合格的元素，即数组没被抛弃的逻辑上的范围是nums[start]---&gt;nums[end])。</span></span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> Math.min(nums1[start1], nums2[start2]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//为了防止数组长度小于 k/2,每次比较都会从当前数组所生长度和k/2作比较，取其中的小的(如果取大的，数组就会越界)</span></span><br><span class="line">        <span class="comment">//然后素组如果len1小于k / 2，表示数组经过下一次遍历就会到末尾，然后后面就会在那个剩余的数组中寻找中位数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> start1 + Math.min(len1, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> start2 + Math.min(len2, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果nums1[i] &gt; nums2[j]，表示nums2数组中包含j索引，之前的元素，逻辑上全部淘汰，即下次从J+1开始。</span></span><br><span class="line">        <span class="comment">//而k则变为k - (j - start2 + 1)，即减去逻辑上排出的元素的个数(要加1，因为索引相减，相对于实际排除的时要少一个的)</span></span><br><span class="line">        <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">            <span class="keyword">return</span> getKth(nums1, start1, end1, nums2, j + <span class="number">1</span>, end2, k - (j - start2 + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> getKth(nums1, i + <span class="number">1</span>, end1, nums2, start2, end2, k - (i - start1 + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5.最长回文子串"></a>5.最长回文子串</h1><p>​	给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
-<pre><code>* 中心扩展
-</code></pre>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>||len==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        <span class="type">int</span> start=<span class="number">0</span>;<span class="comment">//记录回文子串起始位置</span></span><br><span class="line">        <span class="type">int</span> end=<span class="number">0</span>;<span class="comment">//记录回文子串终止位置</span></span><br><span class="line">        <span class="type">int</span> mlen=<span class="number">0</span>;<span class="comment">//记录最大回文子串的长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> len1=<span class="built_in">expendaroundcenter</span>(s,i,i);<span class="comment">//一个元素为中心</span></span><br><span class="line">            <span class="type">int</span> len2=<span class="built_in">expendaroundcenter</span>(s,i,i+<span class="number">1</span>);<span class="comment">//两个元素为中心</span></span><br><span class="line">            mlen=<span class="built_in">max</span>(<span class="built_in">max</span>(len1,len2),mlen);</span><br><span class="line">            <span class="keyword">if</span>(mlen&gt;end-start+<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                start=i-(mlen<span class="number">-1</span>)/<span class="number">2</span>;</span><br><span class="line">                end=i+mlen/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(start,mlen);</span><br><span class="line">        <span class="comment">//该函数的意思是获取从start开始长度为mlen长度的字符串</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">expendaroundcenter</span><span class="params">(string s,<span class="type">int</span> left,<span class="type">int</span> right)</span></span></span><br><span class="line"><span class="function">    <span class="comment">//计算以left和right为中心的回文串长度</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> L=left;</span><br><span class="line">        <span class="type">int</span> R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span> &amp;&amp; R&lt;s.<span class="built_in">length</span>() &amp;&amp; s[R]==s[L])</span><br><span class="line">        &#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">作者：陈乐乐</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/longest-palindromic-substring/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br></pre></td></tr></table></figure>
-
-<pre><code>* 动态规划
-</code></pre>
-<p>​		</p>
-<p>​			思想：如果S[ i , j ]是回文串，那么S[ i-1 , j -1]也是回文串 ， 假设</p>
-<p><img src="/images/leecode4.PNG" alt="formula"></p>
-<p>​			需要注意 : <strong>i&gt;j</strong>的情况</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> s.length();</span><br><span class="line">    <span class="type">boolean</span>[][] P = <span class="keyword">new</span> <span class="title class_">boolean</span>[length][length];<span class="comment">//公式</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">maxLen</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">maxPal</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">1</span>; len &lt;= length; len++) <span class="comment">//遍历所有的长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>; start &lt; length; start++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">end</span> <span class="operator">=</span> start + len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (end &gt;= length) <span class="comment">//下标已经越界，结束本次循环</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            P[start][end] = (len == <span class="number">1</span> || len == <span class="number">2</span> || P[start + <span class="number">1</span>][end - <span class="number">1</span>]) &amp;&amp; s.charAt(start) == s.charAt(end); <span class="comment">//长度为 1 和 2 的单独判断下</span></span><br><span class="line">            <span class="keyword">if</span> (P[start][end] &amp;&amp; len &gt; maxLen) &#123;</span><br><span class="line">                maxPal = s.substring(start, end + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> maxPal;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：windliang</span><br><span class="line">链接：https:<span class="comment">//leetcode.cn/problems/longest-palindromic-substring/</span></span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
-
-
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
