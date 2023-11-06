@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">353</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -104,7 +104,32 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <ul>
+<li>Information gathering</li>
+</ul>
+<p>	</p>
+<p>Based on –AT89C51.</p>
+<blockquote>
+<p>The <strong>Atmel AT89 series</strong> is an <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Intel_8051">Intel 8051</a>-compatible family of 8 bit <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microcontroller">microcontrollers</a> (μCs) manufactured by the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atmel">Atmel Corporation</a>.</p>
+<p>Based on the Intel 8051 core, the AT89 series remains very popular as general purpose microcontrollers, due to their industry standard instruction set, their low unit cost, and the availability of these chips in DIL (DIP) packages. This allows a great amount of legacy code to be reused without modification in new applications. While less powerful than the newer AT90 series of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Atmel_AVR">AVR</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/RISC">RISC</a> microcontrollers, new product development has continued with the AT89 series for the aforementioned advantages.</p>
+<p>More recently, the AT89 series has been augmented with 8051-cored special function microcontrollers, specifically in the areas of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universal_Serial_Bus">USB</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/I%C2%B2C">I²C</a> (two wire interface), <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Controller_Area_Network">CAN</a> bus controllers, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MP3">MP3</a> decoders and hardware <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">PWM</a>.</p>
+</blockquote>
+<p>Data sheet url links : <a target="_blank" rel="noopener" href="https://rocelec.widen.net/view/pdf/gywrtkuql9/ATMLS01727-1.pdf?t.download=true&u=5oefqw">Data Sheet PDF Downloads</a> </p>
+<p>​						<strong>The following I would not like to just write down the points. The post will be focused on application layer</strong></p>
+<ul>
+<li>Project_1：<strong>TIME BOMB</strong></li>
+</ul>
+<p>​	It’s actually pretty much easier to make a TIME BOMB than you can imagine.You will just need some TNT and an at89c51 chip(&lt;3).</p>
+<p>Now we fixed the Bomb (got some TNT). What about the  timer ? Yep, we can use the AT89C51 chip. </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayNms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s alse related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>what about the next after the timer is set? yep , light it.</p>
+<p>We can use a switch or a relay to light it . When the switch (connected between vcc and gnd) is on , the heat will light the TNT. EZ game.</p>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayNms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s alse related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    delayNms(<span class="number">10000</span>);<span class="comment">//10s</span></span><br><span class="line">    P1=<span class="number">0x00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>!(schematic)[&#x2F;images&#x2F;timeBomb.png]</p>
+<p>* </p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
