@@ -336,8 +336,9 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="汇编语言（8086为例）"><a href="#汇编语言（8086为例）" class="headerlink" title="汇编语言（8086为例）"></a>汇编语言（8086为例）</h1><p>​	</p>
-<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h2><ul>
+  <h1 id="汇编语言（8086为例）"><a href="#汇编语言（8086为例）" class="headerlink" title="汇编语言（8086为例）"></a>汇编语言（8086为例）</h1><p>—-基于《汇编语言第三版》王爽</p>
+<p>​	</p>
+<h2 id="smile-基础知识"><a href="#smile-基础知识" class="headerlink" title=":smile:.基础知识"></a>:smile:.基础知识</h2><ul>
 <li>冯诺依曼架构</li>
 </ul>
 <blockquote>
@@ -359,6 +360,7 @@
 </ul>
 <blockquote>
 <p>1 KB&#x3D;1024 B(字节)</p>
+<p>1 字（word）&#x3D;2 字节</p>
 <p>1 B&#x3D;8 bit</p>
 </blockquote>
 <ul>
@@ -369,37 +371,99 @@
 <p>​				<strong>数据总线</strong>：N根数据总线一次可以传输N位二进制数据。</p>
 <p>​				8088 CPU数据总线宽度为8；8086 CPU数据总线宽度为16。</p>
 <p>​				<strong>控制总线</strong>：N根代表N种控制。</p>
-<h2 id="2-寄存器"><a href="#2-寄存器" class="headerlink" title="2.寄存器"></a>2.寄存器</h2><p>​		一个典型的CPU由：运算器，控制器，寄存器等器件构成。同时他们通过总线在内部相连接（地址，数据，控制）。对于汇编程序员来说，CPU的主要器件就是寄存器。</p>
+<h2 id="cry-寄存器"><a href="#cry-寄存器" class="headerlink" title=":cry:.寄存器"></a>:cry:.寄存器</h2><p>​		一个典型的CPU由：运算器，控制器，寄存器等器件构成。同时他们通过总线在内部相连接（地址，数据，控制）。对于汇编程序员来说，CPU的主要器件就是寄存器。</p>
+<p>​		8086寄存器特征：16位  (数据最大为2^16-1)</p>
 <p>​		8086 CPU的寄存器种类：</p>
 <p><img src="/images/registerof8086.png" alt="register of Intel 8086"></p>
+<blockquote>
 <ul>
-<li><p>AX</p>
+<li>AX</li>
+<li>BX</li>
+<li>CX</li>
+<li>DX    &#x2F;&#x2F;    以上四个为通用寄存器，用于存放一般性数据</li>
+<li>SI</li>
+<li>DI</li>
+<li>SP</li>
+<li>BP</li>
+<li>IP</li>
+<li>CS</li>
+<li>SS</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>通用寄存器</strong></li>
+</ul>
+<p>​		<em>AX,BX,CX,DX四个寄存器通常用来存放一般性数据，因此内成为通用寄存器</em>。</p>
+<blockquote>
+<p>8086的上一代CPU的寄存器是8位的，为了兼容性，这四个寄存器也可以当丞8个8位寄存器使用。</p>
+<ul>
+<li><p>AX—-AH,AL</p>
 </li>
-<li><p>BX</p>
+<li><p>BX—-BH,BL</p>
 </li>
-<li><p>CX</p>
+<li><p>CX—-DH,DL</p>
 </li>
-<li><p>DX</p>
-</li>
-<li><p>SI</p>
-</li>
-<li><p>DI</p>
-</li>
-<li><p>SP</p>
-</li>
-<li><p>BP</p>
-</li>
-<li><p>IP</p>
-</li>
-<li><p>CS</p>
-</li>
-<li><p>SS</p>
-</li>
-<li><p><strong>通用寄存器</strong></p>
+<li><p>DX—-DH,DL	    （L和H指的是low和high，即低位和高位）</p>
 </li>
 </ul>
-<p>​		<em>AX,BX,CX,DX四个寄存器通常用来存放一般性数据，因此内成为通用寄存器</em></p>
-<h2 id="3-寄存器（内存访问）"><a href="#3-寄存器（内存访问）" class="headerlink" title="3.寄存器（内存访问）"></a>3.寄存器（内存访问）</h2><h2 id="4-第一个程序"><a href="#4-第一个程序" class="headerlink" title="4.第一个程序"></a>4.第一个程序</h2><h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2><h2 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h2> 
+</blockquote>
+<ul>
+<li>8086 CPU的物理地址给出方法</li>
+</ul>
+<p>​		<strong>物理地址&#x3D;段地址*16+偏移地址</strong>   （段地址*16  可以理解为段地址向左移四位）</p>
+<blockquote>
+<p>一个物理地址可以可以有不同的段地址和偏移地址</p>
+<p>偏移地址为16位，寻址能力为2^16即 64 KB，所以一个段的长度不能超过 64 KB</p>
+</blockquote>
+<ul>
+<li><strong>段寄存器</strong></li>
+</ul>
+<blockquote>
+<p>8086 CPU 的段寄存器：</p>
+<ul>
+<li>CS</li>
+<li>DS</li>
+<li>SS</li>
+<li>ES</li>
+</ul>
+</blockquote>
+<ul>
+<li>CS 和 IP</li>
+</ul>
+<p>​	对于8086 CPU来说，CS和IP一起指示了当前要读取指令的地址：CS :IP ，执行该位置的语句后IP会自动增加，从而可以进行下一指令的执行。</p>
+<ul>
+<li><p>CS 和 IP 寄存器的修改</p>
+</li>
+<li><p>* </p>
+<ul>
+<li>情况一：当你在写汇编脚本或者直接向内存中写入汇编指令时</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用 JMP 指令</span><br><span class="line">使用方法： JMP 段地址：偏移地址</span><br><span class="line">eg: JMP 2AE3:3   //CS=2AE3,IP= 0003（均为16进制）</span><br><span class="line">或者（不想改变段地址时）</span><br><span class="line">JMP ax,    # 修改IP为 AX的值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>情况二： 在debug.exe（MASM32）中想要修改当前程序运行位置时(后面将会介绍)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如在 dosBox中：</span><br><span class="line">debug.exe #进入debug模式</span><br><span class="line">-r CS</span><br><span class="line">CS 073f</span><br><span class="line">:XXXX(输入你需要位置)  # IP寄存器同理，通用寄存器也同上</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>代码段</p>
+</li>
+</ul>
+<p>​		即定义一片区域用于输入需要执行的代码。</p>
+<ul>
+<li><strong>debug的使用</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-r					    #显示CPU各个寄存器的值</span><br><span class="line">-r 寄存器名字 	 	 	 #修改寄存器的值</span><br><span class="line"></span><br><span class="line">-d					    #查看当前地址的内容</span><br><span class="line">-d 段地址：偏移地址		   #查看该段的地址</span><br><span class="line"></span><br><span class="line">-a					    #从当前位置开始写入汇编指令</span><br><span class="line">-a 段地址：偏移地址        #从该位置开始写入汇编指令</span><br><span class="line"></span><br><span class="line">-e                        #从当前位置开始写入机器码</span><br><span class="line">-e 段地址：偏移地址        #从该位置开始写入机器码</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="boy-寄存器（内存访问）"><a href="#boy-寄存器（内存访问）" class="headerlink" title=":boy:.寄存器（内存访问）"></a>:boy:.寄存器（内存访问）</h2><ul>
+<li><strong>DS和[address]</strong></li>
+</ul>
+<h2 id="shit-第一个程序"><a href="#shit-第一个程序" class="headerlink" title=":shit:.第一个程序"></a>:shit:.第一个程序</h2><h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2> 
       <!-- reward -->
       
     </div>
