@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">353</span>
+            <span class="post-count">905</span>
         </span>
     </span>
 
@@ -91,13 +91,15 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
@@ -105,7 +107,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <ul>
-<li>Information gathering</li>
+<li><h1 id="Information-gathering"><a href="#Information-gathering" class="headerlink" title="Information gathering"></a>Information gathering</h1></li>
 </ul>
 <p>	</p>
 <p>Based on –AT89C51.</p>
@@ -115,20 +117,124 @@
 <p>More recently, the AT89 series has been augmented with 8051-cored special function microcontrollers, specifically in the areas of <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Universal_Serial_Bus">USB</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/I%C2%B2C">I²C</a> (two wire interface), <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Controller_Area_Network">CAN</a> bus controllers, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MP3">MP3</a> decoders and hardware <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pulse-width_modulation">PWM</a>.</p>
 </blockquote>
 <p>Data sheet url links : <a target="_blank" rel="noopener" href="https://rocelec.widen.net/view/pdf/gywrtkuql9/ATMLS01727-1.pdf?t.download=true&u=5oefqw">Data Sheet PDF Downloads</a> </p>
+<blockquote>
+<p><img src="/images/featuresofat89c51.png" alt="features of AT89C51"></p>
+</blockquote>
 <p>​						<strong>The following I would not like to just write down the points. The post will be focused on application layer</strong></p>
-<ul>
-<li>Project_1：<strong>TIME BOMB</strong></li>
-</ul>
-<p>​	It’s actually pretty much easier to make a TIME BOMB than you can imagine.You will just need some TNT and an at89c51 chip(&lt;3).</p>
+<h1 id="Project-1：TIME-BOMB"><a href="#Project-1：TIME-BOMB" class="headerlink" title="Project_1：TIME BOMB"></a>Project_1：<strong>TIME BOMB</strong></h1><p>​	It’s actually pretty much easier to make a TIME BOMB than you can imagine.You will just need some TNT and an at89c51 chip(&lt;3).</p>
 <p>Now we fixed the Bomb (got some TNT). What about the  timer ? Yep, we can use the AT89C51 chip. </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayNms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s alse related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayN10ms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s also related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>what about the next after the timer is set? yep , light it.</p>
+<p>what about the next to do after the timer is set? yep , light it.</p>
 <p>We can use a switch or a relay to light it . When the switch (connected between vcc and gnd) is on , the heat will light the TNT. EZ game.</p>
- <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayNms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s alse related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    delayNms(<span class="number">10000</span>);<span class="comment">//10s</span></span><br><span class="line">    P1=<span class="number">0x00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">delayN10ms</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> N)</span>&#123;</span><br><span class="line">	<span class="type">unsigned</span> <span class="type">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(N;N&gt;<span class="number">0</span>;N--)</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1275</span>;i&gt;<span class="number">0</span>;i--);         <span class="comment">//different types of chips have different delay functions</span></span><br><span class="line">    						   <span class="comment">//and it&#x27;s alse related to the crystal oscillator</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    delayN10ms(<span class="number">10000</span>);<span class="comment">//10s</span></span><br><span class="line">    P1=<span class="number">0x00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>!(schematic)[&#x2F;images&#x2F;timeBomb.png]</p>
-<p>* </p>
+<p><img src="/images/timeBomb.png" alt=" schematic "></p>
+<h1 id="project-2-CANCEL-the-TIME-BOMB"><a href="#project-2-CANCEL-the-TIME-BOMB" class="headerlink" title="project_2 : CANCEL the TIME BOMB"></a>project_2 : CANCEL the TIME BOMB</h1><p>​	Now that we create a time bomb , we are going to  use it to rob a bank . However your </p>
+<p>incompetent teammates set the bomb too early! You guys are to be exposed to TNT in just 10s . What are you going to do ? </p>
+<ul>
+<li>Yes ,for sure you can reset the chip. </li>
+<li>Also we can use a technique called <strong>INTERRUPTION</strong></li>
+</ul>
+<blockquote>
+<p>Now we are  going to talk about <strong>INTERRUPTION</strong></p>
+<p>The chip AT89C51 has six interrupt sources .</p>
+<p><strong>What is an interrupt ?</strong></p>
+<blockquote>
+<p>An interrupt is an external or internal event to get the CPU’s attention. Once the controller detects the interrupt, it suspends the current job and executes a special service routine know as Interrupt Service Routine(ISR).</p>
+<p>Upon activation of an interrupt, the microcontroller goes through the following steps</p>
+<ol>
+<li><p>First it finishes the instruction it is executing and saves the address of the next instruction (PC) on the stack.</p>
+</li>
+<li><p>It also saves the current status of all the interrupts internally.</p>
+</li>
+<li><p>It jumps to a fixed location in memory, called the interrupt vector table, that holds the address of the ISR. The microcontroller gets the address of the ISR from the interrupt vector table and jumps to it It starts to execute the interrupt service subroutine until it reaches the last instruction of the subroutine which is RETI (return from interrupt)</p>
+</li>
+<li><p>Upon executing the RETI instruction, the microcontroller returns to the place where it was interrupted.</p>
+</li>
+<li><p>First, it gets the program counter (PC) address from the stack by popping the top two bytes of the stack into the PC.</p>
+</li>
+<li><p>Then it starts to execute from that address.</p>
+<p><a target="_blank" rel="noopener" href="http://exploreembedded.com/wiki/6.8051_Interrupts">information from here</a></p>
+</li>
+</ol>
+</blockquote>
+<p><strong>8051 interrupt Structure</strong></p>
+<blockquote>
+<p>8051 Microcontroller has six interrupt sources as shown in the table below:</p>
+<table>
+<thead>
+<tr>
+<th>Interrupt</th>
+<th>ROM Location(Hex)</th>
+<th>Pin</th>
+<th>Flag Clearing</th>
+<th>Interrupt no. in C</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Reset</td>
+<td>0000</td>
+<td>9</td>
+<td>Auto</td>
+<td>–</td>
+</tr>
+<tr>
+<td>External HW Interrupt 0 (INT0)</td>
+<td>0003</td>
+<td>P3.2(12)</td>
+<td>Auto</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Timer 0 Interrupt(TF0)</td>
+<td>000B</td>
+<td>-</td>
+<td>Auto</td>
+<td>1</td>
+</tr>
+<tr>
+<td>External HW Interrupt 1 (INT1)</td>
+<td>0013</td>
+<td>P3.3(13)</td>
+<td>Auto</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Timer 1 Interrupt(TF1)</td>
+<td>001B</td>
+<td>-</td>
+<td>Auto</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Serial Com Interrupt(RI and TI)</td>
+<td>0023</td>
+<td>-</td>
+<td>Program SW</td>
+<td>4</td>
+</tr>
+</tbody></table>
+<ul>
+<li>the reset vector has just 3 bytes allocated to it, meaning it can hold a jump instruction to the location where the main program is stored.</li>
+<li>The other interrupts have 8 bytes allocated to each of them, hence a small Interrupt service routine(ISR) can be placed here. However, if the ISR needs to larger in length, it has to placed else where and the allocated 8 bytes need to have the code that simple redirects the control to the ISR.</li>
+<li><em>INT0</em> and <em>INT1</em> are external interrupts on P3.2 and P3.3 respectively. These can be configured to be low level triggered or edge triggered interrupt sources.</li>
+<li><em>TF0</em> and <em>TF1</em> are timer overflow interrupts for timer 0 and 1 respectively</li>
+<li>The <em>Serial COM Interrupt</em> can be configured to trigger upon transmit or receipt of a byte during serial communication.</li>
+</ul>
+</blockquote>
+<p><strong>enable interruption</strong></p>
+<blockquote>
+<p><img src="/images/structureof51interruption.jpg" alt="structure of 51 interrupt "></p>
+</blockquote>
+</blockquote>
+<p>**example code using external interrupt **</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span>&#123;</span><br><span class="line"> IP = <span class="number">0x04</span>; </span><br><span class="line"> EA=<span class="number">1</span>;</span><br><span class="line"> EX0=<span class="number">1</span>; <span class="comment">// allow external interrupt INT0</span></span><br><span class="line"> IT0 = <span class="number">1</span>; <span class="comment">// set edge triggering</span></span><br><span class="line"> 	delayNms(<span class="number">10000</span>);<span class="comment">//10s</span></span><br><span class="line">    P1=<span class="number">0x00</span>;        <span class="comment">//start BOMB</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">int0</span><span class="params">(<span class="type">void</span>)</span> interrupt 0&#123;</span><br><span class="line"></span><br><span class="line">   P1=<span class="number">0xff</span>;			<span class="comment">//cancel the timer</span></span><br><span class="line">	P2=<span class="number">0x00</span>; 		<span class="comment">//to display</span></span><br><span class="line">    delayN10ms(<span class="number">1000</span>); <span class="comment">// increase 10s for your survive</span></span><br><span class="line">    P2=<span class="number">0xff</span>; 		<span class="comment">//to display</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="/images/gif.gif" alt="simple example"></p>
+</blockquote>
+<p>Now you can run away safely ;D.</p>
  
       <!-- reward -->
       
