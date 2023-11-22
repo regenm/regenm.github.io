@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1k</span>
+            <span class="post-count">1.2k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -231,9 +231,38 @@
 
 
 <h2 id="boy-寄存器（内存访问）"><a href="#boy-寄存器（内存访问）" class="headerlink" title=":boy:.寄存器（内存访问）"></a>:boy:.寄存器（内存访问）</h2><ul>
+<li><strong>字型数据</strong></li>
+</ul>
+<blockquote>
+<p>​	CPU用16位寄存器存在出一个字。高八位存放高位字节，低八位存放低位字节。</p>
+</blockquote>
+<ul>
 <li><strong>DS和[address]</strong></li>
 </ul>
-<h2 id="shit-第一个程序"><a href="#shit-第一个程序" class="headerlink" title=":shit:.第一个程序"></a>:shit:.第一个程序</h2><h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2> 
+<p>​		<strong>物理地址&#x3D;段地址*16+偏移地址</strong>   （段地址<em>16  可以理解为段地址向左移四位），因此如果想要读写某个地址，首先应该知道其段地址和偏移地址，8086 CPU通过寄存器<strong>DS</strong>来获取段地址，[N]来表示偏移地址，*</em>[ … ]用来表示一个内存单元（）**。</p>
+<p><strong>注意：8086CPU 不支持将数据直接送入段寄存器。</strong></p>
+<ul>
+<li>字型数据的传送</li>
+</ul>
+<p>​	eg:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov bx,<span class="number">1000</span>H</span><br><span class="line">mov ds,bx</span><br><span class="line">mov ax,[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>栈</strong></li>
+</ul>
+<p>​	使用8086 CPU编程时，可以将一段内存当做栈来使用。提供入栈和出栈指令，即<strong>PUSH 和 POP</strong></p>
+<blockquote>
+<p><strong>任意时刻，SS:SP 指向栈顶元素</strong> </p>
+<p>同时，可以通过设置 SS,SP 寄存器的数据来修改栈的容量，地址。</p>
+</blockquote>
+<h2 id="shit-第一个程序"><a href="#shit-第一个程序" class="headerlink" title=":shit:.第一个程序"></a>:shit:.第一个程序</h2><ul>
+<li><strong>源程序（后缀 .asm）的编写</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2> 
       <!-- reward -->
       
       <div id="reword-out">
