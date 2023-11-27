@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">2.7k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">11 min</span>
         </span>
     </span>
 </div>
@@ -255,14 +255,107 @@
 <p><strong>任意时刻，SS:SP 指向栈顶元素</strong> </p>
 <p>同时，可以通过设置 SS,SP 寄存器的数据来修改栈的容量，地址。</p>
 </blockquote>
+<p>​	push pop指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push [0] 				;将 DS :0 处的字压入栈</span><br><span class="line">pop [2]					;出栈，将数据送入 DS:0处</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
 <h2 id="shit-第一个程序"><a href="#shit-第一个程序" class="headerlink" title=":shit:.第一个程序"></a>:shit:.第一个程序</h2><ul>
 <li><strong>源程序（后缀 .asm）的编写</strong></li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">;1.asm</span><br><span class="line">assume cs:codesg ;将用作代码段的段codesg和段寄存器cs联系起来。</span><br><span class="line"></span><br><span class="line">codesg segment ;定义一个段，段的名称为“codesg”，这个段从此开始</span><br><span class="line">			   ;codesg是一个标号，作为一个段的名称，最终被编译连接成一个段的段地址</span><br><span class="line"></span><br><span class="line">	mov ax, 0123H</span><br><span class="line">	mov bx, 0456H </span><br><span class="line">	add ax, bx</span><br><span class="line">	add ax, ax </span><br><span class="line">	</span><br><span class="line">	mov ax, 4c00H </span><br><span class="line">	int 21H ;这两条指令实现程序的返回 ,相当于	return 0</span><br><span class="line">	</span><br><span class="line">codesg ends ;名称为“codesg”的段到此结束</span><br><span class="line"></span><br><span class="line">end ;编译器在编译汇编程序的过程中，碰到了伪指令end，结束对源程序的编译</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2> 
+<h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><blockquote>
+<p><strong>bx</strong></p>
+<p>​	[bx]也表示一个内存单元，它的偏移地址在bx中</p>
+<p><strong>loop</strong></p>
+<p>​	通用寄存器CX存储循环次数，循环一次：（cx）&#x3D; （cx）- 1；</p>
+</blockquote>
+<p>案例程序：</p>
+<ol>
+<li>实现2^12</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">	mov ax, 2</span><br><span class="line">	</span><br><span class="line">	mov cx, 11 ;循环次数</span><br><span class="line">s:  add ax, ax </span><br><span class="line">	loop s     ;在汇编语言中，标号代表一个地址，标号s实际上标识了一个地址，</span><br><span class="line">               ;这个地址处有一条指令：add ax，ax。</span><br><span class="line">               ;执行loop s时，首先要将（cx）减1，然后若（cx）不为0，则向前</span><br><span class="line">               ;转至s处执行add ax，ax。所以，可以利用cx来控制add ax，ax的执行次数。</span><br><span class="line">	</span><br><span class="line">	mov ax,4c00h </span><br><span class="line">	int 21h </span><br><span class="line">code ends </span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>实现将内存<code>ffff:0 ~ ffff:b</code>单元中的数据复制到<code>0:200 ~ 0:20b</code>单元中。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">	mov ax, 0ffffh </span><br><span class="line">	mov ds, ax  	 ;（ds）= 0ffffh </span><br><span class="line">	mov ax, 0020h</span><br><span class="line">    mov es, ax  	 ;（es）= 0020h     0:200 等效于 0020:0</span><br><span class="line">    mov bx, 0    	 ;（bx）= 0，此时ds:bx指向ffff:0，es:bx指向0020:0</span><br><span class="line">    </span><br><span class="line">	mov cx，12  	    ;（cx）=12，循环12次</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">s:  mov dl，[bx] 	;（d1）=（（ds）* 16+（bx）），将ffff:bx中的字节数据送入dl </span><br><span class="line">	mov es:[bx]，dl 	;（（es）*16+（bx））=（d1），将dl中的数据送入0020:bx </span><br><span class="line">	inc bx  		;（bx）=（bx）+1</span><br><span class="line">	loop s </span><br><span class="line">	</span><br><span class="line">	mov ax，4c00h </span><br><span class="line">	int 21h </span><br><span class="line">code ends </span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2><pre><code>1. 在代码中使用数据
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">;计算 8 个数据的和存到 ax 寄存器</span><br><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line"></span><br><span class="line">	dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;define word 定义8个字形数据</span><br><span class="line"></span><br><span class="line">	start:	mov bx, 0  ;标号start</span><br><span class="line">			mov ax, 0  </span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:		add ax, cs:[bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">code ends</span><br><span class="line">end start    ;end除了通知编译器程序结束外，还可以通知编译器程序的入口在什么地方</span><br><span class="line">	     	 ;用end指令指明了程序的入口在标号start处，也就是说，“mov bx，0”是程序的第一条指令。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在代码中使用栈</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">;利用栈，将程序中定义的数据逆序存放。</span><br><span class="line">assume cs:codesg </span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	dw 0123h，0456h，0789h，0abch，0defh，0fedh，0cbah，0987h ; 0-15单元</span><br><span class="line">	dw 0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0 ; 16-47单元作为栈使用</span><br><span class="line">			</span><br><span class="line">	start:	mov ax, cs </span><br><span class="line">			mov ss, ax </span><br><span class="line">			mov sp, 30h ;将设置栈顶ss:sp指向栈底cs:30。   30h = 48d</span><br><span class="line">			mov bx, 0</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:		push cs:[bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s    ;以上将代码段0~15单元中的8个字型数据依次入栈</span><br><span class="line">			</span><br><span class="line">			mov bx, 0</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s0:		pop cs:[bx]		</span><br><span class="line">			add bx，2</span><br><span class="line">			loop s0   ;以上依次出栈8个字型数据到代码段0~15单元中</span><br><span class="line">			</span><br><span class="line">			mov ax，4c00h </span><br><span class="line">			int 21h </span><br><span class="line">codesg ends </span><br><span class="line">end start	;指明程序的入口在start处</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>将数据、代码、栈放入不同的段</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;0-15单元</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">stack segment </span><br><span class="line">	dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ;0-31单元</span><br><span class="line">stack ends </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">	start:	mov ax, stack;将名称为“stack”的段的段地址送入ax</span><br><span class="line">			mov ss, ax</span><br><span class="line">			mov sp, 20h  ;设置栈顶ss:sp指向stack:20。 20h = 32d</span><br><span class="line">			</span><br><span class="line">			mov ax, data ;将名称为“data”的段的段地址送入ax</span><br><span class="line">			mov ds, ax   ;ds指向data段</span><br><span class="line">			</span><br><span class="line">			mov bx, 0    ;ds:bx指向data段中的第一个单元</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:	    push [bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s       ;以上将data段中的0~15单元中的8个字型数据依次入栈</span><br><span class="line">			</span><br><span class="line">			mov bx, 0</span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s0:		pop [bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s0      ;以上依次出栈8个字型数据到data段的0~15单元中</span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line">;“end start”说明了程序的入口，这个入口将被写入可执行文件的描述信息，</span><br><span class="line">;可执行文件中的程序被加载入内存后，CPU的CS:IP被设置指向这个入口，从而开始执行程序中的第一条指令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="6-更灵活灵活的定位内存地址的方法"><a href="#6-更灵活灵活的定位内存地址的方法" class="headerlink" title="6.更灵活灵活的定位内存地址的方法"></a>6.更灵活灵活的定位内存地址的方法</h2><pre><code>* **and 和 or 指令**
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov al , 01100011B</span><br><span class="line">and al , 00111011B		;按位与，执行后：al=00100011B</span><br><span class="line"></span><br><span class="line">mov al, 01100011B</span><br><span class="line">or al, 00111011B		;按位或，执行后：al=01111011B</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>ASCII</strong></li>
+</ul>
+<ol>
+<li>以字符的形式给出数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	db &#x27;unIx&#x27;   ;相当于“db 75H，6EH，49H，58H”</span><br><span class="line">	db &#x27;foRK&#x27;</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:	mov al, &#x27;a&#x27;  ;相当于“mov al, 61H”，“a”的ASCI码为61H；</span><br><span class="line">		mov b1, &#x27;b&#x27;</span><br><span class="line">		</span><br><span class="line">		mov ax, 4c00h </span><br><span class="line">		int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>大小写转换</li>
+</ol>
+<p>​		<strong>小写字母的ASCII码值比大写字母的ASCII码值大20H</strong></p>
+<p>​		<strong>大写字母ASCII码的第5位为0，小写字母的第5位为1(其他一致)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">	db &#x27;BaSiC&#x27;</span><br><span class="line">	db &#x27;iNfOrMaTion&#x27;</span><br><span class="line">datasg end</span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	start:	mov ax, datasg </span><br><span class="line">			mov ds, ax	;设置ds 指向 datasg段</span><br><span class="line">		</span><br><span class="line">			mov bx, 0	;设置（bx）=0，ds:bx指向’BaSic’的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 5     	 ;设置循环次数5，因为’Basic&#x27;有5个字母</span><br><span class="line">	s:		mov al, [bx]     ;将ASCII码从ds:bx所指向的单元中取出</span><br><span class="line">			and al, 11011111B;将al中的ASCII码的第5位置为0，变为大写字母</span><br><span class="line">			mov [bx], al	 ;将转变后的ASCII码写回原单元</span><br><span class="line">			inc bx		     ;（bx）加1，ds:bx指向下一个字母</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov bx, 5	;设置（bx）=5，ds:bx指向，iNfOrMaTion&#x27;的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 11	;设置循环次数11，因为‘iNfOrMaTion&#x27;有11个字母</span><br><span class="line">	s0:		mov al, [bx]</span><br><span class="line">			or al, 00100000B;将a1中的ASCII码的第5位置为1，变为小写字母</span><br><span class="line">			mov [bx], al </span><br><span class="line">			inc bx</span><br><span class="line">			loop s0</span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">codesg ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
       <!-- reward -->
       
       <div id="reword-out">
