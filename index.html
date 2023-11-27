@@ -166,6 +166,117 @@
     
     
     <article
+  id="post-GIT-basic"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/26/GIT-basic/"
+    >GIT basic</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/26/GIT-basic/" class="article-date">
+  <time datetime="2023-11-26T13:01:57.000Z" itemprop="datePublished">2023-11-26</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><blockquote>
+<p>git简介：</p>
+<p>Git (&#x2F;ɡɪt&#x2F;) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers).</p>
+</blockquote>
+<ul>
+<li><strong>What is Git?</strong><br>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</li>
+</ul>
+<p>It is used for:</p>
+<p>Tracking code changes<br>Tracking who made changes<br>Coding collaboration</p>
+<ul>
+<li><strong>What does Git do?</strong></li>
+</ul>
+<p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
+<ul>
+<li><strong>Working with Git</strong></li>
+</ul>
+<p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
+<p>Shift focus to GitHubGitHub<br>Shift focus to BitbucketBitbucket<br>Shift focus to GitLabGitLab</p>
+<ul>
+<li><strong>Why Git?</strong></li>
+</ul>
+<p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
+<ul>
+<li><strong>What is GitHub?</strong></li>
+</ul>
+<p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
+<p>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</p>
+<ul>
+<li><strong>初始化</strong></li>
+</ul>
+<ol>
+<li>check git version and info</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>configure git</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>		<span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>		</span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>initialize you repo</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>** file operation  **</li>
+</ul>
+<ol>
+<li>check file status<br>Files in the repo has 2 status:<ul>
+<li>Tracked - files that Git knows about and are added to the repository</li>
+<li>Untracked - files that are in your working directory, but not added to the repository</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>add to stage environment</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># once you finish a part or a bug ,you need to add it to  stage environment. So that you files in the stage environment are ready to commit .</span></span><br><span class="line"></span><br><span class="line">git add hello.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># or you can use </span></span><br><span class="line">git add —all</span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># this two commends stages all the changes .	</span></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-Data-Structure-and-Algorithm"
   class="article article-type-post"
   itemscope
@@ -206,8 +317,20 @@
 <li>重复操作到只剩下一棵树为止。</li>
 </ol>
 </blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*	基于结构体数组的哈曼树</span></span><br><span class="line"><span class="comment">*	C++</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">double</span> DataType; <span class="comment">//结点权值的数据类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">HTNode</span> <span class="comment">//单个结点的信息</span></span><br><span class="line">&#123;</span><br><span class="line">	DataType weight; <span class="comment">//权值</span></span><br><span class="line">	<span class="type">int</span> parent; <span class="comment">//父节点</span></span><br><span class="line">	<span class="type">int</span> lc, rc; <span class="comment">//左右孩子</span></span><br><span class="line">&#125;*HuffmanTree;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> **HuffmanCode; <span class="comment">//字符指针数组中存储的元素类型</span></span><br><span class="line">						  <span class="comment">//用于存储哈夫曼编码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//在下标为1到i-1的范围找到权值最小的两个值的下标，其中s1的权值小于s2的权值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Select</span><span class="params">(HuffmanTree&amp; HT, <span class="type">int</span> n, <span class="type">int</span>&amp; s1, <span class="type">int</span>&amp; s2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> min;</span><br><span class="line">	<span class="comment">//找第一个最小值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (HT[i].parent == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			min = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = min + <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (HT[i].parent == <span class="number">0</span> &amp;&amp; HT[i].weight &lt; HT[min].weight)</span><br><span class="line">			min = i;</span><br><span class="line">	&#125;</span><br><span class="line">	s1 = min; <span class="comment">//第一个最小值给s1</span></span><br><span class="line">	<span class="comment">//找第二个最小值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (HT[i].parent == <span class="number">0</span> &amp;&amp; i != s1)</span><br><span class="line">		&#123;</span><br><span class="line">			min = i;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = min + <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (HT[i].parent == <span class="number">0</span> &amp;&amp; HT[i].weight &lt; HT[min].weight&amp;&amp;i != s1)</span><br><span class="line">			min = i;</span><br><span class="line">	&#125;</span><br><span class="line">	s2 = min; <span class="comment">//第二个最小值给s2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构建哈夫曼树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateHuff</span><span class="params">(HuffmanTree&amp; HT, DataType* w, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> m = <span class="number">2</span> * n - <span class="number">1</span>; <span class="comment">//哈夫曼树总结点数</span></span><br><span class="line">    </span><br><span class="line">	HT = (HuffmanTree)<span class="built_in">calloc</span>(m + <span class="number">1</span>, <span class="built_in">sizeof</span>(HTNode)); <span class="comment">//开m+1个HTNode，因为下标为0的HTNode不存储数据</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		HT[i].weight = w[i - <span class="number">1</span>]; <span class="comment">//赋权值给n个叶子结点</span></span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = n + <span class="number">1</span>; i &lt;= m; i++) <span class="comment">//构建哈夫曼树</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//选择权值最小的s1和s2，生成它们的父结点</span></span><br><span class="line">		<span class="type">int</span> s1, s2;</span><br><span class="line">		<span class="built_in">Select</span>(HT, i - <span class="number">1</span>, s1, s2); <span class="comment">//在下标为1到i-1的范围找到权值最小的两个值的下标，其中s1的权值小于s2的权值</span></span><br><span class="line">		HT[i].weight = HT[s1].weight + HT[s2].weight; <span class="comment">//i的权重是s1和s2的权重之和</span></span><br><span class="line">		HT[s1].parent = i; <span class="comment">//s1的父亲是i</span></span><br><span class="line">		HT[s2].parent = i; <span class="comment">//s2的父亲是i</span></span><br><span class="line">		HT[i].lc = s1; <span class="comment">//左孩子是s1</span></span><br><span class="line">		HT[i].rc = s2; <span class="comment">//右孩子是s2</span></span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//打印哈夫曼树中各结点之间的关系</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;哈夫曼树为:&gt;\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;下标   权值     父结点   左孩子   右孩子\n&quot;</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;0                                  \n&quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%-4d   %-6.2lf   %-6d   %-6d   %-6d\n&quot;</span>, i, HT[i].weight, HT[i].parent, HT[i].lc, HT[i].rc);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成哈夫曼编码</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">HuffCoding</span><span class="params">(HuffmanTree&amp; HT, HuffmanCode&amp; HC, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	HC = (HuffmanCode)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>*)*(n + <span class="number">1</span>)); <span class="comment">//开n+1个空间，因为下标为0的空间不用</span></span><br><span class="line">	<span class="type">char</span>* code = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>)*n); <span class="comment">//辅助空间，编码最长为n(最长时，前n-1个用于存储数据，最后1个用于存放&#x27;\0&#x27;)</span></span><br><span class="line">	code[n - <span class="number">1</span>] = <span class="string">&#x27;\0&#x27;</span>; <span class="comment">//辅助空间最后一个位置为&#x27;\0&#x27;</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> start = n - <span class="number">1</span>; <span class="comment">//每次生成数据的哈夫曼编码之前，先将start指针指向&#x27;\0&#x27;</span></span><br><span class="line">		<span class="type">int</span> c = i; <span class="comment">//正在进行的第i个数据的编码</span></span><br><span class="line">		<span class="type">int</span> p = HT[c].parent; <span class="comment">//找到该数据的父结点</span></span><br><span class="line">		<span class="keyword">while</span> (p) <span class="comment">//直到父结点为0，即父结点为根结点时，停止</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (HT[p].lc == c) <span class="comment">//如果该结点是其父结点的左孩子，则编码为0，否则为1</span></span><br><span class="line">				code[--start] = <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				code[--start] = <span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">			c = p; <span class="comment">//继续往上进行编码</span></span><br><span class="line">			p = HT[c].parent; <span class="comment">//c的父结点</span></span><br><span class="line">		&#125;</span><br><span class="line">		HC[i] = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(<span class="type">char</span>)*(n - start)); <span class="comment">//开辟用于存储编码的内存空间</span></span><br><span class="line">		<span class="built_in">strcpy</span>(HC[i], &amp;code[start]); <span class="comment">//将编码拷贝到字符指针数组中的相应位置</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(code); <span class="comment">//释放辅助空间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//主函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入数据个数:&gt;&quot;</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	DataType* w = (DataType*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(DataType)*n);</span><br><span class="line">	<span class="keyword">if</span> (w == <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;malloc fail\n&quot;</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;请输入数据:&gt;&quot;</span>);</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%lf&quot;</span>, &amp;w[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	HuffmanTree HT;</span><br><span class="line">	<span class="built_in">CreateHuff</span>(HT, w, n); <span class="comment">//构建哈夫曼树</span></span><br><span class="line"></span><br><span class="line">	HuffmanCode HC;</span><br><span class="line">	<span class="built_in">HuffCoding</span>(HT, HC, n); <span class="comment">//构建哈夫曼编码</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="comment">//打印哈夫曼编码</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;数据%.2lf的编码为:%s\n&quot;</span>, HT[i].weight, HC[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">free</span>(w);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
 <ul>
-<li>**并查集 **</li>
+<li><strong>并查集</strong></li>
 </ul>
 <p>​	 	主要用于解决一些<strong>元素分组</strong>的问题。也可以用来判断图的连通性，它管理一系列<strong>不相交的集合</strong>，并支持两种操作：</p>
 <ul>
@@ -215,6 +338,25 @@
 <li><strong>查询</strong>（Find）：查询两个元素是否在同一个集合中。</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span>	<span class="comment">//最简单版本</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *当数据很多时，查找会很耗费时间</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span>(father[x]!=x) father[x]=find(father[x]);</span><br><span class="line">    <span class="keyword">return</span> father[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">find</span><span class="params">(<span class="type">int</span> x)</span>&#123;           <span class="comment">//查找根节点的函数 </span></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    *	升级版</span></span><br><span class="line"><span class="comment">    *	带路径压缩功能</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">	a=x;</span><br><span class="line">	<span class="keyword">while</span>(x!=father[x])x=father[x];</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>(a!=father[a])&#123;    <span class="comment">//路径压缩 </span></span><br><span class="line">		<span class="type">int</span> z=a;</span><br><span class="line">		a=father[a];</span><br><span class="line">		father[z]=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">Union</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b)</span>&#123; </span><br><span class="line">    						<span class="comment">//合并两个集合</span></span><br><span class="line">    <span class="type">int</span> fx=find(a);</span><br><span class="line">    <span class="type">int</span> fy=find(b);</span><br><span class="line">    father[fx]=fy;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">judgeConnect</span><span class="params">()</span>&#123;</span><br><span class="line">    						<span class="comment">//判断连通性</span></span><br><span class="line">    <span class="type">int</span> i,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=vertex;i++)</span><br><span class="line">        <span class="keyword">if</span>(father[i]==i) k++;</span><br><span class="line">        <span class="keyword">if</span>(k==<span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>AOE图</strong></li>
+</ul>
+<blockquote>
+<p><em>concept:</em></p>
+<p>1、<strong>最早发生</strong>时间：从前往后，前驱结点到当前结点所需时间，取<strong>最大值</strong>；</p>
+<p>2、<strong>最迟发生</strong>时间：从后往前，后继结点的最迟时间减去边权的值，取<strong>最小值</strong>；</p>
+<p><strong>结束节点的最早发生时间和最迟发生时间相同。</strong></p>
+<p>3、关键路径：最早发生时间和最迟发生时间相同的结点叫做关键路径上的结点；</p>
+<p>4、<strong>最早开始</strong>时间：等于当前边起始节点的最早发生时间；</p>
+<p>5、<strong>最晚开始</strong>时间：等于当前便指向结点的最迟时间减去当前边的权值；</p>
+<p>6、<strong>最早完工</strong>时间：等于当前边指向结点的最早发生时间；</p>
+<p>7、<strong>最晚完工</strong>时间：等于当前边指向结点的最迟发生时间；</p>
+</blockquote>
+<ul>
+<li><strong>图的链式存储结构</strong></li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MVNum 100                                 <span class="comment">//最大顶点数 </span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">ArcNode</span>&#123;</span>                        <span class="comment">//表结点 </span></span><br><span class="line">    <span class="type">int</span> adjvex;                                    <span class="comment">//邻接点的位置 </span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">ArcNode</span> * <span class="title">nextarc</span>;</span>      <span class="comment">//指向下一个表结点的指针 </span></span><br><span class="line">  &#125;ArcNode; </span><br><span class="line">  </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">VNode</span>&#123;</span> </span><br><span class="line">   <span class="type">char</span> data;                                    <span class="comment">//顶点信息 </span></span><br><span class="line">   ArcNode * firstarc;         <span class="comment">//指向第一个表结点的指针 </span></span><br><span class="line">&#125;VNode, AdjList[MVNum];                 <span class="comment">//AdjList表示邻接表类型 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>&#123;</span> </span><br><span class="line">    AdjList vertices;              <span class="comment">//头结点数组</span></span><br><span class="line">    <span class="type">int</span> vexnum, arcnum;     <span class="comment">//图的当前顶点数和边数 </span></span><br><span class="line">&#125;ALGraph; </span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">CreatMGraph</span><span class="params">(ALGraph *G)</span>;<span class="comment">/* 创建图 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">printGraph</span><span class="params">(ALGraph G)</span>;<span class="comment">/*输出图 */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    ALGraph G;</span><br><span class="line">    CreatMGraph(&amp;G);</span><br><span class="line">    printGraph(G);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">CreatMGraph</span><span class="params">(ALGraph *G)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i,j,k;</span><br><span class="line">    ArcNode *s;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;G-&gt;vexnum,&amp;G-&gt;arcnum);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;vexnum;i++)</span><br><span class="line">         <span class="built_in">scanf</span>(<span class="string">&quot;%c&quot;</span>,&amp;G-&gt;vertices[i].data);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G-&gt;vexnum;i++)</span><br><span class="line">         G-&gt;vertices[i].firstarc=<span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;G-&gt;arcnum;k++) &#123;  </span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;i,&amp;j);    </span><br><span class="line">        s=(ArcNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ArcNode));</span><br><span class="line">        s-&gt;adjvex=j;</span><br><span class="line">        s-&gt;nextarc=G-&gt;vertices[i].firstarc;</span><br><span class="line"></span><br><span class="line">        G-&gt;vertices[i].firstarc=s;   </span><br><span class="line"></span><br><span class="line">        s=(ArcNode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(ArcNode));</span><br><span class="line">        s-&gt;adjvex=i;</span><br><span class="line"></span><br><span class="line">        s-&gt;nextarc=G-&gt;vertices[j].firstarc;;</span><br><span class="line">        G-&gt;vertices[j].firstarc=s;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">printGraph</span><span class="params">(ALGraph G)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    ArcNode *p;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;G.vexnum;i++)</span><br><span class="line">    &#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">&quot;%c:&quot;</span>,G.vertices[i].data);</span><br><span class="line">       <span class="keyword">for</span>(p=G.vertices[i].firstarc;p;p=p-&gt;nextarc)</span><br><span class="line">           <span class="built_in">printf</span>(<span class="string">&quot; %c&quot;</span>,G.vertices[p-&gt;adjvex].data);</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
  
       <!-- reward -->
@@ -1353,58 +1495,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-   
-   
-  
-</article>
-
-    
-    <article
-  id="post-再穷也要去旅游"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/21/%E5%86%8D%E7%A9%B7%E4%B9%9F%E8%A6%81%E5%8E%BB%E6%97%85%E6%B8%B8/"
-    >再穷也要去旅游</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/21/%E5%86%8D%E7%A9%B7%E4%B9%9F%E8%A6%81%E5%8E%BB%E6%97%85%E6%B8%B8/" class="article-date">
-  <time datetime="2023-09-21T15:29:32.000Z" itemprop="datePublished">2023-09-21</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="《再穷也要去旅游》"><a href="#《再穷也要去旅游》" class="headerlink" title="《再穷也要去旅游》"></a>《再穷也要去旅游》</h1><p>​	我今天才开始接触这本书，初见时就是惊鸿一瞥，可能是比较贴切当代像我一样穷大学生的现状吧 &lt;3。</p>
-<p>​	唉，我好像老是嘴上说着要去哪里哪里走一走，但是到头来总是会出现各种各样的阻挠。就像今年夏天，驾照啦，作业啦之类的。但是仔细想想，好像这只是给自己家里蹲找的借口而已。于是不了终了，开学时只得借大隐隐于市聊以自慰。</p>
-<p>​	不行啊！这个寒假可不能在颓废了！你不是会骑摩托了吗？！这个寒假就加满油去野营吧！看看能否找到冬季银河的踪迹。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
 
     </footer>
   </div>
