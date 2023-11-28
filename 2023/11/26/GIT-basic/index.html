@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">567</span>
+            <span class="post-count">838</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -163,11 +163,90 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
+<p>​		or you can use </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status --short</span><br><span class="line"><span class="comment">#	Note: Short status flags are:</span></span><br><span class="line"><span class="comment">#		?? - Untracked files</span></span><br><span class="line"><span class="comment">#		A - Files added to stage</span></span><br><span class="line"><span class="comment">#		M - Modified files</span></span><br><span class="line"><span class="comment">#		D - Deleted files</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <ol start="2">
 <li>add to stage environment</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># once you finish a part or a bug ,you need to add it to  stage environment. So that you files in the stage environment are ready to commit .</span></span><br><span class="line"></span><br><span class="line">git add hello.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># or you can use </span></span><br><span class="line">git add —all</span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># this two commends stages all the changes .	</span></span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li>move from  stage to <strong>commit</strong> for our repo.</li>
+</ol>
+<ul>
+<li>commit all the changes</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;First release of Hello World!&quot;</span></span><br><span class="line"><span class="comment"># The commit command performs a commit, and the -m &quot;message&quot; adds a message.</span></span><br><span class="line"><span class="comment"># When we commit, we should always include a message.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>commit all the changes without add them to stage</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m <span class="string">&quot;Updated index.html with a new line&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>view the history of commit log</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>GIT branch</strong></li>
+</ul>
+<p>​	Introduction :</p>
+<blockquote>
+<p>In Git, a <code>branch</code> is a new&#x2F;separate version of the main repository.</p>
+<p>Branches allow you to work on different parts of a project without impacting the main branch.</p>
+<p>When the work is complete, a branch can be merged with the main project.</p>
+<p>You can even switch between branches and work on different projects without them interfering with each other.</p>
+<p>Branching in Git is very lightweight and fast!</p>
+</blockquote>
+<ol>
+<li>create new git branch</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">	<span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>check out the branches</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">	  newBtanch</span><br><span class="line">	* master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>move branch</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch 		<span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>check status of this branch , add to stage and commit . (same code)</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>merge branch</li>
+</ul>
+<ol>
+<li>In order to merge two branches, we need to change to the master branch:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>merge</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge newBranch</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>delete branches</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d newBranch</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>merge conflict</li>
+</ul>
  
       <!-- reward -->
       
