@@ -166,6 +166,133 @@
     
     
     <article
+  id="post-python脚本制作"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/04/python%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/"
+    >python脚本制作</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/04/python%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" class="article-date">
+  <time datetime="2023-10-04T05:25:57.000Z" itemprop="datePublished">2023-10-04</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>​	我突然打算不用知识点记录的方式记录我的学习笔记，打算以发现问题解决问题的方法记录学习过程。</p>
+<h1 id="1-记录的第一个脚本。"><a href="#1-记录的第一个脚本。" class="headerlink" title="1.记录的第一个脚本。"></a>1.记录的第一个脚本。</h1><h2 id="1-问题导入"><a href="#1-问题导入" class="headerlink" title="1.问题导入"></a>1.问题导入</h2><p>​	过去我常常把我拍的照片导入桌面，p完图之后再粘贴到我的移动硬盘留底，过程虽然不长，但是我就是懒。</p>
+<h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2.分析"></a>2.分析</h2><p>​	我的桌面一般没有东西，所以我可以直接将整个桌面文件夹复制到我的目标目录，或者在匹配后缀位jpg或者png的文件转移到目标文件夹。</p>
+<p><img src="/images/desktop.png" alt="desktop"></p>
+<h2 id="3-实现过程"><a href="#3-实现过程" class="headerlink" title="3.实现过程"></a>3.实现过程</h2><pre><code>1. 转移工作目录到桌面
+1. 在目标文件夹创建文件夹
+1. 复制文件到该文件夹
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"></span><br><span class="line">fileName=<span class="string">&quot;null&quot;</span></span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">&#x27;C:/Users/Regen/Desktop&#x27;</span>)<span class="comment">#转到desktop</span></span><br><span class="line"></span><br><span class="line">desktopPath=os.getcwd()<span class="comment">#记录桌面路径</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fileName=datetime.datetime.now().strftime(<span class="string">&quot;%Y-%m-%d&quot;</span>)<span class="comment">#以当前时间为文件夹名字</span></span><br><span class="line"></span><br><span class="line">os.chdir(<span class="string">&#x27;E:/代存外部硬盘&#x27;</span>)</span><br><span class="line">os.mkdir(fileName)<span class="comment">#创建文件夹</span></span><br><span class="line"></span><br><span class="line">fileDir=os.getcwd()</span><br><span class="line">fileDir=fileDir+<span class="string">&quot;\\&quot;</span>+fileName</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">src = desktopPath</span><br><span class="line">des = fileDir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(src):</span><br><span class="line">    <span class="comment">#遍历原文件夹中的文件</span></span><br><span class="line">    full_file_name = os.path.join(src, file)<span class="comment">#把文件的完整路径得到</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;要被复制的全文件路径全名:&quot;</span>,full_file_name)</span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(full_file_name):<span class="comment">#用于判断某一对象(需提供绝对路径)是否为文件</span></span><br><span class="line">        shutil.copy(full_file_name, des)<span class="comment">#shutil.copy函数放入原文件的路径文件全名  然后放入目标文件夹</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-遇到的问题"><a href="#4-遇到的问题" class="headerlink" title="4.遇到的问题"></a>4.遇到的问题</h2><pre><code>1. 一开始想要直接复制整个文件夹，但是会遇到权限问题，windows的权限问题没有Linux好解决，进而转向遍历文件夹
+1. 发现其实可以用windows自带的脚本语言，CMD实现（相当于Linux的shell脚本）
+</code></pre>
+<h2 id="5-收尾"><a href="#5-收尾" class="headerlink" title="5.收尾"></a>5.收尾</h2><p>​	很简单的脚本还写了两个小时。不过过程中又学会了一点东西。可以，好玩！</p>
+<p>​	<img src="/images/wenjianzhuanyi.PNG" alt="result"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-C语言二级指针"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/"
+    >C语言二级指针</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" class="article-date">
+  <time datetime="2023-10-01T15:55:07.000Z" itemprop="datePublished">2023-10-01</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="C语言的二级指针"><a href="#C语言的二级指针" class="headerlink" title="C语言的二级指针"></a>C语言的二级指针</h1><h2 id="1-起因。"><a href="#1-起因。" class="headerlink" title="1.起因。"></a>1.起因。</h2><p>​	想记录一下这个我难受的知识点。</p>
+<p>​	事情的起因：在自己用C实现简单的数据结构 “ 栈 ”的时候，写了这样一段代码。在后面遍历的时候不论怎么修改都会出现<strong>segmentation fault。</strong> 后来通过debug才发现S的地址从来都没有发生变化。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    S= tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​	以上代码错误的原因是：<strong>S作为一个指针参数被传入函数</strong> 虽然函数的末尾覆盖了S的地址，<strong>但这只是在这个函数开辟的栈空间里，结束后S的地址并不会变化</strong></p>
+<h2 id="2-解决。"><a href="#2-解决。" class="headerlink" title="2.解决。"></a>2.解决。</h2><h3 id="1-方法一："><a href="#1-方法一：" class="headerlink" title="1.方法一："></a>1.方法一：</h3><p>​			在主函数覆盖S的地址</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myStack <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-方法二："><a href="#2-方法二：" class="headerlink" title="2.方法二："></a>2.方法二：</h3><p>​			传入二级指针，即可修改二级指针的值（一级指针的地址）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack *S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    *S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=*S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    *S= tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-收尾。"><a href="#3-收尾。" class="headerlink" title="3.收尾。"></a>3.收尾。</h2><p>​		简单的实现栈这个数据结构其实不一定需要用到二级指针，只是我把问题复杂化了。带来了意向不到的难题。不过至少让我将二级指针收入囊中。不得不感叹一下任重道远啊。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
   id="post-再穷也要去旅游"
   class="article article-type-post"
   itemscope
@@ -394,7 +521,21 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
+  <h2 id="星空拍摄笔记"><a href="#星空拍摄笔记" class="headerlink" title="星空拍摄笔记"></a>星空拍摄笔记</h2><blockquote>
+<p><strong>一定要带快门线！</strong></p>
+<h1 id="参数的选择"><a href="#参数的选择" class="headerlink" title="参数的选择"></a>参数的选择</h1><h2 id="一，焦段："><a href="#一，焦段：" class="headerlink" title="一，焦段："></a>一，焦段：</h2><p>​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。</p>
+<h2 id="二，光圈："><a href="#二，光圈：" class="headerlink" title="二，光圈："></a>二，光圈：</h2><p>​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。</p>
+<h2 id="三，对焦："><a href="#三，对焦：" class="headerlink" title="三，对焦："></a>三，对焦：</h2><p>​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。</p>
+<h2 id="四，曝光："><a href="#四，曝光：" class="headerlink" title="四，曝光："></a>四，曝光：</h2><p>​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。</p>
+<p>​	例如：</p>
+<p>200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）</p>
+<p>24mm（全画幅）：理想快门速度约为20秒（500除以24mm）</p>
+<p>16mm（全画幅）：理想快门速度约为31秒（500除以16mm）</p>
+<p>14mm（全画幅）：理想快门速度约为35秒（500除以14mm）</p>
+<h2 id="五，感光度："><a href="#五，感光度：" class="headerlink" title="五，感光度："></a>五，感光度：</h2><p>​	常用2000-6400的感光度拍摄银河（偶尔1600）<br>​	如果是拍摄星轨的话建议直接100，拉长曝光时间。</p>
+<h2 id="六，白平衡："><a href="#六，白平衡：" class="headerlink" title="六，白平衡："></a>六，白平衡：</h2><p>（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）</p>
+</blockquote>
+<h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
 
 <p>​	小雨，很喜欢下雨的时候路灯下的氛围感。于是就拿起三脚架背上吉他就出发咯。</p>
 <h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="/images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
