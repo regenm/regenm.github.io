@@ -166,6 +166,44 @@
     
     
     <article
+  id="post-README"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+     
+    <div class="article-meta">
+      <a href="/2023/12/02/README/" class="article-date">
+  <time datetime="2023-12-02T10:19:54.035Z" itemprop="datePublished">2023-12-02</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><p>Notes</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-Linux-Projects"
   class="article article-type-post"
   itemscope
@@ -515,6 +553,14 @@
 <ul>
 <li>merge conflict</li>
 </ul>
+<p><strong>其他操作</strong></p>
+<ul>
+<li>GIT Associating a local repository to a remote repository</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:beiszhihao/test.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       
@@ -1210,7 +1256,7 @@
 
 
 
-<h2 id="6-更灵活灵活的定位内存地址的方法"><a href="#6-更灵活灵活的定位内存地址的方法" class="headerlink" title="6.更灵活灵活的定位内存地址的方法"></a>6.更灵活灵活的定位内存地址的方法</h2><pre><code>* **and 和 or 指令**
+<h2 id="7-更灵活灵活的定位内存地址的方法"><a href="#7-更灵活灵活的定位内存地址的方法" class="headerlink" title="7.更灵活灵活的定位内存地址的方法"></a>7.更灵活灵活的定位内存地址的方法</h2><pre><code>* **and 和 or 指令**
 </code></pre>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov al , 01100011B</span><br><span class="line">and al , 00111011B		;按位与，执行后：al=00100011B</span><br><span class="line"></span><br><span class="line">mov al, 01100011B</span><br><span class="line">or al, 00111011B		;按位或，执行后：al=01111011B</span><br></pre></td></tr></table></figure>
 
@@ -1222,7 +1268,7 @@
 <ol>
 <li>以字符的形式给出数据</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	db &#x27;unIx&#x27;   ;相当于“db 75H，6EH，49H，58H”</span><br><span class="line">	db &#x27;foRK&#x27;</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:	mov al, &#x27;a&#x27;  ;相当于“mov al, 61H”，“a”的ASCI码为61H；</span><br><span class="line">		mov b1, &#x27;b&#x27;</span><br><span class="line">		</span><br><span class="line">		mov ax, 4c00h </span><br><span class="line">		int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">	db &#x27;unIx&#x27;   ;相当于“db 75H，6EH，49H，58H”</span><br><span class="line">	db &#x27;foRK&#x27;</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:	mov al, &#x27;a&#x27;  ;相当于“mov al, 61H”，“a”的ASCI码为61H；</span><br><span class="line">		mov b1, &#x27;b&#x27;</span><br><span class="line">		</span><br><span class="line">		mov ax, 4c00h </span><br><span class="line">		int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>大小写转换</li>
@@ -1231,15 +1277,79 @@
 <p>​		<strong>大写字母ASCII码的第5位为0，小写字母的第5位为1(其他一致)</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">	db &#x27;BaSiC&#x27;</span><br><span class="line">	db &#x27;iNfOrMaTion&#x27;</span><br><span class="line">datasg end</span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">	start:	mov ax, datasg </span><br><span class="line">			mov ds, ax	;设置ds 指向 datasg段</span><br><span class="line">		</span><br><span class="line">			mov bx, 0	;设置（bx）=0，ds:bx指向’BaSic’的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 5     	 ;设置循环次数5，因为’Basic&#x27;有5个字母</span><br><span class="line">	s:		mov al, [bx]     ;将ASCII码从ds:bx所指向的单元中取出</span><br><span class="line">			and al, 11011111B;将al中的ASCII码的第5位置为0，变为大写字母</span><br><span class="line">			mov [bx], al	 ;将转变后的ASCII码写回原单元</span><br><span class="line">			inc bx		     ;（bx）加1，ds:bx指向下一个字母</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov bx, 5	;设置（bx）=5，ds:bx指向，iNfOrMaTion&#x27;的第一个字母</span><br><span class="line">			</span><br><span class="line">			mov cx, 11	;设置循环次数11，因为‘iNfOrMaTion&#x27;有11个字母</span><br><span class="line">	s0:		mov al, [bx]</span><br><span class="line">			or al, 00100000B;将a1中的ASCII码的第5位置为1，变为小写字母</span><br><span class="line">			mov [bx], al </span><br><span class="line">			inc bx</span><br><span class="line">			loop s0</span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">codesg ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<ol start="3">
+<li>SI 和 DI</li>
+</ol>
+<p>​	SI 和 DI 是8086 CPU中和 bx 功能相近的寄存器，但是 SI 和 DI 不能分成连个该8为寄存器使用。</p>
+<blockquote>
+<p>idata : 立即数，直接的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1                 ;对于直接包含在机器指令中的数据（执行前在CPU的指令缓冲器中）</span><br><span class="line">add bx, 2000h             ;在汇编语言中称为：立即数（idata）</span><br><span class="line">or bx, 00010000b</span><br><span class="line">mov al, &#x27;a&#x27;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>处理数据的长度</li>
+</ol>
+<blockquote>
+<p>8086CPU的指令，可以处理两种尺寸的数据，byte和word（字节和字）。</p>
+<p>通过寄<strong>存器名</strong>指明要处理的数据的尺寸。<br>例如： mov <strong>al</strong>, ds:[0] 寄存器al指明了数据为1字节</p>
+<p>在没有寄存器名存在的情况下，用操作符X ptr指明内存单元的长度，X在汇编指令中可以为word或byte。<br>例如：mov byte ptr ds:[0], 1 byte ptr 指明了指令访问的内存单元是一个字节单元</p>
+<p>有些<strong>指令默认</strong>了访问的是字单元还是字节单元<br>例如，push [1000H]，push 指令只进行<strong>字</strong>操作。</p>
+</blockquote>
+<ol start="6">
+<li><strong>div指令、dd、dup、mul指令</strong></li>
+</ol>
+<blockquote>
+<p>div ：除法指令。</p>
+<p>除数：有8位和16位两种，在一个寄存器或内存单元中。</p>
+<p>被除数：默认放在AX或DX和AX中，<br>如果除数为8位，被除数则为16位，默认在AX中存放；<br>如果除数为16位，被除数则为32位，在DX和AX中存放，DX存放高16位，AX存放低16位。</p>
+<p>结果：<br>如果除数为8位，则AL存储除法操作的商，AH存储除法操作的余数；<br>如果除数为16位，则AX存储除法操作的商，DX存储除法操作的余数。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">;利用除法指令计算100001/100。</span><br><span class="line">;100001D = 186A1H</span><br><span class="line">mov dx, 1</span><br><span class="line">mov ax, 86A1H ;(dx)*10000H+(ax)=100001</span><br><span class="line">mov bx, 100</span><br><span class="line">div bx</span><br><span class="line"></span><br><span class="line">;利用除法指令计算1001/100</span><br><span class="line">mov ax, 1001</span><br><span class="line">mov bl, 100</span><br><span class="line">div b1</span><br></pre></td></tr></table></figure>
 
 
 
+<blockquote>
+<p>dd：</p>
+<ul>
+<li><p>db 和 dw 定义字节型数据和字型数据。</p>
+</li>
+<li><p>dd 是用来定义dword（double word，<strong>双字（四个字节）</strong>）型数据的伪指令</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dd 100001</span><br><span class="line">dw 100</span><br><span class="line">dw 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>操作符：</p>
+<p>与db、dw、dd等数据定义伪指令配合使用，用来进行数据的重复</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db 3 dup (0)       ;定义了3个字节，它们的值都是0，相当于db 0，0，0。</span><br><span class="line">db 3 dup (0, 1, 2) ;定义了9个字节，它们是0、1、2、0、1、2、0、1、2，相当于db 0，1，2，0，1，2，0，1，2。</span><br><span class="line">db 3 dup (&#x27;abc&#x27;, &#x27;ABC&#x27;) ;定义了18个字节，它们是abcABCabcABCabcABCC，相当于db &#x27;abc&#x27;, &#x27;ABC&#x27; ,&#x27;abc&#x27; , &#x27;ABC, &#x27;abc&#x27;, &#x27;ABC&#x27;。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
+<blockquote>
+<p>mul 指令 ：</p>
+<ul>
+<li><p>mul是乘法指令，使用 mul 做乘法的时候：相乘的两个数：要么都是8位，要么都是16位。</p>
+</li>
+<li><p>乘数：</p>
+<ul>
+<li><ol>
+<li>8 位： <code>AL</code>中和 <code>8位寄存器</code>或<code>内存字节单元</code>中；</li>
+<li>16 位： <code>AX</code>中和 <code>16 位寄存器</code>或<code>内存字单元</code>中。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>结果：</p>
+<ul>
+<li>8位：AX中；</li>
+<li>16位：DX（高位）和 AX（低位）中</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">; 8 位</span><br><span class="line">;计算100*10</span><br><span class="line">;100和10小于255，可以做8位乘法</span><br><span class="line">mov al,100</span><br><span class="line">mov bl,10</span><br><span class="line">mul bl</span><br><span class="line"></span><br><span class="line">;结果： (ax)=1000（03E8H） </span><br><span class="line"></span><br><span class="line">; 16 位置</span><br><span class="line"></span><br><span class="line">;计算100*10000</span><br><span class="line">;100小于255，可10000大于255，所以必须做16位乘法，程序如下：</span><br><span class="line">mov ax,100</span><br><span class="line">mov bx,10000</span><br><span class="line">mul bx</span><br><span class="line"></span><br><span class="line">;结果： (ax)=4240H，(dx)=000FH     （F4240H=1000000）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -1674,7 +1784,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h1 id="困饿累睡不着"><a href="#困饿累睡不着" class="headerlink" title="困饿累睡不着"></a>困饿累睡不着</h1><p><img src="/images/myPoems_1.jpg"></p>
-<p>​	上课的时候随便乱写的&lt;3,没想到我还是这么中二。</p>
+<p>​	上课的时候随便乱写的&lt;3,没想到我还是这么中二</p>
  
       <!-- reward -->
       
@@ -1697,88 +1807,13 @@
 </article>
 
     
-    <article
-  id="post-python画画"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/10/06/python%E7%94%BB%E7%94%BB/"
-    >python画画</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/10/06/python%E7%94%BB%E7%94%BB/" class="article-date">
-  <time datetime="2023-10-06T06:55:02.000Z" itemprop="datePublished">2023-10-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​		学校在国庆节和中秋节中举办了一个编程比赛：内容是在一个小时内用编程语言画出节日符号；例如月饼和国旗之类的。假期闲来无事，于是就浅浅参加了一下。</p>
-<h2 id="使用python的TURTLE库"><a href="#使用python的TURTLE库" class="headerlink" title="使用python的TURTLE库"></a>使用python的TURTLE库</h2><p>​		说要用编程画画，我立马就想到了用python ，毕竟人生苦短，我用python。其实主要还是不想用字符串来在终端输出，过于麻烦。</p>
-<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识<img src="https://files.realpython.com/media/Turtle_EDIT_Graph.790c213ce0ba.jpg" alt="Python Turtle Coordinates New"></h2><pre><code>        * 中心点在screen中心
-        * (0,0) 即 Home
-        * 默认初始化画笔向右
-</code></pre>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.right(<span class="number">90</span>)   </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.left(<span class="number">90</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.backward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://files.realpython.com/media/Update_-_Moving_Turtle_VIDEO_GIF.61623cf40fed.gif" alt="Python Turtle Moving Updated"></p>
-<h3 id="内置图形"><a href="#内置图形" class="headerlink" title="内置图形"></a>内置图形</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t.circle(<span class="number">60</span>)</span><br><span class="line">t.dot(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turtle.bgcolor(<span class="string">&quot;blue&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="画笔的粗细"><a href="#画笔的粗细" class="headerlink" title="画笔的粗细"></a>画笔的粗细</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.pensize(<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="填充颜色"><a href="#填充颜色" class="headerlink" title="填充颜色"></a>填充颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.begin_fill()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.lt(<span class="number">120</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.lt(<span class="number">120</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.end_fill()</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://files.realpython.com/media/Turtle_Begin_End_Fill_GIF.849f73374a22.gif" alt="Python Turtle Begin Fill End Fill New"></p>
-<h3 id="绘制速度"><a href="#绘制速度" class="headerlink" title="绘制速度"></a>绘制速度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.speed(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.speed(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="撤回"><a href="#撤回" class="headerlink" title="撤回"></a>撤回</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; t.undo()</span><br></pre></td></tr></table></figure>
-
-<h3 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = t.clone()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.color(<span class="string">&quot;magenta&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.color(<span class="string">&quot;red&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.circle(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.circle(<span class="number">60</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="以上就是python-Turtle模组的基本语法"><a href="#以上就是python-Turtle模组的基本语法" class="headerlink" title="以上就是python Turtle模组的基本语法"></a>以上就是python Turtle模组的基本语法</h2><p>​	但是光会这些基本知识也不行，你还得有亿点点艺术细胞。毕竟它作为画画工具有一点简朴了。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>
