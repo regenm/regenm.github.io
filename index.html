@@ -909,6 +909,39 @@
 
 
 
+<h2 id="1-What-if-we-get-many-BOMBs-which-they-are-set-at-different-palces"><a href="#1-What-if-we-get-many-BOMBs-which-they-are-set-at-different-palces" class="headerlink" title="1. What if we get many BOMBs which they are set at different palces ?"></a>1. What if we get many BOMBs which they are set at different palces ?</h2><ul>
+<li><strong>Explode with a delay ( such as 1 s )</strong></li>
+</ul>
+<blockquote>
+<p>Solution KEY : </p>
+<p>​				Once the first BOMB is about to explode , it sends a signal to another BOMB.</p>
+<p><strong>the signal :</strong></p>
+<ol>
+<li>Voltage （like 0 v  —&gt; 1 v  or reverse it ）</li>
+<li>Waves of Voltage ( PULSE )</li>
+<li>Plain text </li>
+<li>Cipher text</li>
+</ol>
+</blockquote>
+<h2 id="1-Voltage"><a href="#1-Voltage" class="headerlink" title="1. Voltage"></a>1. Voltage</h2><p>​	Once the first bomb is about to explode, it sends a Voltage signal to the second and so on.</p>
+<p>​	We can use one of a pin to do this work .</p>
+<ul>
+<li>The first BOMB</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    delayN10ms(<span class="number">10000</span>);	 <span class="comment">//10s</span></span><br><span class="line">    P2<span class="number">.1</span>=<span class="number">0</span>; 			<span class="comment">// send a signal ( 5v ) </span></span><br><span class="line">    P1=<span class="number">0x00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>The second BOMB</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> 	<span class="keyword">while</span>(<span class="number">1</span>)&#123;   </span><br><span class="line">    	<span class="keyword">if</span>(P2<span class="number">.1</span>==<span class="number">0</span>)&#123;</span><br><span class="line">            delayN10ms(<span class="number">10000</span>);	 <span class="comment">//10s</span></span><br><span class="line">            P2<span class="number">.2</span>=<span class="number">0</span>; 			<span class="comment">// send a signal to the third BOMB (send to P2.1) ( 5v ) </span></span><br><span class="line">            P1=<span class="number">0x00</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Through-Plain-Text"><a href="#2-Through-Plain-Text" class="headerlink" title="2. Through Plain Text"></a>2. Through Plain Text</h2><ul>
+<li>The first BOMB.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;reg51.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"> <span class="type">unsigned</span> <span class="type">char</span> Message[<span class="number">5</span>]=&#123;<span class="string">&quot;BOMB!&quot;</span>&#125;;</span><br><span class="line"> <span class="type">char</span> i;</span><br><span class="line"> <span class="comment">//Initialize </span></span><br><span class="line"> TH1=<span class="number">0xFD</span>;   <span class="comment">//Set timer 1 for BAUD=9600</span></span><br><span class="line"> TMOD=<span class="number">0x20</span>;   <span class="comment">//Set Timer 1 in Mode 2 8-bit Auto reload          </span></span><br><span class="line"> SCON=<span class="number">0x50</span>;   <span class="comment">//Set serial reception enable and Mode 1 8-bit UART</span></span><br><span class="line"> TR1=<span class="number">1</span>;     <span class="comment">//Start Timer 1</span></span><br><span class="line"></span><br><span class="line"> <span class="comment">//Serial Transmission of message</span></span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">  &#123;</span><br><span class="line">   SBUF =Message[i];  <span class="comment">//Send one by one each byte to serial</span></span><br><span class="line">   <span class="keyword">while</span>(TI==<span class="number">0</span>);      <span class="comment">//Wait for Transmition complition</span></span><br><span class="line">   TI=<span class="number">0</span>;     <span class="comment">//Clear Transmit Intterupt flag</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//Serial Reception</span></span><br><span class="line">  <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">   <span class="keyword">while</span>(RI==<span class="number">0</span>);   <span class="comment">//Wait unitl RI low</span></span><br><span class="line">    P1=SBUF;  </span><br><span class="line">   RI=<span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 
 
 
