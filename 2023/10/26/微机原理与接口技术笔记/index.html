@@ -294,8 +294,12 @@
 
 
 
-<h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2><pre><code>1. 在代码中使用数据
-</code></pre>
+<h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2><ul>
+<li><ol>
+<li>在代码中使用数据</li>
+</ol>
+</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">;计算 8 个数据的和存到 ax 寄存器</span><br><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line"></span><br><span class="line">	dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;define word 定义8个字形数据</span><br><span class="line"></span><br><span class="line">	start:	mov bx, 0  ;标号start</span><br><span class="line">			mov ax, 0  </span><br><span class="line">			</span><br><span class="line">			mov cx, 8</span><br><span class="line">	s:		add ax, cs:[bx]</span><br><span class="line">			add bx, 2</span><br><span class="line">			loop s </span><br><span class="line">			</span><br><span class="line">			mov ax, 4c00h </span><br><span class="line">			int 21h </span><br><span class="line">code ends</span><br><span class="line">end start    ;end除了通知编译器程序结束外，还可以通知编译器程序的入口在什么地方</span><br><span class="line">	     	 ;用end指令指明了程序的入口在标号start处，也就是说，“mov bx，0”是程序的第一条指令。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
@@ -413,12 +417,10 @@
 
 
 
-
-
-
-
-
-
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="8-转移指令"><a href="#8-转移指令" class="headerlink" title="8.转移指令"></a>8.转移指令</h2><blockquote>
+<p>可以修改IP，或同时修改CS和IP的指令统称为转移指令。概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。</p>
+<p>8086CPU的转移行为有以下几类。</p>
+</blockquote>
  
       <!-- reward -->
       
