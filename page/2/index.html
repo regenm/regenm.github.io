@@ -195,7 +195,7 @@
        
   <h1 id="汇编语言（8086为例）"><a href="#汇编语言（8086为例）" class="headerlink" title="汇编语言（8086为例）"></a>汇编语言（8086为例）</h1><p>—-基于《汇编语言第三版》王爽</p>
 <p>​	</p>
-<h2 id="smile-基础知识"><a href="#smile-基础知识" class="headerlink" title=":smile:.基础知识"></a>:smile:.基础知识</h2><ul>
+<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h2><ul>
 <li>冯诺依曼架构</li>
 </ul>
 <blockquote>
@@ -228,7 +228,7 @@
 <p>​				<strong>数据总线</strong>：N根数据总线一次可以传输N位二进制数据。</p>
 <p>​				8088 CPU数据总线宽度为8；8086 CPU数据总线宽度为16。</p>
 <p>​				<strong>控制总线</strong>：N根代表N种控制。</p>
-<h2 id="cry-寄存器"><a href="#cry-寄存器" class="headerlink" title=":cry:.寄存器"></a>:cry:.寄存器</h2><p>​		一个典型的CPU由：运算器，控制器，寄存器等器件构成。同时他们通过总线在内部相连接（地址，数据，控制）。对于汇编程序员来说，CPU的主要器件就是寄存器。</p>
+<h2 id="2-寄存器"><a href="#2-寄存器" class="headerlink" title="2.寄存器"></a>2.寄存器</h2><p>​		一个典型的CPU由：运算器，控制器，寄存器等器件构成。同时他们通过总线在内部相连接（地址，数据，控制）。对于汇编程序员来说，CPU的主要器件就是寄存器。</p>
 <p>​		8086寄存器特征：16位  (数据最大为2^16-1)</p>
 <p>​		8086 CPU的寄存器种类：</p>
 <p><img src="/images/registerof8086.png" alt="register of Intel 8086"></p>
@@ -317,7 +317,7 @@
 
 
 
-<h2 id="boy-寄存器（内存访问）"><a href="#boy-寄存器（内存访问）" class="headerlink" title=":boy:.寄存器（内存访问）"></a>:boy:.寄存器（内存访问）</h2><ul>
+<h2 id="3-寄存器（内存访问）"><a href="#3-寄存器（内存访问）" class="headerlink" title="3.寄存器（内存访问）"></a>3.寄存器（内存访问）</h2><ul>
 <li><strong>字型数据</strong></li>
 </ul>
 <blockquote>
@@ -353,7 +353,7 @@
 
 
 
-<h2 id="shit-第一个程序"><a href="#shit-第一个程序" class="headerlink" title=":shit:.第一个程序"></a>:shit:.第一个程序</h2><ul>
+<h2 id="4-第一个程序"><a href="#4-第一个程序" class="headerlink" title="4.第一个程序"></a>4.第一个程序</h2><ul>
 <li><strong>源程序（后缀 .asm）的编写</strong></li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">;1.asm</span><br><span class="line">assume cs:codesg ;将用作代码段的段codesg和段寄存器cs联系起来。</span><br><span class="line"></span><br><span class="line">codesg segment ;定义一个段，段的名称为“codesg”，这个段从此开始</span><br><span class="line">			   ;codesg是一个标号，作为一个段的名称，最终被编译连接成一个段的段地址</span><br><span class="line"></span><br><span class="line">	mov ax, 0123H</span><br><span class="line">	mov bx, 0456H </span><br><span class="line">	add ax, bx</span><br><span class="line">	add ax, ax </span><br><span class="line">	</span><br><span class="line">	mov ax, 4c00H </span><br><span class="line">	int 21H ;这两条指令实现程序的返回 ,相当于	return 0</span><br><span class="line">	</span><br><span class="line">codesg ends ;名称为“codesg”的段到此结束</span><br><span class="line"></span><br><span class="line">end ;编译器在编译汇编程序的过程中，碰到了伪指令end，结束对源程序的编译</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -519,6 +519,32 @@
 <p>jmp 指令要给出两种信息：</p>
 <p>转移的目的地址<br>转移的距离（段间转移、段内短转移，段内近转移）<br> jmp short 标号 jmp near ptr 标号 jcxz 标号 loop 标号 等几种汇编指令，它们对 IP的修改</p>
 <p>是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。</p>
+</blockquote>
+<h2 id="9-错题"><a href="#9-错题" class="headerlink" title="9.错题"></a>9.错题</h2><blockquote>
+<p>一、下列关于8086CPU的工作原理的描述错误的是__3__。<br> 1、 汇编程序员可以通过对各种寄存器中内容的修改实现对CPU的控制。<br> 2、 CPU在访问内存时，采用“段地址*16+偏移地址”的形式给出要访问的内存单元的物理地址。<br>3、 任意时刻，CS:IP指向的内容即是此刻CPU正在执行的指令。<br> 4、 传送指令能够更改所有通用寄存器的内容。</p>
+<p>注解：</p>
+<pre><code> 1、正确，见课本P13
+ 2、正确 
+ 3、错误。课本P24，8086机中，任意时刻，CPU将CS：IP指向的内容当作指令执行。此处的含义是将要执行，比如输入T,CPU读取CS:IP的内容，载入指令执行，而不是正在执行。
+ 4、通用寄存器是AX、BX、CX、DX，传送指令是mov，mov指令可以改变4个通用寄存器的内容
+</code></pre>
+</blockquote>
+<blockquote>
+<p>六、下列说法中正确的是：<strong>4</strong><br>1、 8086CPU采用“段地址*16+偏移地址&#x3D;物理地址”的寻址模式，所以内存是由一个一个的段组成，每一个段有一个段地址。<br>2、 物理地址为ffff0H的内存单元的偏移地址可能为ffffH。<br>3、 一个段的大小可以是8Byte。<br>4、 在一段没有任何跳转指令的程序中，超出64K的部分将不会被执行。</p>
+<p>注解：</p>
+<pre><code> 1、第一句、第三句正确，第二句错误。内存没有分段，段的划分来自于CPU.见课本P22
+ 2、错误，不可能，若偏移地址为FFFFH，则段地址为EFFF1H，是不对的
+ 3、段大小最小16B
+ 4、正确，CPU执行指令取决于CS;IP，IP最大65535，超过64K的IP不识别，CPU也就无法执行。
+</code></pre>
+</blockquote>
+<blockquote>
+<p>五、16位结构的CPU 不一定具备的特性是：<strong>4</strong><br>1、 运算器一次最多可以处理16位的数据<br>2、 寄存器的最大宽度为16位<br>3、 寄存器和运算器之间的通路为16位<br>4、 地址总线为16根</p>
+<p>注解：见课本P18<br>      16位CPU特征：运算器一次最多可以处理16位的数据<br>                             寄存器的最大宽度为16位<br>                             寄存器和运算器之间的通路为16位<br>       8086CPU有20根地址总线，可以传送20位地址。故选择4</p>
+</blockquote>
+<blockquote>
+<p>5.若将以1000H为段地址的整个段空间当作栈使用，那么寄存器SP的初始值最合理的设置是_____。 (1)<br> 1、  0000H<br> 2、  0001H<br> 3、  FFFFH<br> 4、  FFFEH</p>
+<p>注解：以1000H为段地址的整个段空间，偏移地址为0-FFFFH，当栈中只有1个字时，偏移地址是FFFEH，当栈为空时，SP&#x3D;SP+2&#x3D;FFFF+2&#x3D;0000，所以选择1 </p>
 </blockquote>
  
       <!-- reward -->

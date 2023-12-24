@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.9k</span>
+            <span class="post-count">4.4k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">13 min</span>
+            <span class="post-count">19 min</span>
         </span>
     </span>
 </div>
@@ -186,7 +186,7 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">LevelOrder</span><span class="params">(BiTree T)</span>&#123;</span><br><span class="line">   LinkQueue Q;</span><br><span class="line">   InitQueue (Q);          <span class="comment">//初始化辅助队列</span></span><br><span class="line">    </span><br><span class="line">   BiTree p;</span><br><span class="line">   EnQueue(Q,T);           <span class="comment">//将根节点入队</span></span><br><span class="line">    </span><br><span class="line">   <span class="keyword">while</span>(!isEmpty(Q))&#123;     <span class="comment">//队列不空则循环</span></span><br><span class="line">      DeQueue(Q,p);        <span class="comment">//队头结点出队</span></span><br><span class="line">      visit(p);            <span class="comment">//访问出队结点</span></span><br><span class="line">      <span class="keyword">if</span>(p-&gt;lchild != <span class="literal">NULL</span>)</span><br><span class="line">         EnQueue(Q,p-&gt;lchild);   <span class="comment">//左孩子入队</span></span><br><span class="line">      <span class="keyword">if</span>(p-&gt;rchild != <span class="literal">NULL</span>)</span><br><span class="line">         EnQueue(Q,p-&gt;rchild);   <span class="comment">//右孩子入队</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>线索二叉树</li>
+<li><strong>线索二叉树</strong></li>
 </ul>
 <blockquote>
 <p>将空的指针域用以指向前驱后继节点。</p>
@@ -206,11 +206,114 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">inOrderTraverse</span><span class="params">(Node* root)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">//从根节点开始先找到最左边</span></span><br><span class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	Node* temp = root;</span><br><span class="line">	<span class="comment">//先找到最左边结点 然后根据线索化直接向右遍历</span></span><br><span class="line">	<span class="keyword">while</span> (temp != <span class="literal">NULL</span> &amp;&amp; temp-&gt;left_type == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		temp = temp-&gt;left_node;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span> (temp != <span class="literal">NULL</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">//输出</span></span><br><span class="line">		temp = temp-&gt;right_node;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>折半搜索</li>
+<li><strong>折半搜索</strong></li>
 </ul>
-<p>用于有序顺序表的</p>
+<blockquote>
+<p>因为折半查找需要方便地定位查找区域，所以它要求线性表必须具有随机存取的特性。因此，该查找法仅适合于顺序存储结构，不适合于链式存储结构，且要求元素按关键字有序排列。</p>
+</blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">BinSearch</span><span class="params">(<span class="type">int</span> <span class="built_in">array</span>[], <span class="type">int</span> x, <span class="type">int</span> n)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>];<span class="comment">//0 1 2 3 4 5 6 7 8 9 </span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        arr[i]=i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> re=BinSearch(arr,<span class="number">9</span>,<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;下标：%d\n&quot;</span>,re);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">								<span class="comment">//按折半查找法查找值为x的数组元素，若找到则返回x在数组中的下标位置，否则返回-1</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">BinSearch</span><span class="params">(<span class="type">int</span> <span class="built_in">array</span>[], <span class="type">int</span> x, <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> low = <span class="number">0</span>, high = n<span class="number">-1</span>, mid;<span class="comment">//区间左端点low置为0，右端点high置为n-1</span></span><br><span class="line">    <span class="type">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (low &lt;= high)			<span class="comment">//若左端点小于等于右端点，则继续查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        num++;</span><br><span class="line">        mid = low + (high - low) / <span class="number">2</span>;<span class="comment">//取数据区间的重点</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,mid);</span><br><span class="line">        <span class="keyword">if</span> (x &gt; <span class="built_in">array</span>[mid])</span><br><span class="line">            low = mid + <span class="number">1</span>;			<span class="comment">//若x&gt;array[mid]，则修改区间的左端点</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (x &lt; <span class="built_in">array</span>[mid])</span><br><span class="line">            high = mid - <span class="number">1</span>;			<span class="comment">//若x&lt;array[mid]，则修改区间的右端点</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;次数：%d\n&quot;</span>,num);</span><br><span class="line">            <span class="keyword">return</span> mid;				<span class="comment">//若找到，则返回下标值mid</span></span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;						<span class="comment">//循环结束仍未找到，则返回值-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><strong>插值查找</strong></li>
+</ul>
+<blockquote>
+<p>类似于折半搜索，只是mid的计算方法不一样</p>
+<p>比较元素的下标：</p>
+<p>Mid &#x3D; Begin + ( (End - Begin) &#x2F; (A[End] - A[Begin]) ) * (X - A[Begin])</p>
+<blockquote>
+<p>式子中，各部分的含义分别是：</p>
+<p>Mid：计算得出的元素的位置；</p>
+<p>End：搜索区域内最后一个元素所在的位置；</p>
+<p>Begin：搜索区域内第一个元素所在的位置；</p>
+<p>X：要查找的目标元素；</p>
+<p>A[]：表示整个待搜索序列</p>
+</blockquote>
+</blockquote>
+<p>C语言实现过程</p>
+<p>​	<strong>递归算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//实现插值查找算法，ele 表示要查找的目标元素，[begin,end] 指定查找区域</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">interpolation_search</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> begin, <span class="type">int</span> end, <span class="type">int</span> ele)</span> &#123;</span><br><span class="line">    <span class="type">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//如果[begin,end] 不存在，返回 -1</span></span><br><span class="line">    <span class="keyword">if</span> (begin &gt; end) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果搜索区域内只有一个元素，判断其是否为目标元素</span></span><br><span class="line">    <span class="keyword">if</span> (begin == end) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ele == arr[begin]) &#123;</span><br><span class="line">            <span class="keyword">return</span> begin;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//如果该元素非目标元素，则查找失败</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 找到&quot;中间元素&quot;所在的位置</span></span><br><span class="line">    mid = begin + ((end - begin) / (arr[end] - arr[begin]) * (ele - arr[begin]));</span><br><span class="line">    <span class="comment">//递归的出口</span></span><br><span class="line">    <span class="keyword">if</span> (ele == arr[mid]) &#123;</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//比较 ele 和 arr[mid] 的值，缩小 ele 可能存在的区域</span></span><br><span class="line">    <span class="keyword">if</span> (ele &lt; arr[mid]) &#123;</span><br><span class="line">        <span class="comment">//新的搜索区域为 [begin,mid-1]</span></span><br><span class="line">        <span class="keyword">return</span> interpolation_search(arr, begin, mid - <span class="number">1</span>, ele);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//新的搜索区域为 [mid+1,end]</span></span><br><span class="line">        <span class="keyword">return</span> interpolation_search(arr, mid + <span class="number">1</span>, end, ele);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span> &#125;;</span><br><span class="line">    <span class="comment">//输出元素 2 所在位置的下标</span></span><br><span class="line">    <span class="type">int</span> pos = interpolation_search(arr, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (pos != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, interpolation_search(arr, <span class="number">0</span>, <span class="number">9</span>, <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;查找失败&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>二叉排序树</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li>若左子树非空，则左子树上所有结点的值均小于根结点的值。</li>
+<li>若右子树非空，则右子树上所有结点的值均大于根结点的值。</li>
+<li>左、右子树也分别是一棵二叉排序树。</li>
+</ol>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*二叉树的二叉链表结点结构定义*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	<span class="type">int</span> data;	<span class="comment">//结点数据</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>, *<span class="title">rchild</span>;</span>	<span class="comment">//左右孩子指针</span></span><br><span class="line">&#125; BiTNode, *Bitree;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">递归查找二叉排序树T中是否存在key</span></span><br><span class="line"><span class="comment">指针f指向T的双亲，其初始调用值为NULL</span></span><br><span class="line"><span class="comment">若查找成功，则指针p指向该数据元素结点，并返回TRUE</span></span><br><span class="line"><span class="comment">否则指针p指向查找路径上访问的最后一个结点并返回FALSE</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">SearchBST</span><span class="params">(BiTree T, <span class="type">int</span> key, BiTree f, BiTree *p)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!T)&#123;</span><br><span class="line">		*p = f;</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(key == T-&gt;data)&#123;</span><br><span class="line">		<span class="comment">//查找成功</span></span><br><span class="line">		*p = T;</span><br><span class="line">		<span class="keyword">return</span> TRUE;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &lt; T-&gt;data)&#123;</span><br><span class="line">		<span class="keyword">return</span> SearchBST(T-&gt;lchild, key, T, p);	<span class="comment">//在左子树继续查找</span></span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> SearchBST(T-&gt;rchild, key, T, p);	<span class="comment">//在右子树继续查找</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">当二叉排序树T中不存在关键字等于key的数据元素时</span></span><br><span class="line"><span class="comment">插入key并返回TRUE，否则返回FALSE</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">InsertBST</span><span class="params">(BiTree *T, <span class="type">int</span> key)</span>&#123;</span><br><span class="line">	BiTree p, s;</span><br><span class="line">	<span class="keyword">if</span>(!SearchBST(*T, key, <span class="literal">NULL</span>, &amp;p))&#123;</span><br><span class="line">		<span class="comment">//查找不成功</span></span><br><span class="line">		s = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">		s-&gt;data = key;</span><br><span class="line">		s-&gt;lchild = s-&gt;rchild = <span class="literal">NULL</span>;</span><br><span class="line">		<span class="keyword">if</span>(!p)&#123;</span><br><span class="line">			*T = s;	<span class="comment">//插入s为新的根节点</span></span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &lt; p-&gt;data)&#123;</span><br><span class="line">			p-&gt;lchild = s;	<span class="comment">//插入s为左孩子</span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			p-&gt;rchild = s;	<span class="comment">//插入s为右孩子</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> TRUE;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> FALSE;	<span class="comment">//树种已有关键字相同的结点，不再插入</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*********************构造二叉排序树************/</span></span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="type">int</span> a[<span class="number">10</span>] = &#123;<span class="number">62</span>, <span class="number">88</span>, <span class="number">58</span>, <span class="number">47</span>, <span class="number">35</span>, <span class="number">73</span>, <span class="number">51</span>, <span class="number">99</span>, <span class="number">37</span>, <span class="number">93</span>&#125;;</span><br><span class="line">BiTree T = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;</span><br><span class="line">	InsertBST(&amp;T, a[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/************************************************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">若二叉排序树T中存在关键字等于key的数据元素时，则删除该数据元素结点，</span></span><br><span class="line"><span class="comment">并返回TRUE;否则返回FALSE</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="type">bool</span> <span class="title function_">DeleteBST</span><span class="params">(BiTree *T, <span class="type">int</span> key)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!T)&#123;</span><br><span class="line">		<span class="keyword">return</span> FALSE; </span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(key == T-&gt;data)&#123;</span><br><span class="line">			<span class="comment">//找到关键字等于key的数据元素</span></span><br><span class="line">			<span class="keyword">return</span> Delete(T);</span><br><span class="line">		&#125;<span class="keyword">else</span> <span class="keyword">if</span>(key &lt; T -&gt; data)&#123;</span><br><span class="line">			<span class="keyword">return</span> DeleteBST(T -&gt; lchild, key);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> DeleteBST(T -&gt; rchild, key);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>哈希表（散列表）</strong></li>
+</ul>
+<blockquote>
+<p>​	散列表是根据关键字而直接进行访问的数据结构。也就是说，散列表建立了关键字和存储地址之间的一种直接映射关系。</p>
+<p>​	这种对应关系称为散列函数，又称为哈希(Hash) 函数。按这个思想，采用散列技术将记录存储在一块连续的存储空间中，这块连续存储空间称为散列表或哈希表(Hash table)。那么关键字对应的记录存储位置我们称为散列地址。</p>
+</blockquote>
+<ul>
+<li>散列函数的构造方法</li>
+</ul>
+<ol>
+<li>直接定址法</li>
+</ol>
+<p>​				直接取关键字的某个线性函数值为散列地址，散列函数为：<br>$$<br>H(key)&#x3D;key或H(key)&#x3D;a∗key+b<br>$$</p>
+<ol start="2">
+<li>数字分析法</li>
+</ol>
+<blockquote>
+<p>分析数字关键字在各位上的变化情况，取比较随机的位作为散列地址。</p>
+</blockquote>
+<ol start="3">
+<li>平方取中法</li>
+</ol>
+<blockquote>
+<p>平方取中法比较适合于不知道关键字的分布，而位数又不是很大的情况。</p>
+<p>字面意思：平方之后取中间的数字作为散列地址</p>
+</blockquote>
+<ol start="4">
+<li>除留余数法</li>
+</ol>
+<p>​				散列函数：</p>
+<blockquote>
+<p>h（key） &#x3D; key % 17</p>
+<blockquote>
+<ul>
+<li>p取素数（避免余数相关性）</li>
+</ul>
+</blockquote>
+</blockquote>
+<ol start="5">
+<li>随机数法</li>
+</ol>
+<p>$$<br>H(key)&#x3D;random(key)<br>$$</p>
+<ul>
+<li>处理散列冲突</li>
+</ul>
+<p>​				开放地址法（闭散列表）和链地址法（开散列表法）</p>
+<ol>
+<li>线性探测法</li>
+</ol>
+<blockquote>
+<p>从冲突的的下一个位置起，依次寻找空的散列地址</p>
+<blockquote>
+<ul>
+<li>存在堆积现象</li>
+</ul>
+</blockquote>
+</blockquote>
+<p>​	公式：<br>$$<br>H<br>i<br>​<br> (key)&#x3D;(f(key)+d<br>i<br>​<br> )%m (d<br>i<br>​<br> &#x3D;1,2,3,…,m−1)<br>$$<br>​	此时： di &#x3D; 0,1,2,3,…k</p>
+<ol start="2">
+<li>二次（平方）探测法</li>
+</ol>
+<p>​		公式<br>$$<br>H<br>i<br>​<br> (key)&#x3D;(f(key)+d<br>i<br>​<br> )%m (d<br>i<br>​<br> &#x3D;1,2,3,…,m−1)<br>$$<br>​	此时：di &#x3D; 0,1,-1,2^2,-2^2,….k^2,-k^2</p>
+<ol start="3">
+<li>拉链法</li>
+</ol>
+<blockquote>
+<p>将所有关键字为同义词的记录存储在一个单链表中，我们称这种表为同义词子表，在散列表中只存储所有同义词子表的头指针。</p>
+</blockquote>
  
       <!-- reward -->
       

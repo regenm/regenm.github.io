@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">19 min</span>
+            <span class="post-count">20 min</span>
         </span>
     </span>
 </div>
@@ -262,7 +262,9 @@
 <li>TH1&#x2F;TL1 (Timer 1, 16-bit register, High bits goes to TH1, Low bits goes to TL1)</li>
 </ul>
 </blockquote>
-<h3 id="TH0-TL0-Timer-0-TH1-TL1-Timer-1"><a href="#TH0-TL0-Timer-0-TH1-TL1-Timer-1" class="headerlink" title="TH0&#x2F;TL0(Timer-0) &#x3D; TH1&#x2F;TL1(Timer-1)"></a>TH0&#x2F;TL0(Timer-0) &#x3D; TH1&#x2F;TL1(Timer-1)</h3><p>These two registers TH and TL are timer high byte and timer low byte registers. 0 and 1 are the timers numbers. These are 16-bit registers. we Load our time delays&#x2F;counter value in these registers. Recall 8051 timer counter can count up to 65535 and 16 bits cover 65535 in binary. Since 8051(89c51,89c52) is an 8-bit microcontroller, so to load 65535 we need two registers one representing the high byte and other the low byte. we access these register in two bytes one byte for TH(timer high byte) and TL(timer low byte). TH and TL together makes 16-bits(TH 8-bit, TL8-bit).  TH0 and TL0 are byte addressable only.</p>
+<p><strong>Formula if TIMER INTERRUPT</strong></p>
+<p>TH0&#x2F;TL0(Timer-0) &#x3D; TH1&#x2F;TL1(Timer-1)</p>
+<p>These two registers TH and TL are timer high byte and timer low byte registers. 0 and 1 are the timers numbers. These are 16-bit registers. we Load our time delays&#x2F;counter value in these registers. Recall 8051 timer counter can count up to 65535 and 16 bits cover 65535 in binary. Since 8051(89c51,89c52) is an 8-bit microcontroller, so to load 65535 we need two registers one representing the high byte and other the low byte. we access these register in two bytes one byte for TH(timer high byte) and TL(timer low byte). TH and TL together makes 16-bits(TH 8-bit, TL8-bit).  TH0 and TL0 are byte addressable only.</p>
 <ul>
 <li>how to set them then ? There is an  example .</li>
 </ul>
