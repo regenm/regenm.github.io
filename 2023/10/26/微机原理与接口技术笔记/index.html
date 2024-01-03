@@ -422,7 +422,7 @@
 
 <p><strong>offset</strong></p>
 <blockquote>
-<p>操作符offset在汇编语言中是由编译器处理的符号，它的功能是取得标号的偏移地址。</p>
+<p>操作符offset在汇编语言中是由编译器处理的符号，它的功能是<strong>取得标号的偏移地址</strong>。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">								  ;将s处的一条指令复制到s0处</span><br><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"> s:   mov ax, bx           			;（mov ax,bx 的机器码占两个字节）</span><br><span class="line">      mov si, offset s     			;获得标号s的偏移地址</span><br><span class="line">      mov di, offset s0    			;获得标号s0的偏移地址</span><br><span class="line">      </span><br><span class="line">      mov ax, cs:[si]</span><br><span class="line">      mov cs:[di], ax</span><br><span class="line"> s0:  nop                      		 ;（nop的机器码占一个字节）</span><br><span class="line">      nop</span><br><span class="line"> codesg ends</span><br><span class="line"> ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -627,7 +627,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2015-2023
+        2015-2024
         <i class="ri-heart-fill heart_icon"></i> Regen
       </li>
     </ul>
