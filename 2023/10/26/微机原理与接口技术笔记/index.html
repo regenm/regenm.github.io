@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">4.5k</span>
+            <span class="post-count">5.1k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">18 min</span>
+            <span class="post-count">20 min</span>
         </span>
     </span>
 </div>
@@ -428,12 +428,96 @@
 
 <p><strong>jmp指令</strong></p>
 <blockquote>
-<p>jmp 为无条件转移，转到标号处执行指令可以只修改IP，也可以同时修改CS和IP；</p>
+<p><strong>jmp 为无条件转移</strong>，转到标号处执行指令可以只修改IP，也可以同时修改CS和IP；</p>
 <p>jmp 指令要给出两种信息：</p>
-<p>转移的目的地址<br>转移的距离（段间转移、段内短转移，段内近转移）<br> jmp short 标号 jmp near ptr 标号 jcxz 标号 loop 标号 等几种汇编指令，它们对 IP的修改</p>
-<p>是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。</p>
+<ol>
+<li><p>转移的目的地址</p>
+</li>
+<li><p>转移的距离（段间转移、段内短转移，段内近转移）</p>
+<p>jmp short 标号 jmp near ptr 标号 jcxz 标号 loop 标号 等几种汇编指令，它们对 IP的修改是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。</p>
+</li>
+</ol>
 </blockquote>
-<h2 id="9-错题"><a href="#9-错题" class="headerlink" title="9.错题"></a>9.错题</h2><blockquote>
+<ol>
+<li><strong>jmp short 标号</strong></li>
+</ol>
+<ul>
+<li>实现段内短转移修改范围（-128-127）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp short s				; 跳转到</span><br><span class="line">add ax,1111h</span><br><span class="line">s: mov ax,2222h			; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><strong>jmp near ptr</strong></li>
+</ol>
+<ul>
+<li>实现段内近转移（修改范围大于（-128-127）但是小于-32768～32767，编译成功但链接失败），这是jmp short 实现不了的。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp near ptr s				; 跳转到</span><br><span class="line">db 128 dup(0)				; 制造距离超过127</span><br><span class="line">s: mov ax,2222h			; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><strong>jmp far ptr</strong></li>
+</ol>
+<ul>
+<li>实现段间转移（修改范围超过-32768～32767）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp near ptr s				; 跳转到</span><br><span class="line">db 32768 dup(0)				; 制造距离超过32767</span><br><span class="line">s: mov ax,2222h			; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="3">
+<li><strong>转移地址在寄存器或内存中的jmp指令</strong></li>
+</ol>
+<ul>
+<li>jmp 寄存器，直接修改ip为寄存器的值</li>
+<li>jmp word ptr 内存单元</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 0123H</span><br><span class="line">mov ds:[0], ax</span><br><span class="line">jmp word ptr ds:[0]			;执行后，(IP)=0123H</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>jxcz 标号</strong> </p>
+<blockquote>
+<p>如果(cx)&#x3D;0,转移到标号处执行；若(cx) !&#x3D; 0,继续向下执行</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">data segment</span><br><span class="line">	db 0,0,0</span><br><span class="line">data ends</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">stack segment</span><br><span class="line"> </span><br><span class="line">	dw 16 dup(0)</span><br><span class="line"> </span><br><span class="line">stack ends</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">code segment	</span><br><span class="line">start:  mov  ax,2000H</span><br><span class="line">		mov  ds,ax</span><br><span class="line">		mov  bx,0</span><br><span class="line"> </span><br><span class="line">s:		mov  ch,0</span><br><span class="line">		mov  cl,ds:[bx]</span><br><span class="line">		jcxz ok		;若(cx)==0，跳转至ok标号处执行</span><br><span class="line">		inc  bx		;继续循环，直至查找到第一个值为0的字节</span><br><span class="line">		jmp  short s</span><br><span class="line"> </span><br><span class="line">ok:		mov  dx,bx</span><br><span class="line">		mov  ax,4c00H</span><br><span class="line">		int  21H</span><br><span class="line">code ends</span><br><span class="line"> </span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="9-call和ret指令"><a href="#9-call和ret指令" class="headerlink" title="9.call和ret指令"></a>9.call和ret指令</h2><ul>
+<li><strong>ret和retf</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>ret</strong>指令用栈中的数据，修改IP的内容，从而实现<strong>近转移</strong></li>
+</ul>
+<p>对于ret：相当于<strong>一次</strong> pop，把数据放在ip里</p>
+<ul>
+<li><strong>retf</strong>指令用栈中的数据，修改CS和IP的内容，从而实现<strong>远转移</strong>。</li>
+</ul>
+<p>对于ret：相当于<strong>两次</strong> pop，第一次数据放在ip里，第二次放cs里</p>
+</blockquote>
+<ul>
+<li><strong>call指令</strong></li>
+</ul>
+<p>类似于jmp，<strong>但是</strong>多了一个功能：<strong>将当前的 IP 或 CS和IP 压入栈中</strong>，此外，call没有短转移</p>
+<ul>
+<li><strong>call和ret的连招</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start:	mov ax,1</span><br><span class="line">	    mov cx,3</span><br><span class="line">     	call s ;（1）CPU指令缓冲器存放call指令，IP指向下一条指令（mov bx, ax），执行call指令，IP入栈，jmp</span><br><span class="line">     	</span><br><span class="line">	    mov bx,ax;（4）IP重新指向这里  bx = 8</span><br><span class="line">	    </span><br><span class="line"></span><br><span class="line">     	mov ax,4c00h</span><br><span class="line">     	int 21h</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">     s: add ax,ax</span><br><span class="line">     	loop s;（2）循环3次ax = 8</span><br><span class="line">	    ret;（3）return : pop IP</span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="10-错题"><a href="#10-错题" class="headerlink" title="10.错题"></a>10.错题</h2><blockquote>
 <p>一、下列关于8086CPU的工作原理的描述错误的是__3__。<br> 1、 汇编程序员可以通过对各种寄存器中内容的修改实现对CPU的控制。<br> 2、 CPU在访问内存时，采用“段地址*16+偏移地址”的形式给出要访问的内存单元的物理地址。<br>3、 任意时刻，CS:IP指向的内容即是此刻CPU正在执行的指令。<br> 4、 传送指令能够更改所有通用寄存器的内容。</p>
 <p>注解：</p>
 <pre><code> 1、正确，见课本P13
