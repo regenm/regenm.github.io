@@ -500,7 +500,106 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>​	以下项目都是我在已经完成之后补录的笔记，包括但不限于遇到的报错，问题。便于以后复现。实际上不能说是项目，仅仅是复现并且享受大佬的成果而已。开源不易，感谢大佬们开源！</p>
-<h1 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h1><h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建"><a href="#MQTT服务器搭建" class="headerlink" title="MQTT服务器搭建"></a>MQTT服务器搭建</h1><h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1> 
+<h1 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h1><h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
+<li>简介</li>
+</ol>
+<blockquote>
+<p>MQTT也称为”消息代理”（Broker）。</p>
+<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
+</blockquote>
+<ol start="2">
+<li>原理</li>
+</ol>
+<blockquote>
+<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
+<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
+<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
+<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
+</blockquote>
+<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件</li>
+</ul>
+<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
+<blockquote>
+<p>Any files placed in this directory that have a .conf ending will be loaded as<br>config files by the broker. Use this to make your local config.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加用户</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关闭防火墙！！！</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
+<li>用户登录订阅，发布</li>
+</ul>
+<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
+<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>订阅</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
+<li><strong>脚本制作</strong></li>
+</ul>
+<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
+<ol>
+<li>发布</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>订阅，同理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接esp32或8266</li>
+</ul>
+<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1> 
       <!-- reward -->
       
     </div>
