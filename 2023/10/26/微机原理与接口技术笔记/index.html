@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">5.1k</span>
+            <span class="post-count">5.3k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">20 min</span>
+            <span class="post-count">21 min</span>
         </span>
     </span>
 </div>
@@ -413,16 +413,45 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">; 8 位</span><br><span class="line">;计算100*10</span><br><span class="line">;100和10小于255，可以做8位乘法</span><br><span class="line">mov al,100</span><br><span class="line">mov bl,10</span><br><span class="line">mul bl</span><br><span class="line"></span><br><span class="line">;结果： (ax)=1000（03E8H） </span><br><span class="line"></span><br><span class="line">; 16 位置</span><br><span class="line"></span><br><span class="line">;计算100*10000</span><br><span class="line">;100小于255，可10000大于255，所以必须做16位乘法，程序如下：</span><br><span class="line">mov ax,100</span><br><span class="line">mov bx,10000</span><br><span class="line">mul bx</span><br><span class="line"></span><br><span class="line">;结果： (ax)=4240H，(dx)=000FH     （F4240H=1000000）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h2 id="8-数据处理的两个基本问题"><a href="#8-数据处理的两个基本问题" class="headerlink" title="8.数据处理的两个基本问题"></a>8.数据处理的两个基本问题</h2><h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><p><strong>只有四个寄存器可以通过 [ … ] 进行内存单元的寻址</strong> </p>
+<ul>
+<li>以下代码为错误代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[cx]</span><br><span class="line">mov ax,[dx]</span><br><span class="line">mov ax,[ax]</span><br><span class="line">mov ax,[ds]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 [ … ] 中四个寄存器可以单独出现，或只能以四种组合出现</li>
+</ul>
+<blockquote>
+<ol>
+<li>bx 和 si</li>
+<li>bx 和 di</li>
+<li>bp 和 si</li>
+<li>bp 和 di</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[bx+si]</span><br><span class="line">mov ax,[bx+di]</span><br><span class="line">mov ax,[bp+si]</span><br><span class="line">mov ax,[bp+di]</span><br><span class="line">						;也可以加上data</span><br><span class="line">mov ax,[bx+si+idata</span><br><span class="line">mov ax,[bx+di+1]</span><br><span class="line">mov ax,[bp+si+2</span><br><span class="line">mov ax,[bp+di+3</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理的数据的大小"><a href="#处理的数据的大小" class="headerlink" title="处理的数据的大小"></a>处理的数据的大小</h3><ul>
+<li>一般是字或者字节</li>
+</ul>
+<blockquote>
+<p>在没有寄存器名的情况下可以使用 <code>X ptr</code>指明内存单元的长度</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov word ptr ds:[0],1</span><br><span class="line">inc word ptr []bx</span><br><span class="line">add word ptr [bx],2</span><br><span class="line"></span><br><span class="line">mov byte ptr ds:[0],1</span><br><span class="line">inc byte ptr []bx</span><br><span class="line">add byte ptr [bx],2</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="8-转移指令"><a href="#8-转移指令" class="headerlink" title="8.转移指令"></a>8.转移指令</h2><blockquote>
+
+
+
+<h2 id="9-转移指令"><a href="#9-转移指令" class="headerlink" title="9.转移指令"></a>9.转移指令</h2><blockquote>
 <p>可以修改IP，或同时修改CS和IP的指令统称为转移指令。概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jmp ax		    ; 段内转移</span><br><span class="line">jmp 1000:0 		; 段间转移</span><br></pre></td></tr></table></figure>
 
 <p><strong>offset</strong></p>
 <blockquote>
-<p>操作符offset在汇编语言中是由编译器处理的符号，它的功能是<strong>取得标号的偏移地址</strong>。</p>
+<p>操作符offset在编语言中是由编译器处理的符号，它的功能是<strong>取得标号的偏移地址</strong>。</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">								  ;将s处的一条指令复制到s0处</span><br><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"> s:   mov ax, bx           			;（mov ax,bx 的机器码占两个字节）</span><br><span class="line">      mov si, offset s     			;获得标号s的偏移地址</span><br><span class="line">      mov di, offset s0    			;获得标号s0的偏移地址</span><br><span class="line">      </span><br><span class="line">      mov ax, cs:[si]</span><br><span class="line">      mov cs:[di], ax</span><br><span class="line"> s0:  nop                      		 ;（nop的机器码占一个字节）</span><br><span class="line">      nop</span><br><span class="line"> codesg ends</span><br><span class="line"> ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -489,7 +518,7 @@
 
 
 
-<h2 id="9-call和ret指令"><a href="#9-call和ret指令" class="headerlink" title="9.call和ret指令"></a>9.call和ret指令</h2><ul>
+<h2 id="10-call和ret指令"><a href="#10-call和ret指令" class="headerlink" title="10.call和ret指令"></a>10.call和ret指令</h2><ul>
 <li><strong>ret和retf</strong></li>
 </ul>
 <blockquote>
