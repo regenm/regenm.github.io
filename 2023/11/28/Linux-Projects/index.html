@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">807</span>
+            <span class="post-count">1k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">3 min</span>
+            <span class="post-count">4 min</span>
         </span>
     </span>
 </div>
@@ -107,7 +107,27 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>​	以下项目都是我在已经完成之后补录的笔记，包括但不限于遇到的报错，问题。便于以后复现。实际上不能说是项目，仅仅是复现并且享受大佬的成果而已。开源不易，感谢大佬们开源！</p>
-<h1 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h1><h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
+<h1 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h1><h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>​	官网：<a target="_blank" rel="noopener" href="https://www.zerotier.com/">ZeroTier</a></p>
+<blockquote>
+<p><strong>ZeroTier Client :</strong></p>
+<p>The ZeroTier client is used to connect to virtual networks previously created in the ZeroTier Central web-based <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/User_interface">UI</a>. Endpoint connections are peer-to-peer and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encrypted</a>. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/STUN">STUN</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hole_punching_(networking)">hole punching</a> are used to establish direct connections between peers behind <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Network_Address_Translation">NAT</a>. Direct connection route discovery is made with the help of a global network of <em>root servers</em> via a mechanism similar to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment">ICE</a> in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>.</p>
+</blockquote>
+<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>​		实际上十分简单，对于Windows，iPad，Android，macOS都有相应软件。</p>
+<p><img src="/images/ZeroTIerDownload.png"></p>
+<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>操作：加入，离开，查看已经连接的网络</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli <span class="built_in">join</span> &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#加入</span></span><br><span class="line">zerotier-cli leave &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#离开</span></span><br><span class="line">zerotier-cli listnetworks</span><br><span class="line"><span class="comment">#连接列表</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-管理"><a href="#3-管理" class="headerlink" title="3.管理"></a>3.管理</h2><p>​	直接登录官网即可进行对已组网络的管理，例如授权用户，修改网络内部IP地址以及备注信息等等</p>
+<p><img src="/images/ZeroTierAdmin.jpg" alt="Admin Page"></p>
+<h2 id="4-Last"><a href="#4-Last" class="headerlink" title="4.Last"></a>4.Last</h2><p>​	世上还是好人多啊，ZeroTier的出现真的让内网穿透方便了很多，免费用户的配置也很不错！</p>
+<h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
 <li>简介</li>
 </ol>
 <blockquote>
