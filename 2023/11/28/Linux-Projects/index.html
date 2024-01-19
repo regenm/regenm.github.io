@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">1.1k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">4 min</span>
+            <span class="post-count">5 min</span>
         </span>
     </span>
 </div>
@@ -225,8 +225,18 @@
 <ul>
 <li>连接esp32或8266</li>
 </ul>
-<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器</p>
- 
+<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器Zerotier刚好可以拿来当我的梦中情机的最后一块拼图。使用ZeroTier就可以让我方便的在SH连接到JX的家中局域网内的服务器了！</p>
+<h2 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2.介绍"></a>2.介绍</h2><h3 id="1-硬件介绍"><a href="#1-硬件介绍" class="headerlink" title="1.硬件介绍"></a>1.硬件介绍</h3><p>​			硬件部分的清单：</p>
+<blockquote>
+<p>CPU : E3 1230 v2 (4核8线，3.3ghz)</p>
+<p>显卡 ： gt610 	（亮机即可，且低功耗）</p>
+<p>内存：8g</p>
+<p>存储：240（固态）+500（机械）</p>
+</blockquote>
+<h3 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h3><p>​		由于我正在使用的pc中恰好有四个下载好的镜像文件，分别是 macOS.Ventura_13.4 , deepin ，ubuntu22.04，kali2023，最终使用的是kali,原因在于kali已经安装好绝大部分软件和其需运行的环境，例如：httpd，JDK，javarun，makefile等等。</p>
+<h2 id="3-组装（跳过）"><a href="#3-组装（跳过）" class="headerlink" title="3.组装（跳过）"></a>3.组装（跳过）</h2><h2 id="4-配置ZeroTier-如上篇ZeroTier内网穿透"><a href="#4-配置ZeroTier-如上篇ZeroTier内网穿透" class="headerlink" title="4.配置ZeroTier(如上篇ZeroTier内网穿透)"></a>4.配置ZeroTier(如上篇ZeroTier内网穿透)</h2><h2 id="5-结束"><a href="#5-结束" class="headerlink" title="5.结束"></a>5.结束</h2><p>最终效果，通过ipad的终端ssh外网连接kali</p>
+<p><img src="/images/ipadConnectKali.jpg" alt="ipadConnectKali"></p>
+<h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1> 
       <!-- reward -->
       
       <div id="reword-out">

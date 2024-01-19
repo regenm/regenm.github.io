@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">468</span>
+            <span class="post-count">808</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -106,10 +106,8 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h1><ol>
-<li><h2 id="显示后台指令"><a href="#显示后台指令" class="headerlink" title="显示后台指令"></a>显示后台指令</h2></li>
-</ol>
-<p>​	1.提供所有进程信息</p>
+  <p>A note about linux basic operation.</p>
+<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
@@ -160,10 +158,7 @@
 <h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
 
-<h2 id="压缩文件操作"><a href="#压缩文件操作" class="headerlink" title="压缩文件操作"></a>压缩文件操作</h2><ul>
-<li>GZIP</li>
-</ul>
-<h2 id="1-使用gzip进行解压缩"><a href="#1-使用gzip进行解压缩" class="headerlink" title="1.使用gzip进行解压缩"></a>1.使用gzip进行解压缩</h2><p>​	压缩：</p>
+<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
 
 <p>​	</p>
@@ -189,7 +184,60 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
 
 <h1 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
-<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h2 id="2-开放端口"><a href="#2-开放端口" class="headerlink" title="2.开放端口"></a>2.开放端口</h2><h2 id="3-检查是否开放成功"><a href="#3-检查是否开放成功" class="headerlink" title="3.检查是否开放成功"></a>3.检查是否开放成功</h2> 
+<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080	<span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
+<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
+</blockquote>
+<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
+<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
+<li>例如开放ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使之生效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查是否生效</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
+<li>限制ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
+
+ 
       <!-- reward -->
       
       <div id="reword-out">
