@@ -624,12 +624,59 @@
 <p>CPU : E3 1230 v2 (4核8线，3.3ghz)</p>
 <p>显卡 ： gt610 	（亮机即可，且低功耗）</p>
 <p>内存：8g</p>
-<p>存储：240（固态）+500（机械）</p>
+<p>外存：240（固态）+500（机械）</p>
 </blockquote>
 <h3 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h3><p>​		由于我正在使用的pc中恰好有四个下载好的镜像文件，分别是 macOS.Ventura_13.4 , deepin ，ubuntu22.04，kali2023，最终使用的是kali,原因在于kali已经安装好绝大部分软件和其需运行的环境，例如：httpd，JDK，javarun，makefile等等。</p>
 <h2 id="3-组装（跳过）"><a href="#3-组装（跳过）" class="headerlink" title="3.组装（跳过）"></a>3.组装（跳过）</h2><h2 id="4-配置ZeroTier-如上篇ZeroTier内网穿透"><a href="#4-配置ZeroTier-如上篇ZeroTier内网穿透" class="headerlink" title="4.配置ZeroTier(如上篇ZeroTier内网穿透)"></a>4.配置ZeroTier(如上篇ZeroTier内网穿透)</h2><h2 id="5-结束"><a href="#5-结束" class="headerlink" title="5.结束"></a>5.结束</h2><p>最终效果，通过ipad的终端ssh外网连接kali</p>
 <p><img src="/images/ipadConnectKali.jpg" alt="ipadConnectKali"></p>
-<h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1> 
+<h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1><h2 id="1-make简要介绍"><a href="#1-make简要介绍" class="headerlink" title="1.make简要介绍"></a>1.make简要介绍</h2><blockquote>
+<p>​	In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_development">software development</a>, <strong>Make</strong> is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Build_automation">build automation</a> tool that <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_build">builds</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Executable_program">executable programs</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Library_(software)">libraries</a> from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Source_code">source code</a> by reading <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/File_(computing)">files</a> called <em>makefiles</em> which specify how to derive the target program. Though <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environments</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Programming_language">language</a>-specific <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compiler_(computing)">compiler</a> features can also be used to manage a build process, Make remains widely used, especially in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unix">Unix</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Operating_system">operating systems</a>.</p>
+</blockquote>
+<blockquote>
+<p>​	Make is not limited to building programs. It can also be used to manage any project where some files need to be updated automatically from other files whenever the other files change.</p>
+</blockquote>
+<h2 id="2-makefile简要介绍"><a href="#2-makefile简要介绍" class="headerlink" title="2.makefile简要介绍"></a>2.makefile简要介绍</h2><p>​	makefile文件用于告诉make命令如何执行编译和链接。</p>
+<p>​	当一个文件具有很多个.c文件和.h文件时，如果将makefile写好了，就只需要一行代码<code>make</code>即可完成编译链接或者<code>make clean</code>删除所有目标文件，同时还能具备以下特性：</p>
+<blockquote>
+<p>​      1.如果这个工程没有编译过，那么所有C文件都会编译并被链接。</p>
+<p>​      2.如果这个工程的某几个C文件被修改，那么只编译被修改的C文件，并链接目标程序。</p>
+<p>​      3.如果这个工程的头文件被改变了，那么我们需要编译引用了这几个头文件的C文件，并链接目标程序。</p>
+</blockquote>
+<h2 id="3-makefile的规则"><a href="#3-makefile的规则" class="headerlink" title="3.makefile的规则"></a>3.makefile的规则</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ...</span><br><span class="line"></span><br><span class="line">         command</span><br><span class="line"></span><br><span class="line">         ...</span><br><span class="line"></span><br><span class="line">         ...</span><br><span class="line">        -------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>target : 目标文件（可以使object文件，可执行文件，还可以是<strong>标签</strong>）</li>
+<li>prerequisites ：生成target所需要的文件或是目标。</li>
+<li>command也就是make需要执行的命令。（Shell命令）</li>
+</ul>
+<h2 id="4-makefile的使用"><a href="#4-makefile的使用" class="headerlink" title="4.makefile的使用"></a>4.makefile的使用</h2><p>​	makefile的规则看似十分简单，但是写好一个makefile却是不简单的。下面举例说明&#96;&#96;&#96;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#假设已经存在3个c文件，4个.h文件，分别是:</span></span><br><span class="line">cFile1.c cFile2.c cFile3.c</span><br><span class="line">hFile1.h hFile2.h hFile3.h hFile4.h</span><br></pre></td></tr></table></figure>
+
+<p>​		如果我们最终想要生成可执行文件main，那么makefile可以这样写，以下是我使用在线makefile生成器生成的。</p>
+<p>​		同时介绍一下gcc的参数：</p>
+<blockquote>
+<ul>
+<li><p>-g可执行程序包含调试信息<br>-g为了调试用的<br>加个-g 是为了gdb 用，不然gdb用不到</p>
+</li>
+<li><p>-o指定输出文件名<br>-o output_filename，确定输出文件的名称为output_filename，同时这个名称不能和源文件同名。如果不给出这个选项，gcc就给出</p>
+</li>
+<li><p>-c 只编译不链接<br>产生.o文件，就是obj文件，不产生执行文件</p>
+</li>
+<li><p>-D 其意义是添加宏定义</p>
+</li>
+<li><p>-w的意思是关闭编译时的警告，也就是编译后不显示任何warning，因为有时在编译之后编译器会显示一些例如数据转换之类的警告，这些警告是我们平时可以忽略的。</p>
+</li>
+<li><p>-W选项类似-Wall，会显示警告，但是只显示编译器认为会出现错误的警告。</p>
+</li>
+<li><p>-Wall选项意思是编译后显示所有警告</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># In order to execute this &quot;Makefile&quot; just type &quot;make&quot;</span></span><br><span class="line"><span class="comment">#	A. Delis (ad@di.uoa.gr)</span></span><br><span class="line"><span class="comment"># web: https://solver.assistedcoding.eu/makefilegen</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">OBJS	= cFile1.o cFile2.o cFile3.o</span><br><span class="line">SOURCE	= cFile1.c cFile2.c cFile3.c</span><br><span class="line">HEADER	= hFile1.h hFile2.h hFile3.h hFile4.h</span><br><span class="line">OUT	= main.out</span><br><span class="line">CC	 = gcc</span><br><span class="line">FLAGS	 = -g -c -Wall				 </span><br><span class="line">LFLAGS	 = </span><br><span class="line"><span class="comment"># -g option enables debugging mode </span></span><br><span class="line"><span class="comment"># -c flag generates object code for separate files</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">all: <span class="variable">$(OBJS)</span></span></span><br><span class="line">	<span class="variable">$(CC)</span> -g <span class="variable">$(OBJS)</span> -o <span class="variable">$(OUT)</span> <span class="variable">$(LFLAGS)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># create/compile the individual files &gt;&gt;separately&lt;&lt;</span></span><br><span class="line"><span class="section">cFile1.o: cFile1.c</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile1.c -lcunit</span><br><span class="line"></span><br><span class="line"><span class="section">cFile2.o: cFile2.c</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile2.c -lcunit</span><br><span class="line"></span><br><span class="line"><span class="section">cFile3.o: cFile3.c</span></span><br><span class="line">	<span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile3.c -lcunit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># clean house</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f <span class="variable">$(OBJS)</span> <span class="variable">$(OUT)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># run the program</span></span><br><span class="line"><span class="section">run: <span class="variable">$(OUT)</span></span></span><br><span class="line">	./<span class="variable">$(OUT)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1> 
       <!-- reward -->
       
     </div>
@@ -810,7 +857,7 @@
 <p>或者（ufw）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
 
- 
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1> 
       <!-- reward -->
       
     </div>
