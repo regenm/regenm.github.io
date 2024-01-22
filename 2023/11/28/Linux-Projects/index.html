@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.1k</span>
+            <span class="post-count">2.7k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">8 min</span>
+            <span class="post-count">11 min</span>
         </span>
     </span>
 </div>
@@ -283,7 +283,94 @@
 
 
 
-<h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1> 
+<h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h2 id="1-简要介绍"><a href="#1-简要介绍" class="headerlink" title="1. 简要介绍"></a>1. 简要介绍</h2><blockquote>
+<p>From Wikipedia, the free encyclopedia</p>
+<p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_development">software development</a>, <strong>CMake</strong> is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cross-platform">cross-platform</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open-source software</a> for <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Build_automation">build automation</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_testing">testing</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Package_(package_management_system)">packaging</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Installation_(computer_programs)">installation</a> of software by using a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compiler">compiler</a>-independent method.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-3">3]</a> CMake is not a build system itself; it generates another system’s build files.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a> It supports directory hierarchies and applications that depend on multiple libraries. It can invoke native build environments such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Make_(software)">Make</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Qt_Creator">Qt Creator</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ninja_(build_system)">Ninja</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Android_Studio">Android Studio</a>, Apple’s <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Xcode">Xcode</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio">Microsoft Visual Studio</a>.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a> It has minimal dependencies, requiring only a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> compiler on its own build system.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a></p>
+<p>CMake is distributed as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open-source software</a> under a permissive <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/BSD_licenses">BSD-3-Clause</a> license.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-5"></a></p>
+</blockquote>
+<p>​	我的理解就是cmake是一款能够夸平台的生成makefile的工具，这样就不需要写复杂的makefile了。</p>
+<h2 id="2-cmake使用"><a href="#2-cmake使用" class="headerlink" title="2.	cmake使用"></a>2.	cmake使用</h2><h3 id="1-使用流程"><a href="#1-使用流程" class="headerlink" title="1.使用流程"></a>1.使用流程</h3><pre><code>1. 在项目根目录下创建一个名为` CMakeLists.txt`的文件
+</code></pre>
+<ol start="2">
+<li>编写该文件（当文件比较少的时候）</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)	<span class="comment"># 版本要求</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set the project name</span></span><br><span class="line"><span class="keyword">project</span>(firstProject)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add the executable（包括所有的用到的源文件）</span></span><br><span class="line"><span class="keyword">add_executable</span>(firstOut a.cpp b.cpp)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用cmake命令生成makefile</li>
+</ol>
+<ul>
+<li>cmake命令的使用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Usage</span><br><span class="line"></span><br><span class="line">  cmake [options] &lt;path-to-source&gt;</span><br><span class="line">  cmake [options] &lt;path-to-existing-build&gt;</span><br><span class="line">  cmake [options] -S &lt;path-to-source&gt; -B &lt;path-to-build&gt;</span><br><span class="line"></span><br><span class="line">Specify a <span class="built_in">source</span> directory to (re-)generate a build system <span class="keyword">for</span> it <span class="keyword">in</span> the</span><br><span class="line">current working directory.  Specify an existing build directory to</span><br><span class="line">re-generate its build system.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>使用make得到输出</li>
+</ol>
+<h3 id="2-单个源文件的项目"><a href="#2-单个源文件的项目" class="headerlink" title="2.单个源文件的项目"></a>2.单个源文件的项目</h3><ol>
+<li>编写main.cpp</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;<span class="built_in">printf</span>(<span class="string">&quot;hello\n&quot;</span>);<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写CMakeLists.txt</li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the project name</span></span><br><span class="line"><span class="keyword">project</span>(firstProject)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add the executable</span></span><br><span class="line"><span class="keyword">add_executable</span>(firstOut main.cpp)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建输出文件夹并且进行输出</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line">cmake -S . -B ./build/</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>使用make进行编译链接即可得到可执行文件<code>firstOut</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-CMakeLists-txt-的写法"><a href="#3-CMakeLists-txt-的写法" class="headerlink" title="3. CMakeLists.txt 的写法"></a>3. CMakeLists.txt 的写法</h3><h4 id="1-使用set"><a href="#1-使用set" class="headerlink" title="1.使用set"></a>1.使用set</h4><ul>
+<li>定义变量 <strong>set</strong> ，类型为字符串</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(outName[forstOut])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用宏</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)   			<span class="comment"># 指定c++标准的宏</span></span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH 	/home/regen/CMake/regen_1/build)<span class="comment"># 指定可执行文件的输出目录</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>取值</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;outName&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-文件搜索（便于源文件很多的情况）获取源文件名字"><a href="#2-文件搜索（便于源文件很多的情况）获取源文件名字" class="headerlink" title="2.文件搜索（便于源文件很多的情况）获取源文件名字"></a>2.文件搜索（便于源文件很多的情况）获取源文件名字</h4><p>​	建议将源文件放在独立的目录下，便于获取源文件名字。</p>
+<ol>
+<li>使用<code>aux_source_directory(&lt; dir &gt; &lt; variable &gt;)</code></li>
+</ol>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(&lt; dir &gt; &lt; variable &gt;)</span><br><span class="line"><span class="keyword">aux_source_directory</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span> SRC)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用file（用于应对很多源文件在不同目录的情况）</li>
+</ol>
+<ul>
+<li>后缀搜索目录下所有源文件</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>(GLOB MAIN_SRC <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/src/*.cpp)</span><br><span class="line"><span class="keyword">file</span>(GLOB MAIN_HEAD <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>/*.h)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>头文件与源文件分开放的处理方法</li>
+</ol>
+<ul>
+<li>使用宏</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include_directories</span>(headpath)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="3-静态库和动态库"><a href="#3-静态库和动态库" class="headerlink" title="3.静态库和动态库"></a>3.静态库和动态库</h2><p>​	pause.打算在下次用到的时候补充</p>
+<p>​                                </p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
