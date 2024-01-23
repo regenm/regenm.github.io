@@ -57,7 +57,7 @@
 <section class="cover">
     
       
-      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+      <a class="forkMe" href="https://github.com/regenm/Notes"
         target="_blank"><img width="149" height="149" src="/images/forkme.png"
           class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
     
@@ -110,8 +110,8 @@
   <ul class="ads">
     
         <li>
-            <a target="_blank" rel="noopener" href="https://www.bilibili.com">
-                <img src="/images/cover1.jpg" width="300" alt="Bilibili">
+            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
+                <img src="/images/touxiang.png" width="300" alt="Bilibili">
             </a>
         </li>
     
@@ -777,7 +777,7 @@
     <ul>
       <li>
         Copyrights &copy;
-        2015-2024
+        2022-2024
         <i class="ri-heart-fill heart_icon"></i> Regen
       </li>
     </ul>
@@ -873,10 +873,6 @@
         <i class="ri-search-line"></i>
       </a>
       
-      
-      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
-        <i class="ri-rss-line"></i>
-      </a>
       
     </li>
   </ul>
@@ -1033,6 +1029,30 @@
     viewer_init()
 </script> 
 <!-- MathJax -->
+ <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
+<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true,
+  };
+</script>
 
 <!-- Katex -->
 
@@ -1041,7 +1061,9 @@
 <script src="/js/busuanzi-2.3.pure.min.js"></script>
  
 <!-- ClickLove -->
-
+ 
+<script src="/js/clickLove.js"></script>
+ 
 <!-- ClickBoom1 -->
 
 <!-- ClickBoom2 -->
@@ -1105,7 +1127,9 @@
 </script>
  
 <!-- CanvasBackground -->
-
+ 
+<script src="/js/dz.js"></script>
+ 
 <script>
   if (window.mermaid) {
     mermaid.initialize({ theme: "forest" });
@@ -1119,7 +1143,7 @@
     
     
     <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=536623501&auto=1&height=32"></iframe>
+        src="//music.163.com/outchain/player?type=2&id=536623501&auto=0&height=32"></iframe>
 </div>
 
 <style>
