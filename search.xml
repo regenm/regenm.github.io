@@ -472,10 +472,12 @@
     <url>/2023/09/21/%E5%86%8D%E7%A9%B7%E4%B9%9F%E8%A6%81%E5%8E%BB%E6%97%85%E6%B8%B8/</url>
     <content><![CDATA[<h1 id="《再穷也要去旅游》"><a href="#《再穷也要去旅游》" class="headerlink" title="《再穷也要去旅游》"></a>《再穷也要去旅游》</h1><p>​	我今天才开始接触这本书，初见时就是惊鸿一瞥，可能是比较贴切当代像我一样穷大学生的现状吧 &lt;3。</p>
 <p>​	唉，我好像老是嘴上说着要去哪里哪里走一走，但是到头来总是会出现各种各样的阻挠。就像今年夏天，驾照啦，作业啦之类的。但是仔细想想，好像这只是给自己家里蹲找的借口而已。于是不了终了，开学时只得借大隐隐于市聊以自慰。</p>
-<p>​	不行啊！这个寒假可不能在颓废了！你不是会骑摩托了吗？！这个寒假就加满油去野营吧！看看能否找到冬季银河的踪迹。</p>
+<p>​	不行啊！这个寒假可不能在颓废了！你不是会骑摩托了吗？！这个寒假就加满油去野营吧！看看能否找到冬季银河的踪迹。（回家之前）</p>
+<p>​	nmmd，这么冷，不是下雨就是下雪，这个世界又多了一个伤心的人。</p>
 ]]></content>
       <tags>
         <tag>读书</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -1625,15 +1627,15 @@
   <entry>
     <title>MySql学习笔记</title>
     <url>/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="MySQL学习笔记（8-0）"><a href="#MySQL学习笔记（8-0）" class="headerlink" title="MySQL学习笔记（8.0）"></a>MySQL学习笔记（8.0）</h1><p>​		一切只因花几十块买了一年的云服务器。刚好目前需要用 用 JDBC ，于是就把数据库部署到了服务器上面。然而这其中却遇到了难以想象的困难。</p>
+    <content><![CDATA[<h1 id="MySQL学习笔记（8-0）"><a href="#MySQL学习笔记（8-0）" class="headerlink" title="MySQL学习笔记（8.0）"></a>MySQL学习笔记（8.0）</h1><p>​		一切只因花几十块买了一年的云服务器。刚好目前需要用 用 JDBC ，于是就把数据库部署到了服务器上面。然而这其中却遇到了难以想象的困难（后来才发现没有必要这么弄，且一般也不这么弄，安全性大打折扣）。</p>
 <h2 id="1-部署环境以及初始化配置"><a href="#1-部署环境以及初始化配置" class="headerlink" title="1.部署环境以及初始化配置"></a>1.部署环境以及初始化配置</h2><ul>
 <li>Ubuntu</li>
 </ul>
 <h3 id="1-下载安装，配置密码"><a href="#1-下载安装，配置密码" class="headerlink" title="1.下载安装，配置密码"></a>1.下载安装，配置密码</h3><p>以root用户登录之后：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade	#不解释</span><br><span class="line">apt install mysql-server -y	#下载</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade  #不解释</span><br><span class="line">apt install mysql-server -y  #下载</span><br></pre></td></tr></table></figure>
 
 <p><strong>此时你可以直接进入mysql</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> apt install mysql<span class="operator">-</span>server <span class="operator">-</span>y #（将密码置为空）</span><br><span class="line">mysql<span class="operator">&gt;</span> quit;</span><br><span class="line">#	然后重启mysql，再次进入</span><br><span class="line">systemstl restart mysql</span><br><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> (如果不用远程链接则为<span class="string">&#x27;localhost&#x27;</span>)IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit #修改完成</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> apt install mysql<span class="operator">-</span>server <span class="operator">-</span>y #（将密码置为空）</span><br><span class="line">mysql<span class="operator">&gt;</span> quit;</span><br><span class="line">#  然后重启mysql，再次进入</span><br><span class="line">systemstl restart mysql</span><br><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> (如果不用远程链接则为<span class="string">&#x27;localhost&#x27;</span>)IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit #修改完成</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>开启远程链接功能</li>
@@ -2601,12 +2603,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/12/02/README/</url>
-    <content><![CDATA[<h1 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h1><p>​	Notes</p>
-]]></content>
-  </entry>
-  <entry>
     <title>《丧钟为谁而鸣》</title>
     <url>/2023/12/02/%E3%80%8A%E4%B8%A7%E9%92%9F%E4%B8%BA%E8%B0%81%E8%80%8C%E9%B8%A3%E3%80%8B/</url>
     <content><![CDATA[<p><img src="/images/bookszwsrm.jpg" alt="丧钟为谁而鸣"></p>
@@ -2631,6 +2627,7 @@
 ]]></content>
       <tags>
         <tag>读书</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -2704,6 +2701,7 @@
 ]]></content>
       <tags>
         <tag>读书</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
