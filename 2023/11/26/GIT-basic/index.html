@@ -144,7 +144,7 @@
 <ol start="2">
 <li>configure git</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>		<span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>		</span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>initialize you repo</li>
@@ -164,7 +164,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
 <p>​		or you can use </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status --short</span><br><span class="line"><span class="comment">#	Note: Short status flags are:</span></span><br><span class="line"><span class="comment">#		?? - Untracked files</span></span><br><span class="line"><span class="comment">#		A - Files added to stage</span></span><br><span class="line"><span class="comment">#		M - Modified files</span></span><br><span class="line"><span class="comment">#		D - Deleted files</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status --short</span><br><span class="line"><span class="comment">#  Note: Short status flags are:</span></span><br><span class="line"><span class="comment">#    ?? - Untracked files</span></span><br><span class="line"><span class="comment">#    A - Files added to stage</span></span><br><span class="line"><span class="comment">#    M - Modified files</span></span><br><span class="line"><span class="comment">#    D - Deleted files</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -175,7 +175,7 @@
 <ol start="2">
 <li>add to stage environment</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># once you finish a part or a bug ,you need to add it to  stage environment. So that you files in the stage environment are ready to commit .</span></span><br><span class="line"></span><br><span class="line">git add hello.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># or you can use </span></span><br><span class="line">git add —all</span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># this two commends stages all the changes .	</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># once you finish a part or a bug ,you need to add it to  stage environment. So that you files in the stage environment are ready to commit .</span></span><br><span class="line"></span><br><span class="line">git add hello.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># or you can use </span></span><br><span class="line">git add —all</span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># this two commends stages all the changes .  </span></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>move from  stage to <strong>commit</strong> for our repo.</li>
@@ -209,17 +209,17 @@
 <ol>
 <li>create new git branch</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">	<span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>check out the branches</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">	  newBtanch</span><br><span class="line">	* master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
 <li>move branch</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch 		<span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ol start="4">
 <li>check status of this branch , add to stage and commit . (same code)</li>
@@ -330,7 +330,7 @@
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
@@ -502,7 +502,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E9%9A%8F%E7%AC%94">随笔</a>
+      <a class="nav-item-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0">随笔</a>
     </li>
     
     <li class="nav-item">
