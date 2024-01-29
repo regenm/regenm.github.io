@@ -2765,4 +2765,94 @@
         <tag>随手记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>STM32</title>
+    <url>/2024/01/29/STM32/</url>
+    <content><![CDATA[<h1 id="1-STM32和51"><a href="#1-STM32和51" class="headerlink" title="1. STM32和51"></a>1. STM32和51</h1><h2 id="1-51的优缺点"><a href="#1-51的优缺点" class="headerlink" title="1. 51的优缺点"></a>1. 51的优缺点</h2><h3 id="1-51-的优点"><a href="#1-51-的优点" class="headerlink" title="1. 51 的优点"></a>1. 51 的优点</h3><ul>
+<li>硬件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>结构简单，8位</li>
+<li>硬件到软件有一套按位操作系统。（进行位的操作：传送、置位、清零、测试，逻辑运算）</li>
+<li>包含乘除法指令</li>
+</ol>
+</blockquote>
+<ul>
+<li>软件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>可以使用C进行编程</li>
+</ol>
+</blockquote>
+<h3 id="2-51的缺点"><a href="#2-51的缺点" class="headerlink" title="2. 51的缺点"></a>2. 51的缺点</h3><ul>
+<li>硬件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>功能少，运行速度慢</li>
+<li>I&#x2F;O高电平无输出能力</li>
+<li>保护能力差</li>
+</ol>
+</blockquote>
+<h2 id="2-stm32的简介"><a href="#2-stm32的简介" class="headerlink" title="2.stm32的简介"></a>2.stm32的简介</h2><blockquote>
+<p>​	由ST厂商推出的STM32系列单片机，行业的朋友都知道，这是一款性价比超高的系列单片机，应该没有之一，功能及其强大。其基于专为要求高性能、低成本、低功耗的嵌入式应用专门设计的ARM Cortex-M内核，同时具有一流的外设：1μs的双12位ADC，4兆位&#x2F;秒的UART，18兆位&#x2F;秒的SPI等等，在功耗和集成度方面也有不俗的表现，当然和MSP430的功耗比起来是稍微逊色的一些，但这并不影响工程师们对它的热捧程度，由于其简单的结构和易用的工具再配合其强大的功能在行业中赫赫有名。</p>
+</blockquote>
+<ul>
+<li>强大功能体现</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>内核<br>STM32 系列采用了多种 ARM Cortex-M 内核，包括 Cortex-M0、Cortex-M3、Cortex-M4 等，具有不同的性能和功能特点，可根据应用场景的需求进行选择。</p>
+</li>
+<li><p>时钟<br>STM32 系列支持多种时钟源，包括内部 RC 振荡器、内部晶体振荡器、外部晶体振荡器等，可根据应用场景的需求进行选择。同时还支持多种时钟分频和时钟输出等功能。</p>
+</li>
+<li><p>存储器<br>STM32 系列支持多种存储器类型，包括 Flash 存储器、RAM 存储器、EEPROM 存储器等，可以根据应用场景的需求进行选择。同时还支持多种存储器保护和存储器映射等功能。</p>
+</li>
+<li><p>支持多种通讯</p>
+<p>STM32 系列还支持多种通信协议，如 SPI、I2C、CAN、USART 等。这使得 STM32 系列非常适合各种应用，特别是需要与其他设备或模块进行通信的应用。</p>
+</li>
+</ol>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见通信协议以及通信方式</title>
+    <url>/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="常用的通信方式"><a href="#常用的通信方式" class="headerlink" title="常用的通信方式"></a>常用的通信方式</h1><h2 id="1-串行和并行通信"><a href="#1-串行和并行通信" class="headerlink" title="1. 串行和并行通信"></a>1. 串行和并行通信</h2><ul>
+<li>串行通信优缺点</li>
+</ul>
+<blockquote>
+<p>优点：</p>
+<pre><code>1. 占用资源少（只需一根线）
+</code></pre>
+<p>缺点：</p>
+<pre><code>1. 传输速率慢
+</code></pre>
+</blockquote>
+<ul>
+<li>并行通信优缺点</li>
+</ul>
+<blockquote>
+<p>优点：</p>
+<pre><code> 1. 传输速率快
+</code></pre>
+<p>缺点：</p>
+<pre><code> 1. 占用资源多（多根线同时使用）
+</code></pre>
+</blockquote>
+<h2 id="2-同步和异步通信"><a href="#2-同步和异步通信" class="headerlink" title="2. 同步和异步通信"></a>2. 同步和异步通信</h2><h2 id="3-单工、半双工、全双工通信"><a href="#3-单工、半双工、全双工通信" class="headerlink" title="3. 单工、半双工、全双工通信"></a>3. 单工、半双工、全双工通信</h2><h2 id="4-通信速率"><a href="#4-通信速率" class="headerlink" title="4. 通信速率"></a>4. 通信速率</h2><h2 id="5-常见通信方式"><a href="#5-常见通信方式" class="headerlink" title="5. 常见通信方式"></a>5. 常见通信方式</h2><h3 id="1-UART"><a href="#1-UART" class="headerlink" title="1. UART"></a>1. UART</h3><h4 id="1-TTL"><a href="#1-TTL" class="headerlink" title="1. TTL"></a>1. TTL</h4><h4 id="2-RS232"><a href="#2-RS232" class="headerlink" title="2. RS232"></a>2. RS232</h4><h4 id="3-RS485"><a href="#3-RS485" class="headerlink" title="3. RS485"></a>3. RS485</h4><h3 id="2-USART"><a href="#2-USART" class="headerlink" title="2. USART"></a>2. USART</h3><h3 id="3-I2C"><a href="#3-I2C" class="headerlink" title="3.  I2C"></a>3.  I2C</h3><h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><h3 id="6-USB2-0"><a href="#6-USB2-0" class="headerlink" title="6. USB2.0"></a>6. USB2.0</h3>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>51</tag>
+        <tag>STM32</tag>
+      </tags>
+  </entry>
 </search>
