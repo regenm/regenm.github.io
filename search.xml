@@ -3001,4 +3001,76 @@
         <tag>STM32</tag>
       </tags>
   </entry>
+  <entry>
+    <title>模拟电子技术基础</title>
+    <url>/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="模拟电子技术基础"><a href="#模拟电子技术基础" class="headerlink" title="模拟电子技术基础"></a>模拟电子技术基础</h1><h2 id="1-半导体器件"><a href="#1-半导体器件" class="headerlink" title="1.半导体器件"></a>1.半导体器件</h2><ul>
+<li><strong>本征半导体</strong>：纯净，具有晶体结构的半导体</li>
+<li><strong>N型半导体</strong>：negative，掺入5价元素，多一个电子。</li>
+<li><strong>P型半导体</strong>：positive，掺入3价元素，少一个电子。</li>
+<li><strong>PN结</strong>：将P型半导体和N型半导体制作在同一硅片上，交界处形成PN结。</li>
+<li><strong>空间电荷区</strong>：PN结交接处区域的复合。也称为耗尽层。</li>
+</ul>
+<h3 id="1-PN结"><a href="#1-PN结" class="headerlink" title="1.PN结"></a>1.PN结</h3><h4 id="1-PN结的伏安特性"><a href="#1-PN结的伏安特性" class="headerlink" title="1.PN结的伏安特性"></a>1.PN结的伏安特性</h4><ul>
+<li>反向击穿</li>
+</ul>
+<blockquote>
+<ol>
+<li><strong>齐纳击穿</strong>：在高掺杂，耗尽层宽度窄的情况下，较低的反向电压即可击穿</li>
+<li><strong>雪崩击穿</strong>：在低掺杂，耗尽层宽度宽的情况下，较高的反向电压可击穿</li>
+</ol>
+</blockquote>
+<h4 id="2-PN结的电容效应"><a href="#2-PN结的电容效应" class="headerlink" title="2.PN结的电容效应"></a>2.PN结的电容效应</h4><ul>
+<li>势垒电容</li>
+</ul>
+<p>​	当PN结的反向电压变化时，空间电荷区的宽度随之变化，耗尽层电荷变化，导致等效电容变化。</p>
+<h3 id="2-二极管"><a href="#2-二极管" class="headerlink" title="2.二极管"></a>2.二极管</h3><h4 id="1-伏安特性"><a href="#1-伏安特性" class="headerlink" title="1.伏安特性"></a>1.伏安特性</h4><ul>
+<li>同PN结的对比</li>
+</ul>
+<blockquote>
+<ol>
+<li>单向导电性</li>
+<li>二极管存在半导体体电阻和引线电阻（同电压下正向电压更小）</li>
+<li>表面漏电流（反向电流更大）。漏电流（当施加反向电压时，电流仍然流过器件）</li>
+</ol>
+</blockquote>
+<h4 id="2-不同材料二极管的对比"><a href="#2-不同材料二极管的对比" class="headerlink" title="2.不同材料二极管的对比"></a>2.不同材料二极管的对比</h4><table>
+<thead>
+<tr>
+<th>材料</th>
+<th>开启电压</th>
+<th>导通电压</th>
+<th>反向饱和电流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>硅</td>
+<td>0.5</td>
+<td>0.6-0.8</td>
+<td>&lt;0&#x2F;1</td>
+</tr>
+<tr>
+<td>锗</td>
+<td>0.1</td>
+<td>0.1-0.3</td>
+<td>几十</td>
+</tr>
+</tbody></table>
+<h4 id="3-温度的影响"><a href="#3-温度的影响" class="headerlink" title="3.温度的影响"></a>3.温度的影响</h4><ul>
+<li>温度越高：正向曲线左移，方向曲线下移</li>
+</ul>
+<h4 id="4-二极管的参数"><a href="#4-二极管的参数" class="headerlink" title="4.二极管的参数"></a>4.二极管的参数</h4><ul>
+<li>If：最大整流电流</li>
+<li>UR：最高反向工作电压</li>
+<li>IR：反向电流</li>
+<li>fM最高反向工作电流</li>
+</ul>
+<h3 id="3-稳压二极管"><a href="#3-稳压二极管" class="headerlink" title="3.稳压二极管"></a>3.稳压二极管</h3>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>模电</tag>
+        <tag>电子元件</tag>
+        <tag>模拟电路</tag>
+      </tags>
+  </entry>
 </search>
