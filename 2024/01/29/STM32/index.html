@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">558</span>
+            <span class="post-count">930</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -153,7 +153,75 @@
 </li>
 </ol>
 </blockquote>
-<h2 id="3-STM32最小系统制作"><a href="#3-STM32最小系统制作" class="headerlink" title="3.STM32最小系统制作"></a>3.STM32最小系统制作</h2> 
+<h2 id="3-STM32F103C8T6-最小系统制作"><a href="#3-STM32F103C8T6-最小系统制作" class="headerlink" title="3.STM32F103C8T6 最小系统制作"></a>3.STM32F103C8T6 最小系统制作</h2><h3 id="1-供电电路"><a href="#1-供电电路" class="headerlink" title="1.供电电路"></a>1.供电电路</h3><h4 id="1-芯片特性"><a href="#1-芯片特性" class="headerlink" title="1.芯片特性"></a>1.芯片特性</h4><ul>
+<li>操作定压Vdd&#x3D;2.0~3.6v</li>
+<li>Vdd关闭后，RTC和备用寄存器可以从Vbat供电</li>
+</ul>
+<h3 id="2-电源转换电路"><a href="#2-电源转换电路" class="headerlink" title="2.电源转换电路"></a>2.电源转换电路</h3><ul>
+<li>USB供电（5v）转3.3v供电</li>
+</ul>
+<p>​	采用AMS1117芯片</p>
+<ul>
+<li>AMS1117<ul>
+<li>特点：</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Three Terminal Adjustable or Fixed Voltages* </p>
+<p>• High Efficiency Linear Regulators  1.5V, 1.8V, 2.5V, 2.85V, 3.3V and 5.0V </p>
+<p>• Post Regulators for Switching Supplies  • Output Current of 1A </p>
+<p>• 5V to 3.3V Linear Regulator  </p>
+<p>• Operates Down to 1V Dropout </p>
+<p>• Line Regulation: 0.2% Max. </p>
+<p>• Active SCSI Terminators  </p>
+<p>• Load Regulation: 0.4% Max. </p>
+<p>• SOT-223, TO-252 and SO-8 package</p>
+</blockquote>
+<h3 id="3-SWD下载电路"><a href="#3-SWD下载电路" class="headerlink" title="3.SWD下载电路"></a>3.SWD下载电路</h3><ul>
+<li>PA13和PA14为STM32F103C8T6芯片的SWD下载调试引脚</li>
+</ul>
+<h3 id="4-时钟电路"><a href="#4-时钟电路" class="headerlink" title="4.时钟电路"></a>4.时钟电路</h3><ul>
+<li>时钟源</li>
+</ul>
+<blockquote>
+<p>三个不同的时钟源可以用来驱动系统时钟(SYSCLK)： </p>
+<p>● HSI晶振时钟(高速内部时钟信号)  </p>
+<p>● HSE晶振时钟(高速外部时钟信号)  </p>
+<p>● PLL时钟 </p>
+<p>STM32有两个二级时钟源： </p>
+<p>● 40kHz的低速内部RC，它可以驱动独立看门狗，还可选择地通过程序选择驱动RTC。RTC 用于从停机&#x2F;待机模式下自动唤醒系统。 </p>
+<p>● 32.768kHz的低速外部晶振，可选择它用来驱动RTC(RTCCLK)。</p>
+</blockquote>
+<ul>
+<li>时钟电路（晶振电路）</li>
+</ul>
+<h3 id="5-复位电路"><a href="#5-复位电路" class="headerlink" title="5.复位电路"></a>5.复位电路</h3><ul>
+<li><p>复位条件：</p>
+<ul>
+<li>NRST引脚上出现低电平(外部复位)  </li>
+<li>窗口看门狗计数终止(WWDG复位)  </li>
+<li>独立看门狗计数终止(IWDG复位)  </li>
+<li>软件复位(SW复位)  </li>
+<li>低功耗管理复位</li>
+</ul>
+</li>
+<li><p>复位电路</p>
+</li>
+</ul>
+<h3 id="6-外围测试电路"><a href="#6-外围测试电路" class="headerlink" title="6.外围测试电路"></a>6.外围测试电路</h3><ul>
+<li>LED测试电路</li>
+</ul>
+<blockquote>
+<ol>
+<li>电源指示灯</li>
+<li>烧录指示灯</li>
+</ol>
+</blockquote>
+<ul>
+<li>引脚引出</li>
+</ul>
+ 
       <!-- reward -->
       
       <div id="reword-out">
