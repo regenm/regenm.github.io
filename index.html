@@ -291,7 +291,7 @@
 <ul>
 <li>连接esp32或8266</li>
 </ul>
-<p><a href="ToBeContinued">看看这个esp8266连接mqtt服务器的项目吗？</a></p>
+<p>看看这个esp8266连接mqtt服务器的项目吗？(<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
  
       <!-- reward -->
       
@@ -351,7 +351,7 @@
 <h1 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h1><p>​	起因是想要自己搭建云服务器，同时还想要利用手上已经有的esp8266开发板实现对该服务器的远程控制（开关机）。</p>
 <p>​	本来打算整一个备用电源给服务器供电，奈何这台服务器是普通PC，即使配置已经很低（与现代PC比较为拉胯，但是比大多数出售的服务器例如某云2核4g更加）但功耗的保守估计已经超过70w。</p>
 <p>​	于是便打算使用远程开关降低平均功耗。同时进行物联网方面知识的扫盲与学习。</p>
-<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h2><p>​	首先，在已经搭建好的mqtt服务器上创建了用户<code>user</code>和密码<code>passwd</code>，同时处于安全性考虑禁止匿名访问。<a href="ToBeContinued">配置mqtt服务器的过程</a></p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h2><p>​	首先，在已经搭建好的mqtt服务器上创建了用户<code>user</code>和密码<code>passwd</code>，同时处于安全性考虑禁止匿名访问。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">配置mqtt服务器的过程</a>)</p>
 <p>​	创建好测试主题（topic）<code>test</code>后进行测试。多平台测试收发message没问题。</p>
 <h2 id="2-中期打BOSS"><a href="#2-中期打BOSS" class="headerlink" title="2.中期打BOSS"></a>2.中期打BOSS</h2><p>​	接下来就是攻克esp8266这边的问题了。</p>
 <ul>
