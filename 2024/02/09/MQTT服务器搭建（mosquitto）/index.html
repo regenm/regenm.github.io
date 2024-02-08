@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>PHOTOGRAPHY! |  Regen</title>
+      <title>MQTT服务器搭建（mosquitto） |  Regen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/touxiang.png" />
@@ -55,7 +55,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-PHOTOGRAPHY"
+  id="post-MQTT服务器搭建（mosquitto）"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  PHOTOGRAPHY!
+  MQTT服务器搭建（mosquitto）
 </h1>
  
 
@@ -74,15 +74,15 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2023/09/20/PHOTOGRAPHY/" class="article-date">
-  <time datetime="2023-09-19T16:31:30.000Z" itemprop="datePublished">2023-09-20</time>
+      <a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" class="article-date">
+  <time datetime="2024-02-08T16:58:48.000Z" itemprop="datePublished">2024-02-09</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">701</span>
+            <span class="post-count">718</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -106,43 +106,105 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="星空拍摄笔记"><a href="#星空拍摄笔记" class="headerlink" title="星空拍摄笔记"></a>星空拍摄笔记</h1><p><strong>一定要带快门线！</strong></p>
-<h2 id="参数的选择"><a href="#参数的选择" class="headerlink" title="参数的选择"></a>参数的选择</h2><h3 id="一，焦段："><a href="#一，焦段：" class="headerlink" title="一，焦段："></a>一，焦段：</h3><p>​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。</p>
-<h3 id="二，光圈："><a href="#二，光圈：" class="headerlink" title="二，光圈："></a>二，光圈：</h3><p>​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。</p>
-<h3 id="三，对焦："><a href="#三，对焦：" class="headerlink" title="三，对焦："></a>三，对焦：</h3><p>​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。</p>
-<h3 id="四，曝光："><a href="#四，曝光：" class="headerlink" title="四，曝光："></a>四，曝光：</h3><p>​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。</p>
-<p>​	例如：</p>
-<p>200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）</p>
-<p>24mm（全画幅）：理想快门速度约为20秒（500除以24mm）</p>
-<p>16mm（全画幅）：理想快门速度约为31秒（500除以16mm）</p>
-<p>14mm（全画幅）：理想快门速度约为35秒（500除以14mm）</p>
-<h3 id="五，感光度："><a href="#五，感光度：" class="headerlink" title="五，感光度："></a>五，感光度：</h3><p>​	常用2000-6400的感光度拍摄银河（偶尔1600）<br>​	如果是拍摄星轨的话建议直接100，拉长曝光时间。</p>
-<h3 id="六，白平衡："><a href="#六，白平衡：" class="headerlink" title="六，白平衡："></a>六，白平衡：</h3><p>（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）</p>
-<h1 id="烟花拍摄笔记"><a href="#烟花拍摄笔记" class="headerlink" title="烟花拍摄笔记"></a>烟花拍摄笔记</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1. 准备"></a>1. 准备</h2><ul>
-<li>注意风向，别去下风处</li>
-<li>采用长曝光，需要三脚架，快门线</li>
-</ul>
-<h2 id="2-参数的选择"><a href="#2-参数的选择" class="headerlink" title="2.参数的选择"></a>2.参数的选择</h2><ul>
-<li>iso 最低</li>
-<li>小光圈 f&#x2F;8 到 f&#x2F;16</li>
-</ul>
+  <h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
+<li>简介</li>
+</ol>
 <blockquote>
-<p><em>光圈越大，烟火的线条越粗；光圈越小，烟火的线条越细</em></p>
-<p><em>距离施放点越<strong>近</strong>、亮度越<strong>高</strong>→ 使用f&#x2F;13-18的小光圈，减少进光量、并可使烟火线条较细</em></p>
-<p><em>距离施放点越<strong>远</strong>、亮度越<strong>低</strong>→ 使用f&#x2F;8-11的大光圈，增加进光量、并可使烟火线条较明显</em></p>
+<p>MQTT也称为”消息代理”（Broker）。</p>
+<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
 </blockquote>
+<ol start="2">
+<li>原理</li>
+</ol>
 <blockquote>
-<p>快门速度需要根据<strong>拍摄远近</strong>和<strong>光圈大小</strong>来微调，但秒数至少要大于「烟火从升空到完整爆开」的时间，如此才能拍出一个完整的烟火形状；若时间太短，只会拍出部分绽放的烟火；时间太长则可能会过曝。</p>
+<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
+<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
+<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
+<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
 </blockquote>
-<h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
+<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
 
-<p>​	小雨，很喜欢下雨的时候路灯下的氛围感。于是就拿起三脚架背上吉他就出发咯。要是有灯就好了qwq.hexo</p>
-<h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="/images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
-<p>​	这本书的名字是《杀死一只知更鸟》，那天下午阳光正好，所以我就踩着脚踏车愉快地出门了。带着我的小单反，不过过几天我应该就能换新镜头了。希望那时可以拍出更好看的照片。不过同时，还得好好学摄影，毕竟打铁还需自身硬。</p>
-<h1 id="2023-10-28"><a href="#2023-10-28" class="headerlink" title="2023.10.28"></a>2023.10.28</h1><p><img src="/images/202310281.jpg" alt="gentle sunlight cheers me up"></p>
-<p><img src="/images/202310282.jpg" alt="one building&#39;s glow"></p>
-<p>​	阳台外面就是一个小湖，每天都能看到日落。中午时光练练吉他，看看书，简单的快乐。</p>
-<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" /images/202311111.jpg" width="400" height="300" alt="NIKON GUYS">
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件</li>
+</ul>
+<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
+<blockquote>
+<h1 id="Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config"><a href="#Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config" class="headerlink" title="Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config."></a>Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config.</h1></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加用户</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关闭防火墙！！！</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
+<li>用户登录订阅，发布</li>
+</ul>
+<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
+<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>订阅</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
+<li><strong>脚本制作</strong></li>
+</ul>
+<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
+<ol>
+<li>发布</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>订阅，同理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接esp32或8266</li>
+</ul>
+<p><a href="ToBeContinued">看看这个esp8266连接mqtt服务器的项目吗？</a></p>
  
       <!-- reward -->
       
@@ -213,12 +275,12 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/09/20/PHOTOGRAPHY/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>  
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
@@ -226,19 +288,10 @@
    
   <nav class="article-nav">
     
-      <a href="/2023/09/20/about-me/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            About me
-          
-        </div>
-      </a>
     
-    
-      <a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+      <a href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">vim 学习笔记</div>
+        <div class="article-nav-title">esp8266连接服务器（基于mosquitto的mqtt server）</div>
       </a>
     
   </nav>
