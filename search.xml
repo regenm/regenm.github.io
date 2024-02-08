@@ -2199,150 +2199,10 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux Notes</title>
-    <url>/2023/11/28/Linux-Notes/</url>
-    <content><![CDATA[<p>A note about linux basic operation.</p>
-<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><h2 id="提供父进程信息"><a href="#提供父进程信息" class="headerlink" title="提供父进程信息"></a>提供父进程信息</h2></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps lax</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-终止某项进程"><a href="#2-终止某项进程" class="headerlink" title="2. 终止某项进程"></a>2. 终止某项进程</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kill pid</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号</li>
-</ul>
-<ol start="3">
-<li><h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
-</ol>
-<ul>
-<li>查看内存占用和 swap 分区占用</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h2 id="查看CPU使用情况"><a href="#查看CPU使用情况" class="headerlink" title="查看CPU使用情况"></a>查看CPU使用情况</h2></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
-
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><h2 id="vim-编辑器"><a href="#vim-编辑器" class="headerlink" title="vim 编辑器"></a>vim 编辑器</h2><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><ul>
-<li>空白键 (space)：代表向下翻一页；</li>
-<li>Enter     ：代表向下翻『一行』；</li>
-<li>&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
-<li>:f      ：立刻显示出档名以及目前显示的行数；</li>
-<li>q       ：代表立刻离开 more ，不再显示该文件内容。</li>
-<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
-</ul>
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><ul>
-<li>空白键  ：向下翻动一页；</li>
-<li>[pagedown]：向下翻动一页；</li>
-<li>[pageup] ：向上翻动一页；</li>
-<li><strong>&#x2F;字串   ：向下搜寻『字串』的功能；</strong></li>
-<li><strong>?字串   ：向上搜寻『字串』的功能；</strong></li>
-<li><strong>n     ：重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li><strong>N     ：反向的重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li>q     ：离开 less 这个程序；</li>
-</ul>
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>​	读取前几行文本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">head -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<p>​	</p>
-<p>​	解压缩： </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip linuxFiles.tar.gz</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>2.文件打包tar</p>
-<p>​	1.打包文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -cvf linuxFiles.tar home/</span><br></pre></td></tr></table></figure>
-
-<p>​	2.解开打包后的文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<pre><code>3. tar -w 选项，每次将选择单个文件抽出或加入
-</code></pre>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xvwf linuxFiles.tar //</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>tar -z 自动调用gzip进行解压缩</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -czvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">tar -cvf linuxFiles.tar home/</span><br><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
-<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080  <span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
-<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
-</blockquote>
-<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
-<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
-<li>例如开放ssh端口</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使之生效</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>检查是否生效</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
-<li>限制ssh端口</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
-
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <tags>
-        <tag>笔记</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux Projects</title>
     <url>/2023/11/28/Linux-Projects/</url>
     <content><![CDATA[<p>​	以下项目都是我在已经完成之后补录的笔记，包括但不限于遇到的报错，问题。便于以后复现。实际上不能说是项目，仅仅是复现并且享受大佬的成果而已。开源不易，感谢大佬们开源！</p>
-<h1 id="FRP内网穿透"><a href="#FRP内网穿透" class="headerlink" title="FRP内网穿透"></a>FRP内网穿透</h1><h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>​	官网：<a href="https://www.zerotier.com/">ZeroTier</a></p>
+<h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>​	官网：<a href="https://www.zerotier.com/">ZeroTier</a></p>
 <blockquote>
 <p><strong>ZeroTier Client :</strong></p>
 <p>The ZeroTier client is used to connect to virtual networks previously created in the ZeroTier Central web-based <a href="https://en.wikipedia.org/wiki/User_interface">UI</a>. Endpoint connections are peer-to-peer and <a href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encrypted</a>. <a href="https://en.wikipedia.org/wiki/STUN">STUN</a> and <a href="https://en.wikipedia.org/wiki/Hole_punching_(networking)">hole punching</a> are used to establish direct connections between peers behind <a href="https://en.wikipedia.org/wiki/Network_Address_Translation">NAT</a>. Direct connection route discovery is made with the help of a global network of <em>root servers</em> via a mechanism similar to <a href="https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment">ICE</a> in <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>.</p>
@@ -3224,6 +3084,146 @@
         <tag>电子元件</tag>
         <tag>模拟电路</tag>
         <tag>电路基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux Notes</title>
+    <url>/2023/11/28/Linux-system-Notes/</url>
+    <content><![CDATA[<p>A note about linux basic operation.</p>
+<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><h2 id="提供父进程信息"><a href="#提供父进程信息" class="headerlink" title="提供父进程信息"></a>提供父进程信息</h2></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ps lax</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-终止某项进程"><a href="#2-终止某项进程" class="headerlink" title="2. 终止某项进程"></a>2. 终止某项进程</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">kill pid</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号</li>
+</ul>
+<ol start="3">
+<li><h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
+</ol>
+<ul>
+<li>查看内存占用和 swap 分区占用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h2 id="查看CPU使用情况"><a href="#查看CPU使用情况" class="headerlink" title="查看CPU使用情况"></a>查看CPU使用情况</h2></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><h2 id="vim-编辑器"><a href="#vim-编辑器" class="headerlink" title="vim 编辑器"></a>vim 编辑器</h2><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><ul>
+<li>空白键 (space)：代表向下翻一页；</li>
+<li>Enter     ：代表向下翻『一行』；</li>
+<li>&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
+<li>:f      ：立刻显示出档名以及目前显示的行数；</li>
+<li>q       ：代表立刻离开 more ，不再显示该文件内容。</li>
+<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
+</ul>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><ul>
+<li>空白键  ：向下翻动一页；</li>
+<li>[pagedown]：向下翻动一页；</li>
+<li>[pageup] ：向上翻动一页；</li>
+<li><strong>&#x2F;字串   ：向下搜寻『字串』的功能；</strong></li>
+<li><strong>?字串   ：向上搜寻『字串』的功能；</strong></li>
+<li><strong>n     ：重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
+<li><strong>N     ：反向的重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
+<li>q     ：离开 less 这个程序；</li>
+</ul>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>​	读取前几行文本</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">head -n 20 text.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<p>​	</p>
+<p>​	解压缩： </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip linuxFiles.tar.gz</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>2.文件打包tar</p>
+<p>​	1.打包文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -cvf linuxFiles.tar home/</span><br></pre></td></tr></table></figure>
+
+<p>​	2.解开打包后的文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<pre><code>3. tar -w 选项，每次将选择单个文件抽出或加入
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xvwf linuxFiles.tar //</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>tar -z 自动调用gzip进行解压缩</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -czvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">tar -cvf linuxFiles.tar home/</span><br><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="用户权限"></a>用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
+<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="开放端口"></a>开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -anp | grep 8080  <span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
+<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
+</blockquote>
+<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
+<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
+<li>例如开放ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使之生效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查是否生效</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
+<li>限制ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
+
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
 </search>
