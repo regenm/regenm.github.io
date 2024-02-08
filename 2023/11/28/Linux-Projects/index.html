@@ -225,7 +225,10 @@
 <ul>
 <li>连接esp32或8266</li>
 </ul>
-<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器Zerotier刚好可以拿来当我的梦中情机的最后一块拼图。使用ZeroTier就可以让我方便的在SH连接到JX的家中局域网内的服务器了！</p>
+<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h2 id="1-协议选择-V2RAY的VMess协议"><a href="#1-协议选择-V2RAY的VMess协议" class="headerlink" title="1.协议选择 V2RAY的VMess协议"></a>1.协议选择 V2RAY的VMess协议</h2><h2 id="2-一键安装脚本-：v2ray-sh"><a href="#2-一键安装脚本-：v2ray-sh" class="headerlink" title="2.一键安装脚本 ：v2ray.sh"></a>2.一键安装脚本 ：v2ray.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su root</span><br><span class="line"></span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看信息"><a href="#3-查看信息" class="headerlink" title="3.查看信息"></a>3.查看信息</h2><p>信息目录：<code> /etc/v2ray/config.json</code></p>
+<h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器Zerotier刚好可以拿来当我的梦中情机的最后一块拼图。使用ZeroTier就可以让我方便的在SH连接到JX的家中局域网内的服务器了！</p>
 <h2 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2.介绍"></a>2.介绍</h2><h3 id="1-硬件介绍"><a href="#1-硬件介绍" class="headerlink" title="1.硬件介绍"></a>1.硬件介绍</h3><p>​			硬件部分的清单：</p>
 <blockquote>
 <p>CPU : E3 1230 v2 (4核8线，3.3ghz)</p>
