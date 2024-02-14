@@ -200,12 +200,17 @@
 <p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
 </blockquote>
 <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>​	docker 中的几个概念：</p>
+<blockquote>
 <ol>
 <li>dockerfile</li>
 <li>image</li>
 <li>container</li>
 </ol>
-<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	</p>
+</blockquote>
+<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
+<h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
+<p>​	</p>
  
       <!-- reward -->
       
