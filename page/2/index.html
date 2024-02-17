@@ -166,6 +166,60 @@
     
     
     <article
+  id="post-《奇风岁月》"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/01/26/%E3%80%8A%E5%A5%87%E9%A3%8E%E5%B2%81%E6%9C%88%E3%80%8B/"
+    >《奇风岁月》</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/01/26/%E3%80%8A%E5%A5%87%E9%A3%8E%E5%B2%81%E6%9C%88%E3%80%8B/" class="article-date">
+  <time datetime="2024-01-26T07:16:57.000Z" itemprop="datePublished">2024-01-26</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>​	这应该是我青少年时期最喜欢的一本书了，那时推荐给了很多人看。高中时很喜欢一个up主，他一边介绍高质量游戏，一边给我们推荐他觉得好看的有意思的书。这本书就是他推荐的。</p>
+<p>​	也是在整理东西的时候发现的过去写的文字。</p>
+<p><img src="/images/read/qiFengSuiYue_1.jpg" alt="看完一年后高三时怀念奇风镇"></p>
+<p><img src="/images/read/qiFengSuiYue_2.jpg" alt="第一次看《奇风岁月》"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-时间胶囊"
   class="article article-type-post"
   itemscope
@@ -1754,76 +1808,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure-and-Algorithm/" rel="tag">Data-Structure-and-Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MySql学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >MySql学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-10-31T04:27:48.000Z" itemprop="datePublished">2023-10-31</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="MySQL学习笔记（8-0）"><a href="#MySQL学习笔记（8-0）" class="headerlink" title="MySQL学习笔记（8.0）"></a>MySQL学习笔记（8.0）</h1><p>​		一切只因花几十块买了一年的云服务器。刚好目前需要用 用 JDBC ，于是就把数据库部署到了服务器上面。然而这其中却遇到了难以想象的困难（后来才发现没有必要这么弄，且一般也不这么弄，安全性大打折扣）。</p>
-<h2 id="1-部署环境以及初始化配置"><a href="#1-部署环境以及初始化配置" class="headerlink" title="1.部署环境以及初始化配置"></a>1.部署环境以及初始化配置</h2><ul>
-<li>Ubuntu</li>
-</ul>
-<h3 id="1-下载安装，配置密码"><a href="#1-下载安装，配置密码" class="headerlink" title="1.下载安装，配置密码"></a>1.下载安装，配置密码</h3><p>以root用户登录之后：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade  #不解释</span><br><span class="line">apt install mysql-server -y  #下载</span><br></pre></td></tr></table></figure>
-
-<p><strong>此时你可以直接进入mysql</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> apt install mysql<span class="operator">-</span>server <span class="operator">-</span>y #（将密码置为空）</span><br><span class="line">mysql<span class="operator">&gt;</span> quit;</span><br><span class="line">#  然后重启mysql，再次进入</span><br><span class="line">systemstl restart mysql</span><br><span class="line">mysql</span><br><span class="line"></span><br><span class="line">mysql<span class="operator">&gt;</span> use mysql;</span><br><span class="line">mysql<span class="operator">&gt;</span> <span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> (如果不用远程链接则为<span class="string">&#x27;localhost&#x27;</span>)IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;新密码&#x27;</span>;</span><br><span class="line">mysql<span class="operator">&gt;</span> quit #修改完成</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>开启远程链接功能</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql</span><br><span class="line">mysql&gt; use mysql;</span><br><span class="line">mysql&gt; apt install mysql-server -y #修改访问权限，默认只能本地访问。</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改MySQL配置文件</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line">将[mysqld]下面的 bind-address ***以及mysqlx-bind-address ****注释</span><br><span class="line">同时取消注释</span><br><span class="line">port</span><br><span class="line">user</span><br><span class="line">socket</span><br><span class="line">server-id</span><br><span class="line">重启测试即可</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-开始正式学习mysql"><a href="#2-开始正式学习mysql" class="headerlink" title="2. 开始正式学习mysql"></a>2. 开始正式学习mysql</h2> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
