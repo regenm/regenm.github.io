@@ -166,6 +166,550 @@
     
     
     <article
+  id="post-模拟电子技术基础"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/"
+    >模拟电子技术基础</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2024-02-01T11:47:28.000Z" itemprop="datePublished">2024-02-01</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="模拟电子技术基础"><a href="#模拟电子技术基础" class="headerlink" title="模拟电子技术基础"></a>模拟电子技术基础</h1><h2 id="1-半导体器件"><a href="#1-半导体器件" class="headerlink" title="1.半导体器件"></a>1.半导体器件</h2><ul>
+<li><strong>本征半导体</strong>：纯净，具有晶体结构的半导体</li>
+<li><strong>N型半导体</strong>：negative，掺入5价元素，多一个电子。</li>
+<li><strong>P型半导体</strong>：positive，掺入3价元素，少一个电子。</li>
+<li><strong>PN结</strong>：将P型半导体和N型半导体制作在同一硅片上，交界处形成PN结。</li>
+<li><strong>空间电荷区</strong>：PN结交接处区域的复合。也称为耗尽层。</li>
+</ul>
+<h3 id="1-PN结"><a href="#1-PN结" class="headerlink" title="1.PN结"></a>1.PN结</h3><h4 id="1-PN结的伏安特性"><a href="#1-PN结的伏安特性" class="headerlink" title="1.PN结的伏安特性"></a>1.PN结的伏安特性</h4><ul>
+<li>反向击穿</li>
+</ul>
+<blockquote>
+<ol>
+<li><strong>齐纳击穿</strong>：在高掺杂，耗尽层宽度窄的情况下，较低的反向电压即可击穿</li>
+<li><strong>雪崩击穿</strong>：在低掺杂，耗尽层宽度宽的情况下，较高的反向电压可击穿</li>
+</ol>
+</blockquote>
+<h4 id="2-PN结的电容效应"><a href="#2-PN结的电容效应" class="headerlink" title="2.PN结的电容效应"></a>2.PN结的电容效应</h4><ul>
+<li>势垒电容</li>
+</ul>
+<p>​	当PN结的反向电压变化时，空间电荷区的宽度随之变化，耗尽层电荷变化，导致等效电容变化。</p>
+<h3 id="2-二极管"><a href="#2-二极管" class="headerlink" title="2.二极管"></a>2.二极管</h3><h4 id="1-伏安特性"><a href="#1-伏安特性" class="headerlink" title="1.伏安特性"></a>1.伏安特性</h4><ul>
+<li>同PN结的对比</li>
+</ul>
+<blockquote>
+<ol>
+<li>单向导电性</li>
+<li>二极管存在半导体体电阻和引线电阻（同电压下正向电压更小）</li>
+<li>表面漏电流（反向电流更大）。漏电流（当施加反向电压时，电流仍然流过器件）</li>
+</ol>
+</blockquote>
+<h4 id="2-不同材料二极管的对比"><a href="#2-不同材料二极管的对比" class="headerlink" title="2.不同材料二极管的对比"></a>2.不同材料二极管的对比</h4><table>
+<thead>
+<tr>
+<th>材料</th>
+<th>开启电压</th>
+<th>导通电压</th>
+<th>反向饱和电流</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>硅</td>
+<td>0.5</td>
+<td>0.6-0.8</td>
+<td>&lt;0&#x2F;1</td>
+</tr>
+<tr>
+<td>锗</td>
+<td>0.1</td>
+<td>0.1-0.3</td>
+<td>几十</td>
+</tr>
+</tbody></table>
+<h4 id="3-温度的影响"><a href="#3-温度的影响" class="headerlink" title="3.温度的影响"></a>3.温度的影响</h4><ul>
+<li>温度越高：正向曲线左移，方向曲线下移</li>
+</ul>
+<h4 id="4-二极管的参数"><a href="#4-二极管的参数" class="headerlink" title="4.二极管的参数"></a>4.二极管的参数</h4><ul>
+<li>If：最大整流电流</li>
+<li>UR：最高反向工作电压</li>
+<li>IR：反向电流</li>
+<li>fM最高反向工作电流</li>
+</ul>
+<h3 id="3-稳压二极管"><a href="#3-稳压二极管" class="headerlink" title="3.稳压二极管"></a>3.稳压二极管</h3><ul>
+<li>反向击穿时在一定功耗损耗范围内端电压几乎不变</li>
+</ul>
+<h4 id="1-伏安特性-1"><a href="#1-伏安特性-1" class="headerlink" title="1.伏安特性"></a>1.伏安特性</h4><ul>
+<li>正向：类似于二极管</li>
+<li>反向：电压不变，大到一定程度击穿</li>
+</ul>
+<h4 id="1-主要参数"><a href="#1-主要参数" class="headerlink" title="1.主要参数"></a>1.主要参数</h4><ul>
+<li><p>稳定电压Uz</p>
+</li>
+<li><p>稳定电流Iz：小于时稳压效果变坏</p>
+</li>
+<li><p>额定功耗Pzm：最大稳定电流（Izm）与Uz的乘积</p>
+</li>
+<li><p>在额定功耗内，电流越大稳压效果越好</p>
+</li>
+</ul>
+<p>需串联限流电阻防止烧坏</p>
+<h3 id="4-发光二极管（Light-Emit-Diode）"><a href="#4-发光二极管（Light-Emit-Diode）" class="headerlink" title="4.发光二极管（Light Emit Diode）"></a>4.发光二极管（Light Emit Diode）</h3><table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>开启电压</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>红色</td>
+<td>1.6-1.8v</td>
+</tr>
+<tr>
+<td>绿色</td>
+<td>2v</td>
+</tr>
+</tbody></table>
+<h3 id="5-光电二极管（Optoelectronic-Diode）"><a href="#5-光电二极管（Optoelectronic-Diode）" class="headerlink" title="5.光电二极管（Optoelectronic Diode）"></a>5.光电二极管（Optoelectronic Diode）</h3><p><img src="/images/analogElectronics/%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%AC%A6%E5%8F%B7.png" alt="符号"></p>
+<ul>
+<li>暗电流：反向电压下的产生的反向电流。</li>
+<li>光电流：反压下受到光照而产生的电流。（照度越大光电流越大）</li>
+</ul>
+<h3 id="6-变容二极管（Varicap-Diode）"><a href="#6-变容二极管（Varicap-Diode）" class="headerlink" title="6.变容二极管（Varicap Diode）"></a>6.变容二极管（Varicap Diode）</h3><ul>
+<li>变容二极管在反向偏置状态下工作，因此没有直流电流流过器件</li>
+<li>反向偏置量控制耗尽区的厚度，因此控制变容二极管的结电容</li>
+</ul>
+<h3 id="7-隧道二极管（Tunnel-Diode）"><a href="#7-隧道二极管（Tunnel-Diode）" class="headerlink" title="7.隧道二极管（Tunnel Diode）"></a>7.隧道二极管（Tunnel Diode）</h3><ul>
+<li>隧道二极管常用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%A0%BB%E7%8E%87%E8%BD%89%E6%8F%9B%E5%99%A8&action=edit&redlink=1">频率转换器</a>和侦测器上</li>
+<li>负微分电阻的特性，其也可应用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8C%AF%E7%9B%AA%E5%99%A8">振荡器</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%94%BE%E5%A4%A7%E5%99%A8">放大器</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%96%8B%E9%97%9C%E9%9B%BB%E8%B7%AF&action=edit&redlink=1">开关电路</a>的迟滞。</li>
+</ul>
+<h3 id="8-肖特基二极管（Schottky-diode）"><a href="#8-肖特基二极管（Schottky-diode）" class="headerlink" title="8.肖特基二极管（Schottky diode）"></a>8.肖特基二极管（Schottky diode）</h3><ul>
+<li>导通电压降较低、允许高速切换的二极管</li>
+<li>肖特基二极管的电压降只有 0.15-0.45 伏特，因此可以提升系统的效率。</li>
+<li>缺点是其反向偏置较低及反向漏电流偏大</li>
+</ul>
+<h2 id="2-晶体三极管"><a href="#2-晶体三极管" class="headerlink" title="2.晶体三极管"></a>2.晶体三极管</h2><p>​	晶体三极管又称为双极性晶体管 （BJT）</p>
+<h3 id="1-电流放大作用"><a href="#1-电流放大作用" class="headerlink" title="1.电流放大作用"></a>1.电流放大作用</h3><ul>
+<li><p>晶体管是放大电路的核心器件。</p>
+</li>
+<li><p>输入回路：基极-发射极回路。</p>
+</li>
+<li><p>输出回路：集电极-发射极回路。</p>
+</li>
+<li><p>共射放大电路： 发射极为输入回路和输出回路公共端</p>
+</li>
+<li><p>放大状态的外部条件： 发射结正向偏置，集电结反向偏置。</p>
+</li>
+</ul>
+<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" rel="tag">模拟电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E7%94%B5/" rel="tag">模电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" rel="tag">电子元件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-常见通信协议以及通信方式"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/"
+    >常见通信协议以及通信方式</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" class="article-date">
+  <time datetime="2024-01-29T08:49:03.000Z" itemprop="datePublished">2024-01-29</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="常用的通信方式"><a href="#常用的通信方式" class="headerlink" title="常用的通信方式"></a>常用的通信方式</h1><h2 id="1-串行和并行通信"><a href="#1-串行和并行通信" class="headerlink" title="1. 串行和并行通信"></a>1. 串行和并行通信</h2><ul>
+<li>串行通信优缺点</li>
+</ul>
+<blockquote>
+<p>优点：</p>
+<p>​	1. 占用资源少（只需一根线）</p>
+<p>缺点：</p>
+<p>​	1. 传输速率慢</p>
+</blockquote>
+<ul>
+<li>并行通信优缺点</li>
+</ul>
+<blockquote>
+<p>优点：</p>
+<p>​	1. 传输速率快</p>
+<p>缺点：</p>
+<p>​	1. 占用资源多（多根线同时使用）</p>
+</blockquote>
+<h2 id="2-同步和异步通信"><a href="#2-同步和异步通信" class="headerlink" title="2. 同步和异步通信"></a>2. 同步和异步通信</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><ul>
+<li>同步通信</li>
+</ul>
+<blockquote>
+<p><strong>同步通信：</strong> 发送端在发送串行数据的同时，提供一个时钟信号，并按照一定的约定（例如：在时钟信号的上升沿的时候，将数据发送出去）发送数据，接收端根据发送端提供的时钟信号，以及大家的约定，接收数据。如：I2C、SPI等有时钟信号的协议，都属于这种通信方式。</p>
+</blockquote>
+<ul>
+<li>异步通信</li>
+</ul>
+<blockquote>
+<p><strong>异步通信：</strong> <strong>接收方并不知道数据什么时候会到达，收发双方可以有各自自己的时钟</strong>。发送方发送的时间间隔可以不均，接收方是在数据的起始位和停止位的帮助下实现信息同步的。这种传输通常是很小的分组，比如：一个字符为一组，数据组配备起始位和结束位。所以这种传输方式的效率是比较低的，因为额外加入了很多的辅助位作为负载，常用在低速的传输中。</p>
+</blockquote>
+<h3 id="2-比较"><a href="#2-比较" class="headerlink" title="2. 比较"></a>2. 比较</h3><ul>
+<li><p>同步通信要求接收端时钟频率和发送端时钟频率一致，发送端发送连续的比特流；异步通信时不要求接收端时钟和发送端时钟同步，发送端发送完一个字节后，可经过任意长的时间间隔再发送下一个字节。</p>
+</li>
+<li><p>同步通信效率高；异步通信效率较低。</p>
+</li>
+<li><p>同步通信较复杂，双方时钟的允许误差较小；异步通信简单，双方时钟可允许一定误差。</p>
+</li>
+<li><p>同步通信可用于点对多点；异步通信只适用于点对点。</p>
+</li>
+</ul>
+<h2 id="3-单工、半双工、全双工通信"><a href="#3-单工、半双工、全双工通信" class="headerlink" title="3. 单工、半双工、全双工通信"></a>3. 单工、半双工、全双工通信</h2><h3 id="1-概念-1"><a href="#1-概念-1" class="headerlink" title="1. 概念"></a>1. 概念</h3><ul>
+<li>单工数据传输只支持数据在一个方向上传输</li>
+<li>半双工数据传输允许数据在两个方向上传输，但是，在某一时刻，只允许数据在一个方向上传输，它实际上是一种切换方向的单工通信</li>
+<li>全双工数据通信允许数据同时在两个方向上传输，因此，全双工通信是两个单工通信方式的结合，它要求发送设备和接收设备都有独立的接收和发送能力。</li>
+</ul>
+<h2 id="4-通信速率"><a href="#4-通信速率" class="headerlink" title="4. 通信速率"></a>4. 通信速率</h2><ul>
+<li>比特率</li>
+</ul>
+<blockquote>
+<p>比特率(bit rate)又称传信率、信息传输速率(简称信息速率，information rate)。其定义是：通信线路(或系统)单位时间(每秒)内传输的信息量，即每秒能传输的二进制位数，通常用Rb表示，其单位是比特&#x2F;秒(bit&#x2F;s或b&#x2F;s，英文缩略语为bps)。</p>
+</blockquote>
+<ul>
+<li>波特率</li>
+</ul>
+<blockquote>
+<p>波特率(Baud rate)又称传码率、码元传输速率(简称码元速率)、信号传输速率(简称信号速率，signaling rate)或调制速率。其定义是：通信线路(或系统)单位时间(每秒)内传输的码元(脉冲)个数；或者表示信号调制过程中，单位时间内调制信号波形的变换次数，通常用RB表示，单位是波特(Bd或Baud，前者规范)。如果每秒传输1个码元就称为1Bd；如果1码元的时间长短为200ms，则每秒可传输5个码元，那么码元速率(波特率)就是5Bd。</p>
+</blockquote>
+<ul>
+<li>码元</li>
+</ul>
+<blockquote>
+<p>码元(code cell)是携带信息的数字单位，是指在数字信道中传送数字信号的一个波形符号，也即“时间轴上的一个信号编码单元”。码元可能是二进制的，也可能是多进制的。 </p>
+</blockquote>
+<h2 id="5-常见通信方式"><a href="#5-常见通信方式" class="headerlink" title="5. 常见通信方式"></a>5. 常见通信方式</h2><p>​	USART ( Universal Synchronous Asynchronous Receiver and Transmitter )</p>
+<p>​	UART ( Universal Asynchronous Receiver and Transmitter )</p>
+<h4 id="1-TTL"><a href="#1-TTL" class="headerlink" title="1. TTL"></a>1. TTL</h4><blockquote>
+<p>TTL（transistor transistor logic）即晶体管-晶体管逻辑电平。TTL电平信号规定，+5V等价于逻辑“1”，0 V等价于逻辑“0”(采用二进制来表示数据时)。</p>
+</blockquote>
+<h4 id="2-RS232"><a href="#2-RS232" class="headerlink" title="2. RS232"></a>2. RS232</h4><ul>
+<li>协议简介</li>
+</ul>
+<blockquote>
+<p>RS-232总线规定了25条线，包含了两个信号通道，即第一通道（称为主通道）和第二通道（称为副通道）。利用RS- 232总线可以实现全双工通信，通常使用的是主通道，而副通道使用较少。在一般应用中，使用3条～9条信号线就可以实现全双工通信，采用三条信号线（接收线RXD、发送线TXD和信号地GND）能实现简单的全双工通信过程。因此RS232标准有两种接口——DB9和DB25，其中常用的是DB9接口。</p>
+</blockquote>
+<ul>
+<li>特征</li>
+</ul>
+<blockquote>
+<ul>
+<li>接口信号电平高，容易损坏接口电路的芯片。RS232接口上任何信号线的电压都处于负逻辑关系中。即：逻辑“1”为-3 ~ -15V;逻辑为“0”：+3 ~ +15V，噪声裕量为2V。也就是说，接收器需要将高于+3V的信号识别为逻辑“0”，将低于-3V的信号识别为逻辑“1”，将5V的TTL电平识别为逻辑正极，将0识别为逻辑负极。</li>
+<li>与TTL电平不兼容，需要一个电平转换电路来连接到TTL电路。</li>
+<li>传输速率低。在异步传输中，比特率为20Kbps;因此，在51CPLD开发板中，集成程序波特率只能是19200，这也是原因。</li>
+<li>接口采用信号线和信号回波串，形成共同的接地传输形式。这种标准的接地传输容易受到共模干扰，因此抗噪性较弱。</li>
+<li>传输距离有限。最大传输距离为50英尺。它只能达到大约15米。</li>
+</ul>
+</blockquote>
+<h4 id="3-RS485"><a href="#3-RS485" class="headerlink" title="3. RS485"></a>3. RS485</h4><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>RS485 通信采用差分信号传输，通常情况下只需要两根信号线就可以进行正常的通信。<br>在差分信号中，逻辑0和逻辑1是用两根信号线（A+和B-）的电压差来表示。</p>
+<p>逻辑 1：两根信号线（A+和B-）的电压差在 +2V～+6V 之间。<br>逻辑 0：两根信号线（A+和B-）的电压差在 -2V～-6V 之间。</p>
+</blockquote>
+<ul>
+<li>特征</li>
+</ul>
+<blockquote>
+<p>RS-485的电气特性：逻辑“1”由两条线路+2V<del>+6V之间的电压差表示，逻辑“0”由两条线路之间的电压差-6V</del>-2V表示。接口信号电平低于RS-232，不易损坏接口电路芯片。该电平与TTL电平兼容，便于与TTL电路连接。<br>最高数据传输速率为：10Mbps<br>RS-485接口采用平衡驱动器和差分接收机的组合，具有抗共振固模干扰能力，即抗噪声性能好。<br>RS-485接口的最大传输距离为4000英尺，实际上可达3000米。<br>RS-232接口仅允许一个收发器连接到总线，即单站功能。相比之下，RS-485接口仅允许在总线上连接多达128个收发器，即多站能力。用户 使用单个RS-485接口可以快速建立设备网络。</p>
+</blockquote>
+<h3 id="3-I2C"><a href="#3-I2C" class="headerlink" title="3.  I2C"></a>3.  I2C</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>I2C（同步半双工）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
+</blockquote>
+<ul>
+<li>特点</li>
+</ul>
+<blockquote>
+<p>(1) 它是一个支持多设备的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
+<p>(2) 一个 I2C 总线只使用两条总线线路，一条双向串行数据线(SDA) ，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。</p>
+<p>(3) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
+<p>(4) 总线通过上拉电阻接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
+<p>(5) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
+<p>(6) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
+<p>(7) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
+</blockquote>
+<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>SPI （同步全双工）协议是由摩托罗拉公司提出的通讯协议(Serial Peripheral Interface)，即串行外围设备接口，是一种高速全双工的通信总线。它被广泛地使用在 ADC、 LCD 等设备与 MCU 间，要求通讯速率较高的场合。</p>
+</blockquote>
+<ul>
+<li>特征</li>
+</ul>
+<blockquote>
+</blockquote>
+<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
+<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
+</blockquote>
+<ul>
+<li>特征</li>
+</ul>
+<h3 id="6-USB2-0"><a href="#6-USB2-0" class="headerlink" title="6. USB2.0"></a>6. USB2.0</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<ul>
+<li>USB 是一种支持热插拔的高速串行传输总线，使用差分信号来传输数据，最高速度<br>可达 480Mb&#x2F;S。USB 支持“总线供电”和“自供电”两种供电模式。在总线供电模式下，USB2.0设备最多可以获得500mA的电流。</li>
+<li>2.USB2.0 被设计成为向下兼容的模式，当有全速 （USB 1.1）或者低速（USB 1.0）设备连接到高速（USB 2.0）主机时，主机可以通过分离传输来支持它们。</li>
+<li>3.一条 USB 总线上，可达到的最高传输速度等级由该总线上最慢的“设备”决定，该设备包括主机、HUB以及USB功能设备。</li>
+<li>4.USB 体系包括“主机”、“设备”以及“物理连接”三个部分。主机是一个提供USB接口及接口管理能力的硬件、软件及固件的复合体，可以是PC，也可以是OTG设备。一个USB 系统中仅有一个USB主机；</li>
+<li>5.设备包括 USB功能设备和 USB HUB，最多支持 127个设备；物理连接即指的是USB 的传输线。在USB 2.0系统中，要求使用屏蔽的双绞线。USB 体系采用分层的星型拓扑来连接所有USB设备。</li>
+<li>6.以 HOST-ROOT HUB为起点，最多支持 7 层（Tier），也就是说任何一个USB 系统中最多可以允许 5个 USB HUB 级联。一个复合设备（Compound Device）将同时占据两层或更多的层。</li>
+<li>7.一个 USB HOST 最多可以同时支持 128 个地址，地址 0 作为默认地址，只在设备枚举期间临时使用，而不能被分配给任何一个设备，因此一个 USB HOST 最多可以同时支持 127 个地址，如果一个设备只占用一个地址，那么可最多支持 127个 USB设备（含USB HUB）。<br>USB连接器支持热拔插；高速&#x2F;全速USB线缆要求使用内含双绞线的屏蔽线，而且必须打上符合USB使用标记；低速USB推荐但非要求使用双绞线和屏蔽线；</li>
+</ul>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/51/" rel="tag">51</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-STM32"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/01/29/STM32/"
+    >STM32</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/01/29/STM32/" class="article-date">
+  <time datetime="2024-01-29T08:18:02.000Z" itemprop="datePublished">2024-01-29</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="1-STM32和51"><a href="#1-STM32和51" class="headerlink" title="1. STM32和51"></a>1. STM32和51</h1><h2 id="1-51的优缺点"><a href="#1-51的优缺点" class="headerlink" title="1. 51的优缺点"></a>1. 51的优缺点</h2><h3 id="1-51-的优点"><a href="#1-51-的优点" class="headerlink" title="1. 51 的优点"></a>1. 51 的优点</h3><ul>
+<li>硬件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>结构简单，8位</li>
+<li>硬件到软件有一套按位操作系统。（进行位的操作：传送、置位、清零、测试，逻辑运算）</li>
+<li>包含乘除法指令</li>
+</ol>
+</blockquote>
+<ul>
+<li>软件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>可以使用C进行编程</li>
+</ol>
+</blockquote>
+<h3 id="2-51的缺点"><a href="#2-51的缺点" class="headerlink" title="2. 51的缺点"></a>2. 51的缺点</h3><ul>
+<li>硬件层面</li>
+</ul>
+<blockquote>
+<ol>
+<li>功能少，运行速度慢</li>
+<li>I&#x2F;O高电平无输出能力</li>
+<li>保护能力差</li>
+</ol>
+</blockquote>
+<h2 id="2-stm32的简介"><a href="#2-stm32的简介" class="headerlink" title="2.stm32的简介"></a>2.stm32的简介</h2><blockquote>
+<p>​	由ST厂商推出的STM32系列单片机，行业的朋友都知道，这是一款性价比超高的系列单片机，应该没有之一，功能及其强大。其基于专为要求高性能、低成本、低功耗的嵌入式应用专门设计的ARM Cortex-M内核，同时具有一流的外设：1μs的双12位ADC，4兆位&#x2F;秒的UART，18兆位&#x2F;秒的SPI等等，在功耗和集成度方面也有不俗的表现，当然和MSP430的功耗比起来是稍微逊色的一些，但这并不影响工程师们对它的热捧程度，由于其简单的结构和易用的工具再配合其强大的功能在行业中赫赫有名。</p>
+</blockquote>
+<ul>
+<li>强大功能体现</li>
+</ul>
+<blockquote>
+<ol>
+<li><p>内核<br>STM32 系列采用了多种 ARM Cortex-M 内核，包括 Cortex-M0、Cortex-M3、Cortex-M4 等，具有不同的性能和功能特点，可根据应用场景的需求进行选择。</p>
+</li>
+<li><p>时钟<br>STM32 系列支持多种时钟源，包括内部 RC 振荡器、内部晶体振荡器、外部晶体振荡器等，可根据应用场景的需求进行选择。同时还支持多种时钟分频和时钟输出等功能。</p>
+</li>
+<li><p>存储器<br>STM32 系列支持多种存储器类型，包括 Flash 存储器、RAM 存储器、EEPROM 存储器等，可以根据应用场景的需求进行选择。同时还支持多种存储器保护和存储器映射等功能。</p>
+</li>
+<li><p>支持多种通讯</p>
+<p>STM32 系列还支持多种通信协议，如 SPI、I2C、CAN、USART 等。这使得 STM32 系列非常适合各种应用，特别是需要与其他设备或模块进行通信的应用。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="3-STM32F103C8T6-最小系统制作"><a href="#3-STM32F103C8T6-最小系统制作" class="headerlink" title="3.STM32F103C8T6 最小系统制作"></a>3.STM32F103C8T6 最小系统制作</h2><h3 id="1-供电电路"><a href="#1-供电电路" class="headerlink" title="1.供电电路"></a>1.供电电路</h3><h4 id="1-芯片特性"><a href="#1-芯片特性" class="headerlink" title="1.芯片特性"></a>1.芯片特性</h4><ul>
+<li>操作定压Vdd&#x3D;2.0~3.6v</li>
+<li>Vdd关闭后，RTC和备用寄存器可以从Vbat供电</li>
+</ul>
+<h3 id="2-电源转换电路"><a href="#2-电源转换电路" class="headerlink" title="2.电源转换电路"></a>2.电源转换电路</h3><ul>
+<li>USB供电（5v）转3.3v供电</li>
+</ul>
+<p>​	采用AMS1117芯片</p>
+<ul>
+<li>AMS1117<ul>
+<li>特点：</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Three Terminal Adjustable or Fixed Voltages* </p>
+<p>• High Efficiency Linear Regulators  1.5V, 1.8V, 2.5V, 2.85V, 3.3V and 5.0V </p>
+<p>• Post Regulators for Switching Supplies  • Output Current of 1A </p>
+<p>• 5V to 3.3V Linear Regulator  </p>
+<p>• Operates Down to 1V Dropout </p>
+<p>• Line Regulation: 0.2% Max. </p>
+<p>• Active SCSI Terminators  </p>
+<p>• Load Regulation: 0.4% Max. </p>
+<p>• SOT-223, TO-252 and SO-8 package</p>
+</blockquote>
+<h3 id="3-SWD下载电路"><a href="#3-SWD下载电路" class="headerlink" title="3.SWD下载电路"></a>3.SWD下载电路</h3><ul>
+<li>PA13和PA14为STM32F103C8T6芯片的SWD下载调试引脚</li>
+</ul>
+<h3 id="4-时钟电路"><a href="#4-时钟电路" class="headerlink" title="4.时钟电路"></a>4.时钟电路</h3><ul>
+<li>时钟源</li>
+</ul>
+<blockquote>
+<p>三个不同的时钟源可以用来驱动系统时钟(SYSCLK)： </p>
+<p>● HSI晶振时钟(高速内部时钟信号)  </p>
+<p>● HSE晶振时钟(高速外部时钟信号)  </p>
+<p>● PLL时钟 </p>
+<p>STM32有两个二级时钟源： </p>
+<p>● 40kHz的低速内部RC，它可以驱动独立看门狗，还可选择地通过程序选择驱动RTC。RTC 用于从停机&#x2F;待机模式下自动唤醒系统。 </p>
+<p>● 32.768kHz的低速外部晶振，可选择它用来驱动RTC(RTCCLK)。</p>
+</blockquote>
+<ul>
+<li>时钟电路（晶振电路）</li>
+</ul>
+<h3 id="5-复位电路"><a href="#5-复位电路" class="headerlink" title="5.复位电路"></a>5.复位电路</h3><ul>
+<li><p>复位条件：</p>
+<ul>
+<li>NRST引脚上出现低电平(外部复位)  </li>
+<li>窗口看门狗计数终止(WWDG复位)  </li>
+<li>独立看门狗计数终止(IWDG复位)  </li>
+<li>软件复位(SW复位)  </li>
+<li>低功耗管理复位</li>
+</ul>
+</li>
+<li><p>复位电路</p>
+</li>
+</ul>
+<h3 id="6-外围测试电路"><a href="#6-外围测试电路" class="headerlink" title="6.外围测试电路"></a>6.外围测试电路</h3><ul>
+<li>LED测试电路</li>
+</ul>
+<blockquote>
+<ol>
+<li>电源指示灯</li>
+<li>烧录指示灯</li>
+<li>blink程序测试用灯</li>
+</ol>
+</blockquote>
+<ul>
+<li>引脚引出</li>
+</ul>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-《霍乱时期的爱情》"
   class="article article-type-post"
   itemscope
@@ -590,854 +1134,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Linux-Projects"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/11/28/Linux-Projects/"
-    >Linux Projects</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/11/28/Linux-Projects/" class="article-date">
-  <time datetime="2023-11-28T11:49:32.000Z" itemprop="datePublished">2023-11-28</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	以下项目都是我在已经完成之后补录的笔记，包括但不限于遇到的报错，问题。便于以后复现。实际上不能说是项目，仅仅是复现并且享受大佬的成果而已。开源不易，感谢大佬们开源！</p>
-<h1 id="ZeroTier-内网穿透"><a href="#ZeroTier-内网穿透" class="headerlink" title="ZeroTier 内网穿透"></a>ZeroTier 内网穿透</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>​	官网：<a target="_blank" rel="noopener" href="https://www.zerotier.com/">ZeroTier</a></p>
-<blockquote>
-<p><strong>ZeroTier Client :</strong></p>
-<p>The ZeroTier client is used to connect to virtual networks previously created in the ZeroTier Central web-based <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/User_interface">UI</a>. Endpoint connections are peer-to-peer and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encrypted</a>. <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/STUN">STUN</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hole_punching_(networking)">hole punching</a> are used to establish direct connections between peers behind <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Network_Address_Translation">NAT</a>. Direct connection route discovery is made with the help of a global network of <em>root servers</em> via a mechanism similar to <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment">ICE</a> in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>.</p>
-</blockquote>
-<h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>​		实际上十分简单，对于Windows，iPad，Android，macOS都有相应软件。</p>
-<p><img src="/images/ZeroTIerDownload.png"></p>
-<h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ol>
-<li>安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>操作：加入，离开，查看已经连接的网络</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli <span class="built_in">join</span> &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#加入</span></span><br><span class="line">zerotier-cli leave &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#离开</span></span><br><span class="line">zerotier-cli listnetworks</span><br><span class="line"><span class="comment">#连接列表</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-管理"><a href="#3-管理" class="headerlink" title="3.管理"></a>3.管理</h2><p>​	直接登录官网即可进行对已组网络的管理，例如授权用户，修改网络内部IP地址以及备注信息等等</p>
-<p><img src="/images/ZeroTierAdmin.jpg" alt="Admin Page"></p>
-<h2 id="4-Last"><a href="#4-Last" class="headerlink" title="4.Last"></a>4.Last</h2><p>​	世上还是好人多啊，ZeroTier的出现真的让内网穿透方便了很多，免费用户的配置也很不错！</p>
-<h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
-<li>简介</li>
-</ol>
-<blockquote>
-<p>MQTT也称为”消息代理”（Broker）。</p>
-<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
-</blockquote>
-<ol start="2">
-<li>原理</li>
-</ol>
-<blockquote>
-<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
-<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
-<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
-<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
-</blockquote>
-<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
-<li>安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改配置文件</li>
-</ul>
-<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
-<blockquote>
-<h1 id="Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config"><a href="#Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config" class="headerlink" title="Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config."></a>Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config.</h1></blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行配置文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加用户</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>关闭防火墙！！！</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
-<li>用户登录订阅，发布</li>
-</ul>
-<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
-<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
-<ul>
-<li>安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>订阅</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>发布</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
-<li><strong>脚本制作</strong></li>
-</ul>
-<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
-<ol>
-<li>发布</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
-
-<p>​	运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>订阅，同理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
-
-<p>​	运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>连接esp32或8266</li>
-</ul>
-<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h2 id="1-协议选择-V2RAY的VMess协议"><a href="#1-协议选择-V2RAY的VMess协议" class="headerlink" title="1.协议选择 V2RAY的VMess协议"></a>1.协议选择 V2RAY的VMess协议</h2><h2 id="2-一键安装脚本-：v2ray-sh"><a href="#2-一键安装脚本-：v2ray-sh" class="headerlink" title="2.一键安装脚本 ：v2ray.sh"></a>2.一键安装脚本 ：v2ray.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su root</span><br><span class="line"></span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-查看信息"><a href="#3-查看信息" class="headerlink" title="3.查看信息"></a>3.查看信息</h2><p>信息目录：<code> /etc/v2ray/config.json</code></p>
-<h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器Zerotier刚好可以拿来当我的梦中情机的最后一块拼图。使用ZeroTier就可以让我方便的在SH连接到JX的家中局域网内的服务器了！</p>
-<h2 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2.介绍"></a>2.介绍</h2><h3 id="1-硬件介绍"><a href="#1-硬件介绍" class="headerlink" title="1.硬件介绍"></a>1.硬件介绍</h3><p>​			硬件部分的清单：</p>
-<blockquote>
-<p>CPU : E3 1230 v2 (4核8线，3.3ghz)</p>
-<p>显卡 ： gt610 	（亮机即可，且低功耗）</p>
-<p>内存：8g</p>
-<p>外存：240（固态）+500（机械）</p>
-</blockquote>
-<h3 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h3><p>​		由于我正在使用的pc中恰好有四个下载好的镜像文件，分别是 macOS.Ventura_13.4 , deepin ，ubuntu22.04，kali2023，最终使用的是kali,原因在于kali已经安装好绝大部分软件和其需运行的环境，例如：httpd，JDK，javarun，makefile等等。</p>
-<h2 id="3-组装（跳过）"><a href="#3-组装（跳过）" class="headerlink" title="3.组装（跳过）"></a>3.组装（跳过）</h2><h2 id="4-配置ZeroTier-如上篇ZeroTier内网穿透"><a href="#4-配置ZeroTier-如上篇ZeroTier内网穿透" class="headerlink" title="4.配置ZeroTier(如上篇ZeroTier内网穿透)"></a>4.配置ZeroTier(如上篇ZeroTier内网穿透)</h2><h2 id="5-结束"><a href="#5-结束" class="headerlink" title="5.结束"></a>5.结束</h2><p>最终效果，通过ipad的终端ssh外网连接kali</p>
-<p><img src="/images/ipadConnectKali.jpg" alt="ipadConnectKali"></p>
-<h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1><h2 id="1-make简要介绍"><a href="#1-make简要介绍" class="headerlink" title="1.make简要介绍"></a>1.make简要介绍</h2><blockquote>
-<p>​	In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_development">software development</a>, <strong>Make</strong> is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Build_automation">build automation</a> tool that <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_build">builds</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Executable_program">executable programs</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Library_(software)">libraries</a> from <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Source_code">source code</a> by reading <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/File_(computing)">files</a> called <em>makefiles</em> which specify how to derive the target program. Though <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environments</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Programming_language">language</a>-specific <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compiler_(computing)">compiler</a> features can also be used to manage a build process, Make remains widely used, especially in <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unix">Unix</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Operating_system">operating systems</a>.</p>
-</blockquote>
-<blockquote>
-<p>​	Make is not limited to building programs. It can also be used to manage any project where some files need to be updated automatically from other files whenever the other files change.</p>
-</blockquote>
-<h2 id="2-makefile简要介绍"><a href="#2-makefile简要介绍" class="headerlink" title="2.makefile简要介绍"></a>2.makefile简要介绍</h2><p>​	makefile文件用于告诉make命令如何执行编译和链接。</p>
-<p>​	当一个文件具有很多个.c文件和.h文件时，如果将makefile写好了，就只需要一行代码<code>make</code>即可完成编译链接或者<code>make clean</code>删除所有目标文件，同时还能具备以下特性：</p>
-<blockquote>
-<p>​      1.如果这个工程没有编译过，那么所有C文件都会编译并被链接。</p>
-<p>​      2.如果这个工程的某几个C文件被修改，那么只编译被修改的C文件，并链接目标程序。</p>
-<p>​      3.如果这个工程的头文件被改变了，那么我们需要编译引用了这几个头文件的C文件，并链接目标程序。</p>
-</blockquote>
-<h2 id="3-makefile的规则"><a href="#3-makefile的规则" class="headerlink" title="3.makefile的规则"></a>3.makefile的规则</h2><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">target ... : prerequisites ...</span><br><span class="line"></span><br><span class="line">         command</span><br><span class="line"></span><br><span class="line">         ...</span><br><span class="line"></span><br><span class="line">         ...</span><br><span class="line">        -------------------------------------------------------------------------------</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>target : 目标文件（可以使object文件，可执行文件，还可以是<strong>标签</strong>）</li>
-<li>prerequisites ：生成target所需要的文件或是目标。</li>
-<li>command也就是make需要执行的命令。（Shell命令）</li>
-</ul>
-<h2 id="4-makefile的使用"><a href="#4-makefile的使用" class="headerlink" title="4.makefile的使用"></a>4.makefile的使用</h2><p>​	makefile的规则看似十分简单，但是写好一个makefile却是不简单的。下面举例说明&#96;&#96;&#96;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#假设已经存在3个c文件，4个.h文件，分别是:</span></span><br><span class="line">cFile1.c cFile2.c cFile3.c</span><br><span class="line">hFile1.h hFile2.h hFile3.h hFile4.h</span><br></pre></td></tr></table></figure>
-
-<p>​		如果我们最终想要生成可执行文件main，那么makefile可以这样写，以下是我使用在线makefile生成器生成的。</p>
-<p>​		同时介绍一下gcc的参数：</p>
-<blockquote>
-<ul>
-<li><p>-g可执行程序包含调试信息<br>-g为了调试用的<br>加个-g 是为了gdb 用，不然gdb用不到</p>
-</li>
-<li><p>-o指定输出文件名<br>-o output_filename，确定输出文件的名称为output_filename，同时这个名称不能和源文件同名。如果不给出这个选项，gcc就给出</p>
-</li>
-<li><p>-c 只编译不链接<br>产生.o文件，就是obj文件，不产生执行文件</p>
-</li>
-<li><p>-D 其意义是添加宏定义</p>
-</li>
-<li><p>-w的意思是关闭编译时的警告，也就是编译后不显示任何warning，因为有时在编译之后编译器会显示一些例如数据转换之类的警告，这些警告是我们平时可以忽略的。</p>
-</li>
-<li><p>-W选项类似-Wall，会显示警告，但是只显示编译器认为会出现错误的警告。</p>
-</li>
-<li><p>-Wall选项意思是编译后显示所有警告</p>
-</li>
-</ul>
-</blockquote>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># In order to execute this &quot;Makefile&quot; just type &quot;make&quot;</span></span><br><span class="line"><span class="comment">#  A. Delis (ad@di.uoa.gr)</span></span><br><span class="line"><span class="comment"># web: https://solver.assistedcoding.eu/makefilegen</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">OBJS  = cFile1.o cFile2.o cFile3.o</span><br><span class="line">SOURCE  = cFile1.c cFile2.c cFile3.c</span><br><span class="line">HEADER  = hFile1.h hFile2.h hFile3.h hFile4.h</span><br><span class="line">OUT  = main.out</span><br><span class="line">CC   = gcc</span><br><span class="line">FLAGS   = -g -c -Wall				 </span><br><span class="line">LFLAGS   = </span><br><span class="line"><span class="comment"># -g option enables debugging mode </span></span><br><span class="line"><span class="comment"># -c flag generates object code for separate files</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">all: <span class="variable">$(OBJS)</span></span></span><br><span class="line">  <span class="variable">$(CC)</span> -g <span class="variable">$(OBJS)</span> -o <span class="variable">$(OUT)</span> <span class="variable">$(LFLAGS)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># create/compile the individual files &gt;&gt;separately&lt;&lt;</span></span><br><span class="line"><span class="section">cFile1.o: cFile1.c</span></span><br><span class="line">  <span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile1.c -lcunit</span><br><span class="line"></span><br><span class="line"><span class="section">cFile2.o: cFile2.c</span></span><br><span class="line">  <span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile2.c -lcunit</span><br><span class="line"></span><br><span class="line"><span class="section">cFile3.o: cFile3.c</span></span><br><span class="line">  <span class="variable">$(CC)</span> <span class="variable">$(FLAGS)</span> cFile3.c -lcunit</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># clean house</span></span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">  rm -f <span class="variable">$(OBJS)</span> <span class="variable">$(OUT)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># run the program</span></span><br><span class="line"><span class="section">run: <span class="variable">$(OUT)</span></span></span><br><span class="line">  ./<span class="variable">$(OUT)</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="cmake"><a href="#cmake" class="headerlink" title="cmake"></a>cmake</h1><h2 id="1-简要介绍"><a href="#1-简要介绍" class="headerlink" title="1. 简要介绍"></a>1. 简要介绍</h2><blockquote>
-<p>From Wikipedia, the free encyclopedia</p>
-<p>In <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_development">software development</a>, <strong>CMake</strong> is <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Cross-platform">cross-platform</a> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open-source software</a> for <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Build_automation">build automation</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Software_testing">testing</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Package_(package_management_system)">packaging</a> and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Installation_(computer_programs)">installation</a> of software by using a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Compiler">compiler</a>-independent method.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-3">3]</a> CMake is not a build system itself; it generates another system’s build files.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a> It supports directory hierarchies and applications that depend on multiple libraries. It can invoke native build environments such as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Make_(software)">Make</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Qt_Creator">Qt Creator</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ninja_(build_system)">Ninja</a>, <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Android_Studio">Android Studio</a>, Apple’s <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Xcode">Xcode</a>, and <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio">Microsoft Visual Studio</a>.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a> It has minimal dependencies, requiring only a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/C%2B%2B">C++</a> compiler on its own build system.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-:1-4">4]</a></p>
-<p>CMake is distributed as <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open-source software</a> under a permissive <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/BSD_licenses">BSD-3-Clause</a> license.[<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/CMake#cite_note-5"></a></p>
-</blockquote>
-<p>​	我的理解就是cmake是一款能够夸平台的生成makefile的工具，这样就不需要写复杂的makefile了。</p>
-<h2 id="2-cmake使用"><a href="#2-cmake使用" class="headerlink" title="2.	cmake使用"></a>2.	cmake使用</h2><h3 id="1-使用流程"><a href="#1-使用流程" class="headerlink" title="1.使用流程"></a>1.使用流程</h3><pre><code>1. 在项目根目录下创建一个名为` CMakeLists.txt`的文件
-</code></pre>
-<ol start="2">
-<li>编写该文件（当文件比较少的时候）</li>
-</ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)  <span class="comment"># 版本要求</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set the project name</span></span><br><span class="line"><span class="keyword">project</span>(firstProject)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add the executable（包括所有的用到的源文件）</span></span><br><span class="line"><span class="keyword">add_executable</span>(firstOut a.cpp b.cpp)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>使用cmake命令生成makefile</li>
-</ol>
-<ul>
-<li>cmake命令的使用</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Usage</span><br><span class="line"></span><br><span class="line">  cmake [options] &lt;path-to-source&gt;</span><br><span class="line">  cmake [options] &lt;path-to-existing-build&gt;</span><br><span class="line">  cmake [options] -S &lt;path-to-source&gt; -B &lt;path-to-build&gt;</span><br><span class="line"></span><br><span class="line">Specify a <span class="built_in">source</span> directory to (re-)generate a build system <span class="keyword">for</span> it <span class="keyword">in</span> the</span><br><span class="line">current working directory.  Specify an existing build directory to</span><br><span class="line">re-generate its build system.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>使用make得到输出</li>
-</ol>
-<h3 id="2-单个源文件的项目"><a href="#2-单个源文件的项目" class="headerlink" title="2.单个源文件的项目"></a>2.单个源文件的项目</h3><ol>
-<li>编写main.cpp</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;<span class="built_in">printf</span>(<span class="string">&quot;hello\n&quot;</span>);<span class="keyword">return</span> <span class="number">0</span>;&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>编写CMakeLists.txt</li>
-</ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># set the project name</span></span><br><span class="line"><span class="keyword">project</span>(firstProject)</span><br><span class="line"></span><br><span class="line"><span class="comment"># add the executable</span></span><br><span class="line"><span class="keyword">add_executable</span>(firstOut main.cpp)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>创建输出文件夹并且进行输出</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line">cmake -S . -B ./build/</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>使用make进行编译链接即可得到可执行文件<code>firstOut</code></li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-CMakeLists-txt-的写法"><a href="#3-CMakeLists-txt-的写法" class="headerlink" title="3. CMakeLists.txt 的写法"></a>3. CMakeLists.txt 的写法</h3><h4 id="1-使用set"><a href="#1-使用set" class="headerlink" title="1.使用set"></a>1.使用set</h4><ul>
-<li>定义变量 <strong>set</strong> ，类型为字符串</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(outName[forstOut])</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使用宏</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)         <span class="comment"># 指定c++标准的宏</span></span><br><span class="line"><span class="keyword">set</span>(EXECUTABLE_OUTPUT_PATH   /home/regen/CMake/regen_1/build)<span class="comment"># 指定可执行文件的输出目录</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>取值</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;outName&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-文件搜索（便于源文件很多的情况）获取源文件名字"><a href="#2-文件搜索（便于源文件很多的情况）获取源文件名字" class="headerlink" title="2.文件搜索（便于源文件很多的情况）获取源文件名字"></a>2.文件搜索（便于源文件很多的情况）获取源文件名字</h4><p>​	建议将源文件放在独立的目录下，便于获取源文件名字。</p>
-<ol>
-<li>使用<code>aux_source_directory(&lt; dir &gt; &lt; variable &gt;)</code></li>
-</ol>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">aux_source_directory</span>(&lt; dir &gt; &lt; variable &gt;)</span><br><span class="line"><span class="keyword">aux_source_directory</span>(<span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span> SRC)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>使用file（用于应对很多源文件在不同目录的情况）</li>
-</ol>
-<ul>
-<li>后缀搜索目录下所有源文件</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>(GLOB MAIN_SRC <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/src/*.cpp)</span><br><span class="line"><span class="keyword">file</span>(GLOB MAIN_HEAD <span class="variable">$&#123;PROJECT_SOURCE_DIR&#125;</span>/<span class="keyword">include</span>/*.h)</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>头文件与源文件分开放的处理方法</li>
-</ol>
-<ul>
-<li>使用宏</li>
-</ul>
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">include_directories</span>(headpath)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="3-静态库和动态库"><a href="#3-静态库和动态库" class="headerlink" title="3.静态库和动态库"></a>3.静态库和动态库</h2><p>​	pause.打算在下次用到的时候补充</p>
-<p>​                                </p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Linux-system-Notes"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/11/28/Linux-system-Notes/"
-    >Linux Notes</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/11/28/Linux-system-Notes/" class="article-date">
-  <time datetime="2023-11-28T11:49:18.000Z" itemprop="datePublished">2023-11-28</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>A note about linux basic operation.</p>
-<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="*系统操作"></a>*系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><h2 id="提供父进程信息"><a href="#提供父进程信息" class="headerlink" title="提供父进程信息"></a>提供父进程信息</h2></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps lax</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-终止某项进程"><a href="#2-终止某项进程" class="headerlink" title="2. 终止某项进程"></a>2. 终止某项进程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill pid</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号</li>
-</ul>
-<ol start="3">
-<li><h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
-</ol>
-<ul>
-<li>查看内存占用和 swap 分区占用</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><h2 id="查看CPU使用情况"><a href="#查看CPU使用情况" class="headerlink" title="查看CPU使用情况"></a>查看CPU使用情况</h2></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
-
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="*文件操作"></a>*文件操作</h1><h2 id="vim-编辑器"><a href="#vim-编辑器" class="headerlink" title="vim 编辑器"></a>vim 编辑器</h2><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><ul>
-<li>空白键 (space)：代表向下翻一页；</li>
-<li>Enter     ：代表向下翻『一行』；</li>
-<li>&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
-<li>:f      ：立刻显示出档名以及目前显示的行数；</li>
-<li>q       ：代表立刻离开 more ，不再显示该文件内容。</li>
-<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
-</ul>
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><ul>
-<li>空白键  ：向下翻动一页；</li>
-<li>[pagedown]：向下翻动一页；</li>
-<li>[pageup] ：向上翻动一页；</li>
-<li><strong>&#x2F;字串   ：向下搜寻『字串』的功能；</strong></li>
-<li><strong>?字串   ：向上搜寻『字串』的功能；</strong></li>
-<li><strong>n     ：重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li><strong>N     ：反向的重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li>q     ：离开 less 这个程序；</li>
-</ul>
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>​	读取前几行文本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<p>​	</p>
-<p>​	解压缩： </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunzip linuxFiles.tar.gz</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>2.文件打包tar</p>
-<p>​	1.打包文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf linuxFiles.tar home/</span><br></pre></td></tr></table></figure>
-
-<p>​	2.解开打包后的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<pre><code>3. tar -w 选项，每次将选择单个文件抽出或加入
-</code></pre>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvwf linuxFiles.tar //</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>tar -z 自动调用gzip进行解压缩</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">tar -cvf linuxFiles.tar home/</span><br><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="*用户权限"></a>*用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
-<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="*开放端口"></a>*开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080  <span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
-<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
-</blockquote>
-<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
-<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
-<li>例如开放ssh端口</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使之生效</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>检查是否生效</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
-<li>限制ssh端口</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
-
-<h1 id="任务调度"><a href="#任务调度" class="headerlink" title="*任务调度"></a>*任务调度</h1><h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><blockquote>
-<ul>
-<li><strong>任务调度</strong>：系统在某个时间定时执行特定的命令或程序</li>
-<li>任务调度的分类：<ul>
-<li><strong>系统任务调度</strong>：系统某些工作需要周而复始、重复地执行，如病毒扫描、日志清理</li>
-<li><strong>用户任务调度</strong>：个别用户可能需要定时执行的工作，如备份数据库、用户数据备份</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><ul>
-<li>基本介绍</li>
-</ul>
-<blockquote>
-<ol>
-<li>系统任务调度配置文件目录：<code>/etc/crontab</code></li>
-<li>用户的crontab文件放置于<code>/var/spool/cron</code></li>
-</ol>
-</blockquote>
-<ul>
-<li>指令介绍</li>
-</ul>
-<ol>
-<li>参数选项</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">-e</td>
-<td>e是edit的意识，即编辑&#x2F;设置&#x2F;修改当前用户的定时任务</td>
-</tr>
-<tr>
-<td align="center">-l</td>
-<td>l是list的意思，即列出&#x2F;查看&#x2F;打印&#x2F;输出当前用户的全部定时任务</td>
-</tr>
-<tr>
-<td align="center">-r</td>
-<td>r是remove的意思，即移除&#x2F;删除当前用户的全部定时任务</td>
-</tr>
-</tbody></table>
-<ol start="2">
-<li>语法介绍</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of job definition:</span></span><br><span class="line"><span class="comment"># .---------------- minute (0 - 59)</span></span><br><span class="line"><span class="comment"># |  .------------- hour (0 - 23)</span></span><br><span class="line"><span class="comment"># |  |  .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="comment"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="comment"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="comment"># |  |  |  |  |</span></span><br><span class="line"><span class="comment"># *  *  *  *  * user-name command to be executed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>开头<code>*  *  *  *  * </code>参数的解释</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>案例</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>*</td>
-<td>1 2 * * *</td>
-<td>每天的2:01执行一次</td>
-</tr>
-<tr>
-<td>*&#x2F;n</td>
-<td>*&#x2F;5 * * * *</td>
-<td>每隔5分钟执行一次</td>
-</tr>
-<tr>
-<td>,(和)</td>
-<td>1 2 3,4 * *</td>
-<td>每月的3,4日2:01执行一次</td>
-</tr>
-<tr>
-<td>-（范围）</td>
-<td>1 2 3-6 * *</td>
-<td>每月的3-6日2:01执行一次</td>
-</tr>
-</tbody></table>
-<ul>
-<li>使用方法</li>
-</ul>
-<ol>
-<li>进入编辑模式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>编写任务</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Edit this file to introduce tasks to be run by cron.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Each task to run has to be defined through a single line</span></span><br><span class="line"><span class="comment"># indicating with different fields when the task will be run</span></span><br><span class="line"><span class="comment"># and what command to run for the task</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># To define the time you can provide concrete values for</span></span><br><span class="line"><span class="comment"># minute (m), hour (h), day of month (dom), month (mon),</span></span><br><span class="line"><span class="comment"># and day of week (dow) or use &#x27;*&#x27; in these fields (for &#x27;any&#x27;).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Notice that tasks will be started based on the cron&#x27;s system</span></span><br><span class="line"><span class="comment"># daemon&#x27;s notion of time and timezones.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Output of the crontab jobs (including errors) is sent through</span></span><br><span class="line"><span class="comment"># email to the user the crontab file belongs to (unless redirected).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For example, you can run a backup of all your user accounts</span></span><br><span class="line"><span class="comment"># at 5 a.m every week with:</span></span><br><span class="line"><span class="comment"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For more information see the manual pages of crontab(5) and cron(8)</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>编辑后保存退出即可</li>
-</ul>
-<h1 id="磁盘，分区，挂载操作"><a href="#磁盘，分区，挂载操作" class="headerlink" title="* 磁盘，分区，挂载操作"></a>* 磁盘，分区，挂载操作</h1><h2 id="linux硬盘文件系统介绍"><a href="#linux硬盘文件系统介绍" class="headerlink" title="linux硬盘文件系统介绍:"></a>linux硬盘文件系统介绍:</h2><h3 id="ext4"><a href="#ext4" class="headerlink" title="ext4:"></a>ext4:</h3><ul>
-<li><p>与ext3相比，ext4文件系统可支持最高1EB的分区与最大16TB的文件</p>
-</li>
-<li><p>拓展了子目录的数量，理论上可以无限个</p>
-</li>
-<li><p>与ext3相比，引入了块组的概念，提高了存取的效率</p>
-</li>
-<li><p>预留空间、延迟获取空间，减少了文件的分散</p>
-</li>
-<li><p>更详细的inodes，提高了系统的性能</p>
-</li>
-<li><p>可以实现快速的文件系统检查</p>
-</li>
-<li><p>提供日志校验和，提高了可靠性</p>
-</li>
-</ul>
-<h2 id="查看设备挂载情况"><a href="#查看设备挂载情况" class="headerlink" title="查看设备挂载情况"></a>查看设备挂载情况</h2><ol>
-<li>所有设备</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>查看硬盘使用情况</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="新硬盘的分区以及挂载流程"><a href="#新硬盘的分区以及挂载流程" class="headerlink" title="新硬盘的分区以及挂载流程"></a>新硬盘的分区以及挂载流程</h2><ol>
-<li>查看是否已经存在设备</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
-
-<p>或者查看<code>/dev/</code>下是否存在设备</p>
-<ol start="2">
-<li>使用fdisk进行分区设置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br></pre></td></tr></table></figure>
-
-<p>​	3.分区格式化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs  -t  ext4     /dev/sdb1</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>挂载硬盘到文件夹</li>
-</ol>
-<p>使用<code>mount</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /newDisk</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>取消挂载</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unmount /dev/sdb1</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/system/" rel="tag">system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-GIT-basic"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/11/26/GIT-basic/"
-    >GIT basic</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/11/26/GIT-basic/" class="article-date">
-  <time datetime="2023-11-26T13:01:57.000Z" itemprop="datePublished">2023-11-26</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><blockquote>
-<p>git简介：</p>
-<p>Git (&#x2F;ɡɪt&#x2F;) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers).</p>
-</blockquote>
-<ul>
-<li><strong>What is Git?</strong><br>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</li>
-</ul>
-<p>It is used for:</p>
-<p>Tracking code changes<br>Tracking who made changes<br>Coding collaboration</p>
-<ul>
-<li><strong>What does Git do?</strong></li>
-</ul>
-<p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
-<ul>
-<li><strong>Working with Git</strong></li>
-</ul>
-<p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
-<p>Shift focus to GitHubGitHub<br>Shift focus to BitbucketBitbucket<br>Shift focus to GitLabGitLab</p>
-<ul>
-<li><strong>Why Git?</strong></li>
-</ul>
-<p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
-<ul>
-<li><strong>What is GitHub?</strong></li>
-</ul>
-<p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
-<p>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</p>
-<ul>
-<li><strong>初始化</strong></li>
-</ul>
-<ol>
-<li>check git version and info</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>configure git</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>initialize you repo</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>** file operation  **</li>
-</ul>
-<ol>
-<li>check file status<br>Files in the repo has 2 status:<ul>
-<li>Tracked - files that Git knows about and are added to the repository</li>
-<li>Untracked - files that are in your working directory, but not added to the repository</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<p>​		or you can use </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git status --short</span><br><span class="line"><span class="comment">#  Note: Short status flags are:</span></span><br><span class="line"><span class="comment">#    ?? - Untracked files</span></span><br><span class="line"><span class="comment">#    A - Files added to stage</span></span><br><span class="line"><span class="comment">#    M - Modified files</span></span><br><span class="line"><span class="comment">#    D - Deleted files</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<ol start="2">
-<li>add to stage environment</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># once you finish a part or a bug ,you need to add it to  stage environment. So that you files in the stage environment are ready to commit .</span></span><br><span class="line"></span><br><span class="line">git add hello.c</span><br><span class="line"></span><br><span class="line"><span class="comment"># or you can use </span></span><br><span class="line">git add —all</span><br><span class="line">git add -A</span><br><span class="line"><span class="comment"># this two commends stages all the changes .  </span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>move from  stage to <strong>commit</strong> for our repo.</li>
-</ol>
-<ul>
-<li>commit all the changes</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;First release of Hello World!&quot;</span></span><br><span class="line"><span class="comment"># The commit command performs a commit, and the -m &quot;message&quot; adds a message.</span></span><br><span class="line"><span class="comment"># When we commit, we should always include a message.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>commit all the changes without add them to stage</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m <span class="string">&quot;Updated index.html with a new line&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>view the history of commit log</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>GIT branch</strong></li>
-</ul>
-<p>​	Introduction :</p>
-<blockquote>
-<p>In Git, a <code>branch</code> is a new&#x2F;separate version of the main repository.</p>
-<p>Branches allow you to work on different parts of a project without impacting the main branch.</p>
-<p>When the work is complete, a branch can be merged with the main project.</p>
-<p>You can even switch between branches and work on different projects without them interfering with each other.</p>
-<p>Branching in Git is very lightweight and fast!</p>
-</blockquote>
-<ol>
-<li>create new git branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>check out the branches</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>move branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>check status of this branch , add to stage and commit . (same code)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>merge branch</li>
-</ul>
-<ol>
-<li>In order to merge two branches, we need to change to the master branch:</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>merge</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge newBranch</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>delete branches</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -d newBranch</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>merge conflict</li>
-</ul>
-<p><strong>其他操作</strong></p>
-<ul>
-<li>GIT Associating a local repository to a remote repository</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:beiszhihao/test.git</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
