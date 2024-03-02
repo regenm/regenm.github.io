@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">839</span>
         </span>
     </span>
 
@@ -91,20 +91,118 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="数据库原理"><a href="#数据库原理" class="headerlink" title="数据库原理"></a>数据库原理</h1><h2 id="数据库概论"><a href="#数据库概论" class="headerlink" title="数据库概论"></a>数据库概论</h2><h3 id="数据库以及相关概念"><a href="#数据库以及相关概念" class="headerlink" title="数据库以及相关概念"></a>数据库以及相关概念</h3><ol>
+<li>数据（<strong>data</strong>）：信息的表现形式和载体。</li>
+<li>数据库（<strong>database</strong>）：长期存储在计算机内，有组织的，统一管理的相关数据的集合。</li>
+<li>数据库管理系统（<strong>DBMS</strong>）：位于用户与操作系统逐之间的一层数据管理软件，为用户或应用程序提供访问DB的方法，包括DB的建立，查询，更新及各种数据控制。</li>
+<li>数据库系统（<strong>DBS</strong>）：采用数据库技术的计算机系统。</li>
+<li>数据库技术：研究数据库结构，存储设计管理和使用的一门软件学科。</li>
+</ol>
+<h3 id="高级数据库阶段"><a href="#高级数据库阶段" class="headerlink" title="高级数据库阶段"></a>高级数据库阶段</h3><h4 id="对象数据库技术"><a href="#对象数据库技术" class="headerlink" title="对象数据库技术"></a>对象数据库技术</h4><ul>
+<li>面向对象与数据库技术结合的产物</li>
+</ul>
+<blockquote>
+<p>主要特征</p>
+<ol>
+<li>可以完整的描述现实数据结构，以及数据之间嵌套递归的联系。 </li>
+<li>具有封装性和继承性，提高了软件的可重用性</li>
+</ol>
+</blockquote>
+<h4 id="分布式数据库系统"><a href="#分布式数据库系统" class="headerlink" title="分布式数据库系统"></a>分布式数据库系统</h4><blockquote>
+<p>主要特征：</p>
+<ol>
+<li>数据物理上分布在不同场地，逻辑上是一个整体 。</li>
+<li>每个场地可以执行局部应用，也可以执行全部应用<br>3.。 各地计算机由数据通信网络联系，本地计算机不能完成的任务可以通过通信网络获取其他场地支持。</li>
+</ol>
+</blockquote>
+<h4 id="开放数据库互联技术"><a href="#开放数据库互联技术" class="headerlink" title="开放数据库互联技术"></a>开放数据库互联技术</h4><ul>
+<li>用于单个应用程序访问不同的数据库</li>
+</ul>
+<ol start="4">
+<li>XML数据库技术</li>
+</ol>
+<ul>
+<li>灵活</li>
+</ul>
+<h4 id="现代信息集成技术"><a href="#现代信息集成技术" class="headerlink" title="现代信息集成技术"></a>现代信息集成技术</h4><ol>
+<li>数据仓库</li>
+<li>连及分析处理技术</li>
+<li>数据挖掘</li>
+</ol>
+<h3 id="数据描述"><a href="#数据描述" class="headerlink" title="数据描述"></a>数据描述</h3><p>​	数据描述有两种形式：物理数据描述和逻辑数据描述。</p>
+<ol>
+<li>物理数据描述：数据在存储设备上的存储方式的描述。</li>
+<li>逻辑数据描述：程序员或者用户用以操作的数据形式的描述，是抽象的概念化数据。</li>
+</ol>
+<h4 id="概念设计中的数据描述"><a href="#概念设计中的数据描述" class="headerlink" title="概念设计中的数据描述"></a>概念设计中的数据描述</h4><ul>
+<li>实体（entity）</li>
+<li>实体集 （entity set）</li>
+<li>属性（attribute）</li>
+<li>实体标识符（identifier）</li>
+</ul>
+<h4 id="逻辑设计中的数据描述"><a href="#逻辑设计中的数据描述" class="headerlink" title="逻辑设计中的数据描述"></a>逻辑设计中的数据描述</h4><ul>
+<li>字段（Field）</li>
+<li>记录（Record）</li>
+<li>文件（file）</li>
+<li>关键码（Key）</li>
+</ul>
+<h4 id="物理设计中的概念描述"><a href="#物理设计中的概念描述" class="headerlink" title="物理设计中的概念描述"></a>物理设计中的概念描述</h4><ol>
+<li>物理存储介质层次，可分为以下六类</li>
+</ol>
+<ul>
+<li>高速缓冲存储器（<strong>cache</strong>）</li>
+<li>主存储器（<strong>main menory</strong>）</li>
+<li>快擦鞋存储器(<strong>flash memory</strong>)</li>
+<li>磁盘存储器(<strong>magnetic disk</strong>)</li>
+<li>光存储器(<strong>optical sstorage</strong>)</li>
+<li>磁带(<strong>tape storage</strong>)</li>
+</ul>
+<ol start="2">
+<li>物理存储中的数据描述</li>
+</ol>
+<ul>
+<li>位(<strong>bit</strong>)</li>
+<li>字节（<strong>byte</strong>）</li>
+<li>字(<strong>word</strong>)</li>
+<li>块( <strong>Block</strong>)</li>
+<li>桶 (<strong>bucket</strong>)</li>
+<li>卷(<strong>volume</strong>)</li>
+</ul>
+<h4 id="数据联系的描述"><a href="#数据联系的描述" class="headerlink" title="数据联系的描述"></a>数据联系的描述</h4><p><strong>联系：是实体之间的互相关系。</strong></p>
+<p><strong>联系的元数：与一个联系有关的实体集个数。</strong></p>
+<ul>
+<li>二元联系的三种类型</li>
+</ul>
+<ol>
+<li>一对一联系</li>
+<li>一对多联系</li>
+<li>多对多联系</li>
+</ol>
+<h3 id="数据抽象过程"><a href="#数据抽象过程" class="headerlink" title="数据抽象过程"></a>数据抽象过程</h3><p>模型（model）: 是对现实世界的抽象。使用数据模型（data model）的概念描述数据库的结构和语义，对现实世界的数据进行抽象。</p>
+<ul>
+<li><strong>概念模型</strong>：用来表达用户需求观点的数据全局逻辑结构模型称为概念模型</li>
+<li><strong>逻辑模型：</strong>表达计算机实现观点的DB全局逻辑结构的模型</li>
+<li>**外部模型:**表达用户使用观点DB局部逻辑结构的模型</li>
+<li><strong>内部模型：</strong>表达DB物理结构的模型</li>
+</ul>
+<p>他们之间的关系如图所示</p>
+<p><img src="/images/" alt="structure"></p>
+<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -179,6 +277,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" rel="tag">数据库原理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
     </footer>
   </div>
 
