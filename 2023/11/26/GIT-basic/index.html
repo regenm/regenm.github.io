@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">867</span>
+            <span class="post-count">993</span>
         </span>
     </span>
 
@@ -106,55 +106,25 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><blockquote>
-<p>git简介：</p>
+  <h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><h2 id="git简介："><a href="#git简介：" class="headerlink" title="git简介："></a>git简介：</h2><blockquote>
 <p>Git (&#x2F;ɡɪt&#x2F;) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers).</p>
 </blockquote>
-<ul>
-<li><strong>What is Git?</strong><br>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</li>
-</ul>
+<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a><strong>What is Git?</strong></h2><p>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</p>
 <p>It is used for:</p>
 <p>Tracking code changes<br>Tracking who made changes<br>Coding collaboration</p>
-<ul>
-<li><strong>What does Git do?</strong></li>
-</ul>
-<p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
-<ul>
-<li><strong>Working with Git</strong></li>
-</ul>
-<p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
+<h2 id="What-does-Git-do"><a href="#What-does-Git-do" class="headerlink" title="What does Git do?"></a><strong>What does Git do?</strong></h2><p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
+<h2 id="Working-with-Git"><a href="#Working-with-Git" class="headerlink" title="Working with Git"></a><strong>Working with Git</strong></h2><p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
 <p>Shift focus to GitHubGitHub<br>Shift focus to BitbucketBitbucket<br>Shift focus to GitLabGitLab</p>
-<ul>
-<li><strong>Why Git?</strong></li>
-</ul>
-<p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
-<ul>
-<li><strong>What is GitHub?</strong></li>
-</ul>
-<p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
-<p>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</p>
-<ul>
-<li><strong>初始化</strong></li>
-</ul>
-<ol>
-<li>check git version and info</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Why-Git"><a href="#Why-Git" class="headerlink" title="Why Git?"></a><strong>Why Git?</strong></h2><p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
+<h2 id="What-is-GitHub"><a href="#What-is-GitHub" class="headerlink" title="What is GitHub?"></a><strong>What is GitHub?</strong></h2><p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
+<p><strong>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</strong></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h3><h4 id="check-git-version-and-info"><a href="#check-git-version-and-info" class="headerlink" title="check git version and info"></a>check git version and info</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>configure git</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="configure-git"><a href="#configure-git" class="headerlink" title="configure git"></a>configure git</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;xxxxx&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>initialize you repo</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="initialize-you-repo"><a href="#initialize-you-repo" class="headerlink" title="initialize you repo"></a>initialize you repo</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>** file operation  **</li>
-</ul>
-<ol>
+<h3 id="file-operation"><a href="#file-operation" class="headerlink" title="file operation"></a>file operation</h3><ol>
 <li>check file status<br>Files in the repo has 2 status:<ul>
 <li>Tracked - files that Git knows about and are added to the repository</li>
 <li>Untracked - files that are in your working directory, but not added to the repository</li>
@@ -195,10 +165,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><strong>GIT branch</strong></li>
-</ul>
-<p>​	Introduction :</p>
+<h2 id="GIT-branch"><a href="#GIT-branch" class="headerlink" title="GIT branch"></a><strong>GIT branch</strong></h2><p>​	Introduction :</p>
 <blockquote>
 <p>In Git, a <code>branch</code> is a new&#x2F;separate version of the main repository.</p>
 <p>Branches allow you to work on different parts of a project without impacting the main branch.</p>
@@ -206,30 +173,15 @@
 <p>You can even switch between branches and work on different projects without them interfering with each other.</p>
 <p>Branching in Git is very lightweight and fast!</p>
 </blockquote>
-<ol>
-<li>create new git branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
+<h4 id="create-new-git-branch"><a href="#create-new-git-branch" class="headerlink" title="create new git branch"></a>create new git branch</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>check out the branches</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
+<h4 id="check-out-the-branches"><a href="#check-out-the-branches" class="headerlink" title="check out the branches"></a>check out the branches</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>move branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="move-branch"><a href="#move-branch" class="headerlink" title="move branch"></a>move branch</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>check status of this branch , add to stage and commit . (same code)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="check-status-of-this-branch-add-to-stage-and-commit-same-code"><a href="#check-status-of-this-branch-add-to-stage-and-commit-same-code" class="headerlink" title="check status of this branch , add to stage and commit . (same code)"></a>check status of this branch , add to stage and commit . (same code)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>merge branch</li>
-</ul>
-<ol>
+<h4 id="merge-branch"><a href="#merge-branch" class="headerlink" title="merge branch"></a>merge branch</h4><ol>
 <li>In order to merge two branches, we need to change to the master branch:</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
@@ -247,14 +199,32 @@
 <ul>
 <li>merge conflict</li>
 </ul>
-<p><strong>其他操作</strong></p>
-<ul>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a><strong>其他操作</strong></h2><ul>
 <li>GIT Associating a local repository to a remote repository</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:beiszhihao/test.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:regen/test.git</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p><strong>Situations</strong></p>
+<h2 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h2><h3 id="多个设备同一账号，在不同的场景使用github同步代码。"><a href="#多个设备同一账号，在不同的场景使用github同步代码。" class="headerlink" title="多个设备同一账号，在不同的场景使用github同步代码。"></a>多个设备同一账号，在不同的场景使用github同步代码。</h3><h4 id="终端"><a href="#终端" class="headerlink" title="终端:"></a>终端:</h4><h5 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置用户</span></span><br><span class="line">git config --global user.name <span class="string">&quot;xxxxx&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="github添加ssh公钥匙"><a href="#github添加ssh公钥匙" class="headerlink" title="github添加ssh公钥匙"></a>github添加ssh公钥匙</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>将生成的rsq_pub中的内容复制到github里的ssh栏</p>
+<h5 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h5><ul>
+<li>复制仓库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:regenm/Notes.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改前更新</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改后上传</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;add an application of git&quot;</span></span><br><span class="line">git status</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       

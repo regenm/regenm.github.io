@@ -166,6 +166,81 @@
     
     
     <article
+  id="post-python画画"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/06/python%E7%94%BB%E7%94%BB/"
+    >python画画</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/06/python%E7%94%BB%E7%94%BB/" class="article-date">
+  <time datetime="2023-10-06T06:55:02.000Z" itemprop="datePublished">2023-10-06</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​		学校在国庆节和中秋节中举办了一个编程比赛：内容是在一个小时内用编程语言画出节日符号；例如月饼和国旗之类的。假期闲来无事，于是就浅浅参加了一下。</p>
+<h2 id="使用python的TURTLE库"><a href="#使用python的TURTLE库" class="headerlink" title="使用python的TURTLE库"></a>使用python的TURTLE库</h2><p>​		说要用编程画画，我立马就想到了用python ，毕竟人生苦短，我用python。其实主要还是不想用字符串来在终端输出，过于麻烦。</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识<img src="https://files.realpython.com/media/Turtle_EDIT_Graph.790c213ce0ba.jpg" alt="Python Turtle Coordinates New"></h2><pre><code>        * 中心点在screen中心
+        * (0,0) 即 Home
+        * 默认初始化画笔向右
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.right(<span class="number">90</span>)   </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.left(<span class="number">90</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.backward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.realpython.com/media/Update_-_Moving_Turtle_VIDEO_GIF.61623cf40fed.gif" alt="Python Turtle Moving Updated"></p>
+<h3 id="内置图形"><a href="#内置图形" class="headerlink" title="内置图形"></a>内置图形</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t.circle(<span class="number">60</span>)</span><br><span class="line">t.dot(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="背景颜色"><a href="#背景颜色" class="headerlink" title="背景颜色"></a>背景颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">turtle.bgcolor(<span class="string">&quot;blue&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="画笔的粗细"><a href="#画笔的粗细" class="headerlink" title="画笔的粗细"></a>画笔的粗细</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.pensize(<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="填充颜色"><a href="#填充颜色" class="headerlink" title="填充颜色"></a>填充颜色</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.begin_fill()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.lt(<span class="number">120</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.lt(<span class="number">120</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.fd(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.end_fill()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://files.realpython.com/media/Turtle_Begin_End_Fill_GIF.849f73374a22.gif" alt="Python Turtle Begin Fill End Fill New"></p>
+<h3 id="绘制速度"><a href="#绘制速度" class="headerlink" title="绘制速度"></a>绘制速度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.speed(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.speed(<span class="number">10</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.forward(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="撤回"><a href="#撤回" class="headerlink" title="撤回"></a>撤回</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; t.undo()</span><br></pre></td></tr></table></figure>
+
+<h3 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = t.clone()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.color(<span class="string">&quot;magenta&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.color(<span class="string">&quot;red&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>t.circle(<span class="number">100</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c.circle(<span class="number">60</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="以上就是python-Turtle模组的基本语法"><a href="#以上就是python-Turtle模组的基本语法" class="headerlink" title="以上就是python Turtle模组的基本语法"></a>以上就是python Turtle模组的基本语法</h2><p>​	但是光会这些基本知识也不行，你还得有亿点点艺术细胞。毕竟它作为画画工具有一点简朴了。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-python脚本制作"
   class="article article-type-post"
   itemscope
@@ -1065,71 +1140,13 @@
 </article>
 
     
-    <article
-  id="post-Regen-s-first-page"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/12/Regen-s-first-page/"
-    >Regen&#39;s first page</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/12/Regen-s-first-page/" class="article-date">
-  <time datetime="2023-09-12T02:41:04.000Z" itemprop="datePublished">2023-09-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="HOLA"><a href="#HOLA" class="headerlink" title="HOLA!!!!"></a>HOLA!!!!</h1><h1 id="INTRODUCTION-TOTHISBLOG"><a href="#INTRODUCTION-TOTHISBLOG" class="headerlink" title="INTRODUCTION 	TO	THIS	BLOG !!!!!!"></a>INTRODUCTION 	TO	THIS	BLOG !!!!!!</h1><p>​	<strong>这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的</strong>。</p>
-<p>​	<strong>这个博客是基于开源框架HEXO,全站都是静态的，也许后续会更换框架试试WordPress等开源框架，不过需要购买云服务器了，这都是后话。</strong></p>
-<p>​		查看链接：<a href="(https://github.com/hexojs/hexo)">HEXO</a></p>
-<p>​	<strong>同时这个博客的主题也是开源的。名字是ayer。可以在github上面搜到。</strong></p>
-<p>​		查看链接：<a href="(https://github.com/Shen-Yu/hexo-theme-ayer)">AYER</a></p>
-<p>​	<strong>本网站所有的笔记（MarkDowm格式）都同步更新到了github</strong></p>
-<p>​		查看链接：<a target="_blank" rel="noopener" href="https://github.com/regenm/Notes">regenm&#x2F;Notes</a></p>
-<p>​	感谢开源大佬们的贡献，让我这样的小白也可以有自己的博客，同时也希望自己在不久的将来也能在开源社区做出一点贡献。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/about/" rel="tag">about</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
   </nav>
   
 </section>

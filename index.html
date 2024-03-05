@@ -166,6 +166,56 @@
     
     
     <article
+  id="post-PCB-Technique"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/03/PCB-Technique/"
+    >PCB Technique</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/03/PCB-Technique/" class="article-date">
+  <time datetime="2024-03-03T15:57:40.000Z" itemprop="datePublished">2024-03-03</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" rel="tag">电路设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0%EF%BC%8CPCB/" rel="tag">笔记，PCB</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-Operating-System-Principles"
   class="article article-type-post"
   itemscope
@@ -193,7 +243,9 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <pre><code>** 操作系统原理 **
+</code></pre>
+<h1 id="操作系统概论"><a href="#操作系统概论" class="headerlink" title="操作系统概论"></a>操作系统概论</h1><h1 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h1><h1 id="进程管理"><a href="#进程管理" class="headerlink" title="*进程管理"></a>*进程管理</h1><h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><h1 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1> 
       <!-- reward -->
       
     </div>
@@ -203,6 +255,8 @@
     
     <footer class="article-footer">
        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Operating-System/" rel="tag">Operating System</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
     </footer>
   </div>
 
@@ -241,7 +295,91 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1> 
+  <p>计算机组成原理</p>
+<h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><h2 id="计算机基本组成"><a href="#计算机基本组成" class="headerlink" title="计算机基本组成"></a>计算机基本组成</h2><h3 id="冯诺依曼计算机"><a href="#冯诺依曼计算机" class="headerlink" title="冯诺依曼计算机"></a>冯诺依曼计算机</h3><ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>五大部件：运算器（ALU），控制器（CU），存储器（MEM），输入输出（I&#x2F;O）</li>
+<li>指令与数据同等地位存储与存储器</li>
+<li>使用二进制</li>
+<li>指令由操作码和地址码组成</li>
+<li>指令在存储器内顺序存放</li>
+<li>以运算器为中心（现代计算以存储器为中心）</li>
+</ol>
+<h3 id="计算机工作过程"><a href="#计算机工作过程" class="headerlink" title="计算机工作过程"></a>计算机工作过程</h3><h4 id="存储器的基本组成"><a href="#存储器的基本组成" class="headerlink" title="存储器的基本组成"></a>存储器的基本组成</h4><ul>
+<li><p>存储体</p>
+</li>
+<li><p>存储字：存储单元中的二进制代码组合（？）</p>
+</li>
+<li><p>存储字长：（？）</p>
+</li>
+<li><p>MAR：存储器的地址寄存器</p>
+</li>
+<li><p>MDR：存储器的数据寄存器</p>
+</li>
+</ul>
+<h4 id="运算器的基本组成以及操作过程"><a href="#运算器的基本组成以及操作过程" class="headerlink" title="运算器的基本组成以及操作过程"></a>运算器的基本组成以及操作过程</h4><ul>
+<li>ACC：	被加数，被减数，乘积高位，被除数，余数</li>
+<li>ALU： </li>
+<li>MQ： 	乘数，乘积低位</li>
+</ul>
+<h4 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h4><ul>
+<li>CU：控制单元</li>
+<li>IR：指令寄存器</li>
+<li>PC：程序计数器</li>
+</ul>
+<h3 id="计算机硬件的主要技术指标"><a href="#计算机硬件的主要技术指标" class="headerlink" title="计算机硬件的主要技术指标"></a>计算机硬件的主要技术指标</h3><ol>
+<li>机器字长<br> CPU一次能处理的数据位数与ALU中的寄存器位数有关</li>
+<li>运算速度</li>
+</ol>
+<ul>
+<li>MIP</li>
+<li>MIPS</li>
+<li>CPI</li>
+<li>FLOPS</li>
+</ul>
+<h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>使用总线的原因：希望随时增加或减少设备</li>
+<li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
+</ul>
+<h2 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h2><pre><code>按照数据传输方式：并行传输总线，串行传输总线
+</code></pre>
+<h3 id="片内总线"><a href="#片内总线" class="headerlink" title="片内总线"></a>片内总线</h3><pre><code>芯片内部的总线
+</code></pre>
+<h3 id="系统总线-1"><a href="#系统总线-1" class="headerlink" title="系统总线"></a>系统总线</h3><ul>
+<li>系统总线的定义：是指CPU，主存，I&#x2F;O各大部件之间的信息传输线</li>
+</ul>
+<h4 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h4><pre><code>传输各部件之间的数据信息
+</code></pre>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>双向传输</li>
+<li>与机器字长，存储字长有关</li>
+<li>数据总线位数即数据总线宽度</li>
+</ol>
+<h4 id="地址总线"><a href="#地址总线" class="headerlink" title="地址总线"></a>地址总线</h4><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
+<li>单向输出（仅由CPU输出）</li>
+</ol>
+<h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><pre><code>为了使各个部件在不同时刻占有总线使用权
+</code></pre>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>对于特定控制线：单向的，对于控制总线总体来说是双向的</li>
+<li>对于CPU来说，控制信号既有输出也有输入</li>
+</ol>
+<ul>
+<li>常见控制信号<br>  时钟，复位，总线请求和允许，中断请求和响应，存储器读写，IO读写，传输响应</li>
+</ul>
+<h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><h2 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h2><h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2> 
       <!-- reward -->
       
     </div>
@@ -251,7 +389,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%8C%E7%AC%94%E8%AE%B0/" rel="tag">计算机组成原理，笔记</a></li></ul>
 
     </footer>
   </div>
@@ -387,7 +525,55 @@
 </ul>
 <p>他们之间的关系如图所示</p>
 <p><img src="/images/" alt="structure"></p>
-<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4> 
+<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4><p>​	概念模型抽象级别最高，具有以下特点：</p>
+<blockquote>
+<ol>
+<li>表达了数据的整体逻辑结构，他是系统用户对整个应用项目涉及的数据的全面描述</li>
+<li>从用户需求的观点出发对数据建模</li>
+<li>独立于硬件和软件。</li>
+<li>是数据库设计人员与用户之间进行交流的工具。</li>
+</ol>
+</blockquote>
+<p>​	<strong>现在采用的概念模型主要是实体联系模型（ER）(Entity Relationship Ship)</strong></p>
+<ul>
+<li><p>ER图有三个基本成分</p>
+<ul>
+<li><ol>
+<li>矩形框：表示实体类型</li>
+<li>菱形框：表示联系类型</li>
+<li>椭圆形框：表示实体类型和联系类型的属性</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ER图的优点</p>
+<ul>
+<li>简单易理解，真实反应客户需求</li>
+<li>与计算机无关，客户容易接受</li>
+</ul>
+</li>
+<li><p>ER图的缺点</p>
+<ul>
+<li>只能说明实体间语义的练习，不能说明详细的数据结构</li>
+</ul>
+</li>
+</ul>
+<h4 id="逻辑模型"><a href="#逻辑模型" class="headerlink" title="逻辑模型"></a>逻辑模型</h4><ul>
+<li>逻辑模型的特点</li>
+</ul>
+<ol>
+<li>表达了DB整体的逻辑结构</li>
+<li>从数据库实现的观点出发对数据建模</li>
+<li>独立于硬件，依赖于软件（DBMS）</li>
+<li>是数据库设计人员与应用程序猿之间进行交流的工具</li>
+</ol>
+<h5 id="逻辑模型的种类"><a href="#逻辑模型的种类" class="headerlink" title="逻辑模型的种类"></a>逻辑模型的种类</h5><ol>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型</li>
+<li>对象模型</li>
+</ol>
+<h4 id="外部模型"><a href="#外部模型" class="headerlink" title="外部模型"></a>外部模型</h4><h4 id="内部模型"><a href="#内部模型" class="headerlink" title="内部模型"></a>内部模型</h4><h4 id="三层模式和两级映像"><a href="#三层模式和两级映像" class="headerlink" title="三层模式和两级映像"></a>三层模式和两级映像</h4><h3 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h3><h4 id="DBMS的工作模式"><a href="#DBMS的工作模式" class="headerlink" title="DBMS的工作模式"></a>DBMS的工作模式</h4><h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><h4 id="DBS的组成"><a href="#DBS的组成" class="headerlink" title="DBS的组成"></a>DBS的组成</h4><h4 id="DBS的全局结构"><a href="#DBS的全局结构" class="headerlink" title="DBS的全局结构"></a>DBS的全局结构</h4><h4 id="DBS结构的分类"><a href="#DBS结构的分类" class="headerlink" title="DBS结构的分类"></a>DBS结构的分类</h4><h2 id="关系模型和关系运算理论"><a href="#关系模型和关系运算理论" class="headerlink" title="关系模型和关系运算理论"></a>关系模型和关系运算理论</h2> 
       <!-- reward -->
       
     </div>
@@ -932,71 +1118,13 @@
 </article>
 
     
-    <article
-  id="post-电子电路基础"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/"
-    >电子电路基础</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-02-06T10:55:20.000Z" itemprop="datePublished">2024-02-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h1><ul>
-<li><p>VCC：C&#x3D;circuit，表示电路的意思，即接入电路的电压。</p>
-</li>
-<li><p>VDD：D&#x3D;device，表示器件的意思，即器件内部的工作电压。</p>
-</li>
-<li><p>VSS：S&#x3D;series，表示公共连接的意思，通常指电路公共接地端电压。</p>
-</li>
-</ul>
-<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" rel="tag">模拟电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E7%94%B5/" rel="tag">模电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" rel="tag">电子元件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" rel="tag">电路基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

@@ -2043,55 +2043,25 @@
   <entry>
     <title>GIT basic</title>
     <url>/2023/11/26/GIT-basic/</url>
-    <content><![CDATA[<h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><blockquote>
-<p>git简介：</p>
+    <content><![CDATA[<h1 id="Git-以及github，gitee的使用"><a href="#Git-以及github，gitee的使用" class="headerlink" title="Git 以及github，gitee的使用"></a>Git 以及github，gitee的使用</h1><h2 id="git简介："><a href="#git简介：" class="headerlink" title="git简介："></a>git简介：</h2><blockquote>
 <p>Git (&#x2F;ɡɪt&#x2F;) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers).</p>
 </blockquote>
-<ul>
-<li><strong>What is Git?</strong><br>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</li>
-</ul>
+<h2 id="What-is-Git"><a href="#What-is-Git" class="headerlink" title="What is Git?"></a><strong>What is Git?</strong></h2><p>Git is a popular version control system. It was created by Linus Torvalds in 2005, and has been maintained by Junio Hamano since then.</p>
 <p>It is used for:</p>
 <p>Tracking code changes<br>Tracking who made changes<br>Coding collaboration</p>
-<ul>
-<li><strong>What does Git do?</strong></li>
-</ul>
-<p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
-<ul>
-<li><strong>Working with Git</strong></li>
-</ul>
-<p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
+<h2 id="What-does-Git-do"><a href="#What-does-Git-do" class="headerlink" title="What does Git do?"></a><strong>What does Git do?</strong></h2><p>Manage projects with <strong>Repositories</strong><br><strong>Clone</strong> a project to work on a local copy<br><strong>Control and track</strong> changes with <strong>Staging and Committing</strong><br><strong>Branch and Merge</strong> to allow for work on different parts and versions of a project<br><strong>Pull</strong> the latest version of the project to a local copy<br><strong>Push</strong> local updates to the main project</p>
+<h2 id="Working-with-Git"><a href="#Working-with-Git" class="headerlink" title="Working with Git"></a><strong>Working with Git</strong></h2><p>Initialize Git on a folder, making it a Repository<br>Git now creates a hidden folder to keep track of changes in that folder<br>When a file is changed, added or deleted, it is considered modified<br>You select the modified files you want to Stage<br>The Staged files are Committed, which prompts Git to store a permanent snapshot of the files<br>Git allows you to see the full history of every commit.<br>You can revert back to any previous commit.<br>Git does not store a separate copy of every file in every commit, but keeps track of changes made in each commit!<br>Change Platform:</p>
 <p>Shift focus to GitHubGitHub<br>Shift focus to BitbucketBitbucket<br>Shift focus to GitLabGitLab</p>
-<ul>
-<li><strong>Why Git?</strong></li>
-</ul>
-<p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
-<ul>
-<li><strong>What is GitHub?</strong></li>
-</ul>
-<p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
-<p>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</p>
-<ul>
-<li><strong>初始化</strong></li>
-</ul>
-<ol>
-<li>check git version and info</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Why-Git"><a href="#Why-Git" class="headerlink" title="Why Git?"></a><strong>Why Git?</strong></h2><p>Over 70% of developers use Git!<br>Developers can work together from anywhere in the world.<br>Developers can see the full history of the project.<br>Developers can revert to earlier versions of a project.</p>
+<h2 id="What-is-GitHub"><a href="#What-is-GitHub" class="headerlink" title="What is GitHub?"></a><strong>What is GitHub?</strong></h2><p>Git is not the same as GitHub.<br>GitHub makes tools that use Git.<br>GitHub is the largest host of source code in the world, and has been owned by Microsoft since 2018.<br>In this tutorial, we will focus on using Git with GitHub.</p>
+<p><strong>git 有图形化界面（gui）和命令行（bash），这里仅使用git命令行，即git（bash）。</strong></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a><strong>初始化</strong></h3><h4 id="check-git-version-and-info"><a href="#check-git-version-and-info" class="headerlink" title="check git version and info"></a>check git version and info</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git —version</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>configure git</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;regen&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="configure-git"><a href="#configure-git" class="headerlink" title="configure git"></a>configure git</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;xxxxx&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># if you just want to use “regen” for just once , you can remove “—global”</span></span><br><span class="line"></span><br><span class="line">git config  user.name <span class="string">&quot;regen&quot;</span>    </span><br><span class="line">git config  user.email <span class="string">&quot;regenissb@gmail.com&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>initialize you repo</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="initialize-you-repo"><a href="#initialize-you-repo" class="headerlink" title="initialize you repo"></a>initialize you repo</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#use mkdir and cd to create you working file . Then</span></span><br><span class="line"></span><br><span class="line">git init  </span><br><span class="line"></span><br><span class="line"><span class="comment"># This file is initialized as a git repository from now on . You can make files.</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">touch</span> hello.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>** file operation  **</li>
-</ul>
-<ol>
+<h3 id="file-operation"><a href="#file-operation" class="headerlink" title="file operation"></a>file operation</h3><ol>
 <li>check file status<br>Files in the repo has 2 status:<ul>
 <li>Tracked - files that Git knows about and are added to the repository</li>
 <li>Untracked - files that are in your working directory, but not added to the repository</li>
@@ -2132,10 +2102,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><strong>GIT branch</strong></li>
-</ul>
-<p>​	Introduction :</p>
+<h2 id="GIT-branch"><a href="#GIT-branch" class="headerlink" title="GIT branch"></a><strong>GIT branch</strong></h2><p>​	Introduction :</p>
 <blockquote>
 <p>In Git, a <code>branch</code> is a new&#x2F;separate version of the main repository.</p>
 <p>Branches allow you to work on different parts of a project without impacting the main branch.</p>
@@ -2143,30 +2110,15 @@
 <p>You can even switch between branches and work on different projects without them interfering with each other.</p>
 <p>Branching in Git is very lightweight and fast!</p>
 </blockquote>
-<ol>
-<li>create new git branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
+<h4 id="create-new-git-branch"><a href="#create-new-git-branch" class="headerlink" title="create new git branch"></a>create new git branch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch newBranch</span><br><span class="line">  <span class="comment"># add a new branch</span></span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>check out the branches</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
+<h4 id="check-out-the-branches"><a href="#check-out-the-branches" class="headerlink" title="check out the branches"></a>check out the branches</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git branch</span><br><span class="line"></span><br><span class="line">    newBtanch</span><br><span class="line">  * master</span><br><span class="line"><span class="comment"># The &#x27; * &#x27;means that you are working on master branch.</span></span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>move branch</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="move-branch"><a href="#move-branch" class="headerlink" title="move branch"></a>move branch</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout newbranch     <span class="comment"># switch to new branch &#x27;newBranch&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<ol start="4">
-<li>check status of this branch , add to stage and commit . (same code)</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="check-status-of-this-branch-add-to-stage-and-commit-same-code"><a href="#check-status-of-this-branch-add-to-stage-and-commit-same-code" class="headerlink" title="check status of this branch , add to stage and commit . (same code)"></a>check status of this branch , add to stage and commit . (same code)</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git status</span><br><span class="line">git add --all</span><br><span class="line">git commit -m <span class="string">&quot;new changes in branch newBranch&quot;</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>merge branch</li>
-</ul>
-<ol>
+<h4 id="merge-branch"><a href="#merge-branch" class="headerlink" title="merge branch"></a>merge branch</h4><ol>
 <li>In order to merge two branches, we need to change to the master branch:</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
@@ -2184,14 +2136,32 @@
 <ul>
 <li>merge conflict</li>
 </ul>
-<p><strong>其他操作</strong></p>
-<ul>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a><strong>其他操作</strong></h2><ul>
 <li>GIT Associating a local repository to a remote repository</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:beiszhihao/test.git</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin git@github.com:regen/test.git</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-<p><strong>Situations</strong></p>
+<h2 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h2><h3 id="多个设备同一账号，在不同的场景使用github同步代码。"><a href="#多个设备同一账号，在不同的场景使用github同步代码。" class="headerlink" title="多个设备同一账号，在不同的场景使用github同步代码。"></a>多个设备同一账号，在不同的场景使用github同步代码。</h3><h4 id="终端"><a href="#终端" class="headerlink" title="终端:"></a>终端:</h4><h5 id="初始化设置"><a href="#初始化设置" class="headerlink" title="初始化设置"></a>初始化设置</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置用户</span></span><br><span class="line">git config --global user.name <span class="string">&quot;xxxxx&quot;</span>    <span class="comment"># global means all the repos are in charge</span></span><br><span class="line">git config --global user.email <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="github添加ssh公钥匙"><a href="#github添加ssh公钥匙" class="headerlink" title="github添加ssh公钥匙"></a>github添加ssh公钥匙</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxxxxxxxx@gmail.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>将生成的rsq_pub中的内容复制到github里的ssh栏</p>
+<h5 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h5><ul>
+<li>复制仓库</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:regenm/Notes.git</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改前更新</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改后上传</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;add an application of git&quot;</span></span><br><span class="line">git status</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -3673,9 +3643,93 @@
   <entry>
     <title>Computer Composition Principle</title>
     <url>/2024/02/27/Computer-Composition-Principle/</url>
-    <content><![CDATA[<h1 id="计算机组成原理"><a href="#计算机组成原理" class="headerlink" title="计算机组成原理"></a>计算机组成原理</h1>]]></content>
+    <content><![CDATA[<p>计算机组成原理</p>
+<h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><h2 id="计算机基本组成"><a href="#计算机基本组成" class="headerlink" title="计算机基本组成"></a>计算机基本组成</h2><h3 id="冯诺依曼计算机"><a href="#冯诺依曼计算机" class="headerlink" title="冯诺依曼计算机"></a>冯诺依曼计算机</h3><ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>五大部件：运算器（ALU），控制器（CU），存储器（MEM），输入输出（I&#x2F;O）</li>
+<li>指令与数据同等地位存储与存储器</li>
+<li>使用二进制</li>
+<li>指令由操作码和地址码组成</li>
+<li>指令在存储器内顺序存放</li>
+<li>以运算器为中心（现代计算以存储器为中心）</li>
+</ol>
+<h3 id="计算机工作过程"><a href="#计算机工作过程" class="headerlink" title="计算机工作过程"></a>计算机工作过程</h3><h4 id="存储器的基本组成"><a href="#存储器的基本组成" class="headerlink" title="存储器的基本组成"></a>存储器的基本组成</h4><ul>
+<li><p>存储体</p>
+</li>
+<li><p>存储字：存储单元中的二进制代码组合（？）</p>
+</li>
+<li><p>存储字长：（？）</p>
+</li>
+<li><p>MAR：存储器的地址寄存器</p>
+</li>
+<li><p>MDR：存储器的数据寄存器</p>
+</li>
+</ul>
+<h4 id="运算器的基本组成以及操作过程"><a href="#运算器的基本组成以及操作过程" class="headerlink" title="运算器的基本组成以及操作过程"></a>运算器的基本组成以及操作过程</h4><ul>
+<li>ACC：	被加数，被减数，乘积高位，被除数，余数</li>
+<li>ALU： </li>
+<li>MQ： 	乘数，乘积低位</li>
+</ul>
+<h4 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h4><ul>
+<li>CU：控制单元</li>
+<li>IR：指令寄存器</li>
+<li>PC：程序计数器</li>
+</ul>
+<h3 id="计算机硬件的主要技术指标"><a href="#计算机硬件的主要技术指标" class="headerlink" title="计算机硬件的主要技术指标"></a>计算机硬件的主要技术指标</h3><ol>
+<li>机器字长<br> CPU一次能处理的数据位数与ALU中的寄存器位数有关</li>
+<li>运算速度</li>
+</ol>
+<ul>
+<li>MIP</li>
+<li>MIPS</li>
+<li>CPI</li>
+<li>FLOPS</li>
+</ul>
+<h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
+<li>使用总线的原因：希望随时增加或减少设备</li>
+<li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
+</ul>
+<h2 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h2><pre><code>按照数据传输方式：并行传输总线，串行传输总线
+</code></pre>
+<h3 id="片内总线"><a href="#片内总线" class="headerlink" title="片内总线"></a>片内总线</h3><pre><code>芯片内部的总线
+</code></pre>
+<h3 id="系统总线-1"><a href="#系统总线-1" class="headerlink" title="系统总线"></a>系统总线</h3><ul>
+<li>系统总线的定义：是指CPU，主存，I&#x2F;O各大部件之间的信息传输线</li>
+</ul>
+<h4 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h4><pre><code>传输各部件之间的数据信息
+</code></pre>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>双向传输</li>
+<li>与机器字长，存储字长有关</li>
+<li>数据总线位数即数据总线宽度</li>
+</ol>
+<h4 id="地址总线"><a href="#地址总线" class="headerlink" title="地址总线"></a>地址总线</h4><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
+<li>单向输出（仅由CPU输出）</li>
+</ol>
+<h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><pre><code>为了使各个部件在不同时刻占有总线使用权
+</code></pre>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>对于特定控制线：单向的，对于控制总线总体来说是双向的</li>
+<li>对于CPU来说，控制信号既有输出也有输入</li>
+</ol>
+<ul>
+<li>常见控制信号<br>  时钟，复位，总线请求和允许，中断请求和响应，存储器读写，IO读写，传输响应</li>
+</ul>
+<h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><h2 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h2><h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2>]]></content>
       <tags>
-        <tag>计算机组成原理</tag>
+        <tag>计算机组成原理，笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -3777,7 +3831,55 @@
 </ul>
 <p>他们之间的关系如图所示</p>
 <p><img src="/images/" alt="structure"></p>
-<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4>]]></content>
+<h4 id="概念模型"><a href="#概念模型" class="headerlink" title="概念模型"></a>概念模型</h4><p>​	概念模型抽象级别最高，具有以下特点：</p>
+<blockquote>
+<ol>
+<li>表达了数据的整体逻辑结构，他是系统用户对整个应用项目涉及的数据的全面描述</li>
+<li>从用户需求的观点出发对数据建模</li>
+<li>独立于硬件和软件。</li>
+<li>是数据库设计人员与用户之间进行交流的工具。</li>
+</ol>
+</blockquote>
+<p>​	<strong>现在采用的概念模型主要是实体联系模型（ER）(Entity Relationship Ship)</strong></p>
+<ul>
+<li><p>ER图有三个基本成分</p>
+<ul>
+<li><ol>
+<li>矩形框：表示实体类型</li>
+<li>菱形框：表示联系类型</li>
+<li>椭圆形框：表示实体类型和联系类型的属性</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>ER图的优点</p>
+<ul>
+<li>简单易理解，真实反应客户需求</li>
+<li>与计算机无关，客户容易接受</li>
+</ul>
+</li>
+<li><p>ER图的缺点</p>
+<ul>
+<li>只能说明实体间语义的练习，不能说明详细的数据结构</li>
+</ul>
+</li>
+</ul>
+<h4 id="逻辑模型"><a href="#逻辑模型" class="headerlink" title="逻辑模型"></a>逻辑模型</h4><ul>
+<li>逻辑模型的特点</li>
+</ul>
+<ol>
+<li>表达了DB整体的逻辑结构</li>
+<li>从数据库实现的观点出发对数据建模</li>
+<li>独立于硬件，依赖于软件（DBMS）</li>
+<li>是数据库设计人员与应用程序猿之间进行交流的工具</li>
+</ol>
+<h5 id="逻辑模型的种类"><a href="#逻辑模型的种类" class="headerlink" title="逻辑模型的种类"></a>逻辑模型的种类</h5><ol>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型</li>
+<li>对象模型</li>
+</ol>
+<h4 id="外部模型"><a href="#外部模型" class="headerlink" title="外部模型"></a>外部模型</h4><h4 id="内部模型"><a href="#内部模型" class="headerlink" title="内部模型"></a>内部模型</h4><h4 id="三层模式和两级映像"><a href="#三层模式和两级映像" class="headerlink" title="三层模式和两级映像"></a>三层模式和两级映像</h4><h3 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h3><h4 id="DBMS的工作模式"><a href="#DBMS的工作模式" class="headerlink" title="DBMS的工作模式"></a>DBMS的工作模式</h4><h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><h4 id="DBS的组成"><a href="#DBS的组成" class="headerlink" title="DBS的组成"></a>DBS的组成</h4><h4 id="DBS的全局结构"><a href="#DBS的全局结构" class="headerlink" title="DBS的全局结构"></a>DBS的全局结构</h4><h4 id="DBS结构的分类"><a href="#DBS结构的分类" class="headerlink" title="DBS结构的分类"></a>DBS结构的分类</h4><h2 id="关系模型和关系运算理论"><a href="#关系模型和关系运算理论" class="headerlink" title="关系模型和关系运算理论"></a>关系模型和关系运算理论</h2>]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>数据库</tag>
@@ -3787,6 +3889,21 @@
   <entry>
     <title>Operating System Principles</title>
     <url>/2024/02/27/Operating-System-Principles/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<pre><code>** 操作系统原理 **
+</code></pre>
+<h1 id="操作系统概论"><a href="#操作系统概论" class="headerlink" title="操作系统概论"></a>操作系统概论</h1><h1 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h1><h1 id="进程管理"><a href="#进程管理" class="headerlink" title="*进程管理"></a>*进程管理</h1><h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><h1 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>Operating System</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PCB Technique</title>
+    <url>/2024/03/03/PCB-Technique/</url>
+    <content><![CDATA[<h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1>]]></content>
+      <tags>
+        <tag>笔记，PCB</tag>
+        <tag>电路设计</tag>
+      </tags>
   </entry>
 </search>
