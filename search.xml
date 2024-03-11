@@ -3691,15 +3691,12 @@
 <li>使用总线的原因：希望随时增加或减少设备</li>
 <li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
 </ul>
-<h2 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h2><pre><code>按照数据传输方式：并行传输总线，串行传输总线
-</code></pre>
-<h3 id="片内总线"><a href="#片内总线" class="headerlink" title="片内总线"></a>片内总线</h3><pre><code>芯片内部的总线
-</code></pre>
+<h2 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h2><p>​	按照数据传输方式：并行传输总线，串行传输总线</p>
+<h3 id="片内总线"><a href="#片内总线" class="headerlink" title="片内总线"></a>片内总线</h3><p>​	芯片内部的总线</p>
 <h3 id="系统总线-1"><a href="#系统总线-1" class="headerlink" title="系统总线"></a>系统总线</h3><ul>
 <li>系统总线的定义：是指CPU，主存，I&#x2F;O各大部件之间的信息传输线</li>
 </ul>
-<h4 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h4><pre><code>传输各部件之间的数据信息
-</code></pre>
+<h4 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h4><p>​	传输各部件之间的数据信息</p>
 <ul>
 <li>特点</li>
 </ul>
@@ -3715,8 +3712,7 @@
 <li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
 <li>单向输出（仅由CPU输出）</li>
 </ol>
-<h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><pre><code>为了使各个部件在不同时刻占有总线使用权
-</code></pre>
+<h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><p>​	为了使各个部件在不同时刻占有总线使用权</p>
 <ul>
 <li>特点</li>
 </ul>
@@ -3729,13 +3725,14 @@
 </ul>
 <h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><h2 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h2><h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2>]]></content>
       <tags>
-        <tag>计算机组成原理，笔记</tag>
+        <tag>笔记</tag>
+        <tag>计算机组成原理</tag>
       </tags>
   </entry>
   <entry>
     <title>Database Principles</title>
     <url>/2024/02/27/Database-Principles/</url>
-    <content><![CDATA[<h1 id="数据库原理"><a href="#数据库原理" class="headerlink" title="数据库原理"></a>数据库原理</h1><h2 id="数据库概论"><a href="#数据库概论" class="headerlink" title="数据库概论"></a>数据库概论</h2><h3 id="数据库以及相关概念"><a href="#数据库以及相关概念" class="headerlink" title="数据库以及相关概念"></a>数据库以及相关概念</h3><ol>
+    <content><![CDATA[<h1 id="数据库原理"><a href="#数据库原理" class="headerlink" title="数据库原理"></a>数据库原理</h1><h2 id="1-数据库概论"><a href="#1-数据库概论" class="headerlink" title="1.数据库概论"></a>1.数据库概论</h2><h3 id="数据库以及相关概念"><a href="#数据库以及相关概念" class="headerlink" title="数据库以及相关概念"></a>数据库以及相关概念</h3><ol>
 <li>数据（<strong>data</strong>）：信息的表现形式和载体。</li>
 <li>数据库（<strong>database</strong>）：长期存储在计算机内，有组织的，统一管理的相关数据的集合。</li>
 <li>数据库管理系统（<strong>DBMS</strong>）：位于用户与操作系统逐之间的一层数据管理软件，为用户或应用程序提供访问DB的方法，包括DB的建立，查询，更新及各种数据控制。</li>
@@ -3879,7 +3876,94 @@
 <li>关系模型</li>
 <li>对象模型</li>
 </ol>
-<h4 id="外部模型"><a href="#外部模型" class="headerlink" title="外部模型"></a>外部模型</h4><h4 id="内部模型"><a href="#内部模型" class="headerlink" title="内部模型"></a>内部模型</h4><h4 id="三层模式和两级映像"><a href="#三层模式和两级映像" class="headerlink" title="三层模式和两级映像"></a>三层模式和两级映像</h4><h3 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h3><h4 id="DBMS的工作模式"><a href="#DBMS的工作模式" class="headerlink" title="DBMS的工作模式"></a>DBMS的工作模式</h4><h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><h4 id="DBS的组成"><a href="#DBS的组成" class="headerlink" title="DBS的组成"></a>DBS的组成</h4><h4 id="DBS的全局结构"><a href="#DBS的全局结构" class="headerlink" title="DBS的全局结构"></a>DBS的全局结构</h4><h4 id="DBS结构的分类"><a href="#DBS结构的分类" class="headerlink" title="DBS结构的分类"></a>DBS结构的分类</h4><h2 id="关系模型和关系运算理论"><a href="#关系模型和关系运算理论" class="headerlink" title="关系模型和关系运算理论"></a>关系模型和关系运算理论</h2>]]></content>
+<h4 id="三层模式和两级映像"><a href="#三层模式和两级映像" class="headerlink" title="三层模式和两级映像"></a>三层模式和两级映像</h4><ul>
+<li>型和值</li>
+</ul>
+<ol>
+<li>型：对一类数据的结构和属性的说明</li>
+<li>值：是型的一个具体赋值</li>
+</ol>
+<ul>
+<li>&#x3D;&#x3D;模式&#x3D;&#x3D;</li>
+</ul>
+<p>​    定义：数据模型使用DB的数据定义语言（DDL），定义后的内容称为模式。</p>
+<ol>
+<li>描述数据库逻辑结构和特征</li>
+<li>对”型“的描述</li>
+<li>反映数据结构及其联系</li>
+<li>相对稳定</li>
+<li>以某一种数据模型为基础</li>
+</ol>
+<ul>
+<li>三层模式：在数据库设计中，有时会使用三层模式来描述数据库的结构和组织方式。这通常涉及到将数据库划分为三个不同的层次或组件：外部模式、概念模式和内部模式。</li>
+</ul>
+<ol>
+<li><p>外部模式（External Schema）：也称为用户视图或子模式，是用户或应用程序能够直接访问和操作的部分数据库。每个外部模式都是特定用户或应用程序对数据库的定制视图。</p>
+</li>
+<li><p>概念模式（Conceptual Schema）：也称为全局模式或逻辑模式，是数据库的整体逻辑结构和组织方式的抽象表示。它描述了数据库中的所有数据对象、它们之间的关系以及约束条件。</p>
+</li>
+<li><p>内部模式（Internal Schema）：也称为存储模式，是数据库在物理存储层面的表示。它描述了数据在存储介质上的存储方式、索引结构等细节。</p>
+</li>
+</ol>
+<ul>
+<li>两级映像</li>
+</ul>
+<h3 id="数据库管理系统"><a href="#数据库管理系统" class="headerlink" title="数据库管理系统"></a>数据库管理系统</h3><h4 id="DBMS的工作模式"><a href="#DBMS的工作模式" class="headerlink" title="DBMS的工作模式"></a>DBMS的工作模式</h4><ol>
+<li>接受应用程序的数据请求和处理请求</li>
+<li>将用户的数据请求(高级指令)转换成复杂的机器代码(低层指令)3</li>
+<li>实现对数据库的操作</li>
+<li>从对数据库的操作中接受查询结果</li>
+<li>对查询结果进行处理(格式转换)</li>
+<li>将处理结果返回给用户</li>
+</ol>
+<h4 id="DBMS的主要功能"><a href="#DBMS的主要功能" class="headerlink" title="DBMS的主要功能"></a>DBMS的主要功能</h4><ol>
+<li>数据库的定义功能(DDL，(Data Definition<br> 数据库三层结构、两级映像、定义数据的完整性约anguage束、保密限制约束等</li>
+<li>数据库的操纵功能(DML，data manipul<br> ation language<br> 检索:查询，更新::插入、删除、更新</li>
+<li>数据库的保护功能<br> 恢复，并发控制，完整性，安全性</li>
+<li>数据库的维护功能(Utilities<br> 数据载入、转换、转储等</li>
+<li>数据字典(DD</li>
+</ol>
+<h3 id="数据库系统"><a href="#数据库系统" class="headerlink" title="数据库系统"></a>数据库系统</h3><h4 id="DBS的组成"><a href="#DBS的组成" class="headerlink" title="DBS的组成"></a>DBS的组成</h4><ol>
+<li>数据库</li>
+<li>硬件</li>
+<li>软件</li>
+<li>数据管理员</li>
+</ol>
+<h4 id="DBS的全局结构"><a href="#DBS的全局结构" class="headerlink" title="DBS的全局结构"></a>DBS的全局结构</h4><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20240311125039548.png" alt="image-20240311125039548"></p>
+<h4 id="DBS结构的分类"><a href="#DBS结构的分类" class="headerlink" title="DBS结构的分类"></a>DBS结构的分类</h4><ol>
+<li><strong>层次数据库结构（Hierarchical Database Structure）</strong>：<ul>
+<li>层次数据库结构是最早期的数据库组织方式之一，它使用树状结构来组织数据。每个节点可以有一个或多个子节点，但每个节点只有一个父节点。</li>
+<li>典型的例子是IBM的IMS（Information Management System）数据库系统。</li>
+</ul>
+</li>
+<li><strong>网络数据库结构（Network Database Structure）</strong>：<ul>
+<li>网络数据库结构扩展了层次数据库的概念，允许一个节点有多个父节点，形成一个图状结构。这种结构提供了更灵活的数据组织方式。</li>
+<li>CODASYL（Conference on Data Systems Languages）标准定义了一种常见的网络数据库模型，例如IDMS（Integrated Data Management System）。</li>
+</ul>
+</li>
+<li><strong>关系数据库结构（Relational Database Structure）</strong>：<ul>
+<li>关系数据库结构是当前最常用的数据库组织方式之一。它基于关系模型，使用表格（称为关系）来表示数据，并使用关系之间的键值关联来建立数据之间的联系。</li>
+<li>关系数据库的代表性产品包括Oracle、MySQL、SQL Server等。</li>
+</ul>
+</li>
+<li><strong>面向对象数据库结构（Object-Oriented Database Structure）</strong>：<ul>
+<li>面向对象数据库结构将面向对象编程的思想引入数据库系统，允许将复杂数据结构和对象存储在数据库中，并支持面向对象的查询和操作。</li>
+<li>典型的面向对象数据库系统包括ObjectDB、db4o等。</li>
+</ul>
+</li>
+<li><strong>文档数据库结构（Document Database Structure）</strong>：<ul>
+<li>文档数据库结构是一种非常灵活的数据库组织方式，它使用文档来存储数据，文档可以是JSON、XML等格式。</li>
+<li>MongoDB是一种常见的文档数据库系统。</li>
+</ul>
+</li>
+<li><strong>键-值存储结构（Key-Value Store Structure）</strong>：<ul>
+<li>键-值存储结构是一种简单的数据库组织方式，它使用键值对来存储数据，其中每个键都唯一地标识一个值。</li>
+<li>Redis、Amazon DynamoDB等是常见的键-值存储数据库系统。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-关系模型和关系运算理论"><a href="#2-关系模型和关系运算理论" class="headerlink" title="2.关系模型和关系运算理论"></a>2.关系模型和关系运算理论</h2><p>​	</p>
+]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>数据库</tag>
