@@ -3643,7 +3643,7 @@
   <entry>
     <title>Computer Composition Principle</title>
     <url>/2024/02/27/Computer-Composition-Principle/</url>
-    <content><![CDATA[<p>计算机组成原理</p>
+    <content><![CDATA[<p>​			计算机组成原理</p>
 <h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><h2 id="计算机基本组成"><a href="#计算机基本组成" class="headerlink" title="计算机基本组成"></a>计算机基本组成</h2><h3 id="冯诺依曼计算机"><a href="#冯诺依曼计算机" class="headerlink" title="冯诺依曼计算机"></a>冯诺依曼计算机</h3><ul>
 <li>特点</li>
 </ul>
@@ -3973,9 +3973,8 @@
   <entry>
     <title>Operating System Principles</title>
     <url>/2024/02/27/Operating-System-Principles/</url>
-    <content><![CDATA[<pre><code>** 操作系统原理 **
-</code></pre>
-<h1 id="操作系统概论"><a href="#操作系统概论" class="headerlink" title="操作系统概论"></a>操作系统概论</h1><h1 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h1><h1 id="进程管理"><a href="#进程管理" class="headerlink" title="*进程管理"></a>*进程管理</h1><h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><h1 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a>存储管理</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <content><![CDATA[<p>&#x3D;&#x3D;操作系统原理&#x3D;&#x3D;</p>
+<h1 id="1-操作系统概论"><a href="#1-操作系统概论" class="headerlink" title="1.操作系统概论"></a>1.操作系统概论</h1><h1 id="2-操作系统接口"><a href="#2-操作系统接口" class="headerlink" title="2.操作系统接口"></a>2.操作系统接口</h1><h1 id="3-进程管理"><a href="#3-进程管理" class="headerlink" title="3. *进程管理"></a>3. *进程管理</h1><h1 id="4-处理机调度"><a href="#4-处理机调度" class="headerlink" title="4. *处理机调度"></a>4. *处理机调度</h1><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1>]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>Operating System</tag>
