@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">610</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">2 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -186,7 +186,88 @@
 <ul>
 <li>常见控制信号<br>  时钟，复位，总线请求和允许，中断请求和响应，存储器读写，IO读写，传输响应</li>
 </ul>
-<h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><h2 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h2><h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2> 
+<h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><pre><code>目的：用于计算机系统之间活着计算机系统与其他系统之间的通信。
+</code></pre>
+<h4 id="传输方式"><a href="#传输方式" class="headerlink" title="传输方式"></a>传输方式</h4><ol>
+<li>串行通信总线（远距离）</li>
+<li>并行通信总线（近距离）</li>
+</ol>
+<h1 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h1><ol>
+<li>总线宽度</li>
+<li>总线带宽</li>
+<li>时钟同步</li>
+<li>总线复用</li>
+<li>信号线数</li>
+<li>总线控制方式</li>
+<li>其他指标</li>
+</ol>
+<h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h3 id="总线标准"><a href="#总线标准" class="headerlink" title="总线标准"></a>总线标准</h3><ol>
+<li>ISA</li>
+<li>EISA</li>
+<li>VL-BUS</li>
+<li>PCI</li>
+<li>AGP</li>
+</ol>
+<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><pre><code>总线判优控制有集中式和分布式。集中式有链式查询，计数器定时查询，独立请求方式
+</code></pre>
+<h4 id="链式查询"><a href="#链式查询" class="headerlink" title="链式查询"></a>链式查询</h4><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>离总线控制部件最近的设备具有最高优先级 </li>
+<li>只需很少几根线</li>
+<li>容易扩充设备</li>
+<li>对电路故障很敏感</li>
+<li>优先级低的设备很难获取请求</li>
+</ol>
+<h4 id="计数器定时查询"><a href="#计数器定时查询" class="headerlink" title="计数器定时查询"></a>计数器定时查询</h4><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>优先次序可变，并且是顺序，</li>
+<li>设备使用总线的优先级相等</li>
+<li>增加了控制线数，控制复杂。</li>
+<li>对电路故障敏感度不如链式查询</li>
+</ol>
+<h4 id="独立请求方式"><a href="#独立请求方式" class="headerlink" title="独立请求方式"></a>独立请求方式</h4><ul>
+<li>特点：</li>
+</ul>
+<ol>
+<li>响应速度快</li>
+<li>优先次序灵活</li>
+<li>控制线多，控制复杂</li>
+</ol>
+<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><pre><code>目的：解决通信双方协调配合的问题。
+通常有：同步，异步，半同步，分离式。
+</code></pre>
+<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><pre><code>总线周期：完成一次总线操作的时间。
+</code></pre>
+<ol>
+<li>申请分配阶段</li>
+<li>寻址阶段</li>
+<li>传数阶段</li>
+<li>结束阶段</li>
+</ol>
+<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><pre><code>异步通信的应答方式：不互锁，半互锁，全互锁。
+</code></pre>
+<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
+<li>半导体存储器 </li>
+<li>磁表面存储器</li>
+<li>磁芯存储器</li>
+<li>光盘存储器</li>
+</ol>
+<h3 id="按存取方式"><a href="#按存取方式" class="headerlink" title="按存取方式"></a>按存取方式</h3><ol>
+<li>随机存储器</li>
+<li>只读存储器</li>
+<li>顺序存取存储器</li>
+<li>直接存取村暑期</li>
+</ol>
+<h3 id="按在计算机中的作用"><a href="#按在计算机中的作用" class="headerlink" title="按在计算机中的作用"></a>按在计算机中的作用</h3><ol>
+<li>主存储器</li>
+<li>辅存储器</li>
+<li>缓冲存储器</li>
+</ol>
+<h2 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h2><h3 id=""><a href="#" class="headerlink" title=""></a></h3> 
       <!-- reward -->
       
       <div id="reword-out">
