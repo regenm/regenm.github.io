@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">59</span>
+            <span class="post-count">1.1k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">3 min</span>
         </span>
     </span>
 </div>
@@ -107,7 +107,96 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>&#x3D;&#x3D;操作系统原理&#x3D;&#x3D;</p>
-<h1 id="1-操作系统概论"><a href="#1-操作系统概论" class="headerlink" title="1.操作系统概论"></a>1.操作系统概论</h1><h1 id="2-操作系统接口"><a href="#2-操作系统接口" class="headerlink" title="2.操作系统接口"></a>2.操作系统接口</h1><h1 id="3-进程管理"><a href="#3-进程管理" class="headerlink" title="3. *进程管理"></a>3. *进程管理</h1><h1 id="4-处理机调度"><a href="#4-处理机调度" class="headerlink" title="4. *处理机调度"></a>4. *处理机调度</h1><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1> 
+<h1 id="1-操作系统概论"><a href="#1-操作系统概论" class="headerlink" title="1.操作系统概论"></a>1.操作系统概论</h1><h1 id="2-操作系统接口"><a href="#2-操作系统接口" class="headerlink" title="2.操作系统接口"></a>2.操作系统接口</h1><h2 id="用户与操作系统接口的分类"><a href="#用户与操作系统接口的分类" class="headerlink" title="用户与操作系统接口的分类"></a>用户与操作系统接口的分类</h2><ol>
+<li>用户接口<br> 提供给用户使用，通过该接口取得操作系统的服务。</li>
+<li>程序接口<br> 提供给程序员使用，用户程序使用系统服务的唯一途径</li>
+</ol>
+<h3 id="用户接口（操作接口）"><a href="#用户接口（操作接口）" class="headerlink" title="用户接口（操作接口）"></a>用户接口（操作接口）</h3><ol>
+<li>联机用户接口（交互式）</li>
+<li>脱机用户接口（批处理 ）</li>
+</ol>
+<h4 id="联机用户接口（交互式）"><a href="#联机用户接口（交互式）" class="headerlink" title="联机用户接口（交互式）"></a>联机用户接口（交互式）</h4><ol>
+<li>字符显示式联机用户接口</li>
+</ol>
+<ul>
+<li>命令行方式：shell 语言</li>
+<li>批命令方式：.sh</li>
+</ul>
+<ol start="2">
+<li>图形化联机用户接口</li>
+</ol>
+<ul>
+<li>GUI ：包括窗口，图标，菜单，鼠标和面向对象技术</li>
+</ul>
+<h4 id="脱机用户接口（批处理-）"><a href="#脱机用户接口（批处理-）" class="headerlink" title="脱机用户接口（批处理 ）"></a>脱机用户接口（批处理 ）</h4><pre><code>由一组作业控制语言组成。
+</code></pre>
+<ul>
+<li>作业：一次应用业务处理中，从输入开始到输入结束。用户要求计算机所做工作的集合。</li>
+<li>作业步：作业加工处理的技术</li>
+<li>作业分类：脱机作业，联机作业。</li>
+<li>作业I&#x2F;O方式：联机IO，脱机IO，SpooLing方式</li>
+</ul>
+<h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><pre><code>系统调用（System Call），提供了用户程序和操作系统之间的接口。用户不能直接调用，但是用户程序可以。
+</code></pre>
+<h3 id="特权指令和非特权指令"><a href="#特权指令和非特权指令" class="headerlink" title="特权指令和非特权指令"></a>特权指令和非特权指令</h3><ul>
+<li>特权指令<br>  不允许用户程序直接使用的指令，关系到系统全局。<br>特点：<ol>
+<li>内存访问范围不受限制</li>
+<li>用户和系统存储空间都能访问</li>
+</ol>
+</li>
+<li>非特权指令<br>  只能完成一般性的操作和任务，不能直接访问系统的硬件和软件。<br>  访问范围局限于用户空间</li>
+</ul>
+<h3 id="管态和目态"><a href="#管态和目态" class="headerlink" title="管态和目态"></a>管态和目态</h3><ol>
+<li><p>管态（系统态，核心态）：<br> 可以执行包括特权指令的所有机器指令。</p>
+</li>
+<li><p>目态（用户态）：<br> 不允许执行特权指令。</p>
+</li>
+</ol>
+<h3 id="系统调用-1"><a href="#系统调用-1" class="headerlink" title="系统调用"></a>系统调用</h3><pre><code>系统调用是操作系统提供的一组用于实现各种系统功能的子程序，并将它们提供给应用程序调用。 
+</code></pre>
+<p>&#x3D;&#x3D;系统调用是应用程序获得操作系统服务的唯一途径！&#x3D;&#x3D;</p>
+<ul>
+<li>系统调用会将用户态切换到内核态</li>
+<li></li>
+</ul>
+<h1 id="3-进程管理"><a href="#3-进程管理" class="headerlink" title="3. *进程管理"></a>3. *进程管理</h1><h2 id="进程的基本概念"><a href="#进程的基本概念" class="headerlink" title="*进程的基本概念"></a>*进程的基本概念</h2><h3 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h3><ul>
+<li>程序的特征</li>
+</ul>
+<ol>
+<li>顺序性，处理机的操作严格按照程序所规定的顺序执行</li>
+<li>封闭性，程序运行时独占全机资源</li>
+<li>结果的确定性，执行结果和中断次数无关</li>
+<li>可再现性，只要程序顺序执行的环境和初始条件相同，不论执行过程如何，都将获得相同的结果</li>
+</ol>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>非正式<br>  执行中的程序<br>  运行中的代码段 </li>
+<li>正式<br>  可并发执行的程序在一个数据集合上的执行过程，是系统进行资源分配和调度的一个独立单位<br>注意：进程 !&#x3D; 程序</li>
+</ul>
+<h3 id="进程与程序的关系"><a href="#进程与程序的关系" class="headerlink" title="进程与程序的关系"></a>进程与程序的关系</h3><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>｜进程｜程序｜<br>｜——-｜——-｜<br>｜动态｜静态｜<br>｜并发｜顺序｜<br>｜暂时｜永久｜</p>
+<ul>
+<li>出现原因：支持多道编程</li>
+</ul>
+<h4 id="进程的特征（属性）"><a href="#进程的特征（属性）" class="headerlink" title="进程的特征（属性）"></a>进程的特征（属性）</h4><p>特征：</p>
+<ol>
+<li>结构特征<br>进程实体：由程序段、数据段、核心栈及进程控制块部分构成，总称“进程映像”（Process Image）。</li>
+<li>动态性(最基本的特征)<br>由“创建”而产生，由“调度”而执行；由得不到资源而阻塞；由撤消而消亡。（而程序是静态的）。</li>
+<li>并发性（重要特征）<br>只有建立了进程，才能并发执行。</li>
+<li>独立性<br>独立运行，独立获得资源、独立接受调度。</li>
+<li>异步性<br>进程按各自独立、不可预知的速度向前推进</li>
+</ol>
+<h2 id="进状态及转换"><a href="#进状态及转换" class="headerlink" title="*进状态及转换"></a>*进状态及转换</h2><h3 id="进程的三种基本状态"><a href="#进程的三种基本状态" class="headerlink" title="进程的三种基本状态"></a>进程的三种基本状态</h3><ul>
+<li>就绪状态</li>
+<li>执行&#x2F;运行状态</li>
+<li>阻塞&#x2F;等待&#x2F;睡眠&#x2F;暂停&#x2F;封锁状态</li>
+</ul>
+<p>###进程状态变迁情况及原因：</p>
+<ol>
+<li>就绪状态→运行状态：由OS中的进程调度程序，按一定的原则调度就绪队列中进程占用CPU。</li>
+<li>运行状态→就绪状态：时间片到，高优先进程进入就绪队列，等等。</li>
+<li>运行状态→阻塞状态：等待I&#x2F;O传输，申请内存空间，程序运行出错，等等。</li>
+<li>阻塞状态→就绪状态： I&#x2F;O传输完成，内存空间获得，程序运行错误处理完成，等等。</li>
+</ol>
+<h4 id="进程的无态模型"><a href="#进程的无态模型" class="headerlink" title="进程的无态模型"></a>进程的无态模型</h4><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="*进程控制"></a>*进程控制</h2><h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h1 id="4-处理机调度"><a href="#4-处理机调度" class="headerlink" title="4. *处理机调度"></a>4. *处理机调度</h1><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1> 
       <!-- reward -->
       
       <div id="reword-out">
