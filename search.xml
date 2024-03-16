@@ -4187,13 +4187,98 @@
   <entry>
     <title>PCB Technique</title>
     <url>/2024/03/03/PCB-Technique/</url>
-    <content><![CDATA[<h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1><h2 id="电路设计"><a href="#电路设计" class="headerlink" title="电路设计"></a>电路设计</h2><h2 id="PCB设计"><a href="#PCB设计" class="headerlink" title="PCB设计"></a>PCB设计</h2><h3 id="PCB-组成"><a href="#PCB-组成" class="headerlink" title="PCB 组成"></a>PCB 组成</h3><h4 id="铺铜"><a href="#铺铜" class="headerlink" title="铺铜"></a>铺铜</h4><h4 id="过孔"><a href="#过孔" class="headerlink" title="过孔"></a>过孔</h4><ul>
+    <content><![CDATA[<h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1><h2 id="1-电路设计"><a href="#1-电路设计" class="headerlink" title="1. 电路设计"></a>1. 电路设计</h2><h2 id="2-PCB设计"><a href="#2-PCB设计" class="headerlink" title="2. PCB设计"></a>2. PCB设计</h2><h3 id="2-1PCB-组成"><a href="#2-1PCB-组成" class="headerlink" title="2.1PCB 组成"></a>2.1PCB 组成</h3><ul>
+<li>作用</li>
+</ul>
+<p>​	将PCB上闲置的空间作为基准面，然后用固体铜填充，这些铜区又称为灌铜。覆铜的意义在于，减小地线阻抗，提高抗干扰能力；降低压降，提高电源效率；与地线相连，还可以减小环路面积。</p>
+<ul>
+<li>方式</li>
+</ul>
+<ol>
+<li>大面积覆铜</li>
+</ol>
+<p>​	大面积覆铜，具备了加大电流和屏蔽双重作用，但是大面积覆铜，如果过波峰焊时，板子就可能会翘起来，甚至会起泡。因此大面积覆铜，一般也会开几个槽，缓解铜箔起泡。低频电路、有大电流的电路等常用大面积的覆铜。</p>
+<ol>
+<li>网格覆铜</li>
+</ol>
+<p>从散热的角度说，它降低了铜的受热面，又起到了一定的电磁屏蔽的作用。因此，高频电路对抗干扰要求高的多用网格覆铜</p>
+<h4 id="2-1-1铺铜"><a href="#2-1-1铺铜" class="headerlink" title="2.1.1铺铜"></a>2.1.1铺铜</h4><h4 id="2-1-2过孔"><a href="#2-1-2过孔" class="headerlink" title="2.1.2过孔"></a>2.1.2过孔</h4><ul>
 <li>分类</li>
 </ul>
-<h4 id="焊盘"><a href="#焊盘" class="headerlink" title="焊盘"></a>焊盘</h4><ul>
+<h4 id="2-1-3焊盘"><a href="#2-1-3焊盘" class="headerlink" title="2.1.3焊盘"></a>2.1.3焊盘</h4><ul>
 <li>分类</li>
 </ul>
-<h4 id="丝印"><a href="#丝印" class="headerlink" title="丝印"></a>丝印</h4><h4 id="阻焊"><a href="#阻焊" class="headerlink" title="阻焊"></a>阻焊</h4><h3 id="PCB结构"><a href="#PCB结构" class="headerlink" title="PCB结构"></a>PCB结构</h3>]]></content>
+<h4 id="2-1-4丝印"><a href="#2-1-4丝印" class="headerlink" title="2.1.4丝印"></a>2.1.4丝印</h4><h4 id="2-1-5阻焊"><a href="#2-1-5阻焊" class="headerlink" title="2.1.5阻焊"></a>2.1.5阻焊</h4><h3 id="2-2PCB结构"><a href="#2-2PCB结构" class="headerlink" title="2.2PCB结构"></a>2.2PCB结构</h3><h3 id="2-3-PCB设计规则总览（持续添加ing）"><a href="#2-3-PCB设计规则总览（持续添加ing）" class="headerlink" title="2.3.PCB设计规则总览（持续添加ing）"></a>2.3.PCB设计规则总览（持续添加ing）</h3><ol>
+<li><p><strong>电路布局与元器件安放</strong>：</p>
+<ul>
+<li><p>电路布局是否合理？</p>
+</li>
+<li><p>元器件之间的距离是否足够？</p>
+</li>
+<li><p>元器件的放置方向是否一致？</p>
+</li>
+<li><p>是否合理安排了元器件的布局顺序？</p>
+</li>
+<li><p>是否考虑了元器件的封装形式和选择？</p>
+</li>
+<li><p>是否进行了元器件的标注和排列规范？</p>
+</li>
+<li><p>是否考虑了元器件的插拔次数和位置？</p>
+</li>
+<li><p>是否进行了元器件的冗余设计？</p>
+</li>
+<li><p>是否考虑了元器件的热管理和散热问题？</p>
+</li>
+<li><p>是否进行了元器件的可靠性分析？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>信号管理：</strong></p>
+<ul>
+<li><p>是否进行了信号完整性分析？</p>
+</li>
+<li><p>是否进行了阻抗匹配设计？</p>
+</li>
+<li><p>是否进行了信号线路的优化布局和仿真验证？</p>
+</li>
+<li><p>是否考虑了电磁干扰和射频干扰的影响？</p>
+</li>
+<li><p>是否进行了电磁场模拟分析？</p>
+</li>
+<li><p>是否考虑了信号传输速率和衰减问题？</p>
+</li>
+<li><p>是否考虑了线路的阻抗匹配和信号损耗？</p>
+</li>
+<li><p>是否进行了线路的阻抗匹配设计？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>电源管理：</strong></p>
+<ul>
+<li><p>是否考虑了电源的滤波和稳压？</p>
+</li>
+<li><p>是否进行了电源线和地线的分离和规范设计？</p>
+</li>
+<li><p>是否考虑了过压和过流保护的设计？</p>
+</li>
+<li><p>是否进行了电源供应的充足性和稳定性分析？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>PCB工艺与环境因素：</strong></p>
+<ul>
+<li><p>是否考虑了PCB的工作环境和应用场景？</p>
+</li>
+<li><p>是否进行了PCB的加工工艺和成本分析？</p>
+</li>
+<li><p>是否进行了PCB布线的仿真验证？</p>
+</li>
+<li><p>是否考虑了PCB的防火、加固、环境友好等设计因素？</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>电路设计</tag>
