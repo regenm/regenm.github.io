@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">333</span>
         </span>
     </span>
 
@@ -98,13 +98,62 @@
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="嘿嘿开新坑！"><a href="#嘿嘿开新坑！" class="headerlink" title="嘿嘿开新坑！"></a>嘿嘿开新坑！</h1><p>​	早就久仰树莓派大名，奈何前两年芯片减产导致树莓派价格居高不下，甚至翻倍。现在终于降下来了，于是斥巨资买了一块3B前来学习。本篇Blog用于记录我的探索历程。</p>
+<h2 id="1-装系统！"><a href="#1-装系统！" class="headerlink" title="1. 装系统！"></a>1. 装系统！</h2><p>​	要什么桌面环境，直接上命令行！</p>
+<h2 id="2-联网-WIFI"><a href="#2-联网-WIFI" class="headerlink" title="2.联网-WIFI"></a>2.联网-WIFI</h2><ul>
+<li>方法一：使用系统工具</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+
+<p>选择系统选项，地区之后就可以通过<code>ssid</code>和<code>pask</code>进行联网</p>
+<p>再使用<code>ifconfig</code>查看是否连接成功（会分配新的 ip 地址）</p>
+<ul>
+<li>方法二：使用系统配置<code>/etc/</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一开始没有VIM</span></span><br><span class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># add </span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=<span class="string">&quot;ssid_name&quot;</span></span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">        psk=<span class="string">&quot;password&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-创建新用户并授权"><a href="#3-创建新用户并授权" class="headerlink" title="3. 创建新用户并授权"></a>3. 创建新用户并授权</h2><p>​	总不能一直用root吧，qwq</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># add user</span></span><br><span class="line">adduser regen</span><br><span class="line"><span class="comment"># grant privilege</span></span><br><span class="line">visudo</span><br><span class="line"><span class="comment"># add regen to sudoers</span></span><br><span class="line">regen   ALL=(ALL:ALL)       ALL</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-来点个灯吧！"><a href="#4-来点个灯吧！" class="headerlink" title="4.来点个灯吧！"></a>4.来点个灯吧！</h2><ol>
+<li>代码界的点灯</li>
+</ol>
+<p>先看看这个gcc工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
+
+<p>嘿嘿，是<code>aarch-linux-gnu</code>也就是arm架构的gcc版本啦，终于不是<code> x86_64-w64-mingw32</code>啦。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim hello_RaspberryPi.c</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>物理点灯</li>
+</ol>
+<h3 id="4-1-引脚信息"><a href="#4-1-引脚信息" class="headerlink" title="4.1 引脚信息"></a>4.1 引脚信息</h3><ul>
+<li>看看引脚配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pinout</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gpio readall</span><br></pre></td></tr></table></figure>
+
+<p>然后就报错了。。。</p>
+<p>没有安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install wiringpi</span><br></pre></td></tr></table></figure>
+
+<p>又报错了。。。没有依赖</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt --fix-broken install</span><br></pre></td></tr></table></figure>
+
+<p>解决</p>
+<h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python"><a href="#4-2-1-使用Python" class="headerlink" title="4.2.1 使用Python"></a>4.2.1 使用Python</h4><h4 id="4-2-1-使用c语言"><a href="#4-2-1-使用c语言" class="headerlink" title="4.2.1 使用c语言"></a>4.2.1 使用c语言</h4> 
       <!-- reward -->
       
       <div id="reword-out">
@@ -179,6 +228,8 @@
 </div>
 
 <div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Raspberry-Pi/" rel="tag">Raspberry Pi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
     </footer>
   </div>
 
