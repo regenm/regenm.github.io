@@ -746,7 +746,14 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="1-STM32和51"><a href="#1-STM32和51" class="headerlink" title="1. STM32和51"></a>1. STM32和51</h1><h2 id="1-51的优缺点"><a href="#1-51的优缺点" class="headerlink" title="1. 51的优缺点"></a>1. 51的优缺点</h2><h3 id="1-51-的优点"><a href="#1-51-的优点" class="headerlink" title="1. 51 的优点"></a>1. 51 的优点</h3><ul>
+  <h1 id="嵌入式基本概念"><a href="#嵌入式基本概念" class="headerlink" title="嵌入式基本概念"></a>嵌入式基本概念</h1><ul>
+<li><p>嵌入式系统<br>  嵌入式系统是一种专门设计用于执行特定任务或控制特定设备的计算机系统。它通常包括硬件和软件两个部分，被嵌入到目标设备中，以实现特定的功能。</p>
+</li>
+<li><p>RTOS（Real-Time OS）</p>
+<p>  一种专门设计用于嵌入式系统的操作系统。RTOS的主要特点是能够保证任务在预定的时间内得到及时处理，具有良好的实时性。</p>
+</li>
+</ul>
+<h1 id="1-STM32和51"><a href="#1-STM32和51" class="headerlink" title="1. STM32和51"></a>1. STM32和51</h1><h2 id="1-51的优缺点"><a href="#1-51的优缺点" class="headerlink" title="1. 51的优缺点"></a>1. 51的优缺点</h2><h3 id="1-51-的优点"><a href="#1-51-的优点" class="headerlink" title="1. 51 的优点"></a>1. 51 的优点</h3><ul>
 <li>硬件层面</li>
 </ul>
 <blockquote>
@@ -862,14 +869,8 @@
 <ul>
 <li>引脚引出</li>
 </ul>
-<h1 id="嵌入式基本概念"><a href="#嵌入式基本概念" class="headerlink" title="嵌入式基本概念"></a>嵌入式基本概念</h1><ul>
-<li><p>嵌入式系统<br>  嵌入式系统是一种专门设计用于执行特定任务或控制特定设备的计算机系统。它通常包括硬件和软件两个部分，被嵌入到目标设备中，以实现特定的功能。</p>
-</li>
-<li><p>RTOS（Real-Time OS）</p>
-<p>  一种专门设计用于嵌入式系统的操作系统。RTOS的主要特点是能够保证任务在预定的时间内得到及时处理，具有良好的实时性。</p>
-</li>
-</ul>
-<h1 id="STM32-HAL库和标准库的比较"><a href="#STM32-HAL库和标准库的比较" class="headerlink" title="STM32 HAL库和标准库的比较"></a>STM32 HAL库和标准库的比较</h1><ul>
+<h1 id="STM32的GPIO（待补充）"><a href="#STM32的GPIO（待补充）" class="headerlink" title="STM32的GPIO（待补充）"></a>STM32的GPIO（待补充）</h1><p>​	STM32的I&#x2F;O 端口有8种模式（4种输入模式和4种输出模式）。</p>
+<h2 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h2><h3 id="1-输入浮空"><a href="#1-输入浮空" class="headerlink" title="1. 输入浮空"></a>1. 输入浮空</h3><h3 id="2-输入上拉"><a href="#2-输入上拉" class="headerlink" title="2. 输入上拉"></a>2. 输入上拉</h3><h3 id="3-输入下拉"><a href="#3-输入下拉" class="headerlink" title="3. 输入下拉"></a>3. 输入下拉</h3><h3 id="4-模拟输入"><a href="#4-模拟输入" class="headerlink" title="4. 模拟输入"></a>4. 模拟输入</h3><h2 id="输出模式"><a href="#输出模式" class="headerlink" title="输出模式"></a>输出模式</h2><h3 id="1-开漏输出"><a href="#1-开漏输出" class="headerlink" title="1. 开漏输出"></a>1. 开漏输出</h3><h3 id="2-推挽输出"><a href="#2-推挽输出" class="headerlink" title="2. 推挽输出"></a>2. 推挽输出</h3><h3 id="3-复用功能推挽输出"><a href="#3-复用功能推挽输出" class="headerlink" title="3. 复用功能推挽输出"></a>3. 复用功能推挽输出</h3><h3 id="4-复用功能开漏输出"><a href="#4-复用功能开漏输出" class="headerlink" title="4. 复用功能开漏输出"></a>4. 复用功能开漏输出</h3><h1 id="STM32-HAL库和标准库的比较"><a href="#STM32-HAL库和标准库的比较" class="headerlink" title="STM32 HAL库和标准库的比较"></a>STM32 HAL库和标准库的比较</h1><ul>
 <li>抽象层级：<br>标准库：标准外设库提供了对STM32外设的低层次的直接访问，开发者需要直接操作外设的寄存器来配置和控制外设。<br>HAL库：HAL库提供了对STM32外设的高层次的抽象，通过一组统一的API接口，开发者可以更方便地配置和控制外设，而不必直接操作底层寄存器。</li>
 <li>可移植性：<br>标准库：标准外设库的代码通常直接与特定型号的STM32微控制器相关联，因此在不同型号的微控制器之间的移植性较差。<br>HAL库：HAL库设计为具有一定的可移植性，可以在不同型号的STM32微控制器之间进行较为简单的移植。</li>
 <li>易用性：<br>标准库：标准外设库需要开发者具有一定的硬件知识和对STM32微控制器的了解，操作相对复杂，学习曲线较陡。<br>HAL库：HAL库提供了一套统一的API接口，使得操作外设更加简单直观，适合初学者或者对硬件了解较少的开发者使用。</li>
@@ -882,10 +883,14 @@
 <li>时钟控制：<br>  STM32标准库提供了时钟配置功能，包括系统时钟和外设时钟的配置。开发者可以根据实际需求设置时钟源、时钟分频等参数，以满足系统的性能和功耗要求。</li>
 <li>低功耗模式：<br>  标准库支持STM32微控制器的低功耗模式，包括停机模式、睡眠模式、待机模式等，开发者可以根据需要选择合适的低功耗模式来降低系统的功耗。</li>
 <li>系统初始化和配置：<br>  标准库提供了系统初始化和配置函数，包括时钟初始化、外设初始化等，开发者可以在程序的启动阶段调用这些函数来配置系统的基本参数。</li>
-<li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
+<li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>d</p>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示（未解决）</h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
+<ul>
+<li>IIC协议的上拉电阻已考虑</li>
+<li>电压大小</li>
+</ul>
  
       <!-- reward -->
       
