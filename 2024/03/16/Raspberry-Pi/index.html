@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">356</span>
+            <span class="post-count">425</span>
         </span>
     </span>
 
@@ -154,7 +154,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt --fix-broken install</span><br></pre></td></tr></table></figure>
 
 <p>解决</p>
-<h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python"><a href="#4-2-1-使用Python" class="headerlink" title="4.2.1 使用Python"></a>4.2.1 使用Python</h4> 
+<h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python的命令模式"><a href="#4-2-1-使用Python的命令模式" class="headerlink" title="4.2.1 使用Python的命令模式"></a>4.2.1 使用Python的命令模式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setmode(GPIO.BOARD)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setup(<span class="number">11</span>,GPIO.OUT)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.output(<span class="number">11</span>,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p>于是报错了，没有权限，直接换root就好了。好了现在又精通一个开发板的点灯了嘿嘿。</p>
+ 
       <!-- reward -->
       
       <div id="reword-out">
