@@ -2741,7 +2741,96 @@
 <li>引脚引出</li>
 </ul>
 <h1 id="STM32的GPIO（待补充）"><a href="#STM32的GPIO（待补充）" class="headerlink" title="STM32的GPIO（待补充）"></a>STM32的GPIO（待补充）</h1><p>​	STM32的I&#x2F;O 端口有8种模式（4种输入模式和4种输出模式）。</p>
-<h2 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h2><h3 id="1-输入浮空"><a href="#1-输入浮空" class="headerlink" title="1. 输入浮空"></a>1. 输入浮空</h3><h3 id="2-输入上拉"><a href="#2-输入上拉" class="headerlink" title="2. 输入上拉"></a>2. 输入上拉</h3><h3 id="3-输入下拉"><a href="#3-输入下拉" class="headerlink" title="3. 输入下拉"></a>3. 输入下拉</h3><h3 id="4-模拟输入"><a href="#4-模拟输入" class="headerlink" title="4. 模拟输入"></a>4. 模拟输入</h3><h2 id="输出模式"><a href="#输出模式" class="headerlink" title="输出模式"></a>输出模式</h2><h3 id="1-开漏输出"><a href="#1-开漏输出" class="headerlink" title="1. 开漏输出"></a>1. 开漏输出</h3><h3 id="2-推挽输出"><a href="#2-推挽输出" class="headerlink" title="2. 推挽输出"></a>2. 推挽输出</h3><h3 id="3-复用功能推挽输出"><a href="#3-复用功能推挽输出" class="headerlink" title="3. 复用功能推挽输出"></a>3. 复用功能推挽输出</h3><h3 id="4-复用功能开漏输出"><a href="#4-复用功能开漏输出" class="headerlink" title="4. 复用功能开漏输出"></a>4. 复用功能开漏输出</h3><h1 id="STM32-HAL库和标准库的比较"><a href="#STM32-HAL库和标准库的比较" class="headerlink" title="STM32 HAL库和标准库的比较"></a>STM32 HAL库和标准库的比较</h1><ul>
+<blockquote>
+<ul>
+<li><p>GPIO工作模式—–输入</p>
+<p>  1.浮空输入模式</p>
+<p>  2.上拉输入模式</p>
+<p>  3.下拉输入模式</p>
+<p>  4.模拟输入模式</p>
+</li>
+<li><p>GPIO工作模式—–输出</p>
+<p>  1.开漏输出模式</p>
+<p>  2.推挽输出模式</p>
+<p>  3.复用开漏输出</p>
+<p>  4.复用推挽输出</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h2><h3 id="1-输入浮空"><a href="#1-输入浮空" class="headerlink" title="1. 输入浮空"></a>1. 输入浮空</h3><ul>
+<li>特性</li>
+</ul>
+<ol>
+<li>I&#x2F;O端口的电平信号直接进入输入数据寄存器。</li>
+<li>引脚悬空（在无信号输入）的情况下，读取该端口的电平是不确定的·</li>
+</ol>
+<ul>
+<li>使用案例</li>
+</ul>
+<h3 id="2-输入上拉"><a href="#2-输入上拉" class="headerlink" title="2. 输入上拉"></a>2. 输入上拉</h3><ul>
+<li>特性</li>
+</ul>
+<ol>
+<li>IO<strong>内部</strong>接上拉电阻，此时如果IO口外部没有信号输入或者引脚悬空，IO口默认为高电平 </li>
+<li>STM32 <strong>内部</strong>上拉输出的电流很弱的，需要大电流还是得外部上拉。</li>
+</ol>
+<ul>
+<li>使用案例</li>
+</ul>
+<h3 id="3-输入下拉"><a href="#3-输入下拉" class="headerlink" title="3. 输入下拉"></a>3. 输入下拉</h3><ul>
+<li>特性</li>
+</ul>
+<ol>
+<li>IO内部接下拉电阻，此时如果IO口外部没有信号输入或者引脚悬空，IO口默认为低电平</li>
+</ol>
+<ul>
+<li>使用案例</li>
+</ul>
+<h3 id="4-模拟输入"><a href="#4-模拟输入" class="headerlink" title="4. 模拟输入"></a>4. 模拟输入</h3><ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>信号不经过施密特触发器，直接直接进入ADC模块，并且输入数据寄存器为空 ，CPU不能在输入数据寄存器上读到引脚状态</li>
+<li>没有连接TTL触发器，这样保留最原始的电压值，不是转换过后的0和1信号</li>
+<li>数据直接送到片上外设，一般是ADC模数转换器（Analog-to-Digital Converter）</li>
+</ol>
+<ul>
+<li>使用案例</li>
+</ul>
+<p>用于连接模拟传感器或信号源，如温度传感器或光线传感器，可以通过ADC模块读取模拟电压值。</p>
+<h2 id="输出模式（一知半解，待补充）"><a href="#输出模式（一知半解，待补充）" class="headerlink" title="输出模式（一知半解，待补充）"></a>输出模式（一知半解，待补充）</h2><h3 id="1-开漏输出"><a href="#1-开漏输出" class="headerlink" title="1. 开漏输出"></a>1. 开漏输出</h3><ul>
+<li>特征</li>
+</ul>
+<ol>
+<li>引脚可以输出低电平（逻辑0），但不能输出高电平，而是通过外部上拉电阻实现。</li>
+</ol>
+<ul>
+<li>使用案例</li>
+</ul>
+<p>​	适用于实现多个引脚共享一个信号线的情况，如I2C总线或SPI总线。开漏输出模式允许多个设备通过外部上拉电阻共享同一条信号线，并且可以实现更高的灵活性和可靠性。</p>
+<h3 id="2-推挽输出"><a href="#2-推挽输出" class="headerlink" title="2. 推挽输出"></a>2. 推挽输出</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ul>
+<li>特征</li>
+</ul>
+<p>​	这意味着引脚可以输出高电平（逻辑1）或低电平（逻辑0），且能够提供或接受相对较高的电流。</p>
+<ul>
+<li>使用案例</li>
+</ul>
+<p>​	适用于驱动外部负载，如LED、继电器、蜂鸣器等。推挽输出模式在输出高电平时提供的电流较大，可以有效地驱动各种类型的负载。</p>
+<h3 id="3-复用功能推挽输出"><a href="#3-复用功能推挽输出" class="headerlink" title="3. 复用功能推挽输出"></a>3. 复用功能推挽输出</h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><ul>
+<li>特征</li>
+</ul>
+<p>在复用推挽输出模式下，GPIO引脚被配置为复用推挽输出，同时具有其他功能，如串行通信、定时器等。</p>
+<ul>
+<li>使用案例</li>
+</ul>
+<p>​	适用于需要在GPIO引脚上实现数字输出以及其他功能的应用场景。例如，将引脚配置为UART串行通信的TX引脚，同时可用于输出数字信号。</p>
+<h3 id="4-复用功能开漏输出"><a href="#4-复用功能开漏输出" class="headerlink" title="4. 复用功能开漏输出"></a>4. 复用功能开漏输出</h3><h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><ul>
+<li><p>特征</p>
+</li>
+<li><p>使用案例</p>
+</li>
+</ul>
+<h1 id="STM32-HAL库和标准库的比较"><a href="#STM32-HAL库和标准库的比较" class="headerlink" title="STM32 HAL库和标准库的比较"></a>STM32 HAL库和标准库的比较</h1><ul>
 <li>抽象层级：<br>标准库：标准外设库提供了对STM32外设的低层次的直接访问，开发者需要直接操作外设的寄存器来配置和控制外设。<br>HAL库：HAL库提供了对STM32外设的高层次的抽象，通过一组统一的API接口，开发者可以更方便地配置和控制外设，而不必直接操作底层寄存器。</li>
 <li>可移植性：<br>标准库：标准外设库的代码通常直接与特定型号的STM32微控制器相关联，因此在不同型号的微控制器之间的移植性较差。<br>HAL库：HAL库设计为具有一定的可移植性，可以在不同型号的STM32微控制器之间进行较为简单的移植。</li>
 <li>易用性：<br>标准库：标准外设库需要开发者具有一定的硬件知识和对STM32微控制器的了解，操作相对复杂，学习曲线较陡。<br>HAL库：HAL库提供了一套统一的API接口，使得操作外设更加简单直观，适合初学者或者对硬件了解较少的开发者使用。</li>
@@ -2757,10 +2846,30 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示（未解决）</h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
+<p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
+<p>​	多看看技术手册！！！</p>
+<h3 id="不同芯片功能对比"><a href="#不同芯片功能对比" class="headerlink" title="不同芯片功能对比"></a>不同芯片功能对比</h3><blockquote>
+<ol>
+<li><p>C6T6没有串口3（及USART3）；</p>
+</li>
+<li><p>C6T6没有通用定时器TIM4；</p>
+</li>
+<li><p>C6T6没有串行外设接口SPI2；</p>
+</li>
+<li><p>C6T6没有I2C2</p>
+</li>
+<li><p>C6T6的flash为32K， C8T6为64K；</p>
+</li>
+<li><p>C6T6的RAM为10K，C8T6为20K。</p>
+<p>总结就是C8T6比C6T6多了一个串口、一个定时器、一个串行外设接口、一个I2C、内存大一点！</p>
+</li>
+</ol>
+</blockquote>
 <ul>
 <li>IIC协议的上拉电阻已考虑</li>
-<li>电压大小</li>
+<li>电压大小已考虑</li>
+<li>芯片引脚特性</li>
 </ul>
 ]]></content>
       <tags>
