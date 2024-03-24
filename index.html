@@ -637,7 +637,7 @@
 <h2 id="系统调用"><a href="#系统调用" class="headerlink" title="系统调用"></a>系统调用</h2><pre><code>系统调用（System Call），提供了用户程序和操作系统之间的接口。用户不能直接调用，但是用户程序可以。
 </code></pre>
 <h3 id="特权指令和非特权指令"><a href="#特权指令和非特权指令" class="headerlink" title="特权指令和非特权指令"></a>特权指令和非特权指令</h3><ul>
-<li>特权指令<br>  不允许用户程序直接使用的指令，关系到系统全局。<br>特点：<ol>
+<li>特权指令<br>  不允许用户程序直接使用的指令，关系到系统全局。<br>  特点：<ol>
 <li>内存访问范围不受限制</li>
 <li>用户和系统存储空间都能访问</li>
 </ol>
@@ -668,7 +668,7 @@
 </ol>
 <h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
 <li>非正式<br>  执行中的程序<br>  运行中的代码段 </li>
-<li>正式<br>  可并发执行的程序在一个数据集合上的执行过程，是系统进行资源分配和调度的一个独立单位<br>注意：进程 !&#x3D; 程序</li>
+<li>正式<br>  可并发执行的程序在一个数据集合上的执行过程，是系统进行资源分配和调度的一个独立单位<br>  注意：进程 !&#x3D; 程序</li>
 </ul>
 <h3 id="进程与程序的关系"><a href="#进程与程序的关系" class="headerlink" title="进程与程序的关系"></a>进程与程序的关系</h3><h4 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h4><p>｜进程｜程序｜<br>｜——-｜——-｜<br>｜动态｜静态｜<br>｜并发｜顺序｜<br>｜暂时｜永久｜</p>
 <ul>
@@ -694,7 +694,55 @@
 <li>运行状态→阻塞状态：等待I&#x2F;O传输，申请内存空间，程序运行出错，等等。</li>
 <li>阻塞状态→就绪状态： I&#x2F;O传输完成，内存空间获得，程序运行错误处理完成，等等。</li>
 </ol>
-<h4 id="进程的无态模型"><a href="#进程的无态模型" class="headerlink" title="进程的无态模型"></a>进程的无态模型</h4><h2 id="进程控制"><a href="#进程控制" class="headerlink" title="*进程控制"></a>*进程控制</h2><h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h1 id="4-处理机调度"><a href="#4-处理机调度" class="headerlink" title="4. *处理机调度"></a>4. *处理机调度</h1><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1> 
+<h4 id="进程的五态模型"><a href="#进程的五态模型" class="headerlink" title="进程的五态模型"></a>进程的五态模型</h4><ol>
+<li>NULL-创建态：新进程的产生</li>
+<li>创建态-就绪态：资源允许的情况</li>
+<li>执行态-终止态：自然结束，强行终止</li>
+<li>终止态-NULL：完成善后操作</li>
+<li>阻塞态-终止态：强行终止</li>
+<li>就绪态-终止态：强行终止</li>
+</ol>
+<ul>
+<li>程序状态字PSW（程序状态寄存器）又称（标志寄存器）</li>
+</ul>
+<p>​	PSW用来存放两类信息：一类是体现当前指令执行结果的各种状态信息，称为状态标志，如有无进位（CF位），有无溢出（OF位），结果正负（SF位），结果是否为零（ZF位），奇偶标志位（PF位）等；另一类是存放控制信息，称为控制状态，如允许中断(IF位)，跟踪标志（TF位），方向标志(DF)等。</p>
+<h2 id="进程控制"><a href="#进程控制" class="headerlink" title="*进程控制"></a>*进程控制</h2><p>​	进程控制的职责是对系统中的全部进程实施有效的管理，它是处理机管理的一部分。</p>
+<h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><h3 id="进程之间的制约关系"><a href="#进程之间的制约关系" class="headerlink" title="进程之间的制约关系"></a>进程之间的制约关系</h3><ol>
+<li>间接制约：资源竞争关系</li>
+</ol>
+<p>需互斥地访问临界资源（进程互斥）</p>
+<ul>
+<li>临界资源：在一个时间段内只允许一个进程访问的资源。</li>
+<li>临界区（Critical Section，CS）进程访问临界资源的一段代码。</li>
+</ul>
+<ol start="2">
+<li>直接制约：相互协作关系</li>
+</ol>
+<h3 id="进程间资源访问冲突"><a href="#进程间资源访问冲突" class="headerlink" title="进程间资源访问冲突"></a>进程间资源访问冲突</h3><p>-共享变量的修改冲突</p>
+<p>-操作顺序中冲突</p>
+<h3 id="进程之间的交互关系"><a href="#进程之间的交互关系" class="headerlink" title="进程之间的交互关系"></a>进程之间的交互关系</h3><ol>
+<li>互斥：指多个进程不能同时使用同一个资源</li>
+<li>同步：进程之间的协作</li>
+<li>死锁：指多个进程互不相让，都得不到足够的资源；</li>
+</ol>
+<h3 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h3><p>锁（共享的变量）阻止了其他进程进入临界区</p>
+<h3 id="临界区及其管理"><a href="#临界区及其管理" class="headerlink" title="临界区及其管理"></a>临界区及其管理</h3><p>​	临界区的执行在时间上是互斥的,进程必须请求允许进入临界区</p>
+<p>间接同步（互斥）机制应遵循的准则</p>
+<p>（1）空闲让进：当无进程处于临界区时，允许一进程立即进入临界区</p>
+<p>（2）忙则等待：当某一进程已进入临界区时，其它试图进入临界区进程必须等待</p>
+<p>（3）有限等待：应保证为有限等待，不会产生”死等”状态。（4）让权等待：不能进入临界区的执行进程应放弃CPU执行权。</p>
+<h4 id="硬件方式-提供的低级原子级操作"><a href="#硬件方式-提供的低级原子级操作" class="headerlink" title="硬件方式-提供的低级原子级操作"></a>硬件方式-提供的低级原子级操作</h4><ol>
+<li>关中断</li>
+</ol>
+<p>​	硬件上的关中断（禁止中断）。</p>
+<ul>
+<li>缺点：<ul>
+<li>影响计算机效率</li>
+<li>在多处理器下方法失效</li>
+</ul>
+</li>
+</ul>
+<h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h1 id="4-处理机调度"><a href="#4-处理机调度" class="headerlink" title="4. *处理机调度"></a>4. *处理机调度</h1><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1> 
       <!-- reward -->
       
     </div>
@@ -745,6 +793,7 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>​			计算机组成原理</p>
+<p>&#x3D;&#x3D;dsa &#x3D;&#x3D;</p>
 <h1 id="计算机系统概论"><a href="#计算机系统概论" class="headerlink" title="计算机系统概论"></a>计算机系统概论</h1><h2 id="计算机基本组成"><a href="#计算机基本组成" class="headerlink" title="计算机基本组成"></a>计算机基本组成</h2><h3 id="冯诺依曼计算机"><a href="#冯诺依曼计算机" class="headerlink" title="冯诺依曼计算机"></a>冯诺依曼计算机</h3><ul>
 <li>特点</li>
 </ul>
@@ -895,27 +944,118 @@
 <li>光盘存储器</li>
 </ol>
 <h3 id="按存取方式"><a href="#按存取方式" class="headerlink" title="按存取方式"></a>按存取方式</h3><ol>
-<li>随机存储器<ol>
+<li><p>随机存储器</p>
+<ol>
 <li>静态RAM（触发器原理寄存信息）</li>
 <li>动态RAM（电容充放电原理寄存信息）</li>
 </ol>
 </li>
-<li>只读存储器<ol>
+<li><p>只读存储器</p>
+<ol>
 <li>掩模型只读存储器（MROM）</li>
 <li>可编程只读存储器（PROM）</li>
 <li>可擦除可编程只读存储器（EPROM）</li>
 <li>用电可擦除可编程只读存储器（EEPROM）</li>
 </ol>
 </li>
-<li>顺序存取存储器</li>
-<li>直接存取村暑期</li>
+<li><p>顺序存取存储器</p>
+</li>
+<li><p>直接存取存储器、</p>
+<p> -按在计算机中的作用</p>
+</li>
+<li><p>主存储器</p>
+</li>
+<li><p>辅存储器</p>
+</li>
+<li><p>缓冲存储器</p>
+</li>
 </ol>
-<h3 id="按在计算机中的作用"><a href="#按在计算机中的作用" class="headerlink" title="按在计算机中的作用"></a>按在计算机中的作用</h3><ol>
-<li>主存储器</li>
-<li>辅存储器</li>
-<li>缓冲存储器</li>
+<h2 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h2><h3 id="主存中存储单元地址的分配"><a href="#主存中存储单元地址的分配" class="headerlink" title="主存中存储单元地址的分配"></a>主存中存储单元地址的分配</h3><ul>
+<li>按字寻址和按字节寻址</li>
+</ul>
+<blockquote>
+<p>例：假设地址线24位，按字节寻址范围就是：2^24</p>
+<p>如果机器字长32位，则按字寻址范围就是：2^24&#x2F;（32&#x2F;4）</p>
+</blockquote>
+<h3 id="主存的技术指标"><a href="#主存的技术指标" class="headerlink" title="主存的技术指标"></a>主存的技术指标</h3><p>​	<strong>存储容量和存储速度</strong></p>
+<h4 id="存储容量"><a href="#存储容量" class="headerlink" title="存储容量"></a>存储容量</h4><p>​	定义：主存能存放二进制代码的总位数（存储单元* 存储字长）。也可以用字节总数表示。</p>
+<h4 id="存储速度"><a href="#存储速度" class="headerlink" title="存储速度"></a>存储速度</h4><p>​	存储速度由存取时间和存取周期表示。</p>
+<ul>
+<li><p>存取时间（存储器访问时间（Memory Access Time））</p>
+<p>  定义：启动一次存储器操作<strong>到完成该操作所需的全部时间</strong>。</p>
+<p>  分为读出时间和写入时间</p>
+<ol>
+<li>读出时间：收到有效地址到产生有效输出。</li>
+<li>写入时间：存储器收到有效地址到数据写入被选中单元。</li>
 </ol>
-<h2 id="主存储器"><a href="#主存储器" class="headerlink" title="主存储器"></a>主存储器</h2><h3 id="主存中存储单元地址的分配"><a href="#主存中存储单元地址的分配" class="headerlink" title="主存中存储单元地址的分配"></a>主存中存储单元地址的分配</h3><h3 id="主存的技术指标"><a href="#主存的技术指标" class="headerlink" title="主存的技术指标"></a>主存的技术指标</h3> 
+</li>
+<li><p>存取周期（Memory Cycle Time）</p>
+<p>  定义：存储器连续两次独立的存储器操作所需的最小时间间隔。</p>
+</li>
+</ul>
+<h4 id="存储带宽"><a href="#存储带宽" class="headerlink" title="存储带宽"></a>存储带宽</h4><p>定义：单位时间内存储器存取的信息量</p>
+<ul>
+<li>提高带宽的措施</li>
+</ul>
+<ol>
+<li>缩短存储周期</li>
+<li>增加存储字长</li>
+<li>增加存储体</li>
+</ol>
+<h3 id="半导体存储芯片"><a href="#半导体存储芯片" class="headerlink" title="半导体存储芯片"></a>半导体存储芯片</h3><p>地址线和数据线共同反应存储芯片的容量。</p>
+<h4 id="译码驱动方式"><a href="#译码驱动方式" class="headerlink" title="译码驱动方式"></a>译码驱动方式</h4><ol>
+<li>线选法</li>
+</ol>
+<p>一根线拿出一个存储单元各位</p>
+<ol start="2">
+<li>重合法</li>
+</ol>
+<p>类似键盘扫描</p>
+<h3 id="随机存取存储器"><a href="#随机存取存储器" class="headerlink" title="随机存取存储器"></a>随机存取存储器</h3><p>​	分为静态RAM和动态RAM</p>
+<h4 id="静态RAM-SRAM"><a href="#静态RAM-SRAM" class="headerlink" title="静态RAM(SRAM)"></a>静态RAM(SRAM)</h4><p>​	用于存储0和1的电路称为 存储器的基本单元电路。</p>
+<p>​	易失性半导体</p>
+<h4 id="动态RAM-DRAM"><a href="#动态RAM-DRAM" class="headerlink" title="动态RAM(DRAM)"></a>动态RAM(DRAM)</h4><p>​	靠电容存储电荷的原理进行存储信息，需要再生（也称刷新）</p>
+<h3 id="存储器与CPU的链接"><a href="#存储器与CPU的链接" class="headerlink" title="存储器与CPU的链接"></a>存储器与CPU的链接</h3><h4 id="存储容量的扩展"><a href="#存储容量的扩展" class="headerlink" title="存储容量的扩展"></a>存储容量的扩展</h4><ol>
+<li>位扩展</li>
+</ol>
+<p>​		增加存储字长。相同地址线不同位数可以合体。两片1K×4位可以组成1K×8位</p>
+<ol start="2">
+<li>字扩展</li>
+</ol>
+<p>​	增加存储器字的数量。例如两片1K×8位可以组成2K×8位。</p>
+<h4 id="存储器与CPU的连接"><a href="#存储器与CPU的连接" class="headerlink" title="存储器与CPU的连接"></a>存储器与CPU的连接</h4><p>​	注意篇与片之间的地址线，数据线，控制线的连接。</p>
+<ol>
+<li><p>地址线的连接</p>
+<p> CPU地址线的低位与存储芯片的地址线相连。高位用于扩容或者片选</p>
+</li>
+<li><p>数据线的连接</p>
+</li>
+<li><p>读写命令线的连接</p>
+</li>
+<li><p>片选线的连接</p>
+</li>
+</ol>
+<p>​	取决于片选控制端 CS非（低电平生效），同时其与访存控制信号MREQ非（低电平有效）有关，CPU需要时才会选择存储芯片。</p>
+<ol start="5">
+<li>合理选择存储芯片</li>
+</ol>
+<h3 id="存储器的检验"><a href="#存储器的检验" class="headerlink" title="存储器的检验"></a>存储器的检验</h3><ul>
+<li><p>汉明码：具有一位纠错能力的的编码</p>
+</li>
+<li><p>编码最小距离</p>
+<ul>
+<li>在一种编码系统中任意两组合法代码之间的最小二进制位数差异。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">L-1=D+C        （D&gt;=C）</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>L(编码最小距离)</li>
+<li>D(检测错误的位数)</li>
+<li>C（纠正错误的位数）</li>
+</ul>
+<h3 id="提高访存速度的措施"><a href="#提高访存速度的措施" class="headerlink" title="提高访存速度的措施"></a>提高访存速度的措施</h3><h4 id="单体多字系统"><a href="#单体多字系统" class="headerlink" title="单体多字系统"></a>单体多字系统</h4><h4 id="多体并行系统"><a href="#多体并行系统" class="headerlink" title="多体并行系统"></a>多体并行系统</h4> 
       <!-- reward -->
       
     </div>
@@ -1195,7 +1335,49 @@
 </ul>
 </li>
 </ol>
-<h2 id="2-关系模型和关系运算理论"><a href="#2-关系模型和关系运算理论" class="headerlink" title="2.关系模型和关系运算理论"></a>2.关系模型和关系运算理论</h2><h3 id="关系模型的基本概念"><a href="#关系模型的基本概念" class="headerlink" title="关系模型的基本概念"></a>关系模型的基本概念</h3><h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><h3 id="关系代数表达式的优化"><a href="#关系代数表达式的优化" class="headerlink" title="关系代数表达式的优化"></a>关系代数表达式的优化</h3><p>​	</p>
+<h2 id="2-关系模型和关系运算理论"><a href="#2-关系模型和关系运算理论" class="headerlink" title="2.关系模型和关系运算理论"></a>2.关系模型和关系运算理论</h2><h3 id="关系模型的基本概念"><a href="#关系模型的基本概念" class="headerlink" title="关系模型的基本概念"></a>关系模型的基本概念</h3><p>​	定义：用二维表格表示实体集，用关键码表示实体之间联系的数据模型称为关系模型（Relational Model）。</p>
+<ul>
+<li>非平凡的函数依赖</li>
+</ul>
+<p>如果X→Y，但Y不包含于X，则称		X→Y是非平凡的函数依赖。</p>
+<ul>
+<li>平凡的函数依赖</li>
+</ul>
+<p>如果X→Y，但Y包含于X，则称		X→Y是平凡的函数依赖。</p>
+<ul>
+<li>决定因子</li>
+</ul>
+<p>如果X→Y，则X称为决定因子。 </p>
+<h4 id="关键码"><a href="#关键码" class="headerlink" title="关键码"></a>关键码</h4><ul>
+<li>超键（super）</li>
+</ul>
+<p>在关系中能唯一标识元组的属性或属性集称为关系模式的超键。</p>
+<ul>
+<li>候选键(Candidate)</li>
+</ul>
+<p>不含有多余属性的超键称为侯选建</p>
+<ul>
+<li>主键（primary）</li>
+</ul>
+<p>用户选作元组标识的候选键称为主键</p>
+<ul>
+<li>外键(foreign)</li>
+</ul>
+<p>若模式R中属性K是其他模式的主键，则K在R中称为外键。</p>
+<h4 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h4><p>定义：一个属性相同的元组的集合。</p>
+<blockquote>
+<p>规范性限制</p>
+<p>关系中每一个属性值都是不可分解的；</p>
+<p>关系中不允许出现重复元组，即不允许出现相同的元组；</p>
+<p>由于关系是一个集合，因此不考虑元组间的顺序，即没有行序；</p>
+<p>元组中的属性在理论上也是无序的，但使用时按习惯考虑列的顺序。</p>
+</blockquote>
+<h4 id="3类完整性规则"><a href="#3类完整性规则" class="headerlink" title="3类完整性规则"></a>3类完整性规则</h4><h4 id="实体完整性给规则"><a href="#实体完整性给规则" class="headerlink" title="实体完整性给规则"></a>实体完整性给规则</h4><p>要求关系中元组在组成主键的属性上不能有空值。如果出现空值，那么主键值就起不了惟一标识元组的作用。</p>
+<h4 id="参照完整性规则"><a href="#参照完整性规则" class="headerlink" title="参照完整性规则"></a>参照完整性规则</h4><p>如果属性集K是关系模式R1的主键，K也是关系模式R2的外键，那么在R2的关系中，K的取值只允许两种可能，或者为空值，或者等于R1关系中某个主键值。</p>
+<h4 id="用户定义的完整性规则"><a href="#用户定义的完整性规则" class="headerlink" title="用户定义的完整性规则"></a>用户定义的完整性规则</h4><p>用户可以针对具体的数据约束，设置完整性规则，由系统来检验实施，以使用统一的方法处理它们，不再由应用程序承担这项工作。</p>
+<h3 id="关系模式"><a href="#关系模式" class="headerlink" title="关系模式"></a>关系模式</h3><p>​	在关系模型中，记录类型称为关系模式，而关系模式的集合就是数据库的概念模式。</p>
+<h4 id="关系模式与关系"><a href="#关系模式与关系" class="headerlink" title="关系模式与关系"></a>关系模式与关系</h4><p>关系模式是型，是对关系的描述，是静态的，稳定的。关系是值，由赋予它的元组语义来确定的，是动态的，不断变化的关系是关系模式在某一时刻的状态或内容</p>
+<h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><h3 id="关系代数表达式的优化"><a href="#关系代数表达式的优化" class="headerlink" title="关系代数表达式的优化"></a>关系代数表达式的优化</h3><p>​	</p>
  
       <!-- reward -->
       
