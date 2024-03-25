@@ -166,6 +166,155 @@
     
     
     <article
+  id="post-MQTT服务器搭建（mosquitto）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/"
+    >MQTT服务器搭建（mosquitto）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" class="article-date">
+  <time datetime="2024-02-08T16:58:48.000Z" itemprop="datePublished">2024-02-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
+<li>简介</li>
+</ol>
+<blockquote>
+<p>MQTT也称为”消息代理”（Broker）。</p>
+<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
+</blockquote>
+<ol start="2">
+<li>原理</li>
+</ol>
+<blockquote>
+<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
+<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
+<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
+<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
+</blockquote>
+<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件</li>
+</ul>
+<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
+<blockquote>
+<h1 id="Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config"><a href="#Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config" class="headerlink" title="Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config."></a>Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config.</h1></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加用户</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关闭防火墙！！！</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
+<li>用户登录订阅，发布</li>
+</ul>
+<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
+<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>订阅</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
+<li><strong>脚本制作</strong></li>
+</ul>
+<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
+<ol>
+<li>发布</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>订阅，同理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接esp32或8266</li>
+</ul>
+<p>看看这个esp8266连接mqtt服务器的项目吗？(<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-esp8266连接服务器（基于mosquitto的mqtt-server）"
   class="article article-type-post"
   itemscope
@@ -647,20 +796,41 @@
 <li>简介</li>
 </ul>
 <blockquote>
-<p>I2C（同步半双工）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
+<p>I2C（同步<strong>半双工</strong>）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
 </blockquote>
 <ul>
 <li>特点</li>
 </ul>
 <blockquote>
-<p>(1) 它是一个支持多设备的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
-<p>(2) 一个 I2C 总线只使用两条总线线路，一条双向串行数据线(SDA) ，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。</p>
-<p>(3) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
-<p>(4) 总线通过上拉电阻接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
-<p>(5) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
-<p>(6) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
-<p>(7) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
+<p>(1) 它是一个<strong>支持多设备</strong>的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
+<p>(2) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
+<p>(3) <strong>总线通过上拉电阻</strong>接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
+<p>(4) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
+<p>(5) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
+<p>(6) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
 </blockquote>
+<h4 id="通信原理："><a href="#通信原理：" class="headerlink" title="通信原理："></a>通信原理：</h4><pre><code>1. 使用两个总线：
+
+    1. SDA（数据线）
+    2. SCL（时钟线）
+
+2. 主设备与从设备
+
+    1. 主设备（控制时钟线`SCL`）
+    2. 从设备（地址检测）
+
+3. 高阻态
+
+​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。
+
+4. IIIC 设备地址：出厂已经设计好
+
+5. 协议
+
+    1. **开始信号**：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。
+    2. **结束信号**：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。
+    3. **应答信号**：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。
+</code></pre>
 <h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><ul>
 <li>简介</li>
 </ul>
@@ -975,7 +1145,38 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><ol>
+<li><p><strong>中断向量</strong>：</p>
+<p> 中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
+</li>
+<li><p><strong>中断向量表</strong>：</p>
+<p> 中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
+</li>
+<li><p><strong>NVIC</strong></p>
+<p> NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
+</li>
+<li><p><strong>AFIO</strong></p>
+<p> AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
+</li>
+</ol>
+<h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
+<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
+</li>
+<li><p>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
+</li>
+<li><p>优先级分组</p>
+<ol>
+<li>抢占优先级：越高可以中断嵌套</li>
+<li>响应优先级：越高可以优先排队</li>
+</ol>
+</li>
+</ol>
+<h3 id="外部中断（-E-X-T-I-）"><a href="#外部中断（-E-X-T-I-）" class="headerlink" title="外部中断（ E X T I ）"></a>外部中断（ E X T I ）</h3><h4 id="硬件特性："><a href="#硬件特性：" class="headerlink" title="硬件特性："></a>硬件特性：</h4><ol>
+<li>触发方式：上升沿&#x2F;下降沿&#x2F;双边沿&#x2F;软件触发</li>
+<li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
+<li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
+</ol>
+<h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
 <p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
 <p>​	多看看技术手册！！！</p>
 <h3 id="不同芯片功能对比"><a href="#不同芯片功能对比" class="headerlink" title="不同芯片功能对比"></a>不同芯片功能对比</h3><blockquote>
@@ -1254,80 +1455,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-前端学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >前端学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-12-22T15:46:18.000Z" itemprop="datePublished">2023-12-22</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>​	</p>
-<p>CSS：Cascading Style Sheet 层叠样式表，是一组样式设置的规则，用于控制页面的外观样式。</p>
-<p>广泛用于页面外观美化，布局和定位。</p>
-</blockquote>
-<h2 id="CSS如何使用"><a href="#CSS如何使用" class="headerlink" title="CSS如何使用"></a>CSS如何使用</h2><ul>
-<li>嵌入HTML或者JSP</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-<span class="number">8</span>&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    <span class="selector-tag">p</span>&#123;</span><br><span class="line">      <span class="attribute">color</span>:blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>外部导入（常用，更加方便，便于复制黏贴 :D）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/eg<span class="selector-class">.css</span>&quot;&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
-<li>选择器：要修饰的对象，例如HTML的各类标签</li>
-<li>属性名：属于修饰对象的属性</li>
-<li>属性值：修饰对象的属性的样式取值</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    选择器&#123;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>

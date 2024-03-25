@@ -2846,7 +2846,38 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><ol>
+<li><p><strong>中断向量</strong>：</p>
+<p> 中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
+</li>
+<li><p><strong>中断向量表</strong>：</p>
+<p> 中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
+</li>
+<li><p><strong>NVIC</strong></p>
+<p> NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
+</li>
+<li><p><strong>AFIO</strong></p>
+<p> AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
+</li>
+</ol>
+<h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
+<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
+</li>
+<li><p>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
+</li>
+<li><p>优先级分组</p>
+<ol>
+<li>抢占优先级：越高可以中断嵌套</li>
+<li>响应优先级：越高可以优先排队</li>
+</ol>
+</li>
+</ol>
+<h3 id="外部中断（-E-X-T-I-）"><a href="#外部中断（-E-X-T-I-）" class="headerlink" title="外部中断（ E X T I ）"></a>外部中断（ E X T I ）</h3><h4 id="硬件特性："><a href="#硬件特性：" class="headerlink" title="硬件特性："></a>硬件特性：</h4><ol>
+<li>触发方式：上升沿&#x2F;下降沿&#x2F;双边沿&#x2F;软件触发</li>
+<li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
+<li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
+</ol>
+<h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
 <p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
 <p>​	多看看技术手册！！！</p>
 <h3 id="不同芯片功能对比"><a href="#不同芯片功能对比" class="headerlink" title="不同芯片功能对比"></a>不同芯片功能对比</h3><blockquote>
@@ -2984,20 +3015,41 @@
 <li>简介</li>
 </ul>
 <blockquote>
-<p>I2C（同步半双工）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
+<p>I2C（同步<strong>半双工</strong>）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
 </blockquote>
 <ul>
 <li>特点</li>
 </ul>
 <blockquote>
-<p>(1) 它是一个支持多设备的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
-<p>(2) 一个 I2C 总线只使用两条总线线路，一条双向串行数据线(SDA) ，一条串行时钟线(SCL)。数据线即用来表示数据，时钟线用于数据收发同步。</p>
-<p>(3) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
-<p>(4) 总线通过上拉电阻接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
-<p>(5) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
-<p>(6) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
-<p>(7) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
+<p>(1) 它是一个<strong>支持多设备</strong>的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
+<p>(2) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
+<p>(3) <strong>总线通过上拉电阻</strong>接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
+<p>(4) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
+<p>(5) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
+<p>(6) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
 </blockquote>
+<h4 id="通信原理："><a href="#通信原理：" class="headerlink" title="通信原理："></a>通信原理：</h4><pre><code>1. 使用两个总线：
+
+    1. SDA（数据线）
+    2. SCL（时钟线）
+
+2. 主设备与从设备
+
+    1. 主设备（控制时钟线`SCL`）
+    2. 从设备（地址检测）
+
+3. 高阻态
+
+​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。
+
+4. IIIC 设备地址：出厂已经设计好
+
+5. 协议
+
+    1. **开始信号**：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。
+    2. **结束信号**：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。
+    3. **应答信号**：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。
+</code></pre>
 <h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><ul>
 <li>简介</li>
 </ul>
@@ -4803,12 +4855,55 @@
 <p>解决</p>
 <h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python的命令模式"><a href="#4-2-1-使用Python的命令模式" class="headerlink" title="4.2.1 使用Python的命令模式"></a>4.2.1 使用Python的命令模式</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setmode(GPIO.BOARD)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setup(<span class="number">11</span>,GPIO.OUT)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.output(<span class="number">11</span>,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-<p>于是报错了，没有权限，直接换root就好了。好了现在又精通一个开发板的点灯了嘿嘿。</p>
+<p>于是报错了，没有权限，直接换root就好了。好了现在又精通一个开发板的点灯了嘿嘿</p>
+<h2 id="5-远程ssh"><a href="#5-远程ssh" class="headerlink" title="5. 远程ssh"></a>5. 远程ssh</h2><p>​	学以致用，之前在<code> Linux Projects</code>里面学习了使用<code>ZeroTier</code>进行内网穿透以提供远程服务。试试在我的内网频道加入新的成员<code>Raspberry PI</code>吧 ！</p>
+<ul>
+<li>开头也需要加<code>sudo</code>，否则报错</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>加入我的内网</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zerotier-cli <span class="built_in">join</span> &lt;NETWORK ID&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开机自启动</li>
+</ul>
+<ol>
+<li>新建一个脚本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim AutoStart/ZeroTierAutoStart.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;network ID&gt;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zerotier network joined successfully&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>添加自启动</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su regen -c <span class="string">&quot;exec /home/regen/AutoStart/ZeroTierAutoStart.sh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>结束！</li>
+</ol>
+<p>​	现在就可以只需要给树莓派供个电就行了，可以远程写脚本，玩树莓派咯。</p>
 ]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
         <tag>Raspberry Pi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RUST basic</title>
+    <url>/2024/03/25/RUST-basic/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>rust</tag>
+        <tag>language</tag>
       </tags>
   </entry>
 </search>

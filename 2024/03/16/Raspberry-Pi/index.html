@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">425</span>
+            <span class="post-count">595</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -156,7 +156,40 @@
 <p>解决</p>
 <h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python的命令模式"><a href="#4-2-1-使用Python的命令模式" class="headerlink" title="4.2.1 使用Python的命令模式"></a>4.2.1 使用Python的命令模式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setmode(GPIO.BOARD)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setup(<span class="number">11</span>,GPIO.OUT)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.output(<span class="number">11</span>,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
-<p>于是报错了，没有权限，直接换root就好了。好了现在又精通一个开发板的点灯了嘿嘿。</p>
+<p>于是报错了，没有权限，直接换root就好了。好了现在又精通一个开发板的点灯了嘿嘿</p>
+<h2 id="5-远程ssh"><a href="#5-远程ssh" class="headerlink" title="5. 远程ssh"></a>5. 远程ssh</h2><p>​	学以致用，之前在<code> Linux Projects</code>里面学习了使用<code>ZeroTier</code>进行内网穿透以提供远程服务。试试在我的内网频道加入新的成员<code>Raspberry PI</code>吧 ！</p>
+<ul>
+<li>开头也需要加<code>sudo</code>，否则报错</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>加入我的内网</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli <span class="built_in">join</span> &lt;NETWORK ID&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开机自启动</li>
+</ul>
+<ol>
+<li>新建一个脚本</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim AutoStart/ZeroTierAutoStart.sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;network ID&gt;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zerotier network joined successfully&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>添加自启动</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su regen -c <span class="string">&quot;exec /home/regen/AutoStart/ZeroTierAutoStart.sh&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>结束！</li>
+</ol>
+<p>​	现在就可以只需要给树莓派供个电就行了，可以远程写脚本，玩树莓派咯。</p>
  
       <!-- reward -->
       
@@ -239,6 +272,15 @@
 
    
   <nav class="article-nav">
+    
+      <a href="/2024/03/25/RUST-basic/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            RUST basic
+          
+        </div>
+      </a>
     
     
       <a href="/2024/03/03/PCB-Technique/" class="article-nav-link">
