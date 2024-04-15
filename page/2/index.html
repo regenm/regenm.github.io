@@ -166,6 +166,74 @@
     
     
     <article
+  id="post-docker容器技术"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"
+    >docker容器技术</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="article-date">
+  <time datetime="2024-02-08T19:04:22.000Z" itemprop="datePublished">2024-02-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>constructing</p>
+<p>toBeContinued</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，<strong>程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系</strong>。</p>
+<p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
+</blockquote>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>​	docker 中的几个概念：</p>
+<blockquote>
+<ol>
+<li>dockerfile</li>
+<li>image</li>
+<li>container</li>
+</ol>
+</blockquote>
+<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
+<h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
+<p>​	</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-MQTT服务器搭建（mosquitto）"
   class="article article-type-post"
   itemscope
@@ -643,7 +711,49 @@
 <li><p>放大状态的外部条件： 发射结正向偏置，集电结反向偏置。</p>
 </li>
 </ul>
-<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4> 
+<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4><h1 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h1><blockquote>
+<p><strong>阻容耦合</strong>是指在电路中，电阻和电容之间存在相互影响的现象。通常情况下，我们认为电阻和电容是独立的元件，但在某些情况下，它们会相互影响，产生一些非预期的效应。</p>
+<p>这种耦合效应可能会出现在许多不同类型的电路中，包括模拟电路和数字电路。在模拟电路中，电阻和电容的耦合可能会导致信号的失真或延迟。在数字电路中，阻容耦合可能会影响信号的稳定性和时序特性，导致逻辑错误或不稳定的操作。</p>
+<p>因此，在设计和分析电路时，工程师需要考虑阻容耦合效应，以确保电路的性能和可靠性。这可能涉及到采取一些补偿措施或使用特殊的设计技术来减轻耦合效应带来的影响。</p>
+<p>在电路中，电阻和电容是两种常见的元件。通常，我们认为它们是独立的，但在一些情况下，它们会相互影响，这就是阻容耦合。</p>
+<p>想象一下，如果你有一根水管，水可以在其中自由流动。现在，如果你在水管的一段放置了一块海绵，海绵会吸收水并储存在其中。这时，水管的流动速度会受到海绵吸水的影响，海绵的湿度也会受到水管中水流的影响。在这个例子中，水管就像电路中的电阻，而海绵就像电路中的电容。阻容耦合就是描述电阻和电容之间这种相互影响的现象。</p>
+<p>在实际电路中，阻容耦合可能会导致一些问题，比如信号传输变慢、电路的响应时间变化等。因此，在设计和分析电路时，需要考虑这种耦合效应，以确保电路的正常工作。</p>
+</blockquote>
+<blockquote>
+<p><strong>静态工作点</strong>是指电子设备在没有输入信号时的工作状态。在放大器、晶体管等电子设备中，静态工作点通常表示设备的输出电压、电流以及输出特性的基准状态。</p>
+<p>在放大器中，静态工作点通常由放大器的直流偏置电压和直流偏置电流来描述。这个状态对应于放大器没有输入信号时的输出电压和电流水平。静态工作点的选择对于设备的性能和稳定性至关重要。如果静态工作点设置不当，可能会导致设备在工作时出现失真、偏置漂移或不稳定的现象。</p>
+<p>因此，在设计电路时，工程师会特别关注静态工作点，并根据设计需求和规格选择合适的偏置电压和电流，以确保设备在正常工作范围内运行。</p>
+</blockquote>
+<blockquote>
+<p>直流偏置电压和直流偏置电流是用于控制电子设备（比如放大器、晶体管等）在静态工作点上的电压和电流值。</p>
+<ol>
+<li><strong>直流偏置电压（DC Bias Voltage）</strong>：<ul>
+<li>在放大器或晶体管等电子设备中，直流偏置电压是用来设置设备工作在适当工作范围内的电压。它通常是在电路中通过电阻分压、电源电压等方式设置的一个恒定的电压值。</li>
+<li>直流偏置电压决定了设备的工作点，即静态工作点，它对应于设备在没有输入信号时的输出状态。通过调整直流偏置电压，可以确保设备在合适的电压范围内工作，以避免过饱和或过截止等失真现象。</li>
+</ul>
+</li>
+<li><strong>直流偏置电流（DC Bias Current）</strong>：<ul>
+<li>直流偏置电流是指流经电子设备（如晶体管）的恒定电流。它通常是通过电路中设置的偏置电阻来控制的。</li>
+<li>直流偏置电流也是设备静态工作点的重要参数之一。它决定了设备的工作状态，如放大器的基准电流值。正确选择直流偏置电流可以确保设备在合适的工作状态下工作，从而提高放大器的线性度和稳定性。</li>
+</ul>
+</li>
+</ol>
+<p>这两个参数一起用于确定电子设备的静态工作点，确保设备在正常工作范围内的输出特性。</p>
+</blockquote>
+<blockquote>
+<p><strong>电压型叠加定理</strong>是电路理论中的基本原理之一，它指出在一个线性电路中，当有多个电压源作用于电路时，每个电压源单独作用时的电压可以分别计算，并且最后可以将它们的效应叠加在一起以获得电路中某一点的总电压。这个定理通常适用于直流电路和交流电路中的线性电路，对于非线性电路不适用。</p>
+<h3 id="定理表述："><a href="#定理表述：" class="headerlink" title="定理表述："></a>定理表述：</h3><p>在一个电路中，假设有多个电压源<br>$$<br>V<br>total<br>​<br> &#x3D;V<br>1<br>​<br> +V<br>2<br>​<br> +V<br>3<br>​<br> +⋯+V<br>n<br>​<br>$$<br>它们分别作用于电路中的某一点，那么这一点的总电压等于各个电压源单独作用时的电压之和。</p>
+<p>数学表达式如下：</p>
+<p>�total&#x3D;�1+�2+�3+⋯+��<em>V</em>total&#x3D;<em>V</em>1+<em>V</em>2+<em>V</em>3+⋯+<em>V**n</em></p>
+<p>其中，�total<em>V</em>total 表示电路中某一点的总电压，�1,�2,�3,…,��<em>V</em>1,<em>V</em>2,<em>V</em>3,…,<em>V**n</em> 分别表示各个电压源单独作用时的电压值。</p>
+<h3 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h3><ol>
+<li><strong>电路分析简化</strong>：通过叠加定理，可以将复杂的电路分解为简单的部分，分别分析各个部分，最后再将它们的效应叠加在一起，从而简化电路分析的过程。</li>
+<li><strong>交流电路分析</strong>：在交流电路中，可以将直流分量和交流分量分别分析，然后再将它们的效应叠加在一起。</li>
+<li><strong>电路设计</strong>：在设计电路时，可以通过叠加定理来计算各个电压源的影响，从而更好地设计电路的结构和参数。</li>
+</ol>
+<p>总的来说，电压型叠加定理是电路分析中非常重要的原理，它为工程师提供了一种简便而有效的方法来理解和分析复杂电路系统。</p>
+</blockquote>
+ 
       <!-- reward -->
       
     </div>
@@ -1145,27 +1255,14 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><ol>
-<li><p><strong>中断向量</strong>：</p>
-<p> 中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
-</li>
-<li><p><strong>中断向量表</strong>：</p>
-<p> 中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
-</li>
-<li><p><strong>NVIC</strong></p>
-<p> NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
-</li>
-<li><p><strong>AFIO</strong></p>
-<p> AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
-</li>
-</ol>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><h4 id="中断向量："><a href="#中断向量：" class="headerlink" title="中断向量："></a><strong>中断向量</strong>：</h4><p>中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
+<h4 id="中断向量表："><a href="#中断向量表：" class="headerlink" title="中断向量表："></a><strong>中断向量表</strong>：</h4><p>中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
+<h4 id="NVIC"><a href="#NVIC" class="headerlink" title="NVIC"></a><strong>NVIC</strong></h4><p>NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
+<h4 id="AFIO"><a href="#AFIO" class="headerlink" title="AFIO"></a><strong>AFIO</strong></h4><p>AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
 <h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
-<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
-</li>
-<li><p>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
-</li>
-<li><p>优先级分组</p>
-<ol>
+<li>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</li>
+<li>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</li>
+<li>优先级分组<ol>
 <li>抢占优先级：越高可以中断嵌套</li>
 <li>响应优先级：越高可以优先排队</li>
 </ol>
@@ -1176,6 +1273,12 @@
 <li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
 <li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
 </ol>
+<h4 id="结构体初始化配置过程"><a href="#结构体初始化配置过程" class="headerlink" title="结构体初始化配置过程"></a>结构体初始化配置过程</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*开启时钟*/</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		<span class="comment">//开启GPIOB的时钟</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);		<span class="comment">//开启AFIO的时钟，外部中断必须开启AFIO的时钟</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*GPIO初始化*/</span></span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						<span class="comment">//将PB14引脚初始化为上拉输入</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*AFIO选择中断引脚*/</span></span><br><span class="line">  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);<span class="comment">//将外部中断的14号线映射到GPIOB，即选择PB14为外部中断引脚</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*EXTI初始化*/</span></span><br><span class="line">  EXTI_InitTypeDef EXTI_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Line = EXTI_Line14;					<span class="comment">//选择配置外部中断的14号线</span></span><br><span class="line">  EXTI_InitStructure.EXTI_LineCmd = ENABLE;					<span class="comment">//指定外部中断线使能</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;			<span class="comment">//指定外部中断线为中断模式</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;		<span class="comment">//指定外部中断线为下降沿触发</span></span><br><span class="line">  EXTI_Init(&amp;EXTI_InitStructure);								<span class="comment">//将结构体变量交给EXTI_Init，配置EXTI外设</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC中断分组*/</span></span><br><span class="line">  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);				<span class="comment">//配置NVIC为分组2</span></span><br><span class="line">                                <span class="comment">//即抢占优先级范围：0~3，响应优先级范围：0~3</span></span><br><span class="line">                                <span class="comment">//此分组配置在整个工程中仅需调用一次</span></span><br><span class="line">                                <span class="comment">//若有多个中断，可以把此代码放在main函数内，while循环之前</span></span><br><span class="line">                                <span class="comment">//若调用多次配置分组的代码，则后执行的配置会覆盖先执行的配置</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC配置*/</span></span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;		<span class="comment">//选择配置NVIC的EXTI15_10线</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;				<span class="comment">//指定NVIC线路使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;	<span class="comment">//指定NVIC线路的抢占优先级为1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;			<span class="comment">//指定NVIC线路的响应优先级为1</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
 <p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
 <p>​	多看看技术手册！！！</p>
@@ -1380,81 +1483,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《寂寞的游戏》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/"
-    >《寂寞的游戏》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/" class="article-date">
-  <time datetime="2023-12-24T14:00:39.000Z" itemprop="datePublished">2023-12-24</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="《寂寞的游戏》"><a href="#《寂寞的游戏》" class="headerlink" title="《寂寞的游戏》"></a>《寂寞的游戏》</h1><p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F.jpg" alt="寂寞的游戏">	</p>
-<p>​	<strong>其实</strong>，这本书我在2020年就看过一遍了，因为十分合拍的原因，还拍下了当时读书时的画面。当时就感受到了袁哲生先生的文字下的细腻，将一个敏感的青年通过笔墨绘于纸上。</p>
-<p>​	<strong>那时</strong>，我刚刚升入高中，不曾想到进了高一的奥赛班，以为以我的适应能力能够立马就与同学打成一片，然而这个班的同学早已互相认识，只留少数几个像我一样对于新环境完全陌生的新人，不仅是交际上的原因，学业上也频频受挫。初中时的锐气与自信受到巨大的打击，于是便抓住文字这根救命稻草，以求在陌生而冷淡的环境汲取一丝慰藉。</p>
-<p>​	<strong>文字</strong>，从未给过我失望，透过《寂寞的游戏》，我看到了一个像我一样的青年，借由他的经历，让我那时的无力感得到稍许减弱。</p>
-<blockquote>
-<p>“	我想，人天生就喜欢躲藏，</p>
-<p>渴望消失，这是一点都不奇怪的事。	”</p>
-<p>“	我就这样躲躲藏藏了许多年，直到有一天，捉迷藏的乐趣像一颗流星，眨眼就消失的无影无踪。	”</p>
-</blockquote>
-<p>​	这些细腻且真实的文字打动着我，让那时的我感动：我不是一个人，袁哲生先生也和我一样。</p>
-<p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F2.jpg" alt="2020 第一次读这本书就被吸引"></p>
-<p>​	<strong>那时</strong>，图片中的有着斑马图案像条形码的马克杯还没碎。那是妈妈在外地别人家打工时，住在那里的姐姐托妈妈送给我的，杯子里还有一张写着QQ号码和昵称 Nancy 的纸条。依稀记得为了这个纸条找发小帮忙注册了一个QQ号。然而她没有同意我的申请添加，而后QQ号也给弄丢了。</p>
-<p>​	<strong>再次</strong>，拿起这本书的原因是在市区的书架上看到，蓝色的书封，和我在那会同时看的《夜晚的潜水艇》有几分相似，在手指触碰到书的瞬间，那时的回忆涌现出来，那个茶杯，那本有淡淡香味的书，把我拉到过去，回过神来，同行的朋友早已不见。那晚，沉浸在过去回忆中的我，打开手机，下来了电子书看，那时我是这么热爱看书，而今双手却不离键盘手机。过去的我如果看到我这个模样，估计会因为不理解而叹息吧。重读过程，不仅是过去的回忆，读书时的令人享受的感觉也再次回到我的大脑。大概是内啡肽吧。不知不觉就读完了这本。</p>
-<blockquote>
-<p>“好好活下去，不一定要在意别人的话，人生有时候要走自己的路。”</p>
-<p>“我知道父亲拙于言词，在面对生命难以省略的伤痛时，更无力打破沉默。”</p>
-</blockquote>
-<p>​	<strong>最近</strong>，作息有点阴间，书中这句话突然点醒了我。</p>
-<blockquote>
-<p>“平常上班的日子，他不乏迟到的纪录，不过，他从未在星期天晚起过，因为这是他最重视的、为自己而活的日子。”</p>
-</blockquote>
-<p>​	以前我还爱用“	理想主义的少年不会被现实主义打败。”这句话来激励我自己，然而，这句话的力量在我觉得它幼稚的那一刻荡然无存，就好像否定了理想主义的存在一样。<strong>总之</strong>，这本书让我重新感受到了文字的温度与力量，我感激袁哲生先生的文字，我想，您之所以选择走向天堂，是因为想要把这些文字带给天国的人们吧。</p>
-<blockquote>
-<p> <strong>这一位看自己灵魂风水的人，最终选择留下了的叹息，也成为了读者对一位如此能抓住人心的作者的叹息。</strong></p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
 
     </footer>
   </div>

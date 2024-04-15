@@ -2846,27 +2846,14 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><ol>
-<li><p><strong>中断向量</strong>：</p>
-<p> 中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
-</li>
-<li><p><strong>中断向量表</strong>：</p>
-<p> 中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
-</li>
-<li><p><strong>NVIC</strong></p>
-<p> NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
-</li>
-<li><p><strong>AFIO</strong></p>
-<p> AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
-</li>
-</ol>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><h4 id="中断向量："><a href="#中断向量：" class="headerlink" title="中断向量："></a><strong>中断向量</strong>：</h4><p>中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
+<h4 id="中断向量表："><a href="#中断向量表：" class="headerlink" title="中断向量表："></a><strong>中断向量表</strong>：</h4><p>中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
+<h4 id="NVIC"><a href="#NVIC" class="headerlink" title="NVIC"></a><strong>NVIC</strong></h4><p>NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
+<h4 id="AFIO"><a href="#AFIO" class="headerlink" title="AFIO"></a><strong>AFIO</strong></h4><p>AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
 <h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
-<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
-</li>
-<li><p>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
-</li>
-<li><p>优先级分组</p>
-<ol>
+<li>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</li>
+<li>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</li>
+<li>优先级分组<ol>
 <li>抢占优先级：越高可以中断嵌套</li>
 <li>响应优先级：越高可以优先排队</li>
 </ol>
@@ -2877,6 +2864,12 @@
 <li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
 <li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
 </ol>
+<h4 id="结构体初始化配置过程"><a href="#结构体初始化配置过程" class="headerlink" title="结构体初始化配置过程"></a>结构体初始化配置过程</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*开启时钟*/</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		<span class="comment">//开启GPIOB的时钟</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);		<span class="comment">//开启AFIO的时钟，外部中断必须开启AFIO的时钟</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*GPIO初始化*/</span></span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						<span class="comment">//将PB14引脚初始化为上拉输入</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*AFIO选择中断引脚*/</span></span><br><span class="line">  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);<span class="comment">//将外部中断的14号线映射到GPIOB，即选择PB14为外部中断引脚</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*EXTI初始化*/</span></span><br><span class="line">  EXTI_InitTypeDef EXTI_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Line = EXTI_Line14;					<span class="comment">//选择配置外部中断的14号线</span></span><br><span class="line">  EXTI_InitStructure.EXTI_LineCmd = ENABLE;					<span class="comment">//指定外部中断线使能</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;			<span class="comment">//指定外部中断线为中断模式</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;		<span class="comment">//指定外部中断线为下降沿触发</span></span><br><span class="line">  EXTI_Init(&amp;EXTI_InitStructure);								<span class="comment">//将结构体变量交给EXTI_Init，配置EXTI外设</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC中断分组*/</span></span><br><span class="line">  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);				<span class="comment">//配置NVIC为分组2</span></span><br><span class="line">                                <span class="comment">//即抢占优先级范围：0~3，响应优先级范围：0~3</span></span><br><span class="line">                                <span class="comment">//此分组配置在整个工程中仅需调用一次</span></span><br><span class="line">                                <span class="comment">//若有多个中断，可以把此代码放在main函数内，while循环之前</span></span><br><span class="line">                                <span class="comment">//若调用多次配置分组的代码，则后执行的配置会覆盖先执行的配置</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC配置*/</span></span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;		<span class="comment">//选择配置NVIC的EXTI15_10线</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;				<span class="comment">//指定NVIC线路使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;	<span class="comment">//指定NVIC线路的抢占优先级为1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;			<span class="comment">//指定NVIC线路的响应优先级为1</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
 <p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
 <p>​	多看看技术手册！！！</p>
@@ -3222,7 +3215,49 @@
 <li><p>放大状态的外部条件： 发射结正向偏置，集电结反向偏置。</p>
 </li>
 </ul>
-<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4>]]></content>
+<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4><h1 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h1><blockquote>
+<p><strong>阻容耦合</strong>是指在电路中，电阻和电容之间存在相互影响的现象。通常情况下，我们认为电阻和电容是独立的元件，但在某些情况下，它们会相互影响，产生一些非预期的效应。</p>
+<p>这种耦合效应可能会出现在许多不同类型的电路中，包括模拟电路和数字电路。在模拟电路中，电阻和电容的耦合可能会导致信号的失真或延迟。在数字电路中，阻容耦合可能会影响信号的稳定性和时序特性，导致逻辑错误或不稳定的操作。</p>
+<p>因此，在设计和分析电路时，工程师需要考虑阻容耦合效应，以确保电路的性能和可靠性。这可能涉及到采取一些补偿措施或使用特殊的设计技术来减轻耦合效应带来的影响。</p>
+<p>在电路中，电阻和电容是两种常见的元件。通常，我们认为它们是独立的，但在一些情况下，它们会相互影响，这就是阻容耦合。</p>
+<p>想象一下，如果你有一根水管，水可以在其中自由流动。现在，如果你在水管的一段放置了一块海绵，海绵会吸收水并储存在其中。这时，水管的流动速度会受到海绵吸水的影响，海绵的湿度也会受到水管中水流的影响。在这个例子中，水管就像电路中的电阻，而海绵就像电路中的电容。阻容耦合就是描述电阻和电容之间这种相互影响的现象。</p>
+<p>在实际电路中，阻容耦合可能会导致一些问题，比如信号传输变慢、电路的响应时间变化等。因此，在设计和分析电路时，需要考虑这种耦合效应，以确保电路的正常工作。</p>
+</blockquote>
+<blockquote>
+<p><strong>静态工作点</strong>是指电子设备在没有输入信号时的工作状态。在放大器、晶体管等电子设备中，静态工作点通常表示设备的输出电压、电流以及输出特性的基准状态。</p>
+<p>在放大器中，静态工作点通常由放大器的直流偏置电压和直流偏置电流来描述。这个状态对应于放大器没有输入信号时的输出电压和电流水平。静态工作点的选择对于设备的性能和稳定性至关重要。如果静态工作点设置不当，可能会导致设备在工作时出现失真、偏置漂移或不稳定的现象。</p>
+<p>因此，在设计电路时，工程师会特别关注静态工作点，并根据设计需求和规格选择合适的偏置电压和电流，以确保设备在正常工作范围内运行。</p>
+</blockquote>
+<blockquote>
+<p>直流偏置电压和直流偏置电流是用于控制电子设备（比如放大器、晶体管等）在静态工作点上的电压和电流值。</p>
+<ol>
+<li><strong>直流偏置电压（DC Bias Voltage）</strong>：<ul>
+<li>在放大器或晶体管等电子设备中，直流偏置电压是用来设置设备工作在适当工作范围内的电压。它通常是在电路中通过电阻分压、电源电压等方式设置的一个恒定的电压值。</li>
+<li>直流偏置电压决定了设备的工作点，即静态工作点，它对应于设备在没有输入信号时的输出状态。通过调整直流偏置电压，可以确保设备在合适的电压范围内工作，以避免过饱和或过截止等失真现象。</li>
+</ul>
+</li>
+<li><strong>直流偏置电流（DC Bias Current）</strong>：<ul>
+<li>直流偏置电流是指流经电子设备（如晶体管）的恒定电流。它通常是通过电路中设置的偏置电阻来控制的。</li>
+<li>直流偏置电流也是设备静态工作点的重要参数之一。它决定了设备的工作状态，如放大器的基准电流值。正确选择直流偏置电流可以确保设备在合适的工作状态下工作，从而提高放大器的线性度和稳定性。</li>
+</ul>
+</li>
+</ol>
+<p>这两个参数一起用于确定电子设备的静态工作点，确保设备在正常工作范围内的输出特性。</p>
+</blockquote>
+<blockquote>
+<p><strong>电压型叠加定理</strong>是电路理论中的基本原理之一，它指出在一个线性电路中，当有多个电压源作用于电路时，每个电压源单独作用时的电压可以分别计算，并且最后可以将它们的效应叠加在一起以获得电路中某一点的总电压。这个定理通常适用于直流电路和交流电路中的线性电路，对于非线性电路不适用。</p>
+<h3 id="定理表述："><a href="#定理表述：" class="headerlink" title="定理表述："></a>定理表述：</h3><p>在一个电路中，假设有多个电压源<br>$$<br>V<br>total<br>​<br> &#x3D;V<br>1<br>​<br> +V<br>2<br>​<br> +V<br>3<br>​<br> +⋯+V<br>n<br>​<br>$$<br>它们分别作用于电路中的某一点，那么这一点的总电压等于各个电压源单独作用时的电压之和。</p>
+<p>数学表达式如下：</p>
+<p>�total&#x3D;�1+�2+�3+⋯+��<em>V</em>total&#x3D;<em>V</em>1+<em>V</em>2+<em>V</em>3+⋯+<em>V**n</em></p>
+<p>其中，�total<em>V</em>total 表示电路中某一点的总电压，�1,�2,�3,…,��<em>V</em>1,<em>V</em>2,<em>V</em>3,…,<em>V**n</em> 分别表示各个电压源单独作用时的电压值。</p>
+<h3 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h3><ol>
+<li><strong>电路分析简化</strong>：通过叠加定理，可以将复杂的电路分解为简单的部分，分别分析各个部分，最后再将它们的效应叠加在一起，从而简化电路分析的过程。</li>
+<li><strong>交流电路分析</strong>：在交流电路中，可以将直流分量和交流分量分别分析，然后再将它们的效应叠加在一起。</li>
+<li><strong>电路设计</strong>：在设计电路时，可以通过叠加定理来计算各个电压源的影响，从而更好地设计电路的结构和参数。</li>
+</ol>
+<p>总的来说，电压型叠加定理是电路分析中非常重要的原理，它为工程师提供了一种简便而有效的方法来理解和分析复杂电路系统。</p>
+</blockquote>
+]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>模电</tag>
@@ -3847,11 +3882,11 @@
 <li>以运算器为中心（现代计算以存储器为中心）</li>
 </ol>
 <h3 id="计算机工作过程"><a href="#计算机工作过程" class="headerlink" title="计算机工作过程"></a>计算机工作过程</h3><h4 id="存储器的基本组成"><a href="#存储器的基本组成" class="headerlink" title="存储器的基本组成"></a>存储器的基本组成</h4><ul>
-<li><p>存储体</p>
+<li><p>存储体：由存储单元组成（存储单元由存储原件组成，存储原件存储0和1）</p>
 </li>
 <li><p>存储字：存储单元中的二进制代码组合（？）</p>
 </li>
-<li><p>存储字长：（？）</p>
+<li><p>存储字长：</p>
 </li>
 <li><p>MAR：存储器的地址寄存器</p>
 </li>
@@ -3860,7 +3895,7 @@
 </ul>
 <h4 id="运算器的基本组成以及操作过程"><a href="#运算器的基本组成以及操作过程" class="headerlink" title="运算器的基本组成以及操作过程"></a>运算器的基本组成以及操作过程</h4><ul>
 <li>ACC：	被加数，被减数，乘积高位，被除数，余数</li>
-<li>ALU： </li>
+<li>ALU（算术逻辑单元）： </li>
 <li>MQ： 	乘数，乘积低位</li>
 </ul>
 <h4 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h4><ul>
@@ -3873,11 +3908,21 @@
 <li>运算速度</li>
 </ol>
 <ul>
-<li>MIP</li>
-<li>MIPS</li>
-<li>CPI</li>
-<li>FLOPS</li>
+<li>MIP<strong>（Million Instructions Per Second）</strong></li>
 </ul>
+<p>​	表示每秒钟能够执行的指令数量。不考虑指令的复杂度和执行时间。</p>
+<ul>
+<li>MIPS<strong>（Million Instructions Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的指令数量。MIPS通常用于描述某个特定计算机系统的实际性能，考虑了指令的复杂度和执行时间。</p>
+<ul>
+<li>CPI<strong>（Cycles Per Instruction）</strong></li>
+</ul>
+<p>​	表示每条指令执行所需的时钟周期数。CPI的倒数也常被用作衡量计算机性能的指标之一，称为IPC（Instructions Per Cycle）。</p>
+<ul>
+<li>FLOPS<strong>（Floating Point Operations Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的浮点运算次数。FLOPS是衡量计算机在执行浮点运算时的速度和效率的重要指标之一。</p>
 <h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li>使用总线的原因：希望随时增加或减少设备</li>
 <li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
@@ -3901,7 +3946,7 @@
 </ul>
 <ol>
 <li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
-<li>单向输出（仅由CPU输出）</li>
+<li><strong>单向</strong>输出（仅由CPU输出）</li>
 </ol>
 <h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><p>​	为了使各个部件在不同时刻占有总线使用权</p>
 <ul>
@@ -3921,11 +3966,11 @@
 <li>并行通信总线（近距离）</li>
 </ol>
 <h1 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h1><ol>
-<li>总线宽度</li>
-<li>总线带宽</li>
-<li>时钟同步</li>
-<li>总线复用</li>
-<li>信号线数</li>
+<li>总线宽度（数据总线的宽度）</li>
+<li>总线带宽（总线的数据传输速率）</li>
+<li>时钟同步&#x2F;异步：分为同步总线，异步总线</li>
+<li>总线复用：分时使用与地址或者数据</li>
+<li>信号线数：地址，数据，控制总线总和</li>
 <li>总线控制方式</li>
 <li>其他指标</li>
 </ol>
@@ -3936,8 +3981,13 @@
 <li>PCI</li>
 <li>AGP</li>
 </ol>
-<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><pre><code>总线判优控制有集中式和分布式。集中式有链式查询，计数器定时查询，独立请求方式
-</code></pre>
+<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><ul>
+<li>总线判优控制的分类<ul>
+<li>集中式：有链式查询，计数器定时查询，独立请求方式</li>
+<li>分布式</li>
+</ul>
+</li>
+</ul>
 <h4 id="链式查询"><a href="#链式查询" class="headerlink" title="链式查询"></a>链式查询</h4><ul>
 <li>特点：</li>
 </ul>
@@ -3965,20 +4015,38 @@
 <li>优先次序灵活</li>
 <li>控制线多，控制复杂</li>
 </ol>
-<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><pre><code>目的：解决通信双方协调配合的问题。
-通常有：同步，异步，半同步，分离式。
-</code></pre>
-<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><pre><code>总线周期：完成一次总线操作的时间。
-</code></pre>
+<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><ul>
+<li>目的：解决通信双方协调配合的问题。</li>
+<li>分类：<ul>
+<li>通常有：同步，异步，半同步，分离式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><ul>
+<li>定义：完成一次总线操作的时间。</li>
+</ul>
 <ol>
 <li>申请分配阶段</li>
 <li>寻址阶段</li>
 <li>传数阶段</li>
 <li>结束阶段</li>
 </ol>
-<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><pre><code>异步通信的应答方式：不互锁，半互锁，全互锁。
-</code></pre>
-<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
+<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><p>​	异步通信的应答方式：不互锁，半互锁，全互锁。</p>
+<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><p>“半同步通信”是一种混合型通信模型，结合了同步通信和异步通信的特点。在半同步通信中，通常存在两个部分：一个同步部分和一个异步部分。</p>
+<ul>
+<li><strong>同步部分</strong>：在同步部分，通信的发送者和接收者会在通信开始和结束时进行显式的同步，以确保数据的正确传输。这意味着发送方和接收方会通过一些同步机制来进行通信，例如信号量、条件变量或者消息队列等。在同步部分中，通信的发送和接收通常是一个阻塞操作，直到通信完成。</li>
+<li><strong>异步部分</strong>：在异步部分，通信的发送者和接收者不需要严格的同步，可以在不同的时间进行数据的发送和接收。在异步部分中，通常采用非阻塞的方式进行通信，发送方可以继续执行其他任务，而不需要等待通信完成。</li>
+</ul>
+<p>半同步通信通常用于解决在异步通信中可能出现的数据一致性问题，同时又希望通过同步通信确保数据的正确性和完整性。这种通信模型可以在一定程度上提高通信的灵活性和效率，同时保持数据的安全性。</p>
+<h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><p>“分离式通信”是一种通信模型，其中通信的发送和接收是通过分开的机制进行的。在分离式通信中，发送者和接收者之间不直接进行数据传输，而是通过中间的通信通道或者中介进行交互。</p>
+<p>通常，分离式通信包含以下两个主要组成部分：</p>
+<ol>
+<li><strong>发送端（Sender）</strong>：发送端负责将数据发送到通信通道或者中介。它将要发送的数据传递给通信通道或者中介，并可能在发送后继续执行其他任务。</li>
+<li><strong>接收端（Receiver）</strong>：接收端负责从通信通道或者中介接收数据。它从通信通道或者中介获取数据，并可能对接收到的数据进行处理或者响应。</li>
+</ol>
+<p>分离式通信的通信通道或者中介可以是各种形式的，例如消息队列、事件、共享内存、套接字等。这些通道或者中介起到了一个连接发送端和接收端的桥梁作用，使得它们能够进行间接的数据交换。</p>
+<p>分离式通信常用于解耦发送者和接收者之间的依赖关系，以提高系统的可扩展性、灵活性和性能。同时，它还可以用于实现异步通信，其中发送者和接收者可以以不同的速率进行数据交换。</p>
+<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
 <li>半导体存储器 </li>
 <li>磁表面存储器</li>
 <li>磁芯存储器</li>
@@ -4121,7 +4189,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	定义：序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
+<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	<strong>定义：</strong> 程序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -4990,11 +5058,46 @@
   <entry>
     <title>RUST basic</title>
     <url>/2024/03/25/RUST-basic/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="RUST简介"><a href="#RUST简介" class="headerlink" title="RUST简介"></a>RUST简介</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="内存安全性："><a href="#内存安全性：" class="headerlink" title="内存安全性："></a>内存安全性：</h3><blockquote>
+<p>​	Rust 提供了内存安全的保证，通过所有权系统、借用检查器和生命周期检查器，可以在编译时捕获大多数常见的内存安全问题，如空指针解引用、数据竞争等。</p>
+</blockquote>
+<h3 id="并发安全性："><a href="#并发安全性：" class="headerlink" title="并发安全性："></a>并发安全性：</h3><blockquote>
+<p>​	Rust 的所有权和借用系统使得编写并发程序更加容易和安全。它通过编译时检查来避免数据竞争和多线程错误，使得编写并行代码更加可靠。</p>
+</blockquote>
+<h3 id="性能："><a href="#性能：" class="headerlink" title="性能："></a>性能：</h3><blockquote>
+<pre><code> Rust 允许开发者获得接近底层语言（如 C 和 C++）的性能，因为它提供了对内存和并发的细粒度控制，同时不需要牺牲安全性和抽象性。
+</code></pre>
+</blockquote>
+<h3 id="表达能力："><a href="#表达能力：" class="headerlink" title="表达能力："></a>表达能力：</h3><blockquote>
+<p>​	Rust 具有功能强大的类型系统和模式匹配功能，使得开发者可以以一种清晰、灵活的方式表达复杂的数据结构和逻辑。</p>
+</blockquote>
+<h3 id="资源管理："><a href="#资源管理：" class="headerlink" title="资源管理："></a>资源管理：</h3><blockquote>
+<p>​	Rust 的所有权模型允许开发者在编写代码时显式地管理资源，避免了像内存泄漏和使用后释放的问题。它还通过 RAII（资源获取即初始化）模式自动管理资源生命周期。</p>
+</blockquote>
+<h3 id="生态系统："><a href="#生态系统：" class="headerlink" title="生态系统："></a>生态系统：</h3><blockquote>
+<p>​	虽然相对较年轻，但 Rust 生态系统不断壮大，拥有丰富的库和工具，支持各种应用场景，从嵌入式系统到网络服务都有涉及。</p>
+</blockquote>
+<h3 id="跨平台性："><a href="#跨平台性：" class="headerlink" title="跨平台性："></a>跨平台性：</h3><blockquote>
+<p>​	Rust 具有良好的跨平台支持，可以轻松地在各种操作系统和硬件架构上进行开发和部署。</p>
+</blockquote>
+<h3 id="社区支持："><a href="#社区支持：" class="headerlink" title="社区支持："></a>社区支持：</h3><blockquote>
+<p>​	Rust 社区活跃，开发者可以从丰富的文档、教程和社区资源中获得支持和帮助。</p>
+</blockquote>
+<h1 id="RUST-启动！"><a href="#RUST-启动！" class="headerlink" title="RUST 启动！"></a>RUST 启动！</h1><h2 id="1-变量类型"><a href="#1-变量类型" class="headerlink" title="1.变量类型"></a>1.变量类型</h2>]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>rust</tag>
         <tag>language</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DC-DC Convert</title>
+    <url>/2024/03/28/DC-DC-Convert/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>电源</tag>
+        <tag>DC-DC</tag>
       </tags>
   </entry>
 </search>

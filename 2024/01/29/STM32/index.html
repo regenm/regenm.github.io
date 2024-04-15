@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">3.6k</span>
+            <span class="post-count">4k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">13 min</span>
+            <span class="post-count">14 min</span>
         </span>
     </span>
 </div>
@@ -335,27 +335,14 @@
 <li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
 <li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
 </ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><ol>
-<li><p><strong>中断向量</strong>：</p>
-<p> 中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
-</li>
-<li><p><strong>中断向量表</strong>：</p>
-<p> 中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
-</li>
-<li><p><strong>NVIC</strong></p>
-<p> NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
-</li>
-<li><p><strong>AFIO</strong></p>
-<p> AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
-</li>
-</ol>
+<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><h4 id="中断向量："><a href="#中断向量：" class="headerlink" title="中断向量："></a><strong>中断向量</strong>：</h4><p>中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
+<h4 id="中断向量表："><a href="#中断向量表：" class="headerlink" title="中断向量表："></a><strong>中断向量表</strong>：</h4><p>中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
+<h4 id="NVIC"><a href="#NVIC" class="headerlink" title="NVIC"></a><strong>NVIC</strong></h4><p>NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
+<h4 id="AFIO"><a href="#AFIO" class="headerlink" title="AFIO"></a><strong>AFIO</strong></h4><p>AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
 <h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
-<li><p>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</p>
-</li>
-<li><p>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</p>
-</li>
-<li><p>优先级分组</p>
-<ol>
+<li>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</li>
+<li>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</li>
+<li>优先级分组<ol>
 <li>抢占优先级：越高可以中断嵌套</li>
 <li>响应优先级：越高可以优先排队</li>
 </ol>
@@ -366,6 +353,12 @@
 <li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
 <li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
 </ol>
+<h4 id="结构体初始化配置过程"><a href="#结构体初始化配置过程" class="headerlink" title="结构体初始化配置过程"></a>结构体初始化配置过程</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*开启时钟*/</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		<span class="comment">//开启GPIOB的时钟</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);		<span class="comment">//开启AFIO的时钟，外部中断必须开启AFIO的时钟</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*GPIO初始化*/</span></span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						<span class="comment">//将PB14引脚初始化为上拉输入</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*AFIO选择中断引脚*/</span></span><br><span class="line">  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);<span class="comment">//将外部中断的14号线映射到GPIOB，即选择PB14为外部中断引脚</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*EXTI初始化*/</span></span><br><span class="line">  EXTI_InitTypeDef EXTI_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Line = EXTI_Line14;					<span class="comment">//选择配置外部中断的14号线</span></span><br><span class="line">  EXTI_InitStructure.EXTI_LineCmd = ENABLE;					<span class="comment">//指定外部中断线使能</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;			<span class="comment">//指定外部中断线为中断模式</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;		<span class="comment">//指定外部中断线为下降沿触发</span></span><br><span class="line">  EXTI_Init(&amp;EXTI_InitStructure);								<span class="comment">//将结构体变量交给EXTI_Init，配置EXTI外设</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC中断分组*/</span></span><br><span class="line">  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);				<span class="comment">//配置NVIC为分组2</span></span><br><span class="line">                                <span class="comment">//即抢占优先级范围：0~3，响应优先级范围：0~3</span></span><br><span class="line">                                <span class="comment">//此分组配置在整个工程中仅需调用一次</span></span><br><span class="line">                                <span class="comment">//若有多个中断，可以把此代码放在main函数内，while循环之前</span></span><br><span class="line">                                <span class="comment">//若调用多次配置分组的代码，则后执行的配置会覆盖先执行的配置</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC配置*/</span></span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;		<span class="comment">//选择配置NVIC的EXTI15_10线</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;				<span class="comment">//指定NVIC线路使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;	<span class="comment">//指定NVIC线路的抢占优先级为1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;			<span class="comment">//指定NVIC线路的响应优先级为1</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
 <p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
 <p>​	多看看技术手册！！！</p>

@@ -166,6 +166,56 @@
     
     
     <article
+  id="post-DC-DC-Convert"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/28/DC-DC-Convert/"
+    >DC-DC Convert</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/28/DC-DC-Convert/" class="article-date">
+  <time datetime="2024-03-28T08:13:14.000Z" itemprop="datePublished">2024-03-28</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+   
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DC-DC/" rel="tag">DC-DC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E6%BA%90/" rel="tag">电源</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-RUST-basic"
   class="article article-type-post"
   itemscope
@@ -193,7 +243,32 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="RUST简介"><a href="#RUST简介" class="headerlink" title="RUST简介"></a>RUST简介</h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><h3 id="内存安全性："><a href="#内存安全性：" class="headerlink" title="内存安全性："></a>内存安全性：</h3><blockquote>
+<p>​	Rust 提供了内存安全的保证，通过所有权系统、借用检查器和生命周期检查器，可以在编译时捕获大多数常见的内存安全问题，如空指针解引用、数据竞争等。</p>
+</blockquote>
+<h3 id="并发安全性："><a href="#并发安全性：" class="headerlink" title="并发安全性："></a>并发安全性：</h3><blockquote>
+<p>​	Rust 的所有权和借用系统使得编写并发程序更加容易和安全。它通过编译时检查来避免数据竞争和多线程错误，使得编写并行代码更加可靠。</p>
+</blockquote>
+<h3 id="性能："><a href="#性能：" class="headerlink" title="性能："></a>性能：</h3><blockquote>
+<pre><code> Rust 允许开发者获得接近底层语言（如 C 和 C++）的性能，因为它提供了对内存和并发的细粒度控制，同时不需要牺牲安全性和抽象性。
+</code></pre>
+</blockquote>
+<h3 id="表达能力："><a href="#表达能力：" class="headerlink" title="表达能力："></a>表达能力：</h3><blockquote>
+<p>​	Rust 具有功能强大的类型系统和模式匹配功能，使得开发者可以以一种清晰、灵活的方式表达复杂的数据结构和逻辑。</p>
+</blockquote>
+<h3 id="资源管理："><a href="#资源管理：" class="headerlink" title="资源管理："></a>资源管理：</h3><blockquote>
+<p>​	Rust 的所有权模型允许开发者在编写代码时显式地管理资源，避免了像内存泄漏和使用后释放的问题。它还通过 RAII（资源获取即初始化）模式自动管理资源生命周期。</p>
+</blockquote>
+<h3 id="生态系统："><a href="#生态系统：" class="headerlink" title="生态系统："></a>生态系统：</h3><blockquote>
+<p>​	虽然相对较年轻，但 Rust 生态系统不断壮大，拥有丰富的库和工具，支持各种应用场景，从嵌入式系统到网络服务都有涉及。</p>
+</blockquote>
+<h3 id="跨平台性："><a href="#跨平台性：" class="headerlink" title="跨平台性："></a>跨平台性：</h3><blockquote>
+<p>​	Rust 具有良好的跨平台支持，可以轻松地在各种操作系统和硬件架构上进行开发和部署。</p>
+</blockquote>
+<h3 id="社区支持："><a href="#社区支持：" class="headerlink" title="社区支持："></a>社区支持：</h3><blockquote>
+<p>​	Rust 社区活跃，开发者可以从丰富的文档、教程和社区资源中获得支持和帮助。</p>
+</blockquote>
+<h1 id="RUST-启动！"><a href="#RUST-启动！" class="headerlink" title="RUST 启动！"></a>RUST 启动！</h1><h2 id="1-变量类型"><a href="#1-变量类型" class="headerlink" title="1.变量类型"></a>1.变量类型</h2> 
       <!-- reward -->
       
     </div>
@@ -954,11 +1029,11 @@
 <li>以运算器为中心（现代计算以存储器为中心）</li>
 </ol>
 <h3 id="计算机工作过程"><a href="#计算机工作过程" class="headerlink" title="计算机工作过程"></a>计算机工作过程</h3><h4 id="存储器的基本组成"><a href="#存储器的基本组成" class="headerlink" title="存储器的基本组成"></a>存储器的基本组成</h4><ul>
-<li><p>存储体</p>
+<li><p>存储体：由存储单元组成（存储单元由存储原件组成，存储原件存储0和1）</p>
 </li>
 <li><p>存储字：存储单元中的二进制代码组合（？）</p>
 </li>
-<li><p>存储字长：（？）</p>
+<li><p>存储字长：</p>
 </li>
 <li><p>MAR：存储器的地址寄存器</p>
 </li>
@@ -967,7 +1042,7 @@
 </ul>
 <h4 id="运算器的基本组成以及操作过程"><a href="#运算器的基本组成以及操作过程" class="headerlink" title="运算器的基本组成以及操作过程"></a>运算器的基本组成以及操作过程</h4><ul>
 <li>ACC：	被加数，被减数，乘积高位，被除数，余数</li>
-<li>ALU： </li>
+<li>ALU（算术逻辑单元）： </li>
 <li>MQ： 	乘数，乘积低位</li>
 </ul>
 <h4 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h4><ul>
@@ -980,11 +1055,21 @@
 <li>运算速度</li>
 </ol>
 <ul>
-<li>MIP</li>
-<li>MIPS</li>
-<li>CPI</li>
-<li>FLOPS</li>
+<li>MIP<strong>（Million Instructions Per Second）</strong></li>
 </ul>
+<p>​	表示每秒钟能够执行的指令数量。不考虑指令的复杂度和执行时间。</p>
+<ul>
+<li>MIPS<strong>（Million Instructions Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的指令数量。MIPS通常用于描述某个特定计算机系统的实际性能，考虑了指令的复杂度和执行时间。</p>
+<ul>
+<li>CPI<strong>（Cycles Per Instruction）</strong></li>
+</ul>
+<p>​	表示每条指令执行所需的时钟周期数。CPI的倒数也常被用作衡量计算机性能的指标之一，称为IPC（Instructions Per Cycle）。</p>
+<ul>
+<li>FLOPS<strong>（Floating Point Operations Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的浮点运算次数。FLOPS是衡量计算机在执行浮点运算时的速度和效率的重要指标之一。</p>
 <h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li>使用总线的原因：希望随时增加或减少设备</li>
 <li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
@@ -1008,7 +1093,7 @@
 </ul>
 <ol>
 <li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
-<li>单向输出（仅由CPU输出）</li>
+<li><strong>单向</strong>输出（仅由CPU输出）</li>
 </ol>
 <h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><p>​	为了使各个部件在不同时刻占有总线使用权</p>
 <ul>
@@ -1028,11 +1113,11 @@
 <li>并行通信总线（近距离）</li>
 </ol>
 <h1 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h1><ol>
-<li>总线宽度</li>
-<li>总线带宽</li>
-<li>时钟同步</li>
-<li>总线复用</li>
-<li>信号线数</li>
+<li>总线宽度（数据总线的宽度）</li>
+<li>总线带宽（总线的数据传输速率）</li>
+<li>时钟同步&#x2F;异步：分为同步总线，异步总线</li>
+<li>总线复用：分时使用与地址或者数据</li>
+<li>信号线数：地址，数据，控制总线总和</li>
 <li>总线控制方式</li>
 <li>其他指标</li>
 </ol>
@@ -1043,8 +1128,13 @@
 <li>PCI</li>
 <li>AGP</li>
 </ol>
-<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><pre><code>总线判优控制有集中式和分布式。集中式有链式查询，计数器定时查询，独立请求方式
-</code></pre>
+<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><ul>
+<li>总线判优控制的分类<ul>
+<li>集中式：有链式查询，计数器定时查询，独立请求方式</li>
+<li>分布式</li>
+</ul>
+</li>
+</ul>
 <h4 id="链式查询"><a href="#链式查询" class="headerlink" title="链式查询"></a>链式查询</h4><ul>
 <li>特点：</li>
 </ul>
@@ -1072,20 +1162,38 @@
 <li>优先次序灵活</li>
 <li>控制线多，控制复杂</li>
 </ol>
-<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><pre><code>目的：解决通信双方协调配合的问题。
-通常有：同步，异步，半同步，分离式。
-</code></pre>
-<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><pre><code>总线周期：完成一次总线操作的时间。
-</code></pre>
+<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><ul>
+<li>目的：解决通信双方协调配合的问题。</li>
+<li>分类：<ul>
+<li>通常有：同步，异步，半同步，分离式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><ul>
+<li>定义：完成一次总线操作的时间。</li>
+</ul>
 <ol>
 <li>申请分配阶段</li>
 <li>寻址阶段</li>
 <li>传数阶段</li>
 <li>结束阶段</li>
 </ol>
-<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><pre><code>异步通信的应答方式：不互锁，半互锁，全互锁。
-</code></pre>
-<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
+<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><p>​	异步通信的应答方式：不互锁，半互锁，全互锁。</p>
+<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><p>“半同步通信”是一种混合型通信模型，结合了同步通信和异步通信的特点。在半同步通信中，通常存在两个部分：一个同步部分和一个异步部分。</p>
+<ul>
+<li><strong>同步部分</strong>：在同步部分，通信的发送者和接收者会在通信开始和结束时进行显式的同步，以确保数据的正确传输。这意味着发送方和接收方会通过一些同步机制来进行通信，例如信号量、条件变量或者消息队列等。在同步部分中，通信的发送和接收通常是一个阻塞操作，直到通信完成。</li>
+<li><strong>异步部分</strong>：在异步部分，通信的发送者和接收者不需要严格的同步，可以在不同的时间进行数据的发送和接收。在异步部分中，通常采用非阻塞的方式进行通信，发送方可以继续执行其他任务，而不需要等待通信完成。</li>
+</ul>
+<p>半同步通信通常用于解决在异步通信中可能出现的数据一致性问题，同时又希望通过同步通信确保数据的正确性和完整性。这种通信模型可以在一定程度上提高通信的灵活性和效率，同时保持数据的安全性。</p>
+<h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><p>“分离式通信”是一种通信模型，其中通信的发送和接收是通过分开的机制进行的。在分离式通信中，发送者和接收者之间不直接进行数据传输，而是通过中间的通信通道或者中介进行交互。</p>
+<p>通常，分离式通信包含以下两个主要组成部分：</p>
+<ol>
+<li><strong>发送端（Sender）</strong>：发送端负责将数据发送到通信通道或者中介。它将要发送的数据传递给通信通道或者中介，并可能在发送后继续执行其他任务。</li>
+<li><strong>接收端（Receiver）</strong>：接收端负责从通信通道或者中介接收数据。它从通信通道或者中介获取数据，并可能对接收到的数据进行处理或者响应。</li>
+</ol>
+<p>分离式通信的通信通道或者中介可以是各种形式的，例如消息队列、事件、共享内存、套接字等。这些通道或者中介起到了一个连接发送端和接收端的桥梁作用，使得它们能够进行间接的数据交换。</p>
+<p>分离式通信常用于解耦发送者和接收者之间的依赖关系，以提高系统的可扩展性、灵活性和性能。同时，它还可以用于实现异步通信，其中发送者和接收者可以以不同的速率进行数据交换。</p>
+<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
 <li>半导体存储器 </li>
 <li>磁表面存储器</li>
 <li>磁芯存储器</li>
@@ -1228,7 +1336,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	定义：序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
+<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	<strong>定义：</strong> 程序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
  
       <!-- reward -->
       
@@ -1752,74 +1860,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-docker容器技术"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"
-    >docker容器技术</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="article-date">
-  <time datetime="2024-02-08T19:04:22.000Z" itemprop="datePublished">2024-02-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>constructing</p>
-<p>toBeContinued</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
-<p>​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，<strong>程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系</strong>。</p>
-<p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
-</blockquote>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>​	docker 中的几个概念：</p>
-<blockquote>
-<ol>
-<li>dockerfile</li>
-<li>image</li>
-<li>container</li>
-</ol>
-</blockquote>
-<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
-<h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
-<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
-<p>​	</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>

@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">2.2k</span>
+            <span class="post-count">3.2k</span>
         </span>
     </span>
 
@@ -91,7 +91,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">7 min</span>
+            <span class="post-count">11 min</span>
         </span>
     </span>
 </div>
@@ -120,11 +120,11 @@
 <li>以运算器为中心（现代计算以存储器为中心）</li>
 </ol>
 <h3 id="计算机工作过程"><a href="#计算机工作过程" class="headerlink" title="计算机工作过程"></a>计算机工作过程</h3><h4 id="存储器的基本组成"><a href="#存储器的基本组成" class="headerlink" title="存储器的基本组成"></a>存储器的基本组成</h4><ul>
-<li><p>存储体</p>
+<li><p>存储体：由存储单元组成（存储单元由存储原件组成，存储原件存储0和1）</p>
 </li>
 <li><p>存储字：存储单元中的二进制代码组合（？）</p>
 </li>
-<li><p>存储字长：（？）</p>
+<li><p>存储字长：</p>
 </li>
 <li><p>MAR：存储器的地址寄存器</p>
 </li>
@@ -133,7 +133,7 @@
 </ul>
 <h4 id="运算器的基本组成以及操作过程"><a href="#运算器的基本组成以及操作过程" class="headerlink" title="运算器的基本组成以及操作过程"></a>运算器的基本组成以及操作过程</h4><ul>
 <li>ACC：	被加数，被减数，乘积高位，被除数，余数</li>
-<li>ALU： </li>
+<li>ALU（算术逻辑单元）： </li>
 <li>MQ： 	乘数，乘积低位</li>
 </ul>
 <h4 id="控制器的基本组成"><a href="#控制器的基本组成" class="headerlink" title="控制器的基本组成"></a>控制器的基本组成</h4><ul>
@@ -146,11 +146,21 @@
 <li>运算速度</li>
 </ol>
 <ul>
-<li>MIP</li>
-<li>MIPS</li>
-<li>CPI</li>
-<li>FLOPS</li>
+<li>MIP<strong>（Million Instructions Per Second）</strong></li>
 </ul>
+<p>​	表示每秒钟能够执行的指令数量。不考虑指令的复杂度和执行时间。</p>
+<ul>
+<li>MIPS<strong>（Million Instructions Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的指令数量。MIPS通常用于描述某个特定计算机系统的实际性能，考虑了指令的复杂度和执行时间。</p>
+<ul>
+<li>CPI<strong>（Cycles Per Instruction）</strong></li>
+</ul>
+<p>​	表示每条指令执行所需的时钟周期数。CPI的倒数也常被用作衡量计算机性能的指标之一，称为IPC（Instructions Per Cycle）。</p>
+<ul>
+<li>FLOPS<strong>（Floating Point Operations Per Second）</strong></li>
+</ul>
+<p>​	表示每秒钟能够执行的浮点运算次数。FLOPS是衡量计算机在执行浮点运算时的速度和效率的重要指标之一。</p>
 <h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
 <li>使用总线的原因：希望随时增加或减少设备</li>
 <li>总线的定义: 链接多个部件的信息传输线，是各部件信息共享的传输介质</li>
@@ -174,7 +184,7 @@
 </ul>
 <ol>
 <li>用于指明CPU欲访问的存储单元或I&#x2F;O端口的地址。</li>
-<li>单向输出（仅由CPU输出）</li>
+<li><strong>单向</strong>输出（仅由CPU输出）</li>
 </ol>
 <h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><p>​	为了使各个部件在不同时刻占有总线使用权</p>
 <ul>
@@ -194,11 +204,11 @@
 <li>并行通信总线（近距离）</li>
 </ol>
 <h1 id="总线的性能指标"><a href="#总线的性能指标" class="headerlink" title="总线的性能指标"></a>总线的性能指标</h1><ol>
-<li>总线宽度</li>
-<li>总线带宽</li>
-<li>时钟同步</li>
-<li>总线复用</li>
-<li>信号线数</li>
+<li>总线宽度（数据总线的宽度）</li>
+<li>总线带宽（总线的数据传输速率）</li>
+<li>时钟同步&#x2F;异步：分为同步总线，异步总线</li>
+<li>总线复用：分时使用与地址或者数据</li>
+<li>信号线数：地址，数据，控制总线总和</li>
 <li>总线控制方式</li>
 <li>其他指标</li>
 </ol>
@@ -209,8 +219,13 @@
 <li>PCI</li>
 <li>AGP</li>
 </ol>
-<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><pre><code>总线判优控制有集中式和分布式。集中式有链式查询，计数器定时查询，独立请求方式
-</code></pre>
+<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><h3 id="总线判优控制"><a href="#总线判优控制" class="headerlink" title="总线判优控制"></a>总线判优控制</h3><ul>
+<li>总线判优控制的分类<ul>
+<li>集中式：有链式查询，计数器定时查询，独立请求方式</li>
+<li>分布式</li>
+</ul>
+</li>
+</ul>
 <h4 id="链式查询"><a href="#链式查询" class="headerlink" title="链式查询"></a>链式查询</h4><ul>
 <li>特点：</li>
 </ul>
@@ -238,20 +253,38 @@
 <li>优先次序灵活</li>
 <li>控制线多，控制复杂</li>
 </ol>
-<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><pre><code>目的：解决通信双方协调配合的问题。
-通常有：同步，异步，半同步，分离式。
-</code></pre>
-<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><pre><code>总线周期：完成一次总线操作的时间。
-</code></pre>
+<h3 id="总线通信控制"><a href="#总线通信控制" class="headerlink" title="总线通信控制"></a>总线通信控制</h3><ul>
+<li>目的：解决通信双方协调配合的问题。</li>
+<li>分类：<ul>
+<li>通常有：同步，异步，半同步，分离式。</li>
+</ul>
+</li>
+</ul>
+<h4 id="总线周期"><a href="#总线周期" class="headerlink" title="总线周期"></a>总线周期</h4><ul>
+<li>定义：完成一次总线操作的时间。</li>
+</ul>
 <ol>
 <li>申请分配阶段</li>
 <li>寻址阶段</li>
 <li>传数阶段</li>
 <li>结束阶段</li>
 </ol>
-<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><pre><code>异步通信的应答方式：不互锁，半互锁，全互锁。
-</code></pre>
-<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
+<h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><p>​	异步通信的应答方式：不互锁，半互锁，全互锁。</p>
+<h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><p>“半同步通信”是一种混合型通信模型，结合了同步通信和异步通信的特点。在半同步通信中，通常存在两个部分：一个同步部分和一个异步部分。</p>
+<ul>
+<li><strong>同步部分</strong>：在同步部分，通信的发送者和接收者会在通信开始和结束时进行显式的同步，以确保数据的正确传输。这意味着发送方和接收方会通过一些同步机制来进行通信，例如信号量、条件变量或者消息队列等。在同步部分中，通信的发送和接收通常是一个阻塞操作，直到通信完成。</li>
+<li><strong>异步部分</strong>：在异步部分，通信的发送者和接收者不需要严格的同步，可以在不同的时间进行数据的发送和接收。在异步部分中，通常采用非阻塞的方式进行通信，发送方可以继续执行其他任务，而不需要等待通信完成。</li>
+</ul>
+<p>半同步通信通常用于解决在异步通信中可能出现的数据一致性问题，同时又希望通过同步通信确保数据的正确性和完整性。这种通信模型可以在一定程度上提高通信的灵活性和效率，同时保持数据的安全性。</p>
+<h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><p>“分离式通信”是一种通信模型，其中通信的发送和接收是通过分开的机制进行的。在分离式通信中，发送者和接收者之间不直接进行数据传输，而是通过中间的通信通道或者中介进行交互。</p>
+<p>通常，分离式通信包含以下两个主要组成部分：</p>
+<ol>
+<li><strong>发送端（Sender）</strong>：发送端负责将数据发送到通信通道或者中介。它将要发送的数据传递给通信通道或者中介，并可能在发送后继续执行其他任务。</li>
+<li><strong>接收端（Receiver）</strong>：接收端负责从通信通道或者中介接收数据。它从通信通道或者中介获取数据，并可能对接收到的数据进行处理或者响应。</li>
+</ol>
+<p>分离式通信的通信通道或者中介可以是各种形式的，例如消息队列、事件、共享内存、套接字等。这些通道或者中介起到了一个连接发送端和接收端的桥梁作用，使得它们能够进行间接的数据交换。</p>
+<p>分离式通信常用于解耦发送者和接收者之间的依赖关系，以提高系统的可扩展性、灵活性和性能。同时，它还可以用于实现异步通信，其中发送者和接收者可以以不同的速率进行数据交换。</p>
+<h2 id="其他概念"><a href="#其他概念" class="headerlink" title="其他概念"></a>其他概念</h2><h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="存储器的分类"><a href="#存储器的分类" class="headerlink" title="存储器的分类"></a>存储器的分类</h2><h3 id="按存储介质"><a href="#按存储介质" class="headerlink" title="按存储介质"></a>按存储介质</h3><ol>
 <li>半导体存储器 </li>
 <li>磁表面存储器</li>
 <li>磁芯存储器</li>
@@ -394,7 +427,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	定义：序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
+<h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	<strong>定义：</strong> 程序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
  
       <!-- reward -->
       
