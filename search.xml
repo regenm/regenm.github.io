@@ -5100,4 +5100,16 @@
         <tag>DC-DC</tag>
       </tags>
   </entry>
+  <entry>
+    <title>STM32 PROJECT keyboard</title>
+    <url>/2024/04/16/STM32-PROJECT-keyboard/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>STM32</tag>
+        <tag>project</tag>
+        <tag>USB</tag>
+        <tag>HID</tag>
+        <tag>notes</tag>
+      </tags>
+  </entry>
 </search>
