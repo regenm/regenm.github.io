@@ -4190,6 +4190,43 @@
 </li>
 </ul>
 <h4 id="求交叉存储和顺序存储的存储器带宽"><a href="#求交叉存储和顺序存储的存储器带宽" class="headerlink" title="* 求交叉存储和顺序存储的存储器带宽"></a>* 求交叉存储和顺序存储的存储器带宽</h4><h2 id="高速缓冲缓存器（Cache）"><a href="#高速缓冲缓存器（Cache）" class="headerlink" title="高速缓冲缓存器（Cache）"></a>高速缓冲缓存器（Cache）</h2><h3 id="基本概念-1"><a href="#基本概念-1" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="程序访问的局部性原理"><a href="#程序访问的局部性原理" class="headerlink" title="程序访问的局部性原理"></a>程序访问的局部性原理</h4><p>​	<strong>定义：</strong> 程序访问的局部性原理包括时间局部性和空间局部性。时间局部性是指在最近的未来要用到的信息，很可能是现在正在使用的信息，因为程序中存在循环。空间局部性是指在最近的未来要用到的信息，很可能与现在正在使用的信息在存储空间上是连续的，因为指令通常是顺序存放、顺序执行的，数据一般也是以向量、数组等形式簇聚地存储在一起的。</p>
+<h1 id="杂记（待整理）"><a href="#杂记（待整理）" class="headerlink" title="杂记（待整理）"></a>杂记（待整理）</h1><blockquote>
+<ol>
+<li><strong>指令寄存器（IR）：</strong> 这是一个 CPU 内部的寄存器，用于存储当前正在执行的机器指令。当 CPU 从主存中取出指令并解码后，指令的操作码会被加载到指令寄存器中，CPU 根据其中的指令来执行相应的操作。</li>
+<li><strong>乘法商寄存器（MQ）：</strong> 这是一个专门用于乘法运算的寄存器，通常在一些早期的 CPU 设计中出现。在执行乘法指令时，乘法器会将被乘数加载到 MQ 中，并将乘法的结果存储在 MQ 中，或者 MQ 用于存储商或余数。这样可以简化乘法运算的硬件设计。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>PC 寄存器（Program Counter Register）</strong>，也称为指令指针寄存器（Instruction Pointer Register），是一种特殊的寄存器，用于存储当前正在执行的 CPU 指令的地址或下一条指令的地址。</p>
+<p>PC 寄存器在 CPU 内部起着关键的作用，它指示了 CPU 下一步将要执行的指令的位置。当 CPU 执行完一条指令后，PC 寄存器会自动更新，指向下一条指令的地址，以便 CPU 继续执行。这个过程被称为指令流水线（Instruction Pipeline）。</p>
+<p>PC 寄存器用于存储指令地址，控制程序的执行流程；而 IR 寄存器用于存储指令内容，辅助 CPU 解码和执行指令。</p>
+</blockquote>
+<blockquote>
+<p>AGP（Accelerated Graphics Port）和PCI（Peripheral Component Interconnect）是两种计算机总线标准，用于连接计算机主板与外部设备。它们分别用于不同的目的：</p>
+<ol>
+<li><strong>AGP（加速图形端口）：</strong><ul>
+<li>AGP 是一种专门用于连接图形显卡的高速总线标准。它最初被设计用于提供高性能图形渲染的支持，使图形处理单元（GPU）能够快速访问系统内存，从而加速图形处理和显示。</li>
+<li>AGP 总线通常用于连接显卡到主板的插槽上，并提供了比传统的 PCI 总线更高的带宽和更低的延迟。这使得 AGP 接口在处理图形密集型任务时表现更好。</li>
+</ul>
+</li>
+<li><strong>PCI（外围组件互连）：</strong><ul>
+<li>PCI 是一种通用的、高性能的总线标准，用于连接各种外部设备，如网卡、声卡、扩展卡等。PCI 总线提供了一种标准化的接口，允许不同的设备在计算机系统中进行通信和交换数据。</li>
+<li>PCI 总线通常用于连接各种外部设备到主板上的插槽上，例如 PCI 插槽、PCI Express（PCIe）插槽等。它是一种通用的、灵活的接口，适用于连接各种类型的设备。</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>微型计算机中控制总线提供的完整信息是( )。</p>
+<ul>
+<li>所有存储器和1&#x2F;0设备的时序信号和控制信号</li>
+<li>来自I&#x2F;O设备和存储器的响应信号</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>所谓的三总线结构的计算机中的“三总线”包含___。</p>
+<p>A、I&#x2F;O总线B、<em>主存总线C、</em>DMA总线</p>
+</blockquote>
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -5113,5 +5150,56 @@
         <tag>HID</tag>
         <tag>notes</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>《北欧神话》</title>
+    <url>/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《人间天堂》</title>
+    <url>/2024/04/17/%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%A9%E5%A0%82%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《爱你就像爱生命》</title>
+    <url>/2024/04/17/%E3%80%8A%E7%88%B1%E4%BD%A0%E5%B0%B1%E5%83%8F%E7%88%B1%E7%94%9F%E5%91%BD%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《太阳照常升起》</title>
+    <url>/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《偷盗》</title>
+    <url>/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>《黄昏清兵卫》</title>
+    <url>/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>《山药粥》</title>
+    <url>/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
