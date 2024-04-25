@@ -166,6 +166,905 @@
     
     
     <article
+  id="post-微机原理与接口技术笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/26/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"
+    >微机原理与接口技术笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/26/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-10-26T03:42:48.000Z" itemprop="datePublished">2023-10-26</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="汇编语言（8086为例）"><a href="#汇编语言（8086为例）" class="headerlink" title="汇编语言（8086为例）"></a>汇编语言（8086为例）</h1><p>—-基于《汇编语言第三版》王爽</p>
+<h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h2><ul>
+<li>8086 CPU的简介</li>
+</ul>
+<blockquote>
+<p>(1) 16位微处理器；</p>
+<p>(2) 采用<strong>高速运算性能</strong>的 <code>HMOS</code> 工艺制造，芯片上集成了2.9万只晶体管；</p>
+<p>(3) 使用单一的 <code>+5V</code> 电源，<code>40</code> 条引脚双列直插式封装；</p>
+<p>(4) 时钟频率为 <code>5MHz~10MHz</code> ，基本指令执行时间为<code>0.3ms~0.6ms</code> ；</p>
+<p>(5) 16根数据线和 20根地址线，可寻址的地址空间达 <code>1MB</code> (毕竟 16根地址线只可以寻址 64KB，太小了) ；</p>
+</blockquote>
+<ul>
+<li>冯诺依曼架构</li>
+</ul>
+<blockquote>
+<p><strong>冯·诺伊曼结构</strong>（英语：Von Neumann architecture），也称<strong>范·诺伊曼模型</strong>（Von Neumann model）或<strong>普林斯顿结构</strong>（Princeton architecture），是一种将程序指令存储器和数据存储器合并在一起的电脑设计概念结构。该结构包含：运算器、控制器、存储器、输入设备、输出设备。</p>
+<blockquote>
+<p>结构特点：</p>
+<ol>
+<li>以运算单元为中心</li>
+<li>采用存储程序原理</li>
+<li>存储器是按地址访问、线性编址的空间</li>
+<li>控制流由指令流产生</li>
+<li>指令由操作码和地址码组成</li>
+<li>数据以二进制编码</li>
+</ol>
+</blockquote>
+</blockquote>
+<ul>
+<li>存储单元</li>
+</ul>
+<blockquote>
+<p>1 KB&#x3D;1024 B(字节)</p>
+<p>1 字（word）&#x3D;2 字节</p>
+<p>1 B&#x3D;8 bit</p>
+</blockquote>
+<ul>
+<li>总线</li>
+</ul>
+<p>​	总线包含：<strong>数据总线，地址总线，控制总线</strong></p>
+<p>​				<strong>地址总线</strong>：假设一个CPU有N根地址总线（即地址总线宽度为N），最多可以寻找2的N次方个内存单元。</p>
+<p>​				<strong>数据总线</strong>：N根数据总线一次可以传输N位二进制数据。</p>
+<p>​				8088 CPU数据总线宽度为8；8086 CPU数据总线宽度为16。</p>
+<p>​				<strong>控制总线</strong>：N根代表N种控制。</p>
+<h2 id="2-寄存器"><a href="#2-寄存器" class="headerlink" title="2.寄存器"></a>2.寄存器</h2><p>​		一个典型的CPU由：运算器，控制器，寄存器等器件构成。同时他们通过总线在内部相连接（地址，数据，控制）。对于汇编程序员来说，CPU的主要器件就是寄存器。</p>
+<p>​		8086寄存器特征：16位  (数据最大为2^16-1)</p>
+<p>​		8086 CPU的寄存器种类：</p>
+<p><img src="/images/registerof8086.png" alt="register of Intel 8086"></p>
+<blockquote>
+<ul>
+<li>AX</li>
+<li>BX</li>
+<li>CX</li>
+<li>DX    &#x2F;&#x2F;    以上四个为通用寄存器，用于存放一般性数据</li>
+<li>SI</li>
+<li>DI</li>
+<li>SP</li>
+<li>BP</li>
+<li>IP</li>
+<li>CS</li>
+<li>SS</li>
+</ul>
+</blockquote>
+<ul>
+<li><strong>通用寄存器</strong></li>
+</ul>
+<p>​		<em>AX,BX,CX,DX四个寄存器通常用来存放一般性数据，因此内成为通用寄存器</em>。</p>
+<blockquote>
+<p>8086的上一代CPU的寄存器是8位的，为了兼容性，这四个寄存器也可以当丞8个8位寄存器使用。</p>
+<ul>
+<li><p>AX—-AH,AL</p>
+</li>
+<li><p>BX—-BH,BL</p>
+</li>
+<li><p>CX—-DH,DL</p>
+</li>
+<li><p>DX—-DH,DL	    （L和H指的是low和high，即低位和高位）</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>8086 CPU的物理地址给出方法</li>
+</ul>
+<p>​		<strong>物理地址&#x3D;段地址*16+偏移地址</strong>   （段地址*16  可以理解为段地址向左移四位）</p>
+<blockquote>
+<p>一个物理地址可以可以有不同的段地址和偏移地址</p>
+<p>偏移地址为16位，寻址能力为2^16即 64 KB，所以一个段的长度不能超过 64 KB</p>
+</blockquote>
+<ul>
+<li><strong>段寄存器</strong></li>
+</ul>
+<blockquote>
+<p>8086 CPU 的段寄存器：</p>
+<ul>
+<li>CS</li>
+<li>DS</li>
+<li>SS</li>
+<li>ES</li>
+</ul>
+</blockquote>
+<ul>
+<li>CS 和 IP</li>
+</ul>
+<p>​	对于8086 CPU来说，CS和IP一起指示了当前要读取指令的地址：CS :IP ，执行该位置的语句后IP会自动增加，从而可以进行下一指令的执行。</p>
+<ul>
+<li><p>CS 和 IP 寄存器的修改</p>
+</li>
+<li><p>* </p>
+<ul>
+<li>情况一：当你在写汇编脚本或者直接向内存中写入汇编指令时</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用 JMP 指令</span><br><span class="line">使用方法： JMP 段地址：偏移地址</span><br><span class="line">eg: JMP 2AE3:3   //CS=2AE3,IP= 0003（均为16进制）</span><br><span class="line">或者（不想改变段地址时）</span><br><span class="line">JMP ax,    # 修改IP为 AX的值</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>情况二： 在debug.exe（MASM32）中想要修改当前程序运行位置时(后面将会介绍)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">例如在 dosBox中：</span><br><span class="line">debug.exe #进入debug模式</span><br><span class="line">-r CS</span><br><span class="line">CS 073f</span><br><span class="line">:XXXX(输入你需要位置)  # IP寄存器同理，通用寄存器也同上</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>代码段</p>
+</li>
+</ul>
+<p>​		即定义一片区域用于输入需要执行的代码。</p>
+<ul>
+<li><strong>debug的使用</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-r              #显示CPU各个寄存器的值</span><br><span class="line">-r 寄存器名字    	 	 #修改寄存器的值</span><br><span class="line"></span><br><span class="line">-d              #查看当前地址的内容</span><br><span class="line">-d 段地址：偏移地址       #查看该段的地址</span><br><span class="line"></span><br><span class="line">-a              #从当前位置开始写入汇编指令</span><br><span class="line">-a 段地址：偏移地址        #从该位置开始写入汇编指令</span><br><span class="line"></span><br><span class="line">-e                        #从当前位置开始写入机器码</span><br><span class="line">-e 段地址：偏移地址        #从该位置开始写入机器码</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-寄存器（内存访问）"><a href="#3-寄存器（内存访问）" class="headerlink" title="3.寄存器（内存访问）"></a>3.寄存器（内存访问）</h2><ul>
+<li><strong>字型数据</strong></li>
+</ul>
+<blockquote>
+<p>​	CPU用16位寄存器存在出一个字。高八位存放高位字节，低八位存放低位字节。</p>
+</blockquote>
+<ul>
+<li><strong>DS和[address]</strong></li>
+</ul>
+<p>​		<strong>物理地址&#x3D;段地址*16+偏移地址</strong>   （段地址<em>16  可以理解为段地址向左移四位），因此如果想要读写某个地址，首先应该知道其段地址和偏移地址，8086 CPU通过寄存器<strong>DS</strong>来获取段地址，[N]来表示偏移地址，*</em>[ … ]用来表示一个内存单元（）**。</p>
+<p><strong>注意：8086CPU 不支持将数据直接送入段寄存器。</strong></p>
+<ul>
+<li>字型数据的传送</li>
+</ul>
+<p>​	eg:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov bx,<span class="number">1000</span>H</span><br><span class="line">mov ds,bx</span><br><span class="line">mov ax,[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>栈</strong></li>
+</ul>
+<p>​	使用8086 CPU编程时，可以将一段内存当做栈来使用。提供入栈和出栈指令，即<strong>PUSH 和 POP</strong></p>
+<blockquote>
+<p><strong>任意时刻，SS:SP 指向栈顶元素</strong> </p>
+<p>同时，可以通过设置 SS,SP 寄存器的数据来修改栈的容量，地址。</p>
+</blockquote>
+<p>​	push pop指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push [0]         ;将 DS :0 处的字压入栈</span><br><span class="line">pop [2]          ;出栈，将数据送入 DS:0处</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="4-第一个程序"><a href="#4-第一个程序" class="headerlink" title="4.第一个程序"></a>4.第一个程序</h2><ul>
+<li><strong>源程序（后缀 .asm）的编写</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">;1.asm</span><br><span class="line">assume cs:codesg ;将用作代码段的段codesg和段寄存器cs联系起来。</span><br><span class="line"></span><br><span class="line">codesg segment ;定义一个段，段的名称为“codesg”，这个段从此开始</span><br><span class="line">         ;codesg是一个标号，作为一个段的名称，最终被编译连接成一个段的段地址</span><br><span class="line"></span><br><span class="line">  mov ax, 0123H</span><br><span class="line">  mov bx, 0456H </span><br><span class="line">  add ax, bx</span><br><span class="line">  add ax, ax </span><br><span class="line">  </span><br><span class="line">  mov ax, 4c00H </span><br><span class="line">  int 21H ;这两条指令实现程序的返回 ,相当于	return 0</span><br><span class="line">  </span><br><span class="line">codesg ends ;名称为“codesg”的段到此结束</span><br><span class="line"></span><br><span class="line">end ;编译器在编译汇编程序的过程中，碰到了伪指令end，结束对源程序的编译</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-bx-和loop指令"><a href="#5-bx-和loop指令" class="headerlink" title="5.[bx]和loop指令"></a>5.[bx]和loop指令</h2><blockquote>
+<p><strong>bx</strong></p>
+<p>​	[bx]也表示一个内存单元，它的偏移地址在bx中</p>
+<p><strong>loop</strong></p>
+<p>​	通用寄存器CX存储循环次数，循环一次：（cx）&#x3D; （cx）- 1；</p>
+</blockquote>
+<p>案例程序：</p>
+<ol>
+<li>实现2^12</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">  mov ax, 2</span><br><span class="line">  </span><br><span class="line">  mov cx, 11 ;循环次数</span><br><span class="line">s:  add ax, ax </span><br><span class="line">  loop s     ;在汇编语言中，标号代表一个地址，标号s实际上标识了一个地址，</span><br><span class="line">               ;这个地址处有一条指令：add ax，ax。</span><br><span class="line">               ;执行loop s时，首先要将（cx）减1，然后若（cx）不为0，则向前</span><br><span class="line">               ;转至s处执行add ax，ax。所以，可以利用cx来控制add ax，ax的执行次数。</span><br><span class="line">  </span><br><span class="line">  mov ax,4c00h </span><br><span class="line">  int 21h </span><br><span class="line">code ends </span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>实现将内存<code>ffff:0 ~ ffff:b</code>单元中的数据复制到<code>0:200 ~ 0:20b</code>单元中。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">  mov ax, 0ffffh </span><br><span class="line">  mov ds, ax  	 ;（ds）= 0ffffh </span><br><span class="line">  mov ax, 0020h</span><br><span class="line">    mov es, ax     ;（es）= 0020h     0:200 等效于 0020:0</span><br><span class="line">    mov bx, 0       ;（bx）= 0，此时ds:bx指向ffff:0，es:bx指向0020:0</span><br><span class="line">    </span><br><span class="line">  mov cx，12  	    ;（cx）=12，循环12次</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">s:  mov dl，[bx]   ;（d1）=（（ds）* 16+（bx）），将ffff:bx中的字节数据送入dl </span><br><span class="line">  mov es:[bx]，dl 	;（（es）*16+（bx））=（d1），将dl中的数据送入0020:bx </span><br><span class="line">  inc bx  		;（bx）=（bx）+1</span><br><span class="line">  loop s </span><br><span class="line">  </span><br><span class="line">  mov ax，4c00h </span><br><span class="line">  int 21h </span><br><span class="line">code ends </span><br><span class="line">end</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="6-包含多个段的程序"><a href="#6-包含多个段的程序" class="headerlink" title="6.包含多个段的程序"></a>6.包含多个段的程序</h2><ul>
+<li><ol>
+<li>在代码中使用数据</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">;计算 8 个数据的和存到 ax 寄存器</span><br><span class="line">assume cs:code </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line"></span><br><span class="line">  dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;define word 定义8个字形数据</span><br><span class="line"></span><br><span class="line">  start:	mov bx, 0  ;标号start</span><br><span class="line">      mov ax, 0  </span><br><span class="line">      </span><br><span class="line">      mov cx, 8</span><br><span class="line">  s:		add ax, cs:[bx]</span><br><span class="line">      add bx, 2</span><br><span class="line">      loop s </span><br><span class="line">      </span><br><span class="line">      mov ax, 4c00h </span><br><span class="line">      int 21h </span><br><span class="line">code ends</span><br><span class="line">end start    ;end除了通知编译器程序结束外，还可以通知编译器程序的入口在什么地方</span><br><span class="line">       	 ;用end指令指明了程序的入口在标号start处，也就是说，“mov bx，0”是程序的第一条指令。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在代码中使用栈</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">;利用栈，将程序中定义的数据逆序存放。</span><br><span class="line">assume cs:codesg </span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">  dw 0123h，0456h，0789h，0abch，0defh，0fedh，0cbah，0987h ; 0-15单元</span><br><span class="line">  dw 0，0，0，0，0，0，0，0，0，0，0，0，0，0，0，0 ; 16-47单元作为栈使用</span><br><span class="line">      </span><br><span class="line">  start:	mov ax, cs </span><br><span class="line">      mov ss, ax </span><br><span class="line">      mov sp, 30h ;将设置栈顶ss:sp指向栈底cs:30。   30h = 48d</span><br><span class="line">      mov bx, 0</span><br><span class="line">      </span><br><span class="line">      mov cx, 8</span><br><span class="line">  s:		push cs:[bx]</span><br><span class="line">      add bx, 2</span><br><span class="line">      loop s    ;以上将代码段0~15单元中的8个字型数据依次入栈</span><br><span class="line">      </span><br><span class="line">      mov bx, 0</span><br><span class="line">      </span><br><span class="line">      mov cx, 8</span><br><span class="line">  s0:		pop cs:[bx]		</span><br><span class="line">      add bx，2</span><br><span class="line">      loop s0   ;以上依次出栈8个字型数据到代码段0~15单元中</span><br><span class="line">      </span><br><span class="line">      mov ax，4c00h </span><br><span class="line">      int 21h </span><br><span class="line">codesg ends </span><br><span class="line">end start  ;指明程序的入口在start处</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>将数据、代码、栈放入不同的段</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">  dw 0123h,0456h,0789h,0abch,0defh,0fedh,0cbah,0987h ;0-15单元</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">stack segment </span><br><span class="line">  dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 ;0-31单元</span><br><span class="line">stack ends </span><br><span class="line"></span><br><span class="line">code segment </span><br><span class="line">  start:	mov ax, stack;将名称为“stack”的段的段地址送入ax</span><br><span class="line">      mov ss, ax</span><br><span class="line">      mov sp, 20h  ;设置栈顶ss:sp指向stack:20。 20h = 32d</span><br><span class="line">      </span><br><span class="line">      mov ax, data ;将名称为“data”的段的段地址送入ax</span><br><span class="line">      mov ds, ax   ;ds指向data段</span><br><span class="line">      </span><br><span class="line">      mov bx, 0    ;ds:bx指向data段中的第一个单元</span><br><span class="line">      </span><br><span class="line">      mov cx, 8</span><br><span class="line">  s:	    push [bx]</span><br><span class="line">      add bx, 2</span><br><span class="line">      loop s       ;以上将data段中的0~15单元中的8个字型数据依次入栈</span><br><span class="line">      </span><br><span class="line">      mov bx, 0</span><br><span class="line">      </span><br><span class="line">      mov cx, 8</span><br><span class="line">  s0:		pop [bx]</span><br><span class="line">      add bx, 2</span><br><span class="line">      loop s0      ;以上依次出栈8个字型数据到data段的0~15单元中</span><br><span class="line">      </span><br><span class="line">      mov ax, 4c00h </span><br><span class="line">      int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line">;“end start”说明了程序的入口，这个入口将被写入可执行文件的描述信息，</span><br><span class="line">;可执行文件中的程序被加载入内存后，CPU的CS:IP被设置指向这个入口，从而开始执行程序中的第一条指令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="7-更灵活灵活的定位内存地址的方法"><a href="#7-更灵活灵活的定位内存地址的方法" class="headerlink" title="7.更灵活灵活的定位内存地址的方法"></a>7.更灵活灵活的定位内存地址的方法</h2><pre><code>* **and 和 or 指令**
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mov al , 01100011B</span><br><span class="line">and al , 00111011B    ;按位与，执行后：al=00100011B</span><br><span class="line"></span><br><span class="line">mov al, 01100011B</span><br><span class="line">or al, 00111011B    ;按位或，执行后：al=01111011B</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>ASCII</strong></li>
+</ul>
+<ol>
+<li>以字符的形式给出数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data </span><br><span class="line"></span><br><span class="line">data segment </span><br><span class="line">  db &#x27;unIx&#x27;   ;相当于“db 75H，6EH，49H，58H”</span><br><span class="line">  db &#x27;foRK&#x27;</span><br><span class="line">data ends </span><br><span class="line"></span><br><span class="line">code segment</span><br><span class="line">start:  mov al, &#x27;a&#x27;  ;相当于“mov al, 61H”，“a”的ASCI码为61H；</span><br><span class="line">    mov b1, &#x27;b&#x27;</span><br><span class="line">    </span><br><span class="line">    mov ax, 4c00h </span><br><span class="line">    int 21h </span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>大小写转换</li>
+</ol>
+<p>​		<strong>小写字母的ASCII码值比大写字母的ASCII码值大20H</strong></p>
+<p>​		<strong>大写字母ASCII码的第5位为0，小写字母的第5位为1(其他一致)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">assume cs:codesg,ds:datasg </span><br><span class="line"></span><br><span class="line">datasg segment </span><br><span class="line">  db &#x27;BaSiC&#x27;</span><br><span class="line">  db &#x27;iNfOrMaTion&#x27;</span><br><span class="line">datasg end</span><br><span class="line"></span><br><span class="line">codesg segment </span><br><span class="line">  start:	mov ax, datasg </span><br><span class="line">      mov ds, ax	;设置ds 指向 datasg段</span><br><span class="line">    </span><br><span class="line">      mov bx, 0	;设置（bx）=0，ds:bx指向’BaSic’的第一个字母</span><br><span class="line">      </span><br><span class="line">      mov cx, 5     	 ;设置循环次数5，因为’Basic&#x27;有5个字母</span><br><span class="line">  s:		mov al, [bx]     ;将ASCII码从ds:bx所指向的单元中取出</span><br><span class="line">      and al, 11011111B;将al中的ASCII码的第5位置为0，变为大写字母</span><br><span class="line">      mov [bx], al	 ;将转变后的ASCII码写回原单元</span><br><span class="line">      inc bx		     ;（bx）加1，ds:bx指向下一个字母</span><br><span class="line">      loop s </span><br><span class="line">      </span><br><span class="line">      mov bx, 5	;设置（bx）=5，ds:bx指向，iNfOrMaTion&#x27;的第一个字母</span><br><span class="line">      </span><br><span class="line">      mov cx, 11	;设置循环次数11，因为‘iNfOrMaTion&#x27;有11个字母</span><br><span class="line">  s0:		mov al, [bx]</span><br><span class="line">      or al, 00100000B;将a1中的ASCII码的第5位置为1，变为小写字母</span><br><span class="line">      mov [bx], al </span><br><span class="line">      inc bx</span><br><span class="line">      loop s0</span><br><span class="line">      </span><br><span class="line">      mov ax, 4c00h </span><br><span class="line">      int 21h </span><br><span class="line">codesg ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>SI 和 DI</li>
+</ol>
+<p>​	SI 和 DI 是8086 CPU中和 bx 功能相近的寄存器，但是 SI 和 DI 不能分成连个该8为寄存器使用。</p>
+<blockquote>
+<p>idata : 立即数，直接的数据</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 1                 ;对于直接包含在机器指令中的数据（执行前在CPU的指令缓冲器中）</span><br><span class="line">add bx, 2000h             ;在汇编语言中称为：立即数（idata）</span><br><span class="line">or bx, 00010000b</span><br><span class="line">mov al, &#x27;a&#x27;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>处理数据的长度</li>
+</ol>
+<blockquote>
+<p>8086CPU的指令，可以处理两种尺寸的数据，byte和word（字节和字）。</p>
+<p>通过寄<strong>存器名</strong>指明要处理的数据的尺寸。<br>例如： mov <strong>al</strong>, ds:[0] 寄存器al指明了数据为1字节</p>
+<p>在没有寄存器名存在的情况下，用操作符X ptr指明内存单元的长度，X在汇编指令中可以为word或byte。<br>例如：mov byte ptr ds:[0], 1 byte ptr 指明了指令访问的内存单元是一个字节单元</p>
+<p>有些<strong>指令默认</strong>了访问的是字单元还是字节单元<br>例如，push [1000H]，push 指令只进行<strong>字</strong>操作。</p>
+</blockquote>
+<ol start="6">
+<li><strong>div指令、dd、dup、mul指令</strong></li>
+</ol>
+<blockquote>
+<p>div ：除法指令。</p>
+<p>除数：有8位和16位两种，在一个寄存器或内存单元中。</p>
+<p>被除数：默认放在AX或DX和AX中，<br>如果除数为8位，被除数则为16位，默认在AX中存放；<br>如果除数为16位，被除数则为32位，在DX和AX中存放，DX存放高16位，AX存放低16位。</p>
+<p>结果：<br>如果除数为8位，则AL存储除法操作的商，AH存储除法操作的余数；<br>如果除数为16位，则AX存储除法操作的商，DX存储除法操作的余数。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">;利用除法指令计算100001/100。</span><br><span class="line">;100001D = 186A1H</span><br><span class="line">mov dx, 1</span><br><span class="line">mov ax, 86A1H ;(dx)*10000H+(ax)=100001</span><br><span class="line">mov bx, 100</span><br><span class="line">div bx</span><br><span class="line"></span><br><span class="line">;利用除法指令计算1001/100</span><br><span class="line">mov ax, 1001</span><br><span class="line">mov bl, 100</span><br><span class="line">div b1</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>dd：</p>
+<ul>
+<li><p>db 和 dw 定义字节型数据和字型数据。</p>
+</li>
+<li><p>dd 是用来定义dword（double word，<strong>双字（四个字节）</strong>）型数据的伪指令</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dd 100001</span><br><span class="line">dw 100</span><br><span class="line">dw 0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>操作符：</p>
+<p>与db、dw、dd等数据定义伪指令配合使用，用来进行数据的重复</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db 3 dup (0)       ;定义了3个字节，它们的值都是0，相当于db 0，0，0。</span><br><span class="line">db 3 dup (0, 1, 2) ;定义了9个字节，它们是0、1、2、0、1、2、0、1、2，相当于db 0，1，2，0，1，2，0，1，2。</span><br><span class="line">db 3 dup (&#x27;abc&#x27;, &#x27;ABC&#x27;) ;定义了18个字节，它们是abcABCabcABCabcABCC，相当于db &#x27;abc&#x27;, &#x27;ABC&#x27; ,&#x27;abc&#x27; , &#x27;ABC, &#x27;abc&#x27;, &#x27;ABC&#x27;。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>mul 指令 ：</p>
+<ul>
+<li><p>mul是乘法指令，使用 mul 做乘法的时候：相乘的两个数：要么都是8位，要么都是16位。</p>
+</li>
+<li><p>乘数：</p>
+<ul>
+<li><ol>
+<li>8 位： <code>AL</code>中和 <code>8位寄存器</code>或<code>内存字节单元</code>中；</li>
+<li>16 位： <code>AX</code>中和 <code>16 位寄存器</code>或<code>内存字单元</code>中。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>结果：</p>
+<ul>
+<li>8位：AX中；</li>
+<li>16位：DX（高位）和 AX（低位）中</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">; 8 位</span><br><span class="line">;计算100*10</span><br><span class="line">;100和10小于255，可以做8位乘法</span><br><span class="line">mov al,100</span><br><span class="line">mov bl,10</span><br><span class="line">mul bl</span><br><span class="line"></span><br><span class="line">;结果： (ax)=1000（03E8H） </span><br><span class="line"></span><br><span class="line">; 16 位置</span><br><span class="line"></span><br><span class="line">;计算100*10000</span><br><span class="line">;100小于255，可10000大于255，所以必须做16位乘法，程序如下：</span><br><span class="line">mov ax,100</span><br><span class="line">mov bx,10000</span><br><span class="line">mul bx</span><br><span class="line"></span><br><span class="line">;结果： (ax)=4240H，(dx)=000FH     （F4240H=1000000）</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="8-数据处理的两个基本问题"><a href="#8-数据处理的两个基本问题" class="headerlink" title="8.数据处理的两个基本问题"></a>8.数据处理的两个基本问题</h2><h3 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h3><p><strong>只有四个寄存器可以通过 [ … ] 进行内存单元的寻址</strong> </p>
+<ul>
+<li>以下代码为错误代码</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[cx]</span><br><span class="line">mov ax,[dx]</span><br><span class="line">mov ax,[ax]</span><br><span class="line">mov ax,[ds]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 [ … ] 中四个寄存器可以单独出现，或只能以四种组合出现</li>
+</ul>
+<blockquote>
+<ol>
+<li>bx 和 si</li>
+<li>bx 和 di</li>
+<li>bp 和 si</li>
+<li>bp 和 di</li>
+</ol>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mov ax,[bx+si]</span><br><span class="line">mov ax,[bx+di]</span><br><span class="line">mov ax,[bp+si]</span><br><span class="line">mov ax,[bp+di]</span><br><span class="line">            ;也可以加上data</span><br><span class="line">mov ax,[bx+si+idata</span><br><span class="line">mov ax,[bx+di+1]</span><br><span class="line">mov ax,[bp+si+2</span><br><span class="line">mov ax,[bp+di+3</span><br></pre></td></tr></table></figure>
+
+<h3 id="处理的数据的大小"><a href="#处理的数据的大小" class="headerlink" title="处理的数据的大小"></a>处理的数据的大小</h3><ul>
+<li>一般是字或者字节</li>
+</ul>
+<blockquote>
+<p>在没有寄存器名的情况下可以使用 <code>X ptr</code>指明内存单元的长度</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mov word ptr ds:[0],1</span><br><span class="line">inc word ptr []bx</span><br><span class="line">add word ptr [bx],2</span><br><span class="line"></span><br><span class="line">mov byte ptr ds:[0],1</span><br><span class="line">inc byte ptr []bx</span><br><span class="line">add byte ptr [bx],2</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="9-转移指令"><a href="#9-转移指令" class="headerlink" title="9.转移指令"></a>9.转移指令</h2><blockquote>
+<p>可以修改IP，或同时修改CS和IP的指令统称为转移指令。概括地讲，转移指令就是可以控制CPU执行内存中某处代码的指令。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jmp ax        ; 段内转移</span><br><span class="line">jmp 1000:0     ; 段间转移</span><br></pre></td></tr></table></figure>
+
+<p><strong>offset</strong></p>
+<blockquote>
+<p>操作符offset在编语言中是由编译器处理的符号，它的功能是<strong>取得标号的偏移地址</strong>。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">                  ;将s处的一条指令复制到s0处</span><br><span class="line">assume cs:codesg</span><br><span class="line">codesg segment</span><br><span class="line"> s:   mov ax, bx                 ;（mov ax,bx 的机器码占两个字节）</span><br><span class="line">      mov si, offset s           ;获得标号s的偏移地址</span><br><span class="line">      mov di, offset s0          ;获得标号s0的偏移地址</span><br><span class="line">      </span><br><span class="line">      mov ax, cs:[si]</span><br><span class="line">      mov cs:[di], ax</span><br><span class="line"> s0:  nop                           ;（nop的机器码占一个字节）</span><br><span class="line">      nop</span><br><span class="line"> codesg ends</span><br><span class="line"> ends</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>jmp指令</strong></p>
+<blockquote>
+<p><strong>jmp 为无条件转移</strong>，转到标号处执行指令可以只修改IP，也可以同时修改CS和IP；</p>
+<p>jmp 指令要给出两种信息：</p>
+<ol>
+<li><p>转移的目的地址</p>
+</li>
+<li><p>转移的距离（段间转移、段内短转移，段内近转移）</p>
+<p>jmp short 标号 jmp near ptr 标号 jcxz 标号 loop 标号 等几种汇编指令，它们对 IP的修改是根据转移目的地址和转移起始地址之间的位移来进行的。在它们对应的机器码中不包含转移的目的地址，而包含的是到目的地址的位移距离。</p>
+</li>
+</ol>
+</blockquote>
+<ol>
+<li><strong>jmp short 标号</strong></li>
+</ol>
+<ul>
+<li>实现段内短转移修改范围（-128-127）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp short s        ; 跳转到</span><br><span class="line">add ax,1111h</span><br><span class="line">s: mov ax,2222h      ; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><strong>jmp near ptr</strong></li>
+</ol>
+<ul>
+<li>实现段内近转移（修改范围大于（-128-127）但是小于-32768～32767，编译成功但链接失败），这是jmp short 实现不了的。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp near ptr s        ; 跳转到</span><br><span class="line">db 128 dup(0)        ; 制造距离超过127</span><br><span class="line">s: mov ax,2222h      ; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li><strong>jmp far ptr</strong></li>
+</ol>
+<ul>
+<li>实现段间转移（修改范围超过-32768～32767）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start: mov ax,9527h</span><br><span class="line">jmp near ptr s        ; 跳转到</span><br><span class="line">db 32768 dup(0)        ; 制造距离超过32767</span><br><span class="line">s: mov ax,2222h      ; 这里</span><br><span class="line">mov ax 4c00h</span><br><span class="line">int 21h</span><br><span class="line">code ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="3">
+<li><strong>转移地址在寄存器或内存中的jmp指令</strong></li>
+</ol>
+<ul>
+<li>jmp 寄存器，直接修改ip为寄存器的值</li>
+<li>jmp word ptr 内存单元</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mov ax, 0123H</span><br><span class="line">mov ds:[0], ax</span><br><span class="line">jmp word ptr ds:[0]      ;执行后，(IP)=0123H</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>jxcz 标号</strong> </p>
+<blockquote>
+<p>如果(cx)&#x3D;0,转移到标号处执行；若(cx) !&#x3D; 0,继续向下执行</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code,ds:data,ss:stack</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">data segment</span><br><span class="line">  db 0,0,0</span><br><span class="line">data ends</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">stack segment</span><br><span class="line"> </span><br><span class="line">  dw 16 dup(0)</span><br><span class="line"> </span><br><span class="line">stack ends</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">code segment  </span><br><span class="line">start:  mov  ax,2000H</span><br><span class="line">    mov  ds,ax</span><br><span class="line">    mov  bx,0</span><br><span class="line"> </span><br><span class="line">s:    mov  ch,0</span><br><span class="line">    mov  cl,ds:[bx]</span><br><span class="line">    jcxz ok		;若(cx)==0，跳转至ok标号处执行</span><br><span class="line">    inc  bx		;继续循环，直至查找到第一个值为0的字节</span><br><span class="line">    jmp  short s</span><br><span class="line"> </span><br><span class="line">ok:    mov  dx,bx</span><br><span class="line">    mov  ax,4c00H</span><br><span class="line">    int  21H</span><br><span class="line">code ends</span><br><span class="line"> </span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="10-call和ret指令"><a href="#10-call和ret指令" class="headerlink" title="10.call和ret指令"></a>10.call和ret指令</h2><ul>
+<li><strong>ret和retf</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>ret</strong>指令用栈中的数据，修改IP的内容，从而实现<strong>近转移</strong></li>
+</ul>
+<p>对于ret：相当于<strong>一次</strong> pop，把数据放在ip里</p>
+<ul>
+<li><strong>retf</strong>指令用栈中的数据，修改CS和IP的内容，从而实现<strong>远转移</strong>。</li>
+</ul>
+<p>对于ret：相当于<strong>两次</strong> pop，第一次数据放在ip里，第二次放cs里</p>
+</blockquote>
+<ul>
+<li><strong>call指令</strong></li>
+</ul>
+<p>类似于jmp，<strong>但是</strong>多了一个功能：<strong>将当前的 IP 或 CS和IP 压入栈中</strong>，此外，call没有短转移</p>
+<ul>
+<li><strong>call和ret的连招</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">assume cs:code</span><br><span class="line">code segment</span><br><span class="line">start:  mov ax,1</span><br><span class="line">      mov cx,3</span><br><span class="line">       call s ;（1）CPU指令缓冲器存放call指令，IP指向下一条指令（mov bx, ax），执行call指令，IP入栈，jmp</span><br><span class="line">       </span><br><span class="line">      mov bx,ax;（4）IP重新指向这里  bx = 8</span><br><span class="line">      </span><br><span class="line"></span><br><span class="line">       mov ax,4c00h</span><br><span class="line">       int 21h</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">     s: add ax,ax</span><br><span class="line">       loop s;（2）循环3次ax = 8</span><br><span class="line">      ret;（3）return : pop IP</span><br><span class="line">code ends</span><br><span class="line">end start</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="10-错题"><a href="#10-错题" class="headerlink" title="10.错题"></a>10.错题</h2><blockquote>
+<p>一、下列关于8086CPU的工作原理的描述错误的是__3__。<br> 1、 汇编程序员可以通过对各种寄存器中内容的修改实现对CPU的控制。<br> 2、 CPU在访问内存时，采用“段地址*16+偏移地址”的形式给出要访问的内存单元的物理地址。<br>3、 任意时刻，CS:IP指向的内容即是此刻CPU正在执行的指令。<br> 4、 传送指令能够更改所有通用寄存器的内容。</p>
+<p>注解：</p>
+<pre><code> 1、正确，见课本P13
+ 2、正确 
+ 3、错误。课本P24，8086机中，任意时刻，CPU将CS：IP指向的内容当作指令执行。此处的含义是**将要执行**，比如输入T,CPU读取CS:IP的内容，载入指令执行，而不是正在执行。
+ 4、通用寄存器是AX、BX、CX、DX，传送指令是mov，mov指令可以改变4个通用寄存器的内容
+</code></pre>
+</blockquote>
+<blockquote>
+<p>六、下列说法中正确的是：<strong>4</strong><br>1、 8086CPU采用“段地址*16+偏移地址&#x3D;物理地址”的寻址模式，所以内存是由一个一个的段组成，每一个段有一个段地址。<br>2、 物理地址为ffff0H的内存单元的偏移地址可能为ffffH。<br>3、 一个段的大小可以是8Byte。<br>4、 在一段没有任何跳转指令的程序中，超出64K的部分将不会被执行。</p>
+<p>注解：</p>
+<pre><code> 1、第一句、第三句正确，第二句错误。内存没有分段，段的划分来自于CPU.见课本P22
+ 2、错误，不可能，若偏移地址为FFFFH，则段地址为EFFF1H，是不对的
+ 3、段大小最小16B(Byte)
+ 4、正确，CPU执行指令取决于CS;IP，IP最大65535，超过64K的IP不识别，CPU也就无法执行。
+</code></pre>
+</blockquote>
+<blockquote>
+<p>五、16位结构的CPU 不一定具备的特性是：<strong>4</strong><br>1、 运算器一次最多可以处理16位的数据<br>2、 寄存器的最大宽度为16位<br>3、 寄存器和运算器之间的通路为16位<br>4、 地址总线为16根</p>
+<p>注解：见课本P18<br>      16位CPU特征：运算器一次最多可以处理16位的数据<br>                             寄存器的最大宽度为16位<br>                             寄存器和运算器之间的通路为16位<br>       8086CPU有20根地址总线，可以传送20位地址。故选择4</p>
+</blockquote>
+<blockquote>
+<p>5.若将以1000H为段地址的整个段空间当作栈使用，那么寄存器SP的初始值最合理的设置是_____。 (1)<br>1、  0000H<br>2、  0001H<br>3、  FFFFH<br>4、  FFFEH</p>
+<p>注解：以1000H为段地址的整个段空间，偏移地址为0-FFFFH，当栈中只有1个字时，偏移地址是FFFEH，当栈为空时，SP&#x3D;SP+2&#x3D;FFFF+2&#x3D;0000，所以选择1 </p>
+<p>下列指令的书写正确的是： 3 。<br>1、 push al<br>2、 mov cs:[0],ds:[10]<br>3、 pop si<br>4、 mov ds:[0],2</p>
+<p>解析：答案1错误，压堆指令一次性操作一个字；答案2错误，内存空间之间不能互相传送；答案3正确；答案4错误，不能将立即数送入内存空间</p>
+</blockquote>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B1%87%E7%BC%96/" rel="tag">汇编</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-java学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >java学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-10-16T15:55:18.000Z" itemprop="datePublished">2023-10-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="JAVA学习笔记"><a href="#JAVA学习笔记" class="headerlink" title="JAVA学习笔记"></a>JAVA学习笔记</h1><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="1-String"><a href="#1-String" class="headerlink" title="1.String"></a>1.String</h3><ul>
+<li>初始化</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str1=“Java”；// 字符串常量值</span><br><span class="line">String str3=“Java”;  //  字符串常量，并且与str1地址相同</span><br><span class="line">String str2=new String(“Java”);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回长度</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str1.length()   <span class="comment">//带括号,与数组不同！！！</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串查找</strong></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">str1.charAt(0);  // J</span><br><span class="line">str1.charAt(1);  // a</span><br><span class="line">str1.charAt(2);  // v</span><br><span class="line">str1.charAt(4);  // a</span><br><span class="line">str1.charAt(5);  // 报错</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符出现的第一个位置下标，否则返回-1</li>
+</ul>
+<p>a. 从字符串的头开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int index = str1.indexOf(&#x27;J&#x27;);</span><br><span class="line">System.out.println(index);//  0</span><br></pre></td></tr></table></figure>
+
+<p>b. 从下表x开始</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int index1 = str1.indexOf(&#x27;a&#x27;,2);</span><br><span class="line">System.out.println(index1);  //3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符串出现的位置下标, 从index 开始向<strong>后</strong>找 , 否则返回-1</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;helloxawllxhxawllxh&quot;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="type">int</span> <span class="variable">index3</span> <span class="operator">=</span> s2.lastIndexOf(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    System.out.println(index3);<span class="comment">//13</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>返回字符串出现的位置下标, 从index 开始向<strong>前</strong>找 , 否则返回-1</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String s2 = &quot;helloxawllxhxawllxh&quot;;</span><br><span class="line"> </span><br><span class="line">    int index3 = s2.lastIndexOf(&#x27;xawl&#x27;);</span><br><span class="line">    System.out.println(index3);//12</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串的截取</strong></li>
+</ul>
+<ol>
+<li>截取后面的字符串内容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = &quot;adsasdasdasdasd&quot;;</span><br><span class="line">    String ret = str.substring(4);// 保留第4个</span><br><span class="line">    System.out.println(ret);//sdasdasdasd</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>截取指定部分</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = &quot;adsasdasdasdasd&quot;;</span><br><span class="line">    String ret = str.substring(4,7);//截取[4,7)里面的字符</span><br><span class="line">    System.out.println(ret);//sda</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串的替换</strong></li>
+</ul>
+<ol>
+<li>使用replace或者replaceAll</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">str1</span> <span class="operator">=</span> <span class="string">&quot;xawlxawlxawlxawl&quot;</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret</span> <span class="operator">=</span> str1.replace(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">ret1</span> <span class="operator">=</span> str1.replaceAll(<span class="string">&quot;xa&quot;</span>,<span class="string">&quot;B&quot;</span>);</span><br><span class="line">    System.out.println(ret);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(ret1);<span class="comment">//BwlBwlBwlBwl</span></span><br><span class="line">    System.out.println(str1);<span class="comment">//xawlxawlxawlxawl</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>字符串的拆分</strong></li>
+</ul>
+<p>​		使用split方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str1 = &quot;Hello this is xawl rjgc professional&quot;;</span><br><span class="line">    String[] ret = str1.split(&quot; &quot;);      //以空格为分隔符，拆分整个字符串为多个字符串</span><br><span class="line">    for (String s : ret) &#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/******************************************************/</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">    String str1 = &quot;Hello this is xawl rjgc professional&quot;;</span><br><span class="line">    String[] ret = str1.split(&quot; &quot;,3);    //以空格为分隔符，拆分3个字符串</span><br><span class="line">    for (String s : ret) &#123;</span><br><span class="line">        System.out.println(s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong> 特殊字符(| + * . ,)作为分割符可能无法正确切分, 需要加上转义.</p>
+<ul>
+<li><p><strong>字符串的转化</strong></p>
+<pre><code>  1. 将别的数据类型转为字符串**valueOf( elementType i)**
+</code></pre>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">    String str = String.valueOf(1234);</span><br><span class="line">    String str1 = String.valueOf(12.34);</span><br><span class="line">    System.out.println(str);</span><br><span class="line">    System.out.println(str1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>小写字母转大写字母或者相反 <strong>toUpperCase()</strong>&amp;<strong>toLowerCase()</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line"> </span><br><span class="line">    String str3 = &quot;abcdef阿凡达&quot;;</span><br><span class="line">    String ret = str3.toUpperCase();</span><br><span class="line">    System.out.println(ret);//ABCDEF阿凡达</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-数组"><a href="#2-数组" class="headerlink" title="2. 数组"></a>2. 数组</h3><ul>
+<li><p>初始化</p>
+<p>  int [] a;&#x2F;&#x2F;创建一个数组引用<br>  a&#x3D;new int[4];<br>  int [] b&#x3D;{1,2,3,4};</p>
+</li>
+<li><p>数组的接口</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//数组的长度</span><br><span class="line">int Alength=a.length;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Arrays数组工具类</li>
+</ul>
+<ol>
+<li>&#x2F;&#x2F;转化为String</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//转化为String</span><br><span class="line">String str=Arrays.tString(array);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>数组拷贝和扩容</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int[] tmp = Arrays.copyOf(array,2*array.length);</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Arrays.binarySearch</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//查找成功的话会返回数据的位置</span><br><span class="line">int index = Arrays.binarySearch(arr, 55);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>Arrays.equals（比较两个数组是否相等）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Arrays.equals(int[] a, int [] b);</span><br><span class="line">//当且仅当a.b非空，长度相同，元素相同时返回true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>Arrays.fill(填充；一般用于初始化)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.fill(array,val);</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>Arrays.sort(arr)</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(arr);//默认升序</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-数据类型转换"><a href="#3-数据类型转换" class="headerlink" title="3.数据类型转换"></a>3.数据类型转换</h3><ul>
+<li>数据类型的大小关系</li>
+</ul>
+<p>​																<strong>byte&lt;short&lt;char&lt;int&lt;long&lt;float&lt;double</strong></p>
+<ul>
+<li><p>强制数据类型的转换，一般来说，大的数据类型不能赋给小的数据类型。因而会有强制数据类型转换</p>
+<p><strong>强制数据类型转换可能会导致数据的丢失</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num_1=<span class="number">20</span>;</span><br><span class="line"><span class="type">byte</span> num_2=(<span class="type">byte</span>) a;</span><br><span class="line"><span class="type">int</span> num_3=<span class="number">300</span>;</span><br><span class="line"><span class="type">byte</span> num_4=(<span class="type">byte</span>)num_3;<span class="comment">//数据丢失 num_4值为44</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-Java-中super的用法"><a href="#4-Java-中super的用法" class="headerlink" title="4. Java 中super的用法"></a>4. Java 中super的用法</h3><p>​	<strong>当子类的构造方法内第一行没有出现“super()”时，系统会默认给它加上无参数的”super()”方法</strong>。</p>
+<p>注意：</p>
+<ol>
+<li>当子类构造方法的第一行执行super()无参数方法，那么父类中一定要有无参数构造方法。</li>
+<li>在一个类中写了有参数的构造方法时，无参数构造方法就会不存在，需要自己补上无参数的构造方法。</li>
+</ol>
+<ul>
+<li>super使用案例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">father</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">father</span><span class="params">()</span>&#123;&#125;</span><br><span class="line">      <span class="keyword">public</span> <span class="title function_">father</span><span class="params">(<span class="type">int</span> a)</span>&#123;<span class="built_in">this</span>.age=age;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">son</span> <span class="keyword">extends</span> <span class="title class_">father</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">son</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="built_in">super</span>(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><h3 id="Java-中-final-的用法"><a href="#Java-中-final-的用法" class="headerlink" title="Java 中   final  的用法"></a>Java 中   final  的用法</h3></li>
+</ol>
+<ul>
+<li><p>解释：<strong>Java中，final 表示最终，也可以称为完结器，表示对象是最终形态的，不可改变的意思。</strong></p>
+</li>
+<li><p>使用时的注意事项</p>
+</li>
+</ul>
+<blockquote>
+<p>1）final 修饰变量，表示变量的值不可改变，此时该变量可被称为常量。</p>
+<p>2）final 修饰方法，表示方法不能被子类重写；</p>
+<blockquote>
+<p>重写：子类中如果创建了一个与父类中相同名称、相同返回值类型、相同参数列表的方法，只是方法体中的实现不同，以实现不同于父类的功能，这种方式被称为方法重写，又称为方法覆盖。</p>
+</blockquote>
+<p>3）final 用在类的前面表示该类不能有子类，即该类不可以被继承。</p>
+</blockquote>
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//修饰变量</span></span><br><span class="line"><span class="comment">//final 变量经常和 static 关键字一起使用，作为常量</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">NAME</span> <span class="operator">=</span> <span class="string">&quot;regen&quot;</span>;</span><br><span class="line">NAME = <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;regen&quot;</span>); <span class="comment">//invalid compilation error</span></span><br><span class="line"><span class="comment">//修饰方法</span></span><br><span class="line"><span class="comment">//被修饰的方法禁止被重写</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;user：&quot;</span>张三<span class="string">&quot;;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">class Reader extends User&#123;</span></span><br><span class="line"><span class="string">    @Override</span></span><br><span class="line"><span class="string">    public final String getName()&#123;</span></span><br><span class="line"><span class="string">        return &quot;</span>李四<span class="string">&quot;; //compilation error: overridden method is final</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">//final修饰类</span></span><br><span class="line"><span class="string">//例如 java 中的String类</span></span><br><span class="line"><span class="string">//表示该类 具有完整的功能，不能被继承</span></span><br><span class="line"><span class="string">public final class String</span></span><br><span class="line"><span class="string">    implements java.io.Serializable, Comparable&lt;String&gt;, CharSequence &#123;</span></span><br><span class="line"><span class="string">    /** The value is used for character storage. */</span></span><br><span class="line"><span class="string">    private final char value[];</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">    ...</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>优点</li>
+</ul>
+<ol>
+<li><p>final 关键字，提高了性能，JVM 和 Java 应用都会缓存 final 变量。</p>
+</li>
+<li><p>final 变量，可以安全的在多线程环境下进行共享，而不需要额外的同步开销。</p>
+</li>
+</ol>
+<h2 id="Java面向对象"><a href="#Java面向对象" class="headerlink" title="Java面向对象"></a>Java面向对象</h2><blockquote>
+<p>java bean</p>
+<blockquote>
+<ul>
+<li>提供一个默认的无参构造函数。</li>
+<li>需要被序列化并且实现了 Serializable 接口。</li>
+<li>可能有一系列可读写属性，并且一般是 private 的。</li>
+<li>可能有一系列的 getter 或 setter 方法。</li>
+</ul>
+</blockquote>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//example</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">People</span> &#123;</span><br><span class="line">    privete String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> age;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String newName)</span> &#123;</span><br><span class="line">        name = newName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> neweAge)</span> &#123;</span><br><span class="line">        age = newAge;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h3 id="1-JVM内存结构"><a href="#1-JVM内存结构" class="headerlink" title="1.JVM内存结构"></a>1.JVM内存结构</h3><pre><code>        * 对象的存储结构
+                对象应该看作一个地址
+                对象名指向堆中的首地址（swap 案例）
+        基本数据类型比较的是数值，而引用数据类型比较的是内存地址
+</code></pre>
+<ul>
+<li><strong>JVM运行时的数据区</strong></li>
+</ul>
+<p>​											<strong>堆、栈、方法区、程序计数器</strong></p>
+<p><img src="/images/jvmRunZone.png" alt="jvmRunZone"></p>
+<ul>
+<li><strong>程序计数器</strong></li>
+</ul>
+<blockquote>
+<p><strong>程序技计数器一个线程独享的数据区域，也就是说，每个线程之间的数据相互不干扰，是一个线程内存空间。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>可以当成字节码的行号指示器</strong></p>
+</blockquote>
+<ul>
+<li><strong>栈</strong></li>
+</ul>
+<p>​		JVM的栈包括<strong>Java虚拟机栈</strong>和本地方法栈</p>
+<ol>
+<li>Java虚拟机栈：执行Java方法服务。</li>
+<li>本地方法栈： 执行JVM使用到的Native方法服务。</li>
+</ol>
+<blockquote>
+<p>natine 方法是什么？</p>
+<p>JDK 中有很多方法是使用 Native 修饰的。Native 方法不是以 Java 语言实现的，而是以本地语言实现的（比如 C 或 C++）</p>
+</blockquote>
+<ul>
+<li><strong>JVM虚拟机栈</strong></li>
+</ul>
+<ol>
+<li>栈是线程私有的，每个线程拥有独立的栈空间</li>
+<li>栈的元素为栈帧</li>
+</ol>
+<ul>
+<li><strong>Java堆</strong></li>
+</ul>
+<p>​			特点：</p>
+<pre><code>                1. 是Java虚拟机管理内存中的最大一块区域。
+                1. 被所有线程共享。
+                1. 用来存放用 new 创建过的对象
+</code></pre>
+<p>​			堆内存的分类</p>
+<p><img src="/images/javaHeap.png" alt="java heap"></p>
+<ul>
+<li><strong>方法区</strong></li>
+</ul>
+<p>​			特点：</p>
+<ol>
+<li>被所有线程共享</li>
+<li>存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码。</li>
+<li>包含了常量池</li>
+</ol>
+<blockquote>
+<p>常量池：</p>
+<ol>
+<li>常量池避免了频繁的创建和销毁对象而影响系统性能，其实现了对象的共享。</li>
+</ol>
+</blockquote>
+<h3 id="2-包"><a href="#2-包" class="headerlink" title="2. 包"></a>2. 包</h3><h4 id="1-命名规则"><a href="#1-命名规则" class="headerlink" title="1.命名规则"></a>1.命名规则</h4><ul>
+<li>统一使用小写</li>
+<li>单数形式</li>
+<li>使用  <strong>.</strong> 分隔开</li>
+<li>一般是网站的反写形式</li>
+</ul>
+<h4 id="包的权限"><a href="#包的权限" class="headerlink" title="包的权限"></a>包的权限</h4><pre><code>        * public 共有
+        * protected 
+</code></pre>
+<h3 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a>3. 多态</h3><h4 id="1-多态的转型"><a href="#1-多态的转型" class="headerlink" title="1.多态的转型"></a>1.多态的转型</h4><ul>
+<li>向上转型</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">父类类型 引用名 = new 子类类型();</span><br><span class="line">//右侧创建一个子类对象，把它当作父类看待使用</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>向下转型</li>
+</ul>
+<ol>
+<li><strong>只能强制转换父类的引用，不能强制转换父类的对象</strong></li>
+<li><strong>要求父类的引用必须指向的是当前目标类型的对象</strong></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">子类类型 引用名 = (子类类型) 父类引用;</span><br><span class="line">//用强制类型转换的格式，将父类引用类型转为子类引用类型</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>转型异常</strong></li>
+</ul>
+<p>​				可以利用操作符<strong>instanceof</strong>判断是否类型一致或为子类型（返回boolean类型）</p>
+<h4 id="2-动态绑定"><a href="#2-动态绑定" class="headerlink" title="2. 动态绑定"></a>2. 动态绑定</h4><ul>
+<li>​		当调用<strong>对象方法</strong>的时候，该方法会和该对象的<strong>运行类型</strong>绑定</li>
+<li>​        当调用<strong>对象属性</strong>时，<strong>没有动态绑定</strong>机制，即哪里声明，哪里使用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> dynamic_;</span><br><span class="line"></span><br><span class="line"><span class="comment">//演示动态绑定</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DynamicBinding</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Person</span> <span class="variable">p1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();  </span><br><span class="line"></span><br><span class="line">    p1.mission();</span><br><span class="line">        <span class="comment">//结果 : 学生要好好学习！</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">mission</span><span class="params">()</span> &#123;	</span><br><span class="line">    System.out.println(<span class="string">&quot;人要好好活着！&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">mission</span><span class="params">()</span> &#123;	</span><br><span class="line">    System.out.println(<span class="string">&quot;学生要好好学习！&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-多态参数"><a href="#3-多态参数" class="headerlink" title="3. 多态参数"></a>3. 多态参数</h4><p><strong>多态参数</strong>：方法定义的<strong>形参类型</strong>为<strong>父类</strong>类型，<strong>实参类型</strong>允许为<strong>子类</strong>类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> polyparameter;</span><br><span class="line"></span><br><span class="line"><span class="comment">//演示多态参数</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PolyParameter</span> &#123; </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">    <span class="type">Student</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;小蓝同学&quot;</span>);</span><br><span class="line">    <span class="type">Teacher</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Teacher</span>(<span class="string">&quot;小绿老师&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//需先 new 一个当前类的实例化，才能调用 test 方法</span></span><br><span class="line">    <span class="type">PolyParameter</span> <span class="variable">polyParameter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PolyParameter</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//实参是子类</span></span><br><span class="line">    polyParameter.test(s1);<span class="comment">//输出 s1.study()</span></span><br><span class="line">        polyParameter.test(t1);  <span class="comment">//输出 t1.teach()</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//定义方法test，形参为 Person 类型(形参是父类)</span></span><br><span class="line">  <span class="comment">//功能：调用学生的study或教师的teach方法</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(Person p)</span> &#123;				<span class="comment">// 参数为父类</span></span><br><span class="line">        <span class="keyword">if</span> (p <span class="keyword">instanceof</span> Student)&#123;</span><br><span class="line">            ((Student) p).study();   <span class="comment">//向下转型</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> Teacher)&#123;</span><br><span class="line">            ((Teacher) p).teach();  <span class="comment">//向下转型</span></span><br><span class="line">        &#125;  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//有参构造</span></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Person</span><span class="params">(String name)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// getter 和 setter</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> name;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//子类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Student</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(name);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// study() 方法</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">study</span><span class="params">()</span> &#123;	</span><br><span class="line">    System.out.println(<span class="built_in">super</span>.getName() + <span class="string">&quot;\t&quot;</span> + <span class="string">&quot;正在好好学习&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Teacher</span> <span class="keyword">extends</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">Teacher</span><span class="params">(String name)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>(name);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// teach() 方法</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">teach</span><span class="params">()</span> &#123;	</span><br><span class="line">    System.out.println(<span class="built_in">super</span>.getName() + <span class="string">&quot;\t&quot;</span> + <span class="string">&quot;正在好好教书&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="Java集成体系框架"><a href="#Java集成体系框架" class="headerlink" title="Java集成体系框架"></a>Java集成体系框架</h2><h3 id="整体框架："><a href="#整体框架：" class="headerlink" title="整体框架："></a>整体框架：</h3><p><img src="/images/JavaIntegrationFrame.png"></p>
+<p>​			Java集合类主要由两个根接口Collection和Map派生出来。</p>
+<h3 id="1-Collection"><a href="#1-Collection" class="headerlink" title="1. Collection"></a>1. Collection</h3><p><img src="/images/JavaIntegrationFrameCollection.png"></p>
+<ul>
+<li><strong>ArrayLIst</strong></li>
+</ul>
+<p>​		1.增删查改</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;Object&gt; arrl =new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">//增</span><br><span class="line">arr1.add( E e );</span><br><span class="line">//删</span><br><span class="line">remove(Object o) //从该集合中删除指定元素的单个实例</span><br><span class="line">clear()     //从此集合中删除所有元素</span><br><span class="line">//查</span><br><span class="line">arr1.getI(int index);    //获取第 i 个数，从零开始</span><br><span class="line">//改</span><br><span class="line">set(int index, E element)  //用指定的元素替换此列表中指定位置的元素。</span><br></pre></td></tr></table></figure>
+
+<pre><code>    2. 迭代器
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">arr1.iterator()     //返回一个集合的迭代器</span><br><span class="line">arr1.toArray()      //转数组</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>常见方法</li>
+</ol>
+<h3 id="2-Map"><a href="#2-Map" class="headerlink" title="2. Map"></a>2. Map</h3><p><img src="/images/JavaIntegrationFrameMap.png"></p>
+<h2 id="抽象类和接口"><a href="#抽象类和接口" class="headerlink" title="抽象类和接口"></a>抽象类和接口</h2><h3 id="抽象类-abstract-class"><a href="#抽象类-abstract-class" class="headerlink" title="抽象类(abstract class )"></a>抽象类(abstract class )</h3><h3 id="接口。"><a href="#接口。" class="headerlink" title="接口。"></a>接口。</h3><pre><code>        Java不允许多重继承，但是接口可以实现多重继承，即一个类可以实现多个接口。
+</code></pre>
+<h2 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h2><ul>
+<li>定义：JDBC（Java DataBase Connectivity：java数据库连接）是一种用于执行SQL语句的Java API，可以为多种关系型数据库提供统一访问，它是由一组用Java语言编写的类和接口组成的。</li>
+</ul>
+<h3 id="简单使用过程"><a href="#简单使用过程" class="headerlink" title="简单使用过程"></a>简单使用过程</h3><ol>
+<li>导入jar包</li>
+</ol>
+<p>​		<strong>注意：使用与MySQL版本适配的jar包，使用与操作系统一致的jar包</strong></p>
+<p>案例程序（链接云数据库）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">main</span> &#123;<span class="comment">//按照自己class名设置</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">JDBC_DRIVER</span> <span class="operator">=</span> <span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">DB_URL</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://142.171.33.151:3306/mydata&quot;</span>;<span class="comment">//注意格式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">USER</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PASS</span> <span class="operator">=</span> <span class="string">&quot;123456&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">// 注册 JDBC 驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 打开链接</span></span><br><span class="line">            System.out.println(<span class="string">&quot;connecting&quot;</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 执行查询</span></span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">&quot;SELECT * FROM emp&quot;</span>;</span><br><span class="line">            <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 循环输出每一条数据</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;<span class="comment">//按照自己录入数据输出</span></span><br><span class="line">                System.out.println(</span><br><span class="line">                        rs.getInt(<span class="string">&quot;id&quot;</span>) +<span class="string">&quot;\t&quot;</span>+</span><br><span class="line">                                rs.getString(<span class="string">&quot;name&quot;</span>)+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(SQLException se)&#123;</span><br><span class="line">            <span class="comment">// 处理 JDBC 错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">// 处理 Class.forName 错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="comment">// 关闭资源</span></span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(stmt!=<span class="literal">null</span>) stmt.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">            &#125;<span class="comment">// 什么都不做</span></span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(conn!=<span class="literal">null</span>) conn.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span>(SQLException se)&#123;</span><br><span class="line">                se.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Goodbye!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-随手记"
   class="article article-type-post"
   itemscope
@@ -280,7 +1179,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/turtle/" rel="tag">turtle</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>
@@ -717,418 +1616,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-vim-学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >vim 学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-16T15:49:02.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="VIM普通模式"><a href="#VIM普通模式" class="headerlink" title="* VIM普通模式"></a>* VIM普通模式</h1><p>​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复</p>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><strong>光标上下左右移动</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h       #左移</span><br><span class="line">j      #下移</span><br><span class="line">k      #上移</span><br><span class="line">l      #右移</span><br></pre></td></tr></table></figure>
-
-<p><strong>移动多行</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4h       #左移4格</span><br><span class="line">4j      #上移4行</span><br><span class="line">4k      #下移4行</span><br><span class="line">4l      #右移4格</span><br></pre></td></tr></table></figure>
-
-<p><strong>跳转到单词末尾或者开头(下一个空格前)</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w      # word</span><br><span class="line">b      # begining</span><br></pre></td></tr></table></figure>
-
-<p><strong>跳转到文档开始或末尾</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gg        # 跳转到文档开头</span><br><span class="line">G  (shift + g)   # 跳转到文档末尾</span><br></pre></td></tr></table></figure>
-
-<p><strong>上下翻页</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl + u  #向上翻页</span><br><span class="line">ctrl + d  #向下翻页</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>快速到最近的某个字母</strong>（区分大小写）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fu      #到最近1的u</span><br><span class="line">fc      #到最近的c</span><br><span class="line">fK      #到最近的K</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>​	<strong>y</strong></p>
-<ul>
-<li>复制单词</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yaw      # y(yank)  aw(a word)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复制n行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yy      # 复制本行</span><br><span class="line"></span><br><span class="line">nyy      # 复制n行 包括当前行</span><br><span class="line"></span><br><span class="line">y4j      # 向下复制5行 包括当前行</span><br><span class="line">y4k      # 向上复制5行 包括当前行</span><br><span class="line">y4h      # 向左复制4个字符 不包括光标在闪烁那个字符</span><br><span class="line">y4l      # 向右复制4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><p>​	<strong>p</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p      # 小写p,复制到光标后的一行</span><br></pre></td></tr></table></figure>
-
-<h2 id="剪切删除"><a href="#剪切删除" class="headerlink" title="剪切删除"></a>剪切删除</h2><ul>
-<li><p><strong>d</strong>命令其实可以看成剪切，不复制出来就变成<strong>删除</strong>了。</p>
-</li>
-<li><p>删除行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd      # 删除光标所在行</span><br><span class="line">ndd      # 删除n行 包括当前行</span><br><span class="line"></span><br><span class="line">d4j      # 向下删除5行 包括当前行</span><br><span class="line">d4k      # 向上删除5行 包括当前行</span><br><span class="line">d4h      # 向左删除4个字符 不包括光标在闪烁那个字符</span><br><span class="line">d4l      # 向右删除4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除到本行末尾</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D</span><br></pre></td></tr></table></figure>
-
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>​	<strong>c</strong></p>
-<ul>
-<li>替换单词</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">caw     # change a word</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>替换行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cc      # 删除行，并且进入编辑模式</span><br><span class="line">c4j      # 删除下4行+本行，并且进入编辑模式</span><br></pre></td></tr></table></figure>
-
-
-
-<p>* </p>
-<h2 id="撤销恢复"><a href="#撤销恢复" class="headerlink" title="撤销恢复"></a>撤销恢复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u       # (undo)</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq      # 保存并退出</span><br></pre></td></tr></table></figure>
-
-<h1 id="VIM-可视化模式（VISUAL）"><a href="#VIM-可视化模式（VISUAL）" class="headerlink" title="* VIM 可视化模式（VISUAL）"></a>* VIM 可视化模式（VISUAL）</h1><p>​	<strong>v</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v      # 进入可视化模式</span><br></pre></td></tr></table></figure>
-
-<p>​	进入可视化模式后移动光标即可选中该部分内容进行操作，例如：</p>
-<ul>
-<li>d				# 删除</li>
-<li>y		        # 复制 </li>
-<li>c                # 替换</li>
-</ul>
-<h1 id="客制化"><a href="#客制化" class="headerlink" title="客制化"></a>客制化</h1><ul>
-<li>NERDtree</li>
-</ul>
-<blockquote>
-<p>文件夹，文件，管理（树形结构）</p>
-</blockquote>
-<p>​	</p>
-<p><strong>vim学习网站</strong></p>
-<p>​	<a target="_blank" rel="noopener" href="https://vim-adventures.com/">VIM GAME</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MD语法学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >MD语法学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-16T15:47:12.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="MD语法学习笔记"><a href="#MD语法学习笔记" class="headerlink" title="MD语法学习笔记"></a>MD语法学习笔记</h1><h2 id="1-基本符号："><a href="#1-基本符号：" class="headerlink" title="1.基本符号："></a>1.基本符号：</h2><p>​	md文档中基本标记都是基于 * - +. &gt; 这几个符号的组合操作</p>
-<h2 id="2-标题。"><a href="#2-标题。" class="headerlink" title="2.标题。"></a>2.标题。</h2><p>​	MD总共有六级标题</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 标题1 # </span></span><br><span class="line"><span class="section">## 标题2 ##</span></span><br><span class="line"><span class="section">### 标题3 ###</span></span><br><span class="line"><span class="section">#### 标题4 ####</span></span><br><span class="line"><span class="section">##### 标题5 #####</span></span><br><span class="line"><span class="section">###### 标题6 #######</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><h2 id="3-列表。"><a href="#3-列表。" class="headerlink" title="3.列表。"></a>3.列表。</h2><ul>
-<li>无序列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">+</span> b</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line"><span class="bullet">-</span> d</span><br><span class="line"><span class="bullet">-</span> e</span><br><span class="line"><span class="bullet">-</span> f</span><br><span class="line"> </span><br><span class="line"><span class="bullet">*</span> g</span><br><span class="line"><span class="bullet">*</span> h</span><br><span class="line"><span class="bullet">*</span> i</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>a</li>
-<li>b</li>
-<li>c</li>
-</ul>
-<ul>
-<li>d</li>
-<li>e</li>
-<li>f</li>
-</ul>
-<ul>
-<li>g</li>
-<li>h</li>
-<li>i</li>
-</ul>
-<ul>
-<li>有序列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有序列表</span><br><span class="line"><span class="bullet">1.</span> abc</span><br><span class="line"><span class="bullet">2.</span> abc</span><br><span class="line"><span class="bullet">3.</span> dada</span><br><span class="line"> </span><br><span class="line">错序列表</span><br><span class="line"><span class="bullet">2.</span> awfa</span><br><span class="line"><span class="bullet">5.</span> awef</span><br><span class="line"><span class="bullet">25.</span> dfaf</span><br></pre></td></tr></table></figure>
-
-
-
-<p>有序列表</p>
-<ol>
-<li>abc</li>
-<li>abc</li>
-<li>dada</li>
-</ol>
-<p>错序列表<br>2. awfa<br>5. awef<br>25. dfaf</p>
-<ul>
-<li>嵌套列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">无序</span><br><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">  +</span> a1</span><br><span class="line"><span class="bullet">  +</span> a2</span><br><span class="line"><span class="bullet">+</span> ba</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line">有序</span><br><span class="line"><span class="bullet">1.</span> a</span><br><span class="line"><span class="bullet">   1.</span> adac</span><br><span class="line"><span class="bullet">      1.</span> adaw</span><br><span class="line"><span class="bullet">   2.</span> adfsda</span><br><span class="line"><span class="bullet">2.</span> ad</span><br><span class="line"><span class="bullet">3.</span> sad</span><br></pre></td></tr></table></figure>
-
-<p>无序</p>
-<ul>
-<li>a<ul>
-<li>a1</li>
-<li>a2</li>
-</ul>
-</li>
-<li>ba</li>
-<li>c</li>
-</ul>
-<p>有序</p>
-<ol>
-<li>a<ol>
-<li>adac<ol>
-<li>adaw</li>
-</ol>
-</li>
-<li>adfsda</li>
-</ol>
-</li>
-<li>ad</li>
-<li>sad</li>
-</ol>
-<h2 id="4-引用块。"><a href="#4-引用块。" class="headerlink" title="4.引用块。"></a>4.引用块。</h2><ul>
-<li>引用</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">引用</span><br><span class="line"><span class="quote">&gt; 引用1</span></span><br><span class="line">引用1 引用1</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-<p>引用</p>
-<blockquote>
-<p>引用1<br>引用1 引用1</p>
-</blockquote>
-<ul>
-<li>嵌套引用</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 嵌套引用</span><br><span class="line">&gt; 嵌套引用1 </span><br><span class="line">&gt;&gt; 嵌套引用1 </span><br></pre></td></tr></table></figure>
-
-<p> 嵌套引用</p>
-<blockquote>
-<p>嵌套引用1 </p>
-<blockquote>
-<p>嵌套引用1 </p>
-</blockquote>
-</blockquote>
-<h2 id="5-代码块。"><a href="#5-代码块。" class="headerlink" title="5.代码块。"></a>5.代码块。</h2><ul>
-<li>单行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br><span class="line">`</span><br><span class="line">adaawf</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-
-<p>代码块<br><code>adaawf</code></p>
-<ul>
-<li>多行代码块</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">adaawfwrfwr</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adaawfwrfwr</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-链接。"><a href="#6-链接。" class="headerlink" title="6.链接。"></a>6.链接。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">BAIDU</span>](<span class="link">www.baidu.com</span>)</span><br></pre></td></tr></table></figure>
-
-<p><a href="www.baidu.com">BAIDU</a></p>
-<h2 id="7-图片。"><a href="#7-图片。" class="headerlink" title="7.图片。"></a>7.图片。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">https://note.youdao.com/favicon.ico</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://note.youdao.com/favicon.ico" alt="图片"></p>
-<h2 id="8-分割线。"><a href="#8-分割线。" class="headerlink" title="8.	分割线。"></a>8.	分割线。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">分割线</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">- - -</span></span><br><span class="line"><span class="section">-------</span></span><br><span class="line"><span class="strong">****</span>*</span><br><span class="line"><span class="bullet">*</span> * *</span><br><span class="line"><span class="strong">____</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="9-表格。"><a href="#9-表格。" class="headerlink" title="9.表格。"></a>9.表格。</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">表格</span><br><span class="line">|123|234|345|</span><br><span class="line">|:-|:-:|-:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子二</span><br><span class="line">|123|234|345|</span><br><span class="line">|:---|:---:|---:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子三</span><br><span class="line">123|234|345</span><br><span class="line">:-|:-:|-:</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br></pre></td></tr></table></figure>
-
-<p>表格</p>
-<table>
-<thead>
-<tr>
-<th align="left">123</th>
-<th align="center">234</th>
-<th align="right">345</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">&#x2F;&#x2F;例子二</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:—</td>
-<td align="center">:—:</td>
-<td align="right">—:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">&#x2F;&#x2F;例子三</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:-</td>
-<td align="center">:-:</td>
-<td align="right">-:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-</tbody></table>
-<h2 id="10-字体。"><a href="#10-字体。" class="headerlink" title="10.字体。"></a>10.字体。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//斜体</span><br><span class="line"><span class="emphasis">*md*</span></span><br><span class="line"> </span><br><span class="line">//粗体</span><br><span class="line"><span class="strong">**md**</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="emphasis">_md_</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="strong">__md__</span></span><br><span class="line"> </span><br><span class="line">//转义</span><br><span class="line"> </span><br><span class="line">\+</span><br><span class="line"> </span><br><span class="line">//删除线</span><br><span class="line"> </span><br><span class="line">~~删除~~</span><br></pre></td></tr></table></figure>
-
-<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
-<p>&#x2F;&#x2F;粗体<br><strong>md</strong></p>
-<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
-<p>&#x2F;&#x2F;斜体<br><strong>md</strong></p>
-<p>&#x2F;&#x2F;转义</p>
-<p>+</p>
-<p>&#x2F;&#x2F;删除线</p>
-<p><del>删除</del></p>
-<h2 id="11-表情！-smile"><a href="#11-表情！-smile" class="headerlink" title="11.表情！:smile:"></a>11.表情！:smile:</h2><p>:santa:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式</span><br><span class="line">:内容描述:</span><br><span class="line">例如：</span><br><span class="line">:smile:</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>

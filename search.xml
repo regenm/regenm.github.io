@@ -566,6 +566,7 @@
       <tags>
         <tag>笔记</tag>
         <tag>python</tag>
+        <tag>turtle</tag>
       </tags>
   </entry>
   <entry>
@@ -5201,5 +5202,27 @@
     <title>《山药粥》</title>
     <url>/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>Pytohn pyinstaller</title>
+    <url>/2024/04/25/Pytohn-pyinstaller/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>python</tag>
+        <tag>pyinstaller</tag>
+        <tag>打包工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pytohn tkinter(GUI lib)</title>
+    <url>/2024/04/25/Pytohn-tkinter-GUI-lib/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>python</tag>
+        <tag>GUI</tag>
+        <tag>图形化工具</tag>
+      </tags>
   </entry>
 </search>
