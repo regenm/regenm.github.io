@@ -166,6 +166,88 @@
     
     
     <article
+  id="post-mqttSender"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/27/mqttSender/"
+    >mqttSender</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/27/mqttSender/" class="article-date">
+  <time datetime="2024-04-27T05:48:17.000Z" itemprop="datePublished">2024-04-27</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MqttSender"><a href="#MqttSender" class="headerlink" title="MqttSender"></a>MqttSender</h1><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>A Software For me to send message to my mqtt server<br>So that I can contral my devices such as esp32 ,esp8266.</p>
+<p>Another purpose is to learn python tkinter(GUI lib)</p>
+<h3 id="Technique"><a href="#Technique" class="headerlink" title="Technique"></a>Technique</h3><ol>
+<li>python tkinter</li>
+<li>python pyinstaller</li>
+<li>python mqtt</li>
+</ol>
+<h1 id="requirements-analization-v1-0"><a href="#requirements-analization-v1-0" class="headerlink" title="requirements analization v1.0"></a>requirements analization v1.0</h1><h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><h3 id="version1-0"><a href="#version1-0" class="headerlink" title="version1.0"></a>version1.0</h3><ul>
+<li>conponents</li>
+</ul>
+<ol>
+<li>1 text call box（for output）</li>
+<li>1 entry box (for input)</li>
+<li>a send button()</li>
+</ol>
+<ul>
+<li>features(or limits? qwq )</li>
+</ul>
+<ol>
+<li>simple</li>
+<li>change server(ip address, password , topics) by editing source code .</li>
+</ol>
+<h2 id="mqtt"><a href="#mqtt" class="headerlink" title="mqtt"></a>mqtt</h2><h3 id="paho-mqtt-version-1-6"><a href="#paho-mqtt-version-1-6" class="headerlink" title="paho-mqtt version 1.6"></a>paho-mqtt version 1.6</h3><ul>
+<li>description</li>
+</ul>
+<p>When coding the parts of mqtt sucscribe and publish , I find that the mqtt lib had upugrade to version 2.0 . However , I get the version 1 example code . Making me annoyed. </p>
+<p>So i just gona to use version 1.6</p>
+<p>And I will definetly upgrade my code in the future.</p>
+<ul>
+<li>mqtt part function</li>
+</ul>
+<p>get the content( payload ) and the server information(settings)  then send it.</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/" rel="tag">software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-Pytohn-pyinstaller"
   class="article article-type-post"
   itemscope
@@ -598,58 +680,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-STM32-PROJECT-keyboard"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/16/STM32-PROJECT-keyboard/"
-    >STM32 PROJECT keyboard</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/16/STM32-PROJECT-keyboard/" class="article-date">
-  <time datetime="2024-04-16T14:59:10.000Z" itemprop="datePublished">2024-04-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	之前就有使用别烧好的MCU来进行键盘客制化，始终觉得不得劲。仅仅只是设计了键位PCB和外观，虽然也学到了点东西，但是我就是不爽啊。有一种核心技术自己没掌握的感觉。</p>
-<p>​	新坑_STM32_KEYBOARD 开始！</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HID/" rel="tag">HID</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/USB/" rel="tag">USB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li></ul>
 
     </footer>
   </div>

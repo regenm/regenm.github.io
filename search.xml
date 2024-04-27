@@ -5225,4 +5225,51 @@
         <tag>图形化工具</tag>
       </tags>
   </entry>
+  <entry>
+    <title>mqttSender</title>
+    <url>/2024/04/27/mqttSender/</url>
+    <content><![CDATA[<h1 id="MqttSender"><a href="#MqttSender" class="headerlink" title="MqttSender"></a>MqttSender</h1><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>A Software For me to send message to my mqtt server<br>So that I can contral my devices such as esp32 ,esp8266.</p>
+<p>Another purpose is to learn python tkinter(GUI lib)</p>
+<h3 id="Technique"><a href="#Technique" class="headerlink" title="Technique"></a>Technique</h3><ol>
+<li>python tkinter</li>
+<li>python pyinstaller</li>
+<li>python mqtt</li>
+</ol>
+<h1 id="requirements-analization-v1-0"><a href="#requirements-analization-v1-0" class="headerlink" title="requirements analization v1.0"></a>requirements analization v1.0</h1><h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><h3 id="version1-0"><a href="#version1-0" class="headerlink" title="version1.0"></a>version1.0</h3><ul>
+<li>conponents</li>
+</ul>
+<ol>
+<li>1 text call box（for output）</li>
+<li>1 entry box (for input)</li>
+<li>a send button()</li>
+</ol>
+<ul>
+<li>features(or limits? qwq )</li>
+</ul>
+<ol>
+<li>simple</li>
+<li>change server(ip address, password , topics) by editing source code .</li>
+</ol>
+<h2 id="mqtt"><a href="#mqtt" class="headerlink" title="mqtt"></a>mqtt</h2><h3 id="paho-mqtt-version-1-6"><a href="#paho-mqtt-version-1-6" class="headerlink" title="paho-mqtt version 1.6"></a>paho-mqtt version 1.6</h3><ul>
+<li>description</li>
+</ul>
+<p>When coding the parts of mqtt sucscribe and publish , I find that the mqtt lib had upugrade to version 2.0 . However , I get the version 1 example code . Making me annoyed. </p>
+<p>So i just gona to use version 1.6</p>
+<p>And I will definetly upgrade my code in the future.</p>
+<ul>
+<li>mqtt part function</li>
+</ul>
+<p>get the content( payload ) and the server information(settings)  then send it.</p>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>python</tag>
+        <tag>mqtt</tag>
+        <tag>IoT</tag>
+        <tag>mosquitto</tag>
+        <tag>GUI</tag>
+        <tag>software</tag>
+      </tags>
+  </entry>
 </search>
