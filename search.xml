@@ -5228,7 +5228,9 @@
   <entry>
     <title>mqttSender</title>
     <url>/2024/04/27/mqttSender/</url>
-    <content><![CDATA[<h1 id="MqttSender"><a href="#MqttSender" class="headerlink" title="MqttSender"></a>MqttSender</h1><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>A Software For me to send message to my mqtt server<br>So that I can contral my devices such as esp32 ,esp8266.</p>
+    <content><![CDATA[<p>用于记录项目mqttSender</p>
+<p><a href="https://github.com/regenm/MqttSender">regenm&#x2F;mqttSender</a></p>
+<h1 id="MqttSender"><a href="#MqttSender" class="headerlink" title="MqttSender"></a>MqttSender</h1><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>A Software For me to send message to my mqtt server<br>So that I can contral my devices such as esp32 ,esp8266.</p>
 <p>Another purpose is to learn python tkinter(GUI lib)</p>
 <h3 id="Technique"><a href="#Technique" class="headerlink" title="Technique"></a>Technique</h3><ol>
 <li>python tkinter</li>
