@@ -3029,50 +3029,38 @@
 <p>(5) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
 <p>(6) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
 </blockquote>
-<h4 id="通信原理："><a href="#通信原理：" class="headerlink" title="通信原理："></a>通信原理：</h4><pre><code>1. 使用两个总线：
-
-    1. SDA（数据线）
-    2. SCL（时钟线）
-
-2. 主设备与从设备
-
-    1. 主设备（控制时钟线`SCL`）
-    2. 从设备（地址检测）
-
-3. 高阻态
-
-​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。
-
-4. IIIC 设备地址：出厂已经设计好
-
-5. 协议
-
-    1. **开始信号**：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。
-    2. **结束信号**：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。
-    3. **应答信号**：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。
-</code></pre>
-<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
+<h4 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h4><ol>
+<li><p>使用两个总线：</p>
+<ol>
+<li>SDA（数据线）</li>
+<li>SCL（时钟线）</li>
+</ol>
+</li>
+<li><p>主设备与从设备</p>
+<ol>
+<li>主设备（控制时钟线<code>SCL</code>）</li>
+<li>从设备（地址检测）</li>
+</ol>
+</li>
+<li><p>高阻态</p>
+</li>
+</ol>
+<p>​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。</p>
+<ol start="4">
+<li><p>IIIC 设备地址：出厂已经设计好</p>
+</li>
+<li><p>协议</p>
+<ol>
+<li><strong>开始信号</strong>：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。</li>
+<li><strong>结束信号</strong>：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。</li>
+<li><strong>应答信号</strong>：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
 <p>SPI （同步全双工）协议是由摩托罗拉公司提出的通讯协议(Serial Peripheral Interface)，即串行外围设备接口，是一种高速全双工的通信总线。它被广泛地使用在 ADC、 LCD 等设备与 MCU 间，要求通讯速率较高的场合。</p>
 </blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
-</blockquote>
-<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
-<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
-</blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
+<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><blockquote>
 <ol>
 <li><strong>SPI</strong>是一个同步的数据总线，也就是说它是用<strong>单独的数据线</strong>和<strong>一个单独的时钟信号</strong>来保证<strong>发送端和接收端的完美同步</strong>。</li>
 <li>产生时钟的一侧称为<strong>主机</strong>，另一侧称为<strong>从机</strong>。总是<strong>只有一个主机</strong>（一般来说可以是<strong>微控制器&#x2F;MCU</strong>），但是可以有多个<strong>从机</strong>（后面详细介绍）</li>
@@ -3085,16 +3073,20 @@
 </li>
 </ol>
 </blockquote>
-<ul>
-<li>信息传输流程</li>
-</ul>
-<blockquote>
+<h4 id="信息传输流程"><a href="#信息传输流程" class="headerlink" title="信息传输流程"></a>信息传输流程</h4><blockquote>
 <ol>
 <li>机先将<code>NSS</code>信号拉低&#x3D;&gt; 开始接收数据</li>
 <li><strong>接收端</strong>检测到时钟的边沿信号时，它将立即读取<strong>数据线</strong>上的信号，这样就得到了一位数据</li>
 <li><strong>主机</strong>发送到<strong>从机</strong>时：主机产生相应的时钟信号，然后数据<strong>一位一位</strong>地将从<code>MOSI</code>信号线上进行发送到从机；</li>
 <li><strong>主机</strong>接收<strong>从机</strong>数据：如果从机需要将数据发送回主机，则主机将继续生成预定数量的时钟信号，并且从机会将数据通过<code>MISO</code>信号线发送；</li>
 </ol>
+</blockquote>
+<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
+<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
 </blockquote>
 <h3 id="6-USB2-0"><a href="#6-USB2-0" class="headerlink" title="6. USB2.0"></a>6. USB2.0</h3><ul>
 <li>简介</li>
@@ -5636,7 +5628,44 @@
 <li>过短：用户的一次请求需要多个时间片才能处理完，上下文切换次数增加，系统开销大。</li>
 <li>最佳的时间片量值应能使分时用户得到好的响应时间</li>
 </ul>
-<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><h3 id="其他调度算法"><a href="#其他调度算法" class="headerlink" title="其他调度算法"></a>其他调度算法</h3><h3 id="实时调度"><a href="#实时调度" class="headerlink" title="实时调度"></a>实时调度</h3><h4 id="最早截止时间优先算法（EDF）"><a href="#最早截止时间优先算法（EDF）" class="headerlink" title="最早截止时间优先算法（EDF）"></a>最早截止时间优先算法（EDF）</h4><h4 id="最低松弛度优先LLF算法"><a href="#最低松弛度优先LLF算法" class="headerlink" title="最低松弛度优先LLF算法"></a>最低松弛度优先LLF算法</h4><h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1>]]></content>
+<h3 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h3><h4 id="概念-2"><a href="#概念-2" class="headerlink" title="概念"></a>概念</h4><p>设置多个就绪队列，并为各个队列赋予不同的优先级</p>
+<p>第一个队列的优先级最高，第二个队列次之，其余各队列的优先权逐个降低</p>
+<p>该算法赋予各个队列中进程执行时间片的大小也各不相同，在优先权愈高的队列中，为每个进程所规定的执行时间片就愈小。例如，第二个队列的时间片要比第一个队列的时间片长一倍，……，第i+1个队列的时间片要比第i个队列的时间片长一倍</p>
+<ul>
+<li>一个进程永久分到一个队列，每个队列有自己的调度算法</li>
+<li>前台的就绪队列是交互性作业的进程，采用时间片轮转。</li>
+<li>后台的就绪队列是批处理作业的进程，采用优先权或短作业优先算法。</li>
+<li><strong>调度方式</strong>有两种： 优先调度前台，若前台无可运行进程，才调度后台 分配占用CPU的时间比例，如：前台80%，后台20%</li>
+</ul>
+<h4 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h4><ul>
+<li>终端型作业用户终端型作业用户所提交的作业多属于交互型作业，通常较小，系统只要能使这些作业在第一队列所规定的时间片内完成即可 </li>
+<li>短批处理作业用户若在第1队列中执行一个时间片即可完成，便可获得与终端型作业一样的响应时间如在第一个队列中不能完成，只需在第2、3队列中各执行一个时间片 </li>
+<li>长批处理作业用户长作业将依次在第1，2，3…，n队列中执行，最终按轮转方式运行</li>
+</ul>
+<h3 id="其他调度算法"><a href="#其他调度算法" class="headerlink" title="其他调度算法"></a>其他调度算法</h3><ol>
+<li><strong>保证调度</strong>保证每个进程享用CPU的时间完全一样，即如果系统中共有n个进程，保证每个进程使用 1&#x2F;n  CPU 时间（需要计算CPU获得比率）。</li>
+<li>彩票调度概率调度算法，发布一定数量的彩票给相应的进程，调度器每次随机抽取一张，彩票数量多的进程获得CPU的概率就大。</li>
+<li><strong>用户公平调度</strong>按照每个用户而不是每个进程来公平分配CPU。如果一个用户的进程数量多，则其所拥有的每个进程获得CPU时间将短。</li>
+<li><strong>混合调度算法</strong> (Multiple queue)将优先级分类各类内部采用轮转调度动态调整进程的优先级类别（否则产生饥饿）</li>
+</ol>
+<h3 id="实时调度"><a href="#实时调度" class="headerlink" title="实时调度"></a>实时调度</h3><h4 id="基本条件"><a href="#基本条件" class="headerlink" title="基本条件"></a>基本条件</h4><ol>
+<li>提供必要的调度信息<ul>
+<li>就绪时间</li>
+<li>开始&#x2F;完成截止时间；</li>
+<li>处理时间；</li>
+<li>资源要求；</li>
+<li>优先级；</li>
+</ul>
+</li>
+<li>系统处理能力强</li>
+<li>采用抢占调度方式</li>
+<li>具有快速切换机制</li>
+</ol>
+<h4 id="最早截止时间优先算法（EDF）"><a href="#最早截止时间优先算法（EDF）" class="headerlink" title="最早截止时间优先算法（EDF）"></a>最早截止时间优先算法（EDF）</h4><p>最早截止时间优先算法（EDF）根据任务的截止时间来确定任务的优先级</p>
+<p>总是运行最早结束的作业</p>
+<p>如果一个新到达的进程比正在运行的进程截止期靠前非抢占：非周期实时任务抢占：周期实时任务</p>
+<h4 id="最低松弛度优先LLF算法"><a href="#最低松弛度优先LLF算法" class="headerlink" title="最低松弛度优先LLF算法"></a>最低松弛度优先LLF算法</h4><p>松弛度：若A进程需在200ms时完成，其本身运行需要100ms，当前时刻是10ms，则A的松弛度为：200－100－10＝90松弛度&#x3D;截止时间-要求服务时间-当前时刻主要用于可抢占的调度方式中例：两个周期性实时任务A、B，任务A每20ms执行一次，执行时间是10ms；任务B每50ms执行一次，执行时间是25ms。</p>
+<h1 id="5-存储管理"><a href="#5-存储管理" class="headerlink" title="5. *存储管理"></a>5. *存储管理</h1><h1 id="6-设备管理"><a href="#6-设备管理" class="headerlink" title="6. *设备管理"></a>6. *设备管理</h1><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1>]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>Operating System</tag>
@@ -6197,6 +6226,19 @@
         <tag>mosquitto</tag>
         <tag>GUI</tag>
         <tag>software</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STM32 IIC with 0.96 OLED</title>
+    <url>/2024/05/06/STM32-IIC-with-0-96-OLED/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>STM32</tag>
+        <tag>project</tag>
+        <tag>notes</tag>
+        <tag>IIC</tag>
+        <tag>OLED</tag>
       </tags>
   </entry>
 </search>

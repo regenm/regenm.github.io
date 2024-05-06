@@ -222,50 +222,38 @@
 <p>(5) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
 <p>(6) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
 </blockquote>
-<h4 id="通信原理："><a href="#通信原理：" class="headerlink" title="通信原理："></a>通信原理：</h4><pre><code>1. 使用两个总线：
-
-    1. SDA（数据线）
-    2. SCL（时钟线）
-
-2. 主设备与从设备
-
-    1. 主设备（控制时钟线`SCL`）
-    2. 从设备（地址检测）
-
-3. 高阻态
-
-​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。
-
-4. IIIC 设备地址：出厂已经设计好
-
-5. 协议
-
-    1. **开始信号**：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。
-    2. **结束信号**：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。
-    3. **应答信号**：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。
-</code></pre>
-<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
+<h4 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h4><ol>
+<li><p>使用两个总线：</p>
+<ol>
+<li>SDA（数据线）</li>
+<li>SCL（时钟线）</li>
+</ol>
+</li>
+<li><p>主设备与从设备</p>
+<ol>
+<li>主设备（控制时钟线<code>SCL</code>）</li>
+<li>从设备（地址检测）</li>
+</ol>
+</li>
+<li><p>高阻态</p>
+</li>
+</ol>
+<p>​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。</p>
+<ol start="4">
+<li><p>IIIC 设备地址：出厂已经设计好</p>
+</li>
+<li><p>协议</p>
+<ol>
+<li><strong>开始信号</strong>：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。</li>
+<li><strong>结束信号</strong>：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。</li>
+<li><strong>应答信号</strong>：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
 <p>SPI （同步全双工）协议是由摩托罗拉公司提出的通讯协议(Serial Peripheral Interface)，即串行外围设备接口，是一种高速全双工的通信总线。它被广泛地使用在 ADC、 LCD 等设备与 MCU 间，要求通讯速率较高的场合。</p>
 </blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
-</blockquote>
-<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
-<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
-</blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
+<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><blockquote>
 <ol>
 <li><strong>SPI</strong>是一个同步的数据总线，也就是说它是用<strong>单独的数据线</strong>和<strong>一个单独的时钟信号</strong>来保证<strong>发送端和接收端的完美同步</strong>。</li>
 <li>产生时钟的一侧称为<strong>主机</strong>，另一侧称为<strong>从机</strong>。总是<strong>只有一个主机</strong>（一般来说可以是<strong>微控制器&#x2F;MCU</strong>），但是可以有多个<strong>从机</strong>（后面详细介绍）</li>
@@ -278,16 +266,20 @@
 </li>
 </ol>
 </blockquote>
-<ul>
-<li>信息传输流程</li>
-</ul>
-<blockquote>
+<h4 id="信息传输流程"><a href="#信息传输流程" class="headerlink" title="信息传输流程"></a>信息传输流程</h4><blockquote>
 <ol>
 <li>机先将<code>NSS</code>信号拉低&#x3D;&gt; 开始接收数据</li>
 <li><strong>接收端</strong>检测到时钟的边沿信号时，它将立即读取<strong>数据线</strong>上的信号，这样就得到了一位数据</li>
 <li><strong>主机</strong>发送到<strong>从机</strong>时：主机产生相应的时钟信号，然后数据<strong>一位一位</strong>地将从<code>MOSI</code>信号线上进行发送到从机；</li>
 <li><strong>主机</strong>接收<strong>从机</strong>数据：如果从机需要将数据发送回主机，则主机将继续生成预定数量的时钟信号，并且从机会将数据通过<code>MISO</code>信号线发送；</li>
 </ol>
+</blockquote>
+<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
+<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
 </blockquote>
 <h3 id="6-USB2-0"><a href="#6-USB2-0" class="headerlink" title="6. USB2.0"></a>6. USB2.0</h3><ul>
 <li>简介</li>
