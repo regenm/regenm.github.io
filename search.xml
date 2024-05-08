@@ -6233,7 +6233,103 @@
     <title>STM32 IIC with 0.96 OLED</title>
     <url>/2024/05/06/STM32-IIC-with-0-96-OLED/</url>
     <content><![CDATA[<h1 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>[点击跳转](link to be added)</p>
-<h2 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h2><h3 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h3><h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><h3 id="Tramsmit-Data"><a href="#Tramsmit-Data" class="headerlink" title="Tramsmit Data"></a>Tramsmit Data</h3><h3 id="Stop"><a href="#Stop" class="headerlink" title="Stop"></a>Stop</h3><h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><h1 id="STM32-实现"><a href="#STM32-实现" class="headerlink" title="STM32 实现"></a>STM32 实现</h1><h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h2 id="hal库"><a href="#hal库" class="headerlink" title="hal库"></a>hal库</h2>]]></content>
+<h2 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h2><h3 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h3><h4 id="硬件层"><a href="#硬件层" class="headerlink" title="硬件层"></a>硬件层</h4><p>​	需要接上拉电阻（保证传输稳定性）</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Init</span><span class="params">()</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">1</span>;</span><br><span class="line">  IIC_SDA=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>​	IIC总线的SCL保持高电平，SDA由高电平变为低电平后，延时(&gt;4.7us)，SCL变为低电平。</p>
+<ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li>SCL 高</li>
+<li>SDA 高-&gt;低 + 延时（&gt;4.7us）</li>
+<li>SCL 高-&gt;低</li>
+</ol>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Start</span><span class="params">()</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">1</span>;</span><br><span class="line">  IIC_SDA=<span class="number">1</span>;</span><br><span class="line">  delay_us(<span class="number">5</span>);</span><br><span class="line">  IIC_SDA=<span class="number">0</span>;</span><br><span class="line">  delay_us(<span class="number">5</span>);</span><br><span class="line">  IIC_SCL=<span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="Tramsmit-Data"><a href="#Tramsmit-Data" class="headerlink" title="Tramsmit Data"></a>Tramsmit Data</h3><h4 id="物理层-1"><a href="#物理层-1" class="headerlink" title="物理层"></a>物理层</h4><pre><code> 传输时，SDA的宽度应该大于SCL的宽度，在SCL为高时读取SDA，SCL为低时改变SDA的电平。
+ ==注意：==传输数据过程总不允许SDA变化（否则会被视为开始或停止信号）
+</code></pre>
+<ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li>拉低SCL进行数据传输</li>
+<li>SDA传送高低电平（0或1）</li>
+<li>SCL在高电平时期读取SDA的数据</li>
+<li>响应信号</li>
+</ol>
+<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Transmit</span><span class="params">(u8 data)</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">0</span>;  <span class="comment">// </span></span><br><span class="line">  u8 i=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(data &amp; <span class="number">0x80</span> )&#123; </span><br><span class="line">      IIC_SDA=<span class="number">1</span>;	    <span class="comment">// transmit 1</span></span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">1</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">0</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      IIC_SDA=<span class="number">0</span>;  	   <span class="comment">// tramsmit 0	</span></span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">1</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">0</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    data&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Stop"><a href="#Stop" class="headerlink" title="Stop"></a>Stop</h3><h4 id="物理层-2"><a href="#物理层-2" class="headerlink" title="物理层"></a>物理层</h4><p>​	与Start相反：SCL为高时SDA由低到高</p>
+<ol>
+<li>SCL &#x3D; 1</li>
+<li>SDA &#x3D; 0</li>
+<li>SDA &#x3D; 1 + 延时(&gt;4.7us)</li>
+</ol>
+<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Stop</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  IIC_SCL=<span class="number">0</span>;</span><br><span class="line">  IIC_SDA=<span class="number">0</span>;    </span><br><span class="line">   delay_us(<span class="number">4</span>);</span><br><span class="line">  IIC_SCL=<span class="number">1</span>; </span><br><span class="line">  IIC_SDA=<span class="number">1</span>;    </span><br><span class="line">  delay_us(<span class="number">4</span>);							   	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><h4 id="物理层-3"><a href="#物理层-3" class="headerlink" title="物理层"></a>物理层</h4><p>​	主机SCL拉高，读取从机SDA的电平，为低电平表示产生应答</p>
+<blockquote>
+<ul>
+<li>应答信号为低电平时，规定为有效应答位（ACK，简称应答位），表示接收器已经成功地接收了该字节</li>
+<li>应答信号为高电平时，规定为非应答位（NACK），一般表示接收器接收该字节没有成功</li>
+</ul>
+</blockquote>
+<ol>
+<li>IIC_SCL&#x3D;0</li>
+<li>IIC_SDA&#x3D;0</li>
+<li>IIC_SCL&#x3D;1 读取ACK</li>
+</ol>
+<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">I2C_Ack</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;   <span class="comment">//先拉低SCL，使得SDA数据可以发生改变</span></span><br><span class="line">   IIC_SDA=<span class="number">0</span>;   </span><br><span class="line">   delay_us(<span class="number">2</span>);</span><br><span class="line">   IIC_SCL=<span class="number">1</span>;</span><br><span class="line">   delay_us(<span class="number">5</span>);</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">I2C_NAck</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;   <span class="comment">//先拉低SCL，使得SDA数据可以发生改变</span></span><br><span class="line">   IIC_SDA=<span class="number">1</span>;   <span class="comment">//拉高SDA，不产生应答信号</span></span><br><span class="line">   delay_us(<span class="number">2</span>);</span><br><span class="line">   IIC_SCL=<span class="number">1</span>;</span><br><span class="line">   delay_us(<span class="number">5</span>);</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><p>回答基于GPT</p>
+<h2 id="IIC通信是如何区分ACK和数据的？"><a href="#IIC通信是如何区分ACK和数据的？" class="headerlink" title="IIC通信是如何区分ACK和数据的？"></a>IIC通信是如何区分ACK和数据的？</h2><blockquote>
+<p>在 I2C 通信中，数据传输包括两个方向：主设备向从设备发送数据（写操作），以及从设备向主设备发送数据（读操作）。在这两种情况下，都需要一种方法来区分 ACK（应答）和数据。</p>
+<p>下面是 I2C 中如何区分 ACK 和数据的一般流程：</p>
+<ol>
+<li><strong>写操作</strong>：<ul>
+<li>主设备发送一个字节的数据给从设备。</li>
+<li>每当主设备发送完一个字节后，会释放 SDA 线并将其拉高，等待从设备的应答。</li>
+<li>如果从设备收到数据并且成功接收，它将拉低 SDA 线表示 ACK。</li>
+<li>如果从设备未成功接收数据（或者不接收），它将保持 SDA 线高电平，表示 NACK（非应答）。</li>
+</ul>
+</li>
+<li><strong>读操作</strong>：<ul>
+<li>主设备向从设备发送一个读请求，并在准备接收数据时将 SDA 线拉高，进入接收模式。</li>
+<li>从设备在每个数据字节的发送后，会将 SDA 线拉低或保持低电平来表示 ACK。</li>
+<li>当从设备不再有数据发送时，它将保持 SDA 线高电平，表示 NACK。</li>
+</ul>
+</li>
+</ol>
+<p>在 I2C 中，ACK 和 NACK 的区别是在 SDA 线上的电平状态。ACK 是 SDA 线被拉低一段时间（通常是一个时钟周期），而 NACK 是 SDA 线保持高电平。</p>
+<p>这种应答机制确保了数据的正确传输，并且主设备和从设备之间能够进行有效的通信。</p>
+</blockquote>
+<h2 id="IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧"><a href="#IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧" class="headerlink" title="IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧"></a>IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧</h2><blockquote>
+<p>在 I2C 通信中，确实有一个机制来确保每个字节都被正确传输，以避免误判 ACK 信号。这个机制称为“时钟拉伸”（Clock Stretching）。</p>
+<p>时钟拉伸是从设备（通常是从设备）可以通过拉低时钟线（SCL）来暂停主设备的时钟来延长传输时间的能力。当从设备需要更多时间来处理数据或准备发送应答时，它可以拉低 SCL 线来暂停时钟，从而保证数据传输的准确性。</p>
+<p>在每个数据字节的传输中，主设备发送一个字节，并在每个时钟周期结束时等待从设备的应答。如果从设备需要额外时间，则可以拉伸时钟线。一旦从设备准备好应答，它就释放 SCL 线，使时钟继续，主设备就可以继续传输下一个字节或完成传输。</p>
+<p>这种时钟拉伸的机制确保了主设备和从设备之间的同步，并且确保了每个字节都能够被正确传输。如果从设备在时钟拉伸期间没有完成数据的处理或准备应答，主设备会在检测到应答信号之前继续等待。</p>
+<p>因此，在 I2C 通信中，即使有时钟拉伸，主设备仍能够正确判断 ACK 信号。</p>
+</blockquote>
+<h2 id="IIC如何判断是否已经传输好了一个字节？"><a href="#IIC如何判断是否已经传输好了一个字节？" class="headerlink" title="IIC如何判断是否已经传输好了一个字节？"></a>IIC如何判断是否已经传输好了一个字节？</h2><blockquote>
+<p>在 I2C 中，主设备在发送每个字节时都会产生一个时钟脉冲（CLK）。这些时钟脉冲用于同步数据传输，并且在每个字节的传输之后，主设备需要知道何时应该停止发送数据并等待从设备的应答。</p>
+<p>判断是否已经传输好了一个字节主要依赖于主设备的计数。主设备通常会发送8个时钟脉冲（对应一个字节的8位数据），然后等待从设备的应答。</p>
+<p>具体的步骤如下：</p>
+<ol>
+<li>主设备发送一个字节的数据。</li>
+<li>主设备在发送每个位时都会产生一个时钟脉冲（CLK），总共8个脉冲。</li>
+<li>在发送完最后一个位后，主设备停止产生时钟脉冲，并等待从设备的应答。</li>
+</ol>
+<p>等待应答时，主设备可以通过检测SDA线上的电平来判断是否收到应答信号。如果从设备接收到了数据并正确处理，它会拉低SDA线（ACK），表示接收到数据并准备好接收下一个字节。如果从设备没有接收到数据或者出现错误，它会保持SDA线为高电平（NACK）。</p>
+<p>通过这种方式，主设备可以判断是否已经传输好了一个字节，并且根据从设备的应答来进行相应的操作。</p>
+</blockquote>
+<h1 id="STM32-实现"><a href="#STM32-实现" class="headerlink" title="STM32 实现"></a>STM32 实现</h1><h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h2 id="hal库"><a href="#hal库" class="headerlink" title="hal库"></a>hal库</h2>]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>STM32</tag>
