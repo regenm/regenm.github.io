@@ -6227,6 +6227,7 @@
         <tag>mosquitto</tag>
         <tag>GUI</tag>
         <tag>software</tag>
+        <tag>项目</tag>
       </tags>
   </entry>
   <entry>
@@ -6337,6 +6338,48 @@
         <tag>notes</tag>
         <tag>IIC</tag>
         <tag>OLED</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STM32_Menu_frameV1.0</title>
+    <url>/2024/05/09/STM32-Menu-frameV1-0/</url>
+    <content><![CDATA[<p>Record project  <strong>STM32_Menu_frame</strong></p>
+<p>[STM32_Menu_frame](to be added)</p>
+<h1 id="Requirement-Analysis"><a href="#Requirement-Analysis" class="headerlink" title="Requirement Analysis"></a>Requirement Analysis</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><ol>
+<li>实现单级菜单</li>
+<li>按键选择</li>
+<li>SPI或IIC的oled屏显示</li>
+</ol>
+<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><p>based on Version 1</p>
+<ol>
+<li>多级菜单</li>
+<li>UI美化</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>STM32</tag>
+        <tag>project</tag>
+        <tag>notes</tag>
+        <tag>IIC</tag>
+        <tag>OLED</tag>
+        <tag>spi</tag>
+        <tag>UI</tag>
+        <tag>stdlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>大创项目《自动化农业无人机》记录</title>
+    <url>/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>mqtt</tag>
+        <tag>esp8266</tag>
+        <tag>物联网</tag>
+        <tag>大创</tag>
+        <tag>项目</tag>
+        <tag>无人机</tag>
+        <tag>esp32</tag>
       </tags>
   </entry>
 </search>
