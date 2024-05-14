@@ -6392,4 +6392,78 @@
         <tag>编程规范</tag>
       </tags>
   </entry>
+  <entry>
+    <title>0.96OLED玩法</title>
+    <url>/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/</url>
+    <content><![CDATA[<p>基于0.96寸OLED，主控ssd1306</p>
+<h1 id="显示原理"><a href="#显示原理" class="headerlink" title="显示原理"></a>显示原理</h1><p>基于数据手册</p>
+<h2 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h2><p>每个像素点独立控制，通过写入现存的二进制数据进行每个像素的熄灭和点亮</p>
+<ul>
+<li><p>像素</p>
+<p>  <strong>128*64</strong></p>
+</li>
+</ul>
+<h2 id="名词定义"><a href="#名词定义" class="headerlink" title="名词定义"></a>名词定义</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 0.96 OLED</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 模拟图</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>SEG</li>
+</ul>
+<p>相当于一列：一列<strong>64</strong>个像素</p>
+<ul>
+<li>COLOMN</li>
+</ul>
+<p>相当于一行：一行<strong>128</strong>个像素</p>
+<ul>
+<li>COMMON</li>
+</ul>
+<p>相当于一行：一行<strong>128</strong>个像素</p>
+<ul>
+<li>PAGE</li>
+</ul>
+<p>相当于8行：<strong>128*8</strong>个像素</p>
+<h2 id="显示方式（ssd1306）"><a href="#显示方式（ssd1306）" class="headerlink" title="显示方式（ssd1306）"></a>显示方式（ssd1306）</h2><blockquote>
+<p>There are 3 different memory addressing mode in SSD1306: page addressing mode, horizontal addressing mode and vertical addressing mode. </p>
+</blockquote>
+<h3 id="1-page-addressing-mode-页地址模式"><a href="#1-page-addressing-mode-页地址模式" class="headerlink" title="1. page addressing mode(页地址模式)"></a>1. page addressing mode(页地址模式)</h3><blockquote>
+<p>Page addressing mode (A[1:0]&#x3D;10xb) </p>
+<p>In page addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
+<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is not changed.&#x3D;&#x3D; </p>
+<p>Users have to set the new page and column addresses in order to access the next page RAM content The sequence of movement of the PAGE and column address point for page addressing mode is shown in Figure 10-1. </p>
+</blockquote>
+<p><img src="/images/OLED/1.png" alt="page addressing mode"></p>
+<p>一次写<code>1Byte(8位)</code>，与<code>horizontal addressing mode</code>的区别只是<strong>PAGE是否自动改变</strong></p>
+<h3 id="2-horizontal-addressing-mode-水平地址模式"><a href="#2-horizontal-addressing-mode-水平地址模式" class="headerlink" title="2.horizontal addressing mode(水平地址模式)"></a>2.horizontal addressing mode(水平地址模式)</h3><blockquote>
+<p>Horizontal addressing mode (A[1:0]&#x3D;00b)</p>
+<p>In horizontal addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
+<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is increased by 1&#x3D;&#x3D;. </p>
+<p>The sequence of movement of the page and column address point for horizontal addressing mode is shown in Figure 10-3. </p>
+<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address (Dotted line in Figure 10-3.) </p>
+</blockquote>
+<p><img src="/images/OLED/2.png" alt="horizontal addressing mode"></p>
+<p>一次写<code>1Byte(8位)</code></p>
+<h3 id="3-vertical-addressing-mode-垂直地址模式"><a href="#3-vertical-addressing-mode-垂直地址模式" class="headerlink" title="3.vertical addressing mode(垂直地址模式)"></a>3.vertical addressing mode(垂直地址模式)</h3><blockquote>
+<p>Vertical addressing mode: (A[1:0]&#x3D;01b)</p>
+<p>In vertical addressing mode, after the display RAM is read&#x2F;written, the page address pointer is increased automatically by 1. </p>
+<p>If the page address pointer reaches the page end address, &#x3D;&#x3D;the page address pointer is reset&#x3D;&#x3D; to page start address and column address pointer is increased by 1. </p>
+<p>The sequence of movement of the page and column address point for vertical addressing mode is shown in Figure 10-4. </p>
+<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address </p>
+<p>(Dotted line in Figure 10-4.) </p>
+</blockquote>
+<p><img src="/images/OLED/3.png" alt="vertical addressing mode"></p>
+<h3 id="总结-我的理解"><a href="#总结-我的理解" class="headerlink" title="总结(我的理解)"></a>总结(我的理解)</h3><p>三种模式都是一次竖着写<code>1Byte(8位)</code>，</p>
+<ol>
+<li>第一种向右延伸，到终点不回来</li>
+<li>第二种向右延伸，到终点自动回来并+1到下一行</li>
+<li>第三种向下延伸，到终点COL自动+1到下一列</li>
+</ol>
+<h1 id="玩法"><a href="#玩法" class="headerlink" title="玩法"></a>玩法</h1><h2 id="1-显示基本ASCII"><a href="#1-显示基本ASCII" class="headerlink" title="1.显示基本ASCII"></a>1.显示基本ASCII</h2><h2 id="2-显示中文"><a href="#2-显示中文" class="headerlink" title="2.显示中文"></a>2.显示中文</h2><h2 id="3-显示BMP位图"><a href="#3-显示BMP位图" class="headerlink" title="3.显示BMP位图"></a>3.显示BMP位图</h2>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>STM32</tag>
+        <tag>project</tag>
+        <tag>notes</tag>
+        <tag>IIC</tag>
+        <tag>OLED</tag>
+      </tags>
+  </entry>
 </search>

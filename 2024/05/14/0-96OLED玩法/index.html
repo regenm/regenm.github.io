@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>Tag: OLED |  Regen</title>
+      <title>0.96OLED玩法 |  Regen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/touxiang.png" />
@@ -54,116 +54,272 @@
       
     <main class="content on">
       <section class="outer">
+  <article
+  id="post-0-96OLED玩法"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  0.96OLED玩法
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" class="article-date">
+  <time datetime="2024-05-14T11:08:23.000Z" itemprop="datePublished">2024-05-14</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">612</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">3 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
   
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
-                <img src="/images/touxiang.png" width="300" alt="Bilibili">
-            </a>
-        </li>
-    
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>基于0.96寸OLED，主控ssd1306</p>
+<h1 id="显示原理"><a href="#显示原理" class="headerlink" title="显示原理"></a>显示原理</h1><p>基于数据手册</p>
+<h2 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h2><p>每个像素点独立控制，通过写入现存的二进制数据进行每个像素的熄灭和点亮</p>
+<ul>
+<li><p>像素</p>
+<p>  <strong>128*64</strong></p>
+</li>
 </ul>
-  
-  
-  <article class="articles">
-    
-    
-    <h1 class="page-type-title">#&nbspOLED</h1>
-    
-    
-  
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
-    </div>
-    <div class="archives">
-      
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" class="archive-article-date">
-  <time datetime="2024-05-14T11:08:23.000Z" itemprop="datePublished">05/14</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/"
-    >0.96OLED玩法</a> 
-</h2>
- 
+<h2 id="名词定义"><a href="#名词定义" class="headerlink" title="名词定义"></a>名词定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0.96 OLED</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 模拟图</span></span><br></pre></td></tr></table></figure>
 
-    </header>
-    
-    
+<ul>
+<li>SEG</li>
+</ul>
+<p>相当于一列：一列<strong>64</strong>个像素</p>
+<ul>
+<li>COLOMN</li>
+</ul>
+<p>相当于一行：一行<strong>128</strong>个像素</p>
+<ul>
+<li>COMMON</li>
+</ul>
+<p>相当于一行：一行<strong>128</strong>个像素</p>
+<ul>
+<li>PAGE</li>
+</ul>
+<p>相当于8行：<strong>128*8</strong>个像素</p>
+<h2 id="显示方式（ssd1306）"><a href="#显示方式（ssd1306）" class="headerlink" title="显示方式（ssd1306）"></a>显示方式（ssd1306）</h2><blockquote>
+<p>There are 3 different memory addressing mode in SSD1306: page addressing mode, horizontal addressing mode and vertical addressing mode. </p>
+</blockquote>
+<h3 id="1-page-addressing-mode-页地址模式"><a href="#1-page-addressing-mode-页地址模式" class="headerlink" title="1. page addressing mode(页地址模式)"></a>1. page addressing mode(页地址模式)</h3><blockquote>
+<p>Page addressing mode (A[1:0]&#x3D;10xb) </p>
+<p>In page addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
+<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is not changed.&#x3D;&#x3D; </p>
+<p>Users have to set the new page and column addresses in order to access the next page RAM content The sequence of movement of the PAGE and column address point for page addressing mode is shown in Figure 10-1. </p>
+</blockquote>
+<p><img src="/images/OLED/1.png" alt="page addressing mode"></p>
+<p>一次写<code>1Byte(8位)</code>，与<code>horizontal addressing mode</code>的区别只是<strong>PAGE是否自动改变</strong></p>
+<h3 id="2-horizontal-addressing-mode-水平地址模式"><a href="#2-horizontal-addressing-mode-水平地址模式" class="headerlink" title="2.horizontal addressing mode(水平地址模式)"></a>2.horizontal addressing mode(水平地址模式)</h3><blockquote>
+<p>Horizontal addressing mode (A[1:0]&#x3D;00b)</p>
+<p>In horizontal addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
+<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is increased by 1&#x3D;&#x3D;. </p>
+<p>The sequence of movement of the page and column address point for horizontal addressing mode is shown in Figure 10-3. </p>
+<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address (Dotted line in Figure 10-3.) </p>
+</blockquote>
+<p><img src="/images/OLED/2.png" alt="horizontal addressing mode"></p>
+<p>一次写<code>1Byte(8位)</code></p>
+<h3 id="3-vertical-addressing-mode-垂直地址模式"><a href="#3-vertical-addressing-mode-垂直地址模式" class="headerlink" title="3.vertical addressing mode(垂直地址模式)"></a>3.vertical addressing mode(垂直地址模式)</h3><blockquote>
+<p>Vertical addressing mode: (A[1:0]&#x3D;01b)</p>
+<p>In vertical addressing mode, after the display RAM is read&#x2F;written, the page address pointer is increased automatically by 1. </p>
+<p>If the page address pointer reaches the page end address, &#x3D;&#x3D;the page address pointer is reset&#x3D;&#x3D; to page start address and column address pointer is increased by 1. </p>
+<p>The sequence of movement of the page and column address point for vertical addressing mode is shown in Figure 10-4. </p>
+<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address </p>
+<p>(Dotted line in Figure 10-4.) </p>
+</blockquote>
+<p><img src="/images/OLED/3.png" alt="vertical addressing mode"></p>
+<h3 id="总结-我的理解"><a href="#总结-我的理解" class="headerlink" title="总结(我的理解)"></a>总结(我的理解)</h3><p>三种模式都是一次竖着写<code>1Byte(8位)</code>，</p>
+<ol>
+<li>第一种向右延伸，到终点不回来</li>
+<li>第二种向右延伸，到终点自动回来并+1到下一行</li>
+<li>第三种向下延伸，到终点COL自动+1到下一列</li>
+</ol>
+<h1 id="玩法"><a href="#玩法" class="headerlink" title="玩法"></a>玩法</h1><h2 id="1-显示基本ASCII"><a href="#1-显示基本ASCII" class="headerlink" title="1.显示基本ASCII"></a>1.显示基本ASCII</h2><h2 id="2-显示中文"><a href="#2-显示中文" class="headerlink" title="2.显示中文"></a>2.显示中文</h2><h2 id="3-显示BMP位图"><a href="#3-显示BMP位图" class="headerlink" title="3.显示BMP位图"></a>3.显示BMP位图</h2> 
+      <!-- reward -->
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/09/STM32-Menu-frameV1-0/" class="archive-article-date">
-  <time datetime="2024-05-09T13:39:07.000Z" itemprop="datePublished">05/09</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/05/09/STM32-Menu-frameV1-0/"
-    >STM32_Menu_frameV1.0</a> 
-</h2>
- 
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spi/" rel="tag">spi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stdlib/" rel="tag">stdlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/06/STM32-IIC-with-0-96-OLED/" class="archive-article-date">
-  <time datetime="2024-05-06T09:24:10.000Z" itemprop="datePublished">05/06</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/05/06/STM32-IIC-with-0-96-OLED/"
-    >STM32 IIC with 0.96 OLED</a> 
-</h2>
- 
-
-    </header>
-    
-    
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    
-  </div>
-</article>
-      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
       
     </div>
-  </div>
-  
-  
+    
 
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+    
+      <a href="/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">C/C++大型项目编程注意事项</div>
+      </a>
+    
+  </nav>
+
+   
+<!-- valine评论 -->
+<div id="vcomments-box">
+  <div id="vcomments"></div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="https://cdn.staticfile.org/valine/1.4.16/Valine.min.js"></script>
+<script>
+  new Valine({
+    el: "#vcomments",
+    app_id: "lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz",
+    app_key: "d4GM27zPASnZH5cgTbXF2JJY",
+    path: window.location.pathname,
+    avatar: "monsterid",
+    placeholder: "给我的文章加点评论吧~",
+    recordIP: true,
+  });
+  const infoEle = document.querySelector("#vcomments .info");
+  if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+    infoEle.childNodes.forEach(function (item) {
+      item.parentNode.removeChild(item);
+    });
+  }
+</script>
+<style>
+  #vcomments-box {
+    padding: 5px 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    #vcomments-box {
+      padding: 5px 0px;
+    }
+  }
+
+  #vcomments-box #vcomments {
+    background-color: #fff;
+  }
+
+  .v .vlist .vcard .vh {
+    padding-right: 20px;
+  }
+
+  .v .vlist .vcard {
+    padding-left: 10px;
+  }
+</style>
+
+ 
+   
   
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
 </section>
       <footer class="footer">
   <div class="outer">
@@ -304,6 +460,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
