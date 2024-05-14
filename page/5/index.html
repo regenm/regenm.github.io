@@ -166,6 +166,338 @@
     
     
     <article
+  id="post-Linux-system-Notes"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/28/Linux-system-Notes/"
+    >Linux Notes</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/28/Linux-system-Notes/" class="article-date">
+  <time datetime="2023-11-28T11:49:18.000Z" itemprop="datePublished">2023-11-28</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>A note about linux basic operation.</p>
+<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="*系统操作"></a>*系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><h2 id="提供父进程信息"><a href="#提供父进程信息" class="headerlink" title="提供父进程信息"></a>提供父进程信息</h2></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps lax</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-终止某项进程"><a href="#2-终止某项进程" class="headerlink" title="2. 终止某项进程"></a>2. 终止某项进程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill pid</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号</li>
+</ul>
+<ol start="3">
+<li><h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
+</ol>
+<ul>
+<li>查看内存占用和 swap 分区占用</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h2 id="查看CPU使用情况"><a href="#查看CPU使用情况" class="headerlink" title="查看CPU使用情况"></a>查看CPU使用情况</h2></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
+
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="*文件操作"></a>*文件操作</h1><h2 id="vim-编辑器"><a href="#vim-编辑器" class="headerlink" title="vim 编辑器"></a>vim 编辑器</h2><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
+<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><ul>
+<li>空白键 (space)：代表向下翻一页；</li>
+<li>Enter     ：代表向下翻『一行』；</li>
+<li>&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
+<li>:f      ：立刻显示出档名以及目前显示的行数；</li>
+<li>q       ：代表立刻离开 more ，不再显示该文件内容。</li>
+<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
+</ul>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><ul>
+<li>空白键  ：向下翻动一页；</li>
+<li>[pagedown]：向下翻动一页；</li>
+<li>[pageup] ：向上翻动一页；</li>
+<li><strong>&#x2F;字串   ：向下搜寻『字串』的功能；</strong></li>
+<li><strong>?字串   ：向上搜寻『字串』的功能；</strong></li>
+<li><strong>n     ：重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
+<li><strong>N     ：反向的重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
+<li>q     ：离开 less 这个程序；</li>
+</ul>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>​	读取前几行文本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n 20 text.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<p>​	</p>
+<p>​	解压缩： </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunzip linuxFiles.tar.gz</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>2.文件打包tar</p>
+<p>​	1.打包文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf linuxFiles.tar home/</span><br></pre></td></tr></table></figure>
+
+<p>​	2.解开打包后的文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<pre><code>3. tar -w 选项，每次将选择单个文件抽出或加入
+</code></pre>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvwf linuxFiles.tar //</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>tar -z 自动调用gzip进行解压缩</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">tar -cvf linuxFiles.tar home/</span><br><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
+
+<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="*用户权限"></a>*用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
+<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="*开放端口"></a>*开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080  <span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
+<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
+</blockquote>
+<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
+<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
+<li>例如开放ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使之生效</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查是否生效</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
+<li>限制ssh端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
+
+<p>或者（ufw）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
+
+<h1 id="任务调度"><a href="#任务调度" class="headerlink" title="*任务调度"></a>*任务调度</h1><h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><blockquote>
+<ul>
+<li><strong>任务调度</strong>：系统在某个时间定时执行特定的命令或程序</li>
+<li>任务调度的分类：<ul>
+<li><strong>系统任务调度</strong>：系统某些工作需要周而复始、重复地执行，如病毒扫描、日志清理</li>
+<li><strong>用户任务调度</strong>：个别用户可能需要定时执行的工作，如备份数据库、用户数据备份</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><ul>
+<li>基本介绍</li>
+</ul>
+<blockquote>
+<ol>
+<li>系统任务调度配置文件目录：<code>/etc/crontab</code></li>
+<li>用户的crontab文件放置于<code>/var/spool/cron</code></li>
+</ol>
+</blockquote>
+<ul>
+<li>指令介绍</li>
+</ul>
+<ol>
+<li>参数选项</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-e</td>
+<td>e是edit的意识，即编辑&#x2F;设置&#x2F;修改当前用户的定时任务</td>
+</tr>
+<tr>
+<td align="center">-l</td>
+<td>l是list的意思，即列出&#x2F;查看&#x2F;打印&#x2F;输出当前用户的全部定时任务</td>
+</tr>
+<tr>
+<td align="center">-r</td>
+<td>r是remove的意思，即移除&#x2F;删除当前用户的全部定时任务</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>语法介绍</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of job definition:</span></span><br><span class="line"><span class="comment"># .---------------- minute (0 - 59)</span></span><br><span class="line"><span class="comment"># |  .------------- hour (0 - 23)</span></span><br><span class="line"><span class="comment"># |  |  .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="comment"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="comment"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="comment"># |  |  |  |  |</span></span><br><span class="line"><span class="comment"># *  *  *  *  * user-name command to be executed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开头<code>*  *  *  *  * </code>参数的解释</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>案例</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*</td>
+<td>1 2 * * *</td>
+<td>每天的2:01执行一次</td>
+</tr>
+<tr>
+<td>*&#x2F;n</td>
+<td>*&#x2F;5 * * * *</td>
+<td>每隔5分钟执行一次</td>
+</tr>
+<tr>
+<td>,(和)</td>
+<td>1 2 3,4 * *</td>
+<td>每月的3,4日2:01执行一次</td>
+</tr>
+<tr>
+<td>-（范围）</td>
+<td>1 2 3-6 * *</td>
+<td>每月的3-6日2:01执行一次</td>
+</tr>
+</tbody></table>
+<ul>
+<li>使用方法</li>
+</ul>
+<ol>
+<li>进入编辑模式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>编写任务</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Edit this file to introduce tasks to be run by cron.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Each task to run has to be defined through a single line</span></span><br><span class="line"><span class="comment"># indicating with different fields when the task will be run</span></span><br><span class="line"><span class="comment"># and what command to run for the task</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># To define the time you can provide concrete values for</span></span><br><span class="line"><span class="comment"># minute (m), hour (h), day of month (dom), month (mon),</span></span><br><span class="line"><span class="comment"># and day of week (dow) or use &#x27;*&#x27; in these fields (for &#x27;any&#x27;).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Notice that tasks will be started based on the cron&#x27;s system</span></span><br><span class="line"><span class="comment"># daemon&#x27;s notion of time and timezones.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Output of the crontab jobs (including errors) is sent through</span></span><br><span class="line"><span class="comment"># email to the user the crontab file belongs to (unless redirected).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For example, you can run a backup of all your user accounts</span></span><br><span class="line"><span class="comment"># at 5 a.m every week with:</span></span><br><span class="line"><span class="comment"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For more information see the manual pages of crontab(5) and cron(8)</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑后保存退出即可</li>
+</ul>
+<h1 id="磁盘，分区，挂载操作"><a href="#磁盘，分区，挂载操作" class="headerlink" title="* 磁盘，分区，挂载操作"></a>* 磁盘，分区，挂载操作</h1><h2 id="linux硬盘文件系统介绍"><a href="#linux硬盘文件系统介绍" class="headerlink" title="linux硬盘文件系统介绍:"></a>linux硬盘文件系统介绍:</h2><h3 id="ext4"><a href="#ext4" class="headerlink" title="ext4:"></a>ext4:</h3><ul>
+<li><p>与ext3相比，ext4文件系统可支持最高1EB的分区与最大16TB的文件</p>
+</li>
+<li><p>拓展了子目录的数量，理论上可以无限个</p>
+</li>
+<li><p>与ext3相比，引入了块组的概念，提高了存取的效率</p>
+</li>
+<li><p>预留空间、延迟获取空间，减少了文件的分散</p>
+</li>
+<li><p>更详细的inodes，提高了系统的性能</p>
+</li>
+<li><p>可以实现快速的文件系统检查</p>
+</li>
+<li><p>提供日志校验和，提高了可靠性</p>
+</li>
+</ul>
+<h2 id="查看设备挂载情况"><a href="#查看设备挂载情况" class="headerlink" title="查看设备挂载情况"></a>查看设备挂载情况</h2><ol>
+<li>所有设备</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>查看硬盘使用情况</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="新硬盘的分区以及挂载流程"><a href="#新硬盘的分区以及挂载流程" class="headerlink" title="新硬盘的分区以及挂载流程"></a>新硬盘的分区以及挂载流程</h2><ol>
+<li>查看是否已经存在设备</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
+
+<p>或者查看<code>/dev/</code>下是否存在设备</p>
+<ol start="2">
+<li>使用fdisk进行分区设置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br></pre></td></tr></table></figure>
+
+<p>​	3.分区格式化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs  -t  ext4     /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>挂载硬盘到文件夹</li>
+</ol>
+<p>使用<code>mount</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /newDisk</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>取消挂载</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unmount /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/system/" rel="tag">system</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-GIT-basic"
   class="article article-type-post"
   itemscope
@@ -2192,70 +2524,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-C语言二级指针"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/"
-    >C语言二级指针</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" class="article-date">
-  <time datetime="2023-10-01T15:55:07.000Z" itemprop="datePublished">2023-10-01</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="C语言的二级指针"><a href="#C语言的二级指针" class="headerlink" title="C语言的二级指针"></a>C语言的二级指针</h1><h2 id="1-起因。"><a href="#1-起因。" class="headerlink" title="1.起因。"></a>1.起因。</h2><p>​	想记录一下这个我难受的知识点。</p>
-<p>​	事情的起因：在自己用C实现简单的数据结构 “ 栈 ”的时候，写了这样一段代码。在后面遍历的时候不论怎么修改都会出现<strong>segmentation fault。</strong> 后来通过debug才发现S的地址从来都没有发生变化。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    S= tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>​	以上代码错误的原因是：<strong>S作为一个指针参数被传入函数</strong> 虽然函数的末尾覆盖了S的地址，<strong>但这只是在这个函数开辟的栈空间里，结束后S的地址并不会变化</strong></p>
-<h2 id="2-解决。"><a href="#2-解决。" class="headerlink" title="2.解决。"></a>2.解决。</h2><h3 id="1-方法一："><a href="#1-方法一：" class="headerlink" title="1.方法一："></a>1.方法一：</h3><p>​			在主函数覆盖S的地址</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">myStack <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-方法二："><a href="#2-方法二：" class="headerlink" title="2.方法二："></a>2.方法二：</h3><p>​			传入二级指针，即可修改二级指针的值（一级指针的地址）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">pushStack</span><span class="params">(<span class="type">int</span> dataToStore,myStack *S)</span>&#123;</span><br><span class="line">    ptrToNode tmp=(myStack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> MyStack));</span><br><span class="line">    *S-&gt;nextNode=tmp;</span><br><span class="line">    tmp-&gt;lastNode=*S;</span><br><span class="line">    tmp-&gt;data=dataToStore;</span><br><span class="line">    tmp-&gt;nextNode=<span class="literal">NULL</span>;</span><br><span class="line">    *S= tmp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="3-收尾。"><a href="#3-收尾。" class="headerlink" title="3.收尾。"></a>3.收尾。</h2><p>​		简单的实现栈这个数据结构其实不一定需要用到二级指针，只是我把问题复杂化了。带来了意向不到的难题。不过至少让我将二级指针收入囊中。不得不感叹一下任重道远啊。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/" rel="tag">c</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>

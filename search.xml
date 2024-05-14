@@ -6382,4 +6382,14 @@
         <tag>esp32</tag>
       </tags>
   </entry>
+  <entry>
+    <title>C/C++大型项目编程注意事项</title>
+    <url>/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</url>
+    <content><![CDATA[<h1 id="C-C-大型项目编程规范"><a href="#C-C-大型项目编程规范" class="headerlink" title="C&#x2F;C++大型项目编程规范"></a>C&#x2F;C++大型项目编程规范</h1>]]></content>
+      <tags>
+        <tag>项目</tag>
+        <tag>C/C++</tag>
+        <tag>编程规范</tag>
+      </tags>
+  </entry>
 </search>
