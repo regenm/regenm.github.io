@@ -166,6 +166,316 @@
     
     
     <article
+  id="post-PCB-Technique"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/03/PCB-Technique/"
+    >PCB Technique</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/03/PCB-Technique/" class="article-date">
+  <time datetime="2024-03-03T15:57:40.000Z" itemprop="datePublished">2024-03-03</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1><p>​	本篇课程基于B站UP主<code>Expert电子实验室</code>的教学视频，同时加上本人思考与总结汇总而成。</p>
+<p>​	<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1At421h7Ui/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=c33a47a3f08b3b6b6c1614d37f34903f">零基础入门PCB设计保姆级教学</a></p>
+<p>​	<a target="_blank" rel="noopener" href="https://space.bilibili.com/346179450">Expert电子实验室</a></p>
+<p>​	本部分笔记为扫盲篇（基础篇）</p>
+<h6 id="进阶需实战，纸上得来终觉浅，绝知此事要躬行。"><a href="#进阶需实战，纸上得来终觉浅，绝知此事要躬行。" class="headerlink" title="&#x3D;&#x3D;进阶需实战，纸上得来终觉浅，绝知此事要躬行。&#x3D;&#x3D;"></a>&#x3D;&#x3D;进阶需实战，纸上得来终觉浅，绝知此事要躬行。&#x3D;&#x3D;</h6><p>​	</p>
+<h2 id="1-电路设计"><a href="#1-电路设计" class="headerlink" title="1. 电路设计"></a>1. 电路设计</h2><h2 id="1-1-原理图四要素"><a href="#1-1-原理图四要素" class="headerlink" title="1.1 原理图四要素"></a>1.1 原理图四要素</h2><ol>
+<li>元件符号</li>
+<li>连接线</li>
+<li>结点</li>
+<li>注释</li>
+</ol>
+<h2 id="1-2-基本原件介绍"><a href="#1-2-基本原件介绍" class="headerlink" title="1.2 基本原件介绍"></a>1.2 基本原件介绍</h2><h3 id="1-2-1-电阻"><a href="#1-2-1-电阻" class="headerlink" title="1.2.1 电阻"></a>1.2.1 电阻</h3><ul>
+<li>对于贴片电阻的读数</li>
+</ul>
+<blockquote>
+<p>1）3位读数：前2位为有效数字，第3位表示10的n次幂(也可以理解为0的个数)。精度为±5%</p>
+<p>2）4位读数：前3位为有效数字，第4位表示10的n次幂(也可以理解为0的个数)。读法和3位的原理一样，精度为±1%</p>
+<p>3）阻值小于10的读数：通常在两个数之间插入一个字母R，用字母R来代替小数点</p>
+</blockquote>
+<h3 id="1-2-2-电容"><a href="#1-2-2-电容" class="headerlink" title="1.2.2 电容"></a>1.2.2 电容</h3><ul>
+<li><p>主要功能：<strong>储能和滤波</strong></p>
+</li>
+<li><p>单位计算</p>
+</li>
+</ul>
+<p><code>1uF=1000nF；1nF=1000pF</code></p>
+<ul>
+<li>分类</li>
+</ul>
+<p><img src="/images/PCB/capacityType.png" alt="Type"></p>
+<ul>
+<li>读数以及含义</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%872.png" alt="Type—1"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%873.png" alt="Type—2"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%874.png" alt="Type—3"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%875.png" alt="Type—4"></p>
+<h3 id="1-2-3-电感"><a href="#1-2-3-电感" class="headerlink" title="1.2.3 电感"></a>1.2.3 电感</h3><p>​	Inductor，</p>
+<ul>
+<li>单位换算</li>
+</ul>
+<p><code>1H=1000mH；1mH=1000uH；</code></p>
+<ul>
+<li>主要功能：滤波，扼流，谐振，储能</li>
+<li>分类</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%876.png" alt="Inductors"></p>
+<ul>
+<li>读数以及含义</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%877.png" alt="Type—1"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%878.png" alt="Type—2"></p>
+<h3 id="1-2-4-二极管"><a href="#1-2-4-二极管" class="headerlink" title="1.2.4 二极管"></a>1.2.4 二极管</h3><ul>
+<li>主要功能</li>
+</ul>
+<p>​	实现对交流电整流、对调制信号检波、限幅和钳位以及对电源电压的稳压等多种功能 。</p>
+<ul>
+<li>分类以及简单介绍</li>
+</ul>
+<p><img src="/images/PCB/%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%86%E7%B1%BB.png" alt="二极管种类以及介绍"></p>
+<ul>
+<li>外观（判断正负极）</li>
+</ul>
+<ol>
+<li>对于直插式发光二极管：长脚为正极，内部小块为正极。</li>
+<li>一般封装类型的正负极判断</li>
+</ol>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%879.png" alt="二极管一般封装类型的正负极判断"></p>
+<h3 id="1-2-5-三极管"><a href="#1-2-5-三极管" class="headerlink" title="1.2.5 三极管"></a>1.2.5 三极管</h3><ul>
+<li><p>分类：NPN（控地） 和 PNP（控电源）</p>
+</li>
+<li><p>工作状态</p>
+</li>
+</ul>
+<ol>
+<li>截止状态</li>
+</ol>
+<p>​	发射结反偏，集电结反偏。即：I ce&#x3D;0</p>
+<ol start="2">
+<li>放大状态</li>
+</ol>
+<p>​	发射结正偏，集电结反偏。</p>
+<ol start="3">
+<li><p>饱和状态</p>
+<p> 发射结正偏，集电结正偏</p>
+</li>
+</ol>
+<ul>
+<li>常见封装</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%8710.png" alt="三极管一般封装类型"></p>
+<h3 id="1-2-6-场效应管（尚未掌握）"><a href="#1-2-6-场效应管（尚未掌握）" class="headerlink" title="1.2.6 场效应管（尚未掌握）"></a>1.2.6 场效应管（尚未掌握）</h3><ul>
+<li>基本介绍</li>
+</ul>
+<p>​	场效应晶体管（Field Effect Transistor缩写(FET)）简称场效应管。它是利用控制输入回路的电场效应来控制输出回路电流的一种半导体器件。</p>
+<ul>
+<li>特点</li>
+</ul>
+<p>​	具有输入电阻高、噪声小、功耗低、动态范围大、易于集成、没有二次击穿现象、安全工作区域宽等优点。</p>
+<ul>
+<li>类型</li>
+</ul>
+<ol>
+<li><p>结型场效应管（junction FET—JFET) </p>
+</li>
+<li><p>金属 - 氧化物半导体场效应管（metal-oxide semiconductor FET，简称MOS-FET）</p>
+</li>
+</ol>
+<ul>
+<li>与三极管的对比</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%8711.png" alt="compare"></p>
+<ul>
+<li>封装</li>
+</ul>
+<p><img src="/images/PCB/MOS.png" alt="MOS"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%8712.png" alt="MOS"></p>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%8713.png" alt="MOS"></p>
+<h3 id="1-2-7-芯片-IC"><a href="#1-2-7-芯片-IC" class="headerlink" title="1.2.7 芯片 &#x2F; IC"></a>1.2.7 芯片 &#x2F; IC</h3><p><strong>&#x3D;&#x3D;具体见数据手册&#x3D;&#x3D;</strong></p>
+<h2 id="1-3-数据手册"><a href="#1-3-数据手册" class="headerlink" title="1.3 数据手册"></a>1.3 数据手册</h2><p>自己找去</p>
+<h2 id="1-4-电路原理图设计"><a href="#1-4-电路原理图设计" class="headerlink" title="1.4 电路原理图设计"></a>1.4 电路原理图设计</h2><h3 id="网络标签"><a href="#网络标签" class="headerlink" title="网络标签"></a>网络标签</h3><p>​	网络标签 (Net Label)：网络标号表示一个电器连接点，具有相同网络标号的器件表明是电气连接在一起。</p>
+<h3 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h3><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><blockquote>
+<ol>
+<li><p>分模块、分图页</p>
+</li>
+<li><p>标注重要参数</p>
+</li>
+<li><p>标注元件特殊&#x2F;重要功能</p>
+</li>
+<li><p>标注注意事项</p>
+</li>
+<li><p>合理的网络标签</p>
+</li>
+<li><p>标注LOGO&#x2F;版本号</p>
+</li>
+</ol>
+</blockquote>
+<p>&#x3D;&#x3D;<strong>成功的原理图设计&#x3D;合理的元件选型+正确的电路设计</strong>&#x3D;&#x3D;</p>
+<h2 id="2-PCB设计"><a href="#2-PCB设计" class="headerlink" title="2. PCB设计"></a>2. PCB设计</h2><ul>
+<li>PCB基本介绍</li>
+</ul>
+<blockquote>
+<p>​	PCB板就是印制电路板，又称印刷电路板，是电子元器件电气连接的提供者。PCB根据其基板材料的不同而不同，高频微波板、金属基板，铝基板、铁基板、铜基板、双面板及多层板PCB是英文Printed Circuit Board的缩写，中文名称为印制电路板，又称印刷电路板、印刷线路板，是重要的电子部件。</p>
+</blockquote>
+<h3 id="2-1PCB-组成"><a href="#2-1PCB-组成" class="headerlink" title="2.1PCB 组成"></a>2.1PCB 组成</h3><h4 id="2-1-1铺铜"><a href="#2-1-1铺铜" class="headerlink" title="2.1.1铺铜"></a>2.1.1铺铜</h4><ul>
+<li>作用</li>
+</ul>
+<p>​	将PCB上闲置的空间作为基准面，然后用固体铜填充，这些铜区又称为灌铜。覆铜的意义在于，减小地线阻抗，提高抗干扰能力；降低压降，提高电源效率；与地线相连，还可以减小环路面积。</p>
+<ul>
+<li>方式</li>
+</ul>
+<ol>
+<li>大面积覆铜</li>
+</ol>
+<p>​	大面积覆铜，具备了加大电流和屏蔽双重作用，但是大面积覆铜，如果过波峰焊时，板子就可能会翘起来，甚至会起泡。因此大面积覆铜，一般也会开几个槽，缓解铜箔起泡。低频电路、有大电流的电路等常用大面积的覆铜。</p>
+<ol>
+<li>网格覆铜</li>
+</ol>
+<p>从散热的角度说，它降低了铜的受热面，又起到了一定的电磁屏蔽的作用。因此，高频电路对抗干扰要求高的多用网格覆铜</p>
+<h4 id="2-1-2过孔"><a href="#2-1-2过孔" class="headerlink" title="2.1.2过孔"></a>2.1.2过孔</h4><ul>
+<li>功能</li>
+</ul>
+<ol>
+<li>电气连接：过孔用于将不同层面的电路连接起来，使得电路板能够在不同的层次上进行有效的信号和电源传输。</li>
+<li>器件固定或定位：过孔还可以用作固定电子部件的位置，如电阻、电容等，确保其在电路板上的正确布局。</li>
+</ol>
+<ul>
+<li>分类</li>
+</ul>
+<ol>
+<li>通孔：从PCB的上层钻到底层的机械钻孔。</li>
+<li>盲孔：从 PCB 的上层或底层到内层钻孔和电镀的孔。</li>
+<li>埋孔：指位于印刷线路板内层的连接孔，它不会延伸到线路板的表面。</li>
+</ol>
+<h4 id="2-1-3焊盘"><a href="#2-1-3焊盘" class="headerlink" title="2.1.3焊盘"></a>2.1.3焊盘</h4><ul>
+<li>定义：</li>
+</ul>
+<p>​	元件通过PCB上的引线孔，用焊锡焊接固定在PCB上，印制导线把焊盘连接起来，实现元件在电路中的电气连接。引线孔及周围的铜箔称为焊盘。</p>
+<h4 id="2-1-4丝印"><a href="#2-1-4丝印" class="headerlink" title="2.1.4丝印"></a>2.1.4丝印</h4><p>​	PCB丝印是指在电子线路板（Printed Circuit Board）上印刷的信息，如文字、标志、图形等。这些丝印具有重要的功能，它们可以帮助标识电子元件的位置、数值、型号等信息，以及元件的方向和正确的安装方式。</p>
+<h4 id="2-1-5阻焊"><a href="#2-1-5阻焊" class="headerlink" title="2.1.5阻焊"></a>2.1.5阻焊</h4><p>​	在铜层上面覆盖油墨层，油墨层覆盖住铜层上面不需要焊接的线路，防止PCB上的线路和其他的金属、焊锡或者其它的导电物体接触导致短路，起到绝缘及保护铜层作用，选择性露出焊接需要的铜PAD、IC等。</p>
+<h3 id="2-2PCB结构"><a href="#2-2PCB结构" class="headerlink" title="2.2PCB结构"></a>2.2PCB结构</h3><ul>
+<li>叠层结构</li>
+</ul>
+<p>​	PCB材料的组成主要有PP半固态片和Core芯板两部分组成，这就构成了所看到的绿色、红色或者黑色等的板子，再加上敷铜线路层，器件，就构成了电路板。</p>
+<ul>
+<li>&#x3D;&#x3D;叠层结构布局有讲究&#x3D;&#x3D;，但是一般的二层板双面都可能需要走底地线和电源。</li>
+<li>图示</li>
+</ul>
+<p><img src="/images/PCB/%E5%9B%BE%E7%89%8714.png" alt="PCB叠层结构"></p>
+<h3 id="2-3-PCB设计流程"><a href="#2-3-PCB设计流程" class="headerlink" title="2.3  PCB设计流程"></a>2.3  PCB设计流程</h3><p><img src="/images/PCB/%E5%9B%BE%E7%89%8715.png" alt="设计流程"></p>
+<h3 id="2-end-1PCB设计规则总览（持续添加ing）"><a href="#2-end-1PCB设计规则总览（持续添加ing）" class="headerlink" title="2.end.1PCB设计规则总览（持续添加ing）"></a>2.end.1PCB设计规则总览（持续添加ing）</h3><ol>
+<li><p><strong>电路布局与元器件安放</strong>：</p>
+<ul>
+<li><p>电路布局是否合理？</p>
+</li>
+<li><p>元器件之间的距离是否足够？</p>
+</li>
+<li><p>元器件的放置方向是否一致？</p>
+</li>
+<li><p>是否合理安排了元器件的布局顺序？</p>
+</li>
+<li><p>是否考虑了元器件的封装形式和选择？</p>
+</li>
+<li><p>是否进行了元器件的标注和排列规范？</p>
+</li>
+<li><p>是否考虑了元器件的插拔次数和位置？</p>
+</li>
+<li><p>是否进行了元器件的冗余设计？</p>
+</li>
+<li><p>是否考虑了元器件的热管理和散热问题？</p>
+</li>
+<li><p>是否进行了元器件的可靠性分析？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>信号管理：</strong></p>
+<ul>
+<li><p>是否进行了信号完整性分析？</p>
+</li>
+<li><p>是否进行了阻抗匹配设计？</p>
+</li>
+<li><p>是否进行了信号线路的优化布局和仿真验证？</p>
+</li>
+<li><p>是否考虑了电磁干扰和射频干扰的影响？</p>
+</li>
+<li><p>是否进行了电磁场模拟分析？</p>
+</li>
+<li><p>是否考虑了信号传输速率和衰减问题？</p>
+</li>
+<li><p>是否考虑了线路的阻抗匹配和信号损耗？</p>
+</li>
+<li><p>是否进行了线路的阻抗匹配设计？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>电源管理：</strong></p>
+<ul>
+<li><p>是否考虑了电源的滤波和稳压？</p>
+</li>
+<li><p>是否进行了电源线和地线的分离和规范设计？</p>
+</li>
+<li><p>是否考虑了过压和过流保护的设计？</p>
+</li>
+<li><p>是否进行了电源供应的充足性和稳定性分析？</p>
+</li>
+</ul>
+</li>
+<li><p><strong>PCB工艺与环境因素：</strong></p>
+<ul>
+<li><p>是否考虑了PCB的工作环境和应用场景？</p>
+</li>
+<li><p>是否进行了PCB的加工工艺和成本分析？</p>
+</li>
+<li><p>是否进行了PCB布线的仿真验证？</p>
+</li>
+<li><p>是否考虑了PCB的防火、加固、环境友好等设计因素？</p>
+</li>
+</ul>
+</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PCB/" rel="tag">PCB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" rel="tag">电路设计</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-Operating-System-Principles"
   class="article article-type-post"
   itemscope
@@ -2592,71 +2902,13 @@
 </article>
 
     
-    <article
-  id="post-电子电路基础"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/"
-    >电子电路基础</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-02-06T10:55:20.000Z" itemprop="datePublished">2024-02-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h1><ul>
-<li><p>VCC：C&#x3D;circuit，表示电路的意思，即接入电路的电压。</p>
-</li>
-<li><p>VDD：D&#x3D;device，表示器件的意思，即器件内部的工作电压。</p>
-</li>
-<li><p>VSS：S&#x3D;series，表示公共连接的意思，通常指电路公共接地端电压。</p>
-</li>
-</ul>
-<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" rel="tag">模拟电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E7%94%B5/" rel="tag">模电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" rel="tag">电子元件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" rel="tag">电路基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
   </nav>
   
 </section>
