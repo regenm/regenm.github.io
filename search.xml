@@ -6468,7 +6468,7 @@
   </entry>
   <entry>
     <title>搭建私有云（基于docker NextCloud）</title>
-    <url>/2024/05/13/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/</url>
+    <url>/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/</url>
     <content><![CDATA[<h1 id="搭建私有云（基于docker-NextCloud）"><a href="#搭建私有云（基于docker-NextCloud）" class="headerlink" title="搭建私有云（基于docker NextCloud）"></a>搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>老早以前就很想有一朵属于自己的云了，机缘巧合发现了NextCloud这个项目，使用Docker一键部署简直不要太简单！    项目地址：<a href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>开源不易，ga</p>
 ]]></content>
       <tags>
