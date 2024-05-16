@@ -178,7 +178,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/"
-    >搭建私有云（基于docker NextCloud）</a> 
+    >一行代码搭建私有云（基于docker NextCloud）</a> 
 </h2>
  
 
@@ -193,7 +193,13 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="搭建私有云（基于docker-NextCloud）"><a href="#搭建私有云（基于docker-NextCloud）" class="headerlink" title="搭建私有云（基于docker NextCloud）"></a>搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>老早以前就很想有一朵属于自己的云了，机缘巧合发现了NextCloud这个项目，使用Docker一键部署简直不要太简单！    项目地址：<a target="_blank" rel="noopener" href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>开源不易，ga</p>
+  <h1 id="一行代码搭建私有云（基于docker-NextCloud）"><a href="#一行代码搭建私有云（基于docker-NextCloud）" class="headerlink" title="一行代码搭建私有云（基于docker NextCloud）"></a>一行代码搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​	老早以前就很想有一朵属于自己的云了，机缘巧合发现了<strong>NextCloud</strong>	这个项目，使用Docker一键部署简直不要太简单！    </p>
+<p>​	项目地址：	<a target="_blank" rel="noopener" href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>​	搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>​	开源不易，感谢大佬</p>
+<h2 id="一行代码"><a href="#一行代码" class="headerlink" title="一行代码"></a>一行代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 nextcloud</span><br></pre></td></tr></table></figure>
+
+<p>然后直接<code>IP:8080</code>就访问到了</p>
+<p><img src="/images/nc/1.png" alt="1"></p>
+<p><img src="/images/nc/2.png" alt="2"></p>
  
       <!-- reward -->
       
@@ -355,7 +361,25 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="C-C-大型项目编程规范"><a href="#C-C-大型项目编程规范" class="headerlink" title="C&#x2F;C++大型项目编程规范"></a>C&#x2F;C++大型项目编程规范</h1> 
+  <p><strong>C&#x2F;C++大型项目编程规范</strong></p>
+<p>​	最近在参与（或者说使用）某些项目的代码时，感觉其代码之简洁精炼，语言习惯之规范，外观之整洁，可读性之高令人赏心悦目。</p>
+<p>​	在其基础上进行增删改查后总是觉得自己的代码不够优雅，就好像一篇书法作品中掺杂几行我写的字。</p>
+<p>​	于是打算学习C&#x2F;C++项目编程规范，不求优雅，只求规整可读，结构合理。</p>
+<p>​	基于华为C语言编程规范 <a target="_blank" rel="noopener" href="https://ilcc.gitbooks.io/wiki/content/StyleGuide/Huawei-C/index.html">在线wiki文档</a></p>
+<h1 id="代码总体原则"><a href="#代码总体原则" class="headerlink" title="代码总体原则"></a>代码总体原则</h1><h2 id="1、清晰第一"><a href="#1、清晰第一" class="headerlink" title="1、清晰第一"></a>1、清晰第一</h2><p><strong>代码的可阅读性高于性能，只有确定性能是瓶颈时，才应该主动优化</strong></p>
+<ul>
+<li><p>优秀的代码可以自我解释（以我的水平可能做到比较难）</p>
+</li>
+<li><p>常写注释，并且注释写的清晰</p>
+</li>
+</ul>
+<h2 id="2、简洁为美"><a href="#2、简洁为美" class="headerlink" title="2、简洁为美"></a>2、简洁为美</h2><p><strong>写的代码越多，意味着出错的地方越多，也就意味着代码的可靠性越低。</strong></p>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><p><strong>不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上不合理的设计。</strong></p>
+<p>如果引入了新的依赖，则一旦被依赖的头文件修改，任何直接和间接依赖其头文件的代码都会被重新编译。</p>
+<h2 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h2><ul>
+<li>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</li>
+</ul>
+ 
       <!-- reward -->
       
     </div>

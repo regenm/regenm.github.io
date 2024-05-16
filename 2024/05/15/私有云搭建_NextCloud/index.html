@@ -13,7 +13,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>搭建私有云（基于docker NextCloud） |  Regen</title>
+      <title>一行代码搭建私有云（基于docker NextCloud） |  Regen</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/images/touxiang.png" />
@@ -66,7 +66,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  搭建私有云（基于docker NextCloud）
+  一行代码搭建私有云（基于docker NextCloud）
 </h1>
  
 
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">96</span>
+            <span class="post-count">125</span>
         </span>
     </span>
 
@@ -106,7 +106,13 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="搭建私有云（基于docker-NextCloud）"><a href="#搭建私有云（基于docker-NextCloud）" class="headerlink" title="搭建私有云（基于docker NextCloud）"></a>搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>老早以前就很想有一朵属于自己的云了，机缘巧合发现了NextCloud这个项目，使用Docker一键部署简直不要太简单！    项目地址：<a target="_blank" rel="noopener" href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>开源不易，ga</p>
+  <h1 id="一行代码搭建私有云（基于docker-NextCloud）"><a href="#一行代码搭建私有云（基于docker-NextCloud）" class="headerlink" title="一行代码搭建私有云（基于docker NextCloud）"></a>一行代码搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​	老早以前就很想有一朵属于自己的云了，机缘巧合发现了<strong>NextCloud</strong>	这个项目，使用Docker一键部署简直不要太简单！    </p>
+<p>​	项目地址：	<a target="_blank" rel="noopener" href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>​	搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>​	开源不易，感谢大佬</p>
+<h2 id="一行代码"><a href="#一行代码" class="headerlink" title="一行代码"></a>一行代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 nextcloud</span><br></pre></td></tr></table></figure>
+
+<p>然后直接<code>IP:8080</code>就访问到了</p>
+<p><img src="/images/nc/1.png" alt="1"></p>
+<p><img src="/images/nc/2.png" alt="2"></p>
  
       <!-- reward -->
       
