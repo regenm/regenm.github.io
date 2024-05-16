@@ -374,12 +374,77 @@
 </li>
 </ul>
 <h2 id="2、简洁为美"><a href="#2、简洁为美" class="headerlink" title="2、简洁为美"></a>2、简洁为美</h2><p><strong>写的代码越多，意味着出错的地方越多，也就意味着代码的可靠性越低。</strong></p>
+<h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><blockquote>
+<p>原则：编程时必须坚持的指导思想。</p>
+<p>规则：编程时强制必须遵守的约定。</p>
+<p>建议：编程时必须加以考虑的约定。</p>
+<p>说明：对此原则&#x2F;规则&#x2F;建议进行必要的解释。</p>
+<p>示例：对此原则&#x2F;规则&#x2F;建议从正、反两个方面给出例子。</p>
+<p>延伸阅读材料：建议进一步阅读的参考材料。</p>
+</blockquote>
 <h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><p><strong>不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上不合理的设计。</strong></p>
 <p>如果引入了新的依赖，则一旦被依赖的头文件修改，任何直接和间接依赖其头文件的代码都会被重新编译。</p>
-<h2 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h2><ul>
-<li>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</li>
+<h2 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h2><p>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</p>
+<ul>
+<li>内部使用的函数（相当于类的私有方法）声明不应放在头文件中</li>
+<li>内部使用的宏、枚举、结构定义不应放入头文件中。</li>
+<li>变量定义不应放在头文件中，应放在.c文件中。</li>
 </ul>
- 
+<p>否则多次依赖会重复定义</p>
+<ul>
+<li>变量的声明尽量不要放在头文件中，亦即尽量不要使用全局变量作为接口。变量是模块或单元的内部实现细节，不应通过在头文件中声明的方式直接暴露给外部，应通过函数接口的方式进行对外暴露。即使必须使用全局变量，也只应当在.c中定义全局变量，在.h中仅声明变量为全局的。</li>
+</ul>
+<h2 id="原则1-2-头文件应当职责单一。"><a href="#原则1-2-头文件应当职责单一。" class="headerlink" title="原则1.2 头文件应当职责单一。"></a>原则1.2 头文件应当职责单一。</h2><h2 id="原则1-3-头文件应向稳定的方向包含。"><a href="#原则1-3-头文件应向稳定的方向包含。" class="headerlink" title="原则1.3 头文件应向稳定的方向包含。"></a>原则1.3 头文件应向稳定的方向包含。</h2><p>说明：头文件的包含关系是一种依赖，一般来说，应当让不稳定的模块依赖稳定的模块，从而当不稳定的模块发生变化时，不会影响（编译）稳定的模块。</p>
+<h2 id="规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。"><a href="#规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。" class="headerlink" title="规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。"></a>规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。</h2><p>说明：如果一个.c文件不需要对外公布任何接口，则其就不应当存在，除非它是程序的入口，如main函数所在的文件。</p>
+<h2 id="规则1-2-禁止头文件循环依赖"><a href="#规则1-2-禁止头文件循环依赖" class="headerlink" title="规则1.2 禁止头文件循环依赖"></a>规则1.2 禁止头文件循环依赖</h2><p>​	任何一个头文件的改变都会使得循环中的所有头文件重新编译</p>
+<h2 id="规则1-3-c-h文件禁止包含用不到的头文件。"><a href="#规则1-3-c-h文件禁止包含用不到的头文件。" class="headerlink" title="规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。"></a>规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。</h2><h2 id="规则1-4-头文件应当自包含。"><a href="#规则1-4-头文件应当自包含。" class="headerlink" title="规则1.4 头文件应当自包含。"></a>规则1.4 头文件应当自包含。</h2><blockquote>
+<p>“头文件应当自包含”是指头文件应该包含自身所需的所有内容，而不依赖于其他头文件。这样的头文件通常被称为”自包含头文件”。下面解释一下这个概念的意义：</p>
+<ol>
+<li><strong>独立性和可移植性</strong>：自包含头文件使得头文件本身更加独立，不依赖于其他头文件。这样做有助于提高代码的可移植性，因为当你在其他项目或环境中使用这个头文件时，不需要担心它依赖的其他头文件是否可用。</li>
+<li><strong>简化依赖关系</strong>：自包含头文件可以简化代码的依赖关系。如果一个头文件依赖于另一个头文件，而后者又依赖于其他头文件，这会形成复杂的依赖链。通过自包含头文件，可以减少这种依赖链，提高代码的可维护性。</li>
+<li><strong>避免重复包含</strong>：自包含头文件通常会包含预处理器指令来避免重复包含。这样可以确保在包含相同头文件多次时不会导致重复定义的问题。</li>
+<li><strong>提高效率</strong>：自包含头文件可以减少预处理器的工作量，因为它们不需要解析其他头文件的内容。这有助于提高编译效率。</li>
+</ol>
+</blockquote>
+<h2 id="规则1-5-总是编写内部-include保护符（-define-保护）。"><a href="#规则1-5-总是编写内部-include保护符（-define-保护）。" class="headerlink" title="规则1.5 总是编写内部#include保护符（#define 保护）。"></a>规则1.5 总是编写内部#include保护符（#define 保护）。</h2><p>所有头文件都应当使用#define 防止头文件被多重包含，命名格式为<code>FILENAME_H</code>，为了保证唯一性，更好的命名是<code>PROJECTNAME_PATH_FILENAME_H</code>。</p>
+<h2 id="规则1-6-禁止在头文件中定义变量。"><a href="#规则1-6-禁止在头文件中定义变量。" class="headerlink" title="规则1.6 禁止在头文件中定义变量。"></a>规则1.6 禁止在头文件中定义变量。</h2><p>说明：在头文件中定义变量，将会由于头文件被其他.c文件包含而导致变量重复定义。</p>
+<h2 id="规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。"><a href="#规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。" class="headerlink" title="规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。"></a>规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。</h2><h2 id="规则1-8-禁止在extern-“C”中包含头文件。"><a href="#规则1-8-禁止在extern-“C”中包含头文件。" class="headerlink" title="规则1.8 禁止在extern “C”中包含头文件。"></a>规则1.8 禁止在extern “C”中包含头文件。</h2><blockquote>
+<p><code>extern &quot;C&quot;</code> 是用于在 C++ 中声明 C 函数时的一种语法。它告诉编译器这些函数按照 C 语言的约定进行链接。</p>
+<p>在 C++ 中，函数名的重载、名称修饰（name mangling）等特性会导致函数名在编译后被修改，这样的函数名在链接时可能无法与 C 代码中的函数名匹配。为了解决这个问题，C++ 提供了 <code>extern &quot;C&quot;</code>，它告诉编译器不要对函数名进行 C++ 风格的名称修饰，而是按照 C 语言的规则进行链接。</p>
+</blockquote>
+<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数设计的精髓：编写整洁函数，同时把代码有效组织起来。</p>
+<p>整洁函数要求：代码简单直接、不隐藏设计者的意图、用干净利落的抽象和直截了当的控制语句将函数有机组织起来。</p>
+<p>代码的有效组织包括：逻辑层组织和物理层组织两个方面。逻辑层，主要是把不同功能的函数通过某种联系组织起来，主要关注模块间的接口，也就是模块的架构。物理层，无论使用什么样的目录或者名字空间等，需要把函数用一种标准的方法组织起来。例如：设计良好的目录结构、函数名字、文件组织等，这样可以方便查找。</p>
+<h2 id="原则2-1-一个函数仅完成一件功能。"><a href="#原则2-1-一个函数仅完成一件功能。" class="headerlink" title="原则2.1 一个函数仅完成一件功能。"></a>原则2.1 一个函数仅完成一件功能。</h2><p>说明：一个函数实现多个功能给开发、使用、维护都带来很大的困难。</p>
+<p>将没有关联或者关联很弱的语句放到同一函数中，会导致函数职责不明确，难以理解，难以测试和改动。</p>
+<h2 id="原则2-2-重复代码应该尽可能提炼成函数"><a href="#原则2-2-重复代码应该尽可能提炼成函数" class="headerlink" title="原则2.2 重复代码应该尽可能提炼成函数"></a>原则2.2 重复代码应该尽可能提炼成函数</h2><p>说明：重复代码提炼成函数可以带来维护成本的降低。</p>
+<p>可以使用代码重复度检查工具</p>
+<h2 id="规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。"><a href="#规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。" class="headerlink" title="规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。"></a>规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。</h2><h2 id="规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"><a href="#规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。" class="headerlink" title="规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"></a>规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。</h2><h3 id="减少代码嵌套层数的方法"><a href="#减少代码嵌套层数的方法" class="headerlink" title="减少代码嵌套层数的方法"></a>减少代码嵌套层数的方法</h3><blockquote>
+<ol>
+<li><strong>使用函数抽象</strong>：将嵌套的代码块提取成独立的函数，以便于重用和理解。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   if condition:</span><br><span class="line">       process_items(items)</span><br><span class="line">   else:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;def process_items(items):</span><br><span class="line">   for item in items:</span><br><span class="line">       if item_valid(item):</span><br><span class="line">           process_item(item)</span><br><span class="line">       else:</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   # 处理item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_invalid_item(item):</span><br><span class="line">   # 处理无效item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>使用早期返回</strong>：在函数内部，尽早返回结果，而不是在多层嵌套中处理。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   if not condition:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line">       return</span><br><span class="line">   </span><br><span class="line">   for item in items:</span><br><span class="line">       if not item_valid(item):</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line">           continue</span><br><span class="line">       process_item(item)</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   # 处理item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_invalid_item(item):</span><br><span class="line">   # 处理无效item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>使用异常处理</strong>：适用于处理特殊情况或错误的情况。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   try:</span><br><span class="line">       if condition:</span><br><span class="line">           for item in items:</span><br><span class="line">               process_item(item)</span><br><span class="line">       else:</span><br><span class="line">           raise ConditionNotMetError</span><br><span class="line">   except ConditionNotMetError:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   if not item_valid(item):</span><br><span class="line">       raise InvalidItemError</span><br><span class="line">   # 处理item</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;class ConditionNotMetError(Exception):</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;class InvalidItemError(Exception):</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+
+<p>这些方法可以帮助将嵌套降低到合理的水平，使代码更易读、更易维护。</p>
+</blockquote>
+<h2 id="规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"><a href="#规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。" class="headerlink" title="规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"></a>规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。</h2><p>可能用不到。</p>
+<p>说明：可重入函数是指可能被多个任务并发调用的函数。在多任务操作系统中，函数具有可重入性是多个任务可以共用此函数的必要条件。共享变量指的全局变量和static变量。</p>
+<h2 id="规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。"><a href="#规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。" class="headerlink" title="规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。"></a>规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。</h2><h2 id="规则2-5-对函数的错误返回码要全面处理。"><a href="#规则2-5-对函数的错误返回码要全面处理。" class="headerlink" title="规则2.5 对函数的错误返回码要全面处理。"></a>规则2.5 对函数的错误返回码要全面处理。</h2><h2 id="规则2-6-设计高扇入，合理扇出（小于7）的函数。"><a href="#规则2-6-设计高扇入，合理扇出（小于7）的函数。" class="headerlink" title="规则2.6 设计高扇入，合理扇出（小于7）的函数。"></a>规则2.6 设计高扇入，合理扇出（小于7）的函数。</h2><p>说明：扇出是指一个函数直接调用（控制）其它函数的数目，而扇入是指有多少上级函数调用它。</p>
+<p>建议2.1 函数不变参数使用const。</p>
+<p>建议2.2 函数应避免使用全局变量、静态局部变量和I&#x2F;O操作，不可避免的地方应集中使用。</p>
+<p>建议2.4 函数的参数个数不超过5个。</p>
+<p>建议2.5 除打印类函数外，不要使用可变长参函数。</p>
+<h1 id="3-标识符命名与定义"><a href="#3-标识符命名与定义" class="headerlink" title="3 标识符命名与定义"></a>3 标识符命名与定义</h1> 
       <!-- reward -->
       
     </div>
