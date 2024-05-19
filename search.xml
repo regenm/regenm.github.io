@@ -3600,6 +3600,7 @@
         <tag>笔记</tag>
         <tag>linux</tag>
         <tag>system</tag>
+        <tag>command</tag>
       </tags>
   </entry>
   <entry>
@@ -6706,6 +6707,42 @@
         <tag>云盘</tag>
         <tag>跨平台</tag>
         <tag>github项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux about e-mail</title>
+    <url>/2024/05/19/Linux-about-e-mail/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>email</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MPU6050 basic (based on arduino)</title>
+    <url>/2024/05/19/MPU6050-basic-based-on-arduino/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>project</tag>
+        <tag>notes</tag>
+        <tag>IIC</tag>
+        <tag>arduino</tag>
+        <tag>MPU6050</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STM32 SPI with 0.96 OLED</title>
+    <url>/2024/05/19/STM32-SPI-with-0-96-OLED/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>STM32</tag>
+        <tag>project</tag>
+        <tag>notes</tag>
+        <tag>OLED</tag>
+        <tag>SPI</tag>
       </tags>
   </entry>
 </search>

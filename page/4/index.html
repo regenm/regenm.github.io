@@ -166,6 +166,340 @@
     
     
     <article
+  id="post-docker容器技术"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"
+    >docker容器技术</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="article-date">
+  <time datetime="2024-02-08T19:04:22.000Z" itemprop="datePublished">2024-02-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>constructing</p>
+<p>toBeContinued</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，<strong>程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系</strong>。</p>
+<p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
+</blockquote>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>​	docker 中的几个概念：</p>
+<blockquote>
+<ol>
+<li>dockerfile</li>
+<li>image</li>
+<li>container</li>
+</ol>
+</blockquote>
+<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
+<h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
+<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
+<p>​	</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-MQTT服务器搭建（mosquitto）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/"
+    >MQTT服务器搭建（mosquitto）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" class="article-date">
+  <time datetime="2024-02-08T16:58:48.000Z" itemprop="datePublished">2024-02-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
+<li>简介</li>
+</ol>
+<blockquote>
+<p>MQTT也称为”消息代理”（Broker）。</p>
+<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
+</blockquote>
+<ol start="2">
+<li>原理</li>
+</ol>
+<blockquote>
+<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
+<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
+<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
+<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
+</blockquote>
+<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改配置文件</li>
+</ul>
+<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
+<blockquote>
+<h1 id="Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config"><a href="#Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config" class="headerlink" title="Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config."></a>Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config.</h1></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行配置文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加用户</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>关闭防火墙！！！</strong></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
+<li>用户登录订阅，发布</li>
+</ul>
+<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
+<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>订阅</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
+<li><strong>脚本制作</strong></li>
+</ul>
+<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
+<ol>
+<li>发布</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>订阅，同理</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>​	赋权</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
+
+<p>​	运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>连接esp32或8266</li>
+</ul>
+<p>看看这个esp8266连接mqtt服务器的项目吗？(<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-esp8266连接服务器（基于mosquitto的mqtt-server）"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/"
+    >esp8266连接服务器（基于mosquitto的mqtt server）</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/" class="article-date">
+  <time datetime="2024-02-08T16:39:50.000Z" itemprop="datePublished">2024-02-09</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <ul>
+<li><p>Time：2024-02-09 00:39:50</p>
+</li>
+<li><p>还挺兴奋的，这个项目算是我自己搭建云服务器的最后一步。</p>
+</li>
+</ul>
+<h1 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h1><p>​	起因是想要自己搭建云服务器，同时还想要利用手上已经有的esp8266开发板实现对该服务器的远程控制（开关机）。</p>
+<p>​	本来打算整一个备用电源给服务器供电，奈何这台服务器是普通PC，即使配置已经很低（与现代PC比较为拉胯，但是比大多数出售的服务器例如某云2核4g更加）但功耗的保守估计已经超过70w。</p>
+<p>​	于是便打算使用远程开关降低平均功耗。同时进行物联网方面知识的扫盲与学习。</p>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h2><p>​	首先，在已经搭建好的mqtt服务器上创建了用户<code>user</code>和密码<code>passwd</code>，同时处于安全性考虑禁止匿名访问。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">配置mqtt服务器的过程</a>)</p>
+<p>​	创建好测试主题（topic）<code>test</code>后进行测试。多平台测试收发message没问题。</p>
+<h2 id="2-中期打BOSS"><a href="#2-中期打BOSS" class="headerlink" title="2.中期打BOSS"></a>2.中期打BOSS</h2><p>​	接下来就是攻克esp8266这边的问题了。</p>
+<ul>
+<li>问题一：esp8266开发环境</li>
+</ul>
+<p>​	由于这块esp8266开发板是我在高中时期玩的，那时候的电脑早已坏掉，这台电脑的arduinoIDE 还未配置esp8266的环境。</p>
+<p>​	本来打算使用platformIO但是太慢了，在下载框架以及支持的时候解决了ide的问题。。。</p>
+<blockquote>
+<p>需要配置：</p>
+<ul>
+<li>添加支持esp8266开发板</li>
+</ul>
+<p>方法一：ide设置里的 Additional boards manager URLs添加<code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code></p>
+<p>方法二：手动添加：下载esp8266_package_installer直接离线下载</p>
+<ul>
+<li>增加库：<ul>
+<li><code>&lt;PubSubClient.h&gt;</code></li>
+<li><code>ESP8266WiFi.h</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>问题二：esp8266连接不成功</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br></pre></td></tr></table></figure>
+
+<p>​		其实主要是平台的问题，8266，以及PubSubClient.h库中的案例程序和大多数网上教程都是使用的别人的mqtt服务器，他们往往不需要提供账号密码等等。例如</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Basic MQTT example</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> This sketch demonstrates the basic capabilities of the library.</span></span><br><span class="line"><span class="comment"> It connects to an MQTT server then:</span></span><br><span class="line"><span class="comment">  - publishes &quot;hello world&quot; to the topic &quot;outTopic&quot;</span></span><br><span class="line"><span class="comment">  - subscribes to the topic &quot;inTopic&quot;, printing out any messages</span></span><br><span class="line"><span class="comment">    it receives. NB - it assumes the received payloads are strings not binary</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> It will reconnect to the server if the connection is lost using a blocking</span></span><br><span class="line"><span class="comment"> reconnect function. See the &#x27;mqtt_reconnect_nonblocking&#x27; example for how to</span></span><br><span class="line"><span class="comment"> achieve the same result without blocking the main loop.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;SPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ethernet.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Update these with values suitable for your network.</span></span><br><span class="line">byte mac[]    = &#123;  <span class="number">0xDE</span>, <span class="number">0xED</span>, <span class="number">0xBA</span>, <span class="number">0xFE</span>, <span class="number">0xFE</span>, <span class="number">0xED</span> &#125;;</span><br><span class="line"><span class="function">IPAddress <span class="title">ip</span><span class="params">(<span class="number">172</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="function">IPAddress <span class="title">server</span><span class="params">(<span class="number">172</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">callback</span><span class="params">(<span class="type">char</span>* topic, byte* payload, <span class="type">unsigned</span> <span class="type">int</span> length)</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;Message arrived [&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">print</span>(topic);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;] &quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;length;i++) &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>((<span class="type">char</span>)payload[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EthernetClient ethClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">client</span><span class="params">(ethClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">reconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Loop until we&#x27;re reconnected</span></span><br><span class="line">  <span class="keyword">while</span> (!client.<span class="built_in">connected</span>()) &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;Attempting MQTT connection...&quot;</span>);</span><br><span class="line">    <span class="comment">// Attempt to connect</span></span><br><span class="line">      <span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">    <span class="keyword">if</span> (client.<span class="built_in">connect</span>(<span class="string">&quot;arduinoClient&quot;</span>)) &#123;</span><br><span class="line">      <span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot;connected&quot;</span>);</span><br><span class="line">      <span class="comment">// Once connected, publish an announcement...</span></span><br><span class="line">      client.<span class="built_in">publish</span>(<span class="string">&quot;outTopic&quot;</span>,<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">      <span class="comment">// ... and resubscribe</span></span><br><span class="line">      client.<span class="built_in">subscribe</span>(<span class="string">&quot;inTopic&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Serial.<span class="built_in">print</span>(<span class="string">&quot;failed, rc=&quot;</span>);</span><br><span class="line">      Serial.<span class="built_in">print</span>(client.<span class="built_in">state</span>());</span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot; try again in 5 seconds&quot;</span>);</span><br><span class="line">      <span class="comment">// Wait 5 seconds before retrying</span></span><br><span class="line">      <span class="built_in">delay</span>(<span class="number">5000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">57600</span>);</span><br><span class="line"></span><br><span class="line">  client.<span class="built_in">setServer</span>(server, <span class="number">1883</span>);</span><br><span class="line">  client.<span class="built_in">setCallback</span>(callback);</span><br><span class="line"></span><br><span class="line">  Ethernet.<span class="built_in">begin</span>(mac, ip);</span><br><span class="line">  <span class="comment">// Allow the hardware to sort itself out</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1500</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!client.<span class="built_in">connected</span>()) &#123;</span><br><span class="line">    <span class="built_in">reconnect</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  client.<span class="built_in">loop</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​	以及太极创客的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************************</span></span><br><span class="line"><span class="comment">项目名称/Project          : 零基础入门学用物联网</span></span><br><span class="line"><span class="comment">程序名称/Program name     : publish_ranye_url</span></span><br><span class="line"><span class="comment">团队/Team                : 太极创客团队 / Taichi-Maker (www.taichi-maker.com)</span></span><br><span class="line"><span class="comment">作者/Author              : CYNO朔</span></span><br><span class="line"><span class="comment">日期/Date（YYYYMMDD）     : 20200813</span></span><br><span class="line"><span class="comment">程序目的/Purpose          : </span></span><br><span class="line"><span class="comment">本程序旨在演示如何使用PubSubClient库使用ESP8266向MQTT服务器发布信息。</span></span><br><span class="line"><span class="comment">-----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">本示例程序为太极创客团队制作的《零基础入门学用物联网》中示例程序。</span></span><br><span class="line"><span class="comment">该教程为对物联网开发感兴趣的朋友所设计和制作。如需了解更多该教程的信息，请参考以下网页：</span></span><br><span class="line"><span class="comment">http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/iot-c/esp8266-nodemcu-web-client/http-request/</span></span><br><span class="line"><span class="comment">***********************************************************************/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ticker.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置wifi接入信息(请根据您的WiFi信息进行修改)</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ssid = <span class="string">&quot;lkw&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* password = <span class="string">&quot;01234567890&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* mqttServer = <span class="string">&quot;192.168.43.61&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如以上MQTT服务器无法正常连接，请前往以下页面寻找解决方案</span></span><br><span class="line"><span class="comment">// http://www.taichi-maker.com/public-mqtt-broker/</span></span><br><span class="line"></span><br><span class="line">Ticker ticker;</span><br><span class="line">WiFiClient wifiClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">mqttClient</span><span class="params">(wifiClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count;    <span class="comment">// Ticker计数用变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//设置ESP8266工作模式为无线终端模式</span></span><br><span class="line">  WiFi.<span class="built_in">mode</span>(WIFI_STA);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 连接WiFi</span></span><br><span class="line">  <span class="built_in">connectWifi</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置MQTT服务器和端口号</span></span><br><span class="line">  mqttClient.<span class="built_in">setServer</span>(mqttServer, <span class="number">1883</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="built_in">connectMQTTServer</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Ticker定时对象</span></span><br><span class="line">  ticker.<span class="built_in">attach</span>(<span class="number">1</span>, tickerCount);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connected</span>()) &#123; <span class="comment">// 如果开发板成功连接服务器</span></span><br><span class="line">    <span class="comment">// 每隔3秒钟发布一次信息</span></span><br><span class="line">    <span class="keyword">if</span> (count &gt;= <span class="number">3</span>)&#123;</span><br><span class="line">      <span class="built_in">pubMQTTmsg</span>();</span><br><span class="line">      count = <span class="number">0</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="comment">// 保持心跳</span></span><br><span class="line">    mqttClient.<span class="built_in">loop</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;                  <span class="comment">// 如果开发板未能成功连接服务器</span></span><br><span class="line">    <span class="built_in">connectMQTTServer</span>();    <span class="comment">// 则尝试连接服务器</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tickerCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectMQTTServer</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// 根据ESP8266的MAC地址生成客户端ID（避免与其它ESP8266的客户端ID重名）</span></span><br><span class="line">  String clientId = <span class="string">&quot;esp8266-&quot;</span> + WiFi.<span class="built_in">macAddress</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connect</span>(clientId.<span class="built_in">c_str</span>())) &#123; </span><br><span class="line"><span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;MQTT Server Connected.&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Server Address: &quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttServer);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;ClientId:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(clientId);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;MQTT Server Connect Failed. Client State:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttClient.<span class="built_in">state</span>());</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">3000</span>);</span><br><span class="line">  &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发布信息</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pubMQTTmsg</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> value; <span class="comment">// 客户端发布信息用数字</span></span><br><span class="line"></span><br><span class="line">  String topicString = <span class="string">&quot;lkwMQTTtopic&quot;</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="type">char</span> publishTopic[topicString.<span class="built_in">length</span>() + <span class="number">1</span>];  </span><br><span class="line">  <span class="built_in">strcpy</span>(publishTopic, topicString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 建立发布信息。信息内容以Hello World为起始，后面添加发布次数。</span></span><br><span class="line">  String messageString = <span class="string">&quot;Hello World &quot;</span> + <span class="built_in">String</span>(value++); </span><br><span class="line">  <span class="type">char</span> publishMsg[messageString.<span class="built_in">length</span>() + <span class="number">1</span>];   </span><br><span class="line">  <span class="built_in">strcpy</span>(publishMsg, messageString.<span class="built_in">c_str</span>());</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 实现ESP8266向主题发布信息</span></span><br><span class="line">  <span class="keyword">if</span>(mqttClient.<span class="built_in">publish</span>(publishTopic, publishMsg))&#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish Topic:&quot;</span>);Serial.<span class="built_in">println</span>(publishTopic);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish message:&quot;</span>);Serial.<span class="built_in">println</span>(publishMsg);    </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Message Publish Failed.&quot;</span>); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ESP8266连接wifi</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectWifi</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  WiFi.<span class="built_in">begin</span>(ssid, password);</span><br><span class="line"> </span><br><span class="line">  <span class="comment">//等待WiFi连接,成功连接后输出成功信息</span></span><br><span class="line">  <span class="keyword">while</span> (WiFi.<span class="built_in">status</span>() != WL_CONNECTED) &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;WiFi Connected!&quot;</span>);  </span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决方法：查看<code>PubSubClient</code>的源代码</p>
+<p>幸亏结构挺简单，很容易就找到了想要的代码即<code>PubSubClient的connect方法</code></p>
+<ul>
+<li>在<code>PubSubClient.h</code></li>
+</ul>
+<p><img src="/images/esp8266_mqtt/PubSubClientH.png" alt="PubSubClientH"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage, boolean cleanSession)</span></span>;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">disconnect</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>在<code>PubSubClient.cpp</code></p>
+<p><img src="/images/esp8266_mqtt/PubSubClientCPP.png" alt="PubSubClientCPP"></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,<span class="literal">NULL</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,<span class="literal">NULL</span>,<span class="literal">NULL</span>,willTopic,willQos,willRetain,willMessage,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,willTopic,willQos,willRetain,willMessage,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage, boolean cleanSession)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">connected</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(_client-&gt;<span class="built_in">connected</span>()) &#123;</span><br><span class="line">            result = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">/******************省略*****************/</span></span><br></pre></td></tr></table></figure>
+
+<p>​	于是就得出 connect 重载函数本体只有一个，即最后一个，我可以修改输入的参数实现自己想要的功能。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-结尾"><a href="#3-结尾" class="headerlink" title="3.结尾"></a>3.结尾</h2><p>先附上自己的代码，修改了连接模板代码 部分。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ticker.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置wifi接入信息(请根据您的WiFi信息进行修改)</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ssid = <span class="string">&quot;MERCURY_F80E&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* password = <span class="string">&quot;********&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* mqttServer = <span class="string">&quot;regenm.gitee.io&quot;</span>;</span><br><span class="line"></span><br><span class="line">Ticker ticker;</span><br><span class="line">WiFiClient wifiClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">mqttClient</span><span class="params">(wifiClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count;  <span class="comment">// Ticker计数用变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//设置ESP8266工作模式为无线终端模式</span></span><br><span class="line">  WiFi.<span class="built_in">mode</span>(WIFI_STA);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接WiFi</span></span><br><span class="line">  <span class="built_in">connectWifi</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置MQTT服务器和端口号</span></span><br><span class="line">  mqttClient.<span class="built_in">setServer</span>(mqttServer, <span class="number">1883</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="built_in">connectMQTTServer</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Ticker定时对象</span></span><br><span class="line">  ticker.<span class="built_in">attach</span>(<span class="number">1</span>, tickerCount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connected</span>()) &#123;  <span class="comment">// 如果开发板成功连接服务器</span></span><br><span class="line">    <span class="comment">// 每隔3秒钟发布一次信息</span></span><br><span class="line">    <span class="keyword">if</span> (count &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">pubMQTTmsg</span>();</span><br><span class="line">      count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 保持心跳</span></span><br><span class="line">    mqttClient.<span class="built_in">loop</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;                <span class="comment">// 如果开发板未能成功连接服务器</span></span><br><span class="line">    <span class="built_in">connectMQTTServer</span>();  <span class="comment">// 则尝试连接服务器</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tickerCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectMQTTServer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 根据ESP8266的MAC地址生成客户端ID（避免与其它ESP8266的客户端ID重名）</span></span><br><span class="line">  String clientId = <span class="string">&quot;regen&quot;</span>;</span><br><span class="line">  String userRegen = <span class="string">&quot;user&quot;</span>;</span><br><span class="line">  String passwdRegen = <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line">  <span class="comment">// 连接MQTT服务器 </span></span><br><span class="line">    </span><br><span class="line">  <span class="comment">/* --------------------connect(id,user,pass,0,0,0,0,1)-------------------- */</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connect</span>(clientId.<span class="built_in">c_str</span>(),userRegen.<span class="built_in">c_str</span>() ,passwdRegen.<span class="built_in">c_str</span>() )) &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;MQTT Server Connected.&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Server Address: &quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttServer);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;ClientId:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(clientId);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;MQTT Server Connect Failed. Client State:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttClient.<span class="built_in">state</span>());</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">3000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发布信息</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pubMQTTmsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> value;  <span class="comment">// 客户端发布信息用数字</span></span><br><span class="line"></span><br><span class="line">  String topicString = <span class="string">&quot;test&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">char</span> publishTopic[topicString.<span class="built_in">length</span>() + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span>(publishTopic, topicString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 建立发布信息。信息内容以Hello World为起始，后面添加发布次数。</span></span><br><span class="line">  String messageString = <span class="string">&quot;Hello World &quot;</span> + <span class="built_in">String</span>(value++);</span><br><span class="line">  <span class="type">char</span> publishMsg[messageString.<span class="built_in">length</span>() + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span>(publishMsg, messageString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 实现ESP8266向主题发布信息</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">publish</span>(publishTopic, publishMsg)) &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish Topic:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(publishTopic);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish message:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(publishMsg);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Message Publish Failed.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ESP8266连接wifi</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectWifi</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  WiFi.<span class="built_in">begin</span>(ssid, password);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//等待WiFi连接,成功连接后输出成功信息</span></span><br><span class="line">  <span class="keyword">while</span> (WiFi.<span class="built_in">status</span>() != WL_CONNECTED) &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;WiFi Connected!&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​	经过测试后成功，附上截图：</p>
+<p><img src="/images/esp8266_mqtt/success1.png" alt="success"></p>
+<p><img src="/images/esp8266_mqtt/success2.jpg" alt="success"></p>
+<p><img src="/images/esp8266_mqtt/success3.png" alt="success"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/esp8266/" rel="tag">esp8266</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" rel="tag">物联网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-电子电路基础"
   class="article article-type-post"
   itemscope
@@ -1165,205 +1499,6 @@
     <footer class="article-footer">
        
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《寂寞的游戏》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/"
-    >《寂寞的游戏》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/" class="article-date">
-  <time datetime="2023-12-24T14:00:39.000Z" itemprop="datePublished">2023-12-24</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="《寂寞的游戏》"><a href="#《寂寞的游戏》" class="headerlink" title="《寂寞的游戏》"></a>《寂寞的游戏》</h1><p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F.jpg" alt="寂寞的游戏">	</p>
-<p>​	<strong>其实</strong>，这本书我在2020年就看过一遍了，因为十分合拍的原因，还拍下了当时读书时的画面。当时就感受到了袁哲生先生的文字下的细腻，将一个敏感的青年通过笔墨绘于纸上。</p>
-<p>​	<strong>那时</strong>，我刚刚升入高中，不曾想到进了高一的奥赛班，以为以我的适应能力能够立马就与同学打成一片，然而这个班的同学早已互相认识，只留少数几个像我一样对于新环境完全陌生的新人，不仅是交际上的原因，学业上也频频受挫。初中时的锐气与自信受到巨大的打击，于是便抓住文字这根救命稻草，以求在陌生而冷淡的环境汲取一丝慰藉。</p>
-<p>​	<strong>文字</strong>，从未给过我失望，透过《寂寞的游戏》，我看到了一个像我一样的青年，借由他的经历，让我那时的无力感得到稍许减弱。</p>
-<blockquote>
-<p>“	我想，人天生就喜欢躲藏，</p>
-<p>渴望消失，这是一点都不奇怪的事。	”</p>
-<p>“	我就这样躲躲藏藏了许多年，直到有一天，捉迷藏的乐趣像一颗流星，眨眼就消失的无影无踪。	”</p>
-</blockquote>
-<p>​	这些细腻且真实的文字打动着我，让那时的我感动：我不是一个人，袁哲生先生也和我一样。</p>
-<p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F2.jpg" alt="2020 第一次读这本书就被吸引"></p>
-<p>​	<strong>那时</strong>，图片中的有着斑马图案像条形码的马克杯还没碎。那是妈妈在外地别人家打工时，住在那里的姐姐托妈妈送给我的，杯子里还有一张写着QQ号码和昵称 Nancy 的纸条。依稀记得为了这个纸条找发小帮忙注册了一个QQ号。然而她没有同意我的申请添加，而后QQ号也给弄丢了。</p>
-<p>​	<strong>再次</strong>，拿起这本书的原因是在市区的书架上看到，蓝色的书封，和我在那会同时看的《夜晚的潜水艇》有几分相似，在手指触碰到书的瞬间，那时的回忆涌现出来，那个茶杯，那本有淡淡香味的书，把我拉到过去，回过神来，同行的朋友早已不见。那晚，沉浸在过去回忆中的我，打开手机，下来了电子书看，那时我是这么热爱看书，而今双手却不离键盘手机。过去的我如果看到我这个模样，估计会因为不理解而叹息吧。重读过程，不仅是过去的回忆，读书时的令人享受的感觉也再次回到我的大脑。大概是内啡肽吧。不知不觉就读完了这本。</p>
-<blockquote>
-<p>“好好活下去，不一定要在意别人的话，人生有时候要走自己的路。”</p>
-<p>“我知道父亲拙于言词，在面对生命难以省略的伤痛时，更无力打破沉默。”</p>
-</blockquote>
-<p>​	<strong>最近</strong>，作息有点阴间，书中这句话突然点醒了我。</p>
-<blockquote>
-<p>“平常上班的日子，他不乏迟到的纪录，不过，他从未在星期天晚起过，因为这是他最重视的、为自己而活的日子。”</p>
-</blockquote>
-<p>​	以前我还爱用“	理想主义的少年不会被现实主义打败。”这句话来激励我自己，然而，这句话的力量在我觉得它幼稚的那一刻荡然无存，就好像否定了理想主义的存在一样。<strong>总之</strong>，这本书让我重新感受到了文字的温度与力量，我感激袁哲生先生的文字，我想，您之所以选择走向天堂，是因为想要把这些文字带给天国的人们吧。</p>
-<blockquote>
-<p> <strong>这一位看自己灵魂风水的人，最终选择留下了的叹息，也成为了读者对一位如此能抓住人心的作者的叹息。</strong></p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-前端学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >前端学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-12-22T15:46:18.000Z" itemprop="datePublished">2023-12-22</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>​	</p>
-<p>CSS：Cascading Style Sheet 层叠样式表，是一组样式设置的规则，用于控制页面的外观样式。</p>
-<p>广泛用于页面外观美化，布局和定位。</p>
-</blockquote>
-<h2 id="CSS如何使用"><a href="#CSS如何使用" class="headerlink" title="CSS如何使用"></a>CSS如何使用</h2><ul>
-<li>嵌入HTML或者JSP</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-<span class="number">8</span>&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    <span class="selector-tag">p</span>&#123;</span><br><span class="line">      <span class="attribute">color</span>:blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>外部导入（常用，更加方便，便于复制黏贴 :D）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/eg<span class="selector-class">.css</span>&quot;&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
-<li>选择器：要修饰的对象，例如HTML的各类标签</li>
-<li>属性名：属于修饰对象的属性</li>
-<li>属性值：修饰对象的属性的样式取值</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    选择器&#123;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/" rel="tag">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Java-Projects"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/12/07/Java-Projects/"
-    >Java Projects</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/12/07/Java-Projects/" class="article-date">
-  <time datetime="2023-12-07T08:42:42.000Z" itemprop="datePublished">2023-12-07</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
     </footer>
   </div>

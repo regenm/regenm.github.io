@@ -166,6 +166,470 @@
     
     
     <article
+  id="post-vim-学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >vim 学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-09-16T15:49:02.000Z" itemprop="datePublished">2023-09-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="VIM普通模式"><a href="#VIM普通模式" class="headerlink" title="* VIM普通模式"></a>* VIM普通模式</h1><p>​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复</p>
+<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><strong>光标上下左右移动</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h       #左移</span><br><span class="line">j      #下移</span><br><span class="line">k      #上移</span><br><span class="line">l      #右移</span><br></pre></td></tr></table></figure>
+
+<p><strong>移动多行</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4h       #左移4格</span><br><span class="line">4j      #上移4行</span><br><span class="line">4k      #下移4行</span><br><span class="line">4l      #右移4格</span><br></pre></td></tr></table></figure>
+
+<p><strong>跳转到单词末尾或者开头(下一个空格前)</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w      # word</span><br><span class="line">b      # begining</span><br></pre></td></tr></table></figure>
+
+<p><strong>跳转到文档开始或末尾</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gg        # 跳转到文档开头</span><br><span class="line">G  (shift + g)   # 跳转到文档末尾</span><br></pre></td></tr></table></figure>
+
+<p><strong>上下翻页</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl + u  #向上翻页</span><br><span class="line">ctrl + d  #向下翻页</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>快速到最近的某个字母</strong>（区分大小写）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fu      #到最近1的u</span><br><span class="line">fc      #到最近的c</span><br><span class="line">fK      #到最近的K</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>​	<strong>y</strong></p>
+<ul>
+<li>复制单词</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yaw      # y(yank)  aw(a word)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>复制n行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yy      # 复制本行</span><br><span class="line"></span><br><span class="line">nyy      # 复制n行 包括当前行</span><br><span class="line"></span><br><span class="line">y4j      # 向下复制5行 包括当前行</span><br><span class="line">y4k      # 向上复制5行 包括当前行</span><br><span class="line">y4h      # 向左复制4个字符 不包括光标在闪烁那个字符</span><br><span class="line">y4l      # 向右复制4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><p>​	<strong>p</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p      # 小写p,复制到光标后的一行</span><br></pre></td></tr></table></figure>
+
+<h2 id="剪切删除"><a href="#剪切删除" class="headerlink" title="剪切删除"></a>剪切删除</h2><ul>
+<li><p><strong>d</strong>命令其实可以看成剪切，不复制出来就变成<strong>删除</strong>了。</p>
+</li>
+<li><p>删除行</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd      # 删除光标所在行</span><br><span class="line">ndd      # 删除n行 包括当前行</span><br><span class="line"></span><br><span class="line">d4j      # 向下删除5行 包括当前行</span><br><span class="line">d4k      # 向上删除5行 包括当前行</span><br><span class="line">d4h      # 向左删除4个字符 不包括光标在闪烁那个字符</span><br><span class="line">d4l      # 向右删除4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除到本行末尾</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D</span><br></pre></td></tr></table></figure>
+
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>​	<strong>c</strong></p>
+<ul>
+<li>替换单词</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">caw     # change a word</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>替换行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cc      # 删除行，并且进入编辑模式</span><br><span class="line">c4j      # 删除下4行+本行，并且进入编辑模式</span><br></pre></td></tr></table></figure>
+
+
+
+<p>* </p>
+<h2 id="撤销恢复"><a href="#撤销恢复" class="headerlink" title="撤销恢复"></a>撤销恢复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u       # (undo)</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq      # 保存并退出</span><br></pre></td></tr></table></figure>
+
+<h1 id="VIM-可视化模式（VISUAL）"><a href="#VIM-可视化模式（VISUAL）" class="headerlink" title="* VIM 可视化模式（VISUAL）"></a>* VIM 可视化模式（VISUAL）</h1><p>​	<strong>v</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v      # 进入可视化模式</span><br></pre></td></tr></table></figure>
+
+<p>​	进入可视化模式后移动光标即可选中该部分内容进行操作，例如：</p>
+<ul>
+<li>d				# 删除</li>
+<li>y		        # 复制 </li>
+<li>c                # 替换</li>
+</ul>
+<h1 id="客制化"><a href="#客制化" class="headerlink" title="客制化"></a>客制化</h1><ul>
+<li>NERDtree</li>
+</ul>
+<blockquote>
+<p>文件夹，文件，管理（树形结构）</p>
+</blockquote>
+<p>​	</p>
+<p><strong>vim学习网站</strong></p>
+<p>​	<a target="_blank" rel="noopener" href="https://vim-adventures.com/">VIM GAME</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-MD语法学习笔记"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+    >MD语法学习笔记</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2023-09-16T15:47:12.000Z" itemprop="datePublished">2023-09-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="MD语法学习笔记"><a href="#MD语法学习笔记" class="headerlink" title="MD语法学习笔记"></a>MD语法学习笔记</h1><h2 id="1-基本符号："><a href="#1-基本符号：" class="headerlink" title="1.基本符号："></a>1.基本符号：</h2><p>​	md文档中基本标记都是基于 * - +. &gt; 这几个符号的组合操作</p>
+<h2 id="2-标题。"><a href="#2-标题。" class="headerlink" title="2.标题。"></a>2.标题。</h2><p>​	MD总共有六级标题</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 标题1 # </span></span><br><span class="line"><span class="section">## 标题2 ##</span></span><br><span class="line"><span class="section">### 标题3 ###</span></span><br><span class="line"><span class="section">#### 标题4 ####</span></span><br><span class="line"><span class="section">##### 标题5 #####</span></span><br><span class="line"><span class="section">###### 标题6 #######</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><h2 id="3-列表。"><a href="#3-列表。" class="headerlink" title="3.列表。"></a>3.列表。</h2><ul>
+<li>无序列表</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">+</span> b</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line"><span class="bullet">-</span> d</span><br><span class="line"><span class="bullet">-</span> e</span><br><span class="line"><span class="bullet">-</span> f</span><br><span class="line"> </span><br><span class="line"><span class="bullet">*</span> g</span><br><span class="line"><span class="bullet">*</span> h</span><br><span class="line"><span class="bullet">*</span> i</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>a</li>
+<li>b</li>
+<li>c</li>
+</ul>
+<ul>
+<li>d</li>
+<li>e</li>
+<li>f</li>
+</ul>
+<ul>
+<li>g</li>
+<li>h</li>
+<li>i</li>
+</ul>
+<ul>
+<li>有序列表</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有序列表</span><br><span class="line"><span class="bullet">1.</span> abc</span><br><span class="line"><span class="bullet">2.</span> abc</span><br><span class="line"><span class="bullet">3.</span> dada</span><br><span class="line"> </span><br><span class="line">错序列表</span><br><span class="line"><span class="bullet">2.</span> awfa</span><br><span class="line"><span class="bullet">5.</span> awef</span><br><span class="line"><span class="bullet">25.</span> dfaf</span><br></pre></td></tr></table></figure>
+
+
+
+<p>有序列表</p>
+<ol>
+<li>abc</li>
+<li>abc</li>
+<li>dada</li>
+</ol>
+<p>错序列表<br>2. awfa<br>5. awef<br>25. dfaf</p>
+<ul>
+<li>嵌套列表</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">无序</span><br><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">  +</span> a1</span><br><span class="line"><span class="bullet">  +</span> a2</span><br><span class="line"><span class="bullet">+</span> ba</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line">有序</span><br><span class="line"><span class="bullet">1.</span> a</span><br><span class="line"><span class="bullet">   1.</span> adac</span><br><span class="line"><span class="bullet">      1.</span> adaw</span><br><span class="line"><span class="bullet">   2.</span> adfsda</span><br><span class="line"><span class="bullet">2.</span> ad</span><br><span class="line"><span class="bullet">3.</span> sad</span><br></pre></td></tr></table></figure>
+
+<p>无序</p>
+<ul>
+<li>a<ul>
+<li>a1</li>
+<li>a2</li>
+</ul>
+</li>
+<li>ba</li>
+<li>c</li>
+</ul>
+<p>有序</p>
+<ol>
+<li>a<ol>
+<li>adac<ol>
+<li>adaw</li>
+</ol>
+</li>
+<li>adfsda</li>
+</ol>
+</li>
+<li>ad</li>
+<li>sad</li>
+</ol>
+<h2 id="4-引用块。"><a href="#4-引用块。" class="headerlink" title="4.引用块。"></a>4.引用块。</h2><ul>
+<li>引用</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">引用</span><br><span class="line"><span class="quote">&gt; 引用1</span></span><br><span class="line">引用1 引用1</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<p>引用</p>
+<blockquote>
+<p>引用1<br>引用1 引用1</p>
+</blockquote>
+<ul>
+<li>嵌套引用</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 嵌套引用</span><br><span class="line">&gt; 嵌套引用1 </span><br><span class="line">&gt;&gt; 嵌套引用1 </span><br></pre></td></tr></table></figure>
+
+<p> 嵌套引用</p>
+<blockquote>
+<p>嵌套引用1 </p>
+<blockquote>
+<p>嵌套引用1 </p>
+</blockquote>
+</blockquote>
+<h2 id="5-代码块。"><a href="#5-代码块。" class="headerlink" title="5.代码块。"></a>5.代码块。</h2><ul>
+<li>单行</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br><span class="line">`</span><br><span class="line">adaawf</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
+
+<p>代码块<br><code>adaawf</code></p>
+<ul>
+<li>多行代码块</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">adaawfwrfwr</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adaawfwrfwr</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-链接。"><a href="#6-链接。" class="headerlink" title="6.链接。"></a>6.链接。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">BAIDU</span>](<span class="link">www.baidu.com</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="www.baidu.com">BAIDU</a></p>
+<h2 id="7-图片。"><a href="#7-图片。" class="headerlink" title="7.图片。"></a>7.图片。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">https://note.youdao.com/favicon.ico</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://note.youdao.com/favicon.ico" alt="图片"></p>
+<h2 id="8-分割线。"><a href="#8-分割线。" class="headerlink" title="8.	分割线。"></a>8.	分割线。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">分割线</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">- - -</span></span><br><span class="line"><span class="section">-------</span></span><br><span class="line"><span class="strong">****</span>*</span><br><span class="line"><span class="bullet">*</span> * *</span><br><span class="line"><span class="strong">____</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h2 id="9-表格。"><a href="#9-表格。" class="headerlink" title="9.表格。"></a>9.表格。</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">表格</span><br><span class="line">|123|234|345|</span><br><span class="line">|:-|:-:|-:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子二</span><br><span class="line">|123|234|345|</span><br><span class="line">|:---|:---:|---:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子三</span><br><span class="line">123|234|345</span><br><span class="line">:-|:-:|-:</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br></pre></td></tr></table></figure>
+
+<p>表格</p>
+<table>
+<thead>
+<tr>
+<th align="left">123</th>
+<th align="center">234</th>
+<th align="right">345</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">&#x2F;&#x2F;例子二</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">123</td>
+<td align="center">234</td>
+<td align="right">345</td>
+</tr>
+<tr>
+<td align="left">:—</td>
+<td align="center">:—:</td>
+<td align="right">—:</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">&#x2F;&#x2F;例子三</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">123</td>
+<td align="center">234</td>
+<td align="right">345</td>
+</tr>
+<tr>
+<td align="left">:-</td>
+<td align="center">:-:</td>
+<td align="right">-:</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+<tr>
+<td align="left">abc</td>
+<td align="center">bcd</td>
+<td align="right">cde</td>
+</tr>
+</tbody></table>
+<h2 id="10-字体。"><a href="#10-字体。" class="headerlink" title="10.字体。"></a>10.字体。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//斜体</span><br><span class="line"><span class="emphasis">*md*</span></span><br><span class="line"> </span><br><span class="line">//粗体</span><br><span class="line"><span class="strong">**md**</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="emphasis">_md_</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="strong">__md__</span></span><br><span class="line"> </span><br><span class="line">//转义</span><br><span class="line"> </span><br><span class="line">\+</span><br><span class="line"> </span><br><span class="line">//删除线</span><br><span class="line"> </span><br><span class="line">~~删除~~</span><br></pre></td></tr></table></figure>
+
+<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
+<p>&#x2F;&#x2F;粗体<br><strong>md</strong></p>
+<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
+<p>&#x2F;&#x2F;斜体<br><strong>md</strong></p>
+<p>&#x2F;&#x2F;转义</p>
+<p>+</p>
+<p>&#x2F;&#x2F;删除线</p>
+<p><del>删除</del></p>
+<h2 id="11-表情！-smile"><a href="#11-表情！-smile" class="headerlink" title="11.表情！:smile:"></a>11.表情！:smile:</h2><p>:santa:</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式</span><br><span class="line">:内容描述:</span><br><span class="line">例如：</span><br><span class="line">:smile:</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
+  id="post-MD语法尝试插入图片到博客"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/"
+    >MD语法尝试插入图片到博客</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time datetime="2023-09-16T14:25:58.000Z" itemprop="datePublished">2023-09-16</time>
+</a>    
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="1-COVER1"><a href="#1-COVER1" class="headerlink" title="1.COVER1"></a>1.COVER1</h1><h1 id=""><a href="#" class="headerlink" title=""></a><img src="/images/cover1.jpg"></h1><h1 id="2-COVER2"><a href="#2-COVER2" class="headerlink" title="2.COVER2"></a>2.COVER2</h1><p><img src="/images/cover2.jpg"></p>
+<h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/images/cover1.jpg">	</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
+
+    </footer>
+  </div>
+
+    
+ 
+   
+  
+</article>
+
+    
+    <article
   id="post-Regen-s-first-page"
   class="article article-type-post"
   itemscope
