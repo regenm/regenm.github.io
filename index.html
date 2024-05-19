@@ -670,7 +670,30 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <p>​	记录一下大创项目《自动化农业无人机》。实现项目转化知识成果</p>
+<h1 id="硬件选型"><a href="#硬件选型" class="headerlink" title="硬件选型"></a>硬件选型</h1><p><img src="/images/dachaung/1.png" alt="硬件选型"></p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="PID算法"><a href="#PID算法" class="headerlink" title="PID算法"></a>PID算法</h2><h3 id="三轴陀螺仪的使用（以mpu6050为例）"><a href="#三轴陀螺仪的使用（以mpu6050为例）" class="headerlink" title="三轴陀螺仪的使用（以mpu6050为例）"></a>三轴陀螺仪的使用（以mpu6050为例）</h3><p>[MPU6050 basic  with Arduino](link to be added)</p>
+<h3 id="PID算法-1"><a href="#PID算法-1" class="headerlink" title="PID算法"></a>PID算法</h3><h2 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h2><h3 id="mqtt协议简介"><a href="#mqtt协议简介" class="headerlink" title="mqtt协议简介"></a>mqtt协议简介</h3><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (regenm.github.io)</a></p>
+<h3 id="mqtt服务器搭建"><a href="#mqtt服务器搭建" class="headerlink" title="mqtt服务器搭建"></a>mqtt服务器搭建</h3><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">MQTT服务器搭建（mosquitto） | Regen (regenm.github.io)</a></p>
+<h3 id="传输系统"><a href="#传输系统" class="headerlink" title="传输系统"></a>传输系统</h3><h4 id="1-数据传输"><a href="#1-数据传输" class="headerlink" title="1. 数据传输"></a>1. 数据传输</h4><p>mqtt协议基于代理，订阅和发布。</p>
+<p>因此在服务器里创建一个频道<code>/topic/dataFromSensors</code>用于各类传感器的数据传输</p>
+<ol>
+<li>高度传感器</li>
+<li>二氧化碳传感器</li>
+<li>温湿度传感器</li>
+<li>电池消耗</li>
+</ol>
+<h4 id="2-命令传输"><a href="#2-命令传输" class="headerlink" title="2. 命令传输"></a>2. 命令传输</h4><p>在服务器里创建一个频道<code>/topic/commandToDrone</code>用于各类命令的传输</p>
+<ol>
+<li>UP</li>
+<li>DOWM</li>
+<li>LEFT</li>
+<li>RIGHT</li>
+<li>SPIN</li>
+</ol>
+<p>因为基于mqtt协议，因此自动化控制很简单，上位机很好写，也可以不用上位机，在服务器上写的shell脚本就能很好的完成自动化功能。</p>
+<p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
+<h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4> 
       <!-- reward -->
       
     </div>
@@ -720,7 +743,7 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>[点击跳转](link to be added)</p>
+  <h1 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">点击跳转</a></p>
 <h2 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h2><h3 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h3><h4 id="硬件层"><a href="#硬件层" class="headerlink" title="硬件层"></a>硬件层</h4><p>​	需要接上拉电阻（保证传输稳定性）</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Init</span><span class="params">()</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">1</span>;</span><br><span class="line">  IIC_SDA=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
