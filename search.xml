@@ -6406,9 +6406,9 @@
 <p>示例：对此原则&#x2F;规则&#x2F;建议从正、反两个方面给出例子。</p>
 <p>延伸阅读材料：建议进一步阅读的参考材料。</p>
 </blockquote>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><p><strong>不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上不合理的设计。</strong></p>
+<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p><strong>不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上不合理的设计。</strong></p>
 <p>如果引入了新的依赖，则一旦被依赖的头文件修改，任何直接和间接依赖其头文件的代码都会被重新编译。</p>
-<h2 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h2><p>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</p>
+<h3 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h3><p>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</p>
 <ul>
 <li>内部使用的函数（相当于类的私有方法）声明不应放在头文件中</li>
 <li>内部使用的宏、枚举、结构定义不应放入头文件中。</li>
@@ -6418,10 +6418,10 @@
 <ul>
 <li>变量的声明尽量不要放在头文件中，亦即尽量不要使用全局变量作为接口。变量是模块或单元的内部实现细节，不应通过在头文件中声明的方式直接暴露给外部，应通过函数接口的方式进行对外暴露。即使必须使用全局变量，也只应当在.c中定义全局变量，在.h中仅声明变量为全局的。</li>
 </ul>
-<h2 id="原则1-2-头文件应当职责单一。"><a href="#原则1-2-头文件应当职责单一。" class="headerlink" title="原则1.2 头文件应当职责单一。"></a>原则1.2 头文件应当职责单一。</h2><h2 id="原则1-3-头文件应向稳定的方向包含。"><a href="#原则1-3-头文件应向稳定的方向包含。" class="headerlink" title="原则1.3 头文件应向稳定的方向包含。"></a>原则1.3 头文件应向稳定的方向包含。</h2><p>说明：头文件的包含关系是一种依赖，一般来说，应当让不稳定的模块依赖稳定的模块，从而当不稳定的模块发生变化时，不会影响（编译）稳定的模块。</p>
-<h2 id="规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。"><a href="#规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。" class="headerlink" title="规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。"></a>规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。</h2><p>说明：如果一个.c文件不需要对外公布任何接口，则其就不应当存在，除非它是程序的入口，如main函数所在的文件。</p>
-<h2 id="规则1-2-禁止头文件循环依赖"><a href="#规则1-2-禁止头文件循环依赖" class="headerlink" title="规则1.2 禁止头文件循环依赖"></a>规则1.2 禁止头文件循环依赖</h2><p>​	任何一个头文件的改变都会使得循环中的所有头文件重新编译</p>
-<h2 id="规则1-3-c-h文件禁止包含用不到的头文件。"><a href="#规则1-3-c-h文件禁止包含用不到的头文件。" class="headerlink" title="规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。"></a>规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。</h2><h2 id="规则1-4-头文件应当自包含。"><a href="#规则1-4-头文件应当自包含。" class="headerlink" title="规则1.4 头文件应当自包含。"></a>规则1.4 头文件应当自包含。</h2><blockquote>
+<h3 id="原则1-2-头文件应当职责单一。"><a href="#原则1-2-头文件应当职责单一。" class="headerlink" title="原则1.2 头文件应当职责单一。"></a>原则1.2 头文件应当职责单一。</h3><h3 id="原则1-3-头文件应向稳定的方向包含。"><a href="#原则1-3-头文件应向稳定的方向包含。" class="headerlink" title="原则1.3 头文件应向稳定的方向包含。"></a>原则1.3 头文件应向稳定的方向包含。</h3><p>说明：头文件的包含关系是一种依赖，一般来说，应当让不稳定的模块依赖稳定的模块，从而当不稳定的模块发生变化时，不会影响（编译）稳定的模块。</p>
+<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><h3 id="规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。"><a href="#规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。" class="headerlink" title="规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。"></a>规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。</h3><p>说明：如果一个.c文件不需要对外公布任何接口，则其就不应当存在，除非它是程序的入口，如main函数所在的文件。</p>
+<h3 id="规则1-2-禁止头文件循环依赖"><a href="#规则1-2-禁止头文件循环依赖" class="headerlink" title="规则1.2 禁止头文件循环依赖"></a>规则1.2 禁止头文件循环依赖</h3><p>​	任何一个头文件的改变都会使得循环中的所有头文件重新编译</p>
+<h3 id="规则1-3-c-h文件禁止包含用不到的头文件。"><a href="#规则1-3-c-h文件禁止包含用不到的头文件。" class="headerlink" title="规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。"></a>规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。</h3><h3 id="规则1-4-头文件应当自包含。"><a href="#规则1-4-头文件应当自包含。" class="headerlink" title="规则1.4 头文件应当自包含。"></a>规则1.4 头文件应当自包含。</h3><blockquote>
 <p>“头文件应当自包含”是指头文件应该包含自身所需的所有内容，而不依赖于其他头文件。这样的头文件通常被称为”自包含头文件”。下面解释一下这个概念的意义：</p>
 <ol>
 <li><strong>独立性和可移植性</strong>：自包含头文件使得头文件本身更加独立，不依赖于其他头文件。这样做有助于提高代码的可移植性，因为当你在其他项目或环境中使用这个头文件时，不需要担心它依赖的其他头文件是否可用。</li>
@@ -6430,20 +6430,20 @@
 <li><strong>提高效率</strong>：自包含头文件可以减少预处理器的工作量，因为它们不需要解析其他头文件的内容。这有助于提高编译效率。</li>
 </ol>
 </blockquote>
-<h2 id="规则1-5-总是编写内部-include保护符（-define-保护）。"><a href="#规则1-5-总是编写内部-include保护符（-define-保护）。" class="headerlink" title="规则1.5 总是编写内部#include保护符（#define 保护）。"></a>规则1.5 总是编写内部#include保护符（#define 保护）。</h2><p>所有头文件都应当使用#define 防止头文件被多重包含，命名格式为<code>FILENAME_H</code>，为了保证唯一性，更好的命名是<code>PROJECTNAME_PATH_FILENAME_H</code>。</p>
-<h2 id="规则1-6-禁止在头文件中定义变量。"><a href="#规则1-6-禁止在头文件中定义变量。" class="headerlink" title="规则1.6 禁止在头文件中定义变量。"></a>规则1.6 禁止在头文件中定义变量。</h2><p>说明：在头文件中定义变量，将会由于头文件被其他.c文件包含而导致变量重复定义。</p>
-<h2 id="规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。"><a href="#规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。" class="headerlink" title="规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。"></a>规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。</h2><h2 id="规则1-8-禁止在extern-“C”中包含头文件。"><a href="#规则1-8-禁止在extern-“C”中包含头文件。" class="headerlink" title="规则1.8 禁止在extern “C”中包含头文件。"></a>规则1.8 禁止在extern “C”中包含头文件。</h2><blockquote>
+<h3 id="规则1-5-总是编写内部-include保护符（-define-保护）。"><a href="#规则1-5-总是编写内部-include保护符（-define-保护）。" class="headerlink" title="规则1.5 总是编写内部#include保护符（#define 保护）。"></a>规则1.5 总是编写内部#include保护符（#define 保护）。</h3><p>所有头文件都应当使用#define 防止头文件被多重包含，命名格式为<code>FILENAME_H</code>，为了保证唯一性，更好的命名是<code>PROJECTNAME_PATH_FILENAME_H</code>。</p>
+<h3 id="规则1-6-禁止在头文件中定义变量。"><a href="#规则1-6-禁止在头文件中定义变量。" class="headerlink" title="规则1.6 禁止在头文件中定义变量。"></a>规则1.6 禁止在头文件中定义变量。</h3><p>说明：在头文件中定义变量，将会由于头文件被其他.c文件包含而导致变量重复定义。</p>
+<h3 id="规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。"><a href="#规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。" class="headerlink" title="规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。"></a>规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。</h3><h3 id="规则1-8-禁止在extern-“C”中包含头文件。"><a href="#规则1-8-禁止在extern-“C”中包含头文件。" class="headerlink" title="规则1.8 禁止在extern “C”中包含头文件。"></a>规则1.8 禁止在extern “C”中包含头文件。</h3><blockquote>
 <p><code>extern &quot;C&quot;</code> 是用于在 C++ 中声明 C 函数时的一种语法。它告诉编译器这些函数按照 C 语言的约定进行链接。</p>
 <p>在 C++ 中，函数名的重载、名称修饰（name mangling）等特性会导致函数名在编译后被修改，这样的函数名在链接时可能无法与 C 代码中的函数名匹配。为了解决这个问题，C++ 提供了 <code>extern &quot;C&quot;</code>，它告诉编译器不要对函数名进行 C++ 风格的名称修饰，而是按照 C 语言的规则进行链接。</p>
 </blockquote>
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数设计的精髓：编写整洁函数，同时把代码有效组织起来。</p>
 <p>整洁函数要求：代码简单直接、不隐藏设计者的意图、用干净利落的抽象和直截了当的控制语句将函数有机组织起来。</p>
 <p>代码的有效组织包括：逻辑层组织和物理层组织两个方面。逻辑层，主要是把不同功能的函数通过某种联系组织起来，主要关注模块间的接口，也就是模块的架构。物理层，无论使用什么样的目录或者名字空间等，需要把函数用一种标准的方法组织起来。例如：设计良好的目录结构、函数名字、文件组织等，这样可以方便查找。</p>
-<h2 id="原则2-1-一个函数仅完成一件功能。"><a href="#原则2-1-一个函数仅完成一件功能。" class="headerlink" title="原则2.1 一个函数仅完成一件功能。"></a>原则2.1 一个函数仅完成一件功能。</h2><p>说明：一个函数实现多个功能给开发、使用、维护都带来很大的困难。</p>
+<h2 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h2><h3 id="原则2-1-一个函数仅完成一件功能。"><a href="#原则2-1-一个函数仅完成一件功能。" class="headerlink" title="原则2.1 一个函数仅完成一件功能。"></a>原则2.1 一个函数仅完成一件功能。</h3><p>说明：一个函数实现多个功能给开发、使用、维护都带来很大的困难。</p>
 <p>将没有关联或者关联很弱的语句放到同一函数中，会导致函数职责不明确，难以理解，难以测试和改动。</p>
-<h2 id="原则2-2-重复代码应该尽可能提炼成函数"><a href="#原则2-2-重复代码应该尽可能提炼成函数" class="headerlink" title="原则2.2 重复代码应该尽可能提炼成函数"></a>原则2.2 重复代码应该尽可能提炼成函数</h2><p>说明：重复代码提炼成函数可以带来维护成本的降低。</p>
+<h3 id="原则2-2-重复代码应该尽可能提炼成函数"><a href="#原则2-2-重复代码应该尽可能提炼成函数" class="headerlink" title="原则2.2 重复代码应该尽可能提炼成函数"></a>原则2.2 重复代码应该尽可能提炼成函数</h3><p>说明：重复代码提炼成函数可以带来维护成本的降低。</p>
 <p>可以使用代码重复度检查工具</p>
-<h2 id="规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。"><a href="#规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。" class="headerlink" title="规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。"></a>规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。</h2><h2 id="规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"><a href="#规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。" class="headerlink" title="规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"></a>规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。</h2><h3 id="减少代码嵌套层数的方法"><a href="#减少代码嵌套层数的方法" class="headerlink" title="减少代码嵌套层数的方法"></a>减少代码嵌套层数的方法</h3><blockquote>
+<h2 id="规则-1"><a href="#规则-1" class="headerlink" title="规则"></a>规则</h2><h3 id="规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。"><a href="#规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。" class="headerlink" title="规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。"></a>规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。</h3><h3 id="规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"><a href="#规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。" class="headerlink" title="规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"></a>规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。</h3><h4 id="减少代码嵌套层数的方法"><a href="#减少代码嵌套层数的方法" class="headerlink" title="减少代码嵌套层数的方法"></a>减少代码嵌套层数的方法</h4><blockquote>
 <ol>
 <li><strong>使用函数抽象</strong>：将嵌套的代码块提取成独立的函数，以便于重用和理解。</li>
 </ol>
@@ -6452,23 +6452,137 @@
 <ol>
 <li><strong>使用早期返回</strong>：在函数内部，尽早返回结果，而不是在多层嵌套中处理。</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   if not condition:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line">       return</span><br><span class="line">   </span><br><span class="line">   for item in items:</span><br><span class="line">       if not item_valid(item):</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line">           continue</span><br><span class="line">       process_item(item)</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   # 处理item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_invalid_item(item):</span><br><span class="line">   # 处理无效item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">main_function</span>():</span><br><span class="line">   <span class="keyword">if</span> <span class="keyword">not</span> condition:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line">       <span class="keyword">return</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">not</span> item_valid(item):</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line">           <span class="keyword">continue</span></span><br><span class="line">       process_item(item)</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">item_valid</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">return</span> item.condition</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="comment"># 处理item</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_invalid_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="comment"># 处理无效item</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_condition_not_met</span>():</span><br><span class="line">   <span class="comment"># 处理条件未满足情况</span></span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 <ol>
 <li><strong>使用异常处理</strong>：适用于处理特殊情况或错误的情况。</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   try:</span><br><span class="line">       if condition:</span><br><span class="line">           for item in items:</span><br><span class="line">               process_item(item)</span><br><span class="line">       else:</span><br><span class="line">           raise ConditionNotMetError</span><br><span class="line">   except ConditionNotMetError:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   if not item_valid(item):</span><br><span class="line">       raise InvalidItemError</span><br><span class="line">   # 处理item</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;class ConditionNotMetError(Exception):</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;class InvalidItemError(Exception):</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">main_function</span>():</span><br><span class="line">   <span class="keyword">try</span>:</span><br><span class="line">       <span class="keyword">if</span> condition:</span><br><span class="line">           <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">               process_item(item)</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           <span class="keyword">raise</span> ConditionNotMetError</span><br><span class="line">   <span class="keyword">except</span> ConditionNotMetError:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">if</span> <span class="keyword">not</span> item_valid(item):</span><br><span class="line">       <span class="keyword">raise</span> InvalidItemError</span><br><span class="line">   <span class="comment"># 处理item</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">item_valid</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">return</span> item.condition</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_condition_not_met</span>():</span><br><span class="line">   <span class="comment"># 处理条件未满足情况</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">class</span> <span class="title class_">ConditionNotMetError</span>(<span class="title class_ inherited__">Exception</span>):</span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">class</span> <span class="title class_">InvalidItemError</span>(<span class="title class_ inherited__">Exception</span>):</span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
 <p>这些方法可以帮助将嵌套降低到合理的水平，使代码更易读、更易维护。</p>
 </blockquote>
-<h2 id="规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"><a href="#规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。" class="headerlink" title="规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"></a>规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。</h2><p>可能用不到。</p>
+<h3 id="规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"><a href="#规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。" class="headerlink" title="规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"></a>规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。</h3><p>可能用不到。</p>
 <p>说明：可重入函数是指可能被多个任务并发调用的函数。在多任务操作系统中，函数具有可重入性是多个任务可以共用此函数的必要条件。共享变量指的全局变量和static变量。</p>
-<h2 id="规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。"><a href="#规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。" class="headerlink" title="规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。"></a>规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。</h2><h2 id="规则2-5-对函数的错误返回码要全面处理。"><a href="#规则2-5-对函数的错误返回码要全面处理。" class="headerlink" title="规则2.5 对函数的错误返回码要全面处理。"></a>规则2.5 对函数的错误返回码要全面处理。</h2><h2 id="规则2-6-设计高扇入，合理扇出（小于7）的函数。"><a href="#规则2-6-设计高扇入，合理扇出（小于7）的函数。" class="headerlink" title="规则2.6 设计高扇入，合理扇出（小于7）的函数。"></a>规则2.6 设计高扇入，合理扇出（小于7）的函数。</h2><p>说明：扇出是指一个函数直接调用（控制）其它函数的数目，而扇入是指有多少上级函数调用它。</p>
+<h3 id="规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。"><a href="#规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。" class="headerlink" title="规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。"></a>规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。</h3><h3 id="规则2-5-对函数的错误返回码要全面处理。"><a href="#规则2-5-对函数的错误返回码要全面处理。" class="headerlink" title="规则2.5 对函数的错误返回码要全面处理。"></a>规则2.5 对函数的错误返回码要全面处理。</h3><h3 id="规则2-6-设计高扇入，合理扇出（小于7）的函数。"><a href="#规则2-6-设计高扇入，合理扇出（小于7）的函数。" class="headerlink" title="规则2.6 设计高扇入，合理扇出（小于7）的函数。"></a>规则2.6 设计高扇入，合理扇出（小于7）的函数。</h3><p>说明：扇出是指一个函数直接调用（控制）其它函数的数目，而扇入是指有多少上级函数调用它。</p>
 <p>建议2.1 函数不变参数使用const。</p>
 <p>建议2.2 函数应避免使用全局变量、静态局部变量和I&#x2F;O操作，不可避免的地方应集中使用。</p>
 <p>建议2.4 函数的参数个数不超过5个。</p>
 <p>建议2.5 除打印类函数外，不要使用可变长参函数。</p>
-<h1 id="3-标识符命名与定义"><a href="#3-标识符命名与定义" class="headerlink" title="3 标识符命名与定义"></a>3 标识符命名与定义</h1>]]></content>
+<h1 id="3标识符命名与定义"><a href="#3标识符命名与定义" class="headerlink" title="3标识符命名与定义"></a>3标识符命名与定义</h1><h2 id="通用命名规则"><a href="#通用命名规则" class="headerlink" title="通用命名规则"></a>通用命名规则</h2><ol>
+<li><p>unix like风格</p>
+<p> 单词用小写字母，每个单词直接用下划线‘_’分割，例如text_mutex，kernel_text_address。</p>
+</li>
+<li><p>Windows风格</p>
+<p> 大小写字母混用，单词连在一起，每个单词首字母大写</p>
+</li>
+<li><p>匈牙利命名法</p>
+<p> 匈牙利命名主要包括三个部分：基本类型、一个或更多的前缀、一个限定词。</p>
+</li>
+</ol>
+<h3 id="原则-2"><a href="#原则-2" class="headerlink" title="原则"></a>原则</h3><h4 id="原则3-1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。"><a href="#原则3-1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。" class="headerlink" title="原则3.1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。"></a>原则3.1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。</h4><h4 id="原则3-2-除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。"><a href="#原则3-2-除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。" class="headerlink" title="原则3.2 除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。"></a>原则3.2 除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。</h4><p>示例：一些常见可以缩写的例子：</p>
+<ul>
+<li>argument 可缩写为 arg</li>
+<li>buffer 可缩写为 buff</li>
+<li>clock 可缩写为 clk</li>
+<li>command 可缩写为 cmd</li>
+<li>compare 可缩写为 cmp</li>
+<li>configuration 可缩写为 cfg</li>
+<li>device 可缩写为 dev</li>
+<li>error 可缩写为 err</li>
+<li>hexadecimal 可缩写为 hex</li>
+<li>increment 可缩写为 inc、</li>
+<li>initialize 可缩写为 init</li>
+<li>maximum 可缩写为 max</li>
+<li>message 可缩写为 msg</li>
+<li>minimum 可缩写为 min</li>
+<li>parameter 可缩写为 para</li>
+<li>previous 可缩写为 prev</li>
+<li>register 可缩写为 reg</li>
+<li>semaphore 可缩写为 sem</li>
+<li>statistic 可缩写为 stat</li>
+<li>synchronize 可缩写为 sync</li>
+<li>temp 可缩写为 tmp</li>
+</ul>
+<h3 id="规则-2"><a href="#规则-2" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-1-产品-项目组内部应保持统一的命名风格。"><a href="#规则3-1-产品-项目组内部应保持统一的命名风格。" class="headerlink" title="规则3.1 产品&#x2F;项目组内部应保持统一的命名风格。"></a>规则3.1 产品&#x2F;项目组内部应保持统一的命名风格。</h4><blockquote>
+<p>示例：</p>
+<p>add&#x2F;remove begin&#x2F;end create&#x2F;destroy insert&#x2F;delete first&#x2F;last get&#x2F;release increment&#x2F;decrement put&#x2F;get add&#x2F;delete lock&#x2F;unlock open&#x2F;close min&#x2F;max old&#x2F;new start&#x2F;stop next&#x2F;previous source&#x2F;target show&#x2F;hide send&#x2F;receive source&#x2F;destination copy&#x2F;paste up&#x2F;down</p>
+</blockquote>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-2-尽量避免名字中出现数字编号，除非逻辑上的确需要编号。"><a href="#建议3-2-尽量避免名字中出现数字编号，除非逻辑上的确需要编号。" class="headerlink" title="建议3.2 尽量避免名字中出现数字编号，除非逻辑上的确需要编号。"></a>建议3.2 尽量避免名字中出现数字编号，除非逻辑上的确需要编号。</h4><h4 id="建议3-3-标识符前不应添加模块、项目、产品、部门的名称作为前缀。"><a href="#建议3-3-标识符前不应添加模块、项目、产品、部门的名称作为前缀。" class="headerlink" title="建议3.3 标识符前不应添加模块、项目、产品、部门的名称作为前缀。"></a>建议3.3 标识符前不应添加模块、项目、产品、部门的名称作为前缀。</h4><h4 id="建议3-4-平台-驱动等适配代码的标识符命名风格保持和平台-驱动一致。"><a href="#建议3-4-平台-驱动等适配代码的标识符命名风格保持和平台-驱动一致。" class="headerlink" title="建议3.4 平台&#x2F;驱动等适配代码的标识符命名风格保持和平台&#x2F;驱动一致。"></a>建议3.4 平台&#x2F;驱动等适配代码的标识符命名风格保持和平台&#x2F;驱动一致。</h4><h2 id="文件命名规则"><a href="#文件命名规则" class="headerlink" title="文件命名规则"></a>文件命名规则</h2><h3 id="建议-1"><a href="#建议-1" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-6-文件命名统一采用小写字符。"><a href="#建议3-6-文件命名统一采用小写字符。" class="headerlink" title="建议3.6 文件命名统一采用小写字符。"></a>建议3.6 文件命名统一采用小写字符。</h4><h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><h3 id="规则-3"><a href="#规则-3" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-2-全局变量应增加“g-”前缀。"><a href="#规则3-2-全局变量应增加“g-”前缀。" class="headerlink" title="规则3.2 全局变量应增加“g_”前缀。"></a>规则3.2 全局变量应增加“g_”前缀。</h4><h4 id="规则3-3-静态变量应增加“s-”前缀。"><a href="#规则3-3-静态变量应增加“s-”前缀。" class="headerlink" title="规则3.3 静态变量应增加“s_”前缀。"></a>规则3.3 静态变量应增加“s_”前缀。</h4><h4 id="规则3-4-禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。"><a href="#规则3-4-禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。" class="headerlink" title="规则3.4 禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。"></a>规则3.4 禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。</h4><h3 id="建议-2"><a href="#建议-2" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-7-不建议使用匈牙利命名法。"><a href="#建议3-7-不建议使用匈牙利命名法。" class="headerlink" title="建议3.7 不建议使用匈牙利命名法。"></a>建议3.7 不建议使用匈牙利命名法。</h4><h4 id="建议3-8-使用名词或者形容词＋名词方式命名变量。"><a href="#建议3-8-使用名词或者形容词＋名词方式命名变量。" class="headerlink" title="建议3.8 使用名词或者形容词＋名词方式命名变量。"></a>建议3.8 使用名词或者形容词＋名词方式命名变量。</h4><h2 id="函数命名规则"><a href="#函数命名规则" class="headerlink" title="函数命名规则"></a>函数命名规则</h2><h3 id="建议-3"><a href="#建议-3" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-9-函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。"><a href="#建议3-9-函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。" class="headerlink" title="建议3.9 函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。"></a>建议3.9 函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。</h4><h2 id="宏的命名规则"><a href="#宏的命名规则" class="headerlink" title="宏的命名规则"></a>宏的命名规则</h2><h3 id="规则-4"><a href="#规则-4" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘-’的方式命名（枚举同样建议使用此方式定义）。"><a href="#规则3-5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘-’的方式命名（枚举同样建议使用此方式定义）。" class="headerlink" title="规则3.5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘_’的方式命名（枚举同样建议使用此方式定义）。"></a>规则3.5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘_’的方式命名（枚举同样建议使用此方式定义）。</h4><h4 id="规则3-6-除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘-’开头和结尾。"><a href="#规则3-6-除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘-’开头和结尾。" class="headerlink" title="规则3.6 除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘_’开头和结尾。"></a>规则3.6 除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘_’开头和结尾。</h4><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="原则-3"><a href="#原则-3" class="headerlink" title="原则"></a>原则</h2><h3 id="原则4-1-一个变量只有一个功能，不能把一个变量用作多种用途。"><a href="#原则4-1-一个变量只有一个功能，不能把一个变量用作多种用途。" class="headerlink" title="原则4.1 一个变量只有一个功能，不能把一个变量用作多种用途。"></a>原则4.1 一个变量只有一个功能，不能把一个变量用作多种用途。</h3><blockquote>
+<p>我怎么感觉在某些情况下无妨啊，开多了变量会占用性能吧？</p>
+<p>也就是说：重要性：代码的可读性、可维护性和减少错误&gt;性能消耗</p>
+<p>下列答案基于<strong>chatGPT</strong></p>
+<p>遵循“一个变量只有一个功能”的原则确实会增加一些变量的数量，但这通常不会显著增加系统开销，特别是在现代编程环境和硬件条件下。这是因为：</p>
+<ol>
+<li><p><strong>内存开销相对较小</strong>：</p>
+<ul>
+<li>现代计算机的内存容量通常非常大，增加几个变量所占用的内存是非常小的。这种内存开销在绝大多数应用场景下可以忽略不计。</li>
+</ul>
+</li>
+<li><p><strong>编译器优化</strong>：</p>
+<ul>
+<li>现代编译器和解释器非常智能，它们可以优化代码，将不必要的变量删除或者合并，从而减少内存开销。例如，在优化编译过程中，编译器会尝试最小化变量的存储空间，并进行变量复用等优化操作。</li>
+</ul>
+</li>
+<li><p><strong>代码可读性和维护性优先</strong>：</p>
+<ul>
+<li>代码的可读性和可维护性在实际开发中比微小的性能优化更重要。可读性好的代码更容易被团队中的其他开发人员理解和维护，从而降低了开发和维护的成本。</li>
+</ul>
+</li>
+<li><p><strong>开发效率和错误减少</strong>：</p>
+<ul>
+<li>使用单一功能变量可以减少代码中的错误，使开发过程更加顺利。这种减少错误和提升开发效率的好处往往远远超过因为增加变量数量而带来的微小性能损失。</li>
+</ul>
+</li>
+</ol>
+<p><strong>示例分析</strong>：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 增加系统开销的担忧</span></span><br><span class="line">total_items = <span class="number">10</span></span><br><span class="line">price = <span class="number">5.99</span></span><br><span class="line">total_cost = total_items * price</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不好的做法：减少变量数量</span></span><br><span class="line">x = <span class="number">10</span></span><br><span class="line">x = <span class="number">5.99</span></span><br><span class="line">x = x * x  <span class="comment"># 这样做容易引入错误，也降低了代码的可读性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确做法：使用多个变量，增加代码可读性</span></span><br><span class="line">total_items = <span class="number">10</span></span><br><span class="line">price_per_item = <span class="number">5.99</span></span><br><span class="line">total_cost = total_items * price_per_item</span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，尽管引入了多个变量，但它们使代码更容易理解和维护。变量名清晰地表达了它们的用途，减少了开发和调试中的潜在错误。</p>
+<p><strong>总结</strong>：</p>
+<p>遵循“一个变量只有一个功能”的原则，不仅不会显著增加系统开销，反而可以通过提升代码质量和开发效率，降低长远的开发和维护成本。因此，在大多数情况下，这种做法是非常值得的。实际开发中，尤其是在团队协作和大型项目中，应优先考虑代码的可读性和可维护性。</p>
+</blockquote>
+<h3 id="原则4-2-结构功能单一；不要设计面面俱到的数据结构。"><a href="#原则4-2-结构功能单一；不要设计面面俱到的数据结构。" class="headerlink" title="原则4.2 结构功能单一；不要设计面面俱到的数据结构。"></a>原则4.2 结构功能单一；不要设计面面俱到的数据结构。</h3><h3 id="原则4-3-不用或者少用全局变量。"><a href="#原则4-3-不用或者少用全局变量。" class="headerlink" title="原则4.3 不用或者少用全局变量。"></a>原则4.3 不用或者少用全局变量。</h3><h2 id="规则-5"><a href="#规则-5" class="headerlink" title="规则"></a>规则</h2><h3 id="规则4-1-防止局部变量与全局变量同名。"><a href="#规则4-1-防止局部变量与全局变量同名。" class="headerlink" title="规则4.1 防止局部变量与全局变量同名。"></a>规则4.1 防止局部变量与全局变量同名。</h3><h3 id="规则4-2-通讯过程中使用的结构，必须注意字节序。"><a href="#规则4-2-通讯过程中使用的结构，必须注意字节序。" class="headerlink" title="规则4.2 通讯过程中使用的结构，必须注意字节序。"></a>规则4.2 通讯过程中使用的结构，必须注意字节序。</h3><blockquote>
+<p>字节序的解释（基于chatGPT）</p>
+<p>字节序（Byte Order）是指在计算机内存中存储多字节数据时，字节的排列顺序。不同计算机系统可能采用不同的字节序，主要有两种类型：大端序（Big-Endian）和小端序（Little-Endian）。</p>
+<h3 id="大端序（Big-Endian）"><a href="#大端序（Big-Endian）" class="headerlink" title="大端序（Big-Endian）"></a>大端序（Big-Endian）</h3><ul>
+<li><p><strong>定义</strong>：高位字节存储在低地址，低位字节存储在高地址。</p>
+</li>
+<li><p>示例</p>
+<p>  ：假设有一个4字节（32位）的数值</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x12345678</span><br></pre></td></tr></table></figure>
+
+<p>  。在大端序系统中，它的存储顺序如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">makefile复制代码地址:   0x00  0x01  0x02  0x03</span><br><span class="line">值:     0x12  0x34  0x56  0x78</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="小端序（Little-Endian）"><a href="#小端序（Little-Endian）" class="headerlink" title="小端序（Little-Endian）"></a>小端序（Little-Endian）</h3><ul>
+<li><p><strong>定义</strong>：低位字节存储在低地址，高位字节存储在高地址。</p>
+</li>
+<li><p>示例</p>
+<p>  ：同样的数值</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">0x12345678</span><br></pre></td></tr></table></figure>
+
+<p>  在小端序系统中的存储顺序如下：</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">makefile复制代码地址:   0x00  0x01  0x02  0x03</span><br><span class="line">值:     0x78  0x56  0x34  0x12</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="为什么字节序很重要"><a href="#为什么字节序很重要" class="headerlink" title="为什么字节序很重要"></a>为什么字节序很重要</h3><p>在多字节数据传输或跨平台交互时，字节序的不同可能导致数据解释错误。例如，一个大端序系统发送数据到一个小端序系统，如果不做任何处理，小端序系统可能会错误地解读数据内容。</p>
+<h3 id="字节序的处理"><a href="#字节序的处理" class="headerlink" title="字节序的处理"></a>字节序的处理</h3><ol>
+<li><strong>网络字节序</strong>：网络协议（如TCP&#x2F;IP）通常规定使用大端序，这被称为网络字节序（Network Byte Order）。</li>
+<li><strong>字节序转换函数</strong>：大多数编程语言提供了用于字节序转换的函数。例如，在C语言中，<code>htons</code>（Host TO Network Short）、<code>htonl</code>（Host TO Network Long）、<code>ntohs</code>（Network TO Host Short）、<code>ntohl</code>（Network TO Host Long）等函数用于在主机字节序和网络字节序之间进行转换。</li>
+</ol>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>C语言中的字节序处理</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">c复制代码#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line"></span><br><span class="line">void print_bytes(uint32_t value) &#123;</span><br><span class="line">    uint8_t *bytes = (uint8_t *)&amp;value;</span><br><span class="line">    for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">        printf(&quot;%02x &quot;, bytes[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    uint32_t host_value = 0x12345678; // 主机字节序</span><br><span class="line">    uint32_t network_value = htonl(host_value); // 转换为网络字节序（大端序）</span><br><span class="line"></span><br><span class="line">    printf(&quot;Host byte order: &quot;);</span><br><span class="line">    print_bytes(host_value); // 打印主机字节序</span><br><span class="line"></span><br><span class="line">    printf(&quot;Network byte order: &quot;);</span><br><span class="line">    print_bytes(network_value); // 打印网络字节序</span><br><span class="line"></span><br><span class="line">    uint32_t converted_back = ntohl(network_value); // 转换回主机字节序</span><br><span class="line">    printf(&quot;Converted back to host byte order: &quot;);</span><br><span class="line">    print_bytes(converted_back); // 打印转换回的主机字节序</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vbnet复制代码Host byte order: 78 56 34 12 </span><br><span class="line">Network byte order: 12 34 56 78 </span><br><span class="line">Converted back to host byte order: 78 56 34 12 </span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>字节序在计算机内存中存储多字节数据时非常重要。理解和处理字节序问题，特别是在跨平台或网络通信中，确保数据正确传输和解释是至关重要的。通过明确协议中的字节序和使用合适的字节序转换函数，可以避免数据传输中的错误。</p>
+</blockquote>
+<h3 id="规则4-3-严禁使用未经初始化的变量作为右值。"><a href="#规则4-3-严禁使用未经初始化的变量作为右值。" class="headerlink" title="规则4.3 严禁使用未经初始化的变量作为右值。"></a>规则4.3 严禁使用未经初始化的变量作为右值。</h3><h2 id="建议-4"><a href="#建议-4" class="headerlink" title="建议"></a>建议</h2><h3 id="建议4-1-构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。"><a href="#建议4-1-构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。" class="headerlink" title="建议4.1 构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。"></a>建议4.1 构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。</h3><h3 id="建议4-2-使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。"><a href="#建议4-2-使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。" class="headerlink" title="建议4.2 使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。"></a>建议4.2 使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。</h3><h3 id="建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。"><a href="#建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。" class="headerlink" title="建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。"></a>建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。</h3><h3 id="建议4-4-明确全局变量的初始化顺序，避免跨模块的初始化依赖。"><a href="#建议4-4-明确全局变量的初始化顺序，避免跨模块的初始化依赖。" class="headerlink" title="建议4.4 明确全局变量的初始化顺序，避免跨模块的初始化依赖。"></a>建议4.4 明确全局变量的初始化顺序，避免跨模块的初始化依赖。</h3><h3 id="建议4-5-尽量减少没有必要的数据类型默认转换与强制转换。"><a href="#建议4-5-尽量减少没有必要的数据类型默认转换与强制转换。" class="headerlink" title="建议4.5 尽量减少没有必要的数据类型默认转换与强制转换。"></a>建议4.5 尽量减少没有必要的数据类型默认转换与强制转换。</h3><h1 id="宏、常量"><a href="#宏、常量" class="headerlink" title="宏、常量"></a>宏、常量</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="规则-6"><a href="#规则-6" class="headerlink" title="规则"></a>规则</h2><h3 id="规则5-1-用宏定义表达式时，要使用完备的括号。"><a href="#规则5-1-用宏定义表达式时，要使用完备的括号。" class="headerlink" title="规则5.1 用宏定义表达式时，要使用完备的括号。"></a>规则5.1 用宏定义表达式时，要使用完备的括号。</h3><h3 id="规则5-2-将宏所定义的多条表达式放在大括号中。"><a href="#规则5-2-将宏所定义的多条表达式放在大括号中。" class="headerlink" title="规则5.2 将宏所定义的多条表达式放在大括号中。"></a>规则5.2 将宏所定义的多条表达式放在大括号中。</h3><h3 id="规则5-3-使用宏时，不允许参数发生变化。"><a href="#规则5-3-使用宏时，不允许参数发生变化。" class="headerlink" title="规则5.3 使用宏时，不允许参数发生变化。"></a>规则5.3 使用宏时，不允许参数发生变化。</h3><h3 id="规则5-4-不允许直接使用魔鬼数字。"><a href="#规则5-4-不允许直接使用魔鬼数字。" class="headerlink" title="规则5.4 不允许直接使用魔鬼数字。"></a>规则5.4 不允许直接使用魔鬼数字。</h3><p>说明：使用魔鬼数字的弊端：代码难以理解；如果一个有含义的数字多处使用，一旦需要修改这个数值，代价惨重。</p>
+<h2 id="建议-5"><a href="#建议-5" class="headerlink" title="建议"></a>建议</h2><h3 id="建议5-1-除非必要，应尽可能使用函数代替宏。"><a href="#建议5-1-除非必要，应尽可能使用函数代替宏。" class="headerlink" title="建议5.1 除非必要，应尽可能使用函数代替宏。"></a>建议5.1 除非必要，应尽可能使用函数代替宏。</h3><h3 id="建议5-2-常量建议使用const定义代替宏。"><a href="#建议5-2-常量建议使用const定义代替宏。" class="headerlink" title="建议5.2 常量建议使用const定义代替宏。"></a>建议5.2 常量建议使用const定义代替宏。</h3><h3 id="建议5-3-宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。"><a href="#建议5-3-宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。" class="headerlink" title="建议5.3 宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。"></a>建议5.3 宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。</h3><h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><p><strong>to be continued</strong></p>
+<h1 id="程序效率"><a href="#程序效率" class="headerlink" title="程序效率"></a>程序效率</h1><p><strong>to be continued</strong></p>
+<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>to be continued</strong></p>
+<h1 id="排版与格式"><a href="#排版与格式" class="headerlink" title="排版与格式"></a>排版与格式</h1><p><strong>to be continued</strong></p>
+]]></content>
       <tags>
         <tag>项目</tag>
         <tag>C/C++</tag>
