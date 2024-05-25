@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">667</span>
         </span>
     </span>
 
@@ -91,20 +91,46 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
  
     </div>
       
+    <div class="tocbot"></div>
+
 
 
 
   
     <div class="article-entry" itemprop="articleBody">
        
-   
+  <h1 id="SPI协议"><a href="#SPI协议" class="headerlink" title="SPI协议"></a>SPI协议</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">点击跳转</a></p>
+<p>​	SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（SPI不支持多主机），主模块选择一个从模块进行同步通信，从而完成数据的交换。<strong>提供时钟的为主设备</strong>（Master），接收时钟的设备为从设备（Slave），SPI接口的读写操作，都是由主设备发起，当存在多个从设备时，通过各自的片选信号进行管理。</p>
+<h3 id="引脚定义"><a href="#引脚定义" class="headerlink" title="引脚定义"></a>引脚定义</h3><ol>
+<li><strong>MISO</strong>（ Master Input Slave Output）：主设备数据输入，从设备数据输出；</li>
+<li><strong>MOSI</strong>（Master Output Slave Input）：主设备数据输出，从设备数据输入；</li>
+<li><strong>SCLK</strong>（Serial Clock）：时钟信号，由主设备产生；</li>
+<li><strong>CS&#x2F;SS</strong>（Chip Select&#x2F;Slave Select）：从设备使能信号，由主设备控制，一主多从时，CS&#x2F;SS是从芯片是否被主芯片选中的控制信号，只有片选信号为预先规定的使能信号时（高电位或低电位），主芯片对此从芯片的操作才有效。</li>
+</ol>
+<h2 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h2><p>SPI主设备和从设备都有一个串行移位寄存器，一次传输为8位。</p>
+<h3 id="通信流程"><a href="#通信流程" class="headerlink" title="通信流程"></a>通信流程</h3><ol>
+<li>主设备发起信号，将CS&#x2F;SS拉低，启动通信。</li>
+<li>主设备通过发送时钟信号，来告诉从设备进行写数据或者读数据操作（采集时机可能是时钟信号的上升沿（从低到高）或下降沿（从高到低）），它将立即读取数据线上的信号，这样就得到了一位数据（1bit）。</li>
+<li>主机（Master）将要发送的数据写到发送数据缓存区（Menory），缓存区经过移位寄存器（缓存长度不一定，看单片机配置），串行移位寄存器通过MOSI信号线将字节一位一位的移出去传送给从机，同时MISO接口接收到的数据经过移位寄存器一位一位的移到接收缓存区。</li>
+<li>从机（Slave）也将自己的串行移位寄存器（缓存长度不一定，看单片机配置）中的内容通过MISO信号线返回给主机。同时通过MOSI信号线接收主机发送的数据，这样，两个移位寄存器中的内容就被交换。</li>
+</ol>
+<h2 id="STM32实现（使用0-96Oled）"><a href="#STM32实现（使用0-96Oled）" class="headerlink" title="STM32实现（使用0.96Oled）"></a>STM32实现（使用0.96Oled）</h2><h3 id="0-96Oled引脚介绍"><a href="#0-96Oled引脚介绍" class="headerlink" title="0.96Oled引脚介绍"></a>0.96Oled引脚介绍</h3><ol>
+<li>GND	 &lt;—&gt;    电源地</li>
+<li>VCC      &lt;—&gt;   电源正（3～5.5V）</li>
+<li>D0(SCL) &lt;—&gt;  SCK管脚</li>
+<li>D1(SDA) &lt;—&gt;   MOSI管脚</li>
+<li>RES(RST) &lt;—&gt;用来复位（低电平复位）</li>
+<li>DC(D&#x2F;C) &lt;—&gt;   数据和命令控制管脚 1表示数据 0表示命令</li>
+<li>CS(NSS) &lt;—&gt;  片选管脚</li>
+</ol>
+ 
       <!-- reward -->
       
       <div id="reword-out">
