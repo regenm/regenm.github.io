@@ -6767,4 +6767,22 @@
         <tag>苏州</tag>
       </tags>
   </entry>
+  <entry>
+    <title>M.2 STC89C52</title>
+    <url>/2024/05/25/M-2-STC89C52/</url>
+    <content><![CDATA[<p>​	最近在学画PCB的时候突发奇想，想利用M.2接口的易插拔特性来画一片51最小系统板，同时还引出了大部分引脚，外形类似于Arduino。第一版有点丑。</p>
+<p><img src="/images/m251/1.png" alt="Schematic"></p>
+<p><img src="/images/m251/2.png" alt="Pcb"></p>
+<p><img src="/images/m251/3.png" alt="Pcb_3D"></p>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>51</tag>
+        <tag>PCB</tag>
+        <tag>项目</tag>
+        <tag>最小系统</tag>
+        <tag>M.2接口</tag>
+      </tags>
+  </entry>
 </search>
