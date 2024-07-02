@@ -1,1350 +1,286 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-  
-
-    <head>
-      <meta charset="utf-8" />
-       
-      <meta name="keywords" content="Regen&#39;s blogs" />
-       
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-      />
-      <title> Regen</title>
-  <meta name="generator" content="hexo-theme-ayer">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Regen - Blogs</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Regen">
+<meta property="og:url" content="http://example.com/page/7/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.png">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="Regen&#39;s blogs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.png"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/page/7/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Regen',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-02 16:16:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-      <link rel="shortcut icon" href="/images/touxiang.png" />
-       
-<link rel="stylesheet" href="/dist/main.css">
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-<link rel="stylesheet" href="/css/custom.css">
- 
-      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
-       
- 
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-
-      <!-- mermaid -->
-      
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-      </style>
-    </head>
-  </html>
-</html>
-
-
-<body>
-  <div id="app">
-    
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/regenm/Notes"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="images/cover_1.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Regen</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['Hi !', 'HOLA ！', 'bonjour ！'],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
-                <img src="/images/touxiang.png" width="300" alt="Bilibili">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-leetcode刷题笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/"
-    >leetcode刷题笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-20T16:05:26.000Z" itemprop="datePublished">2023-09-21</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="1-两数之和。"><a href="#1-两数之和。" class="headerlink" title="1.两数之和。"></a>1.两数之和。</h1><p>获得技能：哈希表，c++容器MAP。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">twoSum</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums, <span class="type">int</span> target)</span> </span>&#123;</span><br><span class="line">        map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; a;<span class="comment">//提供一对一的hash</span></span><br><span class="line">        <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">b</span><span class="params">(<span class="number">2</span>,<span class="number">-1</span>)</span></span>;<span class="comment">//用来承载结果，初始化一个大小为2，值为-1的容器b</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;nums.<span class="built_in">size</span>();i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(a.<span class="built_in">count</span>(target-nums[i])&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                b[<span class="number">0</span>]=a[target-nums[i]];</span><br><span class="line">                b[<span class="number">1</span>]=i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            a[nums[i]]=i;<span class="comment">//反过来放入map中，用来获取结果下标</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="2-链表逆转。（非-力扣-）"><a href="#2-链表逆转。（非-力扣-）" class="headerlink" title="2.链表逆转。（非 力扣 ）"></a>2.链表逆转。（非 力扣 ）</h1><h3 id="1-迭代法"><a href="#1-迭代法" class="headerlink" title="1.迭代法"></a>1.迭代法</h3><ul>
-<li>需要保存：<ul>
-<li>1.当前节点上一节点</li>
-<li>2.当前节点下一节点</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List <span class="title function_">Reverse</span><span class="params">( List L )</span></span><br><span class="line">&#123;    </span><br><span class="line">    List first=<span class="literal">NULL</span>;</span><br><span class="line">    List tmp;</span><br><span class="line">    <span class="keyword">while</span>(L!=<span class="literal">NULL</span>)      <span class="comment">//	L为当前节点</span></span><br><span class="line">    &#123;</span><br><span class="line">        tmp=L-&gt;Next;    <span class="comment">//   tmp保存下一节点</span></span><br><span class="line">        L-&gt;Next=first;    <span class="comment">//   修改指向</span></span><br><span class="line">        first=L;      <span class="comment">//	保存当前节点</span></span><br><span class="line">        L=tmp;        <span class="comment">//	转到下一个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> first;      <span class="comment">//  返回头结点（不是L,L循环结束后为空）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-栈"><a href="#2-栈" class="headerlink" title="2.栈"></a>2.栈</h3><ul>
-<li>两次循环即可</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">translateLinklist</span><span class="params">(Linklist&amp; L)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  stack&lt;<span class="type">int</span>&gt; stk;<span class="comment">//定义栈</span></span><br><span class="line">  </span><br><span class="line">  Linklist p = L-&gt;next;</span><br><span class="line">  <span class="keyword">while</span> (p)  <span class="comment">//依次读取栈的内容，也就是第一步</span></span><br><span class="line">  &#123;</span><br><span class="line">    stk.<span class="built_in">push</span>(p-&gt;data);</span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  p = L-&gt;next;</span><br><span class="line">  <span class="keyword">while</span> (p)   <span class="comment">//依次出栈，更换链表中的数据，也就是第二步</span></span><br><span class="line">  &#123;</span><br><span class="line">    p-&gt;data = stk.<span class="built_in">top</span>();</span><br><span class="line">    stk.<span class="built_in">pop</span>();</span><br><span class="line">    p = p-&gt;next;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="3-无重复字符的最长子串。"><a href="#3-无重复字符的最长子串。" class="headerlink" title="3.无重复字符的最长子串。"></a>3.无重复字符的最长子串。</h1><p>获得技能：队列，滑动窗口</p>
-<p>​	</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">lengthOfLongestSubstring</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.<span class="built_in">size</span>() == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        unordered_set&lt;<span class="type">char</span>&gt; lookup; <span class="comment">//队列模板</span></span><br><span class="line">        </span><br><span class="line">        <span class="type">int</span> maxStr = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> left = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (lookup.<span class="built_in">find</span>(s[i]) != lookup.<span class="built_in">end</span>())&#123;</span><br><span class="line">                lookup.<span class="built_in">erase</span>(s[left]);</span><br><span class="line">                left ++;</span><br><span class="line">            &#125;</span><br><span class="line">            maxStr = <span class="built_in">max</span>(maxStr,i-left+<span class="number">1</span>);</span><br><span class="line">            lookup.<span class="built_in">insert</span>(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="keyword">return</span> maxStr;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="4-寻找两个正序数组的中位数。"><a href="#4-寻找两个正序数组的中位数。" class="headerlink" title="4.寻找两个正序数组的中位数。"></a>4.寻找两个正序数组的中位数。</h1><p>​	获得技能：二分查找。</p>
-<p>​	</p>
-<p>​	由于数列是有序的，其实我们完全可以一半儿一半儿的排除。假设我们要找第 <code>k</code> 个数，我们可以每次循环排除掉 <code>k/2</code> 个数。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedianSortedArrays</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span>[] nums2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums1.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> nums2.length;</span><br><span class="line">        <span class="comment">//因为数组是从索引0开始的，因此我们在这里必须+1，即索引(k+1)的数，才是第k个数。</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> (n + m + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> (n + m + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="comment">//将偶数和奇数的情况合并，如果是奇数，会求两次同样的 k</span></span><br><span class="line">        <span class="keyword">return</span> (getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, left) + getKth(nums1, <span class="number">0</span>, n - <span class="number">1</span>, nums2, <span class="number">0</span>, m - <span class="number">1</span>, right)) * <span class="number">0.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">getKth</span><span class="params">(<span class="type">int</span>[] nums1, <span class="type">int</span> start1, <span class="type">int</span> end1, <span class="type">int</span>[] nums2, <span class="type">int</span> start2, <span class="type">int</span> end2, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="comment">//因为索引和算数不同6-0=6，但是是有7个数的，因为end初始就是数组长度-1构成的。</span></span><br><span class="line">        <span class="comment">//最后len代表当前数组(也可能是经过递归排除后的数组)，符合当前条件的元素的个数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> end1 - start1 + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> end2 - start2 + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//让 len1 的长度小于 len2，这样就能保证如果有数组空了，一定是 len1</span></span><br><span class="line">        <span class="comment">//就是如果len1长度小于len2，把getKth()中参数互换位置，即原来的len2就变成了len1，即len1，永远比len2小</span></span><br><span class="line">        <span class="keyword">if</span> (len1 &gt; len2) <span class="keyword">return</span> getKth(nums2, start2, end2, nums1, start1, end1, k);</span><br><span class="line">        <span class="comment">//如果一个数组中没有了元素，那么即从剩余数组nums2的其实start2开始加k再-1.</span></span><br><span class="line">        <span class="comment">//因为k代表个数，而不是索引，那么从nums2后再找k个数，那个就是start2 + k-1索引处就行了。因为还包含nums2[start2]也是一个数。因为它在上次迭代时并没有被排除</span></span><br><span class="line">        <span class="keyword">if</span> (len1 == <span class="number">0</span>) <span class="keyword">return</span> nums2[start2 + k - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果k=1，表明最接近中位数了，即两个数组中start索引处，谁的值小，中位数就是谁(start索引之前表示经过迭代已经被排出的不合格的元素，即数组没被抛弃的逻辑上的范围是nums[start]---&gt;nums[end])。</span></span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> Math.min(nums1[start1], nums2[start2]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//为了防止数组长度小于 k/2,每次比较都会从当前数组所生长度和k/2作比较，取其中的小的(如果取大的，数组就会越界)</span></span><br><span class="line">        <span class="comment">//然后素组如果len1小于k / 2，表示数组经过下一次遍历就会到末尾，然后后面就会在那个剩余的数组中寻找中位数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> start1 + Math.min(len1, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> start2 + Math.min(len2, k / <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果nums1[i] &gt; nums2[j]，表示nums2数组中包含j索引，之前的元素，逻辑上全部淘汰，即下次从J+1开始。</span></span><br><span class="line">        <span class="comment">//而k则变为k - (j - start2 + 1)，即减去逻辑上排出的元素的个数(要加1，因为索引相减，相对于实际排除的时要少一个的)</span></span><br><span class="line">        <span class="keyword">if</span> (nums1[i] &gt; nums2[j]) &#123;</span><br><span class="line">            <span class="keyword">return</span> getKth(nums1, start1, end1, nums2, j + <span class="number">1</span>, end2, k - (j - start2 + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> getKth(nums1, i + <span class="number">1</span>, end1, nums2, start2, end2, k - (i - start1 + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="5-最长回文子串"><a href="#5-最长回文子串" class="headerlink" title="5.最长回文子串"></a>5.最长回文子串</h1><p>​	给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
-<pre><code>* 中心扩展
-</code></pre>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">string <span class="title">longestPalindrome</span><span class="params">(string s)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> len=s.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>||len==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        <span class="type">int</span> start=<span class="number">0</span>;<span class="comment">//记录回文子串起始位置</span></span><br><span class="line">        <span class="type">int</span> end=<span class="number">0</span>;<span class="comment">//记录回文子串终止位置</span></span><br><span class="line">        <span class="type">int</span> mlen=<span class="number">0</span>;<span class="comment">//记录最大回文子串的长度</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> len1=<span class="built_in">expendaroundcenter</span>(s,i,i);<span class="comment">//一个元素为中心</span></span><br><span class="line">            <span class="type">int</span> len2=<span class="built_in">expendaroundcenter</span>(s,i,i+<span class="number">1</span>);<span class="comment">//两个元素为中心</span></span><br><span class="line">            mlen=<span class="built_in">max</span>(<span class="built_in">max</span>(len1,len2),mlen);</span><br><span class="line">            <span class="keyword">if</span>(mlen&gt;end-start+<span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                start=i-(mlen<span class="number">-1</span>)/<span class="number">2</span>;</span><br><span class="line">                end=i+mlen/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.<span class="built_in">substr</span>(start,mlen);</span><br><span class="line">        <span class="comment">//该函数的意思是获取从start开始长度为mlen长度的字符串</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">expendaroundcenter</span><span class="params">(string s,<span class="type">int</span> left,<span class="type">int</span> right)</span></span></span><br><span class="line"><span class="function">    <span class="comment">//计算以left和right为中心的回文串长度</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> L=left;</span><br><span class="line">        <span class="type">int</span> R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span> &amp;&amp; R&lt;s.<span class="built_in">length</span>() &amp;&amp; s[R]==s[L])</span><br><span class="line">        &#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L<span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<pre><code>* 动态规划
-</code></pre>
-<p>​		</p>
-<p>​			思想：如果S[ i , j ]是回文串，那么S[ i-1 , j -1]也是回文串 ， 假设</p>
-<p><img src="/images/leecode4.PNG" alt="formula"></p>
-<p>​			需要注意 : <strong>i&gt;j</strong>的情况</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">longestPalindrome</span><span class="params">(String s)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> s.length();</span><br><span class="line">    <span class="type">boolean</span>[][] P = <span class="keyword">new</span> <span class="title class_">boolean</span>[length][length];<span class="comment">//公式</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">maxLen</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">maxPal</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">1</span>; len &lt;= length; len++) <span class="comment">//遍历所有的长度</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">start</span> <span class="operator">=</span> <span class="number">0</span>; start &lt; length; start++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">end</span> <span class="operator">=</span> start + len - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (end &gt;= length) <span class="comment">//下标已经越界，结束本次循环</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            P[start][end] = (len == <span class="number">1</span> || len == <span class="number">2</span> || P[start + <span class="number">1</span>][end - <span class="number">1</span>]) &amp;&amp; s.charAt(start) == s.charAt(end); <span class="comment">//长度为 1 和 2 的单独判断下</span></span><br><span class="line">            <span class="keyword">if</span> (P[start][end] &amp;&amp; len &gt; maxLen) &#123;</span><br><span class="line">                maxPal = s.substring(start, end + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> maxPal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="6-约瑟夫环问题"><a href="#6-约瑟夫环问题" class="headerlink" title="6.约瑟夫环问题"></a>6.约瑟夫环问题</h1><ol>
-<li>直接用数组实现</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//用数组实现约瑟夫环问题</span></span><br><span class="line"><span class="type">int</span> a[<span class="number">110</span>]=&#123;<span class="number">0</span>&#125;;   <span class="comment">//元素值为0表示未出局 </span></span><br><span class="line"><span class="comment">//i既代表数组的下标，也代表每个人的编号</span></span><br><span class="line"><span class="comment">//k是用来计数的，一旦k的值达到m，代表此人需要出局，并且k需要重新计数，这样才能够找出所有需要出局的人</span></span><br><span class="line"><span class="comment">//数组的0代表未出局的人，数组非0代表出局的人，未出局的人需要报数，出局的人不需要报数 </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> N,M;</span><br><span class="line">  <span class="type">int</span> cnt=<span class="number">0</span>,i=<span class="number">0</span>,k=<span class="number">0</span>;  <span class="comment">//cnt表示目前出局的人数 </span></span><br><span class="line">  <span class="built_in">cin</span>&gt;&gt;N&gt;&gt;M;  <span class="comment">//表示总共有n人，数到数字m时出局 </span></span><br><span class="line">  <span class="keyword">while</span>(cnt!=N) <span class="comment">//因为要求N个人的出局顺序，因此当cnt（用来统计已经出局的人）未达到n时，需要循环不断报数 </span></span><br><span class="line">  &#123;</span><br><span class="line">    i++;   <span class="comment">//i是每个人的编号 </span></span><br><span class="line">    <span class="keyword">if</span>(i&gt;N) i=<span class="number">1</span>;  <span class="comment">//这里需要特别注意：i的值是不断累加的，一旦发现i的值&gt;N，那么i需要重新从第1个人开始</span></span><br><span class="line">                  <span class="comment">//数组要从第一个元素重新开始一个一个往后判断 </span></span><br><span class="line">    <span class="keyword">if</span>(a[i]==<span class="number">0</span>)   <span class="comment">//只有元素值为0的人 才需要报数，元素值为非0的代表已经出局了，不用报数 </span></span><br><span class="line">    &#123;</span><br><span class="line">      k++;</span><br><span class="line">      <span class="keyword">if</span>(k==M)     <span class="comment">//代表已经某个人已经报了M这个数，需要出局 </span></span><br><span class="line">      &#123;</span><br><span class="line">        a[i]=<span class="number">1</span>;  <span class="comment">//编号为i的这个人出局 </span></span><br><span class="line">        cnt++;   <span class="comment">//出局的人数+1 </span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;  <span class="comment">//输出出局的人的编号 </span></span><br><span class="line">        k=<span class="number">0</span>;   <span class="comment">//清空k，让下一个人重新从1开始报数   </span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>循环链表</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">//用链表实现约瑟夫环问题 （循环链表） </span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">node</span>  //<span class="title">typedef</span>用来重命名<span class="keyword">struct</span> <span class="title">node</span>这种数据类型，将其命名为<span class="title">Node</span> </span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="type">int</span> data;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"> </span><br><span class="line"><span class="type">void</span> <span class="title function_">ysflb</span><span class="params">(<span class="type">int</span> N,<span class="type">int</span> M)</span>  <span class="comment">//总共有N个人，报到数字为M的人出局 </span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//初始化循环链表</span></span><br><span class="line">  Node *head = <span class="literal">NULL</span>,*p=<span class="literal">NULL</span>,*r=<span class="literal">NULL</span>;   <span class="comment">//head为头指针，指向链表的第一个结点，一开始赋值为NULL,代表不指向任何结点 </span></span><br><span class="line">  head = (Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node));  <span class="comment">//让head指向一个实际的空间</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="literal">NULL</span>==head)  <span class="comment">//内存空间可能会申请失败,大多数情况不会申请失败 </span></span><br><span class="line">  &#123;</span><br><span class="line">      <span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Memory Failed!&quot;</span>;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">  &#125; </span><br><span class="line">  head-&gt;data=<span class="number">1</span>;       <span class="comment">//从1开始编号 </span></span><br><span class="line">  head-&gt;next=<span class="literal">NULL</span>;    <span class="comment">//一开始整个链表只有一个Node(结点)，这个Node有两个域，分别是data和next</span></span><br><span class="line">                      <span class="comment">//data从1开始，next指向NULL，总共需要N个结点，现在创建了一个，还需要N-1个 </span></span><br><span class="line">    p=head;             <span class="comment">//head要保持不能改变，才能够找到链表的起始位置，一开始p也指向第一个结点</span></span><br><span class="line">                      <span class="comment">//p等一下会被使用，用它可以便于创建剩下的N-1个结点 </span></span><br><span class="line">             </span><br><span class="line">  <span class="comment">//尾插法创建链表,已经有一个1号结点了，还需要创建剩下的n-1个结点 </span></span><br><span class="line">  <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">  &#123;</span><br><span class="line">    r=(Node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Node)); </span><br><span class="line">    r-&gt;data=i;</span><br><span class="line">    r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//插入结点 </span></span><br><span class="line">    p-&gt;next=r;</span><br><span class="line">    p=r;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//创建循环链表</span></span><br><span class="line">  p-&gt;next=head;   <span class="comment">//最后一个结点的next指向头结点</span></span><br><span class="line">  p=head;         <span class="comment">//为后续方便，将p指向头结点</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">//约瑟夫环的模拟</span></span><br><span class="line">  <span class="keyword">while</span>(p-&gt;next!= p)  <span class="comment">//如果p的next=p，说明目前只有一个元素 </span></span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;M;i++)  <span class="comment">//报到数字为M的时候出局 </span></span><br><span class="line">    &#123;</span><br><span class="line">        r=p;   <span class="comment">//保留出局的前一个结点 </span></span><br><span class="line">        p=p-&gt;next; <span class="comment">//p指向的是要出局的这个结点，需要保留前一个结点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 输出</span></span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;p-&gt;data&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line">    r-&gt;next=p-&gt;next;    <span class="comment">//删除p的目的，此时p指向哪里？  ：  </span></span><br><span class="line">    p=p-&gt;next;  <span class="comment">//更新p重新进行报数 </span></span><br><span class="line">  &#125; </span><br><span class="line">  <span class="built_in">cout</span>&lt;&lt;p-&gt;data; </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  ysflb(<span class="number">10</span>,<span class="number">3</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<h1 id="7-列车调度问题"><a href="#7-列车调度问题" class="headerlink" title="7.列车调度问题"></a>7.列车调度问题</h1><p>​	建立一个数组，当输入一个列车序号时开辟轨道，再输入一个列车序号，在所有轨道中<strong>查找比列车序号大的列车序号</strong>，替换它，如果没有比它大的，则另开辟一个轨道。用top记录开辟轨道的数量。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> a[<span class="number">1000000</span>];</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">int</span> n;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">  <span class="type">int</span> i,m,j,top=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;m);</span><br><span class="line">    <span class="keyword">if</span>(top==<span class="number">0</span>||a[top<span class="number">-1</span>]&lt;m)&#123;  <span class="comment">//当top==0时，开辟轨道，当输入的列车序号比最上的轨道列车序号还大时，开辟轨道</span></span><br><span class="line">      a[top++]=m;</span><br><span class="line">    &#125;<span class="keyword">else</span>                   <span class="comment">//二分查找</span></span><br><span class="line">    &#123; </span><br><span class="line">      <span class="type">int</span> high=top<span class="number">-1</span>,low=<span class="number">0</span>,mid;</span><br><span class="line">      <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">      &#123;</span><br><span class="line">        mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(a[mid]&gt;m)</span><br><span class="line">        &#123;</span><br><span class="line">          high=mid<span class="number">-1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">          low=mid+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;<span class="comment">//a[mid]=m;</span></span><br><span class="line">      a[low]=m;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;<span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,top);            <span class="comment">//轨道数</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Data-Structure-and-Algorithm/" rel="tag">Data-Structure-and-Algorithm</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-about-me"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/20/about-me/"
-    >About me</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/20/about-me/" class="article-date">
-  <time datetime="2023-09-19T16:32:59.000Z" itemprop="datePublished">2023-09-20</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="Regen-m-smile"><a href="#Regen-m-smile" class="headerlink" title="Regen_m	:smile:"></a>Regen_m	:smile:</h1><p>​	这是我的cyber name。这一页就用来介绍介绍我自己吧！</p>
-<h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影等等。同时二次元纯度也非常之高。</p>
-<h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		不知道有谁会看到这个网页，但我打算在接下来的大学生活中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</p>
-<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/about/" rel="tag">about</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-PHOTOGRAPHY"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/20/PHOTOGRAPHY/"
-    >PHOTOGRAPHY!</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/20/PHOTOGRAPHY/" class="article-date">
-  <time datetime="2023-09-19T16:31:30.000Z" itemprop="datePublished">2023-09-20</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="星空拍摄笔记"><a href="#星空拍摄笔记" class="headerlink" title="星空拍摄笔记"></a>星空拍摄笔记</h1><p><strong>一定要带快门线！</strong></p>
-<h2 id="参数的选择"><a href="#参数的选择" class="headerlink" title="参数的选择"></a>参数的选择</h2><h3 id="一，焦段："><a href="#一，焦段：" class="headerlink" title="一，焦段："></a>一，焦段：</h3><p>​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。</p>
-<h3 id="二，光圈："><a href="#二，光圈：" class="headerlink" title="二，光圈："></a>二，光圈：</h3><p>​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。</p>
-<h3 id="三，对焦："><a href="#三，对焦：" class="headerlink" title="三，对焦："></a>三，对焦：</h3><p>​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。</p>
-<h3 id="四，曝光："><a href="#四，曝光：" class="headerlink" title="四，曝光："></a>四，曝光：</h3><p>​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。</p>
-<p>​	例如：</p>
-<p>200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）</p>
-<p>24mm（全画幅）：理想快门速度约为20秒（500除以24mm）</p>
-<p>16mm（全画幅）：理想快门速度约为31秒（500除以16mm）</p>
-<p>14mm（全画幅）：理想快门速度约为35秒（500除以14mm）</p>
-<h3 id="五，感光度："><a href="#五，感光度：" class="headerlink" title="五，感光度："></a>五，感光度：</h3><p>​	常用2000-6400的感光度拍摄银河（偶尔1600）<br>​	如果是拍摄星轨的话建议直接100，拉长曝光时间。</p>
-<h3 id="六，白平衡："><a href="#六，白平衡：" class="headerlink" title="六，白平衡："></a>六，白平衡：</h3><p>（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）</p>
-<h1 id="烟花拍摄笔记"><a href="#烟花拍摄笔记" class="headerlink" title="烟花拍摄笔记"></a>烟花拍摄笔记</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1. 准备"></a>1. 准备</h2><ul>
-<li>注意风向，别去下风处</li>
-<li>采用长曝光，需要三脚架，快门线</li>
-</ul>
-<h2 id="2-参数的选择"><a href="#2-参数的选择" class="headerlink" title="2.参数的选择"></a>2.参数的选择</h2><ul>
-<li>iso 最低</li>
-<li>小光圈 f&#x2F;8 到 f&#x2F;16</li>
-</ul>
-<blockquote>
-<p><em>光圈越大，烟火的线条越粗；光圈越小，烟火的线条越细</em></p>
-<p><em>距离施放点越<strong>近</strong>、亮度越<strong>高</strong>→ 使用f&#x2F;13-18的小光圈，减少进光量、并可使烟火线条较细</em></p>
-<p><em>距离施放点越<strong>远</strong>、亮度越<strong>低</strong>→ 使用f&#x2F;8-11的大光圈，增加进光量、并可使烟火线条较明显</em></p>
-</blockquote>
-<blockquote>
-<p>快门速度需要根据<strong>拍摄远近</strong>和<strong>光圈大小</strong>来微调，但秒数至少要大于「烟火从升空到完整爆开」的时间，如此才能拍出一个完整的烟火形状；若时间太短，只会拍出部分绽放的烟火；时间太长则可能会过曝。</p>
-</blockquote>
-<h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
-
-<p>​	小雨，很喜欢下雨的时候路灯下的氛围感。于是就拿起三脚架背上吉他就出发咯。要是有灯就好了qwq.hexo</p>
-<h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="/images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
-<p>​	这本书的名字是《杀死一只知更鸟》，那天下午阳光正好，所以我就踩着脚踏车愉快地出门了。带着我的小单反，不过过几天我应该就能换新镜头了。希望那时可以拍出更好看的照片。不过同时，还得好好学摄影，毕竟打铁还需自身硬。</p>
-<h1 id="2023-10-28"><a href="#2023-10-28" class="headerlink" title="2023.10.28"></a>2023.10.28</h1><p><img src="/images/202310281.jpg" alt="gentle sunlight cheers me up"></p>
-<p><img src="/images/202310282.jpg" alt="one building&#39;s glow"></p>
-<p>​	阳台外面就是一个小湖，每天都能看到日落。中午时光练练吉他，看看书，简单的快乐。</p>
-<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" /images/202311111.jpg" width="400" height="300" alt="NIKON GUYS">
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-vim-学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >vim 学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-16T15:49:02.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="VIM普通模式"><a href="#VIM普通模式" class="headerlink" title="* VIM普通模式"></a>* VIM普通模式</h1><p>​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复</p>
-<h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><strong>光标上下左右移动</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h       #左移</span><br><span class="line">j      #下移</span><br><span class="line">k      #上移</span><br><span class="line">l      #右移</span><br></pre></td></tr></table></figure>
-
-<p><strong>移动多行</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">4h       #左移4格</span><br><span class="line">4j      #上移4行</span><br><span class="line">4k      #下移4行</span><br><span class="line">4l      #右移4格</span><br></pre></td></tr></table></figure>
-
-<p><strong>跳转到单词末尾或者开头(下一个空格前)</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w      # word</span><br><span class="line">b      # begining</span><br></pre></td></tr></table></figure>
-
-<p><strong>跳转到文档开始或末尾</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gg        # 跳转到文档开头</span><br><span class="line">G  (shift + g)   # 跳转到文档末尾</span><br></pre></td></tr></table></figure>
-
-<p><strong>上下翻页</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ctrl + u  #向上翻页</span><br><span class="line">ctrl + d  #向下翻页</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>快速到最近的某个字母</strong>（区分大小写）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fu      #到最近1的u</span><br><span class="line">fc      #到最近的c</span><br><span class="line">fK      #到最近的K</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a>复制粘贴</h2><h3 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h3><p>​	<strong>y</strong></p>
-<ul>
-<li>复制单词</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yaw      # y(yank)  aw(a word)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>复制n行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yy      # 复制本行</span><br><span class="line"></span><br><span class="line">nyy      # 复制n行 包括当前行</span><br><span class="line"></span><br><span class="line">y4j      # 向下复制5行 包括当前行</span><br><span class="line">y4k      # 向上复制5行 包括当前行</span><br><span class="line">y4h      # 向左复制4个字符 不包括光标在闪烁那个字符</span><br><span class="line">y4l      # 向右复制4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="粘贴"><a href="#粘贴" class="headerlink" title="粘贴"></a>粘贴</h3><p>​	<strong>p</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p      # 小写p,复制到光标后的一行</span><br></pre></td></tr></table></figure>
-
-<h2 id="剪切删除"><a href="#剪切删除" class="headerlink" title="剪切删除"></a>剪切删除</h2><ul>
-<li><p><strong>d</strong>命令其实可以看成剪切，不复制出来就变成<strong>删除</strong>了。</p>
-</li>
-<li><p>删除行</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">dd      # 删除光标所在行</span><br><span class="line">ndd      # 删除n行 包括当前行</span><br><span class="line"></span><br><span class="line">d4j      # 向下删除5行 包括当前行</span><br><span class="line">d4k      # 向上删除5行 包括当前行</span><br><span class="line">d4h      # 向左删除4个字符 不包括光标在闪烁那个字符</span><br><span class="line">d4l      # 向右删除4个字符 包括光标在闪烁那个字符</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>删除到本行末尾</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D</span><br></pre></td></tr></table></figure>
-
-<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>​	<strong>c</strong></p>
-<ul>
-<li>替换单词</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">caw     # change a word</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>替换行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cc      # 删除行，并且进入编辑模式</span><br><span class="line">c4j      # 删除下4行+本行，并且进入编辑模式</span><br></pre></td></tr></table></figure>
-
-
-
-<p>* </p>
-<h2 id="撤销恢复"><a href="#撤销恢复" class="headerlink" title="撤销恢复"></a>撤销恢复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">u       # (undo)</span><br></pre></td></tr></table></figure>
-
-<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq      # 保存并退出</span><br></pre></td></tr></table></figure>
-
-<h1 id="VIM-可视化模式（VISUAL）"><a href="#VIM-可视化模式（VISUAL）" class="headerlink" title="* VIM 可视化模式（VISUAL）"></a>* VIM 可视化模式（VISUAL）</h1><p>​	<strong>v</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v      # 进入可视化模式</span><br></pre></td></tr></table></figure>
-
-<p>​	进入可视化模式后移动光标即可选中该部分内容进行操作，例如：</p>
-<ul>
-<li>d				# 删除</li>
-<li>y		        # 复制 </li>
-<li>c                # 替换</li>
-</ul>
-<h1 id="客制化"><a href="#客制化" class="headerlink" title="客制化"></a>客制化</h1><ul>
-<li>NERDtree</li>
-</ul>
-<blockquote>
-<p>文件夹，文件，管理（树形结构）</p>
-</blockquote>
-<p>​	</p>
-<p><strong>vim学习网站</strong></p>
-<p>​	<a target="_blank" rel="noopener" href="https://vim-adventures.com/">VIM GAME</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/" rel="tag">vim</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MD语法学习笔记"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-    >MD语法学习笔记</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2023-09-16T15:47:12.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="MD语法学习笔记"><a href="#MD语法学习笔记" class="headerlink" title="MD语法学习笔记"></a>MD语法学习笔记</h1><h2 id="1-基本符号："><a href="#1-基本符号：" class="headerlink" title="1.基本符号："></a>1.基本符号：</h2><p>​	md文档中基本标记都是基于 * - +. &gt; 这几个符号的组合操作</p>
-<h2 id="2-标题。"><a href="#2-标题。" class="headerlink" title="2.标题。"></a>2.标题。</h2><p>​	MD总共有六级标题</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 标题1 # </span></span><br><span class="line"><span class="section">## 标题2 ##</span></span><br><span class="line"><span class="section">### 标题3 ###</span></span><br><span class="line"><span class="section">#### 标题4 ####</span></span><br><span class="line"><span class="section">##### 标题5 #####</span></span><br><span class="line"><span class="section">###### 标题6 #######</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="标题1"><a href="#标题1" class="headerlink" title="标题1"></a>标题1</h1><h2 id="标题2"><a href="#标题2" class="headerlink" title="标题2"></a>标题2</h2><h3 id="标题3"><a href="#标题3" class="headerlink" title="标题3"></a>标题3</h3><h4 id="标题4"><a href="#标题4" class="headerlink" title="标题4"></a>标题4</h4><h5 id="标题5"><a href="#标题5" class="headerlink" title="标题5"></a>标题5</h5><h6 id="标题6"><a href="#标题6" class="headerlink" title="标题6"></a>标题6</h6><h2 id="3-列表。"><a href="#3-列表。" class="headerlink" title="3.列表。"></a>3.列表。</h2><ul>
-<li>无序列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">+</span> b</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line"><span class="bullet">-</span> d</span><br><span class="line"><span class="bullet">-</span> e</span><br><span class="line"><span class="bullet">-</span> f</span><br><span class="line"> </span><br><span class="line"><span class="bullet">*</span> g</span><br><span class="line"><span class="bullet">*</span> h</span><br><span class="line"><span class="bullet">*</span> i</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>a</li>
-<li>b</li>
-<li>c</li>
-</ul>
-<ul>
-<li>d</li>
-<li>e</li>
-<li>f</li>
-</ul>
-<ul>
-<li>g</li>
-<li>h</li>
-<li>i</li>
-</ul>
-<ul>
-<li>有序列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">有序列表</span><br><span class="line"><span class="bullet">1.</span> abc</span><br><span class="line"><span class="bullet">2.</span> abc</span><br><span class="line"><span class="bullet">3.</span> dada</span><br><span class="line"> </span><br><span class="line">错序列表</span><br><span class="line"><span class="bullet">2.</span> awfa</span><br><span class="line"><span class="bullet">5.</span> awef</span><br><span class="line"><span class="bullet">25.</span> dfaf</span><br></pre></td></tr></table></figure>
-
-
-
-<p>有序列表</p>
-<ol>
-<li>abc</li>
-<li>abc</li>
-<li>dada</li>
-</ol>
-<p>错序列表<br>2. awfa<br>5. awef<br>25. dfaf</p>
-<ul>
-<li>嵌套列表</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">无序</span><br><span class="line"><span class="bullet">+</span> a</span><br><span class="line"><span class="bullet">  +</span> a1</span><br><span class="line"><span class="bullet">  +</span> a2</span><br><span class="line"><span class="bullet">+</span> ba</span><br><span class="line"><span class="bullet">+</span> c</span><br><span class="line"> </span><br><span class="line">有序</span><br><span class="line"><span class="bullet">1.</span> a</span><br><span class="line"><span class="bullet">   1.</span> adac</span><br><span class="line"><span class="bullet">      1.</span> adaw</span><br><span class="line"><span class="bullet">   2.</span> adfsda</span><br><span class="line"><span class="bullet">2.</span> ad</span><br><span class="line"><span class="bullet">3.</span> sad</span><br></pre></td></tr></table></figure>
-
-<p>无序</p>
-<ul>
-<li>a<ul>
-<li>a1</li>
-<li>a2</li>
-</ul>
-</li>
-<li>ba</li>
-<li>c</li>
-</ul>
-<p>有序</p>
-<ol>
-<li>a<ol>
-<li>adac<ol>
-<li>adaw</li>
-</ol>
-</li>
-<li>adfsda</li>
-</ol>
-</li>
-<li>ad</li>
-<li>sad</li>
-</ol>
-<h2 id="4-引用块。"><a href="#4-引用块。" class="headerlink" title="4.引用块。"></a>4.引用块。</h2><ul>
-<li>引用</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">引用</span><br><span class="line"><span class="quote">&gt; 引用1</span></span><br><span class="line">引用1 引用1</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-
-<p>引用</p>
-<blockquote>
-<p>引用1<br>引用1 引用1</p>
-</blockquote>
-<ul>
-<li>嵌套引用</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 嵌套引用</span><br><span class="line">&gt; 嵌套引用1 </span><br><span class="line">&gt;&gt; 嵌套引用1 </span><br></pre></td></tr></table></figure>
-
-<p> 嵌套引用</p>
-<blockquote>
-<p>嵌套引用1 </p>
-<blockquote>
-<p>嵌套引用1 </p>
-</blockquote>
-</blockquote>
-<h2 id="5-代码块。"><a href="#5-代码块。" class="headerlink" title="5.代码块。"></a>5.代码块。</h2><ul>
-<li>单行</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br><span class="line">`</span><br><span class="line">adaawf</span><br><span class="line">`</span><br></pre></td></tr></table></figure>
-
-<p>代码块<br><code>adaawf</code></p>
-<ul>
-<li>多行代码块</li>
-</ul>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">adaawfwrfwr</span></span><br><span class="line"><span class="code">```</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adaawfwrfwr</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-链接。"><a href="#6-链接。" class="headerlink" title="6.链接。"></a>6.链接。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">BAIDU</span>](<span class="link">www.baidu.com</span>)</span><br></pre></td></tr></table></figure>
-
-<p><a href="www.baidu.com">BAIDU</a></p>
-<h2 id="7-图片。"><a href="#7-图片。" class="headerlink" title="7.图片。"></a>7.图片。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">图片</span>](<span class="link">https://note.youdao.com/favicon.ico</span>)</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://note.youdao.com/favicon.ico" alt="图片"></p>
-<h2 id="8-分割线。"><a href="#8-分割线。" class="headerlink" title="8.	分割线。"></a>8.	分割线。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">分割线</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"><span class="section">- - -</span></span><br><span class="line"><span class="section">-------</span></span><br><span class="line"><span class="strong">****</span>*</span><br><span class="line"><span class="bullet">*</span> * *</span><br><span class="line"><span class="strong">____</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<hr>
-<hr>
-<hr>
-<hr>
-<h2 id="9-表格。"><a href="#9-表格。" class="headerlink" title="9.表格。"></a>9.表格。</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">表格</span><br><span class="line">|123|234|345|</span><br><span class="line">|:-|:-:|-:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子二</span><br><span class="line">|123|234|345|</span><br><span class="line">|:---|:---:|---:|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">|abc|bcd|cde|</span><br><span class="line">//例子三</span><br><span class="line">123|234|345</span><br><span class="line">:-|:-:|-:</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br><span class="line">abc|bcd|cde</span><br></pre></td></tr></table></figure>
-
-<p>表格</p>
-<table>
-<thead>
-<tr>
-<th align="left">123</th>
-<th align="center">234</th>
-<th align="right">345</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">&#x2F;&#x2F;例子二</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:—</td>
-<td align="center">:—:</td>
-<td align="right">—:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">&#x2F;&#x2F;例子三</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td align="left">123</td>
-<td align="center">234</td>
-<td align="right">345</td>
-</tr>
-<tr>
-<td align="left">:-</td>
-<td align="center">:-:</td>
-<td align="right">-:</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-</tbody></table>
-<h2 id="10-字体。"><a href="#10-字体。" class="headerlink" title="10.字体。"></a>10.字体。</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//斜体</span><br><span class="line"><span class="emphasis">*md*</span></span><br><span class="line"> </span><br><span class="line">//粗体</span><br><span class="line"><span class="strong">**md**</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="emphasis">_md_</span></span><br><span class="line"> </span><br><span class="line">//斜体</span><br><span class="line"><span class="strong">__md__</span></span><br><span class="line"> </span><br><span class="line">//转义</span><br><span class="line"> </span><br><span class="line">\+</span><br><span class="line"> </span><br><span class="line">//删除线</span><br><span class="line"> </span><br><span class="line">~~删除~~</span><br></pre></td></tr></table></figure>
-
-<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
-<p>&#x2F;&#x2F;粗体<br><strong>md</strong></p>
-<p>&#x2F;&#x2F;斜体<br><em>md</em></p>
-<p>&#x2F;&#x2F;斜体<br><strong>md</strong></p>
-<p>&#x2F;&#x2F;转义</p>
-<p>+</p>
-<p>&#x2F;&#x2F;删除线</p>
-<p><del>删除</del></p>
-<h2 id="11-表情！-smile"><a href="#11-表情！-smile" class="headerlink" title="11.表情！:smile:"></a>11.表情！:smile:</h2><p>:santa:</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式</span><br><span class="line">:内容描述:</span><br><span class="line">例如：</span><br><span class="line">:smile:</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MD语法尝试插入图片到博客"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/"
-    >MD语法尝试插入图片到博客</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" class="article-date">
-  <time datetime="2023-09-16T14:25:58.000Z" itemprop="datePublished">2023-09-16</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="1-COVER1"><a href="#1-COVER1" class="headerlink" title="1.COVER1"></a>1.COVER1</h1><h1 id=""><a href="#" class="headerlink" title=""></a><img src="/images/cover1.jpg"></h1><h1 id="2-COVER2"><a href="#2-COVER2" class="headerlink" title="2.COVER2"></a>2.COVER2</h1><p><img src="/images/cover2.jpg"></p>
-<h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/images/cover1.jpg">	</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/md/" rel="tag">md</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Regen-s-first-page"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2023/09/12/Regen-s-first-page/"
-    >Regen&#39;s first page</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2023/09/12/Regen-s-first-page/" class="article-date">
-  <time datetime="2023-09-12T02:41:04.000Z" itemprop="datePublished">2023-09-12</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="HOLA"><a href="#HOLA" class="headerlink" title="HOLA!!!!"></a>HOLA!!!!</h1><h1 id="INTRODUCTION-TOTHISBLOG"><a href="#INTRODUCTION-TOTHISBLOG" class="headerlink" title="INTRODUCTION 	TO	THIS	BLOG !!!!!!"></a>INTRODUCTION 	TO	THIS	BLOG !!!!!!</h1><p>​	<strong>这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的</strong>。</p>
-<p>​	<strong>这个博客是基于开源框架HEXO,全站都是静态的，也许后续会更换框架试试WordPress等开源框架，不过需要购买云服务器了，这都是后话。</strong></p>
-<p>​		查看链接：<a href="(https://github.com/hexojs/hexo)">HEXO</a></p>
-<p>​	<strong>同时这个博客的主题也是开源的。名字是ayer。可以在github上面搜到。</strong></p>
-<p>​		查看链接：<a href="(https://github.com/Shen-Yu/hexo-theme-ayer)">AYER</a></p>
-<p>​	<strong>本网站所有的笔记（MarkDowm格式）都同步更新到了github</strong></p>
-<p>​		查看链接：<a target="_blank" rel="noopener" href="https://github.com/regenm/Notes">regenm&#x2F;Notes</a></p>
-<p>​	感谢开源大佬们的贡献，让我这样的小白也可以有自己的博客，同时也希望自己在不久的将来也能在开源社区做出一点贡献。</p>
-<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><h2 id="Blog-转到了github"><a href="#Blog-转到了github" class="headerlink" title="Blog 转到了github !"></a><strong>Blog 转到了github !</strong></h2><ul>
-<li><p>原因</p>
-<p> 由于最近gitee的gitee pages服务不太稳定，可能是不让用了？因此转到了github，发现速度不必gitee慢！打算以后长期使用github了！</p>
-<p> <img src="/images/gitee_issue_pages.png" alt="gitee issues pages can not update"></p>
-</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://github.com/regenm/regenm.github.io">new Blog repo</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/about/" rel="tag">about</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
-  </nav>
-  
-</section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2022-2024
-        <i class="ri-heart-fill heart_icon"></i> Regen
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
-  </div>
-</footer>    
-    </main>
-    <div class="float_btns">
-      <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-    </div>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/touxiang.png" alt="Regen"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E7%AC%94%E8%AE%B0">笔记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E8%AF%BB%E4%B9%A6">读书</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0">随手记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      <a class="nav-item-link nav-item-search"  title="Search">
-        <i class="ri-search-line"></i>
-      </a>
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <div id="mask"></div>
-
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenalipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenwechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
-    
-<script src="/js/jquery-3.6.0.min.js"></script>
- 
-<script src="/js/lazyload.min.js"></script>
-
-<!-- Tocbot -->
-
-<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
-<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
-
-<script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
-
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script> 
-<!-- MathJax -->
- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
-<script>
-  var ayerConfig = {
-    mathjax: true,
-  };
-</script>
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
-<!-- ClickLove -->
- 
-<script src="/js/clickLove.js"></script>
- 
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
- 
-<link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
         }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="leetcode刷题笔记">leetcode刷题笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-20T16:05:26.000Z" title="Created 2023-09-21 00:05:26">2023-09-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">1.两数之和。获得技能：哈希表，c++容器MAP。
+123456789101112131415161718class Solution &#123;public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;        map&lt;int,int&gt; a;//提供一对一的hash        vector&lt;int&gt; b(2,-1);//用来承载结果，初始化一个大小为2，值为-1的容器b        for(int i=0;i&lt;nums.size();i++)        &#123;            if(a.count(target-nums[i])&gt;0)            &#123;                b[0]=a[target-nums[i]];                b[1]=i;                break;            &#125;            a[nums[i]] ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/20/about-me/" title="About me">About me</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:32:59.000Z" title="Created 2023-09-20 00:32:59">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">Regen_m	:smile:​	这是我的cyber name。这一页就用来介绍介绍我自己吧！
+首先，​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影等等。同时二次元纯度也非常之高。
+虽然，​		不知道有谁会看到这个网页，但我打算在接下来的大学生活中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。
+总之，​		自我介绍就到这里啦！晚安。哦对了，这是我的qq 3525936749，邮箱同。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/20/PHOTOGRAPHY/" title="PHOTOGRAPHY!">PHOTOGRAPHY!</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:31:30.000Z" title="Created 2023-09-20 00:31:30">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">星空拍摄笔记一定要带快门线！
+参数的选择一，焦段：​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。
+二，光圈：​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。
+三，对焦：​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。
+四，曝光：​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。
+​	例如：
+200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）
+24mm（全画幅）：理想快门速度约为20秒（500除以24mm）
+16mm（全画幅）：理想快门速度约为31秒（500除以16mm）
+14mm（全画幅）：理想快门速度约为35秒（500除以14mm）
+五，感光度：​	常用2000-6400的感光度拍摄银河（偶尔1600）​	如果是拍摄星轨的话建议直接100，拉长曝光时间。
+六，白平衡：（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）
+烟花拍摄笔记1. 准备
+注意风向，别去下风处
+采用长曝光，需要三脚架，快门线
+
+2.参数的选择
+iso 最低 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vim 学习笔记">vim 学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T15:49:02.000Z" title="Created 2023-09-16 23:49:02">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">* VIM普通模式​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复
+移动光标光标上下左右移动
+1234h       #左移j      #下移k      #上移l      #右移
+
+移动多行
+12344h       #左移4格4j      #上移4行4k      #下移4行4l      #右移4格
+
+跳转到单词末尾或者开头(下一个空格前)
+12w      # wordb      # begining
+
+跳转到文档开始或末尾
+12gg        # 跳转到文档开头G  (shift + g)   # 跳转到文档末尾
+
+上下翻页
+123ctrl + u  #向上翻页ctrl + d  #向下翻页
+
+快速到最近的某个字母（区分大小写）
+123fu      #到最近1的ufc      #到最近的cfK      #到最近的K
+
+
+
+
+复制粘贴复制​	y
+
+复制单词
+
+12yaw      # y(yank)  aw(a word)
+
+
+复制n行
+
+123456789yy      # 复制本行nyy      # 复制n行 包括当前行y4j    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MD语法学习笔记">MD语法学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T15:47:12.000Z" title="Created 2023-09-16 23:47:12">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MD语法学习笔记1.基本符号：​	md文档中基本标记都是基于 * - +. &gt; 这几个符号的组合操作
+2.标题。​	MD总共有六级标题
+123456# 标题1 # ## 标题2 ##### 标题3 ####### 标题4 ######### 标题5 ########### 标题6 #######
+
+标题1标题2标题3标题4标题5标题63.列表。
+无序列表
+
+1234567891011+ a+ b+ c - d- e- f * g* h* i
+
+
+a
+b
+c
+
+
+d
+e
+f
+
+
+g
+h
+i
+
+
+有序列表
+
+123456789有序列表1. abc2. abc3. dada 错序列表2. awfa5. awef25. dfaf
+
+
+
+有序列表
+
+abc
+abc
+dada
+
+错序列表2. awfa5. awef25. dfaf
+
+嵌套列表
+
+1234567891011121314无序+ a  + a1  + a2+ ba+ c 有序1. a   1. adac      1. adaw   2. adfsda2. ad3. sad
+
+无序
+
+a
+a1
+a2
+
+
+ba
+c
+
+有序
+
+a
+a ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" title="MD语法尝试插入图片到博客">MD语法尝试插入图片到博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T14:25:58.000Z" title="Created 2023-09-16 22:25:58">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">1.COVER12.COVER2
+3.COVER3	
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/12/Regen-s-first-page/" title="Regen's first page">Regen's first page</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-12T02:41:04.000Z" title="Created 2023-09-12 10:41:04">2023-09-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">HOLA!!!!INTRODUCTION 	TO	THIS	BLOG !!!!!!​	这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的。
+​	这个博客是基于开源框架HEXO,全站都是静态的，也许后续会更换框架试试WordPress等开源框架，不过需要购买云服务器了，这都是后话。
+​		查看链接：HEXO
+​	同时这个博客的主题也是开源的。名字是ayer。可以在github上面搜到。
+​		查看链接：AYER
+​	本网站所有的笔记（MarkDowm格式）都同步更新到了github
+​		查看链接：regenm&#x2F;Notes
+​	感谢开源大佬们的贡献，让我这样的小白也可以有自己的博客，同时也希望自己在不久的将来也能在开源社区做出一点贡献。
+updateBlog 转到了github !
+原因
+ 由于最近gitee的gitee pages服务不太稳定，可能是不让用了？因此转到了github，发现速度不必gitee慢！打算以后长期使用github了！
  
-<!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
 
 
-    
-    <div id="music">
-    
-    
-    
-    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=536623501&auto=0&height=32"></iframe>
-</div>
-
-<style>
-    #music {
-        position: fixed;
-        right: 15px;
-        bottom: 0;
-        z-index: 998;
-    }
-</style>
-    
-    
-
-  </div>
-</body>
-
-</html>
+new Blog repo
+Im ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/6/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/#content-inner">6</a><span class="page-number current">7</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/Linux-about-e-mail/" title="Linux about e-mail">Linux about e-mail</a><time datetime="2024-05-19T11:19:16.000Z" title="Created 2024-05-19 19:19:16">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">26</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">最小系统</a> <a href="/tags/OLED/" style="font-size: 1.34em; color: #99a3b0">OLED</a> <a href="/tags/about/" style="font-size: 1.18em; color: #999ca1">about</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/C-C/" style="font-size: 1.1em; color: #999">C/C++</a> <a href="/tags/md/" style="font-size: 1.18em; color: #999ca1">md</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/DC-DC/" style="font-size: 1.1em; color: #999">DC-DC</a> <a href="/tags/GUI/" style="font-size: 1.18em; color: #999ca1">GUI</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.34em; color: #99a3b0">旅行</a> <a href="/tags/linux/" style="font-size: 1.42em; color: #99a6b7">linux</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/photo/" style="font-size: 1.26em; color: #999fa8">photo</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">数据库原理</a> <a href="/tags/USB/" style="font-size: 1.1em; color: #999">USB</a> <a href="/tags/IoT/" style="font-size: 1.26em; color: #999fa8">IoT</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">随手记</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.18em; color: #999ca1">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.18em; color: #999ca1">电子元件</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/email/" style="font-size: 1.1em; color: #999">email</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/spi/" style="font-size: 1.1em; color: #999">spi</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.34em; color: #99a3b0">项目</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-02T08:16:42.261Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

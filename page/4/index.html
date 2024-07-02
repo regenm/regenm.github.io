@@ -1,1934 +1,354 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-  
-
-    <head>
-      <meta charset="utf-8" />
-       
-      <meta name="keywords" content="Regen&#39;s blogs" />
-       
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-      />
-      <title> Regen</title>
-  <meta name="generator" content="hexo-theme-ayer">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Regen - Blogs</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Regen">
+<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.png">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="Regen&#39;s blogs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.png"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/page/4/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Regen',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-02 16:16:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-      <link rel="shortcut icon" href="/images/touxiang.png" />
-       
-<link rel="stylesheet" href="/dist/main.css">
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-<link rel="stylesheet" href="/css/custom.css">
- 
-      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
-       
- 
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-
-      <!-- mermaid -->
-      
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-      </style>
-    </head>
-  </html>
-</html>
-
-
-<body>
-  <div id="app">
-    
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/regenm/Notes"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="images/cover_1.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Regen</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['Hi !', 'HOLA ！', 'bonjour ！'],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
-                <img src="/images/touxiang.png" width="300" alt="Bilibili">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-PHOTO"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/27/PHOTO/"
-    >PHOTO</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/27/PHOTO/" class="article-date">
-  <time datetime="2024-02-27T11:23:50.000Z" itemprop="datePublished">2024-02-27</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="说走就走（南昌）"><a href="#说走就走（南昌）" class="headerlink" title="说走就走（南昌）"></a>说走就走（南昌）</h1><p>​	去完南昌回来之后几天。想了想，果然还是想记下来当时间胶囊。</p>
-<p>​	回家那一刻我就知道了2024的寒假注定是灰色的，看到最近天气15日阴天，以及温度逐渐下降甚至出现下雪的时候，我心情是复杂的。</p>
-<p>​	上学期因荒废暑假后在学期中越想越痛，于是就发誓要好好利用寒假出去逛一逛，看看不同城市的风景。看到这天气后就有点挫伤。</p>
-<p>​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。</p>
-<p>​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！</p>
-<p>​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1163.jpg"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1164.jpg"></p>
-<p>​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。</p>
-<blockquote>
-<p><strong>我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东西。她是我见过的最勇敢的人。</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>“ I wanted you to see what real courage is, instead of getting the idea that courage is a man with a gun in his hand. It’s when you know you’re licked before you begin but you begin anyway and you see it through no matter what. You rarely win, but sometimes you do. Mrs. Dubose won, all ninety-eight pounds of her. According to her views, she died beholden to nothing and nobody. She was the bravest person I ever knew. “</strong></p>
-</blockquote>
-<p>​	第二天早上，大雨，开始后悔。</p>
-<p>​	在滕王阁附近的洪都大拇指奶茶店点了一杯推荐，坐在墙角的小板凳上，看着越下越大的雨，耳边Ólafur Arnalds的《1440》更增加了凄惨的氛围。 能够稍微安慰我的也就只有 手上的 “雪顶幽兰”逐渐散去的余热了。</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1165.jpg" alt="路上"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1166.jpg"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1170.jpg" alt="远处"></p>
-<p>​	走近看才发现滕王阁原来这么大 ，虽然古人上滕王阁是用爬的，但是时代不一样了，有电梯了。 但是迁客骚人的览物之情却没怎么变化（古今对比），从最顶楼的许愿牌便可得出此结论。</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1172.jpg" alt="顶"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1168.jpg" alt="檐"></p>
-<p>​	越下越大的雨好像放大了览物之情，让我突然想念起了坐在电炉前乱弹吉他的温暖。于是便回家了······</p>
-<hr>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/" rel="tag">photo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《树上的男爵》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/18/%E3%80%8A%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5%E3%80%8B/"
-    >《树上的男爵》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/18/%E3%80%8A%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5%E3%80%8B/" class="article-date">
-  <time datetime="2024-02-17T16:18:43.000Z" itemprop="datePublished">2024-02-18</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《流星之绊》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/17/%E3%80%8A%E6%B5%81%E6%98%9F%E4%B9%8B%E7%BB%8A%E3%80%8B/"
-    >《流星之绊》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/17/%E3%80%8A%E6%B5%81%E6%98%9F%E4%B9%8B%E7%BB%8A%E3%80%8B/" class="article-date">
-  <time datetime="2024-02-17T15:48:55.000Z" itemprop="datePublished">2024-02-17</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="《流星之绊》"><a href="#《流星之绊》" class="headerlink" title="《流星之绊》"></a>《流星之绊》</h1><p>​	一直想看看短篇小说，想要重新体验一下过去一次性读完一本短篇的感觉。于是就立马想到了东野圭吾和村上春树。</p>
-<p>​	偶然发现原来我还有很多没看过的东野圭吾的作品。其中就有这本《流星之绊》，只消半个夜晚就看毕了，关上ipad，躺在床上，他们三兄妹以及他们的故事在脑海里不断重现。</p>
-<blockquote>
-<p>“我们三人就像流星，毫无目标地飞逝，不知将在何处燃烧殆尽。”</p>
-</blockquote>
-<p>​	看完后感觉剧情挺一般的，好像这本书少了点东野圭吾的味道了。如果是换做以前的我，大概会觉得这本书挺温暖的，至少就结局来说。也许我真的已经长大了，已经不在相信书里的奇迹了或者说已经不太习惯大团圆结局了。</p>
-<p>​	看的时候就觉得这个剧情很适合拍成电视剧供像我一样百无聊赖的人群观看，第二天一查，没想到真的有日剧，而且好像日剧的受众还更广一点。</p>
-<p>​	流星之绊啊，我一开始其实是理解为像流星一样转瞬即逝的羁绊，后来才知道是一起约定看流星的羁绊。虽然流星易逝，但是观看流星的他们之间的羁绊却被永远铭记。</p>
-<blockquote>
-<p>“</p>
-<p>然而最美的流星永远是第一次映入眼帘的那颗<br>“第一次”给人的永恒美是人们对“纯真”最后的忠诚<br>流星雨<br>那年也因狮子座流星雨二更而起<br>无数渴望的眼睛在凝视中等待世纪之美的来临<br>可不懂风情的夜空却久久星光依旧<br>剩下一群疯狂的少年奔跑在老师撕心裂肺的呐喊声中<br>未能如期而至的流星雨<br>却留下了无法再来的回忆</p>
-<p>“</p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-docker容器技术"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/"
-    >docker容器技术</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" class="article-date">
-  <time datetime="2024-02-08T19:04:22.000Z" itemprop="datePublished">2024-02-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>constructing</p>
-<p>toBeContinued</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
-<p>​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，<strong>程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系</strong>。</p>
-<p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
-</blockquote>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>​	docker 中的几个概念：</p>
-<blockquote>
-<ol>
-<li>dockerfile</li>
-<li>image</li>
-<li>container</li>
-</ol>
-</blockquote>
-<h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
-<h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
-<h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
-<p>​	</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MQTT服务器搭建（mosquitto）"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/"
-    >MQTT服务器搭建（mosquitto）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" class="article-date">
-  <time datetime="2024-02-08T16:58:48.000Z" itemprop="datePublished">2024-02-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
-<li>简介</li>
-</ol>
-<blockquote>
-<p>MQTT也称为”消息代理”（Broker）。</p>
-<p>MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。</p>
-</blockquote>
-<ol start="2">
-<li>原理</li>
-</ol>
-<blockquote>
-<p>MQTT协议原理<br>MQTT协议实现方式<br>实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。</p>
-<p>MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：</p>
-<p>（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）</p>
-<p>（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。</p>
-</blockquote>
-<h2 id="1-mosquitto-服务端"><a href="#1-mosquitto-服务端" class="headerlink" title="1. mosquitto 服务端"></a>1. mosquitto 服务端</h2><ul>
-<li>安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>配置</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改配置文件</li>
-</ul>
-<p>​				在 <strong>&#x2F;etc&#x2F;mosquitto&#x2F;conf.d</strong>目录下有一个叫 README 的文件，上面写了信息：</p>
-<blockquote>
-<h1 id="Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config"><a href="#Any-files-placed-in-this-directory-that-have-a-conf-ending-will-be-loaded-as-config-files-by-the-broker-Use-this-to-make-your-local-config" class="headerlink" title="Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config."></a>Any files placed in this directory that have a .conf ending will be loaded as config files by the broker. Use this to make your local config.</h1></blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line">vim config.conf</span><br><span class="line"><span class="comment"># 添加下面配置</span></span><br><span class="line"><span class="comment"># 不允许匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 配置端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 设置密码文件保存目录</span></span><br><span class="line">password_file /etc/mosquitto/pwfile.example</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>运行配置文件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/conf.d/config.conf -v</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加用户</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd -c /etc/mosquitto/pwfile.example username</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><strong>关闭防火墙！！！</strong></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ufw <span class="built_in">disable</span></span><br><span class="line"><span class="comment"># 或者添加规则</span></span><br><span class="line">ufw allow 1883</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-mosquitto-clients-客户端"><a href="#2-mosquitto-clients-客户端" class="headerlink" title="2. mosquitto-clients 客户端"></a>2. mosquitto-clients 客户端</h2><ul>
-<li>用户登录订阅，发布</li>
-</ul>
-<p>​	其实一般都是接近被控设备的系统，比如各种Mcu（esp32，esp8266）等等。这部分将在寒假进行补充（在另外一篇博客）。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/">esp8266或者esp32等</a></p>
-<p>对于Linux客户，可以是模拟器（ ISH ，Termux）</p>
-<ul>
-<li>安装</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mosquitto-clients</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>订阅</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>发布</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;hello mqtt! hello ! mosquitto!&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-mosquitto使用"><a href="#3-mosquitto使用" class="headerlink" title="3. mosquitto使用"></a>3. mosquitto使用</h2><ul>
-<li><strong>脚本制作</strong></li>
-</ul>
-<p>​				为了方便 mosquitto 的使用，可以写几个脚本用于发布和订阅</p>
-<ol>
-<li>发布</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
-
-<p>​	运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>订阅，同理</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
-
-<p>​	运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>连接esp32或8266</li>
-</ul>
-<p>看看这个esp8266连接mqtt服务器的项目吗？(<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-esp8266连接服务器（基于mosquitto的mqtt-server）"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/"
-    >esp8266连接服务器（基于mosquitto的mqtt server）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/" class="article-date">
-  <time datetime="2024-02-08T16:39:50.000Z" itemprop="datePublished">2024-02-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <ul>
-<li><p>Time：2024-02-09 00:39:50</p>
-</li>
-<li><p>还挺兴奋的，这个项目算是我自己搭建云服务器的最后一步。</p>
-</li>
-</ul>
-<h1 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h1><p>​	起因是想要自己搭建云服务器，同时还想要利用手上已经有的esp8266开发板实现对该服务器的远程控制（开关机）。</p>
-<p>​	本来打算整一个备用电源给服务器供电，奈何这台服务器是普通PC，即使配置已经很低（与现代PC比较为拉胯，但是比大多数出售的服务器例如某云2核4g更加）但功耗的保守估计已经超过70w。</p>
-<p>​	于是便打算使用远程开关降低平均功耗。同时进行物联网方面知识的扫盲与学习。</p>
-<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><h2 id="1-前期准备"><a href="#1-前期准备" class="headerlink" title="1.前期准备"></a>1.前期准备</h2><p>​	首先，在已经搭建好的mqtt服务器上创建了用户<code>user</code>和密码<code>passwd</code>，同时处于安全性考虑禁止匿名访问。<a target="_blank" rel="noopener" href="https://regenm.gitee.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">配置mqtt服务器的过程</a>)</p>
-<p>​	创建好测试主题（topic）<code>test</code>后进行测试。多平台测试收发message没问题。</p>
-<h2 id="2-中期打BOSS"><a href="#2-中期打BOSS" class="headerlink" title="2.中期打BOSS"></a>2.中期打BOSS</h2><p>​	接下来就是攻克esp8266这边的问题了。</p>
-<ul>
-<li>问题一：esp8266开发环境</li>
-</ul>
-<p>​	由于这块esp8266开发板是我在高中时期玩的，那时候的电脑早已坏掉，这台电脑的arduinoIDE 还未配置esp8266的环境。</p>
-<p>​	本来打算使用platformIO但是太慢了，在下载框架以及支持的时候解决了ide的问题。。。</p>
-<blockquote>
-<p>需要配置：</p>
-<ul>
-<li>添加支持esp8266开发板</li>
-</ul>
-<p>方法一：ide设置里的 Additional boards manager URLs添加<code>http://arduino.esp8266.com/stable/package_esp8266com_index.json</code></p>
-<p>方法二：手动添加：下载esp8266_package_installer直接离线下载</p>
-<ul>
-<li>增加库：<ul>
-<li><code>&lt;PubSubClient.h&gt;</code></li>
-<li><code>ESP8266WiFi.h</code></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<ul>
-<li>问题二：esp8266连接不成功</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br><span class="line">MQTT Server Connect Failed. Client State:-2</span><br></pre></td></tr></table></figure>
-
-<p>​		其实主要是平台的问题，8266，以及PubSubClient.h库中的案例程序和大多数网上教程都是使用的别人的mqtt服务器，他们往往不需要提供账号密码等等。例如</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Basic MQTT example</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> This sketch demonstrates the basic capabilities of the library.</span></span><br><span class="line"><span class="comment"> It connects to an MQTT server then:</span></span><br><span class="line"><span class="comment">  - publishes &quot;hello world&quot; to the topic &quot;outTopic&quot;</span></span><br><span class="line"><span class="comment">  - subscribes to the topic &quot;inTopic&quot;, printing out any messages</span></span><br><span class="line"><span class="comment">    it receives. NB - it assumes the received payloads are strings not binary</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> It will reconnect to the server if the connection is lost using a blocking</span></span><br><span class="line"><span class="comment"> reconnect function. See the &#x27;mqtt_reconnect_nonblocking&#x27; example for how to</span></span><br><span class="line"><span class="comment"> achieve the same result without blocking the main loop.</span></span><br><span class="line"><span class="comment"> </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;SPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ethernet.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Update these with values suitable for your network.</span></span><br><span class="line">byte mac[]    = &#123;  <span class="number">0xDE</span>, <span class="number">0xED</span>, <span class="number">0xBA</span>, <span class="number">0xFE</span>, <span class="number">0xFE</span>, <span class="number">0xED</span> &#125;;</span><br><span class="line"><span class="function">IPAddress <span class="title">ip</span><span class="params">(<span class="number">172</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="function">IPAddress <span class="title">server</span><span class="params">(<span class="number">172</span>, <span class="number">16</span>, <span class="number">0</span>, <span class="number">2</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">callback</span><span class="params">(<span class="type">char</span>* topic, byte* payload, <span class="type">unsigned</span> <span class="type">int</span> length)</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;Message arrived [&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">print</span>(topic);</span><br><span class="line">  Serial.<span class="built_in">print</span>(<span class="string">&quot;] &quot;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;length;i++) &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>((<span class="type">char</span>)payload[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">EthernetClient ethClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">client</span><span class="params">(ethClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">reconnect</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Loop until we&#x27;re reconnected</span></span><br><span class="line">  <span class="keyword">while</span> (!client.<span class="built_in">connected</span>()) &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;Attempting MQTT connection...&quot;</span>);</span><br><span class="line">    <span class="comment">// Attempt to connect</span></span><br><span class="line">      <span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">    <span class="keyword">if</span> (client.<span class="built_in">connect</span>(<span class="string">&quot;arduinoClient&quot;</span>)) &#123;</span><br><span class="line">      <span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot;connected&quot;</span>);</span><br><span class="line">      <span class="comment">// Once connected, publish an announcement...</span></span><br><span class="line">      client.<span class="built_in">publish</span>(<span class="string">&quot;outTopic&quot;</span>,<span class="string">&quot;hello world&quot;</span>);</span><br><span class="line">      <span class="comment">// ... and resubscribe</span></span><br><span class="line">      client.<span class="built_in">subscribe</span>(<span class="string">&quot;inTopic&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      Serial.<span class="built_in">print</span>(<span class="string">&quot;failed, rc=&quot;</span>);</span><br><span class="line">      Serial.<span class="built_in">print</span>(client.<span class="built_in">state</span>());</span><br><span class="line">      Serial.<span class="built_in">println</span>(<span class="string">&quot; try again in 5 seconds&quot;</span>);</span><br><span class="line">      <span class="comment">// Wait 5 seconds before retrying</span></span><br><span class="line">      <span class="built_in">delay</span>(<span class="number">5000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">57600</span>);</span><br><span class="line"></span><br><span class="line">  client.<span class="built_in">setServer</span>(server, <span class="number">1883</span>);</span><br><span class="line">  client.<span class="built_in">setCallback</span>(callback);</span><br><span class="line"></span><br><span class="line">  Ethernet.<span class="built_in">begin</span>(mac, ip);</span><br><span class="line">  <span class="comment">// Allow the hardware to sort itself out</span></span><br><span class="line">  <span class="built_in">delay</span>(<span class="number">1500</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!client.<span class="built_in">connected</span>()) &#123;</span><br><span class="line">    <span class="built_in">reconnect</span>();</span><br><span class="line">  &#125;</span><br><span class="line">  client.<span class="built_in">loop</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>​	以及太极创客的代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********************************************************************</span></span><br><span class="line"><span class="comment">项目名称/Project          : 零基础入门学用物联网</span></span><br><span class="line"><span class="comment">程序名称/Program name     : publish_ranye_url</span></span><br><span class="line"><span class="comment">团队/Team                : 太极创客团队 / Taichi-Maker (www.taichi-maker.com)</span></span><br><span class="line"><span class="comment">作者/Author              : CYNO朔</span></span><br><span class="line"><span class="comment">日期/Date（YYYYMMDD）     : 20200813</span></span><br><span class="line"><span class="comment">程序目的/Purpose          : </span></span><br><span class="line"><span class="comment">本程序旨在演示如何使用PubSubClient库使用ESP8266向MQTT服务器发布信息。</span></span><br><span class="line"><span class="comment">-----------------------------------------------------------------------</span></span><br><span class="line"><span class="comment">本示例程序为太极创客团队制作的《零基础入门学用物联网》中示例程序。</span></span><br><span class="line"><span class="comment">该教程为对物联网开发感兴趣的朋友所设计和制作。如需了解更多该教程的信息，请参考以下网页：</span></span><br><span class="line"><span class="comment">http://www.taichi-maker.com/homepage/esp8266-nodemcu-iot/iot-c/esp8266-nodemcu-web-client/http-request/</span></span><br><span class="line"><span class="comment">***********************************************************************/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ticker.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置wifi接入信息(请根据您的WiFi信息进行修改)</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ssid = <span class="string">&quot;lkw&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* password = <span class="string">&quot;01234567890&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* mqttServer = <span class="string">&quot;192.168.43.61&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如以上MQTT服务器无法正常连接，请前往以下页面寻找解决方案</span></span><br><span class="line"><span class="comment">// http://www.taichi-maker.com/public-mqtt-broker/</span></span><br><span class="line"></span><br><span class="line">Ticker ticker;</span><br><span class="line">WiFiClient wifiClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">mqttClient</span><span class="params">(wifiClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count;    <span class="comment">// Ticker计数用变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">//设置ESP8266工作模式为无线终端模式</span></span><br><span class="line">  WiFi.<span class="built_in">mode</span>(WIFI_STA);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 连接WiFi</span></span><br><span class="line">  <span class="built_in">connectWifi</span>();</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置MQTT服务器和端口号</span></span><br><span class="line">  mqttClient.<span class="built_in">setServer</span>(mqttServer, <span class="number">1883</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="built_in">connectMQTTServer</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Ticker定时对象</span></span><br><span class="line">  ticker.<span class="built_in">attach</span>(<span class="number">1</span>, tickerCount);  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connected</span>()) &#123; <span class="comment">// 如果开发板成功连接服务器</span></span><br><span class="line">    <span class="comment">// 每隔3秒钟发布一次信息</span></span><br><span class="line">    <span class="keyword">if</span> (count &gt;= <span class="number">3</span>)&#123;</span><br><span class="line">      <span class="built_in">pubMQTTmsg</span>();</span><br><span class="line">      count = <span class="number">0</span>;</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="comment">// 保持心跳</span></span><br><span class="line">    mqttClient.<span class="built_in">loop</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;                  <span class="comment">// 如果开发板未能成功连接服务器</span></span><br><span class="line">    <span class="built_in">connectMQTTServer</span>();    <span class="comment">// 则尝试连接服务器</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tickerCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectMQTTServer</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="comment">// 根据ESP8266的MAC地址生成客户端ID（避免与其它ESP8266的客户端ID重名）</span></span><br><span class="line">  String clientId = <span class="string">&quot;esp8266-&quot;</span> + WiFi.<span class="built_in">macAddress</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connect</span>(clientId.<span class="built_in">c_str</span>())) &#123; </span><br><span class="line"><span class="comment">/*----------------------------区别（报错位置）---------------------------*/</span></span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;MQTT Server Connected.&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Server Address: &quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttServer);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;ClientId:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(clientId);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;MQTT Server Connect Failed. Client State:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttClient.<span class="built_in">state</span>());</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">3000</span>);</span><br><span class="line">  &#125;   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发布信息</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pubMQTTmsg</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> value; <span class="comment">// 客户端发布信息用数字</span></span><br><span class="line"></span><br><span class="line">  String topicString = <span class="string">&quot;lkwMQTTtopic&quot;</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="type">char</span> publishTopic[topicString.<span class="built_in">length</span>() + <span class="number">1</span>];  </span><br><span class="line">  <span class="built_in">strcpy</span>(publishTopic, topicString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 建立发布信息。信息内容以Hello World为起始，后面添加发布次数。</span></span><br><span class="line">  String messageString = <span class="string">&quot;Hello World &quot;</span> + <span class="built_in">String</span>(value++); </span><br><span class="line">  <span class="type">char</span> publishMsg[messageString.<span class="built_in">length</span>() + <span class="number">1</span>];   </span><br><span class="line">  <span class="built_in">strcpy</span>(publishMsg, messageString.<span class="built_in">c_str</span>());</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 实现ESP8266向主题发布信息</span></span><br><span class="line">  <span class="keyword">if</span>(mqttClient.<span class="built_in">publish</span>(publishTopic, publishMsg))&#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish Topic:&quot;</span>);Serial.<span class="built_in">println</span>(publishTopic);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish message:&quot;</span>);Serial.<span class="built_in">println</span>(publishMsg);    </span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Message Publish Failed.&quot;</span>); </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ESP8266连接wifi</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectWifi</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">  WiFi.<span class="built_in">begin</span>(ssid, password);</span><br><span class="line"> </span><br><span class="line">  <span class="comment">//等待WiFi连接,成功连接后输出成功信息</span></span><br><span class="line">  <span class="keyword">while</span> (WiFi.<span class="built_in">status</span>() != WL_CONNECTED) &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;WiFi Connected!&quot;</span>);  </span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>); </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>解决方法：查看<code>PubSubClient</code>的源代码</p>
-<p>幸亏结构挺简单，很容易就找到了想要的代码即<code>PubSubClient的connect方法</code></p>
-<ul>
-<li>在<code>PubSubClient.h</code></li>
-</ul>
-<p><img src="/images/esp8266_mqtt/PubSubClientH.png" alt="PubSubClientH"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span></span>;</span><br><span class="line">  <span class="function">boolean <span class="title">connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* id, <span class="type">const</span> <span class="type">char</span>* user, <span class="type">const</span> <span class="type">char</span>* pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage, boolean cleanSession)</span></span>;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">disconnect</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<p>在<code>PubSubClient.cpp</code></p>
-<p><img src="/images/esp8266_mqtt/PubSubClientCPP.png" alt="PubSubClientCPP"></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,<span class="literal">NULL</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,<span class="literal">NULL</span>,<span class="literal">NULL</span>,willTopic,willQos,willRetain,willMessage,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,willTopic,willQos,willRetain,willMessage,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass, <span class="type">const</span> <span class="type">char</span>* willTopic, <span class="type">uint8_t</span> willQos, boolean willRetain, <span class="type">const</span> <span class="type">char</span>* willMessage, boolean cleanSession)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">connected</span>()) &#123;</span><br><span class="line">        <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(_client-&gt;<span class="built_in">connected</span>()) &#123;</span><br><span class="line">            result = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">/******************省略*****************/</span></span><br></pre></td></tr></table></figure>
-
-<p>​	于是就得出 connect 重载函数本体只有一个，即最后一个，我可以修改输入的参数实现自己想要的功能。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">boolean <span class="title">PubSubClient::connect</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *id, <span class="type">const</span> <span class="type">char</span> *user, <span class="type">const</span> <span class="type">char</span> *pass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">connect</span>(id,user,pass,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-结尾"><a href="#3-结尾" class="headerlink" title="3.结尾"></a>3.结尾</h2><p>先附上自己的代码，修改了连接模板代码 部分。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ESP8266WiFi.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;PubSubClient.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Ticker.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置wifi接入信息(请根据您的WiFi信息进行修改)</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* ssid = <span class="string">&quot;MERCURY_F80E&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* password = <span class="string">&quot;********&quot;</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* mqttServer = <span class="string">&quot;regenm.gitee.io&quot;</span>;</span><br><span class="line"></span><br><span class="line">Ticker ticker;</span><br><span class="line">WiFiClient wifiClient;</span><br><span class="line"><span class="function">PubSubClient <span class="title">mqttClient</span><span class="params">(wifiClient)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> count;  <span class="comment">// Ticker计数用变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.<span class="built_in">begin</span>(<span class="number">9600</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//设置ESP8266工作模式为无线终端模式</span></span><br><span class="line">  WiFi.<span class="built_in">mode</span>(WIFI_STA);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接WiFi</span></span><br><span class="line">  <span class="built_in">connectWifi</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置MQTT服务器和端口号</span></span><br><span class="line">  mqttClient.<span class="built_in">setServer</span>(mqttServer, <span class="number">1883</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 连接MQTT服务器</span></span><br><span class="line">  <span class="built_in">connectMQTTServer</span>();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Ticker定时对象</span></span><br><span class="line">  ticker.<span class="built_in">attach</span>(<span class="number">1</span>, tickerCount);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connected</span>()) &#123;  <span class="comment">// 如果开发板成功连接服务器</span></span><br><span class="line">    <span class="comment">// 每隔3秒钟发布一次信息</span></span><br><span class="line">    <span class="keyword">if</span> (count &gt;= <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="built_in">pubMQTTmsg</span>();</span><br><span class="line">      count = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 保持心跳</span></span><br><span class="line">    mqttClient.<span class="built_in">loop</span>();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;                <span class="comment">// 如果开发板未能成功连接服务器</span></span><br><span class="line">    <span class="built_in">connectMQTTServer</span>();  <span class="comment">// 则尝试连接服务器</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">tickerCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectMQTTServer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 根据ESP8266的MAC地址生成客户端ID（避免与其它ESP8266的客户端ID重名）</span></span><br><span class="line">  String clientId = <span class="string">&quot;regen&quot;</span>;</span><br><span class="line">  String userRegen = <span class="string">&quot;user&quot;</span>;</span><br><span class="line">  String passwdRegen = <span class="string">&quot;passwd&quot;</span>;</span><br><span class="line">  <span class="comment">// 连接MQTT服务器 </span></span><br><span class="line">    </span><br><span class="line">  <span class="comment">/* --------------------connect(id,user,pass,0,0,0,0,1)-------------------- */</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">connect</span>(clientId.<span class="built_in">c_str</span>(),userRegen.<span class="built_in">c_str</span>() ,passwdRegen.<span class="built_in">c_str</span>() )) &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;MQTT Server Connected.&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Server Address: &quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttServer);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;ClientId:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(clientId);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;MQTT Server Connect Failed. Client State:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(mqttClient.<span class="built_in">state</span>());</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">3000</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发布信息</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pubMQTTmsg</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> value;  <span class="comment">// 客户端发布信息用数字</span></span><br><span class="line"></span><br><span class="line">  String topicString = <span class="string">&quot;test&quot;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="type">char</span> publishTopic[topicString.<span class="built_in">length</span>() + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span>(publishTopic, topicString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 建立发布信息。信息内容以Hello World为起始，后面添加发布次数。</span></span><br><span class="line">  String messageString = <span class="string">&quot;Hello World &quot;</span> + <span class="built_in">String</span>(value++);</span><br><span class="line">  <span class="type">char</span> publishMsg[messageString.<span class="built_in">length</span>() + <span class="number">1</span>];</span><br><span class="line">  <span class="built_in">strcpy</span>(publishMsg, messageString.<span class="built_in">c_str</span>());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 实现ESP8266向主题发布信息</span></span><br><span class="line">  <span class="keyword">if</span> (mqttClient.<span class="built_in">publish</span>(publishTopic, publishMsg)) &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish Topic:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(publishTopic);</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Publish message:&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(publishMsg);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.<span class="built_in">println</span>(<span class="string">&quot;Message Publish Failed.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ESP8266连接wifi</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">connectWifi</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  WiFi.<span class="built_in">begin</span>(ssid, password);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//等待WiFi连接,成功连接后输出成功信息</span></span><br><span class="line">  <span class="keyword">while</span> (WiFi.<span class="built_in">status</span>() != WL_CONNECTED) &#123;</span><br><span class="line">    <span class="built_in">delay</span>(<span class="number">1000</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;.&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;WiFi Connected!&quot;</span>);</span><br><span class="line">  Serial.<span class="built_in">println</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>​	经过测试后成功，附上截图：</p>
-<p><img src="/images/esp8266_mqtt/success1.png" alt="success"></p>
-<p><img src="/images/esp8266_mqtt/success2.jpg" alt="success"></p>
-<p><img src="/images/esp8266_mqtt/success3.png" alt="success"></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/esp8266/" rel="tag">esp8266</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" rel="tag">物联网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-电子电路基础"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/"
-    >电子电路基础</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-02-06T10:55:20.000Z" itemprop="datePublished">2024-02-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h1><ul>
-<li><p>VCC：C&#x3D;circuit，表示电路的意思，即接入电路的电压。</p>
-</li>
-<li><p>VDD：D&#x3D;device，表示器件的意思，即器件内部的工作电压。</p>
-</li>
-<li><p>VSS：S&#x3D;series，表示公共连接的意思，通常指电路公共接地端电压。</p>
-</li>
-</ul>
-<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" rel="tag">模拟电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E7%94%B5/" rel="tag">模电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" rel="tag">电子元件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" rel="tag">电路基础</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-模拟电子技术基础"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/"
-    >模拟电子技术基础</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2024-02-01T11:47:28.000Z" itemprop="datePublished">2024-02-01</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="模拟电子技术基础"><a href="#模拟电子技术基础" class="headerlink" title="模拟电子技术基础"></a>模拟电子技术基础</h1><h2 id="1-半导体器件"><a href="#1-半导体器件" class="headerlink" title="1.半导体器件"></a>1.半导体器件</h2><ul>
-<li><strong>本征半导体</strong>：纯净，具有晶体结构的半导体</li>
-<li><strong>N型半导体</strong>：negative，掺入5价元素，多一个电子。</li>
-<li><strong>P型半导体</strong>：positive，掺入3价元素，少一个电子。</li>
-<li><strong>PN结</strong>：将P型半导体和N型半导体制作在同一硅片上，交界处形成PN结。</li>
-<li><strong>空间电荷区</strong>：PN结交接处区域的复合。也称为耗尽层。</li>
-</ul>
-<h3 id="1-PN结"><a href="#1-PN结" class="headerlink" title="1.PN结"></a>1.PN结</h3><h4 id="1-PN结的伏安特性"><a href="#1-PN结的伏安特性" class="headerlink" title="1.PN结的伏安特性"></a>1.PN结的伏安特性</h4><ul>
-<li>反向击穿</li>
-</ul>
-<blockquote>
-<ol>
-<li><strong>齐纳击穿</strong>：在高掺杂，耗尽层宽度窄的情况下，较低的反向电压即可击穿</li>
-<li><strong>雪崩击穿</strong>：在低掺杂，耗尽层宽度宽的情况下，较高的反向电压可击穿</li>
-</ol>
-</blockquote>
-<h4 id="2-PN结的电容效应"><a href="#2-PN结的电容效应" class="headerlink" title="2.PN结的电容效应"></a>2.PN结的电容效应</h4><ul>
-<li>势垒电容</li>
-</ul>
-<p>​	当PN结的反向电压变化时，空间电荷区的宽度随之变化，耗尽层电荷变化，导致等效电容变化。</p>
-<h3 id="2-二极管"><a href="#2-二极管" class="headerlink" title="2.二极管"></a>2.二极管</h3><h4 id="1-伏安特性"><a href="#1-伏安特性" class="headerlink" title="1.伏安特性"></a>1.伏安特性</h4><ul>
-<li>同PN结的对比</li>
-</ul>
-<blockquote>
-<ol>
-<li>单向导电性</li>
-<li>二极管存在半导体体电阻和引线电阻（同电压下正向电压更小）</li>
-<li>表面漏电流（反向电流更大）。漏电流（当施加反向电压时，电流仍然流过器件）</li>
-</ol>
-</blockquote>
-<h4 id="2-不同材料二极管的对比"><a href="#2-不同材料二极管的对比" class="headerlink" title="2.不同材料二极管的对比"></a>2.不同材料二极管的对比</h4><table>
-<thead>
-<tr>
-<th>材料</th>
-<th>开启电压</th>
-<th>导通电压</th>
-<th>反向饱和电流</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>硅</td>
-<td>0.5</td>
-<td>0.6-0.8</td>
-<td>&lt;0&#x2F;1</td>
-</tr>
-<tr>
-<td>锗</td>
-<td>0.1</td>
-<td>0.1-0.3</td>
-<td>几十</td>
-</tr>
-</tbody></table>
-<h4 id="3-温度的影响"><a href="#3-温度的影响" class="headerlink" title="3.温度的影响"></a>3.温度的影响</h4><ul>
-<li>温度越高：正向曲线左移，方向曲线下移</li>
-</ul>
-<h4 id="4-二极管的参数"><a href="#4-二极管的参数" class="headerlink" title="4.二极管的参数"></a>4.二极管的参数</h4><ul>
-<li>If：最大整流电流</li>
-<li>UR：最高反向工作电压</li>
-<li>IR：反向电流</li>
-<li>fM最高反向工作电流</li>
-</ul>
-<h3 id="3-稳压二极管"><a href="#3-稳压二极管" class="headerlink" title="3.稳压二极管"></a>3.稳压二极管</h3><ul>
-<li>反向击穿时在一定功耗损耗范围内端电压几乎不变</li>
-</ul>
-<h4 id="1-伏安特性-1"><a href="#1-伏安特性-1" class="headerlink" title="1.伏安特性"></a>1.伏安特性</h4><ul>
-<li>正向：类似于二极管</li>
-<li>反向：电压不变，大到一定程度击穿</li>
-</ul>
-<h4 id="1-主要参数"><a href="#1-主要参数" class="headerlink" title="1.主要参数"></a>1.主要参数</h4><ul>
-<li><p>稳定电压Uz</p>
-</li>
-<li><p>稳定电流Iz：小于时稳压效果变坏</p>
-</li>
-<li><p>额定功耗Pzm：最大稳定电流（Izm）与Uz的乘积</p>
-</li>
-<li><p>在额定功耗内，电流越大稳压效果越好</p>
-</li>
-</ul>
-<p>需串联限流电阻防止烧坏</p>
-<h3 id="4-发光二极管（Light-Emit-Diode）"><a href="#4-发光二极管（Light-Emit-Diode）" class="headerlink" title="4.发光二极管（Light Emit Diode）"></a>4.发光二极管（Light Emit Diode）</h3><table>
-<thead>
-<tr>
-<th>颜色</th>
-<th>开启电压</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>红色</td>
-<td>1.6-1.8v</td>
-</tr>
-<tr>
-<td>绿色</td>
-<td>2v</td>
-</tr>
-</tbody></table>
-<h3 id="5-光电二极管（Optoelectronic-Diode）"><a href="#5-光电二极管（Optoelectronic-Diode）" class="headerlink" title="5.光电二极管（Optoelectronic Diode）"></a>5.光电二极管（Optoelectronic Diode）</h3><p><img src="/images/analogElectronics/%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%AC%A6%E5%8F%B7.png" alt="符号"></p>
-<ul>
-<li>暗电流：反向电压下的产生的反向电流。</li>
-<li>光电流：反压下受到光照而产生的电流。（照度越大光电流越大）</li>
-</ul>
-<h3 id="6-变容二极管（Varicap-Diode）"><a href="#6-变容二极管（Varicap-Diode）" class="headerlink" title="6.变容二极管（Varicap Diode）"></a>6.变容二极管（Varicap Diode）</h3><ul>
-<li>变容二极管在反向偏置状态下工作，因此没有直流电流流过器件</li>
-<li>反向偏置量控制耗尽区的厚度，因此控制变容二极管的结电容</li>
-</ul>
-<h3 id="7-隧道二极管（Tunnel-Diode）"><a href="#7-隧道二极管（Tunnel-Diode）" class="headerlink" title="7.隧道二极管（Tunnel Diode）"></a>7.隧道二极管（Tunnel Diode）</h3><ul>
-<li>隧道二极管常用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%A0%BB%E7%8E%87%E8%BD%89%E6%8F%9B%E5%99%A8&action=edit&redlink=1">频率转换器</a>和侦测器上</li>
-<li>负微分电阻的特性，其也可应用于<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8C%AF%E7%9B%AA%E5%99%A8">振荡器</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%94%BE%E5%A4%A7%E5%99%A8">放大器</a>以及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E9%96%8B%E9%97%9C%E9%9B%BB%E8%B7%AF&action=edit&redlink=1">开关电路</a>的迟滞。</li>
-</ul>
-<h3 id="8-肖特基二极管（Schottky-diode）"><a href="#8-肖特基二极管（Schottky-diode）" class="headerlink" title="8.肖特基二极管（Schottky diode）"></a>8.肖特基二极管（Schottky diode）</h3><ul>
-<li>导通电压降较低、允许高速切换的二极管</li>
-<li>肖特基二极管的电压降只有 0.15-0.45 伏特，因此可以提升系统的效率。</li>
-<li>缺点是其反向偏置较低及反向漏电流偏大</li>
-</ul>
-<h2 id="2-晶体三极管"><a href="#2-晶体三极管" class="headerlink" title="2.晶体三极管"></a>2.晶体三极管</h2><p>​	晶体三极管又称为双极性晶体管 （BJT）</p>
-<h3 id="1-电流放大作用"><a href="#1-电流放大作用" class="headerlink" title="1.电流放大作用"></a>1.电流放大作用</h3><ul>
-<li><p>晶体管是放大电路的核心器件。</p>
-</li>
-<li><p>输入回路：基极-发射极回路。</p>
-</li>
-<li><p>输出回路：集电极-发射极回路。</p>
-</li>
-<li><p>共射放大电路： 发射极为输入回路和输出回路公共端</p>
-</li>
-<li><p>放大状态的外部条件： 发射结正向偏置，集电结反向偏置。</p>
-</li>
-</ul>
-<h3 id="2-共射特性曲线"><a href="#2-共射特性曲线" class="headerlink" title="2.共射特性曲线"></a>2.共射特性曲线</h3><h4 id="1-输入特性曲线"><a href="#1-输入特性曲线" class="headerlink" title="1.输入特性曲线"></a>1.输入特性曲线</h4><h1 id="杂记"><a href="#杂记" class="headerlink" title="杂记"></a>杂记</h1><blockquote>
-<p><strong>阻容耦合</strong>是指在电路中，电阻和电容之间存在相互影响的现象。通常情况下，我们认为电阻和电容是独立的元件，但在某些情况下，它们会相互影响，产生一些非预期的效应。</p>
-<p>这种耦合效应可能会出现在许多不同类型的电路中，包括模拟电路和数字电路。在模拟电路中，电阻和电容的耦合可能会导致信号的失真或延迟。在数字电路中，阻容耦合可能会影响信号的稳定性和时序特性，导致逻辑错误或不稳定的操作。</p>
-<p>因此，在设计和分析电路时，工程师需要考虑阻容耦合效应，以确保电路的性能和可靠性。这可能涉及到采取一些补偿措施或使用特殊的设计技术来减轻耦合效应带来的影响。</p>
-<p>在电路中，电阻和电容是两种常见的元件。通常，我们认为它们是独立的，但在一些情况下，它们会相互影响，这就是阻容耦合。</p>
-<p>想象一下，如果你有一根水管，水可以在其中自由流动。现在，如果你在水管的一段放置了一块海绵，海绵会吸收水并储存在其中。这时，水管的流动速度会受到海绵吸水的影响，海绵的湿度也会受到水管中水流的影响。在这个例子中，水管就像电路中的电阻，而海绵就像电路中的电容。阻容耦合就是描述电阻和电容之间这种相互影响的现象。</p>
-<p>在实际电路中，阻容耦合可能会导致一些问题，比如信号传输变慢、电路的响应时间变化等。因此，在设计和分析电路时，需要考虑这种耦合效应，以确保电路的正常工作。</p>
-</blockquote>
-<blockquote>
-<p><strong>静态工作点</strong>是指电子设备在没有输入信号时的工作状态。在放大器、晶体管等电子设备中，静态工作点通常表示设备的输出电压、电流以及输出特性的基准状态。</p>
-<p>在放大器中，静态工作点通常由放大器的直流偏置电压和直流偏置电流来描述。这个状态对应于放大器没有输入信号时的输出电压和电流水平。静态工作点的选择对于设备的性能和稳定性至关重要。如果静态工作点设置不当，可能会导致设备在工作时出现失真、偏置漂移或不稳定的现象。</p>
-<p>因此，在设计电路时，工程师会特别关注静态工作点，并根据设计需求和规格选择合适的偏置电压和电流，以确保设备在正常工作范围内运行。</p>
-</blockquote>
-<blockquote>
-<p>直流偏置电压和直流偏置电流是用于控制电子设备（比如放大器、晶体管等）在静态工作点上的电压和电流值。</p>
-<ol>
-<li><strong>直流偏置电压（DC Bias Voltage）</strong>：<ul>
-<li>在放大器或晶体管等电子设备中，直流偏置电压是用来设置设备工作在适当工作范围内的电压。它通常是在电路中通过电阻分压、电源电压等方式设置的一个恒定的电压值。</li>
-<li>直流偏置电压决定了设备的工作点，即静态工作点，它对应于设备在没有输入信号时的输出状态。通过调整直流偏置电压，可以确保设备在合适的电压范围内工作，以避免过饱和或过截止等失真现象。</li>
-</ul>
-</li>
-<li><strong>直流偏置电流（DC Bias Current）</strong>：<ul>
-<li>直流偏置电流是指流经电子设备（如晶体管）的恒定电流。它通常是通过电路中设置的偏置电阻来控制的。</li>
-<li>直流偏置电流也是设备静态工作点的重要参数之一。它决定了设备的工作状态，如放大器的基准电流值。正确选择直流偏置电流可以确保设备在合适的工作状态下工作，从而提高放大器的线性度和稳定性。</li>
-</ul>
-</li>
-</ol>
-<p>这两个参数一起用于确定电子设备的静态工作点，确保设备在正常工作范围内的输出特性。</p>
-</blockquote>
-<blockquote>
-<p><strong>电压型叠加定理</strong>是电路理论中的基本原理之一，它指出在一个线性电路中，当有多个电压源作用于电路时，每个电压源单独作用时的电压可以分别计算，并且最后可以将它们的效应叠加在一起以获得电路中某一点的总电压。这个定理通常适用于直流电路和交流电路中的线性电路，对于非线性电路不适用。</p>
-<h3 id="定理表述："><a href="#定理表述：" class="headerlink" title="定理表述："></a>定理表述：</h3><p>在一个电路中，假设有多个电压源<br>$$<br>V<br>total<br>​<br> &#x3D;V<br>1<br>​<br> +V<br>2<br>​<br> +V<br>3<br>​<br> +⋯+V<br>n<br>​<br>$$<br>它们分别作用于电路中的某一点，那么这一点的总电压等于各个电压源单独作用时的电压之和。</p>
-<p>数学表达式如下：</p>
-<p>�total&#x3D;�1+�2+�3+⋯+��<em>V</em>total&#x3D;<em>V</em>1+<em>V</em>2+<em>V</em>3+⋯+<em>V**n</em></p>
-<p>其中，�total<em>V</em>total 表示电路中某一点的总电压，�1,�2,�3,…,��<em>V</em>1,<em>V</em>2,<em>V</em>3,…,<em>V**n</em> 分别表示各个电压源单独作用时的电压值。</p>
-<h3 id="应用："><a href="#应用：" class="headerlink" title="应用："></a>应用：</h3><ol>
-<li><strong>电路分析简化</strong>：通过叠加定理，可以将复杂的电路分解为简单的部分，分别分析各个部分，最后再将它们的效应叠加在一起，从而简化电路分析的过程。</li>
-<li><strong>交流电路分析</strong>：在交流电路中，可以将直流分量和交流分量分别分析，然后再将它们的效应叠加在一起。</li>
-<li><strong>电路设计</strong>：在设计电路时，可以通过叠加定理来计算各个电压源的影响，从而更好地设计电路的结构和参数。</li>
-</ol>
-<p>总的来说，电压型叠加定理是电路分析中非常重要的原理，它为工程师提供了一种简便而有效的方法来理解和分析复杂电路系统。</p>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" rel="tag">模拟电路</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%A8%A1%E7%94%B5/" rel="tag">模电</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" rel="tag">电子元件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-常见通信协议以及通信方式"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/"
-    >常见通信协议以及通信方式</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" class="article-date">
-  <time datetime="2024-01-29T08:49:03.000Z" itemprop="datePublished">2024-01-29</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="常用的通信方式"><a href="#常用的通信方式" class="headerlink" title="常用的通信方式"></a>常用的通信方式</h1><h2 id="1-串行和并行通信"><a href="#1-串行和并行通信" class="headerlink" title="1. 串行和并行通信"></a>1. 串行和并行通信</h2><ul>
-<li>串行通信优缺点</li>
-</ul>
-<blockquote>
-<p>优点：</p>
-<p>​	1. 占用资源少（只需一根线）</p>
-<p>缺点：</p>
-<p>​	1. 传输速率慢</p>
-</blockquote>
-<ul>
-<li>并行通信优缺点</li>
-</ul>
-<blockquote>
-<p>优点：</p>
-<p>​	1. 传输速率快</p>
-<p>缺点：</p>
-<p>​	1. 占用资源多（多根线同时使用）</p>
-</blockquote>
-<h2 id="2-同步和异步通信"><a href="#2-同步和异步通信" class="headerlink" title="2. 同步和异步通信"></a>2. 同步和异步通信</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><ul>
-<li>同步通信</li>
-</ul>
-<blockquote>
-<p><strong>同步通信：</strong> 发送端在发送串行数据的同时，提供一个时钟信号，并按照一定的约定（例如：在时钟信号的上升沿的时候，将数据发送出去）发送数据，接收端根据发送端提供的时钟信号，以及大家的约定，接收数据。如：I2C、SPI等有时钟信号的协议，都属于这种通信方式。</p>
-</blockquote>
-<ul>
-<li>异步通信</li>
-</ul>
-<blockquote>
-<p><strong>异步通信：</strong> <strong>接收方并不知道数据什么时候会到达，收发双方可以有各自自己的时钟</strong>。发送方发送的时间间隔可以不均，接收方是在数据的起始位和停止位的帮助下实现信息同步的。这种传输通常是很小的分组，比如：一个字符为一组，数据组配备起始位和结束位。所以这种传输方式的效率是比较低的，因为额外加入了很多的辅助位作为负载，常用在低速的传输中。</p>
-</blockquote>
-<h3 id="2-比较"><a href="#2-比较" class="headerlink" title="2. 比较"></a>2. 比较</h3><ul>
-<li><p>同步通信要求接收端时钟频率和发送端时钟频率一致，发送端发送连续的比特流；异步通信时不要求接收端时钟和发送端时钟同步，发送端发送完一个字节后，可经过任意长的时间间隔再发送下一个字节。</p>
-</li>
-<li><p>同步通信效率高；异步通信效率较低。</p>
-</li>
-<li><p>同步通信较复杂，双方时钟的允许误差较小；异步通信简单，双方时钟可允许一定误差。</p>
-</li>
-<li><p>同步通信可用于点对多点；异步通信只适用于点对点。</p>
-</li>
-</ul>
-<h2 id="3-单工、半双工、全双工通信"><a href="#3-单工、半双工、全双工通信" class="headerlink" title="3. 单工、半双工、全双工通信"></a>3. 单工、半双工、全双工通信</h2><h3 id="1-概念-1"><a href="#1-概念-1" class="headerlink" title="1. 概念"></a>1. 概念</h3><ul>
-<li>单工数据传输只支持数据在一个方向上传输</li>
-<li>半双工数据传输允许数据在两个方向上传输，但是，在某一时刻，只允许数据在一个方向上传输，它实际上是一种切换方向的单工通信</li>
-<li>全双工数据通信允许数据同时在两个方向上传输，因此，全双工通信是两个单工通信方式的结合，它要求发送设备和接收设备都有独立的接收和发送能力。</li>
-</ul>
-<h2 id="4-通信速率"><a href="#4-通信速率" class="headerlink" title="4. 通信速率"></a>4. 通信速率</h2><ul>
-<li>比特率</li>
-</ul>
-<blockquote>
-<p>比特率(bit rate)又称传信率、信息传输速率(简称信息速率，information rate)。其定义是：通信线路(或系统)单位时间(每秒)内传输的信息量，即每秒能传输的二进制位数，通常用Rb表示，其单位是比特&#x2F;秒(bit&#x2F;s或b&#x2F;s，英文缩略语为bps)。</p>
-</blockquote>
-<ul>
-<li>波特率</li>
-</ul>
-<blockquote>
-<p>波特率(Baud rate)又称传码率、码元传输速率(简称码元速率)、信号传输速率(简称信号速率，signaling rate)或调制速率。其定义是：通信线路(或系统)单位时间(每秒)内传输的码元(脉冲)个数；或者表示信号调制过程中，单位时间内调制信号波形的变换次数，通常用RB表示，单位是波特(Bd或Baud，前者规范)。如果每秒传输1个码元就称为1Bd；如果1码元的时间长短为200ms，则每秒可传输5个码元，那么码元速率(波特率)就是5Bd。</p>
-</blockquote>
-<ul>
-<li>码元</li>
-</ul>
-<blockquote>
-<p>码元(code cell)是携带信息的数字单位，是指在数字信道中传送数字信号的一个波形符号，也即“时间轴上的一个信号编码单元”。码元可能是二进制的，也可能是多进制的。 </p>
-</blockquote>
-<h2 id="5-常见通信方式"><a href="#5-常见通信方式" class="headerlink" title="5. 常见通信方式"></a>5. 常见通信方式</h2><p>​	USART ( Universal Synchronous Asynchronous Receiver and Transmitter )</p>
-<p>​	UART ( Universal Asynchronous Receiver and Transmitter )</p>
-<h4 id="1-TTL"><a href="#1-TTL" class="headerlink" title="1. TTL"></a>1. TTL</h4><blockquote>
-<p>TTL（transistor transistor logic）即晶体管-晶体管逻辑电平。TTL电平信号规定，+5V等价于逻辑“1”，0 V等价于逻辑“0”(采用二进制来表示数据时)。</p>
-</blockquote>
-<h4 id="2-RS232"><a href="#2-RS232" class="headerlink" title="2. RS232"></a>2. RS232</h4><ul>
-<li>协议简介</li>
-</ul>
-<blockquote>
-<p>RS-232总线规定了25条线，包含了两个信号通道，即第一通道（称为主通道）和第二通道（称为副通道）。利用RS- 232总线可以实现全双工通信，通常使用的是主通道，而副通道使用较少。在一般应用中，使用3条～9条信号线就可以实现全双工通信，采用三条信号线（接收线RXD、发送线TXD和信号地GND）能实现简单的全双工通信过程。因此RS232标准有两种接口——DB9和DB25，其中常用的是DB9接口。</p>
-</blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
-<ul>
-<li>接口信号电平高，容易损坏接口电路的芯片。RS232接口上任何信号线的电压都处于负逻辑关系中。即：逻辑“1”为-3 ~ -15V;逻辑为“0”：+3 ~ +15V，噪声裕量为2V。也就是说，接收器需要将高于+3V的信号识别为逻辑“0”，将低于-3V的信号识别为逻辑“1”，将5V的TTL电平识别为逻辑正极，将0识别为逻辑负极。</li>
-<li>与TTL电平不兼容，需要一个电平转换电路来连接到TTL电路。</li>
-<li>传输速率低。在异步传输中，比特率为20Kbps;因此，在51CPLD开发板中，集成程序波特率只能是19200，这也是原因。</li>
-<li>接口采用信号线和信号回波串，形成共同的接地传输形式。这种标准的接地传输容易受到共模干扰，因此抗噪性较弱。</li>
-<li>传输距离有限。最大传输距离为50英尺。它只能达到大约15米。</li>
-</ul>
-</blockquote>
-<h4 id="3-RS485"><a href="#3-RS485" class="headerlink" title="3. RS485"></a>3. RS485</h4><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<p>RS485 通信采用差分信号传输，通常情况下只需要两根信号线就可以进行正常的通信。<br>在差分信号中，逻辑0和逻辑1是用两根信号线（A+和B-）的电压差来表示。</p>
-<p>逻辑 1：两根信号线（A+和B-）的电压差在 +2V～+6V 之间。<br>逻辑 0：两根信号线（A+和B-）的电压差在 -2V～-6V 之间。</p>
-</blockquote>
-<ul>
-<li>特征</li>
-</ul>
-<blockquote>
-<p>RS-485的电气特性：逻辑“1”由两条线路+2V<del>+6V之间的电压差表示，逻辑“0”由两条线路之间的电压差-6V</del>-2V表示。接口信号电平低于RS-232，不易损坏接口电路芯片。该电平与TTL电平兼容，便于与TTL电路连接。<br>最高数据传输速率为：10Mbps<br>RS-485接口采用平衡驱动器和差分接收机的组合，具有抗共振固模干扰能力，即抗噪声性能好。<br>RS-485接口的最大传输距离为4000英尺，实际上可达3000米。<br>RS-232接口仅允许一个收发器连接到总线，即单站功能。相比之下，RS-485接口仅允许在总线上连接多达128个收发器，即多站能力。用户 使用单个RS-485接口可以快速建立设备网络。</p>
-</blockquote>
-<h3 id="3-I2C"><a href="#3-I2C" class="headerlink" title="3.  I2C"></a>3.  I2C</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<p>I2C（同步<strong>半双工</strong>）通讯协议(Inter－Integrated Circuit)是由 Phiilps（飞利浦） 公司开发的，由于它引脚少，硬件实现简单，可扩展性强，不需要 USART、 CAN 等通讯协议的外部收发设备，现在被广泛地使用在系统内多个集成电路(IC)间的通讯。</p>
-</blockquote>
-<ul>
-<li>特点</li>
-</ul>
-<blockquote>
-<p>(1) 它是一个<strong>支持多设备</strong>的总线。“总线”指多个设备共用的信号线。在一个 I2C 通讯总线中，可连接多个 I2C 通讯设备，支持多个通讯主机及多个通讯从机。</p>
-<p>(2) 每个连接到总线的设备都有一个独立的地址，主机可以利用这个地址进行不同设备之间的访问。</p>
-<p>(3) <strong>总线通过上拉电阻</strong>接到电源。当 I2C 设备空闲时，会输出高阻态，而当所有设备都空闲，都输出高阻态时，由上拉电阻把总线拉成高电平。</p>
-<p>(4) 多个主机同时使用总线时，为了防止数据冲突，会利用仲裁方式决定由哪个设备占用总线。</p>
-<p>(5) 具有三种传输模式：标准模式传输速率为 100kbit&#x2F;s ，快速模式400kbit&#x2F;s ，高速模式下可达 1Mbit&#x2F;s，但目前大多 I2C 设备尚不支持高速模式。</p>
-<p>(6) 连接到相同总线的 IC 数量受到总线的最大电容 400pF 限制 。</p>
-</blockquote>
-<h4 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h4><ol>
-<li><p>使用两个总线：</p>
-<ol>
-<li>SDA（数据线）</li>
-<li>SCL（时钟线）</li>
-</ol>
-</li>
-<li><p>主设备与从设备</p>
-<ol>
-<li>主设备（控制时钟线<code>SCL</code>）</li>
-<li>从设备（地址检测）</li>
-</ol>
-</li>
-<li><p>高阻态</p>
-</li>
-</ol>
-<p>​	为了设备通过总线通信时不干扰主从设设备之外的设备，同时为了主从设备不被其他设备干扰，使用外部上拉电阻。</p>
-<ol start="4">
-<li><p>IIIC 设备地址：出厂已经设计好</p>
-</li>
-<li><p>协议</p>
-<ol>
-<li><strong>开始信号</strong>：SCL 为高电平时，SDA 由高电平向低电平跳变，开始传送数据。</li>
-<li><strong>结束信号</strong>：SCL 为高电平时，SDA 由低电平向高电平跳变，结束传送数据。</li>
-<li><strong>应答信号</strong>：接收数据的 IC 在接收到 8bit 数据后，向发送数据的 IC 发出特定的低电平脉冲，表示已收到数据。CPU 向受控单元发出一个信号后，等待受控单元发出一个应答信号，CPU 接收到应答信号后，根据实际情况作出是否继续传递信号的判断。若未收到应答信号，由判断为受控单元出现故障。</li>
-</ol>
-</li>
-</ol>
-<h3 id="4-SPI"><a href="#4-SPI" class="headerlink" title="4. SPI"></a>4. SPI</h3><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><blockquote>
-<p>SPI （同步全双工）协议是由摩托罗拉公司提出的通讯协议(Serial Peripheral Interface)，即串行外围设备接口，是一种高速全双工的通信总线。它被广泛地使用在 ADC、 LCD 等设备与 MCU 间，要求通讯速率较高的场合。</p>
-</blockquote>
-<h4 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h4><blockquote>
-<ol>
-<li><strong>SPI</strong>是一个同步的数据总线，也就是说它是用<strong>单独的数据线</strong>和<strong>一个单独的时钟信号</strong>来保证<strong>发送端和接收端的完美同步</strong>。</li>
-<li>产生时钟的一侧称为<strong>主机</strong>，另一侧称为<strong>从机</strong>。总是<strong>只有一个主机</strong>（一般来说可以是<strong>微控制器&#x2F;MCU</strong>），但是可以有多个<strong>从机</strong>（后面详细介绍）</li>
-<li>逻辑线<ul>
-<li><strong>MISO</strong>：<code>Master input slave output</code> 主机输入，从机输出（数据来自从机）；</li>
-<li><strong>MOSI</strong>：<code>Master output slave input</code> 主机输出，从机输入（数据来自主机）；</li>
-<li><strong>SCLK</strong> ：<code>Serial Clock</code> 串行时钟信号，由主机产生发送给从机；</li>
-<li><strong>SS</strong>：<code>Slave Select</code> 片选信号，由主机发送，以控制与哪个从机通信，通常是低电平有效信号。</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h4 id="信息传输流程"><a href="#信息传输流程" class="headerlink" title="信息传输流程"></a>信息传输流程</h4><blockquote>
-<ol>
-<li>机先将<code>NSS</code>信号拉低&#x3D;&gt; 开始接收数据</li>
-<li><strong>接收端</strong>检测到时钟的边沿信号时，它将立即读取<strong>数据线</strong>上的信号，这样就得到了一位数据</li>
-<li><strong>主机</strong>发送到<strong>从机</strong>时：主机产生相应的时钟信号，然后数据<strong>一位一位</strong>地将从<code>MOSI</code>信号线上进行发送到从机；</li>
-<li><strong>主机</strong>接收<strong>从机</strong>数据：如果从机需要将数据发送回主机，则主机将继续生成预定数量的时钟信号，并且从机会将数据通过<code>MISO</code>信号线发送；</li>
-</ol>
-</blockquote>
-<h3 id="5-CAN"><a href="#5-CAN" class="headerlink" title="5. CAN"></a>5. CAN</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<p>CAN 是控制器局域网络(Controller Area Network)的简称， 它是由研发和生产汽车电子产品著称的德国 BOSCH 公司开发的，并最终成为国际标准（ISO11519） ， 是国际上应用最广泛的现场总线之一。</p>
-<p>CAN 总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以 CAN 为底层协议专为大型货车和重工机械车辆设计的 J1939 协议。近年来， 它具有的高可靠性和良好的错误检测能力受到重视，被广泛应用于汽车计算机控制系统和环境温度恶劣、电磁辐射强及振动大的工业环境。</p>
-</blockquote>
-<h3 id="6-USB2-0"><a href="#6-USB2-0" class="headerlink" title="6. USB2.0"></a>6. USB2.0</h3><ul>
-<li>简介</li>
-</ul>
-<blockquote>
-<ul>
-<li>USB 是一种支持热插拔的高速串行传输总线，使用差分信号来传输数据，最高速度<br>可达 480Mb&#x2F;S。USB 支持“总线供电”和“自供电”两种供电模式。在总线供电模式下，USB2.0设备最多可以获得500mA的电流。</li>
-<li>2.USB2.0 被设计成为向下兼容的模式，当有全速 （USB 1.1）或者低速（USB 1.0）设备连接到高速（USB 2.0）主机时，主机可以通过分离传输来支持它们。</li>
-<li>3.一条 USB 总线上，可达到的最高传输速度等级由该总线上最慢的“设备”决定，该设备包括主机、HUB以及USB功能设备。</li>
-<li>4.USB 体系包括“主机”、“设备”以及“物理连接”三个部分。主机是一个提供USB接口及接口管理能力的硬件、软件及固件的复合体，可以是PC，也可以是OTG设备。一个USB 系统中仅有一个USB主机；</li>
-<li>5.设备包括 USB功能设备和 USB HUB，最多支持 127个设备；物理连接即指的是USB 的传输线。在USB 2.0系统中，要求使用屏蔽的双绞线。USB 体系采用分层的星型拓扑来连接所有USB设备。</li>
-<li>6.以 HOST-ROOT HUB为起点，最多支持 7 层（Tier），也就是说任何一个USB 系统中最多可以允许 5个 USB HUB 级联。一个复合设备（Compound Device）将同时占据两层或更多的层。</li>
-<li>7.一个 USB HOST 最多可以同时支持 128 个地址，地址 0 作为默认地址，只在设备枚举期间临时使用，而不能被分配给任何一个设备，因此一个 USB HOST 最多可以同时支持 127 个地址，如果一个设备只占用一个地址，那么可最多支持 127个 USB设备（含USB HUB）。<br>USB连接器支持热拔插；高速&#x2F;全速USB线缆要求使用内含双绞线的屏蔽线，而且必须打上符合USB使用标记；低速USB推荐但非要求使用双绞线和屏蔽线；</li>
-</ul>
-</blockquote>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/51/" rel="tag">51</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-STM32"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/01/29/STM32/"
-    >STM32</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/01/29/STM32/" class="article-date">
-  <time datetime="2024-01-29T08:18:02.000Z" itemprop="datePublished">2024-01-29</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="嵌入式基本概念"><a href="#嵌入式基本概念" class="headerlink" title="嵌入式基本概念"></a>嵌入式基本概念</h1><ul>
-<li><p>嵌入式系统<br>  嵌入式系统是一种专门设计用于执行特定任务或控制特定设备的计算机系统。它通常包括硬件和软件两个部分，被嵌入到目标设备中，以实现特定的功能。</p>
-</li>
-<li><p>RTOS（Real-Time OS）</p>
-<p>  一种专门设计用于嵌入式系统的操作系统。RTOS的主要特点是能够保证任务在预定的时间内得到及时处理，具有良好的实时性。</p>
-</li>
-</ul>
-<h1 id="1-STM32和51"><a href="#1-STM32和51" class="headerlink" title="1. STM32和51"></a>1. STM32和51</h1><h2 id="1-51的优缺点"><a href="#1-51的优缺点" class="headerlink" title="1. 51的优缺点"></a>1. 51的优缺点</h2><h3 id="1-51-的优点"><a href="#1-51-的优点" class="headerlink" title="1. 51 的优点"></a>1. 51 的优点</h3><ul>
-<li>硬件层面</li>
-</ul>
-<blockquote>
-<ol>
-<li>结构简单，8位</li>
-<li>硬件到软件有一套按位操作系统。（进行位的操作：传送、置位、清零、测试，逻辑运算）</li>
-<li>包含乘除法指令</li>
-</ol>
-</blockquote>
-<ul>
-<li>软件层面</li>
-</ul>
-<blockquote>
-<ol>
-<li>可以使用C进行编程</li>
-</ol>
-</blockquote>
-<h3 id="2-51的缺点"><a href="#2-51的缺点" class="headerlink" title="2. 51的缺点"></a>2. 51的缺点</h3><ul>
-<li>硬件层面</li>
-</ul>
-<blockquote>
-<ol>
-<li>功能少，运行速度慢</li>
-<li>I&#x2F;O高电平无输出能力</li>
-<li>保护能力差</li>
-</ol>
-</blockquote>
-<h2 id="2-stm32的简介"><a href="#2-stm32的简介" class="headerlink" title="2.stm32的简介"></a>2.stm32的简介</h2><blockquote>
-<p>​	由ST厂商推出的STM32系列单片机，行业的朋友都知道，这是一款性价比超高的系列单片机，应该没有之一，功能及其强大。其基于专为要求高性能、低成本、低功耗的嵌入式应用专门设计的ARM Cortex-M内核，同时具有一流的外设：1μs的双12位ADC，4兆位&#x2F;秒的UART，18兆位&#x2F;秒的SPI等等，在功耗和集成度方面也有不俗的表现，当然和MSP430的功耗比起来是稍微逊色的一些，但这并不影响工程师们对它的热捧程度，由于其简单的结构和易用的工具再配合其强大的功能在行业中赫赫有名。</p>
-</blockquote>
-<ul>
-<li>强大功能体现</li>
-</ul>
-<blockquote>
-<ol>
-<li><p>内核<br>STM32 系列采用了多种 ARM Cortex-M 内核，包括 Cortex-M0、Cortex-M3、Cortex-M4 等，具有不同的性能和功能特点，可根据应用场景的需求进行选择。</p>
-</li>
-<li><p>时钟<br>STM32 系列支持多种时钟源，包括内部 RC 振荡器、内部晶体振荡器、外部晶体振荡器等，可根据应用场景的需求进行选择。同时还支持多种时钟分频和时钟输出等功能。</p>
-</li>
-<li><p>存储器<br>STM32 系列支持多种存储器类型，包括 Flash 存储器、RAM 存储器、EEPROM 存储器等，可以根据应用场景的需求进行选择。同时还支持多种存储器保护和存储器映射等功能。</p>
-</li>
-<li><p>支持多种通讯</p>
-<p>STM32 系列还支持多种通信协议，如 SPI、I2C、CAN、USART 等。这使得 STM32 系列非常适合各种应用，特别是需要与其他设备或模块进行通信的应用。</p>
-</li>
-</ol>
-</blockquote>
-<h2 id="3-STM32F103C8T6-最小系统制作"><a href="#3-STM32F103C8T6-最小系统制作" class="headerlink" title="3.STM32F103C8T6 最小系统制作"></a>3.STM32F103C8T6 最小系统制作</h2><h3 id="1-供电电路"><a href="#1-供电电路" class="headerlink" title="1.供电电路"></a>1.供电电路</h3><h4 id="1-芯片特性"><a href="#1-芯片特性" class="headerlink" title="1.芯片特性"></a>1.芯片特性</h4><ul>
-<li>操作定压Vdd&#x3D;2.0~3.6v</li>
-<li>Vdd关闭后，RTC和备用寄存器可以从Vbat供电</li>
-</ul>
-<h3 id="2-电源转换电路"><a href="#2-电源转换电路" class="headerlink" title="2.电源转换电路"></a>2.电源转换电路</h3><ul>
-<li>USB供电（5v）转3.3v供电</li>
-</ul>
-<p>​	采用AMS1117芯片</p>
-<ul>
-<li>AMS1117<ul>
-<li>特点：</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Three Terminal Adjustable or Fixed Voltages* </p>
-<p>• High Efficiency Linear Regulators  1.5V, 1.8V, 2.5V, 2.85V, 3.3V and 5.0V </p>
-<p>• Post Regulators for Switching Supplies  • Output Current of 1A </p>
-<p>• 5V to 3.3V Linear Regulator  </p>
-<p>• Operates Down to 1V Dropout </p>
-<p>• Line Regulation: 0.2% Max. </p>
-<p>• Active SCSI Terminators  </p>
-<p>• Load Regulation: 0.4% Max. </p>
-<p>• SOT-223, TO-252 and SO-8 package</p>
-</blockquote>
-<h3 id="3-SWD下载电路"><a href="#3-SWD下载电路" class="headerlink" title="3.SWD下载电路"></a>3.SWD下载电路</h3><ul>
-<li>PA13和PA14为STM32F103C8T6芯片的SWD下载调试引脚</li>
-</ul>
-<h3 id="4-时钟电路"><a href="#4-时钟电路" class="headerlink" title="4.时钟电路"></a>4.时钟电路</h3><ul>
-<li>时钟源</li>
-</ul>
-<blockquote>
-<p>三个不同的时钟源可以用来驱动系统时钟(SYSCLK)： </p>
-<p>● HSI晶振时钟(高速内部时钟信号)  </p>
-<p>● HSE晶振时钟(高速外部时钟信号)  </p>
-<p>● PLL时钟 </p>
-<p>STM32有两个二级时钟源： </p>
-<p>● 40kHz的低速内部RC，它可以驱动独立看门狗，还可选择地通过程序选择驱动RTC。RTC 用于从停机&#x2F;待机模式下自动唤醒系统。 </p>
-<p>● 32.768kHz的低速外部晶振，可选择它用来驱动RTC(RTCCLK)。</p>
-</blockquote>
-<ul>
-<li>时钟电路（晶振电路）</li>
-</ul>
-<h3 id="5-复位电路"><a href="#5-复位电路" class="headerlink" title="5.复位电路"></a>5.复位电路</h3><ul>
-<li><p>复位条件：</p>
-<ul>
-<li>NRST引脚上出现低电平(外部复位)  </li>
-<li>窗口看门狗计数终止(WWDG复位)  </li>
-<li>独立看门狗计数终止(IWDG复位)  </li>
-<li>软件复位(SW复位)  </li>
-<li>低功耗管理复位</li>
-</ul>
-</li>
-<li><p>复位电路</p>
-</li>
-</ul>
-<h3 id="6-外围测试电路"><a href="#6-外围测试电路" class="headerlink" title="6.外围测试电路"></a>6.外围测试电路</h3><ul>
-<li>LED测试电路</li>
-</ul>
-<blockquote>
-<ol>
-<li>电源指示灯</li>
-<li>烧录指示灯</li>
-<li>blink程序测试用灯</li>
-</ol>
-</blockquote>
-<ul>
-<li>引脚引出</li>
-</ul>
-<h1 id="STM32的GPIO（待补充）"><a href="#STM32的GPIO（待补充）" class="headerlink" title="STM32的GPIO（待补充）"></a>STM32的GPIO（待补充）</h1><p>​	STM32的I&#x2F;O 端口有8种模式（4种输入模式和4种输出模式）。</p>
-<blockquote>
-<ul>
-<li><p>GPIO工作模式—–输入</p>
-<p>  1.浮空输入模式</p>
-<p>  2.上拉输入模式</p>
-<p>  3.下拉输入模式</p>
-<p>  4.模拟输入模式</p>
-</li>
-<li><p>GPIO工作模式—–输出</p>
-<p>  1.开漏输出模式</p>
-<p>  2.推挽输出模式</p>
-<p>  3.复用开漏输出</p>
-<p>  4.复用推挽输出</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h2><h3 id="1-输入浮空"><a href="#1-输入浮空" class="headerlink" title="1. 输入浮空"></a>1. 输入浮空</h3><ul>
-<li>特性</li>
-</ul>
-<ol>
-<li>I&#x2F;O端口的电平信号直接进入输入数据寄存器。</li>
-<li>引脚悬空（在无信号输入）的情况下，读取该端口的电平是不确定的·</li>
-</ol>
-<ul>
-<li>使用案例</li>
-</ul>
-<h3 id="2-输入上拉"><a href="#2-输入上拉" class="headerlink" title="2. 输入上拉"></a>2. 输入上拉</h3><ul>
-<li>特性</li>
-</ul>
-<ol>
-<li>IO<strong>内部</strong>接上拉电阻，此时如果IO口外部没有信号输入或者引脚悬空，IO口默认为高电平 </li>
-<li>STM32 <strong>内部</strong>上拉输出的电流很弱的，需要大电流还是得外部上拉。</li>
-</ol>
-<ul>
-<li>使用案例</li>
-</ul>
-<h3 id="3-输入下拉"><a href="#3-输入下拉" class="headerlink" title="3. 输入下拉"></a>3. 输入下拉</h3><ul>
-<li>特性</li>
-</ul>
-<ol>
-<li>IO内部接下拉电阻，此时如果IO口外部没有信号输入或者引脚悬空，IO口默认为低电平</li>
-</ol>
-<ul>
-<li>使用案例</li>
-</ul>
-<h3 id="4-模拟输入"><a href="#4-模拟输入" class="headerlink" title="4. 模拟输入"></a>4. 模拟输入</h3><ul>
-<li>特点</li>
-</ul>
-<ol>
-<li>信号不经过施密特触发器，直接直接进入ADC模块，并且输入数据寄存器为空 ，CPU不能在输入数据寄存器上读到引脚状态</li>
-<li>没有连接TTL触发器，这样保留最原始的电压值，不是转换过后的0和1信号</li>
-<li>数据直接送到片上外设，一般是ADC模数转换器（Analog-to-Digital Converter）</li>
-</ol>
-<ul>
-<li>使用案例</li>
-</ul>
-<p>用于连接模拟传感器或信号源，如温度传感器或光线传感器，可以通过ADC模块读取模拟电压值。</p>
-<h2 id="输出模式（一知半解，待补充）"><a href="#输出模式（一知半解，待补充）" class="headerlink" title="输出模式（一知半解，待补充）"></a>输出模式（一知半解，待补充）</h2><h3 id="1-开漏输出"><a href="#1-开漏输出" class="headerlink" title="1. 开漏输出"></a>1. 开漏输出</h3><ul>
-<li>特征</li>
-</ul>
-<ol>
-<li>引脚可以输出低电平（逻辑0），但不能输出高电平，而是通过外部上拉电阻实现。</li>
-</ol>
-<ul>
-<li>使用案例</li>
-</ul>
-<p>​	适用于实现多个引脚共享一个信号线的情况，如I2C总线或SPI总线。开漏输出模式允许多个设备通过外部上拉电阻共享同一条信号线，并且可以实现更高的灵活性和可靠性。</p>
-<h3 id="2-推挽输出"><a href="#2-推挽输出" class="headerlink" title="2. 推挽输出"></a>2. 推挽输出</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><ul>
-<li>特征</li>
-</ul>
-<p>​	这意味着引脚可以输出高电平（逻辑1）或低电平（逻辑0），且能够提供或接受相对较高的电流。</p>
-<ul>
-<li>使用案例</li>
-</ul>
-<p>​	适用于驱动外部负载，如LED、继电器、蜂鸣器等。推挽输出模式在输出高电平时提供的电流较大，可以有效地驱动各种类型的负载。</p>
-<h3 id="3-复用功能推挽输出"><a href="#3-复用功能推挽输出" class="headerlink" title="3. 复用功能推挽输出"></a>3. 复用功能推挽输出</h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3><ul>
-<li>特征</li>
-</ul>
-<p>在复用推挽输出模式下，GPIO引脚被配置为复用推挽输出，同时具有其他功能，如串行通信、定时器等。</p>
-<ul>
-<li>使用案例</li>
-</ul>
-<p>​	适用于需要在GPIO引脚上实现数字输出以及其他功能的应用场景。例如，将引脚配置为UART串行通信的TX引脚，同时可用于输出数字信号。</p>
-<h3 id="4-复用功能开漏输出"><a href="#4-复用功能开漏输出" class="headerlink" title="4. 复用功能开漏输出"></a>4. 复用功能开漏输出</h3><h3 id="-2"><a href="#-2" class="headerlink" title=""></a></h3><ul>
-<li><p>特征</p>
-</li>
-<li><p>使用案例</p>
-</li>
-</ul>
-<h1 id="STM32-HAL库和标准库的比较"><a href="#STM32-HAL库和标准库的比较" class="headerlink" title="STM32 HAL库和标准库的比较"></a>STM32 HAL库和标准库的比较</h1><ul>
-<li>抽象层级：<br>标准库：标准外设库提供了对STM32外设的低层次的直接访问，开发者需要直接操作外设的寄存器来配置和控制外设。<br>HAL库：HAL库提供了对STM32外设的高层次的抽象，通过一组统一的API接口，开发者可以更方便地配置和控制外设，而不必直接操作底层寄存器。</li>
-<li>可移植性：<br>标准库：标准外设库的代码通常直接与特定型号的STM32微控制器相关联，因此在不同型号的微控制器之间的移植性较差。<br>HAL库：HAL库设计为具有一定的可移植性，可以在不同型号的STM32微控制器之间进行较为简单的移植。</li>
-<li>易用性：<br>标准库：标准外设库需要开发者具有一定的硬件知识和对STM32微控制器的了解，操作相对复杂，学习曲线较陡。<br>HAL库：HAL库提供了一套统一的API接口，使得操作外设更加简单直观，适合初学者或者对硬件了解较少的开发者使用。</li>
-<li>功能支持：<br>标准库：标准外设库通常提供了丰富的外设驱动程序，但功能相对较为基础，不支持一些高级特性。<br>HAL库：HAL库不仅提供了基础的外设驱动程序，还支持一些高级特性，如DMA、中断优先级管理、时钟配置等，能够满足更复杂的应用需求。</li>
-</ul>
-<p>总的来说，标准库更加接近硬件，直接操作寄存器，适合对硬件较为了解的开发者；而HAL库提供了更高层次的抽象，操作更加简便，适合快速开发应用程序。选择使用哪种库取决于开发者的具体需求和技术水平。</p>
-<h1 id="标准库的功能"><a href="#标准库的功能" class="headerlink" title="标准库的功能"></a>标准库的功能</h1><ul>
-<li>外设驱动支持：<br>  STM32标准库提供了丰富的外设驱动程序，包括GPIO、定时器、串口、SPI、I2C、ADC等，开发者可以直接调用这些函数来配置和控制外设，实现各种功能。</li>
-<li>中断支持：<br>  标准库支持外部中断和定时器中断，在外设产生中断时能够及时响应，并执行相应的中断服务程序。开发者可以通过注册中断处理函数来实现自定义的中断处理逻辑。</li>
-<li>时钟控制：<br>  STM32标准库提供了时钟配置功能，包括系统时钟和外设时钟的配置。开发者可以根据实际需求设置时钟源、时钟分频等参数，以满足系统的性能和功耗要求。</li>
-<li>低功耗模式：<br>  标准库支持STM32微控制器的低功耗模式，包括停机模式、睡眠模式、待机模式等，开发者可以根据需要选择合适的低功耗模式来降低系统的功耗。</li>
-<li>系统初始化和配置：<br>  标准库提供了系统初始化和配置函数，包括时钟初始化、外设初始化等，开发者可以在程序的启动阶段调用这些函数来配置系统的基本参数。</li>
-<li>调试支持：<br>  标准库提供了一些调试功能，如串口打印输出、断言功能等，帮助开发者在调试和验证程序时更加方便。<br>  定时器和计数器： 标准库提供了定时器和计数器的功能支持，包括定时器的初始化、启动、停止等操作，以及定时器中断的配置和处理。</li>
-<li>PWM输出：<br>  标准库支持PWM输出功能，开发者可以通过配置定时器和GPIO来生成PWM信号，用于控制电机、LED等外部设备。</li>
-</ul>
-<h1 id="案例程序"><a href="#案例程序" class="headerlink" title="案例程序"></a>案例程序</h1><h2 id="STM32的中断"><a href="#STM32的中断" class="headerlink" title="STM32的中断"></a>STM32的中断</h2><h3 id="概念解释"><a href="#概念解释" class="headerlink" title="概念解释"></a>概念解释</h3><h4 id="中断向量："><a href="#中断向量：" class="headerlink" title="中断向量："></a><strong>中断向量</strong>：</h4><p>中断向量是指用于唤醒处理器并跳转到相应<strong>中断服务程序（ISR）的特定地址</strong>。在中断发生时，处理器会根据中断类型查找相应的中断向量，并跳转到相应的中断服务程序开始执行中断处理。<strong>中断向量通常是固定的</strong>，由处理器或芯片设计者确定，因为它们对应于具体的中断类型。例如，某个中断类型可能对应到内存中的特定地址，而另一个中断类型可能对应到另一个地址。</p>
-<h4 id="中断向量表："><a href="#中断向量表：" class="headerlink" title="中断向量表："></a><strong>中断向量表</strong>：</h4><p>中断向量表是一张表格，存储着所有中断类型对应的中断向量。每个中断向量都包含了中断发生时处理器应该跳转到的地址。在许多嵌入式系统中，中断向量表通常存储在固定的内存位置，处理器在发生中断时会根据中断类型找到相应的中断向量，并跳转到相应的中断服务程序。中断向量表的大小通常由中断类型的数量决定。</p>
-<h4 id="NVIC"><a href="#NVIC" class="headerlink" title="NVIC"></a><strong>NVIC</strong></h4><p>NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断</p>
-<h4 id="AFIO"><a href="#AFIO" class="headerlink" title="AFIO"></a><strong>AFIO</strong></h4><p>AFIO代表Alternate Function Input Output（备用功能输入输出），是STM32系列微控制器中的一个模块。AFIO模块允许用户配置GPIO引脚的备用功能，包括串行通信、定时器、中断控制等。</p>
-<h3 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h3><ol>
-<li>68个可屏蔽中断通道，包含EXTI、TIM、ADC、USART、SPI、I2C、RTC等多个外设</li>
-<li>使用<strong>NVIC</strong><code>NVIC代表Nested Vectored Interrupt Controller（嵌套向量中断控制器）。NVIC是ARM Cortex-M系列微控制器中的一个重要组件，用于管理和控制中断。</code>统一管理中断，每个中断通道都拥有16个可编程的优先等级，可对优先级进行分组，进一步设置抢占优先级和响应优先级</li>
-<li>优先级分组<ol>
-<li>抢占优先级：越高可以中断嵌套</li>
-<li>响应优先级：越高可以优先排队</li>
-</ol>
-</li>
-</ol>
-<h3 id="外部中断（-E-X-T-I-）"><a href="#外部中断（-E-X-T-I-）" class="headerlink" title="外部中断（ E X T I ）"></a>外部中断（ E X T I ）</h3><h4 id="硬件特性："><a href="#硬件特性：" class="headerlink" title="硬件特性："></a>硬件特性：</h4><ol>
-<li>触发方式：上升沿&#x2F;下降沿&#x2F;双边沿&#x2F;软件触发</li>
-<li>支持所有GPIO口，但相同的Pin不能同时触发中断</li>
-<li>通道数：16个GPIO_Pin，外加PVD输出、RTC闹钟、USB唤醒、以太网唤醒</li>
-</ol>
-<h4 id="结构体初始化配置过程"><a href="#结构体初始化配置过程" class="headerlink" title="结构体初始化配置过程"></a>结构体初始化配置过程</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*开启时钟*/</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);		<span class="comment">//开启GPIOB的时钟</span></span><br><span class="line">  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);		<span class="comment">//开启AFIO的时钟，外部中断必须开启AFIO的时钟</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*GPIO初始化*/</span></span><br><span class="line">  GPIO_InitTypeDef GPIO_InitStructure;</span><br><span class="line">  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;</span><br><span class="line">  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_14;</span><br><span class="line">  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;</span><br><span class="line">  GPIO_Init(GPIOB, &amp;GPIO_InitStructure);						<span class="comment">//将PB14引脚初始化为上拉输入</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*AFIO选择中断引脚*/</span></span><br><span class="line">  GPIO_EXTILineConfig(GPIO_PortSourceGPIOB, GPIO_PinSource14);<span class="comment">//将外部中断的14号线映射到GPIOB，即选择PB14为外部中断引脚</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*EXTI初始化*/</span></span><br><span class="line">  EXTI_InitTypeDef EXTI_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Line = EXTI_Line14;					<span class="comment">//选择配置外部中断的14号线</span></span><br><span class="line">  EXTI_InitStructure.EXTI_LineCmd = ENABLE;					<span class="comment">//指定外部中断线使能</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;			<span class="comment">//指定外部中断线为中断模式</span></span><br><span class="line">  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;		<span class="comment">//指定外部中断线为下降沿触发</span></span><br><span class="line">  EXTI_Init(&amp;EXTI_InitStructure);								<span class="comment">//将结构体变量交给EXTI_Init，配置EXTI外设</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC中断分组*/</span></span><br><span class="line">  NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2);				<span class="comment">//配置NVIC为分组2</span></span><br><span class="line">                                <span class="comment">//即抢占优先级范围：0~3，响应优先级范围：0~3</span></span><br><span class="line">                                <span class="comment">//此分组配置在整个工程中仅需调用一次</span></span><br><span class="line">                                <span class="comment">//若有多个中断，可以把此代码放在main函数内，while循环之前</span></span><br><span class="line">                                <span class="comment">//若调用多次配置分组的代码，则后执行的配置会覆盖先执行的配置</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">/*NVIC配置*/</span></span><br><span class="line">  NVIC_InitTypeDef NVIC_InitStructure;						<span class="comment">//定义结构体变量</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;		<span class="comment">//选择配置NVIC的EXTI15_10线</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;				<span class="comment">//指定NVIC线路使能</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = <span class="number">1</span>;	<span class="comment">//指定NVIC线路的抢占优先级为1</span></span><br><span class="line">  NVIC_InitStructure.NVIC_IRQChannelSubPriority = <span class="number">1</span>;			<span class="comment">//指定NVIC线路的响应优先级为1</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h1><h2 id="OLED屏幕不显示（未解决）"><a href="#OLED屏幕不显示（未解决）" class="headerlink" title="OLED屏幕不显示（未解决）"></a>OLED屏幕不显示<del>（未解决）</del></h2><p>​	使用 STM32以IIC的协议进行通信来在0.96寸OLED屏幕显示失败。但是使用arduino uno时显示正常。</p>
-<p>​	经过检验，发现使用的芯片为<code>STM32f103c6t6</code> 默认<code>i2c</code>输出引脚为<code>PB6(SCL) PB7(SDA)</code>而<code>STM32f103c8t6</code>有两组<code>I2C</code>引脚，分别是<code>&#123; PB6(SCL) PB7(SDA) &#125; 和&#123; PB8(SCL) PB9(SDA)&#125;</code></p>
-<p>​	多看看技术手册！！！</p>
-<h3 id="不同芯片功能对比"><a href="#不同芯片功能对比" class="headerlink" title="不同芯片功能对比"></a>不同芯片功能对比</h3><blockquote>
-<ol>
-<li><p>C6T6没有串口3（及USART3）；</p>
-</li>
-<li><p>C6T6没有通用定时器TIM4；</p>
-</li>
-<li><p>C6T6没有串行外设接口SPI2；</p>
-</li>
-<li><p>C6T6没有I2C2</p>
-</li>
-<li><p>C6T6的flash为32K， C8T6为64K；</p>
-</li>
-<li><p>C6T6的RAM为10K，C8T6为20K。</p>
-<p>总结就是C8T6比C6T6多了一个串口、一个定时器、一个串行外设接口、一个I2C、内存大一点！</p>
-</li>
-</ol>
-</blockquote>
-<ul>
-<li>IIC协议的上拉电阻已考虑</li>
-<li>电压大小已考虑</li>
-<li>芯片引脚特性</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/page/3/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">下一页</a>
-  </nav>
-  
-</section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2022-2024
-        <i class="ri-heart-fill heart_icon"></i> Regen
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
-  </div>
-</footer>    
-    </main>
-    <div class="float_btns">
-      <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-    </div>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/touxiang.png" alt="Regen"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E7%AC%94%E8%AE%B0">笔记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E8%AF%BB%E4%B9%A6">读书</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0">随手记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      <a class="nav-item-link nav-item-search"  title="Search">
-        <i class="ri-search-line"></i>
-      </a>
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <div id="mask"></div>
-
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenalipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenwechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
-    
-<script src="/js/jquery-3.6.0.min.js"></script>
- 
-<script src="/js/lazyload.min.js"></script>
-
-<!-- Tocbot -->
-
-<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
-<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
-
-<script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
-
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script> 
-<!-- MathJax -->
- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
-<script>
-  var ayerConfig = {
-    mathjax: true,
-  };
-</script>
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
-<!-- ClickLove -->
- 
-<script src="/js/clickLove.js"></script>
- 
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
- 
-<link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
         }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/27/PHOTO/" title="PHOTO">PHOTO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-27T11:23:50.000Z" title="Created 2024-02-27 19:23:50">2024-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">说走就走（南昌）​	去完南昌回来之后几天。想了想，果然还是想记下来当时间胶囊。
+​	回家那一刻我就知道了2024的寒假注定是灰色的，看到最近天气15日阴天，以及温度逐渐下降甚至出现下雪的时候，我心情是复杂的。
+​	上学期因荒废暑假后在学期中越想越痛，于是就发誓要好好利用寒假出去逛一逛，看看不同城市的风景。看到这天气后就有点挫伤。
+​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。
+​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！
+​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）
 
 
-    
-    <div id="music">
-    
-    
-    
-    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=536623501&auto=0&height=32"></iframe>
-</div>
+​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。
 
-<style>
-    #music {
-        position: fixed;
-        right: 15px;
-        bottom: 0;
-        z-index: 998;
-    }
-</style>
-    
-    
+我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/%E3%80%8A%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5%E3%80%8B/" title="《树上的男爵》">《树上的男爵》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-17T16:18:43.000Z" title="Created 2024-02-18 00:18:43">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">​	
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/17/%E3%80%8A%E6%B5%81%E6%98%9F%E4%B9%8B%E7%BB%8A%E3%80%8B/" title="《流星之绊》">《流星之绊》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-17T15:48:55.000Z" title="Created 2024-02-17 23:48:55">2024-02-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">《流星之绊》​	一直想看看短篇小说，想要重新体验一下过去一次性读完一本短篇的感觉。于是就立马想到了东野圭吾和村上春树。
+​	偶然发现原来我还有很多没看过的东野圭吾的作品。其中就有这本《流星之绊》，只消半个夜晚就看毕了，关上ipad，躺在床上，他们三兄妹以及他们的故事在脑海里不断重现。
 
-  </div>
-</body>
+“我们三人就像流星，毫无目标地飞逝，不知将在何处燃烧殆尽。”
 
-</html>
+​	看完后感觉剧情挺一般的，好像这本书少了点东野圭吾的味道了。如果是换做以前的我，大概会觉得这本书挺温暖的，至少就结局来说。也许我真的已经长大了，已经不在相信书里的奇迹了或者说已经不太习惯大团圆结局了。
+​	看的时候就觉得这个剧情很适合拍成电视剧供像我一样百无聊赖的人群观看，第二天一查，没想到真的有日剧，而且好像日剧的受众还更广一点。
+​	流星之绊啊，我一开始其实是理解为像流星一样转瞬即逝的羁绊，后来才知道是一起约定看流星的羁绊。虽然流星易逝，但是观看流星的他们之间的羁绊却被永远铭记。
+
+“
+然而最美的流星永远是第一次映入眼帘的那颗“第一次”给人的永恒美是人们对“纯真”最后的忠诚流星雨那年也因狮子座流星雨二更而起无数渴望的眼睛在凝视中等待世 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" title="docker容器技术">docker容器技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T19:04:22.000Z" title="Created 2024-02-09 03:04:22">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">constructing
+toBeContinued
+简介
+​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系。
+​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，不会再有“在我的环境上可以运行”，真正实现“build once, run everywhere”。
+
+概念​	docker 中的几个概念：
+
+
+dockerfile
+image
+container
+
+
+dockerfile​	Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像makefile一样。
+image​	Dock ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" title="MQTT服务器搭建（mosquitto）">MQTT服务器搭建（mosquitto）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T16:58:48.000Z" title="Created 2024-02-09 00:58:48">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MQTT服务器搭建（mosquitto）0.简介
+简介
+
+
+MQTT也称为”消息代理”（Broker）。
+MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。
+
+
+原理
+
+
+MQTT协议原理MQTT协议实现方式实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。
+MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：
+（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）
+（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/" title="esp8266连接服务器（基于mosquitto的mqtt server）">esp8266连接服务器（基于mosquitto的mqtt server）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T16:39:50.000Z" title="Created 2024-02-09 00:39:50">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">
+Time：2024-02-09 00:39:50
+
+还挺兴奋的，这个项目算是我自己搭建云服务器的最后一步。
+
+
+idea​	起因是想要自己搭建云服务器，同时还想要利用手上已经有的esp8266开发板实现对该服务器的远程控制（开关机）。
+​	本来打算整一个备用电源给服务器供电，奈何这台服务器是普通PC，即使配置已经很低（与现代PC比较为拉胯，但是比大多数出售的服务器例如某云2核4g更加）但功耗的保守估计已经超过70w。
+​	于是便打算使用远程开关降低平均功耗。同时进行物联网方面知识的扫盲与学习。
+过程1.前期准备​	首先，在已经搭建好的mqtt服务器上创建了用户user和密码passwd，同时处于安全性考虑禁止匿名访问。配置mqtt服务器的过程)
+​	创建好测试主题（topic）test后进行测试。多平台测试收发message没问题。
+2.中期打BOSS​	接下来就是攻克esp8266这边的问题了。
+
+问题一：esp8266开发环境
+
+​	由于这块esp8266开发板是我在高中时期玩的，那时候的电脑早已坏掉，这台电脑的arduinoIDE 还未配置esp8266的环境。
+​	本来打算使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="电子电路基础">电子电路基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-06T10:55:20.000Z" title="Created 2024-02-06 18:55:20">2024-02-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">符号
+VCC：C&#x3D;circuit，表示电路的意思，即接入电路的电压。
+
+VDD：D&#x3D;device，表示器件的意思，即器件内部的工作电压。
+
+VSS：S&#x3D;series，表示公共连接的意思，通常指电路公共接地端电压。
+
+
+名词</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" title="模拟电子技术基础">模拟电子技术基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-01T11:47:28.000Z" title="Created 2024-02-01 19:47:28">2024-02-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">模拟电子技术基础1.半导体器件
+本征半导体：纯净，具有晶体结构的半导体
+N型半导体：negative，掺入5价元素，多一个电子。
+P型半导体：positive，掺入3价元素，少一个电子。
+PN结：将P型半导体和N型半导体制作在同一硅片上，交界处形成PN结。
+空间电荷区：PN结交接处区域的复合。也称为耗尽层。
+
+1.PN结1.PN结的伏安特性
+反向击穿
+
+
+
+齐纳击穿：在高掺杂，耗尽层宽度窄的情况下，较低的反向电压即可击穿
+雪崩击穿：在低掺杂，耗尽层宽度宽的情况下，较高的反向电压可击穿
+
+
+2.PN结的电容效应
+势垒电容
+
+​	当PN结的反向电压变化时，空间电荷区的宽度随之变化，耗尽层电荷变化，导致等效电容变化。
+2.二极管1.伏安特性
+同PN结的对比
+
+
+
+单向导电性
+二极管存在半导体体电阻和引线电阻（同电压下正向电压更小）
+表面漏电流（反向电流更大）。漏电流（当施加反向电压时，电流仍然流过器件）
+
+
+2.不同材料二极管的对比
+
+
+材料
+开启电压
+导通电压
+反向饱和电流
+
+
+
+硅
+0.5
+0.6-0.8
+&lt;0&#x2F;1
+
+
+锗
+0.1
+0.1-0.3
+几十
+
+
+3.温度的影响 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" title="常见通信协议以及通信方式">常见通信协议以及通信方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-29T08:49:03.000Z" title="Created 2024-01-29 16:49:03">2024-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">常用的通信方式1. 串行和并行通信
+串行通信优缺点
+
+
+优点：
+​	1. 占用资源少（只需一根线）
+缺点：
+​	1. 传输速率慢
+
+
+并行通信优缺点
+
+
+优点：
+​	1. 传输速率快
+缺点：
+​	1. 占用资源多（多根线同时使用）
+
+2. 同步和异步通信1.概念
+同步通信
+
+
+同步通信： 发送端在发送串行数据的同时，提供一个时钟信号，并按照一定的约定（例如：在时钟信号的上升沿的时候，将数据发送出去）发送数据，接收端根据发送端提供的时钟信号，以及大家的约定，接收数据。如：I2C、SPI等有时钟信号的协议，都属于这种通信方式。
+
+
+异步通信
+
+
+异步通信： 接收方并不知道数据什么时候会到达，收发双方可以有各自自己的时钟。发送方发送的时间间隔可以不均，接收方是在数据的起始位和停止位的帮助下实现信息同步的。这种传输通常是很小的分组，比如：一个字符为一组，数据组配备起始位和结束位。所以这种传输方式的效率是比较低的，因为额外加入了很多的辅助位作为负载，常用在低速的传输中。
+
+2. 比较
+同步通信要求接收端时钟频率和发送端时钟频率一致，发送端发送连续的比特流；异步通信时不要求接收端时钟和发送端时钟同 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/29/STM32/" title="STM32">STM32</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-29T08:18:02.000Z" title="Created 2024-01-29 16:18:02">2024-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">嵌入式基本概念
+嵌入式系统  嵌入式系统是一种专门设计用于执行特定任务或控制特定设备的计算机系统。它通常包括硬件和软件两个部分，被嵌入到目标设备中，以实现特定的功能。
+
+RTOS（Real-Time OS）
+  一种专门设计用于嵌入式系统的操作系统。RTOS的主要特点是能够保证任务在预定的时间内得到及时处理，具有良好的实时性。
+
+
+1. STM32和511. 51的优缺点1. 51 的优点
+硬件层面
+
+
+
+结构简单，8位
+硬件到软件有一套按位操作系统。（进行位的操作：传送、置位、清零、测试，逻辑运算）
+包含乘除法指令
+
+
+
+软件层面
+
+
+
+可以使用C进行编程
+
+
+2. 51的缺点
+硬件层面
+
+
+
+功能少，运行速度慢
+I&#x2F;O高电平无输出能力
+保护能力差
+
+
+2.stm32的简介
+​	由ST厂商推出的STM32系列单片机，行业的朋友都知道，这是一款性价比超高的系列单片机，应该没有之一，功能及其强大。其基于专为要求高性能、低成本、低功耗的嵌入式应用专门设计的ARM Cortex-M内核，同时具有一流的外设：1μs的双12位ADC，4兆位&#x2F;秒的UART，18兆位&#x2F; ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/Linux-about-e-mail/" title="Linux about e-mail">Linux about e-mail</a><time datetime="2024-05-19T11:19:16.000Z" title="Created 2024-05-19 19:19:16">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">26</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">最小系统</a> <a href="/tags/OLED/" style="font-size: 1.34em; color: #99a3b0">OLED</a> <a href="/tags/about/" style="font-size: 1.18em; color: #999ca1">about</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/C-C/" style="font-size: 1.1em; color: #999">C/C++</a> <a href="/tags/md/" style="font-size: 1.18em; color: #999ca1">md</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/DC-DC/" style="font-size: 1.1em; color: #999">DC-DC</a> <a href="/tags/GUI/" style="font-size: 1.18em; color: #999ca1">GUI</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.34em; color: #99a3b0">旅行</a> <a href="/tags/linux/" style="font-size: 1.42em; color: #99a6b7">linux</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/photo/" style="font-size: 1.26em; color: #999fa8">photo</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">数据库原理</a> <a href="/tags/USB/" style="font-size: 1.1em; color: #999">USB</a> <a href="/tags/IoT/" style="font-size: 1.26em; color: #999fa8">IoT</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">随手记</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.18em; color: #999ca1">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.18em; color: #999ca1">电子元件</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/email/" style="font-size: 1.1em; color: #999">email</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/spi/" style="font-size: 1.1em; color: #999">spi</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.34em; color: #99a3b0">项目</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-02T08:16:42.261Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

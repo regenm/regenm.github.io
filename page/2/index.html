@@ -1,1245 +1,229 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-  
-
-    <head>
-      <meta charset="utf-8" />
-       
-      <meta name="keywords" content="Regen&#39;s blogs" />
-       
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-      />
-      <title> Regen</title>
-  <meta name="generator" content="hexo-theme-ayer">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Regen - Blogs</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Regen">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.png">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="Regen&#39;s blogs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.png"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Regen',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-02 16:16:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-      <link rel="shortcut icon" href="/images/touxiang.png" />
-       
-<link rel="stylesheet" href="/dist/main.css">
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-<link rel="stylesheet" href="/css/custom.css">
- 
-      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
-       
- 
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-
-      <!-- mermaid -->
-      
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-      </style>
-    </head>
-  </html>
-</html>
-
-
-<body>
-  <div id="app">
+      }
     
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/regenm/Notes"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="images/cover_1.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Regen</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['Hi !', 'HOLA ！', 'bonjour ！'],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
-                <img src="/images/touxiang.png" width="300" alt="Bilibili">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
         })
-        .catch(console.error)
-</script>
 
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
+        document.head.appendChild(script)
+      })
     
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    
-    <article
-  id="post-大创项目《自动化农业无人机》记录"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/"
-    >大创项目《自动化农业无人机》记录</a> 
-</h2>
- 
-
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
       
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2024-05-09T04:31:00.000Z" itemprop="datePublished">2024-05-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	记录一下大创项目《自动化农业无人机》。实现项目转化知识成果</p>
-<h1 id="硬件选型"><a href="#硬件选型" class="headerlink" title="硬件选型"></a>硬件选型</h1><p><img src="/images/dachaung/1.png" alt="硬件选型"></p>
-<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="PID算法"><a href="#PID算法" class="headerlink" title="PID算法"></a>PID算法</h2><h3 id="三轴陀螺仪的使用（以mpu6050为例）"><a href="#三轴陀螺仪的使用（以mpu6050为例）" class="headerlink" title="三轴陀螺仪的使用（以mpu6050为例）"></a>三轴陀螺仪的使用（以mpu6050为例）</h3><p>[MPU6050 basic  with Arduino](link to be added)</p>
-<h3 id="PID算法-1"><a href="#PID算法-1" class="headerlink" title="PID算法"></a>PID算法</h3><h2 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h2><h3 id="mqtt协议简介"><a href="#mqtt协议简介" class="headerlink" title="mqtt协议简介"></a>mqtt协议简介</h3><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (regenm.github.io)</a></p>
-<h3 id="mqtt服务器搭建"><a href="#mqtt服务器搭建" class="headerlink" title="mqtt服务器搭建"></a>mqtt服务器搭建</h3><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">MQTT服务器搭建（mosquitto） | Regen (regenm.github.io)</a></p>
-<h3 id="传输系统"><a href="#传输系统" class="headerlink" title="传输系统"></a>传输系统</h3><h4 id="1-数据传输"><a href="#1-数据传输" class="headerlink" title="1. 数据传输"></a>1. 数据传输</h4><p>mqtt协议基于代理，订阅和发布。</p>
-<p>因此在服务器里创建一个频道<code>/topic/dataFromSensors</code>用于各类传感器的数据传输</p>
-<ol>
-<li>高度传感器</li>
-<li>二氧化碳传感器</li>
-<li>温湿度传感器</li>
-<li>电池消耗</li>
-</ol>
-<h4 id="2-命令传输"><a href="#2-命令传输" class="headerlink" title="2. 命令传输"></a>2. 命令传输</h4><p>在服务器里创建一个频道<code>/topic/commandToDrone</code>用于各类命令的传输</p>
-<ol>
-<li>UP</li>
-<li>DOWM</li>
-<li>LEFT</li>
-<li>RIGHT</li>
-<li>SPIN</li>
-</ol>
-<p>因为基于mqtt协议，因此自动化控制很简单，上位机很好写，也可以不用上位机，在服务器上写的shell脚本就能很好的完成自动化功能。</p>
-<p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
-<h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4> 
-      <!-- reward -->
-      
-    </div>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/" title="大创项目《自动化农业无人机》记录">大创项目《自动化农业无人机》记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-09T04:31:00.000Z" title="Created 2024-05-09 12:31:00">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">​	记录一下大创项目《自动化农业无人机》。实现项目转化知识成果
+硬件选型
+实现思路PID算法三轴陀螺仪的使用（以mpu6050为例）[MPU6050 basic  with Arduino](link to be added)
+PID算法数据传输mqtt协议简介esp8266连接服务器（基于mosquitto的mqtt server） | Regen (regenm.github.io)
+mqtt服务器搭建MQTT服务器搭建（mosquitto） | Regen (regenm.github.io)
+传输系统1. 数据传输mqtt协议基于代理，订阅和发布。
+因此在服务器里创建一个频道/topic/dataFromSensors用于各类传感器的数据传输
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/esp32/" rel="tag">esp32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/esp8266/" rel="tag">esp8266</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E5%88%9B/" rel="tag">大创</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" rel="tag">无人机</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%89%A9%E8%81%94%E7%BD%91/" rel="tag">物联网</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
+高度传感器
+二氧化碳传感器
+温湿度传感器
+电池消耗
 
-    </footer>
-  </div>
+2. 命令传输在服务器里创建一个频道/topic/commandToDrone用于各类命令的传输
 
-    
- 
-   
-  
-</article>
+UP
+DOWM
+LEFT
+RIGHT
+SPIN
 
-    
-    <article
-  id="post-STM32-IIC-with-0-96-OLED"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/06/STM32-IIC-with-0-96-OLED/"
-    >STM32 IIC with 0.96 OLED</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/06/STM32-IIC-with-0-96-OLED/" class="article-date">
-  <time datetime="2024-05-06T09:24:10.000Z" itemprop="datePublished">2024-05-06</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="IIC-通信原理"><a href="#IIC-通信原理" class="headerlink" title="IIC 通信原理"></a>IIC 通信原理</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">点击跳转</a></p>
-<h2 id="原理介绍"><a href="#原理介绍" class="headerlink" title="原理介绍"></a>原理介绍</h2><h3 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h3><h4 id="硬件层"><a href="#硬件层" class="headerlink" title="硬件层"></a>硬件层</h4><p>​	需要接上拉电阻（保证传输稳定性）</p>
-<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Init</span><span class="params">()</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">1</span>;</span><br><span class="line">  IIC_SDA=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+因为基于mqtt协议，因此自动化控制很简单，上位机很好写，也可以不用上位机，在服务器上写的shell脚本就能很好的完成自动化功能。
+m ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/06/STM32-IIC-with-0-96-OLED/" title="STM32 IIC with 0.96 OLED">STM32 IIC with 0.96 OLED</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-06T09:24:10.000Z" title="Created 2024-05-06 17:24:10">2024-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">IIC 通信原理基本介绍点击跳转
+原理介绍Init硬件层​	需要接上拉电阻（保证传输稳定性）
+代码1234void IIC_Init()&#123;  IIC_SCL=1;  IIC_SDA=1;&#125;
 
 
-<h3 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h3><h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>​	IIC总线的SCL保持高电平，SDA由高电平变为低电平后，延时(&gt;4.7us)，SCL变为低电平。</p>
-<ul>
-<li>步骤</li>
-</ul>
-<ol>
-<li>SCL 高</li>
-<li>SDA 高-&gt;低 + 延时（&gt;4.7us）</li>
-<li>SCL 高-&gt;低</li>
-</ol>
-<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Start</span><span class="params">()</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">1</span>;</span><br><span class="line">  IIC_SDA=<span class="number">1</span>;</span><br><span class="line">  delay_us(<span class="number">5</span>);</span><br><span class="line">  IIC_SDA=<span class="number">0</span>;</span><br><span class="line">  delay_us(<span class="number">5</span>);</span><br><span class="line">  IIC_SCL=<span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+Start物理层​	IIC总线的SCL保持高电平，SDA由高电平变为低电平后，延时(&gt;4.7us)，SCL变为低电平。
 
-<h3 id="Tramsmit-Data"><a href="#Tramsmit-Data" class="headerlink" title="Tramsmit Data"></a>Tramsmit Data</h3><h4 id="物理层-1"><a href="#物理层-1" class="headerlink" title="物理层"></a>物理层</h4><pre><code> 传输时，SDA的宽度应该大于SCL的宽度，在SCL为高时读取SDA，SCL为低时改变SDA的电平。
+步骤
+
+
+SCL 高
+SDA 高-&gt;低 + 延时（&gt;4.7us）
+SCL 高-&gt;低
+
+代码123456789void IIC_Start()&#123;  IIC_SCL=1;  IIC_SDA=1;  delay_us(5);  IIC_SDA=0;  delay_us(5);  IIC_SCL=0;  &#125; 
+
+Tramsmit Data物理层 传输时，SDA的宽度应该大于SCL的宽度，在SCL为高时读取SDA，SCL为低时改变SDA的电平。
  ==注意：==传输数据过程总不允许SDA变化（否则会被视为开始或停止信号）
-</code></pre>
-<ul>
-<li>步骤</li>
-</ul>
-<ol>
-<li>拉低SCL进行数据传输</li>
-<li>SDA传送高低电平（0或1）</li>
-<li>SCL在高电平时期读取SDA的数据</li>
-<li>响应信号</li>
-</ol>
-<h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Transmit</span><span class="params">(u8 data)</span>&#123;</span><br><span class="line">  IIC_SCL=<span class="number">0</span>;  <span class="comment">// </span></span><br><span class="line">  u8 i=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">8</span>;i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(data &amp; <span class="number">0x80</span> )&#123; </span><br><span class="line">      IIC_SDA=<span class="number">1</span>;	    <span class="comment">// transmit 1</span></span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">1</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">0</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">      IIC_SDA=<span class="number">0</span>;  	   <span class="comment">// tramsmit 0	</span></span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">1</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">      IIC_SCL=<span class="number">0</span>;</span><br><span class="line">      delay_us(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    data&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+步骤
 
-<h3 id="Stop"><a href="#Stop" class="headerlink" title="Stop"></a>Stop</h3><h4 id="物理层-2"><a href="#物理层-2" class="headerlink" title="物理层"></a>物理层</h4><p>​	与Start相反：SCL为高时SDA由低到高</p>
-<ol>
-<li>SCL &#x3D; 1</li>
-<li>SDA &#x3D; 0</li>
-<li>SDA &#x3D; 1 + 延时(&gt;4.7us)</li>
-</ol>
-<h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">IIC_Stop</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  IIC_SCL=<span class="number">0</span>;</span><br><span class="line">  IIC_SDA=<span class="number">0</span>;    </span><br><span class="line">   delay_us(<span class="number">4</span>);</span><br><span class="line">  IIC_SCL=<span class="number">1</span>; </span><br><span class="line">  IIC_SDA=<span class="number">1</span>;    </span><br><span class="line">  delay_us(<span class="number">4</span>);							   	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h3><h4 id="物理层-3"><a href="#物理层-3" class="headerlink" title="物理层"></a>物理层</h4><p>​	主机SCL拉高，读取从机SDA的电平，为低电平表示产生应答</p>
-<blockquote>
-<ul>
-<li>应答信号为低电平时，规定为有效应答位（ACK，简称应答位），表示接收器已经成功地接收了该字节</li>
-<li>应答信号为高电平时，规定为非应答位（NACK），一般表示接收器接收该字节没有成功</li>
-</ul>
-</blockquote>
-<ol>
-<li>IIC_SCL&#x3D;0</li>
-<li>IIC_SDA&#x3D;0</li>
-<li>IIC_SCL&#x3D;1 读取ACK</li>
-</ol>
-<h4 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">I2C_Ack</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;   <span class="comment">//先拉低SCL，使得SDA数据可以发生改变</span></span><br><span class="line">   IIC_SDA=<span class="number">0</span>;   </span><br><span class="line">   delay_us(<span class="number">2</span>);</span><br><span class="line">   IIC_SCL=<span class="number">1</span>;</span><br><span class="line">   delay_us(<span class="number">5</span>);</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">I2C_NAck</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;   <span class="comment">//先拉低SCL，使得SDA数据可以发生改变</span></span><br><span class="line">   IIC_SDA=<span class="number">1</span>;   <span class="comment">//拉高SDA，不产生应答信号</span></span><br><span class="line">   delay_us(<span class="number">2</span>);</span><br><span class="line">   IIC_SCL=<span class="number">1</span>;</span><br><span class="line">   delay_us(<span class="number">5</span>);</span><br><span class="line">   IIC_SCL=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+拉低SCL进行数据传输
+SDA传送高低电平（0或1）
+SCL在高电平时期读取SDA的数据 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/27/mqttSender/" title="mqttSender">mqttSender</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-27T05:48:17.000Z" title="Created 2024-04-27 13:48:17">2024-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">用于记录项目mqttSender
+regenm&#x2F;mqttSender
+MqttSenderdescriptionA Software For me to send message to my mqtt serverSo that I can contral my devices such as esp32 ,esp8266.
+Another purpose is to learn python tkinter(GUI lib)
+Technique
+python tkinter
+python pyinstaller
+python mqtt
 
+requirements analization v1.0GUIversion1.0
+conponents
 
 
-<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><p>回答基于GPT</p>
-<h2 id="IIC通信是如何区分ACK和数据的？"><a href="#IIC通信是如何区分ACK和数据的？" class="headerlink" title="IIC通信是如何区分ACK和数据的？"></a>IIC通信是如何区分ACK和数据的？</h2><blockquote>
-<p>在 I2C 通信中，数据传输包括两个方向：主设备向从设备发送数据（写操作），以及从设备向主设备发送数据（读操作）。在这两种情况下，都需要一种方法来区分 ACK（应答）和数据。</p>
-<p>下面是 I2C 中如何区分 ACK 和数据的一般流程：</p>
-<ol>
-<li><strong>写操作</strong>：<ul>
-<li>主设备发送一个字节的数据给从设备。</li>
-<li>每当主设备发送完一个字节后，会释放 SDA 线并将其拉高，等待从设备的应答。</li>
-<li>如果从设备收到数据并且成功接收，它将拉低 SDA 线表示 ACK。</li>
-<li>如果从设备未成功接收数据（或者不接收），它将保持 SDA 线高电平，表示 NACK（非应答）。</li>
-</ul>
-</li>
-<li><strong>读操作</strong>：<ul>
-<li>主设备向从设备发送一个读请求，并在准备接收数据时将 SDA 线拉高，进入接收模式。</li>
-<li>从设备在每个数据字节的发送后，会将 SDA 线拉低或保持低电平来表示 ACK。</li>
-<li>当从设备不再有数据发送时，它将保持 SDA 线高电平，表示 NACK。</li>
-</ul>
-</li>
-</ol>
-<p>在 I2C 中，ACK 和 NACK 的区别是在 SDA 线上的电平状态。ACK 是 SDA 线被拉低一段时间（通常是一个时钟周期），而 NACK 是 SDA 线保持高电平。</p>
-<p>这种应答机制确保了数据的正确传输，并且主设备和从设备之间能够进行有效的通信。</p>
-</blockquote>
-<h2 id="IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧"><a href="#IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧" class="headerlink" title="IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧"></a>IIC如何判断是否已经传输好了一个字节？否则会误判ACK信号吧</h2><blockquote>
-<p>在 I2C 通信中，确实有一个机制来确保每个字节都被正确传输，以避免误判 ACK 信号。这个机制称为“时钟拉伸”（Clock Stretching）。</p>
-<p>时钟拉伸是从设备（通常是从设备）可以通过拉低时钟线（SCL）来暂停主设备的时钟来延长传输时间的能力。当从设备需要更多时间来处理数据或准备发送应答时，它可以拉低 SCL 线来暂停时钟，从而保证数据传输的准确性。</p>
-<p>在每个数据字节的传输中，主设备发送一个字节，并在每个时钟周期结束时等待从设备的应答。如果从设备需要额外时间，则可以拉伸时钟线。一旦从设备准备好应答，它就释放 SCL 线，使时钟继续，主设备就可以继续传输下一个字节或完成传输。</p>
-<p>这种时钟拉伸的机制确保了主设备和从设备之间的同步，并且确保了每个字节都能够被正确传输。如果从设备在时钟拉伸期间没有完成数据的处理或准备应答，主设备会在检测到应答信号之前继续等待。</p>
-<p>因此，在 I2C 通信中，即使有时钟拉伸，主设备仍能够正确判断 ACK 信号。</p>
-</blockquote>
-<h2 id="IIC如何判断是否已经传输好了一个字节？"><a href="#IIC如何判断是否已经传输好了一个字节？" class="headerlink" title="IIC如何判断是否已经传输好了一个字节？"></a>IIC如何判断是否已经传输好了一个字节？</h2><blockquote>
-<p>在 I2C 中，主设备在发送每个字节时都会产生一个时钟脉冲（CLK）。这些时钟脉冲用于同步数据传输，并且在每个字节的传输之后，主设备需要知道何时应该停止发送数据并等待从设备的应答。</p>
-<p>判断是否已经传输好了一个字节主要依赖于主设备的计数。主设备通常会发送8个时钟脉冲（对应一个字节的8位数据），然后等待从设备的应答。</p>
-<p>具体的步骤如下：</p>
-<ol>
-<li>主设备发送一个字节的数据。</li>
-<li>主设备在发送每个位时都会产生一个时钟脉冲（CLK），总共8个脉冲。</li>
-<li>在发送完最后一个位后，主设备停止产生时钟脉冲，并等待从设备的应答。</li>
-</ol>
-<p>等待应答时，主设备可以通过检测SDA线上的电平来判断是否收到应答信号。如果从设备接收到了数据并正确处理，它会拉低SDA线（ACK），表示接收到数据并准备好接收下一个字节。如果从设备没有接收到数据或者出现错误，它会保持SDA线为高电平（NACK）。</p>
-<p>通过这种方式，主设备可以判断是否已经传输好了一个字节，并且根据从设备的应答来进行相应的操作。</p>
-</blockquote>
-<h1 id="STM32-实现"><a href="#STM32-实现" class="headerlink" title="STM32 实现"></a>STM32 实现</h1><h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h2 id="hal库"><a href="#hal库" class="headerlink" title="hal库"></a>hal库</h2> 
-      <!-- reward -->
-      
-    </div>
-    
+1 text call box（for output）
+1 entry box (for input)
+a send button()
 
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
 
-    </footer>
-  </div>
+features(or limits? qwq )
 
-    
- 
-   
-  
-</article>
 
-    
-    <article
-  id="post-mqttSender"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/27/mqttSender/"
-    >mqttSender</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/27/mqttSender/" class="article-date">
-  <time datetime="2024-04-27T05:48:17.000Z" itemprop="datePublished">2024-04-27</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>用于记录项目mqttSender</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/regenm/MqttSender">regenm&#x2F;mqttSender</a></p>
-<h1 id="MqttSender"><a href="#MqttSender" class="headerlink" title="MqttSender"></a>MqttSender</h1><h2 id="description"><a href="#description" class="headerlink" title="description"></a>description</h2><p>A Software For me to send message to my mqtt server<br>So that I can contral my devices such as esp32 ,esp8266.</p>
-<p>Another purpose is to learn python tkinter(GUI lib)</p>
-<h3 id="Technique"><a href="#Technique" class="headerlink" title="Technique"></a>Technique</h3><ol>
-<li>python tkinter</li>
-<li>python pyinstaller</li>
-<li>python mqtt</li>
-</ol>
-<h1 id="requirements-analization-v1-0"><a href="#requirements-analization-v1-0" class="headerlink" title="requirements analization v1.0"></a>requirements analization v1.0</h1><h2 id="GUI"><a href="#GUI" class="headerlink" title="GUI"></a>GUI</h2><h3 id="version1-0"><a href="#version1-0" class="headerlink" title="version1.0"></a>version1.0</h3><ul>
-<li>conponents</li>
-</ul>
-<ol>
-<li>1 text call box（for output）</li>
-<li>1 entry box (for input)</li>
-<li>a send button()</li>
-</ol>
-<ul>
-<li>features(or limits? qwq )</li>
-</ul>
-<ol>
-<li>simple</li>
-<li>change server(ip address, password , topics) by editing source code .</li>
-</ol>
-<h2 id="mqtt"><a href="#mqtt" class="headerlink" title="mqtt"></a>mqtt</h2><h3 id="paho-mqtt-version-1-6"><a href="#paho-mqtt-version-1-6" class="headerlink" title="paho-mqtt version 1.6"></a>paho-mqtt version 1.6</h3><ul>
-<li>description</li>
-</ul>
-<p>When coding the parts of mqtt sucscribe and publish , I find that the mqtt lib had upugrade to version 2.0 . However , I get the version 1 example code . Making me annoyed.</p>
-<p>So i just gona to use version 1.6</p>
-<p>And I will definetly upgrade my code in the future.</p>
-<ul>
-<li>mqtt part function</li>
-</ul>
-<p>get the content( payload ) and the server information(settings)  then send it.</p>
-<h2 id="release"><a href="#release" class="headerlink" title="release"></a>release</h2><p><code>pyinstaller gui_ver_1.py -p mqttSender.py</code></p>
-<h1 id="Version-2-0"><a href="#Version-2-0" class="headerlink" title="Version 2.0"></a>Version 2.0</h1><h2 id="requirements-analization-v1-0-1"><a href="#requirements-analization-v1-0-1" class="headerlink" title="requirements analization v1.0"></a>requirements analization v1.0</h2><ul>
-<li>6 inut text</li>
-<li>1 ouput text</li>
-</ul>
-<h3 id="Technique-1"><a href="#Technique-1" class="headerlink" title="Technique"></a>Technique</h3><ol>
-<li>python tkinter</li>
-<li>python pyinstaller</li>
-<li>python mqtt</li>
-<li>tkinter-designer</li>
-</ol>
-<h3 id="GUI-1"><a href="#GUI-1" class="headerlink" title="GUI"></a>GUI</h3><p>)<img src="/../images/mqttSender/1.png" alt="version_2"></p>
-<h4 id="How-to-use"><a href="#How-to-use" class="headerlink" title="How to use ?"></a>How to use ?</h4><ul>
-<li><p>)use source code</p>
-<ol>
-<li>change <code>src\final\version_2_0\gui_ver_2.py </code> Line 70 to your own file position<br> <img src="/../images/mqttSender/2.png" alt="img"></li>
-<li>RUN</li>
-</ol>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd src\final\version_2_0</span><br><span class="line">python gui_ver_2.py</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>use release ( to be finished )</p>
-</li>
-</ul>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IoT/" rel="tag">IoT</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mosquitto/" rel="tag">mosquitto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mqtt/" rel="tag">mqtt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/" rel="tag">software</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Pytohn-pyinstaller"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/25/Pytohn-pyinstaller/"
-    >Pytohn pyinstaller</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/25/Pytohn-pyinstaller/" class="article-date">
-  <time datetime="2024-04-25T05:37:05.000Z" itemprop="datePublished">2024-04-25</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pyinstaller/" rel="tag">pyinstaller</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/" rel="tag">打包工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Pytohn-tkinter-GUI-lib"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/25/Pytohn-tkinter-GUI-lib/"
-    >Pytohn tkinter(GUI lib)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/25/Pytohn-tkinter-GUI-lib/" class="article-date">
-  <time datetime="2024-04-25T05:36:42.000Z" itemprop="datePublished">2024-04-25</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" rel="tag">图形化工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《黄昏清兵卫》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/"
-    >《黄昏清兵卫》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/" class="article-date">
-  <time datetime="2024-04-23T16:13:48.000Z" itemprop="datePublished">2024-04-24</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《山药粥》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/"
-    >《山药粥》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/" class="article-date">
-  <time datetime="2024-04-23T16:13:37.000Z" itemprop="datePublished">2024-04-24</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《偷盗》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/"
-    >《偷盗》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/" class="article-date">
-  <time datetime="2024-04-23T16:13:31.000Z" itemprop="datePublished">2024-04-24</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《北欧神话》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/"
-    >《北欧神话》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/" class="article-date">
-  <time datetime="2024-04-17T14:47:13.000Z" itemprop="datePublished">2024-04-17</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-《太阳照常升起》"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/"
-    >《太阳照常升起》</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/" class="article-date">
-  <time datetime="2024-04-17T14:46:58.000Z" itemprop="datePublished">2024-04-17</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" rel="tag">随手记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
-  </nav>
-  
-</section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2022-2024
-        <i class="ri-heart-fill heart_icon"></i> Regen
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
-  </div>
-</footer>    
-    </main>
-    <div class="float_btns">
-      <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-    </div>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/touxiang.png" alt="Regen"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E7%AC%94%E8%AE%B0">笔记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E8%AF%BB%E4%B9%A6">读书</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0">随手记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      <a class="nav-item-link nav-item-search"  title="Search">
-        <i class="ri-search-line"></i>
-      </a>
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <div id="mask"></div>
-
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenalipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenwechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
-    
-<script src="/js/jquery-3.6.0.min.js"></script>
- 
-<script src="/js/lazyload.min.js"></script>
-
-<!-- Tocbot -->
-
-<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
-<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
+simple
+change server(ip address, password , topics) by editing sourc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/25/Pytohn-pyinstaller/" title="Pytohn pyinstaller">Pytohn pyinstaller</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-25T05:37:05.000Z" title="Created 2024-04-25 13:37:05">2024-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/25/Pytohn-tkinter-GUI-lib/" title="Pytohn tkinter(GUI lib)">Pytohn tkinter(GUI lib)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-25T05:36:42.000Z" title="Created 2024-04-25 13:36:42">2024-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/" title="《黄昏清兵卫》">《黄昏清兵卫》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-23T16:13:48.000Z" title="Created 2024-04-24 00:13:48">2024-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/" title="《山药粥》">《山药粥》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-23T16:13:37.000Z" title="Created 2024-04-24 00:13:37">2024-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/" title="《偷盗》">《偷盗》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-23T16:13:31.000Z" title="Created 2024-04-24 00:13:31">2024-04-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/" title="《北欧神话》">《北欧神话》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-17T14:47:13.000Z" title="Created 2024-04-17 22:47:13">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/" title="《太阳照常升起》">《太阳照常升起》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-17T14:46:58.000Z" title="Created 2024-04-17 22:46:58">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/Linux-about-e-mail/" title="Linux about e-mail">Linux about e-mail</a><time datetime="2024-05-19T11:19:16.000Z" title="Created 2024-05-19 19:19:16">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
             </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
-
-<script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
-
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script> 
-<!-- MathJax -->
- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
-<script>
-  var ayerConfig = {
-    mathjax: true,
-  };
-</script>
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
-<!-- ClickLove -->
- 
-<script src="/js/clickLove.js"></script>
- 
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
- 
-<link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
-        }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
-
-
-    
-    <div id="music">
-    
-    
-    
-    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=536623501&auto=0&height=32"></iframe>
-</div>
-
-<style>
-    #music {
-        position: fixed;
-        right: 15px;
-        bottom: 0;
-        z-index: 998;
-    }
-</style>
-    
-    
-
-  </div>
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">26</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">最小系统</a> <a href="/tags/OLED/" style="font-size: 1.34em; color: #99a3b0">OLED</a> <a href="/tags/about/" style="font-size: 1.18em; color: #999ca1">about</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/C-C/" style="font-size: 1.1em; color: #999">C/C++</a> <a href="/tags/md/" style="font-size: 1.18em; color: #999ca1">md</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/DC-DC/" style="font-size: 1.1em; color: #999">DC-DC</a> <a href="/tags/GUI/" style="font-size: 1.18em; color: #999ca1">GUI</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.34em; color: #99a3b0">旅行</a> <a href="/tags/linux/" style="font-size: 1.42em; color: #99a6b7">linux</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/photo/" style="font-size: 1.26em; color: #999fa8">photo</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">数据库原理</a> <a href="/tags/USB/" style="font-size: 1.1em; color: #999">USB</a> <a href="/tags/IoT/" style="font-size: 1.26em; color: #999fa8">IoT</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">随手记</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.18em; color: #999ca1">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.18em; color: #999ca1">电子元件</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/email/" style="font-size: 1.1em; color: #999">email</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/spi/" style="font-size: 1.1em; color: #999">spi</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.34em; color: #99a3b0">项目</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-02T08:16:42.261Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

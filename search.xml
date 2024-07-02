@@ -18,7 +18,14 @@
 </li>
 </ul>
 <p><a href="https://github.com/regenm/regenm.github.io">new Blog repo</a></p>
+<h1 id="Important-Update"><a href="#Important-Update" class="headerlink" title="Important Update"></a>Important Update</h1><p>更新Theme！</p>
+<p>这是以前的博客样式：</p>
+<p><img src="/../images/oldBlog/1.png" alt="1"></p>
+<p><img src="/../images/oldBlog/2.png" alt="2"></p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>about</tag>
         <tag>笔记</tag>
@@ -30,6 +37,9 @@
     <content><![CDATA[<h1 id="1-COVER1"><a href="#1-COVER1" class="headerlink" title="1.COVER1"></a>1.COVER1</h1><h1 id=""><a href="#" class="headerlink" title=""></a><img src="/images/cover1.jpg"></h1><h1 id="2-COVER2"><a href="#2-COVER2" class="headerlink" title="2.COVER2"></a>2.COVER2</h1><p><img src="/images/cover2.jpg"></p>
 <h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/images/cover1.jpg">	</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>md</tag>
@@ -262,6 +272,9 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">格式</span><br><span class="line">:内容描述:</span><br><span class="line">例如：</span><br><span class="line">:smile:</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>md</tag>
@@ -360,6 +373,9 @@
 <p><strong>vim学习网站</strong></p>
 <p>​	<a href="https://vim-adventures.com/">VIM GAME</a></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>vim</tag>
@@ -406,6 +422,10 @@
 <p>​	阳台外面就是一个小湖，每天都能看到日落。中午时光练练吉他，看看书，简单的快乐。</p>
 <h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" /images/202311111.jpg" width="400" height="300" alt="NIKON GUYS">
 ]]></content>
+      <categories>
+        <category>生活</category>
+        <category>摄影</category>
+      </categories>
       <tags>
         <tag>旅行</tag>
         <tag>摄影</tag>
@@ -417,8 +437,11 @@
     <content><![CDATA[<h1 id="Regen-m-smile"><a href="#Regen-m-smile" class="headerlink" title="Regen_m	:smile:"></a>Regen_m	:smile:</h1><p>​	这是我的cyber name。这一页就用来介绍介绍我自己吧！</p>
 <h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影等等。同时二次元纯度也非常之高。</p>
 <h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		不知道有谁会看到这个网页，但我打算在接下来的大学生活中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</p>
-<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。</p>
+<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。哦对了，这是我的<code>qq 3525936749</code>，邮箱同。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>about</tag>
       </tags>
@@ -489,6 +512,9 @@
 
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>Data-Structure-and-Algorithm</tag>
@@ -512,6 +538,9 @@
 
 <h2 id="3-收尾。"><a href="#3-收尾。" class="headerlink" title="3.收尾。"></a>3.收尾。</h2><p>​		简单的实现栈这个数据结构其实不一定需要用到二级指针，只是我把问题复杂化了。带来了意向不到的难题。不过至少让我将二级指针收入囊中。不得不感叹一下任重道远啊。</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>c</tag>
@@ -536,6 +565,9 @@
 <h2 id="5-收尾"><a href="#5-收尾" class="headerlink" title="5.收尾"></a>5.收尾</h2><p>​	很简单的脚本还写了两个小时。不过过程中又学会了一点东西。可以，好玩！</p>
 <p>​	<img src="/images/wenjianzhuanyi.PNG" alt="result"></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>python</tag>
@@ -544,7 +576,7 @@
   <entry>
     <title>python画画</title>
     <url>/2023/10/06/python%E7%94%BB%E7%94%BB/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​		学校在国庆节和中秋节中举办了一个编程比赛：内容是在一个小时内用编程语言画出节日符号；例如月饼和国旗之类的。假期闲来无事，于是就浅浅参加了一下。</p>
+    <content><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​		学校在国庆节和中秋节中举办了一个编程比赛：内容是在一个小时内用编程语言画出节日符号；例如月饼和国旗之类的。假期闲来无事，于是就浅浅参加了一下。</p>
 <h2 id="使用python的TURTLE库"><a href="#使用python的TURTLE库" class="headerlink" title="使用python的TURTLE库"></a>使用python的TURTLE库</h2><p>​		说要用编程画画，我立马就想到了用python ，毕竟人生苦短，我用python。其实主要还是不想用字符串来在终端输出，过于麻烦。</p>
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识<img src="https://files.realpython.com/media/Turtle_EDIT_Graph.790c213ce0ba.jpg" alt="Python Turtle Coordinates New"></h2><pre><code>        * 中心点在screen中心
         * (0,0) 即 Home
@@ -570,6 +602,9 @@
 
 <h2 id="以上就是python-Turtle模组的基本语法"><a href="#以上就是python-Turtle模组的基本语法" class="headerlink" title="以上就是python Turtle模组的基本语法"></a>以上就是python Turtle模组的基本语法</h2><p>​	但是光会这些基本知识也不行，你还得有亿点点艺术细胞。毕竟它作为画画工具有一点简朴了。</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>python</tag>
@@ -902,6 +937,9 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.DriverManager;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.sql.Statement;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">main</span> &#123;<span class="comment">//按照自己class名设置</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// MySQL 8.0 以上版本 - JDBC 驱动名及数据库 URL</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">JDBC_DRIVER</span> <span class="operator">=</span> <span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">DB_URL</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://142.171.33.151:3306/mydata&quot;</span>;<span class="comment">//注意格式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 数据库的用户名与密码，需要根据自己的设置</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">USER</span> <span class="operator">=</span> <span class="string">&quot;root&quot;</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">PASS</span> <span class="operator">=</span> <span class="string">&quot;123456&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Connection</span> <span class="variable">conn</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">// 注册 JDBC 驱动</span></span><br><span class="line">            Class.forName(JDBC_DRIVER);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 打开链接</span></span><br><span class="line">            System.out.println(<span class="string">&quot;connecting&quot;</span>);</span><br><span class="line">            conn = DriverManager.getConnection(DB_URL,USER,PASS);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 执行查询</span></span><br><span class="line">            stmt = conn.createStatement();</span><br><span class="line">            String sql;</span><br><span class="line">            sql = <span class="string">&quot;SELECT * FROM emp&quot;</span>;</span><br><span class="line">            <span class="type">ResultSet</span> <span class="variable">rs</span> <span class="operator">=</span> stmt.executeQuery(sql);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 循环输出每一条数据</span></span><br><span class="line">            <span class="keyword">while</span>(rs.next())&#123;<span class="comment">//按照自己录入数据输出</span></span><br><span class="line">                System.out.println(</span><br><span class="line">                        rs.getInt(<span class="string">&quot;id&quot;</span>) +<span class="string">&quot;\t&quot;</span>+</span><br><span class="line">                                rs.getString(<span class="string">&quot;name&quot;</span>)+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 完成后关闭</span></span><br><span class="line">            rs.close();</span><br><span class="line">            stmt.close();</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(SQLException se)&#123;</span><br><span class="line">            <span class="comment">// 处理 JDBC 错误</span></span><br><span class="line">            se.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="comment">// 处理 Class.forName 错误</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">            <span class="comment">// 关闭资源</span></span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(stmt!=<span class="literal">null</span>) stmt.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span>(SQLException se2)&#123;</span><br><span class="line">            &#125;<span class="comment">// 什么都不做</span></span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(conn!=<span class="literal">null</span>) conn.close();</span><br><span class="line">            &#125;<span class="keyword">catch</span>(SQLException se)&#123;</span><br><span class="line">                se.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;Goodbye!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>java</tag>
@@ -1145,6 +1183,10 @@
 <p><strong>This is the end of our BOMB</strong></p>
 <p>Good luck .</p>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>嵌入式</tag>
@@ -1632,6 +1674,10 @@
 <p>解析：答案1错误，压堆指令一次性操作一个字；答案2错误，内存空间之间不能互相传送；答案3正确；答案4错误，不能将立即数送入内存空间</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>汇编</tag>
@@ -1661,6 +1707,9 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/mysql/mysql.conf.d/mysqld.cnf</span><br><span class="line">将[mysqld]下面的 bind-address ***以及mysqlx-bind-address ****注释</span><br><span class="line">同时取消注释</span><br><span class="line">port</span><br><span class="line">user</span><br><span class="line">socket</span><br><span class="line">server-id</span><br><span class="line">重启测试即可</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-开始正式学习mysql"><a href="#2-开始正式学习mysql" class="headerlink" title="2. 开始正式学习mysql"></a>2. 开始正式学习mysql</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>mysql</tag>
@@ -2044,6 +2093,9 @@
 <p>（15，30，22，93，52，71）</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>Data-Structure-and-Algorithm</tag>
@@ -2172,6 +2224,9 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;add an application of git&quot;</span></span><br><span class="line">git status</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>git</tag>
@@ -2448,6 +2503,9 @@
 <h2 id="3-静态库和动态库"><a href="#3-静态库和动态库" class="headerlink" title="3.静态库和动态库"></a>3.静态库和动态库</h2><p>​	pause.打算在下次用到的时候补充</p>
 <p>​                                </p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -2476,6 +2534,9 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -2485,6 +2546,9 @@
     <title>Java Projects</title>
     <url>/2023/12/07/Java-Projects/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
       </tags>
@@ -2517,6 +2581,9 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    选择器&#123;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>css</tag>
@@ -2551,6 +2618,9 @@
 <p> <strong>这一位看自己灵魂风水的人，最终选择留下了的叹息，也成为了读者对一位如此能抓住人心的作者的叹息。</strong></p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -2564,6 +2634,9 @@
 <p>​	不行啊！这个寒假可不能在颓废了！你不是会骑摩托了吗？！这个寒假就加满油去野营吧！看看能否找到冬季银河的踪迹。（回家之前）</p>
 <p>​	nmmd，这么冷，不是下雨就是下雪，这个世界又多了一个伤心的人。</p>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -2577,6 +2650,9 @@
 <p><img src="/images/read/qiFengSuiYue_1.jpg" alt="看完一年后高三时怀念奇风镇"></p>
 <p><img src="/images/read/qiFengSuiYue_2.jpg" alt="第一次看《奇风岁月》"></p>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -2590,6 +2666,9 @@
 <p>​	想到那时的自己还是书虫，每日不读书就浑身难受。再看看现在，好像已经有几个月没有拿起一本书像过去的我一样一有时间就打开阅读了。</p>
 <p>​	最近就把过去看过的书再温习一遍吧！</p>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -2609,6 +2688,9 @@
 <p>​	<img src="/images/timeCapsule/5.jpg"></p>
 <p>​	看完凯鲁亚克的《在路上》后有感。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>随手记</tag>
       </tags>
@@ -2619,6 +2701,9 @@
     <content><![CDATA[<h1 id="困饿累睡不着"><a href="#困饿累睡不着" class="headerlink" title="困饿累睡不着"></a>困饿累睡不着</h1><p><img src="/images/myPoems_1.jpg" alt="myPoems_1.jpg"></p>
 <p>​	上课的时候随便乱写的&lt;3,没想到我还是这么中二</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
       <tags>
         <tag>随手记</tag>
       </tags>
@@ -2905,6 +2990,9 @@
 <li>芯片引脚特性</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>嵌入式</tag>
@@ -3104,6 +3192,9 @@
 </ul>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>嵌入式</tag>
@@ -3283,6 +3374,9 @@
 <p>总的来说，电压型叠加定理是电路分析中非常重要的原理，它为工程师提供了一种简便而有效的方法来理解和分析复杂电路系统。</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>模电</tag>
@@ -3302,6 +3396,9 @@
 </li>
 </ul>
 <h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1>]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>模电</tag>
@@ -3596,6 +3693,9 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">unmount /dev/sdb1</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -3706,6 +3806,9 @@
 </ul>
 <p>看看这个esp8266连接mqtt服务器的项目吗？(<a href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -3785,6 +3888,10 @@
 <p><img src="/images/esp8266_mqtt/success2.jpg" alt="success"></p>
 <p><img src="/images/esp8266_mqtt/success3.png" alt="success"></p>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>嵌入式</tag>
@@ -3818,6 +3925,9 @@
 <h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
 <p>​	</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -3841,6 +3951,9 @@
 <p>“</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -3851,6 +3964,9 @@
     <url>/2024/02/18/%E3%80%8A%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5%E3%80%8B/</url>
     <content><![CDATA[<p>​	</p>
 ]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -3885,6 +4001,10 @@
 <p>​	越下越大的雨好像放大了览物之情，让我突然想念起了坐在电炉前乱弹吉他的温暖。于是便回家了······</p>
 <hr>
 ]]></content>
+      <categories>
+        <category>生活</category>
+        <category>摄影</category>
+      </categories>
       <tags>
         <tag>旅行</tag>
         <tag>摄影</tag>
@@ -4254,6 +4374,9 @@
 <p>A、I&#x2F;O总线B、<em>主存总线C、</em>DMA总线</p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>计算机组成原理</tag>
@@ -4536,6 +4659,9 @@
 <h4 id="关系模式与关系"><a href="#关系模式与关系" class="headerlink" title="关系模式与关系"></a>关系模式与关系</h4><p>关系模式是型，是对关系的描述，是静态的，稳定的。关系是值，由赋予它的元组语义来确定的，是动态的，不断变化的关系是关系模式在某一时刻的状态或内容</p>
 <h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><h3 id="关系代数表达式的优化"><a href="#关系代数表达式的优化" class="headerlink" title="关系代数表达式的优化"></a>关系代数表达式的优化</h3><p>​	</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>数据库</tag>
@@ -6171,6 +6297,9 @@
 </li>
 </ol>
 <h2 id="DIsk"><a href="#DIsk" class="headerlink" title="DIsk"></a>DIsk</h2><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>Operating System</tag>
@@ -6440,6 +6569,9 @@
 </li>
 </ol>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>电路设计</tag>
@@ -6534,6 +6666,10 @@
 </ol>
 <p>​	现在就可以只需要给树莓派供个电就行了，可以远程写脚本，玩树莓派咯。</p>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -6569,6 +6705,9 @@
 <p>​	Rust 社区活跃，开发者可以从丰富的文档、教程和社区资源中获得支持和帮助。</p>
 </blockquote>
 <h1 id="RUST-启动！"><a href="#RUST-启动！" class="headerlink" title="RUST 启动！"></a>RUST 启动！</h1><h2 id="1-变量类型"><a href="#1-变量类型" class="headerlink" title="1.变量类型"></a>1.变量类型</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>rust</tag>
@@ -6579,6 +6718,9 @@
     <title>DC-DC Convert</title>
     <url>/2024/03/28/DC-DC-Convert/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>电源</tag>
@@ -6591,6 +6733,10 @@
     <content><![CDATA[<p>​	之前就有使用别烧好的MCU来进行键盘客制化，始终觉得不得劲。仅仅只是设计了键位PCB和外观，虽然也学到了点东西，但是我就是不爽啊。有一种核心技术自己没掌握的感觉。</p>
 <p>​	新坑_STM32_KEYBOARD 开始！</p>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>STM32</tag>
         <tag>project</tag>
@@ -6603,6 +6749,9 @@
     <title>《北欧神话》</title>
     <url>/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6612,6 +6761,9 @@
     <title>《人间天堂》</title>
     <url>/2024/04/17/%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%A9%E5%A0%82%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6621,6 +6773,9 @@
     <title>《爱你就像爱生命》</title>
     <url>/2024/04/17/%E3%80%8A%E7%88%B1%E4%BD%A0%E5%B0%B1%E5%83%8F%E7%88%B1%E7%94%9F%E5%91%BD%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6630,6 +6785,9 @@
     <title>《太阳照常升起》</title>
     <url>/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6639,6 +6797,9 @@
     <title>《偷盗》</title>
     <url>/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6648,6 +6809,9 @@
     <title>《黄昏清兵卫》</title>
     <url>/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6657,6 +6821,9 @@
     <title>《山药粥》</title>
     <url>/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
@@ -6666,6 +6833,9 @@
     <title>Pytohn pyinstaller</title>
     <url>/2024/04/25/Pytohn-pyinstaller/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>python</tag>
@@ -6677,6 +6847,9 @@
     <title>Pytohn tkinter(GUI lib)</title>
     <url>/2024/04/25/Pytohn-tkinter-GUI-lib/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>python</tag>
@@ -6745,6 +6918,9 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -6858,6 +7034,9 @@
 <p>通过这种方式，主设备可以判断是否已经传输好了一个字节，并且根据从设备的应答来进行相应的操作。</p>
 </blockquote>
 <h1 id="STM32-实现"><a href="#STM32-实现" class="headerlink" title="STM32 实现"></a>STM32 实现</h1><h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h2 id="hal库"><a href="#hal库" class="headerlink" title="hal库"></a>hal库</h2>]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>STM32</tag>
@@ -6883,6 +7062,10 @@
 <li>UI美化</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>STM32</tag>
@@ -6922,6 +7105,10 @@
 <p>因为基于mqtt协议，因此自动化控制很简单，上位机很好写，也可以不用上位机，在服务器上写的shell脚本就能很好的完成自动化功能。</p>
 <p><a href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
 <h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4>]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>mqtt</tag>
         <tag>esp8266</tag>
@@ -7133,6 +7320,9 @@
 <h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>to be continued</strong></p>
 <h1 id="排版与格式"><a href="#排版与格式" class="headerlink" title="排版与格式"></a>排版与格式</h1><p><strong>to be continued</strong></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>项目</tag>
         <tag>C/C++</tag>
@@ -7204,6 +7394,9 @@
 <li>第三种向下延伸，到终点COL自动+1到下一列</li>
 </ol>
 <h1 id="玩法"><a href="#玩法" class="headerlink" title="玩法"></a>玩法</h1><h2 id="1-显示基本ASCII"><a href="#1-显示基本ASCII" class="headerlink" title="1.显示基本ASCII"></a>1.显示基本ASCII</h2><h2 id="2-显示中文"><a href="#2-显示中文" class="headerlink" title="2.显示中文"></a>2.显示中文</h2><h2 id="3-显示BMP位图"><a href="#3-显示BMP位图" class="headerlink" title="3.显示BMP位图"></a>3.显示BMP位图</h2>]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>STM32</tag>
@@ -7224,6 +7417,9 @@
 <p><img src="/images/nc/1.png" alt="1"></p>
 <p><img src="/images/nc/2.png" alt="2"></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>docker</tag>
@@ -7239,6 +7435,9 @@
     <title>Linux about e-mail</title>
     <url>/2024/05/19/Linux-about-e-mail/</url>
     <content><![CDATA[]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -7285,6 +7484,10 @@
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Kalman.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fRad2Deg = <span class="number">57.295779513f</span>; <span class="comment">//将弧度转为角度的乘数</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MPU = <span class="number">0x68</span>; <span class="comment">//MPU-6050的I2C地址</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> nValCnt = <span class="number">7</span>; <span class="comment">//一次读取寄存器的数量</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> nCalibTimes = <span class="number">1000</span>; <span class="comment">//校准时读数的次数</span></span><br><span class="line"><span class="type">int</span> calibData[nValCnt]; <span class="comment">//校准数据</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> nLastTime = <span class="number">0</span>; <span class="comment">//上一次读数的时间</span></span><br><span class="line"><span class="type">float</span> fLastRoll = <span class="number">0.0f</span>; <span class="comment">//上一次滤波得到的Roll角</span></span><br><span class="line"><span class="type">float</span> fLastPitch = <span class="number">0.0f</span>; <span class="comment">//上一次滤波得到的Pitch角</span></span><br><span class="line">Kalman kalmanRoll; <span class="comment">//Roll角滤波器</span></span><br><span class="line">Kalman kalmanPitch; <span class="comment">//Pitch角滤波器</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>); <span class="comment">//初始化串口，指定波特率</span></span><br><span class="line">  Wire.begin(); <span class="comment">//初始化Wire库</span></span><br><span class="line">  WriteMPUReg(<span class="number">0x6B</span>, <span class="number">0</span>); <span class="comment">//启动MPU6050设备</span></span><br><span class="line"></span><br><span class="line">  Calibration(); <span class="comment">//执行校准</span></span><br><span class="line">  nLastTime = micros(); <span class="comment">//记录当前时间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> readouts[nValCnt];</span><br><span class="line">  ReadAccGyr(readouts); <span class="comment">//读出测量值</span></span><br><span class="line">  </span><br><span class="line">  <span class="type">float</span> realVals[<span class="number">7</span>];</span><br><span class="line">  Rectify(readouts, realVals); <span class="comment">//根据校准的偏移量进行纠正</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算加速度向量的模长，均以g为单位</span></span><br><span class="line">  <span class="type">float</span> fNorm = <span class="built_in">sqrt</span>(realVals[<span class="number">0</span>] * realVals[<span class="number">0</span>] + realVals[<span class="number">1</span>] * realVals[<span class="number">1</span>] + realVals[<span class="number">2</span>] * realVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fRoll = GetRoll(realVals, fNorm); <span class="comment">//计算Roll角</span></span><br><span class="line">  <span class="keyword">if</span> (realVals[<span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    fRoll = -fRoll;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">float</span> fPitch = GetPitch(realVals, fNorm); <span class="comment">//计算Pitch角</span></span><br><span class="line">  <span class="keyword">if</span> (realVals[<span class="number">0</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    fPitch = -fPitch;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算两次测量的时间间隔dt，以秒为单位</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> nCurTime = micros();</span><br><span class="line">  <span class="type">float</span> dt = (<span class="type">double</span>)(nCurTime - nLastTime) / <span class="number">1000000.0</span>;</span><br><span class="line">  <span class="comment">//对Roll角和Pitch角进行卡尔曼滤波</span></span><br><span class="line">  <span class="type">float</span> fNewRoll = kalmanRoll.getAngle(fRoll, realVals[<span class="number">4</span>], dt);</span><br><span class="line">  <span class="type">float</span> fNewPitch = kalmanPitch.getAngle(fPitch, realVals[<span class="number">5</span>], dt);</span><br><span class="line">  <span class="comment">//跟据滤波值计算角度速</span></span><br><span class="line">  <span class="type">float</span> fRollRate = (fNewRoll - fLastRoll) / dt;</span><br><span class="line">  <span class="type">float</span> fPitchRate = (fNewPitch - fLastPitch) / dt;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//更新Roll角和Pitch角</span></span><br><span class="line">  fLastRoll = fNewRoll;</span><br><span class="line">  fLastPitch = fNewPitch;</span><br><span class="line">  <span class="comment">//更新本次测的时间</span></span><br><span class="line">  nLastTime = nCurTime;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//向串口打印输出Roll角和Pitch角，运行时在Arduino的串口监视器中查看</span></span><br><span class="line">  Serial.print(<span class="string">&quot;Roll:&quot;</span>);</span><br><span class="line">  Serial.print(fNewRoll); Serial.print(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">  Serial.print(fRollRate); Serial.print(<span class="string">&quot;),\tPitch:&quot;</span>);</span><br><span class="line">  Serial.print(fNewPitch); Serial.print(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">  Serial.print(fPitchRate); Serial.print(<span class="string">&quot;)\n&quot;</span>);</span><br><span class="line">  delay(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向MPU6050写入一个字节的数据</span></span><br><span class="line"><span class="comment">//指定寄存器地址与一个字节的值</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">WriteMPUReg</span><span class="params">(<span class="type">int</span> nReg, <span class="type">unsigned</span> <span class="type">char</span> nVal)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(nReg);</span><br><span class="line">  Wire.write(nVal);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从MPU6050读出一个字节的数据</span></span><br><span class="line"><span class="comment">//指定寄存器地址，返回读出的值</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">ReadMPUReg</span><span class="params">(<span class="type">int</span> nReg)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(nReg);</span><br><span class="line">  Wire.requestFrom(MPU, <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">return</span> Wire.read();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从MPU6050读出加速度计三个分量、温度和三个角速度计</span></span><br><span class="line"><span class="comment">//保存在指定的数组中</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">ReadAccGyr</span><span class="params">(<span class="type">int</span> *pVals)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(<span class="number">0x3B</span>);</span><br><span class="line">  Wire.requestFrom(MPU, nValCnt * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">long</span> i = <span class="number">0</span>; i &lt; nValCnt; ++i) &#123;</span><br><span class="line">    pVals[i] = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对大量读数进行统计，校准平均偏移量</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Calibration</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">float</span> valSums[<span class="number">7</span>] = &#123;<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0</span>&#125;;</span><br><span class="line">  <span class="comment">//先求和</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nCalibTimes; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> mpuVals[nValCnt];</span><br><span class="line">    ReadAccGyr(mpuVals);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nValCnt; ++j) &#123;</span><br><span class="line">      valSums[j] += mpuVals[j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//再求平均</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nValCnt; ++i) &#123;</span><br><span class="line">    calibData[i] = <span class="type">int</span>(valSums[i] / nCalibTimes);</span><br><span class="line">  &#125;</span><br><span class="line">  calibData[<span class="number">2</span>] += <span class="number">16384</span>; <span class="comment">//设芯片Z轴竖直向下，设定静态工作点。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//算得Roll角。算法见文档。</span></span><br><span class="line"><span class="type">float</span> <span class="title function_">GetRoll</span><span class="params">(<span class="type">float</span> *pRealVals, <span class="type">float</span> fNorm)</span> &#123;</span><br><span class="line">  <span class="type">float</span> fNormXZ = <span class="built_in">sqrt</span>(pRealVals[<span class="number">0</span>] * pRealVals[<span class="number">0</span>] + pRealVals[<span class="number">2</span>] * pRealVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fCos = fNormXZ / fNorm;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">acos</span>(fCos) * fRad2Deg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//算得Pitch角。算法见文档。</span></span><br><span class="line"><span class="type">float</span> <span class="title function_">GetPitch</span><span class="params">(<span class="type">float</span> *pRealVals, <span class="type">float</span> fNorm)</span> &#123;</span><br><span class="line">  <span class="type">float</span> fNormYZ = <span class="built_in">sqrt</span>(pRealVals[<span class="number">1</span>] * pRealVals[<span class="number">1</span>] + pRealVals[<span class="number">2</span>] * pRealVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fCos = fNormYZ / fNorm;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">acos</span>(fCos) * fRad2Deg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对读数进行纠正，消除偏移，并转换为物理量。公式见文档。</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Rectify</span><span class="params">(<span class="type">int</span> *pReadout, <span class="type">float</span> *pRealVals)</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">    pRealVals[i] = (<span class="type">float</span>)(pReadout[i] - calibData[i]) / <span class="number">16384.0f</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  pRealVals[<span class="number">3</span>] = pReadout[<span class="number">3</span>] / <span class="number">340.0f</span> + <span class="number">36.53</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">4</span>; i &lt; <span class="number">7</span>; ++i) &#123;</span><br><span class="line">    pRealVals[i] = (<span class="type">float</span>)(pReadout[i] - calibData[i]) / <span class="number">131.0f</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>project</tag>
@@ -7323,6 +7526,10 @@
 <li>CS(NSS) &lt;—&gt;  片选管脚</li>
 </ol>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>STM32</tag>
@@ -7348,6 +7555,10 @@
 <p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1365.jpg" alt="lonely chair"></p>
 <p>这应该就是治愈内耗的良药了吧。</p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+        <category>摄影</category>
+      </categories>
       <tags>
         <tag>旅行</tag>
         <tag>摄影</tag>
@@ -7361,6 +7572,10 @@
     <content><![CDATA[<h1 id="平江路"><a href="#平江路" class="headerlink" title="平江路"></a>平江路</h1><p>苏州-＞平江路。<br>     初见时是辰时，庆幸自己通宵到五点后直奔平江路。若是晚一两个时辰则是截然不同的人山人海。<br>     此时摇船还未开始 河面平静,水波不兴.阳光刚开始洒入这条小街.江南古街的倒影跃然水面，沿着主街直走,我的眼光全在黑白灰的建筑与绿色的树木和蓝色的天空和水面之间游走.这时的平江路尚未被外人所打搅,几对老翁坐在河旁的藤椅上,借着尚不刺眼的阳光看报,一切都显得与背景和谐。<br>     一个时辰不到这条小街就变得喧闹与繁忙.越来越多的女性穿着汉服，涌入这条小巷,或摆拍撒骄,或漫步于河边桥头.刚开始紧闭大门的店铺也逐渐开张,宁静典雅的小巷也就逐渐消失。<br>     我庆幸自己看到了平江路的本原面貌,也看到了她浓妆粉饰后的面貌.但我总觉得少了些东西,可能是恋人或朋友吧.下次带本散文书好了。</p>
 <p><img src="/images/suzhou_trip/1.jpg" alt="lonely chair"><img src="/images/suzhou_trip/2.jpg" alt="lonely chair"><img src="/images/suzhou_trip/3.jpg" alt="lonely chair"><img src="/images/suzhou_trip/4.jpg" alt="lonely chair"><img src="/images/suzhou_trip/5.jpg" alt="lonely chair"><img src="/images/suzhou_trip/6.jpg" alt="lonely chair"><img src="/images/suzhou_trip/7.jpg" alt="lonely chair"><img src="/images/suzhou_trip/8.jpg" alt="lonely chair"><img src="/images/suzhou_trip/9.jpg" alt="lonely chair"><img src="/images/suzhou_trip/10.jpg" alt="lonely chair"></p>
 ]]></content>
+      <categories>
+        <category>生活</category>
+        <category>摄影</category>
+      </categories>
       <tags>
         <tag>旅行</tag>
         <tag>摄影</tag>
@@ -7376,6 +7591,10 @@
 <p><img src="/images/m251/2.png" alt="Pcb"></p>
 <p><img src="/images/m251/3.png" alt="Pcb_3D"></p>
 ]]></content>
+      <categories>
+        <category>硬件技术</category>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>嵌入式</tag>

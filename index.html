@@ -1,1423 +1,261 @@
-<!DOCTYPE html>
-
-
-<html lang="en">
-  
-
-    <head>
-      <meta charset="utf-8" />
-       
-      <meta name="keywords" content="Regen&#39;s blogs" />
-       
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1"
-      />
-      <title> Regen</title>
-  <meta name="generator" content="hexo-theme-ayer">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Regen - Blogs</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Regen">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.png">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="Regen&#39;s blogs">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.png"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Regen',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-02 16:16:42'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
       
-      <link rel="shortcut icon" href="/images/touxiang.png" />
-       
-<link rel="stylesheet" href="/dist/main.css">
-
+        get: key => {
+          const itemStr = localStorage.getItem(key)
       
-<link rel="stylesheet" href="/css/fonts/remixicon.css">
-
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
       
-<link rel="stylesheet" href="/css/custom.css">
- 
-      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
-       
- 
-
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
-
-      <!-- mermaid -->
-      
-      <style>
-        .swal2-styled.swal2-confirm {
-          font-size: 1.6rem;
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
         }
-      </style>
-    </head>
-  </html>
-</html>
-
-
-<body>
-  <div id="app">
-    
-      
-    <main class="content on">
-      
-<section class="cover">
-    
-      
-      <a class="forkMe" href="https://github.com/regenm/Notes"
-        target="_blank"><img width="149" height="149" src="/images/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="images/cover_1.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">Regen</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
-
-
-<!-- Subtitle -->
-
-  <script>
-    try {
-      var typed = new Typed("#subtitle", {
-        strings: ['Hi !', 'HOLA ！', 'bonjour ！'],
-        startDelay: 10,
-        typeSpeed: 200,
-        loop: true,
-        backSpeed: 100,
-        showCursor: true
-      });
-    } catch (err) {
-      console.log(err)
-    }
-  </script>
-  
-<div id="main">
-  <section class="outer">
-  
-  <ul class="ads">
-    
-        <li>
-            <a target="_blank" rel="noopener" href="https://regenm.gitee.io/tags/about/">
-                <img src="/images/touxiang.png" width="300" alt="Bilibili">
-            </a>
-        </li>
-    
-</ul>
-  
-  
-  
-
-<div class="notice" style="margin-top:50px">
-    <i class="ri-heart-fill"></i>
-    <div class="notice-content" id="broad"></div>
-</div>
-<script type="text/javascript">
-    fetch('https://v1.hitokoto.cn')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("broad").innerHTML = data.hitokoto;
-        })
-        .catch(console.error)
-</script>
-
-<style>
-    .notice {
-        padding: 20px;
-        border: 1px dashed #e6e6e6;
-        color: #969696;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-        background: #fbfbfb50;
-        border-radius: 10px;
-    }
-
-    .notice i {
-        float: left;
-        color: #999;
-        font-size: 16px;
-        padding-right: 10px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-
-    .notice-content {
-        display: initial;
-        vertical-align: middle;
-    }
-</style>
-  
-  <article class="articles">
-    
-    
-    
-    
-    <article
-  id="post-M-2-STC89C52"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/25/M-2-STC89C52/"
-    >M.2 STC89C52</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/25/M-2-STC89C52/" class="article-date">
-  <time datetime="2024-05-25T08:13:08.000Z" itemprop="datePublished">2024-05-25</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	最近在学画PCB的时候突发奇想，想利用M.2接口的易插拔特性来画一片51最小系统板，同时还引出了大部分引脚，外形类似于Arduino。第一版有点丑。</p>
-<p><img src="/images/m251/1.png" alt="Schematic"></p>
-<p><img src="/images/m251/2.png" alt="Pcb"></p>
-<p><img src="/images/m251/3.png" alt="Pcb_3D"></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/51/" rel="tag">51</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/M-2%E6%8E%A5%E5%8F%A3/" rel="tag">M.2接口</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PCB/" rel="tag">PCB</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag">嵌入式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F/" rel="tag">最小系统</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-塘下公路片"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/"
-    >塘下公路片</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" class="article-date">
-  <time datetime="2024-05-19T15:16:02.000Z" itemprop="datePublished">2024-05-19</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>​	比起繁华的钢铁丛林，我还是性本爱丘山。在塘下公路骑行是一种很奇妙的体验，就好步入桃花源记，在一群群高楼大厦中站立的两排密集的大树，让长久受到屏幕自己的眼镜也得到了放松。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1360.jpg" alt="boring screens"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1361.jpg" alt="Green Road"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1362.jpg" alt="Green Road"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1363.jpg" alt="Green Road"></p>
-<p>​	自从知道了塘下公路以后，我再没去过别的地方骑行。每次骑行都很兴奋，有时感觉回到了家乡，有时感觉在国外一般。真的很喜欢这条路两边的树。恰到好处的遮了大半边天空，只留下一条光路延伸到远方。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1366.jpg" alt="Trees"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1368.jpg" alt="Trees"></p>
-<p>​	在路边发现了一只孤独的椅子，白色的墙与周围有稍许违和感，有一种很清新的感觉，同时还有一种苔痕上阶绿，草色入帘青的感觉。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1364.jpg" alt="lonely chair"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1365.jpg" alt="lonely chair"></p>
-<p>这应该就是治愈内耗的良药了吧。</p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/" rel="tag">photo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%AC%E8%B7%AF%E6%97%85%E8%A1%8C/" rel="tag">公路旅行</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-苏州行"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/"
-    >苏州行</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" class="article-date">
-  <time datetime="2024-05-19T15:15:33.000Z" itemprop="datePublished">2024-05-19</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="平江路"><a href="#平江路" class="headerlink" title="平江路"></a>平江路</h1><p>苏州-＞平江路。<br>     初见时是辰时，庆幸自己通宵到五点后直奔平江路。若是晚一两个时辰则是截然不同的人山人海。<br>     此时摇船还未开始 河面平静,水波不兴.阳光刚开始洒入这条小街.江南古街的倒影跃然水面，沿着主街直走,我的眼光全在黑白灰的建筑与绿色的树木和蓝色的天空和水面之间游走.这时的平江路尚未被外人所打搅,几对老翁坐在河旁的藤椅上,借着尚不刺眼的阳光看报,一切都显得与背景和谐。<br>     一个时辰不到这条小街就变得喧闹与繁忙.越来越多的女性穿着汉服，涌入这条小巷,或摆拍撒骄,或漫步于河边桥头.刚开始紧闭大门的店铺也逐渐开张,宁静典雅的小巷也就逐渐消失。<br>     我庆幸自己看到了平江路的本原面貌,也看到了她浓妆粉饰后的面貌.但我总觉得少了些东西,可能是恋人或朋友吧.下次带本散文书好了。</p>
-<p><img src="/images/suzhou_trip/1.jpg" alt="lonely chair"><img src="/images/suzhou_trip/2.jpg" alt="lonely chair"><img src="/images/suzhou_trip/3.jpg" alt="lonely chair"><img src="/images/suzhou_trip/4.jpg" alt="lonely chair"><img src="/images/suzhou_trip/5.jpg" alt="lonely chair"><img src="/images/suzhou_trip/6.jpg" alt="lonely chair"><img src="/images/suzhou_trip/7.jpg" alt="lonely chair"><img src="/images/suzhou_trip/8.jpg" alt="lonely chair"><img src="/images/suzhou_trip/9.jpg" alt="lonely chair"><img src="/images/suzhou_trip/10.jpg" alt="lonely chair"></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/photo/" rel="tag">photo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%97%85%E8%A1%8C/" rel="tag">旅行</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%8B%8F%E5%B7%9E/" rel="tag">苏州</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-Linux-about-e-mail"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/19/Linux-about-e-mail/"
-    >Linux about e-mail</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/19/Linux-about-e-mail/" class="article-date">
-  <time datetime="2024-05-19T11:19:16.000Z" itemprop="datePublished">2024-05-19</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-   
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/email/" rel="tag">email</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-STM32-SPI-with-0-96-OLED"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/"
-    >STM32 SPI with 0.96 OLED</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/19/STM32-SPI-with-0-96-OLED/" class="article-date">
-  <time datetime="2024-05-19T11:16:47.000Z" itemprop="datePublished">2024-05-19</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="SPI协议"><a href="#SPI协议" class="headerlink" title="SPI协议"></a>SPI协议</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p><a target="_blank" rel="noopener" href="https://regenm.github.io/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/">点击跳转</a></p>
-<p>​	SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（SPI不支持多主机），主模块选择一个从模块进行同步通信，从而完成数据的交换。<strong>提供时钟的为主设备</strong>（Master），接收时钟的设备为从设备（Slave），SPI接口的读写操作，都是由主设备发起，当存在多个从设备时，通过各自的片选信号进行管理。</p>
-<h3 id="引脚定义"><a href="#引脚定义" class="headerlink" title="引脚定义"></a>引脚定义</h3><ol>
-<li><strong>MISO</strong>（ Master Input Slave Output）：主设备数据输入，从设备数据输出；</li>
-<li><strong>MOSI</strong>（Master Output Slave Input）：主设备数据输出，从设备数据输入；</li>
-<li><strong>SCLK</strong>（Serial Clock）：时钟信号，由主设备产生；</li>
-<li><strong>CS&#x2F;SS</strong>（Chip Select&#x2F;Slave Select）：从设备使能信号，由主设备控制，一主多从时，CS&#x2F;SS是从芯片是否被主芯片选中的控制信号，只有片选信号为预先规定的使能信号时（高电位或低电位），主芯片对此从芯片的操作才有效。</li>
-</ol>
-<h2 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h2><p>SPI主设备和从设备都有一个串行移位寄存器，一次传输为8位。</p>
-<h3 id="通信流程"><a href="#通信流程" class="headerlink" title="通信流程"></a>通信流程</h3><ol>
-<li>主设备发起信号，将CS&#x2F;SS拉低，启动通信。</li>
-<li>主设备通过发送时钟信号，来告诉从设备进行写数据或者读数据操作（采集时机可能是时钟信号的上升沿（从低到高）或下降沿（从高到低）），它将立即读取数据线上的信号，这样就得到了一位数据（1bit）。</li>
-<li>主机（Master）将要发送的数据写到发送数据缓存区（Menory），缓存区经过移位寄存器（缓存长度不一定，看单片机配置），串行移位寄存器通过MOSI信号线将字节一位一位的移出去传送给从机，同时MISO接口接收到的数据经过移位寄存器一位一位的移到接收缓存区。</li>
-<li>从机（Slave）也将自己的串行移位寄存器（缓存长度不一定，看单片机配置）中的内容通过MISO信号线返回给主机。同时通过MOSI信号线接收主机发送的数据，这样，两个移位寄存器中的内容就被交换。</li>
-</ol>
-<h2 id="STM32实现（使用0-96Oled）"><a href="#STM32实现（使用0-96Oled）" class="headerlink" title="STM32实现（使用0.96Oled）"></a>STM32实现（使用0.96Oled）</h2><h3 id="0-96Oled引脚介绍"><a href="#0-96Oled引脚介绍" class="headerlink" title="0.96Oled引脚介绍"></a>0.96Oled引脚介绍</h3><ol>
-<li>GND	 &lt;—&gt;    电源地</li>
-<li>VCC      &lt;—&gt;   电源正（3～5.5V）</li>
-<li>D0(SCL) &lt;—&gt;  SCK管脚</li>
-<li>D1(SDA) &lt;—&gt;   MOSI管脚</li>
-<li>RES(RST) &lt;—&gt;用来复位（低电平复位）</li>
-<li>DC(D&#x2F;C) &lt;—&gt;   数据和命令控制管脚 1表示数据 0表示命令</li>
-<li>CS(NSS) &lt;—&gt;  片选管脚</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPI/" rel="tag">SPI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-MPU6050-basic-based-on-arduino"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/19/MPU6050-basic-based-on-arduino/"
-    >MPU6050 basic (based on arduino)</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/19/MPU6050-basic-based-on-arduino/" class="article-date">
-  <time datetime="2024-05-19T11:15:49.000Z" itemprop="datePublished">2024-05-19</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="MPU6050简介"><a href="#MPU6050简介" class="headerlink" title="MPU6050简介"></a>MPU6050简介</h1><p>The MPU-6050 is the world’s first and only 6-axis motion tracking devices designed for the low power, low cost, and high performance requirements of smartphones, tablets and wearable sensors.</p>
-<h2 id="应用领域"><a href="#应用领域" class="headerlink" title="应用领域"></a>应用领域</h2><ul>
-<li>BlurFree™ technology (for Video&#x2F;Still Image Stabilization)</li>
-<li>AirSign™ technology (for Security&#x2F;Authentication)</li>
-<li>TouchAnywhere™ technology (for “no touch” UI Application Control&#x2F;Navigation) </li>
-<li>MotionCommand™ technology (for Gesture Short-cuts) </li>
-<li>Motion-enabled game and application framework </li>
-<li>InstantGesture™ iG™ gesture recognition </li>
-<li>Location based services, points of interest, and dead reckoning </li>
-<li>Handset and portable gaming </li>
-<li>Motion-based game controllers </li>
-<li>3D remote controls for Internet connected DTVs and set top boxes, 3D mice </li>
-<li>Wearable sensors for health, fitness and sports  </li>
-<li>Toys</li>
-</ul>
-<h1 id="Arduino案例"><a href="#Arduino案例" class="headerlink" title="Arduino案例"></a>Arduino案例</h1><p>​	Arduino使用现成的库很容易上手。</p>
-<h2 id="使用Arduino进行获取数据"><a href="#使用Arduino进行获取数据" class="headerlink" title="使用Arduino进行获取数据"></a>使用Arduino进行获取数据</h2><ol>
-<li>使用IIC进行通信</li>
-<li>使用Wire库</li>
-</ol>
-<p><img src="/images/MPU6050/1.png" alt="row data"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Wire.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mpuAddress= <span class="number">0x68</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> accelX, accelY, accelZ;<span class="comment">//xyz方向的加速度</span></span><br><span class="line"><span class="type">float</span> gForceX, gForceY, gForceZ;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> gyroX, gyroY, gyroZ;</span><br><span class="line"><span class="type">float</span> rotX, rotY, rotZ;</span><br><span class="line"></span><br><span class="line"><span class="type">long</span> tmpDataX, tmpDataY, tmpDataZ;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  Wire.begin();</span><br><span class="line">  setupMPU();</span><br><span class="line">  pinMode(<span class="number">3</span>, OUTPUT);</span><br><span class="line">  pinMode(<span class="number">5</span>, OUTPUT);</span><br><span class="line">  pinMode(<span class="number">6</span>, OUTPUT);</span><br><span class="line">  pinMode(<span class="number">9</span>, OUTPUT);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//testOfThefourPins();//okay</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  recordAccelRegisters();</span><br><span class="line">  recordGyroRegisters();</span><br><span class="line">  printData();</span><br><span class="line">  connecMPU6050WithLed();</span><br><span class="line">  <span class="comment">//printTmpData();</span></span><br><span class="line">  delay(<span class="number">200</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">connecMPU6050WithLed</span><span class="params">()</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(rotX&gt;<span class="number">0</span>) analogWrite(<span class="number">3</span>, <span class="number">255</span>);</span><br><span class="line">  <span class="keyword">else</span> analogWrite(<span class="number">3</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span>(rotY&gt;<span class="number">0</span>) analogWrite(<span class="number">5</span>, <span class="number">255</span>);</span><br><span class="line">  <span class="keyword">else</span> analogWrite(<span class="number">5</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span>(rotZ&gt;<span class="number">0</span>) analogWrite(<span class="number">6</span>, <span class="number">255</span>);</span><br><span class="line">  <span class="keyword">else</span> analogWrite(<span class="number">6</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">testOfThefourPins</span><span class="params">()</span> &#123;</span><br><span class="line">  analogWrite(<span class="number">3</span>, <span class="number">255</span>);</span><br><span class="line">  analogWrite(<span class="number">5</span>, <span class="number">255</span>);</span><br><span class="line">  analogWrite(<span class="number">6</span>, <span class="number">255</span>);</span><br><span class="line">  analogWrite(<span class="number">9</span>, <span class="number">255</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">setupMPU</span><span class="params">()</span> &#123;</span><br><span class="line">  Wire.beginTransmission(mpuAddress);  <span class="comment">//This is the I2C address of the MPU (b1101000/b1101001 for AC0 low/high datasheet sec. 9.2)</span></span><br><span class="line">  Wire.write(<span class="number">0x6B</span>);                   <span class="comment">//Accessing the register 6B - Power Management (Sec. 4.28)</span></span><br><span class="line">  Wire.write(<span class="number">0b00000000</span>);             <span class="comment">//Setting SLEEP register to 0. (Required; see Note on p. 9)</span></span><br><span class="line">  Wire.endTransmission();</span><br><span class="line">  Wire.beginTransmission(mpuAddress);  <span class="comment">//I2C address of the MPU</span></span><br><span class="line">  Wire.write(<span class="number">0x1B</span>);                   <span class="comment">//Accessing the register 1B - Gyroscope Configuration (Sec. 4.4)</span></span><br><span class="line">  Wire.write(<span class="number">0x00000000</span>);             <span class="comment">//Setting the gyro to full scale +/- 250deg./s</span></span><br><span class="line">  Wire.endTransmission();</span><br><span class="line">  Wire.beginTransmission(mpuAddress);  <span class="comment">//I2C address of the MPU</span></span><br><span class="line">  Wire.write(<span class="number">0x1C</span>);                   <span class="comment">//Accessing the register 1C - Acccelerometer Configuration (Sec. 4.5)</span></span><br><span class="line">  Wire.write(<span class="number">0b00000000</span>);             <span class="comment">//Setting the accel to +/- 2g</span></span><br><span class="line">  Wire.endTransmission();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">recordAccelRegisters</span><span class="params">()</span> &#123;</span><br><span class="line">  Wire.beginTransmission(mpuAddress);  <span class="comment">//I2C address of the MPU</span></span><br><span class="line">  Wire.write(<span class="number">0x3B</span>);                   <span class="comment">//Starting register for Accel Readings</span></span><br><span class="line">  Wire.endTransmission();</span><br><span class="line">  Wire.requestFrom(mpuAddress, <span class="number">6</span>);  <span class="comment">//Request Accel Registers (3B - 40)</span></span><br><span class="line">  <span class="keyword">while</span> (Wire.available() &lt; <span class="number">6</span>)</span><br><span class="line">    ;</span><br><span class="line">  accelX = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store first two bytes into accelX</span></span><br><span class="line">  accelY = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store middle two bytes into accelY</span></span><br><span class="line">  accelZ = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store last two bytes into accelZ</span></span><br><span class="line">  tmpDataX = accelX;</span><br><span class="line">  tmpDataY = accelY;</span><br><span class="line">  tmpDataZ = accelZ;</span><br><span class="line">  processAccelData();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">processAccelData</span><span class="params">()</span> &#123;</span><br><span class="line">  gForceX = accelX / <span class="number">16384.0</span>;</span><br><span class="line">  gForceY = accelY / <span class="number">16384.0</span>;</span><br><span class="line">  gForceZ = accelZ / <span class="number">16384.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">recordGyroRegisters</span><span class="params">()</span> &#123;</span><br><span class="line">  Wire.beginTransmission(mpuAddress);  <span class="comment">//I2C address of the MPU</span></span><br><span class="line">  Wire.write(<span class="number">0x43</span>);                   <span class="comment">//Starting register for Gyro Readings</span></span><br><span class="line">  Wire.endTransmission();</span><br><span class="line">  Wire.requestFrom(mpuAddress, <span class="number">6</span>);  <span class="comment">//Request Gyro Registers (43 - 48)</span></span><br><span class="line">  <span class="keyword">while</span> (Wire.available() &lt; <span class="number">6</span>)</span><br><span class="line">    ;</span><br><span class="line">  gyroX = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store first two bytes into accelX</span></span><br><span class="line">  gyroY = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store middle two bytes into accelY</span></span><br><span class="line">  gyroZ = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();  <span class="comment">//Store last two bytes into accelZ</span></span><br><span class="line">  processGyroData();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">processGyroData</span><span class="params">()</span> &#123;</span><br><span class="line">  rotX = gyroX / <span class="number">131.0</span>;</span><br><span class="line">  rotY = gyroY / <span class="number">131.0</span>;</span><br><span class="line">  rotZ = gyroZ / <span class="number">131.0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">printData</span><span class="params">()</span> &#123;</span><br><span class="line">  Serial.print(<span class="string">&quot;Gyro (deg)&quot;</span>);</span><br><span class="line">  Serial.print(<span class="string">&quot; X=&quot;</span>);</span><br><span class="line">  Serial.print(rotX);</span><br><span class="line">  Serial.print(<span class="string">&quot; Y=&quot;</span>);</span><br><span class="line">  Serial.print(rotY);</span><br><span class="line">  Serial.print(<span class="string">&quot; Z=&quot;</span>);</span><br><span class="line">  Serial.print(rotZ);</span><br><span class="line">  Serial.print(<span class="string">&quot; Accel (g)&quot;</span>);</span><br><span class="line">  Serial.print(<span class="string">&quot; X=&quot;</span>);</span><br><span class="line">  Serial.print(gForceX);</span><br><span class="line">  Serial.print(<span class="string">&quot; Y=&quot;</span>);</span><br><span class="line">  Serial.print(gForceY);</span><br><span class="line">  Serial.print(<span class="string">&quot; Z=&quot;</span>);</span><br><span class="line">  Serial.println(gForceZ);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">printTmpData</span><span class="params">()</span> &#123;</span><br><span class="line">  Serial.print(tmpDataX);</span><br><span class="line">  Serial.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">  Serial.print(tmpDataY);</span><br><span class="line">  Serial.print(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">  Serial.print(tmpDataZ);</span><br><span class="line">  Serial.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="使用Arduino进行姿态解算"><a href="#使用Arduino进行姿态解算" class="headerlink" title="使用Arduino进行姿态解算"></a>使用Arduino进行姿态解算</h2><ol>
-<li><p>使用卡尔曼滤波进行提高数据精准度</p>
-</li>
-<li><p>需要进行一些数学计算</p>
-<p> <img src="/images/MPU6050/2.png" alt="pitch Roll "></p>
-</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Kalman.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Wire.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">float</span> fRad2Deg = <span class="number">57.295779513f</span>; <span class="comment">//将弧度转为角度的乘数</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MPU = <span class="number">0x68</span>; <span class="comment">//MPU-6050的I2C地址</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> nValCnt = <span class="number">7</span>; <span class="comment">//一次读取寄存器的数量</span></span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> nCalibTimes = <span class="number">1000</span>; <span class="comment">//校准时读数的次数</span></span><br><span class="line"><span class="type">int</span> calibData[nValCnt]; <span class="comment">//校准数据</span></span><br><span class="line"></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> nLastTime = <span class="number">0</span>; <span class="comment">//上一次读数的时间</span></span><br><span class="line"><span class="type">float</span> fLastRoll = <span class="number">0.0f</span>; <span class="comment">//上一次滤波得到的Roll角</span></span><br><span class="line"><span class="type">float</span> fLastPitch = <span class="number">0.0f</span>; <span class="comment">//上一次滤波得到的Pitch角</span></span><br><span class="line">Kalman kalmanRoll; <span class="comment">//Roll角滤波器</span></span><br><span class="line">Kalman kalmanPitch; <span class="comment">//Pitch角滤波器</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">setup</span><span class="params">()</span> &#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>); <span class="comment">//初始化串口，指定波特率</span></span><br><span class="line">  Wire.begin(); <span class="comment">//初始化Wire库</span></span><br><span class="line">  WriteMPUReg(<span class="number">0x6B</span>, <span class="number">0</span>); <span class="comment">//启动MPU6050设备</span></span><br><span class="line"></span><br><span class="line">  Calibration(); <span class="comment">//执行校准</span></span><br><span class="line">  nLastTime = micros(); <span class="comment">//记录当前时间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">loop</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> readouts[nValCnt];</span><br><span class="line">  ReadAccGyr(readouts); <span class="comment">//读出测量值</span></span><br><span class="line">  </span><br><span class="line">  <span class="type">float</span> realVals[<span class="number">7</span>];</span><br><span class="line">  Rectify(readouts, realVals); <span class="comment">//根据校准的偏移量进行纠正</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算加速度向量的模长，均以g为单位</span></span><br><span class="line">  <span class="type">float</span> fNorm = <span class="built_in">sqrt</span>(realVals[<span class="number">0</span>] * realVals[<span class="number">0</span>] + realVals[<span class="number">1</span>] * realVals[<span class="number">1</span>] + realVals[<span class="number">2</span>] * realVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fRoll = GetRoll(realVals, fNorm); <span class="comment">//计算Roll角</span></span><br><span class="line">  <span class="keyword">if</span> (realVals[<span class="number">1</span>] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    fRoll = -fRoll;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="type">float</span> fPitch = GetPitch(realVals, fNorm); <span class="comment">//计算Pitch角</span></span><br><span class="line">  <span class="keyword">if</span> (realVals[<span class="number">0</span>] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    fPitch = -fPitch;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//计算两次测量的时间间隔dt，以秒为单位</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> nCurTime = micros();</span><br><span class="line">  <span class="type">float</span> dt = (<span class="type">double</span>)(nCurTime - nLastTime) / <span class="number">1000000.0</span>;</span><br><span class="line">  <span class="comment">//对Roll角和Pitch角进行卡尔曼滤波</span></span><br><span class="line">  <span class="type">float</span> fNewRoll = kalmanRoll.getAngle(fRoll, realVals[<span class="number">4</span>], dt);</span><br><span class="line">  <span class="type">float</span> fNewPitch = kalmanPitch.getAngle(fPitch, realVals[<span class="number">5</span>], dt);</span><br><span class="line">  <span class="comment">//跟据滤波值计算角度速</span></span><br><span class="line">  <span class="type">float</span> fRollRate = (fNewRoll - fLastRoll) / dt;</span><br><span class="line">  <span class="type">float</span> fPitchRate = (fNewPitch - fLastPitch) / dt;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//更新Roll角和Pitch角</span></span><br><span class="line">  fLastRoll = fNewRoll;</span><br><span class="line">  fLastPitch = fNewPitch;</span><br><span class="line">  <span class="comment">//更新本次测的时间</span></span><br><span class="line">  nLastTime = nCurTime;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//向串口打印输出Roll角和Pitch角，运行时在Arduino的串口监视器中查看</span></span><br><span class="line">  Serial.print(<span class="string">&quot;Roll:&quot;</span>);</span><br><span class="line">  Serial.print(fNewRoll); Serial.print(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">  Serial.print(fRollRate); Serial.print(<span class="string">&quot;),\tPitch:&quot;</span>);</span><br><span class="line">  Serial.print(fNewPitch); Serial.print(<span class="string">&#x27;(&#x27;</span>);</span><br><span class="line">  Serial.print(fPitchRate); Serial.print(<span class="string">&quot;)\n&quot;</span>);</span><br><span class="line">  delay(<span class="number">10</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//向MPU6050写入一个字节的数据</span></span><br><span class="line"><span class="comment">//指定寄存器地址与一个字节的值</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">WriteMPUReg</span><span class="params">(<span class="type">int</span> nReg, <span class="type">unsigned</span> <span class="type">char</span> nVal)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(nReg);</span><br><span class="line">  Wire.write(nVal);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从MPU6050读出一个字节的数据</span></span><br><span class="line"><span class="comment">//指定寄存器地址，返回读出的值</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> <span class="title function_">ReadMPUReg</span><span class="params">(<span class="type">int</span> nReg)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(nReg);</span><br><span class="line">  Wire.requestFrom(MPU, <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">return</span> Wire.read();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//从MPU6050读出加速度计三个分量、温度和三个角速度计</span></span><br><span class="line"><span class="comment">//保存在指定的数组中</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">ReadAccGyr</span><span class="params">(<span class="type">int</span> *pVals)</span> &#123;</span><br><span class="line">  Wire.beginTransmission(MPU);</span><br><span class="line">  Wire.write(<span class="number">0x3B</span>);</span><br><span class="line">  Wire.requestFrom(MPU, nValCnt * <span class="number">2</span>, <span class="literal">true</span>);</span><br><span class="line">  Wire.endTransmission(<span class="literal">true</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">long</span> i = <span class="number">0</span>; i &lt; nValCnt; ++i) &#123;</span><br><span class="line">    pVals[i] = Wire.read() &lt;&lt; <span class="number">8</span> | Wire.read();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对大量读数进行统计，校准平均偏移量</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Calibration</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">float</span> valSums[<span class="number">7</span>] = &#123;<span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0f</span>, <span class="number">0.0</span>&#125;;</span><br><span class="line">  <span class="comment">//先求和</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nCalibTimes; ++i) &#123;</span><br><span class="line">    <span class="type">int</span> mpuVals[nValCnt];</span><br><span class="line">    ReadAccGyr(mpuVals);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nValCnt; ++j) &#123;</span><br><span class="line">      valSums[j] += mpuVals[j];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//再求平均</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; nValCnt; ++i) &#123;</span><br><span class="line">    calibData[i] = <span class="type">int</span>(valSums[i] / nCalibTimes);</span><br><span class="line">  &#125;</span><br><span class="line">  calibData[<span class="number">2</span>] += <span class="number">16384</span>; <span class="comment">//设芯片Z轴竖直向下，设定静态工作点。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//算得Roll角。算法见文档。</span></span><br><span class="line"><span class="type">float</span> <span class="title function_">GetRoll</span><span class="params">(<span class="type">float</span> *pRealVals, <span class="type">float</span> fNorm)</span> &#123;</span><br><span class="line">  <span class="type">float</span> fNormXZ = <span class="built_in">sqrt</span>(pRealVals[<span class="number">0</span>] * pRealVals[<span class="number">0</span>] + pRealVals[<span class="number">2</span>] * pRealVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fCos = fNormXZ / fNorm;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">acos</span>(fCos) * fRad2Deg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//算得Pitch角。算法见文档。</span></span><br><span class="line"><span class="type">float</span> <span class="title function_">GetPitch</span><span class="params">(<span class="type">float</span> *pRealVals, <span class="type">float</span> fNorm)</span> &#123;</span><br><span class="line">  <span class="type">float</span> fNormYZ = <span class="built_in">sqrt</span>(pRealVals[<span class="number">1</span>] * pRealVals[<span class="number">1</span>] + pRealVals[<span class="number">2</span>] * pRealVals[<span class="number">2</span>]);</span><br><span class="line">  <span class="type">float</span> fCos = fNormYZ / fNorm;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">acos</span>(fCos) * fRad2Deg;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对读数进行纠正，消除偏移，并转换为物理量。公式见文档。</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">Rectify</span><span class="params">(<span class="type">int</span> *pReadout, <span class="type">float</span> *pRealVals)</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">    pRealVals[i] = (<span class="type">float</span>)(pReadout[i] - calibData[i]) / <span class="number">16384.0f</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  pRealVals[<span class="number">3</span>] = pReadout[<span class="number">3</span>] / <span class="number">340.0f</span> + <span class="number">36.53</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">4</span>; i &lt; <span class="number">7</span>; ++i) &#123;</span><br><span class="line">    pRealVals[i] = (<span class="type">float</span>)(pReadout[i] - calibData[i]) / <span class="number">131.0f</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MPU6050/" rel="tag">MPU6050</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/arduino/" rel="tag">arduino</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/basic/" rel="tag">basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-私有云搭建_NextCloud"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/"
-    >一行代码搭建私有云（基于docker NextCloud）</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/" class="article-date">
-  <time datetime="2024-05-15T06:43:31.000Z" itemprop="datePublished">2024-05-15</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <h1 id="一行代码搭建私有云（基于docker-NextCloud）"><a href="#一行代码搭建私有云（基于docker-NextCloud）" class="headerlink" title="一行代码搭建私有云（基于docker NextCloud）"></a>一行代码搭建私有云（基于docker NextCloud）</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>​	老早以前就很想有一朵属于自己的云了，机缘巧合发现了<strong>NextCloud</strong>	这个项目，使用Docker一键部署简直不要太简单！    </p>
-<p>​	项目地址：	<a target="_blank" rel="noopener" href="https://github.com/nextcloud/docker">NextCloud repo on github</a><br>​	搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。<br>​	开源不易，感谢大佬</p>
-<h2 id="一行代码"><a href="#一行代码" class="headerlink" title="一行代码"></a>一行代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:80 nextcloud</span><br></pre></td></tr></table></figure>
-
-<p>然后直接<code>IP:8080</code>就访问到了</p>
-<p><img src="/images/nc/1.png" alt="1"></p>
-<p><img src="/images/nc/2.png" alt="2"></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NextCloud/" rel="tag">NextCloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/" rel="tag">docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github%E9%A1%B9%E7%9B%AE/" rel="tag">github项目</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E7%9B%98/" rel="tag">云盘</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" rel="tag">私有云</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag">跨平台</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-0-96OLED玩法"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/"
-    >0.96OLED玩法</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" class="article-date">
-  <time datetime="2024-05-14T11:08:23.000Z" itemprop="datePublished">2024-05-14</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>基于0.96寸OLED，主控ssd1306</p>
-<h1 id="显示原理"><a href="#显示原理" class="headerlink" title="显示原理"></a>显示原理</h1><p>基于数据手册</p>
-<h2 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h2><p>每个像素点独立控制，通过写入现存的二进制数据进行每个像素的熄灭和点亮</p>
-<ul>
-<li><p>像素</p>
-<p>  <strong>128*64</strong></p>
-</li>
-</ul>
-<h2 id="名词定义"><a href="#名词定义" class="headerlink" title="名词定义"></a>名词定义</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 0.96 OLED</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">|********************************|</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># 模拟图</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>SEG</li>
-</ul>
-<p>相当于一列：一列<strong>64</strong>个像素</p>
-<ul>
-<li>COLOMN</li>
-</ul>
-<p>相当于一行：一行<strong>128</strong>个像素</p>
-<ul>
-<li>COMMON</li>
-</ul>
-<p>相当于一行：一行<strong>128</strong>个像素</p>
-<ul>
-<li>PAGE</li>
-</ul>
-<p>相当于8行：<strong>128*8</strong>个像素</p>
-<h2 id="显示方式（ssd1306）"><a href="#显示方式（ssd1306）" class="headerlink" title="显示方式（ssd1306）"></a>显示方式（ssd1306）</h2><blockquote>
-<p>There are 3 different memory addressing mode in SSD1306: page addressing mode, horizontal addressing mode and vertical addressing mode. </p>
-</blockquote>
-<h3 id="1-page-addressing-mode-页地址模式"><a href="#1-page-addressing-mode-页地址模式" class="headerlink" title="1. page addressing mode(页地址模式)"></a>1. page addressing mode(页地址模式)</h3><blockquote>
-<p>Page addressing mode (A[1:0]&#x3D;10xb) </p>
-<p>In page addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
-<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is not changed.&#x3D;&#x3D; </p>
-<p>Users have to set the new page and column addresses in order to access the next page RAM content The sequence of movement of the PAGE and column address point for page addressing mode is shown in Figure 10-1. </p>
-</blockquote>
-<p><img src="/images/OLED/1.png" alt="page addressing mode"></p>
-<p>一次写<code>1Byte(8位)</code>，与<code>horizontal addressing mode</code>的区别只是<strong>PAGE是否自动改变</strong></p>
-<h3 id="2-horizontal-addressing-mode-水平地址模式"><a href="#2-horizontal-addressing-mode-水平地址模式" class="headerlink" title="2.horizontal addressing mode(水平地址模式)"></a>2.horizontal addressing mode(水平地址模式)</h3><blockquote>
-<p>Horizontal addressing mode (A[1:0]&#x3D;00b)</p>
-<p>In horizontal addressing mode, after the display RAM is read&#x2F;written, the column address pointer is increased automatically by 1. </p>
-<p>If the column address pointer reaches column end address, the column address pointer is reset to column start address and &#x3D;&#x3D;page address pointer is increased by 1&#x3D;&#x3D;. </p>
-<p>The sequence of movement of the page and column address point for horizontal addressing mode is shown in Figure 10-3. </p>
-<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address (Dotted line in Figure 10-3.) </p>
-</blockquote>
-<p><img src="/images/OLED/2.png" alt="horizontal addressing mode"></p>
-<p>一次写<code>1Byte(8位)</code></p>
-<h3 id="3-vertical-addressing-mode-垂直地址模式"><a href="#3-vertical-addressing-mode-垂直地址模式" class="headerlink" title="3.vertical addressing mode(垂直地址模式)"></a>3.vertical addressing mode(垂直地址模式)</h3><blockquote>
-<p>Vertical addressing mode: (A[1:0]&#x3D;01b)</p>
-<p>In vertical addressing mode, after the display RAM is read&#x2F;written, the page address pointer is increased automatically by 1. </p>
-<p>If the page address pointer reaches the page end address, &#x3D;&#x3D;the page address pointer is reset&#x3D;&#x3D; to page start address and column address pointer is increased by 1. </p>
-<p>The sequence of movement of the page and column address point for vertical addressing mode is shown in Figure 10-4. </p>
-<p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address </p>
-<p>(Dotted line in Figure 10-4.) </p>
-</blockquote>
-<p><img src="/images/OLED/3.png" alt="vertical addressing mode"></p>
-<h3 id="总结-我的理解"><a href="#总结-我的理解" class="headerlink" title="总结(我的理解)"></a>总结(我的理解)</h3><p>三种模式都是一次竖着写<code>1Byte(8位)</code>，</p>
-<ol>
-<li>第一种向右延伸，到终点不回来</li>
-<li>第二种向右延伸，到终点自动回来并+1到下一行</li>
-<li>第三种向下延伸，到终点COL自动+1到下一列</li>
-</ol>
-<h1 id="玩法"><a href="#玩法" class="headerlink" title="玩法"></a>玩法</h1><h2 id="1-显示基本ASCII"><a href="#1-显示基本ASCII" class="headerlink" title="1.显示基本ASCII"></a>1.显示基本ASCII</h2><h2 id="2-显示中文"><a href="#2-显示中文" class="headerlink" title="2.显示中文"></a>2.显示中文</h2><h2 id="3-显示BMP位图"><a href="#3-显示BMP位图" class="headerlink" title="3.显示BMP位图"></a>3.显示BMP位图</h2> 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-C-C-大型项目编程注意事项"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/"
-    >C/C++大型项目编程注意事项</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" class="article-date">
-  <time datetime="2024-05-13T06:43:31.000Z" itemprop="datePublished">2024-05-13</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p><strong>C&#x2F;C++大型项目编程规范</strong></p>
-<p>​	最近在参与（或者说使用）某些项目的代码时，感觉其代码之简洁精炼，语言习惯之规范，外观之整洁，可读性之高令人赏心悦目。</p>
-<p>​	在其基础上进行增删改查后总是觉得自己的代码不够优雅，就好像一篇书法作品中掺杂几行我写的字。</p>
-<p>​	于是打算学习C&#x2F;C++项目编程规范，不求优雅，只求规整可读，结构合理。</p>
-<p>​	基于华为C语言编程规范 <a target="_blank" rel="noopener" href="https://ilcc.gitbooks.io/wiki/content/StyleGuide/Huawei-C/index.html">在线wiki文档</a></p>
-<h1 id="代码总体原则"><a href="#代码总体原则" class="headerlink" title="代码总体原则"></a>代码总体原则</h1><h2 id="1、清晰第一"><a href="#1、清晰第一" class="headerlink" title="1、清晰第一"></a>1、清晰第一</h2><p><strong>代码的可阅读性高于性能，只有确定性能是瓶颈时，才应该主动优化</strong></p>
-<ul>
-<li><p>优秀的代码可以自我解释（以我的水平可能做到比较难）</p>
-</li>
-<li><p>常写注释，并且注释写的清晰</p>
-</li>
-</ul>
-<h2 id="2、简洁为美"><a href="#2、简洁为美" class="headerlink" title="2、简洁为美"></a>2、简洁为美</h2><p><strong>写的代码越多，意味着出错的地方越多，也就意味着代码的可靠性越低。</strong></p>
-<h1 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h1><blockquote>
-<p>原则：编程时必须坚持的指导思想。</p>
-<p>规则：编程时强制必须遵守的约定。</p>
-<p>建议：编程时必须加以考虑的约定。</p>
-<p>说明：对此原则&#x2F;规则&#x2F;建议进行必要的解释。</p>
-<p>示例：对此原则&#x2F;规则&#x2F;建议从正、反两个方面给出例子。</p>
-<p>延伸阅读材料：建议进一步阅读的参考材料。</p>
-</blockquote>
-<h1 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h1><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p><strong>不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上不合理的设计。</strong></p>
-<p>如果引入了新的依赖，则一旦被依赖的头文件修改，任何直接和间接依赖其头文件的代码都会被重新编译。</p>
-<h3 id="原则1-1-头文件中适合放置接口的声明，不适合放置实现"><a href="#原则1-1-头文件中适合放置接口的声明，不适合放置实现" class="headerlink" title="原则1.1 头文件中适合放置接口的声明，不适合放置实现"></a>原则1.1 头文件中适合放置接口的声明，不适合放置实现</h3><p>头文件是模块（Module）或单元（Unit）的对外接口。头文件中应放置对外部的声明，如对外提供的函数声明、宏定义、类型定义等。</p>
-<ul>
-<li>内部使用的函数（相当于类的私有方法）声明不应放在头文件中</li>
-<li>内部使用的宏、枚举、结构定义不应放入头文件中。</li>
-<li>变量定义不应放在头文件中，应放在.c文件中。</li>
-</ul>
-<p>否则多次依赖会重复定义</p>
-<ul>
-<li>变量的声明尽量不要放在头文件中，亦即尽量不要使用全局变量作为接口。变量是模块或单元的内部实现细节，不应通过在头文件中声明的方式直接暴露给外部，应通过函数接口的方式进行对外暴露。即使必须使用全局变量，也只应当在.c中定义全局变量，在.h中仅声明变量为全局的。</li>
-</ul>
-<h3 id="原则1-2-头文件应当职责单一。"><a href="#原则1-2-头文件应当职责单一。" class="headerlink" title="原则1.2 头文件应当职责单一。"></a>原则1.2 头文件应当职责单一。</h3><h3 id="原则1-3-头文件应向稳定的方向包含。"><a href="#原则1-3-头文件应向稳定的方向包含。" class="headerlink" title="原则1.3 头文件应向稳定的方向包含。"></a>原则1.3 头文件应向稳定的方向包含。</h3><p>说明：头文件的包含关系是一种依赖，一般来说，应当让不稳定的模块依赖稳定的模块，从而当不稳定的模块发生变化时，不会影响（编译）稳定的模块。</p>
-<h2 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h2><h3 id="规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。"><a href="#规则1-1-每一个-c文件应有一个同名-h文件，用于声明需要对外公开的接口。" class="headerlink" title="规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。"></a>规则1.1 每一个.c文件应有一个同名.h文件，用于声明需要对外公开的接口。</h3><p>说明：如果一个.c文件不需要对外公布任何接口，则其就不应当存在，除非它是程序的入口，如main函数所在的文件。</p>
-<h3 id="规则1-2-禁止头文件循环依赖"><a href="#规则1-2-禁止头文件循环依赖" class="headerlink" title="规则1.2 禁止头文件循环依赖"></a>规则1.2 禁止头文件循环依赖</h3><p>​	任何一个头文件的改变都会使得循环中的所有头文件重新编译</p>
-<h3 id="规则1-3-c-h文件禁止包含用不到的头文件。"><a href="#规则1-3-c-h文件禁止包含用不到的头文件。" class="headerlink" title="规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。"></a>规则1.3 .c&#x2F;.h文件禁止包含用不到的头文件。</h3><h3 id="规则1-4-头文件应当自包含。"><a href="#规则1-4-头文件应当自包含。" class="headerlink" title="规则1.4 头文件应当自包含。"></a>规则1.4 头文件应当自包含。</h3><blockquote>
-<p>“头文件应当自包含”是指头文件应该包含自身所需的所有内容，而不依赖于其他头文件。这样的头文件通常被称为”自包含头文件”。下面解释一下这个概念的意义：</p>
-<ol>
-<li><strong>独立性和可移植性</strong>：自包含头文件使得头文件本身更加独立，不依赖于其他头文件。这样做有助于提高代码的可移植性，因为当你在其他项目或环境中使用这个头文件时，不需要担心它依赖的其他头文件是否可用。</li>
-<li><strong>简化依赖关系</strong>：自包含头文件可以简化代码的依赖关系。如果一个头文件依赖于另一个头文件，而后者又依赖于其他头文件，这会形成复杂的依赖链。通过自包含头文件，可以减少这种依赖链，提高代码的可维护性。</li>
-<li><strong>避免重复包含</strong>：自包含头文件通常会包含预处理器指令来避免重复包含。这样可以确保在包含相同头文件多次时不会导致重复定义的问题。</li>
-<li><strong>提高效率</strong>：自包含头文件可以减少预处理器的工作量，因为它们不需要解析其他头文件的内容。这有助于提高编译效率。</li>
-</ol>
-</blockquote>
-<h3 id="规则1-5-总是编写内部-include保护符（-define-保护）。"><a href="#规则1-5-总是编写内部-include保护符（-define-保护）。" class="headerlink" title="规则1.5 总是编写内部#include保护符（#define 保护）。"></a>规则1.5 总是编写内部#include保护符（#define 保护）。</h3><p>所有头文件都应当使用#define 防止头文件被多重包含，命名格式为<code>FILENAME_H</code>，为了保证唯一性，更好的命名是<code>PROJECTNAME_PATH_FILENAME_H</code>。</p>
-<h3 id="规则1-6-禁止在头文件中定义变量。"><a href="#规则1-6-禁止在头文件中定义变量。" class="headerlink" title="规则1.6 禁止在头文件中定义变量。"></a>规则1.6 禁止在头文件中定义变量。</h3><p>说明：在头文件中定义变量，将会由于头文件被其他.c文件包含而导致变量重复定义。</p>
-<h3 id="规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。"><a href="#规则1-7-只能通过包含头文件的方式使用其他-c提供的接口，禁止在-c中通过extern的方式使用外部函数接口、变量。" class="headerlink" title="规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。"></a>规则1.7 只能通过包含头文件的方式使用其他.c提供的接口，禁止在.c中通过extern的方式使用外部函数接口、变量。</h3><h3 id="规则1-8-禁止在extern-“C”中包含头文件。"><a href="#规则1-8-禁止在extern-“C”中包含头文件。" class="headerlink" title="规则1.8 禁止在extern “C”中包含头文件。"></a>规则1.8 禁止在extern “C”中包含头文件。</h3><blockquote>
-<p><code>extern &quot;C&quot;</code> 是用于在 C++ 中声明 C 函数时的一种语法。它告诉编译器这些函数按照 C 语言的约定进行链接。</p>
-<p>在 C++ 中，函数名的重载、名称修饰（name mangling）等特性会导致函数名在编译后被修改，这样的函数名在链接时可能无法与 C 代码中的函数名匹配。为了解决这个问题，C++ 提供了 <code>extern &quot;C&quot;</code>，它告诉编译器不要对函数名进行 C++ 风格的名称修饰，而是按照 C 语言的规则进行链接。</p>
-</blockquote>
-<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数设计的精髓：编写整洁函数，同时把代码有效组织起来。</p>
-<p>整洁函数要求：代码简单直接、不隐藏设计者的意图、用干净利落的抽象和直截了当的控制语句将函数有机组织起来。</p>
-<p>代码的有效组织包括：逻辑层组织和物理层组织两个方面。逻辑层，主要是把不同功能的函数通过某种联系组织起来，主要关注模块间的接口，也就是模块的架构。物理层，无论使用什么样的目录或者名字空间等，需要把函数用一种标准的方法组织起来。例如：设计良好的目录结构、函数名字、文件组织等，这样可以方便查找。</p>
-<h2 id="原则-1"><a href="#原则-1" class="headerlink" title="原则"></a>原则</h2><h3 id="原则2-1-一个函数仅完成一件功能。"><a href="#原则2-1-一个函数仅完成一件功能。" class="headerlink" title="原则2.1 一个函数仅完成一件功能。"></a>原则2.1 一个函数仅完成一件功能。</h3><p>说明：一个函数实现多个功能给开发、使用、维护都带来很大的困难。</p>
-<p>将没有关联或者关联很弱的语句放到同一函数中，会导致函数职责不明确，难以理解，难以测试和改动。</p>
-<h3 id="原则2-2-重复代码应该尽可能提炼成函数"><a href="#原则2-2-重复代码应该尽可能提炼成函数" class="headerlink" title="原则2.2 重复代码应该尽可能提炼成函数"></a>原则2.2 重复代码应该尽可能提炼成函数</h3><p>说明：重复代码提炼成函数可以带来维护成本的降低。</p>
-<p>可以使用代码重复度检查工具</p>
-<h2 id="规则-1"><a href="#规则-1" class="headerlink" title="规则"></a>规则</h2><h3 id="规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。"><a href="#规则2-1-避免函数过长，新增函数不超过50行（非空非注释行）。" class="headerlink" title="规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。"></a>规则2.1 避免函数过长，新增函数不超过50行（非空非注释行）。</h3><h3 id="规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"><a href="#规则2-2-避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。" class="headerlink" title="规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。"></a>规则2.2 避免函数的代码块嵌套过深，新增函数的代码块嵌套不超过4层。</h3><h4 id="减少代码嵌套层数的方法"><a href="#减少代码嵌套层数的方法" class="headerlink" title="减少代码嵌套层数的方法"></a>减少代码嵌套层数的方法</h4><blockquote>
-<ol>
-<li><strong>使用函数抽象</strong>：将嵌套的代码块提取成独立的函数，以便于重用和理解。</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt;python复制代码def main_function():</span><br><span class="line">   if condition:</span><br><span class="line">       process_items(items)</span><br><span class="line">   else:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;def process_items(items):</span><br><span class="line">   for item in items:</span><br><span class="line">       if item_valid(item):</span><br><span class="line">           process_item(item)</span><br><span class="line">       else:</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line"></span><br><span class="line">&gt;def item_valid(item):</span><br><span class="line">   return item.condition</span><br><span class="line"></span><br><span class="line">&gt;def process_item(item):</span><br><span class="line">   # 处理item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_invalid_item(item):</span><br><span class="line">   # 处理无效item</span><br><span class="line">   pass</span><br><span class="line"></span><br><span class="line">&gt;def handle_condition_not_met():</span><br><span class="line">   # 处理条件未满足情况</span><br><span class="line">   pass</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong>使用早期返回</strong>：在函数内部，尽早返回结果，而不是在多层嵌套中处理。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">main_function</span>():</span><br><span class="line">   <span class="keyword">if</span> <span class="keyword">not</span> condition:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line">       <span class="keyword">return</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">       <span class="keyword">if</span> <span class="keyword">not</span> item_valid(item):</span><br><span class="line">           handle_invalid_item(item)</span><br><span class="line">           <span class="keyword">continue</span></span><br><span class="line">       process_item(item)</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">item_valid</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">return</span> item.condition</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="comment"># 处理item</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_invalid_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="comment"># 处理无效item</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_condition_not_met</span>():</span><br><span class="line">   <span class="comment"># 处理条件未满足情况</span></span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong>使用异常处理</strong>：适用于处理特殊情况或错误的情况。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">main_function</span>():</span><br><span class="line">   <span class="keyword">try</span>:</span><br><span class="line">       <span class="keyword">if</span> condition:</span><br><span class="line">           <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">               process_item(item)</span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">           <span class="keyword">raise</span> ConditionNotMetError</span><br><span class="line">   <span class="keyword">except</span> ConditionNotMetError:</span><br><span class="line">       handle_condition_not_met()</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">process_item</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">if</span> <span class="keyword">not</span> item_valid(item):</span><br><span class="line">       <span class="keyword">raise</span> InvalidItemError</span><br><span class="line">   <span class="comment"># 处理item</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">item_valid</span>(<span class="params">item</span>):</span><br><span class="line">   <span class="keyword">return</span> item.condition</span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">def</span> <span class="title function_">handle_condition_not_met</span>():</span><br><span class="line">   <span class="comment"># 处理条件未满足情况</span></span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">class</span> <span class="title class_">ConditionNotMetError</span>(<span class="title class_ inherited__">Exception</span>):</span><br><span class="line">   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">&gt;<span class="keyword">class</span> <span class="title class_">InvalidItemError</span>(<span class="title class_ inherited__">Exception</span>):</span><br><span class="line">   <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<p>这些方法可以帮助将嵌套降低到合理的水平，使代码更易读、更易维护。</p>
-</blockquote>
-<h3 id="规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"><a href="#规则2-3-可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。" class="headerlink" title="规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。"></a>规则2.3 可重入函数应避免使用共享变量；若需要使用，则应通过互斥手段（关中断、信号量）对其加以保护。</h3><p>可能用不到。</p>
-<p>说明：可重入函数是指可能被多个任务并发调用的函数。在多任务操作系统中，函数具有可重入性是多个任务可以共用此函数的必要条件。共享变量指的全局变量和static变量。</p>
-<h3 id="规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。"><a href="#规则2-4-对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组-模块内应统一规定。缺省由调用者负责。" class="headerlink" title="规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。"></a>规则2.4 对参数的合法性检查，由调用者负责还是由接口函数负责，应在项目组&#x2F;模块内应统一规定。缺省由调用者负责。</h3><h3 id="规则2-5-对函数的错误返回码要全面处理。"><a href="#规则2-5-对函数的错误返回码要全面处理。" class="headerlink" title="规则2.5 对函数的错误返回码要全面处理。"></a>规则2.5 对函数的错误返回码要全面处理。</h3><h3 id="规则2-6-设计高扇入，合理扇出（小于7）的函数。"><a href="#规则2-6-设计高扇入，合理扇出（小于7）的函数。" class="headerlink" title="规则2.6 设计高扇入，合理扇出（小于7）的函数。"></a>规则2.6 设计高扇入，合理扇出（小于7）的函数。</h3><p>说明：扇出是指一个函数直接调用（控制）其它函数的数目，而扇入是指有多少上级函数调用它。</p>
-<p>建议2.1 函数不变参数使用const。</p>
-<p>建议2.2 函数应避免使用全局变量、静态局部变量和I&#x2F;O操作，不可避免的地方应集中使用。</p>
-<p>建议2.4 函数的参数个数不超过5个。</p>
-<p>建议2.5 除打印类函数外，不要使用可变长参函数。</p>
-<h1 id="3标识符命名与定义"><a href="#3标识符命名与定义" class="headerlink" title="3标识符命名与定义"></a>3标识符命名与定义</h1><h2 id="通用命名规则"><a href="#通用命名规则" class="headerlink" title="通用命名规则"></a>通用命名规则</h2><ol>
-<li><p>unix like风格</p>
-<p> 单词用小写字母，每个单词直接用下划线‘_’分割，例如text_mutex，kernel_text_address。</p>
-</li>
-<li><p>Windows风格</p>
-<p> 大小写字母混用，单词连在一起，每个单词首字母大写</p>
-</li>
-<li><p>匈牙利命名法</p>
-<p> 匈牙利命名主要包括三个部分：基本类型、一个或更多的前缀、一个限定词。</p>
-</li>
-</ol>
-<h3 id="原则-2"><a href="#原则-2" class="headerlink" title="原则"></a>原则</h3><h4 id="原则3-1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。"><a href="#原则3-1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。" class="headerlink" title="原则3.1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。"></a>原则3.1标识符的命名要清晰、明了，有明确含义，同时使用完整的单词或大家基本可以理解的缩写，避免使人产生误解。</h4><h4 id="原则3-2-除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。"><a href="#原则3-2-除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。" class="headerlink" title="原则3.2 除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。"></a>原则3.2 除了常见的通用缩写以外，不使用单词缩写，不得使用汉语拼音。</h4><p>示例：一些常见可以缩写的例子：</p>
-<ul>
-<li>argument 可缩写为 arg</li>
-<li>buffer 可缩写为 buff</li>
-<li>clock 可缩写为 clk</li>
-<li>command 可缩写为 cmd</li>
-<li>compare 可缩写为 cmp</li>
-<li>configuration 可缩写为 cfg</li>
-<li>device 可缩写为 dev</li>
-<li>error 可缩写为 err</li>
-<li>hexadecimal 可缩写为 hex</li>
-<li>increment 可缩写为 inc、</li>
-<li>initialize 可缩写为 init</li>
-<li>maximum 可缩写为 max</li>
-<li>message 可缩写为 msg</li>
-<li>minimum 可缩写为 min</li>
-<li>parameter 可缩写为 para</li>
-<li>previous 可缩写为 prev</li>
-<li>register 可缩写为 reg</li>
-<li>semaphore 可缩写为 sem</li>
-<li>statistic 可缩写为 stat</li>
-<li>synchronize 可缩写为 sync</li>
-<li>temp 可缩写为 tmp</li>
-</ul>
-<h3 id="规则-2"><a href="#规则-2" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-1-产品-项目组内部应保持统一的命名风格。"><a href="#规则3-1-产品-项目组内部应保持统一的命名风格。" class="headerlink" title="规则3.1 产品&#x2F;项目组内部应保持统一的命名风格。"></a>规则3.1 产品&#x2F;项目组内部应保持统一的命名风格。</h4><blockquote>
-<p>示例：</p>
-<p>add&#x2F;remove begin&#x2F;end create&#x2F;destroy insert&#x2F;delete first&#x2F;last get&#x2F;release increment&#x2F;decrement put&#x2F;get add&#x2F;delete lock&#x2F;unlock open&#x2F;close min&#x2F;max old&#x2F;new start&#x2F;stop next&#x2F;previous source&#x2F;target show&#x2F;hide send&#x2F;receive source&#x2F;destination copy&#x2F;paste up&#x2F;down</p>
-</blockquote>
-<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-2-尽量避免名字中出现数字编号，除非逻辑上的确需要编号。"><a href="#建议3-2-尽量避免名字中出现数字编号，除非逻辑上的确需要编号。" class="headerlink" title="建议3.2 尽量避免名字中出现数字编号，除非逻辑上的确需要编号。"></a>建议3.2 尽量避免名字中出现数字编号，除非逻辑上的确需要编号。</h4><h4 id="建议3-3-标识符前不应添加模块、项目、产品、部门的名称作为前缀。"><a href="#建议3-3-标识符前不应添加模块、项目、产品、部门的名称作为前缀。" class="headerlink" title="建议3.3 标识符前不应添加模块、项目、产品、部门的名称作为前缀。"></a>建议3.3 标识符前不应添加模块、项目、产品、部门的名称作为前缀。</h4><h4 id="建议3-4-平台-驱动等适配代码的标识符命名风格保持和平台-驱动一致。"><a href="#建议3-4-平台-驱动等适配代码的标识符命名风格保持和平台-驱动一致。" class="headerlink" title="建议3.4 平台&#x2F;驱动等适配代码的标识符命名风格保持和平台&#x2F;驱动一致。"></a>建议3.4 平台&#x2F;驱动等适配代码的标识符命名风格保持和平台&#x2F;驱动一致。</h4><h2 id="文件命名规则"><a href="#文件命名规则" class="headerlink" title="文件命名规则"></a>文件命名规则</h2><h3 id="建议-1"><a href="#建议-1" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-6-文件命名统一采用小写字符。"><a href="#建议3-6-文件命名统一采用小写字符。" class="headerlink" title="建议3.6 文件命名统一采用小写字符。"></a>建议3.6 文件命名统一采用小写字符。</h4><h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><h3 id="规则-3"><a href="#规则-3" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-2-全局变量应增加“g-”前缀。"><a href="#规则3-2-全局变量应增加“g-”前缀。" class="headerlink" title="规则3.2 全局变量应增加“g_”前缀。"></a>规则3.2 全局变量应增加“g_”前缀。</h4><h4 id="规则3-3-静态变量应增加“s-”前缀。"><a href="#规则3-3-静态变量应增加“s-”前缀。" class="headerlink" title="规则3.3 静态变量应增加“s_”前缀。"></a>规则3.3 静态变量应增加“s_”前缀。</h4><h4 id="规则3-4-禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。"><a href="#规则3-4-禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。" class="headerlink" title="规则3.4 禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。"></a>规则3.4 禁止使用单字节命名变量，但允许定义i、j、k作为局部循环变量。</h4><h3 id="建议-2"><a href="#建议-2" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-7-不建议使用匈牙利命名法。"><a href="#建议3-7-不建议使用匈牙利命名法。" class="headerlink" title="建议3.7 不建议使用匈牙利命名法。"></a>建议3.7 不建议使用匈牙利命名法。</h4><h4 id="建议3-8-使用名词或者形容词＋名词方式命名变量。"><a href="#建议3-8-使用名词或者形容词＋名词方式命名变量。" class="headerlink" title="建议3.8 使用名词或者形容词＋名词方式命名变量。"></a>建议3.8 使用名词或者形容词＋名词方式命名变量。</h4><h2 id="函数命名规则"><a href="#函数命名规则" class="headerlink" title="函数命名规则"></a>函数命名规则</h2><h3 id="建议-3"><a href="#建议-3" class="headerlink" title="建议"></a>建议</h3><h4 id="建议3-9-函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。"><a href="#建议3-9-函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。" class="headerlink" title="建议3.9 函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。"></a>建议3.9 函数命名应以函数要执行的动作命名，一般采用动词或者动词＋名词的结构。</h4><h2 id="宏的命名规则"><a href="#宏的命名规则" class="headerlink" title="宏的命名规则"></a>宏的命名规则</h2><h3 id="规则-4"><a href="#规则-4" class="headerlink" title="规则"></a>规则</h3><h4 id="规则3-5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘-’的方式命名（枚举同样建议使用此方式定义）。"><a href="#规则3-5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘-’的方式命名（枚举同样建议使用此方式定义）。" class="headerlink" title="规则3.5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘_’的方式命名（枚举同样建议使用此方式定义）。"></a>规则3.5对于数值或者字符串等等常量的定义，建议采用全大写字母，单词之间加下划线‘_’的方式命名（枚举同样建议使用此方式定义）。</h4><h4 id="规则3-6-除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘-’开头和结尾。"><a href="#规则3-6-除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘-’开头和结尾。" class="headerlink" title="规则3.6 除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘_’开头和结尾。"></a>规则3.6 除了头文件或编译开关等特殊标识定义，宏定义不能使用下划线‘_’开头和结尾。</h4><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="原则-3"><a href="#原则-3" class="headerlink" title="原则"></a>原则</h2><h3 id="原则4-1-一个变量只有一个功能，不能把一个变量用作多种用途。"><a href="#原则4-1-一个变量只有一个功能，不能把一个变量用作多种用途。" class="headerlink" title="原则4.1 一个变量只有一个功能，不能把一个变量用作多种用途。"></a>原则4.1 一个变量只有一个功能，不能把一个变量用作多种用途。</h3><blockquote>
-<p>我怎么感觉在某些情况下无妨啊，开多了变量会占用性能吧？</p>
-<p>也就是说：重要性：代码的可读性、可维护性和减少错误&gt;性能消耗</p>
-<p>下列答案基于<strong>chatGPT</strong></p>
-<p>遵循“一个变量只有一个功能”的原则确实会增加一些变量的数量，但这通常不会显著增加系统开销，特别是在现代编程环境和硬件条件下。这是因为：</p>
-<ol>
-<li><p><strong>内存开销相对较小</strong>：</p>
-<ul>
-<li>现代计算机的内存容量通常非常大，增加几个变量所占用的内存是非常小的。这种内存开销在绝大多数应用场景下可以忽略不计。</li>
-</ul>
-</li>
-<li><p><strong>编译器优化</strong>：</p>
-<ul>
-<li>现代编译器和解释器非常智能，它们可以优化代码，将不必要的变量删除或者合并，从而减少内存开销。例如，在优化编译过程中，编译器会尝试最小化变量的存储空间，并进行变量复用等优化操作。</li>
-</ul>
-</li>
-<li><p><strong>代码可读性和维护性优先</strong>：</p>
-<ul>
-<li>代码的可读性和可维护性在实际开发中比微小的性能优化更重要。可读性好的代码更容易被团队中的其他开发人员理解和维护，从而降低了开发和维护的成本。</li>
-</ul>
-</li>
-<li><p><strong>开发效率和错误减少</strong>：</p>
-<ul>
-<li>使用单一功能变量可以减少代码中的错误，使开发过程更加顺利。这种减少错误和提升开发效率的好处往往远远超过因为增加变量数量而带来的微小性能损失。</li>
-</ul>
-</li>
-</ol>
-<p><strong>示例分析</strong>：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 增加系统开销的担忧</span></span><br><span class="line">total_items = <span class="number">10</span></span><br><span class="line">price = <span class="number">5.99</span></span><br><span class="line">total_cost = total_items * price</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不好的做法：减少变量数量</span></span><br><span class="line">x = <span class="number">10</span></span><br><span class="line">x = <span class="number">5.99</span></span><br><span class="line">x = x * x  <span class="comment"># 这样做容易引入错误，也降低了代码的可读性</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确做法：使用多个变量，增加代码可读性</span></span><br><span class="line">total_items = <span class="number">10</span></span><br><span class="line">price_per_item = <span class="number">5.99</span></span><br><span class="line">total_cost = total_items * price_per_item</span><br></pre></td></tr></table></figure>
-
-<p>在这个示例中，尽管引入了多个变量，但它们使代码更容易理解和维护。变量名清晰地表达了它们的用途，减少了开发和调试中的潜在错误。</p>
-<p><strong>总结</strong>：</p>
-<p>遵循“一个变量只有一个功能”的原则，不仅不会显著增加系统开销，反而可以通过提升代码质量和开发效率，降低长远的开发和维护成本。因此，在大多数情况下，这种做法是非常值得的。实际开发中，尤其是在团队协作和大型项目中，应优先考虑代码的可读性和可维护性。</p>
-</blockquote>
-<h3 id="原则4-2-结构功能单一；不要设计面面俱到的数据结构。"><a href="#原则4-2-结构功能单一；不要设计面面俱到的数据结构。" class="headerlink" title="原则4.2 结构功能单一；不要设计面面俱到的数据结构。"></a>原则4.2 结构功能单一；不要设计面面俱到的数据结构。</h3><h3 id="原则4-3-不用或者少用全局变量。"><a href="#原则4-3-不用或者少用全局变量。" class="headerlink" title="原则4.3 不用或者少用全局变量。"></a>原则4.3 不用或者少用全局变量。</h3><h2 id="规则-5"><a href="#规则-5" class="headerlink" title="规则"></a>规则</h2><h3 id="规则4-1-防止局部变量与全局变量同名。"><a href="#规则4-1-防止局部变量与全局变量同名。" class="headerlink" title="规则4.1 防止局部变量与全局变量同名。"></a>规则4.1 防止局部变量与全局变量同名。</h3><h3 id="规则4-2-通讯过程中使用的结构，必须注意字节序。"><a href="#规则4-2-通讯过程中使用的结构，必须注意字节序。" class="headerlink" title="规则4.2 通讯过程中使用的结构，必须注意字节序。"></a>规则4.2 通讯过程中使用的结构，必须注意字节序。</h3><blockquote>
-<p>字节序的解释（基于chatGPT）</p>
-<p>字节序（Byte Order）是指在计算机内存中存储多字节数据时，字节的排列顺序。不同计算机系统可能采用不同的字节序，主要有两种类型：大端序（Big-Endian）和小端序（Little-Endian）。</p>
-<h3 id="大端序（Big-Endian）"><a href="#大端序（Big-Endian）" class="headerlink" title="大端序（Big-Endian）"></a>大端序（Big-Endian）</h3><ul>
-<li><p><strong>定义</strong>：高位字节存储在低地址，低位字节存储在高地址。</p>
-</li>
-<li><p>示例</p>
-<p>  ：假设有一个4字节（32位）的数值</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x12345678</span><br></pre></td></tr></table></figure>
-
-<p>  。在大端序系统中，它的存储顺序如下：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makefile复制代码地址:   0x00  0x01  0x02  0x03</span><br><span class="line">值:     0x12  0x34  0x56  0x78</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="小端序（Little-Endian）"><a href="#小端序（Little-Endian）" class="headerlink" title="小端序（Little-Endian）"></a>小端序（Little-Endian）</h3><ul>
-<li><p><strong>定义</strong>：低位字节存储在低地址，高位字节存储在高地址。</p>
-</li>
-<li><p>示例</p>
-<p>  ：同样的数值</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0x12345678</span><br></pre></td></tr></table></figure>
-
-<p>  在小端序系统中的存储顺序如下：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">makefile复制代码地址:   0x00  0x01  0x02  0x03</span><br><span class="line">值:     0x78  0x56  0x34  0x12</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="为什么字节序很重要"><a href="#为什么字节序很重要" class="headerlink" title="为什么字节序很重要"></a>为什么字节序很重要</h3><p>在多字节数据传输或跨平台交互时，字节序的不同可能导致数据解释错误。例如，一个大端序系统发送数据到一个小端序系统，如果不做任何处理，小端序系统可能会错误地解读数据内容。</p>
-<h3 id="字节序的处理"><a href="#字节序的处理" class="headerlink" title="字节序的处理"></a>字节序的处理</h3><ol>
-<li><strong>网络字节序</strong>：网络协议（如TCP&#x2F;IP）通常规定使用大端序，这被称为网络字节序（Network Byte Order）。</li>
-<li><strong>字节序转换函数</strong>：大多数编程语言提供了用于字节序转换的函数。例如，在C语言中，<code>htons</code>（Host TO Network Short）、<code>htonl</code>（Host TO Network Long）、<code>ntohs</code>（Network TO Host Short）、<code>ntohl</code>（Network TO Host Long）等函数用于在主机字节序和网络字节序之间进行转换。</li>
-</ol>
-<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><p><strong>C语言中的字节序处理</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">c复制代码#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdint.h&gt;</span><br><span class="line">#include &lt;arpa/inet.h&gt;</span><br><span class="line"></span><br><span class="line">void print_bytes(uint32_t value) &#123;</span><br><span class="line">    uint8_t *bytes = (uint8_t *)&amp;value;</span><br><span class="line">    for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">        printf(&quot;%02x &quot;, bytes[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    uint32_t host_value = 0x12345678; // 主机字节序</span><br><span class="line">    uint32_t network_value = htonl(host_value); // 转换为网络字节序（大端序）</span><br><span class="line"></span><br><span class="line">    printf(&quot;Host byte order: &quot;);</span><br><span class="line">    print_bytes(host_value); // 打印主机字节序</span><br><span class="line"></span><br><span class="line">    printf(&quot;Network byte order: &quot;);</span><br><span class="line">    print_bytes(network_value); // 打印网络字节序</span><br><span class="line"></span><br><span class="line">    uint32_t converted_back = ntohl(network_value); // 转换回主机字节序</span><br><span class="line">    printf(&quot;Converted back to host byte order: &quot;);</span><br><span class="line">    print_bytes(converted_back); // 打印转换回的主机字节序</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>输出</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vbnet复制代码Host byte order: 78 56 34 12 </span><br><span class="line">Network byte order: 12 34 56 78 </span><br><span class="line">Converted back to host byte order: 78 56 34 12 </span><br></pre></td></tr></table></figure>
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>字节序在计算机内存中存储多字节数据时非常重要。理解和处理字节序问题，特别是在跨平台或网络通信中，确保数据正确传输和解释是至关重要的。通过明确协议中的字节序和使用合适的字节序转换函数，可以避免数据传输中的错误。</p>
-</blockquote>
-<h3 id="规则4-3-严禁使用未经初始化的变量作为右值。"><a href="#规则4-3-严禁使用未经初始化的变量作为右值。" class="headerlink" title="规则4.3 严禁使用未经初始化的变量作为右值。"></a>规则4.3 严禁使用未经初始化的变量作为右值。</h3><h2 id="建议-4"><a href="#建议-4" class="headerlink" title="建议"></a>建议</h2><h3 id="建议4-1-构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。"><a href="#建议4-1-构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。" class="headerlink" title="建议4.1 构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。"></a>建议4.1 构造仅有一个模块或函数可以修改、创建，而其余有关模块或函数只访问的全局变量，防止多个不同模块或函数都可以修改、创建同一全局变量的现象。</h3><h3 id="建议4-2-使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。"><a href="#建议4-2-使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。" class="headerlink" title="建议4.2 使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。"></a>建议4.2 使用面向接口编程思想，通过API访问数据：如果本模块的数据需要对外部模块开放，应提供接口函数来设置、获取，同时注意全局数据的访问互斥。</h3><h3 id="建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。"><a href="#建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4-3-在首次使用前初始化变量，初始化的地方离使用的地方越近越好。" class="headerlink" title="建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。"></a>建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。建议4.3 在首次使用前初始化变量，初始化的地方离使用的地方越近越好。</h3><h3 id="建议4-4-明确全局变量的初始化顺序，避免跨模块的初始化依赖。"><a href="#建议4-4-明确全局变量的初始化顺序，避免跨模块的初始化依赖。" class="headerlink" title="建议4.4 明确全局变量的初始化顺序，避免跨模块的初始化依赖。"></a>建议4.4 明确全局变量的初始化顺序，避免跨模块的初始化依赖。</h3><h3 id="建议4-5-尽量减少没有必要的数据类型默认转换与强制转换。"><a href="#建议4-5-尽量减少没有必要的数据类型默认转换与强制转换。" class="headerlink" title="建议4.5 尽量减少没有必要的数据类型默认转换与强制转换。"></a>建议4.5 尽量减少没有必要的数据类型默认转换与强制转换。</h3><h1 id="宏、常量"><a href="#宏、常量" class="headerlink" title="宏、常量"></a>宏、常量</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="规则-6"><a href="#规则-6" class="headerlink" title="规则"></a>规则</h2><h3 id="规则5-1-用宏定义表达式时，要使用完备的括号。"><a href="#规则5-1-用宏定义表达式时，要使用完备的括号。" class="headerlink" title="规则5.1 用宏定义表达式时，要使用完备的括号。"></a>规则5.1 用宏定义表达式时，要使用完备的括号。</h3><h3 id="规则5-2-将宏所定义的多条表达式放在大括号中。"><a href="#规则5-2-将宏所定义的多条表达式放在大括号中。" class="headerlink" title="规则5.2 将宏所定义的多条表达式放在大括号中。"></a>规则5.2 将宏所定义的多条表达式放在大括号中。</h3><h3 id="规则5-3-使用宏时，不允许参数发生变化。"><a href="#规则5-3-使用宏时，不允许参数发生变化。" class="headerlink" title="规则5.3 使用宏时，不允许参数发生变化。"></a>规则5.3 使用宏时，不允许参数发生变化。</h3><h3 id="规则5-4-不允许直接使用魔鬼数字。"><a href="#规则5-4-不允许直接使用魔鬼数字。" class="headerlink" title="规则5.4 不允许直接使用魔鬼数字。"></a>规则5.4 不允许直接使用魔鬼数字。</h3><p>说明：使用魔鬼数字的弊端：代码难以理解；如果一个有含义的数字多处使用，一旦需要修改这个数值，代价惨重。</p>
-<h2 id="建议-5"><a href="#建议-5" class="headerlink" title="建议"></a>建议</h2><h3 id="建议5-1-除非必要，应尽可能使用函数代替宏。"><a href="#建议5-1-除非必要，应尽可能使用函数代替宏。" class="headerlink" title="建议5.1 除非必要，应尽可能使用函数代替宏。"></a>建议5.1 除非必要，应尽可能使用函数代替宏。</h3><h3 id="建议5-2-常量建议使用const定义代替宏。"><a href="#建议5-2-常量建议使用const定义代替宏。" class="headerlink" title="建议5.2 常量建议使用const定义代替宏。"></a>建议5.2 常量建议使用const定义代替宏。</h3><h3 id="建议5-3-宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。"><a href="#建议5-3-宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。" class="headerlink" title="建议5.3 宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。"></a>建议5.3 宏定义中尽量不使用return、goto、continue、break等改变程序流程的语句。</h3><h1 id="质量保证"><a href="#质量保证" class="headerlink" title="质量保证"></a>质量保证</h1><p><strong>to be continued</strong></p>
-<h1 id="程序效率"><a href="#程序效率" class="headerlink" title="程序效率"></a>程序效率</h1><p><strong>to be continued</strong></p>
-<h1 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h1><p><strong>to be continued</strong></p>
-<h1 id="排版与格式"><a href="#排版与格式" class="headerlink" title="排版与格式"></a>排版与格式</h1><p><strong>to be continued</strong></p>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-C/" rel="tag">C&#x2F;C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" rel="tag">编程规范</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE/" rel="tag">项目</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-    <article
-  id="post-STM32-Menu-frameV1-0"
-  class="article article-type-post"
-  itemscope
-  itemprop="blogPost"
-  data-scroll-reveal
->
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2024/05/09/STM32-Menu-frameV1-0/"
-    >STM32_Menu_frameV1.0</a> 
-</h2>
- 
-
-      
-    </header>
-     
-    <div class="article-meta">
-      <a href="/2024/05/09/STM32-Menu-frameV1-0/" class="article-date">
-  <time datetime="2024-05-09T13:39:07.000Z" itemprop="datePublished">2024-05-09</time>
-</a>    
-    </div>
-      
-    <div class="article-entry" itemprop="articleBody">
-       
-  <p>Record project  <strong>STM32_Menu_frame</strong></p>
-<p>[STM32_Menu_frame](to be added)</p>
-<h1 id="Requirement-Analysis"><a href="#Requirement-Analysis" class="headerlink" title="Requirement Analysis"></a>Requirement Analysis</h1><h2 id="Version-1"><a href="#Version-1" class="headerlink" title="Version 1"></a>Version 1</h2><ol>
-<li>实现单级菜单</li>
-<li>按键选择</li>
-<li>SPI或IIC的oled屏显示</li>
-</ol>
-<h2 id="Version-2"><a href="#Version-2" class="headerlink" title="Version 2"></a>Version 2</h2><p>based on Version 1</p>
-<ol>
-<li>多级菜单</li>
-<li>UI美化</li>
-</ol>
- 
-      <!-- reward -->
-      
-    </div>
-    
-
-    <!-- copyright -->
-    
-    <footer class="article-footer">
-       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IIC/" rel="tag">IIC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OLED/" rel="tag">OLED</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STM32/" rel="tag">STM32</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UI/" rel="tag">UI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/notes/" rel="tag">notes</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/project/" rel="tag">project</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spi/" rel="tag">spi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stdlib/" rel="tag">stdlib</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag">笔记</a></li></ul>
-
-    </footer>
-  </div>
-
-    
- 
-   
-  
-</article>
-
-    
-  </article>
-  
-
-  
-  <nav class="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
-  </nav>
-  
-</section>
-</div>
-
-      <footer class="footer">
-  <div class="outer">
-    <ul>
-      <li>
-        Copyrights &copy;
-        2022-2024
-        <i class="ri-heart-fill heart_icon"></i> Regen
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-      </li>
-    </ul>
-    <ul>
-      <li>
-        
-        
-        <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
-  <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
-</span>
-        
-      </li>
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      
-    </ul>
-    <ul>
-      <li>
-        <!-- cnzz统计 -->
-        
-        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
-        
-      </li>
-    </ul>
-  </div>
-</footer>    
-    </main>
-    <div class="float_btns">
-      <div class="totop" id="totop">
-  <i class="ri-arrow-up-line"></i>
-</div>
-
-<div class="todark" id="todark">
-  <i class="ri-moon-line"></i>
-</div>
-
-    </div>
-    <aside class="sidebar on">
-      <button class="navbar-toggle"></button>
-<nav class="navbar">
-  
-  <div class="logo">
-    <a href="/"><img src="/images/touxiang.png" alt="Regen"></a>
-  </div>
-  
-  <ul class="nav nav-main">
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/">主页</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/archives">归档</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E7%AC%94%E8%AE%B0">笔记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E8%AF%BB%E4%B9%A6">读书</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C">摄影</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0">随手记</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="/tags/about">关于我</a>
-    </li>
-    
-  </ul>
-</nav>
-<nav class="navbar navbar-bottom">
-  <ul class="nav">
-    <li class="nav-item">
-      
-      <a class="nav-item-link nav-item-search"  title="Search">
-        <i class="ri-search-line"></i>
-      </a>
-      
-      
-    </li>
-  </ul>
-</nav>
-<div class="search-form-wrap">
-  <div class="local-search local-search-plugin">
-  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
-  <div id="local-search-result" class="local-search-result"></div>
-</div>
-</div>
-    </aside>
-    <div id="mask"></div>
-
-<!-- #reward -->
-<div id="reward">
-  <span class="close"><i class="ri-close-line"></i></span>
-  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
-  <div class="reward-box">
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenalipay.jpg">
-      <span class="reward-type">支付宝</span>
-    </div>
-    
-    
-    <div class="reward-item">
-      <img class="reward-img" src="/images/regenwechat.jpg">
-      <span class="reward-type">微信</span>
-    </div>
-    
-  </div>
-</div>
-    
-<script src="/js/jquery-3.6.0.min.js"></script>
- 
-<script src="/js/lazyload.min.js"></script>
-
-<!-- Tocbot -->
-
-<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
-/>
-<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
-
-<script src="/dist/main.js"></script>
-
-<!-- ImageViewer -->
- <!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-
-            <div class="pswp__top-bar">
-
-                <!--  Controls are self-explanatory. Order can be changed. -->
-
-                <div class="pswp__counter"></div>
-
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-
-                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
-
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                        <div class="pswp__preloader__cut">
-                            <div class="pswp__preloader__donut"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div>
-            </div>
-
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
-<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
-
-<script>
-    function viewer_init() {
-        let pswpElement = document.querySelectorAll('.pswp')[0];
-        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
-
-        $imgArr.forEach(($em, i) => {
-            $em.onclick = () => {
-                // slider展开状态
-                // todo: 这样不好，后面改成状态
-                if (document.querySelector('.left-col.show')) return
-                let items = []
-                $imgArr.forEach(($em2, i2) => {
-                    let img = $em2.getAttribute('data-idx', i2)
-                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
-                    let title = $em2.getAttribute('alt')
-                    // 获得原图尺寸
-                    const image = new Image()
-                    image.src = src
-                    items.push({
-                        src: src,
-                        w: image.width || $em2.width,
-                        h: image.height || $em2.height,
-                        title: title
-                    })
-                })
-                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
-                    index: parseInt(i)
-                });
-                gallery.init()
-            }
-        })
-    }
-    viewer_init()
-</script> 
-<!-- MathJax -->
- <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-      tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-  });
-
-  MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for(i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
-</script>
-
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/MathJax.js"></script>
-<script src="https://cdn.staticfile.org/mathjax/2.7.7/config/TeX-AMS-MML_HTMLorMML-full.js"></script>
-<script>
-  var ayerConfig = {
-    mathjax: true,
-  };
-</script>
-
-<!-- Katex -->
-
-<!-- busuanzi  -->
- 
-<script src="/js/busuanzi-2.3.pure.min.js"></script>
- 
-<!-- ClickLove -->
- 
-<script src="/js/clickLove.js"></script>
- 
-<!-- ClickBoom1 -->
-
-<!-- ClickBoom2 -->
-
-<!-- CodeCopy -->
- 
-<link rel="stylesheet" href="/css/clipboard.css">
- <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
-<script>
-  function wait(callback, seconds) {
-    var timelag = null;
-    timelag = window.setTimeout(callback, seconds);
-  }
-  !function (e, t, a) {
-    var initCopyCode = function(){
-      var copyHtml = '';
-      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
-      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
-      copyHtml += '</button>';
-      $(".highlight .code pre").before(copyHtml);
-      $(".article pre code").before(copyHtml);
-      var clipboard = new ClipboardJS('.btn-copy', {
-        target: function(trigger) {
-          return trigger.nextElementSibling;
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
         }
-      });
-      clipboard.on('success', function(e) {
-        let $btn = $(e.trigger);
-        $btn.addClass('copied');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-checkbox-circle-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPIED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-checkbox-circle-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-      clipboard.on('error', function(e) {
-        e.clearSelection();
-        let $btn = $(e.trigger);
-        $btn.addClass('copy-failed');
-        let $icon = $($btn.find('i'));
-        $icon.removeClass('ri-file-copy-2-line');
-        $icon.addClass('ri-time-line');
-        let $span = $($btn.find('span'));
-        $span[0].innerText = 'COPY FAILED';
-        
-        wait(function () { // 等待两秒钟后恢复
-          $icon.removeClass('ri-time-line');
-          $icon.addClass('ri-file-copy-2-line');
-          $span[0].innerText = 'COPY';
-        }, 2000);
-      });
-    }
-    initCopyCode();
-  }(window, document);
-</script>
- 
-<!-- CanvasBackground -->
- 
-<script src="/js/dz.js"></script>
- 
-<script>
-  if (window.mermaid) {
-    mermaid.initialize({ theme: "forest" });
-  }
-</script>
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">​	最近在学画PCB的时候突发奇想，想利用M.2接口的易插拔特性来画一片51最小系统板，同时还引出了大部分引脚，外形类似于Arduino。第一版有点丑。
 
 
-    
-    <div id="music">
-    
-    
-    
-    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
-        src="//music.163.com/outchain/player?type=2&id=536623501&auto=0&height=32"></iframe>
-</div>
 
-<style>
-    #music {
-        position: fixed;
-        right: 15px;
-        bottom: 0;
-        z-index: 998;
-    }
-</style>
-    
-    
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">​	比起繁华的钢铁丛林，我还是性本爱丘山。在塘下公路骑行是一种很奇妙的体验，就好步入桃花源记，在一群群高楼大厦中站立的两排密集的大树，让长久受到屏幕自己的眼镜也得到了放松。
 
-  </div>
-</body>
 
-</html>
+
+
+​	自从知道了塘下公路以后，我再没去过别的地方骑行。每次骑行都很兴奋，有时感觉回到了家乡，有时感觉在国外一般。真的很喜欢这条路两边的树。恰到好处的遮了大半边天空，只留下一条光路延伸到远方。
+
+
+​	在路边发现了一只孤独的椅子，白色的墙与周围有稍许违和感，有一种很清新的感觉，同时还有一种苔痕上阶绿，草色入帘青的感觉。
+
+
+这应该就是治愈内耗的良药了吧。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">平江路苏州-＞平江路。     初见时是辰时，庆幸自己通宵到五点后直奔平江路。若是晚一两个时辰则是截然不同的人山人海。     此时摇船还未开始 河面平静,水波不兴.阳光刚开始洒入这条小街.江南古街的倒影跃然水面，沿着主街直走,我的眼光全在黑白灰的建筑与绿色的树木和蓝色的天空和水面之间游走.这时的平江路尚未被外人所打搅,几对老翁坐在河旁的藤椅上,借着尚不刺眼的阳光看报,一切都显得与背景和谐。     一个时辰不到这条小街就变得喧闹与繁忙.越来越多的女性穿着汉服，涌入这条小巷,或摆拍撒骄,或漫步于河边桥头.刚开始紧闭大门的店铺也逐渐开张,宁静典雅的小巷也就逐渐消失。     我庆幸自己看到了平江路的本原面貌,也看到了她浓妆粉饰后的面貌.但我总觉得少了些东西,可能是恋人或朋友吧.下次带本散文书好了。
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/Linux-about-e-mail/" title="Linux about e-mail">Linux about e-mail</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T11:19:16.000Z" title="Created 2024-05-19 19:19:16">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">SPI协议基本介绍点击跳转
+​	SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（SPI不支持多主机），主模块选择一个从模块进行同步通信，从而完成数据的交换。提供时钟的为主设备（Master），接收时钟的设备为从设备（Slave），SPI接口的读写操作，都是由主设备发起，当存在多个从设备时，通过各自的片选信号进行管理。
+引脚定义
+MISO（ Master Input Slave Output）：主设备数据输入，从设备数据输出；
+MOSI（Master Output Slave Input）：主设备数据输出，从设备数据输入；
+SCLK（Serial Clock）：时钟信号，由主设备产生；
+CS&#x2F;SS（Chip Select&#x2F;Slave Select）：从设备使能信号，由主设备控制，一主多从时，CS&#x2F;SS是从芯片是否被主芯片选中的控制信号，只有片选信号为预先规定的使能信号时（高电位或低电位），主芯片对此从芯片的操作才有效。
+
+通信原理SPI主设备和从设备都有一个串行移位寄存器，一次传输为8位。
+通信流程
+主设备发起信号，将CS&#x2F;SS拉低 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/MPU6050-basic-based-on-arduino/" title="MPU6050 basic (based on arduino)">MPU6050 basic (based on arduino)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T11:15:49.000Z" title="Created 2024-05-19 19:15:49">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MPU6050简介The MPU-6050 is the world’s first and only 6-axis motion tracking devices designed for the low power, low cost, and high performance requirements of smartphones, tablets and wearable sensors.
+应用领域
+BlurFree™ technology (for Video&#x2F;Still Image Stabilization)
+AirSign™ technology (for Security&#x2F;Authentication)
+TouchAnywhere™ technology (for “no touch” UI Application Control&#x2F;Navigation) 
+MotionCommand™ technology (for Gesture Short-cuts) 
+Motion-enabled game and application fram ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/" title="一行代码搭建私有云（基于docker NextCloud）">一行代码搭建私有云（基于docker NextCloud）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:43:31.000Z" title="Created 2024-05-15 14:43:31">2024-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">一行代码搭建私有云（基于docker NextCloud）简介​	老早以前就很想有一朵属于自己的云了，机缘巧合发现了NextCloud	这个项目，使用Docker一键部署简直不要太简单！    
+​	项目地址：	NextCloud repo on github​	搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。​	开源不易，感谢大佬
+一行代码1docker run -d -p 8080:80 nextcloud
+
+然后直接IP:8080就访问到了
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" title="0.96OLED玩法">0.96OLED玩法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-14T11:08:23.000Z" title="Created 2024-05-14 19:08:23">2024-05-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">基于0.96寸OLED，主控ssd1306
+显示原理基于数据手册
+硬件特性每个像素点独立控制，通过写入现存的二进制数据进行每个像素的熄灭和点亮
+
+像素
+  128*64
+
+
+名词定义123456789# 0.96 OLED&#x27;&#x27;&#x27;|********************************||********************************||********************************||********************************||********************************|&#x27;&#x27;&#x27;# 模拟图
+
+
+SEG
+
+相当于一列：一列64个像素
+
+COLOMN
+
+相当于一行：一行128个像素
+
+COMMON
+
+相当于一行：一行128个像素
+
+PAGE
+
+相当于8行：128*8个像素
+显示方式（ssd1306）
+There are 3 different memory addressing mode in SSD1306: page addressing ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C/C++大型项目编程注意事项">C/C++大型项目编程注意事项</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-13T06:43:31.000Z" title="Created 2024-05-13 14:43:31">2024-05-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">C&#x2F;C++大型项目编程规范
+​	最近在参与（或者说使用）某些项目的代码时，感觉其代码之简洁精炼，语言习惯之规范，外观之整洁，可读性之高令人赏心悦目。
+​	在其基础上进行增删改查后总是觉得自己的代码不够优雅，就好像一篇书法作品中掺杂几行我写的字。
+​	于是打算学习C&#x2F;C++项目编程规范，不求优雅，只求规整可读，结构合理。
+​	基于华为C语言编程规范 在线wiki文档
+代码总体原则1、清晰第一代码的可阅读性高于性能，只有确定性能是瓶颈时，才应该主动优化
+
+优秀的代码可以自我解释（以我的水平可能做到比较难）
+
+常写注释，并且注释写的清晰
+
+
+2、简洁为美写的代码越多，意味着出错的地方越多，也就意味着代码的可靠性越低。
+术语
+原则：编程时必须坚持的指导思想。
+规则：编程时强制必须遵守的约定。
+建议：编程时必须加以考虑的约定。
+说明：对此原则&#x2F;规则&#x2F;建议进行必要的解释。
+示例：对此原则&#x2F;规则&#x2F;建议从正、反两个方面给出例子。
+延伸阅读材料：建议进一步阅读的参考材料。
+
+头文件原则不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/09/STM32-Menu-frameV1-0/" title="STM32_Menu_frameV1.0">STM32_Menu_frameV1.0</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-09T13:39:07.000Z" title="Created 2024-05-09 21:39:07">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">Record project  STM32_Menu_frame
+[STM32_Menu_frame](to be added)
+Requirement AnalysisVersion 1
+实现单级菜单
+按键选择
+SPI或IIC的oled屏显示
+
+Version 2based on Version 1
+
+多级菜单
+UI美化
+
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">81</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/Linux-about-e-mail/" title="Linux about e-mail">Linux about e-mail</a><time datetime="2024-05-19T11:19:16.000Z" title="Created 2024-05-19 19:19:16">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">8</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">19</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">10</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">26</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/%E6%9C%80%E5%B0%8F%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">最小系统</a> <a href="/tags/OLED/" style="font-size: 1.34em; color: #99a3b0">OLED</a> <a href="/tags/about/" style="font-size: 1.18em; color: #999ca1">about</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/C-C/" style="font-size: 1.1em; color: #999">C/C++</a> <a href="/tags/md/" style="font-size: 1.18em; color: #999ca1">md</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/DC-DC/" style="font-size: 1.1em; color: #999">DC-DC</a> <a href="/tags/GUI/" style="font-size: 1.18em; color: #999ca1">GUI</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.34em; color: #99a3b0">旅行</a> <a href="/tags/linux/" style="font-size: 1.42em; color: #99a6b7">linux</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/photo/" style="font-size: 1.26em; color: #999fa8">photo</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">数据库原理</a> <a href="/tags/USB/" style="font-size: 1.1em; color: #999">USB</a> <a href="/tags/IoT/" style="font-size: 1.26em; color: #999fa8">IoT</a> <a href="/tags/vim/" style="font-size: 1.1em; color: #999">vim</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/%E9%9A%8F%E6%89%8B%E8%AE%B0/" style="font-size: 1.5em; color: #99a9bf">随手记</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.18em; color: #999ca1">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.18em; color: #999ca1">电子元件</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/email/" style="font-size: 1.1em; color: #999">email</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/spi/" style="font-size: 1.1em; color: #999">spi</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/%E9%A1%B9%E7%9B%AE/" style="font-size: 1.34em; color: #99a3b0">项目</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">12</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">February 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/01/"><span class="card-archive-list-date">January 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">December 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">November 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">8</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">67</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-02T08:16:42.261Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
