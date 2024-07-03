@@ -1,0 +1,413 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>SpringBoot+vue+mysql项目实训 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="常见的项目类型以及优缺点和应用范围 Spring Boot + Vue + MySQL 优点 强大的后端支持： Spring Boot 提供了成熟的后端框架和丰富的生态系统，包括依赖注入、数据访问、事务管理等功能，适合构建复杂的企业级应用。   灵活的前端开发： Vue 是一个轻量级的前端框架，易于学习和上手，具有响应式数据绑定和组件化开发的优势，适合构建动态且高效的用户界面。   可靠的数据库：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot+vue+mysql项目实训">
+<meta property="og:url" content="http://example.com/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="常见的项目类型以及优缺点和应用范围 Spring Boot + Vue + MySQL 优点 强大的后端支持： Spring Boot 提供了成熟的后端框架和丰富的生态系统，包括依赖注入、数据访问、事务管理等功能，适合构建复杂的企业级应用。   灵活的前端开发： Vue 是一个轻量级的前端框架，易于学习和上手，具有响应式数据绑定和组件化开发的优势，适合构建动态且高效的用户界面。   可靠的数据库：">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.png">
+<meta property="article:published_time" content="2024-07-03T01:57:04.000Z">
+<meta property="article:modified_time" content="2024-07-03T03:13:05.179Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="mysql">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="spring">
+<meta property="article:tag" content="springboot">
+<meta property="article:tag" content="vue">
+<meta property="article:tag" content="前端">
+<meta property="article:tag" content="后端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.png"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'SpringBoot+vue+mysql项目实训',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-07-03 11:13:05'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringBoot+vue+mysql项目实训</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-07-03T01:57:04.000Z" title="Created 2024-07-03 09:57:04">2024-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-03T03:13:05.179Z" title="Updated 2024-07-03 11:13:05">2024-07-03</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="SpringBoot+vue+mysql项目实训"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="常见的项目类型以及优缺点和应用范围"><a href="#常见的项目类型以及优缺点和应用范围" class="headerlink" title="常见的项目类型以及优缺点和应用范围"></a>常见的项目类型以及优缺点和应用范围</h2><ol>
+<li><p><strong>Spring Boot + Vue + MySQL</strong></p>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li><strong>强大的后端支持</strong>：<ul>
+<li><strong>Spring Boot</strong> 提供了成熟的后端框架和丰富的生态系统，包括依赖注入、数据访问、事务管理等功能，适合构建复杂的企业级应用。</li>
+</ul>
+</li>
+<li><strong>灵活的前端开发</strong>：<ul>
+<li><strong>Vue</strong> 是一个轻量级的前端框架，易于学习和上手，具有响应式数据绑定和组件化开发的优势，适合构建动态且高效的用户界面。</li>
+</ul>
+</li>
+<li><strong>可靠的数据库</strong>：<ul>
+<li><strong>MySQL</strong> 是一个广泛使用的开源关系型数据库管理系统，具有稳定性高、性能优越、支持大规模并发访问等特点，适合各种规模的应用。</li>
+</ul>
+</li>
+<li><strong>全栈开发一体化</strong>：<ul>
+<li>Spring Boot + Vue 的组合使得开发人员可以使用相似的语言和工具栈进行全栈开发，提高了开发效率和团队协作。</li>
+</ul>
+</li>
+<li><strong>社区支持和文档丰富</strong>：<ul>
+<li>Spring Boot 和 Vue 都拥有庞大的社区和丰富的文档资源，开发过程中能够快速获取到解决方案和技术支持。</li>
+</ul>
+</li>
+</ol>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ol>
+<li><strong>复杂的配置和学习曲线</strong>：<ul>
+<li>Spring Boot 的配置和依赖管理相对复杂，需要一定的学习成本和经验来优化和调整项目。</li>
+<li>Vue 虽然易于上手，但在复杂的单页应用中，需要深入理解其组件通信和状态管理等高级特性。</li>
+</ul>
+</li>
+<li><strong>前后端分离的管理挑战</strong>：<ul>
+<li>前后端分离架构需要额外的工作来管理跨团队和跨技术栈的协作，需要定义清晰的接口和数据传输方案。</li>
+</ul>
+</li>
+<li><strong>数据库扩展性限制</strong>：<ul>
+<li>虽然 MySQL 适合大多数应用场景，但在需要处理非结构化数据或需要高度扩展性的大规模应用中，可能需要考虑其他数据库解决方案。</li>
+</ul>
+</li>
+</ol>
+<h4 id="应用范围"><a href="#应用范围" class="headerlink" title="应用范围"></a>应用范围</h4><ul>
+<li><strong>企业级应用</strong>：适用于需要高性能、高可扩展性和稳定性的企业级应用开发，如ERP系统、电子商务平台等。</li>
+<li><strong>信息管理系统</strong>：能够处理大量结构化数据的信息管理系统，如客户关系管理（CRM）、人力资源管理（HRM）等。</li>
+<li><strong>数据驱动型应用</strong>：适用于需要大量数据处理和复杂查询的应用，如数据分析平台、报表生成系统等。</li>
+<li><strong>中小型项目</strong>：对于中小型项目来说，Spring Boot + Vue 提供了良好的开发体验和成本效益，能够快速构建并部署应用。</li>
+</ul>
+</li>
+<li><p>Spring Boot + Angular + PostgreSQL</p>
+<h4 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><strong>强大的后端框架</strong>：Spring Boot 提供了成熟且强大的企业级开发支持，尤其适用于大型项目。</li>
+<li><strong>全面的前端框架</strong>：Angular 提供了完整的解决方案，适合构建复杂的单页应用，具有双向数据绑定和依赖注入等特性。</li>
+<li><strong>强大的数据库</strong>：PostgreSQL 是一个功能强大的开源关系型数据库，支持复杂的查询和大数据处理。</li>
+</ul>
+<h4 id="缺点-1"><a href="#缺点-1" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>学习曲线</strong>：Angular 相比其他前端框架更为复杂，学习和掌握需要较长时间。</li>
+<li><strong>配置复杂</strong>：Spring Boot 和 PostgreSQL 的配置和优化需要一定的经验和技术。</li>
+</ul>
+<h4 id="应用范围-1"><a href="#应用范围-1" class="headerlink" title="应用范围"></a>应用范围</h4><ul>
+<li>适用于需要高性能和高可扩展性的企业级应用。</li>
+<li>适用于需要复杂业务逻辑和数据处理的后台系统。</li>
+<li>适用于需要构建复杂单页应用（SPA）的项目。</li>
+</ul>
+</li>
+<li><p>Node.js + React + MongoDB</p>
+<h4 id="优点-2"><a href="#优点-2" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><strong>高性能的后端</strong>：Node.js 基于事件驱动和非阻塞I&#x2F;O模型，适合高并发和实时应用。</li>
+<li><strong>灵活的前端框架</strong>：React 具有组件化开发模式和虚拟DOM，适合构建复杂和高性能的用户界面。</li>
+<li><strong>灵活的数据库</strong>：MongoDB 是一种NoSQL数据库，适合处理大规模数据和快速开发。</li>
+</ul>
+<h4 id="缺点-2"><a href="#缺点-2" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>回调地狱</strong>：Node.js 的异步编程模型可能导致“回调地狱”，需要使用Promise或async&#x2F;await进行优化。</li>
+<li><strong>数据一致性问题</strong>：MongoDB 在某些情况下可能会遇到数据一致性问题，需要注意数据的管理和维护。</li>
+</ul>
+<h4 id="应用范围-2"><a href="#应用范围-2" class="headerlink" title="应用范围"></a>应用范围</h4><ul>
+<li>适用于需要高并发和实时性要求的应用，如聊天系统和实时通知。</li>
+<li>适用于需要快速迭代和开发的Web应用和移动应用后端。</li>
+<li>适用于处理大规模数据和非结构化数据的应用。</li>
+</ul>
+</li>
+<li><p>Django + Angular + PostgreSQL</p>
+<h4 id="优点-3"><a href="#优点-3" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><strong>成熟的后端框架</strong>：Django 提供了快速开发和高效管理的优势，内置了管理后台、ORM等功能，适合快速构建Web应用。</li>
+<li><strong>全面的前端框架</strong>：Angular 提供了完整的解决方案，适合构建复杂的单页应用，具有双向数据绑定和依赖注入等特性。</li>
+<li><strong>强大的数据库</strong>：PostgreSQL 是一个功能强大的开源关系型数据库，支持复杂的查询和大数据处理。</li>
+</ul>
+<h4 id="缺点-3"><a href="#缺点-3" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>学习曲线</strong>：Angular 相比其他前端框架更为复杂，学习和掌握需要较长时间。</li>
+<li><strong>配置复杂</strong>：Django 的配置和优化需要一定的经验和技术。</li>
+</ul>
+<h4 id="应用范围-3"><a href="#应用范围-3" class="headerlink" title="应用范围"></a>应用范围</h4><ul>
+<li>适用于需要快速开发和部署的Web应用。</li>
+<li>适用于需要复杂业务逻辑和数据处理的后台系统。</li>
+<li>适用于需要构建复杂单页应用（SPA）的项目。</li>
+</ul>
+</li>
+<li><p>Flask + Vue + SQLite</p>
+<h4 id="优点-4"><a href="#优点-4" class="headerlink" title="优点"></a>优点</h4><ul>
+<li><strong>轻量级后端框架</strong>：Flask 是一个轻量级的Web框架，灵活且易于上手，适合小型项目和原型开发。</li>
+<li><strong>灵活的前端框架</strong>：Vue.js 易于上手，具有灵活的组件化开发模式，适合快速开发和构建响应式用户界面。</li>
+<li><strong>轻量级数据库</strong>：SQLite 是一个嵌入式数据库，适合小型应用和测试环境。</li>
+</ul>
+<h4 id="缺点-4"><a href="#缺点-4" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li><strong>功能有限</strong>：Flask 相比Django等框架功能较少，适合简单和中小型项目。</li>
+<li><strong>数据库限制</strong>：SQLite 不适合大规模和高并发的应用，性能和功能相对有限。</li>
+</ul>
+<h4 id="应用范围-4"><a href="#应用范围-4" class="headerlink" title="应用范围"></a>应用范围</h4><ul>
+<li>适用于小型Web应用和原型开发。</li>
+<li>适用于需要快速迭代和开发的项目。</li>
+<li>适用于资源有限的应用和测试环境。</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<h3 id="1-Angular"><a href="#1-Angular" class="headerlink" title="1. Angular"></a>1. Angular</h3><p><strong>Angular</strong> 是由Google开发和维护的一款前端框架，用于构建单页应用（SPA）和动态Web应用。它采用了TypeScript语言进行开发，提供了强大的组件化架构、数据绑定、依赖注入等功能，帮助开发人员更高效地构建复杂的用户界面和交互逻辑。</p>
+<h3 id="2-PostgreSQL"><a href="#2-PostgreSQL" class="headerlink" title="2. PostgreSQL"></a>2. PostgreSQL</h3><p><strong>PostgreSQL</strong> 是一个强大的开源关系型数据库管理系统（RDBMS），具有高度的可扩展性、可靠性和丰富的功能集。它支持复杂的SQL查询、事务处理、触发器、视图等数据库特性，适合于处理大规模数据和复杂的数据操作。</p>
+<h3 id="3-Node-js"><a href="#3-Node-js" class="headerlink" title="3. Node.js"></a>3. Node.js</h3><p><strong>Node.js</strong> 是一个基于Chrome V8引擎的JavaScript运行时环境，用于构建快速、可扩展的网络应用。Node.js采用事件驱动、非阻塞I&#x2F;O模型，适合于处理大量并发请求和实时应用，如Web服务器、API服务器等。</p>
+<h3 id="4-React"><a href="#4-React" class="headerlink" title="4. React"></a>4. React</h3><p><strong>React</strong> 是由Facebook开发和维护的一款用于构建用户界面的JavaScript库。它采用组件化开发模式和虚拟DOM技术，使得开发人员能够高效地构建复杂的用户界面，实现数据与视图的高效同步更新。</p>
+<h3 id="5-MongoDB"><a href="#5-MongoDB" class="headerlink" title="5. MongoDB"></a>5. MongoDB</h3><p><strong>MongoDB</strong> 是一个基于分布式文件存储的开源NoSQL数据库，采用文档存储方式，适合处理非结构化和大数据量的数据。它具有高性能、高可用性和易扩展等特点，常用于Web应用和大数据处理中。</p>
+<h3 id="6-Flask"><a href="#6-Flask" class="headerlink" title="6. Flask"></a>6. Flask</h3><p><strong>Flask</strong> 是一个轻量级的Python Web框架，设计简单且易于扩展，适合快速开发原型和小型Web应用。Flask提供了基本的路由、模板引擎和WSGI支持，同时允许开发者根据需求选择扩展和库，以便构建特定需求的应用。</p>
+<h3 id="7-Django"><a href="#7-Django" class="headerlink" title="7. Django"></a>7. Django</h3><p><strong>Django</strong> 是一个由Python编写的开源Web应用框架，设计用于快速开发和复杂的Web应用。Django提供了完整的开发工具集，包括ORM、管理界面、表单处理、认证系统等，使得开发人员能够快速构建安全、可维护的Web应用。</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><strong>Angular</strong> 和 <strong>React</strong> 适合构建复杂的单页应用和动态用户界面，具有较高的交互性和可扩展性。</li>
+<li><strong>PostgreSQL</strong> 和 <strong>MongoDB</strong> 分别适合处理关系型和非关系型数据存储，根据数据模型和应用需求选择合适的数据库系统。</li>
+<li><strong>Node.js</strong> 和 <strong>Django</strong> &#x2F; <strong>Flask</strong> 可以用于构建服务器端应用，提供API服务或渲染动态内容，具有不同的开发风格和适用场景。</li>
+</ul>
+</blockquote>
+<h2 id="快速搭建项目的选择"><a href="#快速搭建项目的选择" class="headerlink" title="快速搭建项目的选择"></a>快速搭建项目的选择</h2><p>​	对Java和Spring技术栈比较熟悉，并且项目需要稳定性和扩展性，Spring Boot + Vue + MySQL 是一个很好的选择。如果项目需求相对简单且对响应速度要求较高，Flask + Vue + SQLite 可能更适合快速完成项目。</p>
+<h1 id="SpringBoot-后端部分"><a href="#SpringBoot-后端部分" class="headerlink" title="SpringBoot( 后端部分 )"></a>SpringBoot( 后端部分 )</h1><h2 id="框架介绍"><a href="#框架介绍" class="headerlink" title="框架介绍"></a>框架介绍</h2><p><code>src/main/java/com/example/project/Application.java</code>：Spring Boot 启动类。</p>
+<p><code>src/main/java/com/example/project/controller</code>：控制器层，处理 HTTP 请求。</p>
+<p>​	是一个用于处理用户请求并返回响应的关键组件。</p>
+<blockquote>
+<p><strong>处理HTTP请求</strong>：</p>
+<ul>
+<li>控制器负责接收来自客户端的HTTP请求，通过映射的URL路径（如<code>/home</code>）或者其他标识符来确定具体要调用的处理方法。</li>
+</ul>
+<p><strong>处理业务逻辑</strong>：</p>
+<ul>
+<li>控制器包含了应用程序的业务逻辑，它可以调用Service层或者其他组件来完成数据处理、业务计算等操作。</li>
+</ul>
+<p><strong>返回响应</strong>：</p>
+<ul>
+<li>一旦业务逻辑处理完成，控制器负责将结果打包成响应对象（如JSON数据、HTML页面等）并返回给客户端。</li>
+</ul>
+</blockquote>
+<p><code>src/main/java/com/example/project/service</code>：服务层，包含业务逻辑。</p>
+<p>用于实现业务逻辑的组件，它通常位于应用的服务层，负责处理业务逻辑、数据处理和协调不同的数据访问对象（DAO）来完成特定的业务需求。</p>
+<blockquote>
+<p><strong>实现业务逻辑</strong>：</p>
+<ul>
+<li>Service层负责实现应用程序的业务逻辑，例如计算、数据处理、数据校验等。它包含了应用程序的核心功能，与具体的数据存取逻辑（如数据库操作）分离。</li>
+</ul>
+<p><strong>事务管理</strong>：</p>
+<ul>
+<li>Service层通常是事务的边界，负责管理事务的开始和结束。在Spring中，可以通过注解（如 <code>@Transactional</code>）来声明事务边界，确保业务方法执行的一致性和完整性。</li>
+</ul>
+<p><strong>协调DAO</strong>：</p>
+<ul>
+<li>Service层通常会调用一个或多个DAO（数据访问对象）来访问数据存储（如数据库）。它负责协调多个DAO的操作，将数据访问的细节隐藏在业务逻辑之后。</li>
+</ul>
+<p><strong>业务逻辑的组织</strong>：</p>
+<ul>
+<li>Service层帮助组织应用程序的业务逻辑，使得控制器（Controller）层可以专注于处理用户请求和响应，而不必处理复杂的业务逻辑。</li>
+</ul>
+<p><strong>解耦和重用</strong>：</p>
+<ul>
+<li>将业务逻辑封装在Service层中有助于解耦，使得不同的模块可以独立开发和测试。Service层中的方法也可以被多个控制器复用，提高了代码的重用性。</li>
+</ul>
+</blockquote>
+<p><code>src/main/java/com/example/project/dao</code>：数据访问层，包含与数据库交互的代码。</p>
+<p>在传统的Java EE 或者 Spring 中，通常将数据访问层（DAO，Data Access Object）的实现与配置与数据库交互的语句分开。在这种情况下，DAO 层的实现可能是直接使用 SQL 语句（通常存储在 XML 文件中）与数据库进行交互。在 MyBatis 框架中，这些 SQL 语句存储在 XML 文件中，并且可以使用一组规则来映射 Java 对象和数据库记录</p>
+<p><code>src/main/java/com/example/project/entity</code>：数据模型，包含实体类。</p>
+<p>指代表应用程序中的数据模型或持久化数据的类</p>
+<blockquote>
+<p><strong>数据模型定义</strong>：</p>
+<ul>
+<li>Entity 在应用程序中用于定义数据模型的结构。它们通常反映了数据库中表的结构，包括表的字段、关联关系等。</li>
+</ul>
+<p><strong>持久化</strong>：</p>
+<ul>
+<li>Entity 对象与数据库中的表（或文档、集合等）进行映射，使得应用程序能够方便地读取和存储数据。通过持久化操作，Entity 可以保存到数据库中，并能够从数据库中检索数据。</li>
+</ul>
+<p><strong>使用注解标识</strong>：</p>
+<ul>
+<li>在Spring中，可以使用注解（如 <code>@Entity</code>、<code>@Table</code>、<code>@Id</code>、<code>@Column</code> 等）来标识一个类为Entity，并指定与之关联的数据库表、主键等信息。</li>
+</ul>
+<p><strong>ORM框架支持</strong>：</p>
+<ul>
+<li>Spring框架通常与ORM（对象关系映射）框架（如 Hibernate、Spring Data JPA 等）集成使用。ORM框架负责将Entity对象与数据库记录进行映射，简化了数据访问和操作的过程。</li>
+</ul>
+<p><strong>业务逻辑的基础</strong>：</p>
+<ul>
+<li>Entity对象作为应用程序中的基本数据单位，它们通常与业务逻辑紧密相关。通过操作Entity对象，可以实现应用程序的各种业务逻辑需求。</li>
+</ul>
+</blockquote>
+<p><code>src/main/resources/application.properties</code>：配置文件，包含应用程序的配置项。</p>
+<p>例如：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.application.name</span>=<span class="string">his</span></span><br><span class="line"><span class="attr">server.servlet.contextPath</span>=<span class="string">/his</span></span><br><span class="line"><span class="attr">server.port</span>=<span class="string">8082</span></span><br><span class="line"></span><br><span class="line"><span class="attr">spring.datasource.driverClassName</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://192.168.98.130:3306/his?serverTimezone=GMT%2B8&amp;useSSL=false&amp;allowPublicKeyRetrieval=true</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">123456</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis.typeAliasesPackage</span>=<span class="string">com.sample.his.entity</span></span><br><span class="line"><span class="attr">mybatis.mapperLocations</span>=<span class="string">classpath:mapper/*.xml</span></span><br><span class="line"><span class="attr">mybatis.configuration.logImpl</span>=<span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging.level.com.sample.his</span>=<span class="string">debug</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#spring.resources.staticLocations=file:C:/temp/</span></span><br><span class="line"><span class="attr">spring.servlet.multipart.maxFileSize</span>=<span class="string">9MB</span></span><br><span class="line"><span class="attr">spring.servlet.multipart.maxRequestSize</span>=<span class="string">18MB</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h1 id="VUE（-前端部分-）"><a href="#VUE（-前端部分-）" class="headerlink" title="VUE（ 前端部分 ）"></a>VUE（ 前端部分 ）</h1><h2 id="框架介绍-1"><a href="#框架介绍-1" class="headerlink" title="框架介绍"></a>框架介绍</h2><h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><p><strong>渐进式</strong>：</p>
+<ul>
+<li>Vue.js 被称为渐进式框架，可以逐步应用到项目中。你可以只将 Vue.js 用作某个页面的一部分，也可以完整地构建整个单页面应用。</li>
+</ul>
+<p><strong>响应式数据绑定</strong>：</p>
+<ul>
+<li>Vue.js 提供了简单而强大的响应式数据绑定系统。通过使用指令（Directives）和双向数据绑定机制，可以使页面上的数据和DOM保持同步。</li>
+</ul>
+<p><strong>组件化开发</strong>：</p>
+<ul>
+<li>Vue.js 支持组件化开发，将页面划分为独立的、可复用的组件。每个组件都有自己的模板、逻辑和样式，可以相互嵌套和组合，使得代码更加模块化和可维护。</li>
+</ul>
+<p><strong>轻量和高效</strong>：</p>
+<ul>
+<li>Vue.js 的核心库很轻量，文件体积小，加载速度快。同时，它的性能优化也很好，对复杂页面和大型应用也能够提供良好的性能表现。</li>
+</ul>
+<p><strong>生态系统丰富</strong>：</p>
+<ul>
+<li>Vue.js 拥有一个活跃的生态系统，包括官方维护的路由器（Vue Router）、状态管理库（Vuex）、测试工具等，以及大量的第三方库和组件，能够满足各种复杂应用的需求。</li>
+</ul>
+<h3 id="文件树"><a href="#文件树" class="headerlink" title="文件树"></a>文件树</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">my-vue-app/</span><br><span class="line">├── <span class="keyword">public</span>/               <span class="meta"># 公共资源目录</span></span><br><span class="line">│   ├── index.html        <span class="meta"># 入口 HTML 文件</span></span><br><span class="line">│   └── ...</span><br><span class="line">├── src/                  <span class="meta"># 源代码目录</span></span><br><span class="line">│   ├── assets/           <span class="meta"># 静态资源文件夹（如图片、字体等）</span></span><br><span class="line">│   ├── components/       <span class="meta"># 组件文件夹</span></span><br><span class="line">│   │   ├── HelloWorld.vue    <span class="meta"># 示例组件</span></span><br><span class="line">│   │   └── ...</span><br><span class="line">│   ├── views/            <span class="meta"># 视图组件文件夹</span></span><br><span class="line">│   │   ├── Home.vue      <span class="meta"># 示例视图组件</span></span><br><span class="line">│   │   └── ...</span><br><span class="line">│   ├── App.vue           <span class="meta"># 根组件 所有组件的父级容器。</span></span><br><span class="line">│   └── main.js           <span class="meta"># 主入口文件</span></span><br><span class="line">├── node_modules/         <span class="meta"># npm依赖模块</span></span><br><span class="line">├── package.json          <span class="meta"># 项目配置文件</span></span><br><span class="line">└── ...</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="视图与组件"><a href="#视图与组件" class="headerlink" title="视图与组件"></a>视图与组件</h2><h3 id="视图（View）"><a href="#视图（View）" class="headerlink" title="视图（View）"></a>视图（View）</h3><p>视图是用户界面的一部分，通常指的是用户直接看到和交互的页面或页面的一部分。在Vue.js中，视图可以是一个单独的组件，也可以是多个组件的组合。</p>
+<ul>
+<li><p>特点</p>
+<p>  ：</p>
+<ul>
+<li>视图通常对应应用程序中的一个路由，例如在单页面应用（SPA）中，不同的视图对应不同的URL路径。</li>
+<li>视图可以包含多个组件，通过组合不同的组件来构建复杂的用户界面。</li>
+<li>视图负责组织和展示数据，响应用户的操作，并与用户交互。</li>
+</ul>
+</li>
+</ul>
+<h3 id="组件（Component）"><a href="#组件（Component）" class="headerlink" title="组件（Component）"></a>组件（Component）</h3><p>组件是Vue.js中可复用的、独立的UI单元，它封装了特定的功能和样式，并可以在应用中多次使用。</p>
+<ul>
+<li><p>特点</p>
+<p>  ：</p>
+<ul>
+<li>组件是Vue.js应用的基本构建块，它们可以包含自己的模板、脚本和样式，通常以 <code>.vue</code> 文件的形式组织。</li>
+<li>组件具有自己的状态和行为，可以接收数据作为输入，并且可以通过事件来与父组件或其他组件通信。</li>
+<li>组件之间可以相互嵌套和组合，形成复杂的界面结构，同时保持代码的模块化和可维护性。</li>
+</ul>
+</li>
+</ul>
+<p>在Vue.js应用中，通常一个视图对应一个或多个组件。视图负责页面的结构和布局，通过引入和组合多个组件来构建完整的页面。</p>
+<h1 id="VUE和后端的连接"><a href="#VUE和后端的连接" class="headerlink" title="VUE和后端的连接"></a>VUE和后端的连接</h1><h1 id="MySql-数据库部分"><a href="#MySql-数据库部分" class="headerlink" title="MySql( 数据库部分 )"></a>MySql( 数据库部分 )</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/">http://example.com/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/mysql/">mysql</a><a class="post-meta__tags" href="/tags/java/">java</a><a class="post-meta__tags" href="/tags/spring/">spring</a><a class="post-meta__tags" href="/tags/springboot/">springboot</a><a class="post-meta__tags" href="/tags/vue/">vue</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a><a class="post-meta__tags" href="/tags/%E5%90%8E%E7%AB%AF/">后端</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">M.2 STC89C52</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="java学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-16</div><div class="title">java学习笔记</div></div></a></div><div><a href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySql学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-31</div><div class="title">MySql学习笔记</div></div></a></div><div><a href="/2023/09/12/Regen-s-first-page/" title="Regen&#39;s first page"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-12</div><div class="title">Regen&#39;s first page</div></div></a></div><div><a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/" title="MD语法尝试插入图片到博客"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-16</div><div class="title">MD语法尝试插入图片到博客</div></div></a></div><div><a href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MD语法学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-16</div><div class="title">MD语法学习笔记</div></div></a></div><div><a href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vim 学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-09-16</div><div class="title">vim 学习笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">67</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">85</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E9%A1%B9%E7%9B%AE%E7%B1%BB%E5%9E%8B%E4%BB%A5%E5%8F%8A%E4%BC%98%E7%BC%BA%E7%82%B9%E5%92%8C%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-number">1.</span> <span class="toc-text">常见的项目类型以及优缺点和应用范围</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.0.2.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-number">1.0.3.</span> <span class="toc-text">应用范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">1.0.4.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-number">1.0.5.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4-1"><span class="toc-number">1.0.6.</span> <span class="toc-text">应用范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">1.0.7.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">1.0.8.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4-2"><span class="toc-number">1.0.9.</span> <span class="toc-text">应用范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-3"><span class="toc-number">1.0.10.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-3"><span class="toc-number">1.0.11.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4-3"><span class="toc-number">1.0.12.</span> <span class="toc-text">应用范围</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-4"><span class="toc-number">1.0.13.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-4"><span class="toc-number">1.0.14.</span> <span class="toc-text">缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E8%8C%83%E5%9B%B4-4"><span class="toc-number">1.0.15.</span> <span class="toc-text">应用范围</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Angular"><span class="toc-number">1.1.</span> <span class="toc-text">1. Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PostgreSQL"><span class="toc-number">1.2.</span> <span class="toc-text">2. PostgreSQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Node-js"><span class="toc-number">1.3.</span> <span class="toc-text">3. Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-React"><span class="toc-number">1.4.</span> <span class="toc-text">4. React</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-MongoDB"><span class="toc-number">1.5.</span> <span class="toc-text">5. MongoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Flask"><span class="toc-number">1.6.</span> <span class="toc-text">6. Flask</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Django"><span class="toc-number">1.7.</span> <span class="toc-text">7. Django</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.8.</span> <span class="toc-text">应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">快速搭建项目的选择</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot-%E5%90%8E%E7%AB%AF%E9%83%A8%E5%88%86"><span class="toc-number"></span> <span class="toc-text">SpringBoot( 后端部分 )</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.</span> <span class="toc-text">框架介绍</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VUE%EF%BC%88-%E5%89%8D%E7%AB%AF%E9%83%A8%E5%88%86-%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">VUE（ 前端部分 ）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E4%BB%8B%E7%BB%8D-1"><span class="toc-number">1.</span> <span class="toc-text">框架介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%A0%91"><span class="toc-number">1.2.</span> <span class="toc-text">文件树</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%E4%B8%8E%E7%BB%84%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">视图与组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%9B%BE%EF%BC%88View%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">视图（View）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%EF%BC%88Component%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">组件（Component）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VUE%E5%92%8C%E5%90%8E%E7%AB%AF%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number"></span> <span class="toc-text">VUE和后端的连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MySql-%E6%95%B0%E6%8D%AE%E5%BA%93%E9%83%A8%E5%88%86"><span class="toc-number"></span> <span class="toc-text">MySql( 数据库部分 )</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/" title="SpringBoot+vue+mysql项目实训">SpringBoot+vue+mysql项目实训</a><time datetime="2024-07-03T01:57:04.000Z" title="Created 2024-07-03 09:57:04">2024-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
