@@ -2223,6 +2223,32 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;add an application of git&quot;</span></span><br><span class="line">git status</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
+<h3 id="不同账号使用同一仓库"><a href="#不同账号使用同一仓库" class="headerlink" title="不同账号使用同一仓库"></a>不同账号使用同一仓库</h3><h4 id="场景一：参加开源项目-使用Fork"><a href="#场景一：参加开源项目-使用Fork" class="headerlink" title="场景一：参加开源项目( 使用Fork )"></a>场景一：参加开源项目( 使用Fork )</h4><p>​	当你想参与不属于你的开源项目时，通常使用Fork。你没有直接对原始仓库的写权限，但可以通过Fork和Pull Request来贡献代码。</p>
+<h5 id="使用流程："><a href="#使用流程：" class="headerlink" title="使用流程："></a>使用流程：</h5><ol>
+<li><strong>Fork仓库</strong>：将原始仓库复制到你自己的GitHub账户中。</li>
+<li><strong>克隆仓库</strong>：将Fork后的仓库克隆到本地进行开发。</li>
+<li><strong>开发和提交</strong>：在本地开发，提交代码到你Fork的仓库。</li>
+<li><strong>推送分支</strong>：将代码推送到你Fork的GitHub仓库。</li>
+<li><strong>Pull Request</strong>：创建Pull Request，请求将你的修改合并到原始仓库。</li>
+</ol>
+<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
+<li><strong>隔离开发</strong>：你的改动不会直接影响原始仓库，确保了独立开发的安全性。</li>
+<li><strong>贡献流程</strong>：通过Pull Request进行代码评审，确保代码质量和一致性。</li>
+</ul>
+<h4 id="场景二：团队开发项目-使用SSH密钥"><a href="#场景二：团队开发项目-使用SSH密钥" class="headerlink" title="场景二：团队开发项目 ( 使用SSH密钥 )"></a>场景二：团队开发项目 ( 使用SSH密钥 )</h4><p>​	<strong>私有项目</strong>：当你与团队成员协作开发私有项目时，使用SSH密钥来管理对远程仓库的访问权限。</p>
+<p>​	<strong>团队协作</strong>：在团队内部，每个成员都有对仓库的读写权限，可以直接推送代码到远程仓库。</p>
+<h5 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h5><ol>
+<li><strong>生成SSH密钥</strong>：每个团队成员生成SSH密钥。</li>
+<li><strong>添加SSH密钥</strong>：将生成的公钥添加到自己的GitHub账户中。</li>
+<li><strong>邀请协作者</strong>：仓库管理员邀请团队成员成为协作者，并分配适当的权限。</li>
+<li><strong>克隆仓库</strong>：团队成员使用SSH克隆仓库到本地进行开发。</li>
+<li><strong>开发和提交</strong>：在本地开发，提交代码。</li>
+<li><strong>推送分支</strong>：将代码直接推送到远程仓库。</li>
+</ol>
+<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
+<li><strong>直接协作</strong>：团队成员可以直接推送和拉取代码，适合高效的团队协作。</li>
+<li><strong>安全性</strong>：SSH密钥提供了安全的身份验证机制。</li>
+</ul>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -2551,42 +2577,6 @@
       </categories>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端学习笔记</title>
-    <url>/2023/12/22/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>​	</p>
-<p>CSS：Cascading Style Sheet 层叠样式表，是一组样式设置的规则，用于控制页面的外观样式。</p>
-<p>广泛用于页面外观美化，布局和定位。</p>
-</blockquote>
-<h2 id="CSS如何使用"><a href="#CSS如何使用" class="headerlink" title="CSS如何使用"></a>CSS如何使用</h2><ul>
-<li>嵌入HTML或者JSP</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-<span class="number">8</span>&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    <span class="selector-tag">p</span>&#123;</span><br><span class="line">      <span class="attribute">color</span>:blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>外部导入（常用，更加方便，便于复制黏贴 :D）</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/eg<span class="selector-class">.css</span>&quot;&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
-<li>选择器：要修饰的对象，例如HTML的各类标签</li>
-<li>属性名：属于修饰对象的属性</li>
-<li>属性值：修饰对象的属性的样式取值</li>
-</ul>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    选择器&#123;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -6732,6 +6722,16 @@
     <url>/2024/04/16/STM32-PROJECT-keyboard/</url>
     <content><![CDATA[<p>​	之前就有使用别烧好的MCU来进行键盘客制化，始终觉得不得劲。仅仅只是设计了键位PCB和外观，虽然也学到了点东西，但是我就是不爽啊。有一种核心技术自己没掌握的感觉。</p>
 <p>​	新坑_STM32_KEYBOARD 开始！</p>
+<p>​	二话不说就弃坑了一段时间。。。</p>
+<p>​	直接上手STM32有些难了点，先用了别人的方案试试先。基于<code> sayo monkey board</code>的键盘</p>
+<h1 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h1><p>基于网站[keyboard-layout-editor](<a href="http://www.keyboard-layout-editor.com/#/">Keyboard Layout Editor (keyboard-layout-editor.com)</a>)设计，同时使用<a href="http://builder.swillkb.com/">Plate &amp; Case Builder - swillkb</a>)导出DXF。</p>
+<p><img src="/../images/keyboard/layout.png" alt="layoyt"></p>
+<h1 id="PCB设计"><a href="#PCB设计" class="headerlink" title="PCB设计"></a>PCB设计</h1><p>​	其实很简单，就是模块套模块，画一下 板子的封装即可。</p>
+<p><img src="/../images/keyboard/schematic.png" alt="schematic"></p>
+<p><img src="/../images/keyboard/pcb_front.png" alt="pcb"></p>
+<p><img src="/../images/keyboard/pcb_bottom.png" alt="pcb"></p>
+<h1 id="外壳设计"><a href="#外壳设计" class="headerlink" title="外壳设计"></a>外壳设计</h1><p>​	只是简单的用亚克力打的，CAD还不是很会用。</p>
+<p><img src="/../images/keyboard/shield.png" alt="pcb"></p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
@@ -7432,19 +7432,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux about e-mail</title>
-    <url>/2024/05/19/Linux-about-e-mail/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>linux</tag>
-        <tag>email</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MPU6050 basic (based on arduino)</title>
     <url>/2024/05/19/MPU6050-basic-based-on-arduino/</url>
     <content><![CDATA[<h1 id="MPU6050简介"><a href="#MPU6050简介" class="headerlink" title="MPU6050简介"></a>MPU6050简介</h1><p>The MPU-6050 is the world’s first and only 6-axis motion tracking devices designed for the low power, low cost, and high performance requirements of smartphones, tablets and wearable sensors.</p>
@@ -7603,6 +7590,42 @@
         <tag>项目</tag>
         <tag>最小系统</tag>
         <tag>M.2接口</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css学习笔记</title>
+    <url>/2023/12/22/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>​	</p>
+<p>CSS：Cascading Style Sheet 层叠样式表，是一组样式设置的规则，用于控制页面的外观样式。</p>
+<p>广泛用于页面外观美化，布局和定位。</p>
+</blockquote>
+<h2 id="CSS如何使用"><a href="#CSS如何使用" class="headerlink" title="CSS如何使用"></a>CSS如何使用</h2><ul>
+<li>嵌入HTML或者JSP</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-<span class="number">8</span>&quot;&gt;</span><br><span class="line">  &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    <span class="selector-tag">p</span>&#123;</span><br><span class="line">      <span class="attribute">color</span>:blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>外部导入（常用，更加方便，便于复制黏贴 :D）</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/eg<span class="selector-class">.css</span>&quot;&gt; </span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><ul>
+<li>选择器：要修饰的对象，例如HTML的各类标签</li>
+<li>属性名：属于修饰对象的属性</li>
+<li>属性值：修饰对象的属性的样式取值</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;style&gt;</span><br><span class="line">    选择器&#123;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">      属性名：属性值;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>css</tag>
       </tags>
   </entry>
 </search>
