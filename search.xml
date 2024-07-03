@@ -7881,7 +7881,45 @@
 </li>
 </ul>
 <p>在Vue.js应用中，通常一个视图对应一个或多个组件。视图负责页面的结构和布局，通过引入和组合多个组件来构建完整的页面。</p>
-<h1 id="VUE和后端的连接"><a href="#VUE和后端的连接" class="headerlink" title="VUE和后端的连接"></a>VUE和后端的连接</h1><h1 id="MySql-数据库部分"><a href="#MySql-数据库部分" class="headerlink" title="MySql( 数据库部分 )"></a>MySql( 数据库部分 )</h1>]]></content>
+<h1 id="VUE和后端的连接"><a href="#VUE和后端的连接" class="headerlink" title="VUE和后端的连接"></a>VUE和后端的连接</h1><ol>
+<li><p><strong>HTTP请求</strong>：</p>
+<ul>
+<li>Vue.js通过内置的<code>axios</code>、<code>fetch</code>或者<code>Vue Resource</code>等HTTP库，向后端发送HTTP请求。这些请求可以是GET、POST、PUT或DELETE等，用来获取数据、提交表单或执行其他操作。</li>
+</ul>
+</li>
+<li><p><strong>异步数据获取</strong>：</p>
+<ul>
+<li>在Vue组件中，使用<code>axios</code>或其他HTTP库，发起异步请求获取数据。例如，在<code>mounted</code>生命周期钩子中发送请求，或者在点击事件中处理。</li>
+</ul>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">users</span>: []</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">        axios.<span class="title function_">get</span>(<span class="string">&#x27;/api/users&#x27;</span>)</span><br><span class="line">            .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">users</span> = response.<span class="property">data</span>;</span><br><span class="line">            &#125;)</span><br><span class="line">            .<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Error fetching users&#x27;</span>, error);</span><br><span class="line">            &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>处理响应</strong>：</p>
+<ul>
+<li>前端接收后端返回的JSON数据（或其他格式），并在页面上展示或进一步处理。可以在Vue组件中通过数据绑定、列表渲染等技术，将数据动态显示在页面上。</li>
+</ul>
+</li>
+</ol>
+<h3 id="后端（Spring-Boot）"><a href="#后端（Spring-Boot）" class="headerlink" title="后端（Spring Boot）"></a>后端（Spring Boot）</h3><ol>
+<li><p><strong>RESTful API</strong>：</p>
+<ul>
+<li>Spring Boot通过Controller类来处理前端的请求，返回JSON或其他格式的数据。通常使用<code>@RestController</code>注解标记Controller类，并使用<code>@RequestMapping</code>或其他注解映射URL路径。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/api&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserRepository userRepository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/users&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">getAllUsers</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userRepository.findAll();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/users&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> User <span class="title function_">createUser</span><span class="params">(<span class="meta">@RequestBody</span> User user)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> userRepository.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 其他操作如更新和删除等...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>数据库交互</strong>：</p>
+<ul>
+<li>使用Spring Boot的数据访问技术（如Spring Data JPA），通过Repository类访问MySQL数据库。Repository类提供了CRUD操作的方法，简化了数据访问层的开发。</li>
+</ul>
+ <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> org.springframework.data.jpa.repository.JpaRepository;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserRepository</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;User, Long&gt; &#123;</span><br><span class="line">    <span class="comment">// 可以定义自定义的查询方法，Spring Data JPA 会根据方法名自动生成查询语句</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>处理请求和响应</strong>：</p>
+<ul>
+<li>后端接收前端的请求，处理业务逻辑并访问数据库，将查询结果或操作结果封装为JSON格式返回给前端。Spring Boot提供了强大的注解和类库来简化RESTful API的开发和数据交互过程。</li>
+</ul>
+</li>
+</ol>
+<p>通过这种方式，Vue.js前端通过HTTP请求与Spring Boot后端进行通信，实现数据的获取、提交和展示，完成了前后端的分离和协作。这种架构不仅能够提高开发效率，还能够使得前端和后端团队能够独立开发、测试和部署各自的功能模块。</p>
+<h1 id="MySql-数据库部分"><a href="#MySql-数据库部分" class="headerlink" title="MySql( 数据库部分 )"></a>MySql( 数据库部分 )</h1>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
