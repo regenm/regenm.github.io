@@ -7932,6 +7932,66 @@
         <tag>vue</tag>
         <tag>前端</tag>
         <tag>后端</tag>
+        <tag>javascript</tag>
+        <tag>html</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask+Vue+MySQL 小型项目实战</title>
+    <url>/2024/07/08/Flask-Vue-MySQL-%E5%B0%8F%E5%9E%8B%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
+    <content><![CDATA[<h1 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h1><h2 id="项目内容简介"><a href="#项目内容简介" class="headerlink" title="项目内容简介"></a>项目内容简介</h2><ol>
+<li><p>搭建一个博客管理平台。</p>
+</li>
+<li><p>部署到我的服务器。以便我不再需要在本地进行一系列操作例如：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull </span><br><span class="line">git push </span><br><span class="line">hexo new <span class="string">&quot; pages&quot;</span> </span><br><span class="line">hexo generate </span><br><span class="line">hexo s </span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>同时还有博客文件备份的作用，预防电脑出事后的一系列恢复操作。</p>
+</li>
+<li><p>登录界面</p>
+</li>
+<li><p>管理界面</p>
+</li>
+</ol>
+<h2 id="技术简介"><a href="#技术简介" class="headerlink" title="技术简介"></a>技术简介</h2><p><a href="https://regenm.github.io/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/">SpringBoot+vue+mysql项目实训</a>结束后想试试别的web框架，发现有个轻量级的框架<code>Flask+Vue+SQLite</code>，我这里没安装SQLlite，于是使用<strong>MySQL</strong>进行替代。</p>
+<ul>
+<li><strong>MySQL和SQLite的区别</strong></li>
+</ul>
+<blockquote>
+<p><strong>类型</strong>:</p>
+<ul>
+<li><strong>MySQL</strong>: 是一个<strong>完整的客户端&#x2F;服务器</strong>数据库管理系统，支持多用户访问，适用于大型和中型应用程序，具有高性能和可扩展性。</li>
+<li><strong>SQLite</strong>: 是一个<strong>轻量级的嵌入式</strong>数据库引擎，它不需要一个独立的服务器进程或配置，可以直接访问普通的数据库文件。</li>
+</ul>
+<p><strong>部署和配置</strong>:</p>
+<ul>
+<li><strong>MySQL</strong>: 需要独立的服务器进程，可以在不同的操作系统上安装，需要配置和管理。</li>
+<li><strong>SQLite</strong>: 作为库直接链接到应用程序，不需要配置服务器，部署非常简单，适合于轻量级的应用和嵌入式系统。</li>
+</ul>
+<p><strong>性能和适用场景</strong>:</p>
+<ul>
+<li><strong>MySQL</strong>: 由于其客户端&#x2F;服务器架构，适合需要处理大量数据和复杂查询的应用，具有较高的性能和并发处理能力。</li>
+<li><strong>SQLite</strong>: 适合单用户或少量用户的本地应用，处理小型数据集和简单查询，性能通常比MySQL略低，但足够满足轻量级应用的需求。</li>
+</ul>
+<p><strong>特性和功能</strong>:</p>
+<ul>
+<li><strong>MySQL</strong>: 支持丰富的功能集，包括存储过程、触发器、复制和高级安全特性等，适合于复杂的数据处理需求。</li>
+<li><strong>SQLite</strong>: 功能相对简单，不支持存储过程和触发器，但支持主键、索引和事务处理，满足基本的数据管理需求。</li>
+</ul>
+</blockquote>
+<h1 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>mysql</tag>
+        <tag>python</tag>
+        <tag>vue</tag>
+        <tag>前端</tag>
+        <tag>后端</tag>
+        <tag>javascript</tag>
+        <tag>html</tag>
+        <tag>Flask</tag>
       </tags>
   </entry>
 </search>
