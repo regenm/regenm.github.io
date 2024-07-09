@@ -6746,18 +6746,6 @@
       </tags>
   </entry>
   <entry>
-    <title>《北欧神话》</title>
-    <url>/2024/04/17/%E3%80%8A%E5%8C%97%E6%AC%A7%E7%A5%9E%E8%AF%9D%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《人间天堂》</title>
     <url>/2024/04/17/%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%A9%E5%A0%82%E3%80%8B/</url>
     <content><![CDATA[]]></content>
@@ -6784,42 +6772,6 @@
   <entry>
     <title>《太阳照常升起》</title>
     <url>/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《偷盗》</title>
-    <url>/2024/04/24/%E3%80%8A%E5%81%B7%E7%9B%97%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《黄昏清兵卫》</title>
-    <url>/2024/04/24/%E3%80%8A%E9%BB%84%E6%98%8F%E6%B8%85%E5%85%B5%E5%8D%AB%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《山药粥》</title>
-    <url>/2024/04/24/%E3%80%8A%E5%B1%B1%E8%8D%AF%E7%B2%A5%E3%80%8B/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>读书</category>
@@ -7942,7 +7894,7 @@
     <content><![CDATA[<h1 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h1><h2 id="项目内容简介"><a href="#项目内容简介" class="headerlink" title="项目内容简介"></a>项目内容简介</h2><ol>
 <li><p>搭建一个博客管理平台。</p>
 </li>
-<li><p>部署到我的服务器。以便我不再需要在本地进行一系列操作例如：</p>
+<li><p>部署到我的服务器。以便将来我不再需要在本地进行一系列操作例如：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git pull </span><br><span class="line">git push </span><br><span class="line">hexo new <span class="string">&quot; pages&quot;</span> </span><br><span class="line">hexo generate </span><br><span class="line">hexo s </span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>同时还有博客文件备份的作用，预防电脑出事后的一系列恢复操作。</p>
@@ -7978,7 +7930,8 @@
 <li><strong>SQLite</strong>: 功能相对简单，不支持存储过程和触发器，但支持主键、索引和事务处理，满足基本的数据管理需求。</li>
 </ul>
 </blockquote>
-<h1 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h1><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+<h1 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p>​	</p>
+<h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -7992,6 +7945,50 @@
         <tag>javascript</tag>
         <tag>html</tag>
         <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《西线无战事》</title>
+    <url>/2024/07/09/%E3%80%8A%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《西线无战事》"><a href="#《西线无战事》" class="headerlink" title="《西线无战事》"></a>《西线无战事》</h1><ul>
+<li>written by 埃里希·玛丽亚·雷马克</li>
+</ul>
+<blockquote>
+<p>“ 这本书既不是指控也不是忏悔，</p>
+<p>更不是一次冒险 ，</p>
+<p>因为对于那些面对死亡的人来说，</p>
+<p>死亡不是一次冒险。</p>
+<p>他试图讲述这样一代人—-</p>
+<p>尽管他们逃过了炮弹，</p>
+<p>却还是被战争摧毁了。”</p>
+</blockquote>
+<p>​	这本书是在今年暑假回家前在图书馆借的。在回家的路上就读了一大半，读时有一种奇妙的感受。彼时彼刻我坐在有空调的高速列车上，世界上的其他地方还正发生着战乱。一想到我正读到保罗·博伊默在战壕中穿梭，执行侦查任务时，世界的另一端正发生着同样的事时心里就多了一些悲伤。</p>
+<blockquote>
+<p>“我们才刚开始热爱生活，却不得不对这一切开炮。”</p>
+</blockquote>
+<blockquote>
+<p>“他们仍在继续写文章，发表演说，而我们却已经看到了野战医院和死亡；他们依旧在说对国家的责任是头等大事，而我们却已经知道死亡的剧痛比以前更为强烈了。尽管这样，我们绝不做叛乱者，绝不做逃兵，也绝不做懦夫——这些词，他们原是随便使用的——我们跟他们一样热爱我们的祖国，我们英勇地参加每一次进攻，但我们还会辨别是非，我们一下子学会了观察问题。于是，我们看到，他们的那个世界已经荡然无存。我们突然觉得孤独得可怕，而又必须一直孤独下去。”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>读书是一件有温度的事</title>
+    <url>/2024/07/09/%E8%AF%BB%E4%B9%A6%E6%98%AF%E4%B8%80%E4%BB%B6%E6%9C%89%E6%B8%A9%E5%BA%A6%E7%9A%84%E4%BA%8B/</url>
+    <content><![CDATA[<p>​	突然发现很多书，在读的时候不写写画画，读完以后很容易就忘记了。还是得有点输出才行啊。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
       </tags>
   </entry>
 </search>
