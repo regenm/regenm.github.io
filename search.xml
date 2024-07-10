@@ -7939,15 +7939,15 @@
 <p>Python 虚拟环境（virtual environment）是一个独立的、隔离的 Python 运行环境。它允许你在同一个系统上运行多个项目，而这些项目可以依赖于不同的包版本或不同的 Python 解释器版本。虚拟环境可以避免包版本冲突，并且提供一个干净的环境来开发和部署 Python 应用程序。</p>
 </blockquote>
 <h1 id="项目分析"><a href="#项目分析" class="headerlink" title="项目分析"></a>项目分析</h1><h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><pre><code> 1. 登录界面
- 1. 一个密码框
+  1. 一个密码框
  2. 管理界面
-     1. 可视化显示数据
-     2. 执行命令
-     3. 执行脚本
+  	1. 可视化显示数据
+  	2. 执行命令
+  	3. 执行脚本
 </code></pre>
 <h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/../images/flaskVueMysql/xmind.png" alt="xmind"></p>
 <h2 id="前端设计"><a href="#前端设计" class="headerlink" title="前端设计"></a>前端设计</h2><h3 id="登录界面"><a href="#登录界面" class="headerlink" title="登录界面"></a>登录界面</h3><p><img src="/../images/flaskVueMysql/1.png" alt="xmind"></p>
-]]></content>
+<h3 id="管理界面"><a href="#管理界面" class="headerlink" title="管理界面"></a>管理界面</h3>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
