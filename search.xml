@@ -8029,4 +8029,39 @@
         <tag>随手记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>verilog HDL basics</title>
+    <url>/2024/07/22/verilog-HDL-basics/</url>
+    <content><![CDATA[<h1 id="Verilog-Language"><a href="#Verilog-Language" class="headerlink" title="Verilog Language"></a>Verilog Language</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><ul>
+<li><p><strong>bitwise</strong> and <strong>logical</strong></p>
+<ul>
+<li><p>bitwise-NOT (<code>~</code>) and logical-NOT (<code>!</code>)</p>
+<blockquote>
+<h3 id="Bitwise-NOT"><a href="#Bitwise-NOT" class="headerlink" title="Bitwise-NOT (~)"></a>Bitwise-NOT (<code>~</code>)</h3><ul>
+<li><strong>Operation</strong>: The bitwise-NOT operator performs a bitwise inversion on its operand. This means that each bit of the operand is flipped; <code>0</code> becomes <code>1</code> and <code>1</code> becomes <code>0</code>.</li>
+<li><strong>Usage</strong>: It is used when you need to invert the bits of a binary number or a vector.</li>
+</ul>
+<h3 id="Logical-NOT"><a href="#Logical-NOT" class="headerlink" title="Logical-NOT (!)"></a>Logical-NOT (<code>!</code>)</h3><ul>
+<li><strong>Operation</strong>: The logical-NOT operator evaluates the logical value of its operand. It converts <code>0</code> to <code>1</code> and any non-zero value to <code>0</code>.</li>
+<li><strong>Usage</strong>: It is used when you want to negate a condition or expression. This is typically used in control flow statements like <code>if</code> or <code>while</code>.</li>
+</ul>
+</blockquote>
+</li>
+<li><p>bitwise-AND (<code>&amp;</code>) and logical-AND (<code>&amp;&amp;</code>)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><h2 id="Other-features"><a href="#Other-features" class="headerlink" title="Other features"></a>Other features</h2>]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>FPGA</tag>
+        <tag>verilog</tag>
+        <tag>HDL</tag>
+      </tags>
+  </entry>
 </search>
