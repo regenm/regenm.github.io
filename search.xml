@@ -8059,16 +8059,18 @@
 <p><img src="/../images/flaskVueMysql/6.png" alt="Script"></p>
 <h1 id="最终整合"><a href="#最终整合" class="headerlink" title="最终整合"></a>最终整合</h1><p>​	除了显示数据这个难点以外，其他难点都大差不差的解决了。</p>
 <p>​	显示的数据其实也就只是文本（文件名字，博客文章名字等等），初步打算：</p>
-<pre><code>1. 后端：
-
-1. 制作一个脚本(python或者shell都可以)，然后直接调用执行脚本即可。
-
-    <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls &gt; tmp</span><br><span class="line">cat tmp</span><br></pre></td></tr></table></figure>
-
-2. 前端：
-
-    1. 前端主要就是表单美化等操作了。
-</code></pre>
+<ol>
+<li><p>后端：</p>
+</li>
+<li><p>制作一个脚本(python或者shell都可以)，然后直接调用执行脚本即可。</p>
+ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls &gt; tmp</span><br><span class="line">cat tmp</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>前端：</p>
+<ol>
+<li>前端主要就是表单美化等操作了。</li>
+</ol>
+</li>
+</ol>
 <h1 id="完结撒花"><a href="#完结撒花" class="headerlink" title="完结撒花"></a>完结撒花</h1><p>​	不得不说小web项目用用Flask还是挺方便的，虽然报错还有很多，但是能跑就行。后续打算扩展一下功能，</p>
 <ol>
 <li>可以加上我的物联网想法，实现一个智能物联网云平台，走mqtt协议控制一些小东西，比如家里的服务器以及电源开关，空调遥控等等。</li>
