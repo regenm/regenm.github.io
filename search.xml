@@ -7983,7 +7983,7 @@
 <h3 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h3><p><img src="/../images/flaskVueMysql/xmind.png" alt="xmind"></p>
 <h1 id="前端设计"><a href="#前端设计" class="headerlink" title="前端设计"></a>前端设计</h1><h3 id="登录界面"><a href="#登录界面" class="headerlink" title="登录界面"></a>登录界面</h3><p><img src="/../images/flaskVueMysql/1.png" alt="login"></p>
 <h3 id="管理界面"><a href="#管理界面" class="headerlink" title="管理界面"></a>管理界面</h3><p><img src="/../images/flaskVueMysql/2.png" alt="Main"></p>
-<h1 id="难点解决"><a href="#难点解决" class="headerlink" title="难点解决"></a>难点解决</h1><h2 id="1-获取MySQL数据"><a href="#1-获取MySQL数据" class="headerlink" title="1. 获取MySQL数据"></a>1. 获取MySQL数据</h2><ul>
+<h1 id="难点解决-测试阶段"><a href="#难点解决-测试阶段" class="headerlink" title="难点解决( 测试阶段)"></a>难点解决( 测试阶段)</h1><h2 id="1-获取MySQL数据"><a href="#1-获取MySQL数据" class="headerlink" title="1. 获取MySQL数据"></a>1. 获取MySQL数据</h2><ul>
 <li><p><strong>获取流程</strong></p>
 <ol>
 <li><p>前端发送get请求</p>
@@ -8005,7 +8005,80 @@
 <p>  <img src="/../images/flaskVueMysql/3.png" alt="GET"></p>
 </li>
 </ul>
-<h2 id="2-前端-文件上传"><a href="#2-前端-文件上传" class="headerlink" title="2. 前端 文件上传"></a>2. 前端 文件上传</h2><h2 id="3-后端-执行脚本"><a href="#3-后端-执行脚本" class="headerlink" title="3. 后端 执行脚本"></a>3. 后端 执行脚本</h2>]]></content>
+<h2 id="2-前端-文件上传"><a href="#2-前端-文件上传" class="headerlink" title="2. 前端 文件上传"></a>2. 前端 文件上传</h2><ul>
+<li>上传之前检查依赖：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install Werkzeug</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p>文件上传流程</p>
+<ol>
+<li><p>前端选择本地文件，点击上传，发送post请求</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;form @submit.prevent=&quot;uploadFile&quot;&gt;</span><br><span class="line">        &lt;input type=&quot;file&quot; @change=&quot;handleFileUpload&quot;&gt;</span><br><span class="line">        &lt;button type=&quot;submit&quot;&gt;Upload&lt;/button&gt;</span><br><span class="line">      &lt;/form&gt;</span><br><span class="line">      &lt;!-- 文件上传按钮以及选框 --&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  import axios from &#x27;axios&#x27;;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        file: null</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      handleFileUpload(event) &#123;</span><br><span class="line">        this.file = event.target.files[0];</span><br><span class="line">      &#125;,</span><br><span class="line">      uploadFile() &#123;</span><br><span class="line">        const formData = new FormData();</span><br><span class="line">        formData.append(&#x27;file&#x27;, this.file);</span><br><span class="line">        //向后端发送POST</span><br><span class="line">        axios.post(&#x27;http://127.0.0.1:5000/upload&#x27;, formData, &#123;</span><br><span class="line">          headers: &#123;</span><br><span class="line">            &#x27;Content-Type&#x27;: &#x27;multipart/form-data&#x27;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        .then(response =&gt; &#123;</span><br><span class="line">          console.log(response.data);</span><br><span class="line">        &#125;)</span><br><span class="line">        .catch(error =&gt; &#123;</span><br><span class="line">          console.error(error);</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>后端响应请求，保存到特定文件夹</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">UPLOAD_FOLDER = <span class="string">&#x27;uploads&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>] = UPLOAD_FOLDER</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/upload&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload_file</span>():</span><br><span class="line">    <span class="comment"># 检查请求中是否包含文件</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;file&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> request.files:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;error&#x27;</span>: <span class="string">&#x27;No file part&#x27;</span>&#125;), <span class="number">400</span></span><br><span class="line">    </span><br><span class="line">    file = request.files[<span class="string">&#x27;file&#x27;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 检查文件是否有名字</span></span><br><span class="line">    <span class="keyword">if</span> file.filename == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;error&#x27;</span>: <span class="string">&#x27;No selected file&#x27;</span>&#125;), <span class="number">400</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 保存文件</span></span><br><span class="line">    filename = file.filename</span><br><span class="line">    file.save(os.path.join(app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename))</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;message&#x27;</span>: <span class="string">&#x27;File successfully uploaded&#x27;</span>&#125;), <span class="number">200</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>结果</p>
+</li>
+</ol>
+<p>  注：修改后端代码需要重启flask应用</p>
+  <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">CTRL+C</span><br><span class="line">flask run</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/../images/flaskVueMysql/4.png" alt="GET"></p>
+</li>
+</ul>
+<p><img src="/../images/flaskVueMysql/5.png" alt="GET"></p>
+<h2 id="3-后端-执行脚本"><a href="#3-后端-执行脚本" class="headerlink" title="3. 后端 执行脚本"></a>3. 后端 执行脚本</h2><ul>
+<li><p>执行流程</p>
+<ol>
+<li><p>前端点击按钮</p>
+ <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;button @click=&quot;runScript&quot;&gt;Run Script&lt;/button&gt;</span><br><span class="line">      &lt;div v-if=&quot;output&quot;&gt;</span><br><span class="line">        &lt;h3&gt;Script Output:&lt;/h3&gt;</span><br><span class="line">        &lt;pre&gt;&#123;&#123; output &#125;&#125;&lt;/pre&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">      &lt;div v-if=&quot;error&quot;&gt;</span><br><span class="line">        &lt;h3&gt;Script Error:&lt;/h3&gt;</span><br><span class="line">        &lt;pre&gt;&#123;&#123; error &#125;&#125;&lt;/pre&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  import axios from &#x27;axios&#x27;;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        output: &#x27;&#x27;,</span><br><span class="line">        error: &#x27;&#x27;,</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      runScript() &#123;</span><br><span class="line">        axios.post(&#x27;http://127.0.0.1:5000/run-script&#x27;)</span><br><span class="line">          .then(response =&gt; &#123;</span><br><span class="line">            this.output = response.data.output;</span><br><span class="line">            this.error = response.data.error;</span><br><span class="line">          &#125;)</span><br><span class="line">          .catch(error =&gt; &#123;</span><br><span class="line">            this.error = error.message;</span><br><span class="line">          &#125;);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>后端执行脚本</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/run-script&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_script</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        </span><br><span class="line">        result = subprocess.run([<span class="string">&#x27;python&#x27;</span>, <span class="string">&#x27;test.py&#x27;</span>], capture_output=<span class="literal">True</span>, text=<span class="literal">True</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;</span><br><span class="line">            <span class="string">&#x27;output&#x27;</span>: result.stdout,</span><br><span class="line">            <span class="string">&#x27;error&#x27;</span>: result.stderr,</span><br><span class="line">            <span class="string">&#x27;returncode&#x27;</span>: result.returncode</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;error&#x27;</span>: <span class="built_in">str</span>(e)&#125;), <span class="number">500</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>subprocess</p>
+<blockquote>
+<p>The <code>subprocess</code> module in Python is used to spawn new processes, connect to their input&#x2F;output&#x2F;error pipes, and obtain their return codes. It replaces older modules like <code>os.system</code> and provides more powerful functionality.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>结果</p>
+</li>
+</ol>
+<p>  你别管一片红，你就说跑没跑起来吧。</p>
+</li>
+</ul>
+<p><img src="/../images/flaskVueMysql/6.png" alt="Script"></p>
+<h1 id="最终整合"><a href="#最终整合" class="headerlink" title="最终整合"></a>最终整合</h1><p>​	除了显示数据这个难点以外，其他难点都大差不差的解决了。</p>
+<p>​	显示的数据其实也就只是文本（文件名字，博客文章名字等等），初步打算：</p>
+<pre><code>1. 后端：
+
+1. 制作一个脚本(python或者shell都可以)，然后直接调用执行脚本即可。
+
+    <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls &gt; tmp</span><br><span class="line">cat tmp</span><br></pre></td></tr></table></figure>
+
+2. 前端：
+
+    1. 前端主要就是表单美化等操作了。
+</code></pre>
+<h1 id="完结撒花"><a href="#完结撒花" class="headerlink" title="完结撒花"></a>完结撒花</h1><p>​	不得不说小web项目用用Flask还是挺方便的，虽然报错还有很多，但是能跑就行。后续打算扩展一下功能，</p>
+<ol>
+<li>可以加上我的物联网想法，实现一个智能物联网云平台，走mqtt协议控制一些小东西，比如家里的服务器以及电源开关，空调遥控等等。</li>
+<li>实际上这个平台只有我一个人用，也只能让我一个人用，总感觉安全性不高。打算去看看有关网站登录安全性，以及针对小用户群的web网站技术。<ol>
+<li>可以试试加上动态验证，邮箱只设置我的。</li>
+<li>代增加。</li>
+</ol>
+</li>
+</ol>
+]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
