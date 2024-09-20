@@ -8320,7 +8320,15 @@
   <entry>
     <title>物联网水控系统</title>
     <url>/2024/09/19/%E7%89%A9%E8%81%94%E7%BD%91%E6%B0%B4%E6%8E%A7%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="1-软件系统"><a href="#1-软件系统" class="headerlink" title="1. 软件系统"></a>1. 软件系统</h2><ul>
+<li>Flask+VUE+MySQL</li>
+<li>Python脚本使用Mqtt协议传送命令以及数据</li>
+</ul>
+<h2 id="2-硬件系统"><a href="#2-硬件系统" class="headerlink" title="2. 硬件系统"></a>2. 硬件系统</h2><ul>
+<li>esp8266连接WIFI以及MQ服务器</li>
+<li>220v水泵</li>
+</ul>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="1-esp8266连接emqx服务器"><a href="#1-esp8266连接emqx服务器" class="headerlink" title="1. esp8266连接emqx服务器"></a>1. esp8266连接emqx服务器</h2><h2 id="2-esp8266收发指令并进行作业"><a href="#2-esp8266收发指令并进行作业" class="headerlink" title="2. esp8266收发指令并进行作业"></a>2. esp8266收发指令并进行作业</h2><h2 id="3-搭建服务器并部署"><a href="#3-搭建服务器并部署" class="headerlink" title="3. 搭建服务器并部署"></a>3. 搭建服务器并部署</h2><h2 id="4-编写命令发送脚本，其他功能脚本"><a href="#4-编写命令发送脚本，其他功能脚本" class="headerlink" title="4. 编写命令发送脚本，其他功能脚本"></a>4. 编写命令发送脚本，其他功能脚本</h2>]]></content>
       <categories>
         <category>硬件技术</category>
         <category>软件技术</category>
