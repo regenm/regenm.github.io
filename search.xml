@@ -8365,7 +8365,8 @@
 </ul>
 <p><img src="/../images/iotWaterPump/6.png" alt="regen"></p>
 <p><img src="/../images/iotWaterPump/7.png" alt="regen"></p>
-<h2 id="Final-部署到服务器"><a href="#Final-部署到服务器" class="headerlink" title="Final!!!!!!部署到服务器"></a>Final!!!!!!部署到服务器</h2>]]></content>
+<h2 id="Final-部署到服务器"><a href="#Final-部署到服务器" class="headerlink" title="Final!!!!!!部署到服务器"></a>Final!!!!!!部署到服务器</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>​	这一次没有采用自己搭建的mqtt服务器，使用的是emqx的免费服务器集群，说实话有点麻烦，需要ca认证才能连接上。早知道就用自己之前搭建的服务器了。不过学到了新的东西，也是蛮不错的。</p>
+]]></content>
       <categories>
         <category>硬件技术</category>
         <category>软件技术</category>
