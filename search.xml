@@ -8336,7 +8336,36 @@
 <li>先实现基本的点灯功能（开关）</li>
 </ul>
 <p><img src="/../images/iotWaterPump/2.png" alt="regen"></p>
-]]></content>
+<h2 id="后端功能"><a href="#后端功能" class="headerlink" title="后端功能"></a>后端功能</h2><ul>
+<li>提供密码认证</li>
+</ul>
+<p>​	因为是私人使用，所以只在后端检验密码</p>
+<p><img src="/../images/iotWaterPump/3.png" alt="regen"></p>
+<ul>
+<li>获取命令信息</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/../images/iotWaterPump/4.png" alt="regen"></h2><h2 id="脚本运行"><a href="#脚本运行" class="headerlink" title="脚本运行"></a>脚本运行</h2><p>前后端都做得基本大差不差了。接下来开始Mqtt基于Python的脚本。</p>
+<ul>
+<li>简单脚本的运行</li>
+</ul>
+<p><img src="/../images/iotWaterPump/5.png" alt="regen"></p>
+<ul>
+<li><p>最终脚本的运行</p>
+</li>
+<li><p>很烦mqtt的版本问题 记得选择version</p>
+</li>
+<li><p>mqtt脚本直接运行可以成功，但是使用<code>subprocess</code>会失败就是因为版本问题。</p>
+</li>
+</ul>
+<p>以下是两种情况都能运行的代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mqtt_publish.py</span></span><br><span class="line"><span class="keyword">import</span> paho.mqtt.client <span class="keyword">as</span> mqtt</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;mqtt_publish.py running&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">on_connect</span>(<span class="params">client, userdata, flags, rc</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Connected with result code &quot;</span> + <span class="built_in">str</span>(rc))</span><br><span class="line">    message = <span class="string">&quot;&#123;\n\&quot;  msg\&quot;: \&quot;start\&quot;\n&#125;&quot;</span></span><br><span class="line">    client.publish(<span class="string">&quot;/esp8266/test&quot;</span>, message)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Published: <span class="subst">&#123;message&#125;</span>&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">1</span>)  <span class="comment"># Wait a second before sending the next message</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an MQTT client instance without callback_api_version</span></span><br><span class="line">client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION1,client_id=<span class="string">&quot;&quot;</span>, clean_session=<span class="literal">True</span>, userdata=<span class="literal">None</span>, protocol=mqtt.MQTTv311,)</span><br><span class="line"></span><br><span class="line">client.on_connect = on_connect</span><br><span class="line"></span><br><span class="line">client.tls_set(ca_certs=<span class="string">&quot;emqxsl-ca.crt&quot;</span>, certfile=<span class="literal">None</span>, keyfile=<span class="literal">None</span>, tls_version=ssl.PROTOCOL_TLSv1_2)</span><br><span class="line"></span><br><span class="line">broker_address = <span class="string">&quot;url&quot;</span></span><br><span class="line">broker_port = <span class="number">8883</span></span><br><span class="line">username = <span class="string">&quot;regen&quot;</span></span><br><span class="line">password = <span class="string">&quot;123456&quot;</span></span><br><span class="line"></span><br><span class="line">client.username_pw_set(username, password)</span><br><span class="line">client.connect(broker_address, broker_port, keepalive=<span class="number">60</span>)</span><br><span class="line">client.loop_start()</span><br><span class="line"></span><br><span class="line">time.sleep(<span class="number">6</span>)  <span class="comment"># Wait a little longer to ensure all messages are sent</span></span><br><span class="line"></span><br><span class="line">client.loop_stop()</span><br><span class="line">client.disconnect()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>成功截图</li>
+</ul>
+<p><img src="/../images/iotWaterPump/6.png" alt="regen"></p>
+<p><img src="/../images/iotWaterPump/7.png" alt="regen"></p>
+<h2 id="Final-部署到服务器"><a href="#Final-部署到服务器" class="headerlink" title="Final!!!!!!部署到服务器"></a>Final!!!!!!部署到服务器</h2>]]></content>
       <categories>
         <category>硬件技术</category>
         <category>软件技术</category>
