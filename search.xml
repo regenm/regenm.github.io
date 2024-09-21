@@ -8328,7 +8328,15 @@
 <li>esp8266连接WIFI以及MQ服务器</li>
 <li>220v水泵</li>
 </ul>
-<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="1-esp8266连接emqx服务器"><a href="#1-esp8266连接emqx服务器" class="headerlink" title="1. esp8266连接emqx服务器"></a>1. esp8266连接emqx服务器</h2><h2 id="2-esp8266收发指令并进行作业"><a href="#2-esp8266收发指令并进行作业" class="headerlink" title="2. esp8266收发指令并进行作业"></a>2. esp8266收发指令并进行作业</h2><h2 id="3-搭建服务器并部署"><a href="#3-搭建服务器并部署" class="headerlink" title="3. 搭建服务器并部署"></a>3. 搭建服务器并部署</h2><h2 id="4-编写命令发送脚本，其他功能脚本"><a href="#4-编写命令发送脚本，其他功能脚本" class="headerlink" title="4. 编写命令发送脚本，其他功能脚本"></a>4. 编写命令发送脚本，其他功能脚本</h2>]]></content>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="1-esp8266连接emqx服务器"><a href="#1-esp8266连接emqx服务器" class="headerlink" title="1. esp8266连接emqx服务器"></a>1. esp8266连接emqx服务器</h2><h2 id="2-esp8266收发指令并进行作业"><a href="#2-esp8266收发指令并进行作业" class="headerlink" title="2. esp8266收发指令并进行作业"></a>2. esp8266收发指令并进行作业</h2><h2 id="3-搭建服务器并部署"><a href="#3-搭建服务器并部署" class="headerlink" title="3. 搭建服务器并部署"></a>3. 搭建服务器并部署</h2><h2 id="4-编写命令发送脚本，其他功能脚本"><a href="#4-编写命令发送脚本，其他功能脚本" class="headerlink" title="4. 编写命令发送脚本，其他功能脚本"></a>4. 编写命令发送脚本，其他功能脚本</h2><h1 id="进度追踪"><a href="#进度追踪" class="headerlink" title="进度追踪"></a>进度追踪</h1><h2 id="前端基本功能完成"><a href="#前端基本功能完成" class="headerlink" title="前端基本功能完成"></a>前端基本功能完成</h2><ul>
+<li>登录</li>
+</ul>
+<p><img src="/../images/iotWaterPump/1.png" alt="regen"></p>
+<ul>
+<li>先实现基本的点灯功能（开关）</li>
+</ul>
+<p><img src="/../images/iotWaterPump/2.png" alt="regen"></p>
+]]></content>
       <categories>
         <category>硬件技术</category>
         <category>软件技术</category>
