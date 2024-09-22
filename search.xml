@@ -8365,7 +8365,32 @@
 </ul>
 <p><img src="/../images/iotWaterPump/6.png" alt="regen"></p>
 <p><img src="/../images/iotWaterPump/7.png" alt="regen"></p>
-<h2 id="Final-部署到服务器"><a href="#Final-部署到服务器" class="headerlink" title="Final!!!!!!部署到服务器"></a>Final!!!!!!部署到服务器</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>​	这一次没有采用自己搭建的mqtt服务器，使用的是emqx的免费服务器集群，说实话有点麻烦，需要ca认证才能连接上。早知道就用自己之前搭建的服务器了。不过学到了新的东西，也是蛮不错的。</p>
+<h2 id="Final-部署到服务器b"><a href="#Final-部署到服务器b" class="headerlink" title="Final!!!!!!部署到服务器b"></a>Final!!!!!!部署到服务器b</h2><ul>
+<li><p>发现一个神器<code>remote-ssh</code>，一个vscode插件，可以直接连接服务器，使用vscode进行部署和编辑。</p>
+</li>
+<li><p>部署flask后端</p>
+<ol>
+<li>只需要传源代码，一开始不小心把虚拟环境也传上去了qwq</li>
+<li>使用 <code>gunicorn</code> 启动 Flask 应用</li>
+</ol>
+</li>
+<li><p>部署前端VUE</p>
+<ol>
+<li>使用打包工具<code>npm run build</code></li>
+<li>使用nginx进行的代理</li>
+</ol>
+</li>
+</ul>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>每个人都可以访问网站 <a href="142.171.33.151">WaterPump</a>来控制水泵了！</p>
+<p><img src="/../images/iotWaterPump/8.png" alt="regen"></p>
+<p><img src="/../images/iotWaterPump/9.png" alt="regen"></p>
+<h1 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h1><ol>
+<li>VUE前端没有加入登录认证导致每个人都可以<code>IP/admin</code>进入后台，登录界面形同虚设</li>
+<li>Linux(ubuntu)使用<code>subprocess</code>运行脚本需要加python版本<code>python3</code></li>
+<li>mqtt库函数参数需要加<code>CallbackAPIVersion</code></li>
+<li>使用emqx服务器集群的CA认证</li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>​	这一次没有采用自己搭建的mqtt服务器，使用的是emqx的免费服务器集群，说实话有点麻烦，需要ca认证才能连接上。早知道就用自己之前搭建的服务器了。不过学到了新的东西，也是蛮不错的。</p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
