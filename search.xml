@@ -1184,8 +1184,7 @@
 <p>Good luck .</p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1675,8 +1674,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3879,8 +3877,7 @@
 <p><img src="/images/esp8266_mqtt/success3.png" alt="success"></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6668,8 +6665,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6745,8 +6741,7 @@
 <p><img src="/../images/keyboard/shield.png" alt="pcb"></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>STM32</tag>
@@ -7069,8 +7064,7 @@
 <p><a href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
 <h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4>]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>mqtt</tag>
@@ -7435,8 +7429,7 @@
 
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -7477,8 +7470,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -7542,8 +7534,7 @@
 <p><img src="/images/m251/3.png" alt="Pcb_3D"></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
-        <category>软件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -8424,8 +8415,7 @@
 <p>​	接下来试试加上别的传感器，再写个dashboard，方便展示数据和发送命令。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
-        <category>硬件技术</category>
+        <category>软硬件结合</category>
       </categories>
       <tags>
         <tag>笔记</tag>
