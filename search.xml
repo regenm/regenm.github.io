@@ -8442,4 +8442,222 @@
         <tag>html</tag>
       </tags>
   </entry>
+  <entry>
+    <title>计算机网络笔记</title>
+    <url>/2024/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>基于计算机网络第八版</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
+<li><p>1983年，ARPANET采用TCP&#x2F;IP，标志着互联网诞生</p>
+</li>
+<li><p><strong>ISP</strong>   互联网服务提供者 ISP (Internet Service Provider)</p>
+</li>
+<li><p><strong>IXP</strong>  互联网交换点，允许两个网络直接相连并快速交换分组。</p>
+<ul>
+<li>常采用工作在数据链路层的网络交换机。</li>
+</ul>
+</li>
+<li><p><strong>万维网 (World Wide Web, 简称 WWW)</strong>   全球性的信息空间，人们可以通过互联网访问和共享信息</p>
+</li>
+</ul>
+<h2 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h2><ol>
+<li><p><strong>边缘部分</strong></p>
+<p> ​	由所有连接在互联网上的主机组成。这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享。</p>
+</li>
+<li><p><strong>核心部分</strong></p>
+<p> ​	由大量网络和连接这些网络的路由器组成。这部分是为边缘部分提供服务的（提供连通性和交换）。</p>
+</li>
+</ol>
+<h3 id="边缘部分"><a href="#边缘部分" class="headerlink" title="边缘部分"></a>边缘部分</h3><ul>
+<li><strong>端系统</strong>  用户直接使用的设备和应用程序，它们包括个人电脑、手机、服务器等终端设备，用于发送或接收数据。端系统通过网络传输数据，与其他设备通信，实现互联网服务的交互。</li>
+</ul>
+<p>端系统中运行的程序之间的通信方式分为</p>
+<ol>
+<li>客户服务器方式（C&#x2F;S 方式）<ul>
+<li>客户 (client) 和服务器 (server) 都是指通信中所涉及的两个应用进程。</li>
+<li>客户-服务器方式所描述的是进程之间服务和被服务的关系。</li>
+<li>客户是服务的请求方，服务器是服务的提供方。</li>
+<li><strong>客户端特点</strong><ol>
+<li>被用户调用后运行，在打算通信时主动向远地服务器发起通信（请求服务）。因此，客户程序必须知道服务器程序的地址。</li>
+<li>不需要特殊的硬件和很复杂的操作系统</li>
+</ol>
+</li>
+<li><strong>服务端特点</strong><ol>
+<li>可同时处理多个远地或本地客户的请求。</li>
+<li>系统启动后即自动调用并一直不断地运行着，被动地等待并接受来自各地的客户的通信请求。因此，服务器程序不需要知道客户程序的地址。</li>
+<li>需要强大的硬件和高级的操作系统支持</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>对等方式（P2P 方式）   即 Peer-to-Peer方式  <ul>
+<li><strong>特点</strong><ol>
+<li>对等连接方式从本质上看仍然是使用客户服务器方式，只是对等连接中的每一个主机既是客户又是服务器。</li>
+<li>对等连接工作方式可支持大量对等用户（如上百万个）同时工作。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="核心部分"><a href="#核心部分" class="headerlink" title="核心部分"></a>核心部分</h3><p><strong>特点</strong></p>
+<ul>
+<li>是互联网中最复杂的部分</li>
+<li>要向网络边缘中的大量主机提供连通性</li>
+<li>在网络核心部分起特殊作用的是：路由器(router)</li>
+<li>路由器是实现分组交换 (packet switching) 的关键构件，其任务是转发收到的分组，这是网络核心部分最重要的功能。</li>
+</ul>
+<h4 id="电路交换"><a href="#电路交换" class="headerlink" title="电路交换"></a>电路交换</h4><p>​		<strong>面向连接，利用率很低</strong></p>
+<p>电路交换分为三个阶段：</p>
+<ol>
+<li>建立连接：建立一条专用的物理通路，以保证双方通话时所需的通信资源在通信时不会被其他用户占用；</li>
+<li>通信：主叫和被叫双方就能互相通电话；</li>
+<li>释放连接：释放刚才使用的这条专用的物理通路（释放刚才占用的所有通信资源）。</li>
+</ol>
+<h4 id="分组交换"><a href="#分组交换" class="headerlink" title="分组交换"></a>分组交换</h4><p><strong>以分组为单位传输，采用存储转发技术。</strong></p>
+<ol>
+<li>在发送端，先把较长的报文划分成较短的、固定长度的数据段。</li>
+<li>每一个数据段前面添加上首部构成分组(packet)。</li>
+<li>每一个分组的首部都含有地址（诸如目的地址和源地址）等控制信息。</li>
+<li>分组交换网中的结点交换机根据收到的分组首部中的地址信息，把分组转发到下一个结点交换机。</li>
+<li>每个分组在互联网中独立地选择传输路径。</li>
+<li>用这样的存储转发方式，最后分组就能到达最终目的地。</li>
+</ol>
+<p><strong>路由器处理分组的过程</strong></p>
+<ol>
+<li>把收到的分组先放入缓存（暂时存储）；</li>
+<li>查找转发表，找出到某个目的地址应从哪个端口转发；</li>
+<li>把分组送到适当的端口转发出去。</li>
+</ol>
+<p><strong>优点</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>高效</strong></th>
+<th align="left">在分组传输的过程中<strong>动态分配</strong>传输带宽，对通信链路是逐段占用。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>灵活</strong></td>
+<td align="left">为每一个分组<strong>独立</strong>地选择最合适的转发路由**<strong>。</strong></td>
+</tr>
+<tr>
+<td><strong>迅速</strong></td>
+<td align="left">以分组作为传送单位，可以<strong>不先建立连接</strong>就能向其他主机发送分组。</td>
+</tr>
+<tr>
+<td><strong>可靠</strong></td>
+<td align="left">保证可靠性的网络协议；分布式多路由的分组交换网，使网络有很好的生存性。</td>
+</tr>
+</tbody></table>
+<p><strong>问题</strong></p>
+<ol>
+<li><p>分组在各结点存储转发时需要排队，这就会造成一定的时延。 </p>
+</li>
+<li><p>分组必须携带的首部（里面有必不可少的控制信息）也造成了一定的开销。</p>
+</li>
+</ol>
+<p>若要连续传送大量的数据，且其<strong>传送时间远大于连接建立时间，则电路交换的传输速率较快</strong>。报文交换和分组交换不需要预先分配传输带宽，在传送突发数据时可提高整个网络的信道利用率。由于一个分组的长度往往远小于整个报文的长度，因此<strong>分组交换比报文交换的时延小，同时也具有更好的灵活性。</strong></p>
+<h2 id="计算机网络类别"><a href="#计算机网络类别" class="headerlink" title="计算机网络类别"></a>计算机网络类别</h2><ul>
+<li>个域网PAN（ Personal Area Network ）<ul>
+<li>能在便携式消费电器与通信设备之间进行短距离通信的网络</li>
+<li>覆盖范围一般在10米半径以内，如蓝牙耳机等</li>
+</ul>
+</li>
+<li>局域网LAN（Local Area Network）<ul>
+<li>局部地区形成的区域网络，如企业网络</li>
+<li>分布地区范围有限，可大可小，大到一栋建筑、小到办公室内的组网电脑WLAN接入，打印机共享等等</li>
+</ul>
+</li>
+<li>城域网MAN（Metropolitan Area Network ）<ul>
+<li>范围覆盖一个城市的网络</li>
+</ul>
+</li>
+<li>广域网WAN（Wide Area Network）<ul>
+<li>覆盖很大地理区域，乃至覆盖地区和国家</li>
+</ul>
+</li>
+</ul>
+<h2 id="计算机网络的性能"><a href="#计算机网络的性能" class="headerlink" title="计算机网络的性能"></a>计算机网络的性能</h2><ol>
+<li><p>速率</p>
+<ol>
+<li>数据的传送速率，它也称为数据率 (data rate)或比特率 (bit rate)。速率的单位是 bit&#x2F;s，或 kbit&#x2F;s、Mbit&#x2F;s、 Gbit&#x2F;s 等。例如 4  1010 bit&#x2F;s 的数据率就记为 40 Gbit&#x2F;s。</li>
+<li>速率往往是指额定速率或标称速率，非实际运行速率。</li>
+</ol>
+</li>
+<li><p>带宽</p>
+<ol>
+<li>在单位时间内网络中的某信道所能通过的“最高数据率”。单位是 bit&#x2F;s ，即 “比特每秒”。</li>
+</ol>
+</li>
+<li><p>吞吐率</p>
+<ol>
+<li>单位时间内通过某个网络（或信道、接口）的数据量。</li>
+<li>吞吐量受网络的带宽或网络的额定速率的限制。</li>
+</ol>
+</li>
+<li><p>时延</p>
+<ol>
+<li><p>数据（一个报文或分组，甚至比特）从网络（或链路）的一端传送到另一端所需的时间。</p>
+</li>
+<li><p>组成部分</p>
+<ol>
+<li><p>发送时延</p>
+<ol>
+<li>从发送数据帧的第一个比特算起，到该帧的最后一个比特发送完毕所需的时间。</li>
+<li><img src="/../images/computerNetwork/1.png" alt="formula"></li>
+</ol>
+</li>
+<li><p>传播时延</p>
+<p> <img src="/../images/computerNetwork/2.png" alt="formula"></p>
+</li>
+<li><p>处理时延</p>
+<ol>
+<li>主机或路由器在收到分组时，为处理分组（例如分析首部、提取数据、差错检验或查找路由）所花费的时间。</li>
+</ol>
+</li>
+<li><p>排队时延</p>
+<ol>
+<li>分组在路由器输入输出队列中排队等待处理所经历的时延。</li>
+<li>排队时延的长短往往取决于网络中当时的通信量。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p><strong>总时延</strong>  &#x3D; 	   发送时延  		+ 传播时延  		+ 处理时延  		+ 排队时延</p>
+</li>
+</ol>
+</li>
+<li><p>时延带宽积</p>
+<ol>
+<li><img src="/../images/computerNetwork/3.png" alt="formula"></li>
+</ol>
+</li>
+<li><p>往返时间 RTT</p>
+<ol>
+<li>从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</li>
+<li>包括各中间结点的处理时延、排队时延以及转发数据时的发送时延。</li>
+</ol>
+</li>
+<li><p>利用率</p>
+<ol>
+<li>信道利用率<ol>
+<li>某信道有百分之几的时间是被利用的（有数据通过）。</li>
+<li>当某信道的利用率增大时，该信道引起的时延也就迅速增加。</li>
+</ol>
+</li>
+<li>网络利用率<ol>
+<li>全网络的信道利用率的加权平均值。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h2><h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+      <categories>
+        <category>软硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>计算机网络</tag>
+      </tags>
+  </entry>
 </search>
