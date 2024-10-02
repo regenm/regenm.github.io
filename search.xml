@@ -8631,7 +8631,7 @@
 <li><img src="/../images/computerNetwork/3.png" alt="formula"></li>
 </ol>
 </li>
-<li><p>往返时间 RTT</p>
+<li><p>9 往返时间 RTT</p>
 <ol>
 <li>从发送方发送数据开始，到发送方收到来自接收方的确认，总共经历的时间。</li>
 <li>包括各中间结点的处理时延、排队时延以及转发数据时的发送时延。</li>
@@ -8651,7 +8651,166 @@
 </ol>
 </li>
 </ol>
-<h2 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h2><h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+<h2 id="计算机网络的体系结构"><a href="#计算机网络的体系结构" class="headerlink" title="计算机网络的体系结构"></a>计算机网络的体系结构</h2><h3 id="计算机网络的分层"><a href="#计算机网络的分层" class="headerlink" title="计算机网络的分层"></a>计算机网络的分层</h3><ul>
+<li><p>优点</p>
+<ol>
+<li>各层之间是独立的。</li>
+<li>灵活性好。</li>
+<li>结构上可分割开。</li>
+<li>易于实现和维护。</li>
+<li>能促进标准化工作。</li>
+</ol>
+</li>
+<li><p>缺点</p>
+<ol>
+<li>降低效率。</li>
+<li>有些功能会在不同的层次中重复出现，因而产生了额外开销。</li>
+</ol>
+</li>
+</ul>
+<h3 id="五层协议的体系结构"><a href="#五层协议的体系结构" class="headerlink" title="五层协议的体系结构"></a>五层协议的体系结构</h3><ol>
+<li>应用层</li>
+<li>运输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ol>
+<ul>
+<li><p><strong>对等层</strong>  任何两个同样的层次把数据（即数据单元加上控制信息）通过水平虚线直接传递给对方。这就是所谓的“对等层”(peer layers)之间的通信。</p>
+</li>
+<li><p><strong>协议数据单元 PDU</strong>   对等层次之间传送的数据单位</p>
+</li>
+<li><p><strong>实体</strong>  表示任何可发送或接收信息的硬件或软件进程。</p>
+</li>
+<li><p><strong>协议</strong>  是控制两个对等实体进行通信的规则的集合。</p>
+</li>
+<li><p><strong>服务访问点 SAP</strong>  同一系统相邻两层的实体进行交互的地方</p>
+</li>
+</ul>
+<h1 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h1><p>​	物理层考虑的是<strong>怎样才能在连接</strong>各种计算机的传输媒体上传输<strong>比特流数据</strong>，而不是指具体的传输媒体。尽可能地屏蔽掉不同传输媒体和通信手段的差异。</p>
+<h2 id="数据通信"><a href="#数据通信" class="headerlink" title="数据通信"></a>数据通信</h2><h3 id="数据通信系统模型"><a href="#数据通信系统模型" class="headerlink" title="数据通信系统模型"></a>数据通信系统模型</h3><ul>
+<li><strong>数据通信系统包括三大部分：</strong><ol>
+<li>源系统（或发送端、发送方）</li>
+<li>传输系统（或传输网络）</li>
+<li>目的系统（或接收端、接收方）</li>
+</ol>
+</li>
+</ul>
+<h3 id="有关信道的几个基本概念"><a href="#有关信道的几个基本概念" class="headerlink" title="有关信道的几个基本概念"></a>有关信道的几个基本概念</h3><blockquote>
+<ol>
+<li><strong>数据 (data)</strong> —— 运送消息的实体。</li>
+<li><strong>信号 (signal)</strong> —— 数据的电气的或电磁的表现。 </li>
+<li><strong>模拟信号 (analogous signal)</strong> —— 代表消息的参数的取值是连续的。 </li>
+<li><strong>数字信号 (digital signal)</strong> —— 代表消息的参数的取值是离散的。 </li>
+<li><strong>码元 (code)</strong> —— 在使用时间域（或简称为时域）的波形表示数字信号时，代表不同离散数值的基本波形。</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol>
+<li><strong>信道</strong> —— 一般用来表示向某一个方向传送信息的媒体。</li>
+<li><strong>单向通信</strong>（单工通信）——只能有一个方向的通信而没有反方向的交互。</li>
+<li><strong>双向交替通信</strong>（半双工通信）——通信的双方都可以发送信息，但不能双方同时发送(当然也就不能同时接收)。</li>
+<li><strong>双向同时通信</strong>（全双工通信）——通信的双方可以同时发送和接收信息。 </li>
+<li><strong>基带信号（即基本频带信号）</strong>—— 来自信源的信号。像计算机输出的代表各种文字或图像文件的数据信号都属于基带信号。</li>
+<li>基带信号往往包含有较多的低频成分，甚至有直流成分，而许多信道并不能传输这种低频分量或直流分量。因此必须对基带信号进行调制 (modulation)。</li>
+</ol>
+<ul>
+<li><strong>调制</strong><ol>
+<li><strong>基带调制</strong>：仅对基带信号的波形进行变换，使它能够与信道特性相适应。变换后的信号仍然是基带信号。把这种过程称为编码 (coding)。</li>
+<li><strong>带通调制</strong>：使用载波 (carrier)进行调制，把基带信号的频率范围搬移到较高的频段，并转换为模拟信号，这样就能够更好地在模拟信道中传输（即仅在一段频率范围内能够通过信道） 。<strong>带通信号 ：</strong>经过载波调制后的信号。</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+<p><strong>常用编码方式</strong></p>
+<blockquote>
+<ol>
+<li><strong>不归零制：</strong>正电平代表 1，负电平代表 0。</li>
+<li><strong>归零制：</strong>正脉冲代表 1，负脉冲代表 0。</li>
+<li><strong>曼彻斯特编码：</strong>位周期中心的向上跳变代表 0，位周期中心的向下跳变代表 1。但也可反过来定义。<strong>具有自同步能力</strong></li>
+<li><strong>差分曼彻斯特编码：</strong>在每一位的中心处始终都有跳变。位开始边界有跳变代表 0，而位开始边界没有跳变代表 。<strong>具有自同步能力</strong></li>
+</ol>
+</blockquote>
+<p><strong>基本的带通调制方法</strong></p>
+<ul>
+<li>最基本的二元制调制方法<ol>
+<li>调幅(AM)：载波的振幅随基带数字信号而变化。 </li>
+<li>调频(FM)：载波的频率随基带数字信号而变化。</li>
+<li>调相(PM) ：载波的初始相位随基带数字信号而变化。</li>
+</ol>
+</li>
+</ul>
+<h3 id="信道的极限容量"><a href="#信道的极限容量" class="headerlink" title="信道的极限容量"></a>信道的极限容量</h3><p>​	码元传输的速率越高，或信号传输的距离越远，或传输媒体质量越差，在信道的输出端的波形的失真就越严重。 </p>
+<ul>
+<li><p><strong>限制码元在信道上的传输速率的因素有以下两个：</strong></p>
+<ol>
+<li><p>信道能够通过的频率范围</p>
+<ol>
+<li><p><strong>奈氏准则</strong></p>
+<p> <img src="/../images/computerNetwork/4.png" alt="formula"></p>
+<p> 理想低通信道”即指理想的能让部分低频率信号通过的信道。W是理想低通信道的带宽,单位为赫(Hz);Baud是波特,是码元传输速率的单位,1波特为每秒传送1个码元.</p>
+</li>
+</ol>
+</li>
+<li><p>信噪比</p>
+<ol>
+<li>信噪比就是信号的平均功率和噪声的平均功率之比。</li>
+<li><img src="/../images/computerNetwork/5.png" alt="formula"></li>
+<li><strong>香农公式</strong>  带宽受限且有高斯白噪声干扰的信道的极限、无差错的信息传输速率</li>
+<li><img src="/../images/computerNetwork/6.png" alt="formula"><ol>
+<li>信噪比越大，则信息的极限传输速率就越高。 	</li>
+<li>只要信息传输速率低于信道的极限信息传输速率，就一定可以找到某种办法来实现无差错的传输。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="物理层下面的传输媒体"><a href="#物理层下面的传输媒体" class="headerlink" title="物理层下面的传输媒体"></a>物理层下面的传输媒体</h2><p>​	传输媒体也称为传输介质或传输媒介，它就是数据传输系统中在发送器和接收器之间的物理通路。</p>
+<h3 id="导引型传输媒体"><a href="#导引型传输媒体" class="headerlink" title="导引型传输媒体"></a>导引型传输媒体</h3><p>​	电磁波被导引沿着固体媒体（铜线或光纤）传播。</p>
+<p><strong>案例</strong></p>
+<ol>
+<li>双绞线<ol>
+<li>模拟传输和数字传输</li>
+<li>通信距离一般为几到十几公里</li>
+<li>分为屏蔽双绞线 STP (Shielded Twisted Pair)和非屏蔽双绞线 UTP (Unshielded Twisted Pair)</li>
+</ol>
+</li>
+<li>同轴电缆<ol>
+<li>抗干扰特性，传输较高速率的数据。</li>
+</ol>
+</li>
+<li>光缆<ol>
+<li>多模光纤	可以存在多条不同角度入射的光线在一条光纤中传输。这种光纤就称为多模光纤。</li>
+<li>单模光纤    若光纤的直径减小到只有一个光的波长，则光纤就像一根波导那样，它可使光线一直向前传播，而不会产生多次反射。这样的光纤称为单模光纤。</li>
+<li>通信容量非常大。</li>
+<li>传输损耗小，中继距离长。</li>
+<li>抗雷电和电磁干扰性能好。</li>
+<li>无串音干扰，保密性好。</li>
+<li>体积小，重量轻。</li>
+</ol>
+</li>
+</ol>
+<h3 id="非导引型传输媒体"><a href="#非导引型传输媒体" class="headerlink" title="非导引型传输媒体"></a>非导引型传输媒体</h3><p>​	电磁波的传输常称为无线传输，自由空间称为“非导引型传输媒体”。</p>
+<h2 id="信道复用技术"><a href="#信道复用技术" class="headerlink" title="信道复用技术"></a>信道复用技术</h2><p>​	复用 (multiplexing) 是通信技术中的基本概念。它允许用户使用一个共享信道进行通信，降低成本，提高利用率。</p>
+<h3 id="频分复用、时分复用和统计时分复用"><a href="#频分复用、时分复用和统计时分复用" class="headerlink" title="频分复用、时分复用和统计时分复用"></a>频分复用、时分复用和统计时分复用</h3><h4 id="频分复用-FDM"><a href="#频分复用-FDM" class="headerlink" title="频分复用  FDM"></a>频分复用  FDM</h4><pre><code>1. 将整个带宽分为多份，用户在分配到一定的频带后，在通信过程中自始至终都占用这个频带。
+1. 频分复用的所有用户在同样的时间占用不同的带宽资源（请注意，这里的“带宽”是频率带宽而不是数据的发送速率）
+</code></pre>
+<h4 id="时分复用-TDM"><a href="#时分复用-TDM" class="headerlink" title="时分复用  TDM"></a>时分复用  TDM</h4><pre><code>1. 时分复用则是将时间划分为一段段等长的时分复用帧（TDM 帧）。每一个时分复用的用户在每一个 TDM 帧中占用固定序号的时隙。
+1. 每一个用户所占用的时隙是周期性地出现（其周期就是 TDM  帧的长度）
+1. 时分复用的所有用户是在不同的时间占用同样的频带宽度。 
+</code></pre>
+<ul>
+<li>使用时分复用系统传送计算机数据时，由于计算机数据的突发性质，用户对分配到的子信道的利用率一般是不高的。</li>
+</ul>
+<h4 id="统计时分复用-STDM"><a href="#统计时分复用-STDM" class="headerlink" title="统计时分复用  STDM"></a>统计时分复用  STDM</h4><p>STDM 帧不是固定分配时隙，而是按需动态地分配时隙。因此统计时分复用可以提高线路的利用率。</p>
+<h3 id="波分复用-WDM"><a href="#波分复用-WDM" class="headerlink" title="波分复用  WDM"></a>波分复用  WDM</h3><pre><code> 波分复用就是光的频分复用。使用一根光纤来同时传输多个光载波信号。
+</code></pre>
+<h3 id="码分复用-CDM"><a href="#码分复用-CDM" class="headerlink" title="码分复用  CDM"></a>码分复用  CDM</h3><p>​	常用的名词是码分多址 CDMA     (Code Division Multiple Access)。</p>
+<p>​	各用户使用经过特殊挑选的不同码型，因此彼此不会造成干扰。</p>
+<p>​	这种系统发送的信号有很强的抗干扰能力，其频谱类似于白噪声，不易被敌人发现。 </p>
+<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
         <category>软硬件技术</category>
       </categories>
