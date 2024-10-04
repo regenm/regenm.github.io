@@ -8445,7 +8445,7 @@
   <entry>
     <title>计算机网络笔记</title>
     <url>/2024/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>基于计算机网络第八版</p>
+    <content><![CDATA[<p>基于计算机网络第八版，用于考试。</p>
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
 <li><p>1983年，ARPANET采用TCP&#x2F;IP，标志着互联网诞生</p>
 </li>
@@ -8847,7 +8847,32 @@
 </ul>
 <h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><h4 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h4><p>​	在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。</p>
 <p>​	首部和尾部的一个重要作用就是进行<strong>帧定界。</strong></p>
-<h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><h4 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h4><h2 id="点对点协议-PPP"><a href="#点对点协议-PPP" class="headerlink" title="点对点协议 PPP"></a>点对点协议 PPP</h2><h2 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h2><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+<h4 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h4><p>​	如果数据中的某个字节的二进制代码恰好和 SOH 或 EOT 一样，数据链路层就会错误地“找到帧的边界”。</p>
+<ul>
+<li><strong>解决透明传输问题</strong><ul>
+<li><strong>字节填充</strong> (byte stuffing) 或<strong>字符填充</strong> (character stuffing)。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h4 id="差错控制"><a href="#差错控制" class="headerlink" title="差错控制"></a>差错控制</h4><p>​	在传输过程中可能会产生比特差错：1 可能会变成 0 而 0 也可能变成 1。</p>
+<ul>
+<li><p><strong>误码率 BER (Bit Error Rate)。</strong> 在一段时间内，传输错误的比特占所传输比特总数的比率</p>
+</li>
+<li><p><strong>循环冗余检验</strong></p>
+<ul>
+<li>原理<ul>
+<li>在发送端，先把数据划分为组。假定每组 k 个比特。 </li>
+<li>设待传送的一组数据 M &#x3D; 101001（现在 k &#x3D; 6）。我们在 M 的后面再添加供差错检测用的 n 位冗余码一起发送。</li>
+<li>用二进制的模 2 运算进行 2n 乘 M 的运算，这相当于在 M 后面添加 n 个 0。</li>
+<li>得到的 (k + n) 位的数除以事先选定好的长度为 (n + 1) 位的除数 P，得出商是 Q 而余数是 R，余数 R 比除数 P 少 1 位，即 R 是 n 位。 </li>
+<li>将余数 R 作为冗余码拼接在数据 M 后面发送出去。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="点对点协议-PPP"><a href="#点对点协议-PPP" class="headerlink" title="点对点协议 PPP"></a>点对点协议 PPP</h2><h2 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h2><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
         <category>软硬件技术</category>
       </categories>
@@ -8868,6 +8893,110 @@
         <tag>英文</tag>
         <tag>演讲稿</tag>
         <tag>read</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络基础</title>
+    <url>/2024/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>本部分计算机网络笔记用于学习和应用。</p>
+<h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>TCP (传输控制协议)</th>
+<th>UDP (用户数据报协议)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>连接方式</td>
+<td>面向连接</td>
+<td>无连接</td>
+</tr>
+<tr>
+<td>可靠性</td>
+<td>提供可靠的数据传输，保证数据完整性</td>
+<td>不保证数据的可靠性</td>
+</tr>
+<tr>
+<td>流量控制</td>
+<td>支持流量控制和拥塞控制</td>
+<td>不支持流量控制</td>
+</tr>
+<tr>
+<td>数据顺序</td>
+<td>保证数据的顺序</td>
+<td>不保证数据的顺序</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>较慢，由于需要建立连接和确认</td>
+<td>较快，没有建立连接的延迟</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>适合需要可靠传输的应用，如网页、文件传输</td>
+<td>适合实时应用，如视频会议、在线游戏</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>TCP数据包的结构</strong></p>
+<ul>
+<li><p><strong>头部</strong>：通常为20字节，包含以下字段：</p>
+<ul>
+<li><strong>源端口</strong>（16位）：发送端的端口号。</li>
+<li><strong>目的端口</strong>（16位）：接收端的端口号。</li>
+<li><strong>序列号</strong>（32位）：用于数据重组和控制。</li>
+<li><strong>确认号</strong>（32位）：期望收到的下一个字节的序列号。</li>
+<li><strong>数据偏移</strong>（4位）：头部长度。</li>
+<li><strong>保留位</strong>（6位）：保留用于未来使用。</li>
+<li><strong>控制位</strong>（6位）：包括URG、ACK、PSH、RST、SYN、FIN等，用于控制连接。</li>
+<li><strong>窗口大小</strong>（16位）：流量控制中的窗口大小。</li>
+<li><strong>校验和</strong>（16位）：用于检测传输中的错误。</li>
+<li><strong>紧急指针</strong>（16位）：指示紧急数据的偏移量（如果URG标志设置）。</li>
+<li><strong>选项</strong>：可选字段，长度可变。</li>
+</ul>
+<p>  <strong>数据部分</strong>：包含实际传输的数据。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>UDP数据包结构</strong></p>
+<ul>
+<li><strong>头部</strong>: 固定为8字节，包含以下字段：<ul>
+<li><strong>源端口</strong>（16位）：发送端的端口号。</li>
+<li><strong>目的端口</strong>（16位）：接收端的端口号。</li>
+<li><strong>长度</strong>（16位）：UDP头部和数据部分的总长度。</li>
+<li><strong>校验和</strong>（16位）：用于检测传输中的错误。</li>
+</ul>
+</li>
+<li><strong>数据部分</strong>：包含实际传输的数据。</li>
+</ul>
+</li>
+</ul>
+<h3 id="TCP的三次握手和四次挥手机制"><a href="#TCP的三次握手和四次挥手机制" class="headerlink" title="TCP的三次握手和四次挥手机制"></a>TCP的三次握手和四次挥手机制</h3><h3 id="使用TCP-IP协议进行通信（基于python）"><a href="#使用TCP-IP协议进行通信（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行通信（基于python）"></a>使用TCP&#x2F;IP协议进行通信（基于python）</h3><h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP服务器的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定IP地址和端口号</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始监听</span></span><br><span class="line">server_socket.listen(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TCP服务器启动，等待客户端连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待客户端连接</span></span><br><span class="line">client_socket, addr = server_socket.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;连接建立，客户端地址: <span class="subst">&#123;addr&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收数据</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;收到的数据: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送响应</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，客户端！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line">server_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="TCP客户端："><a href="#TCP客户端：" class="headerlink" title="TCP客户端："></a>TCP客户端：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP客户端的socket对象</span></span><br><span class="line">client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接服务器</span></span><br><span class="line">client_socket.connect((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送数据</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，服务器！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收服务器的响应</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;从服务器收到的响应: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用TCP-IP协议进行网络聊天（基于python）"><a href="#使用TCP-IP协议进行网络聊天（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行网络聊天（基于python）"></a>使用TCP&#x2F;IP协议进行网络聊天（基于python）</h3><h4 id="服务器-1"><a href="#服务器-1" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line">clients = []</span><br><span class="line">usernames = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handle_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 接收客户端发送的数据</span></span><br><span class="line">            message = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> message:</span><br><span class="line">                broadcast(message, client_socket)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                remove_client(client_socket)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">broadcast</span>(<span class="params">message, client_socket</span>):</span><br><span class="line">    <span class="keyword">for</span> client <span class="keyword">in</span> clients:</span><br><span class="line">        <span class="keyword">if</span> client != client_socket:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                client.send(message)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                remove_client(client)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    index = clients.index(client_socket)</span><br><span class="line">    clients.remove(client_socket)</span><br><span class="line">    username = usernames[index]</span><br><span class="line">    usernames.remove(username)</span><br><span class="line">    broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 退出了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_server</span>():</span><br><span class="line">    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line">    server_socket.listen(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;聊天服务器启动，等待连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        client_socket, addr = server_socket.accept()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;客户端 <span class="subst">&#123;addr&#125;</span> 连接。&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 让客户端输入用户名</span></span><br><span class="line">        client_socket.send(<span class="string">&quot;请输入用户名：&quot;</span>.encode())</span><br><span class="line">        username = client_socket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">        usernames.append(username)</span><br><span class="line">        clients.append(client_socket)</span><br><span class="line">        broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 加入了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line">        thread = threading.Thread(target=handle_client, args=(client_socket,))</span><br><span class="line">        thread.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start_server()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="TCP客户端：-1"><a href="#TCP客户端：-1" class="headerlink" title="TCP客户端："></a>TCP客户端：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">receive_messages</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            message = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> message:</span><br><span class="line">                <span class="built_in">print</span>(message.decode())</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;连接到服务器失败。&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_client</span>():</span><br><span class="line">    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    client_socket.connect((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输入用户名</span></span><br><span class="line">    username = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line">    client_socket.send(username.encode())</span><br><span class="line"></span><br><span class="line">    thread = threading.Thread(target=receive_messages, args=(client_socket,))</span><br><span class="line">    thread.start()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        message = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">if</span> message.lower() == <span class="string">&#x27;exit&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        client_socket.send(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span>: <span class="subst">&#123;message&#125;</span>&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line">    client_socket.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start_client()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>软硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>计算机网络</tag>
       </tags>
   </entry>
 </search>
