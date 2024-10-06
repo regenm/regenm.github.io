@@ -8972,7 +8972,57 @@
 </ul>
 </li>
 </ul>
-<h3 id="TCP的三次握手和四次挥手机制"><a href="#TCP的三次握手和四次挥手机制" class="headerlink" title="TCP的三次握手和四次挥手机制"></a>TCP的三次握手和四次挥手机制</h3><h3 id="使用TCP-IP协议进行通信（基于python）"><a href="#使用TCP-IP协议进行通信（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行通信（基于python）"></a>使用TCP&#x2F;IP协议进行通信（基于python）</h3><h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP服务器的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定IP地址和端口号</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始监听</span></span><br><span class="line">server_socket.listen(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TCP服务器启动，等待客户端连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待客户端连接</span></span><br><span class="line">client_socket, addr = server_socket.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;连接建立，客户端地址: <span class="subst">&#123;addr&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收数据</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;收到的数据: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送响应</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，客户端！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line">server_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="TCP的三次握手和四次挥手机制"><a href="#TCP的三次握手和四次挥手机制" class="headerlink" title="TCP的三次握手和四次挥手机制"></a>TCP的三次握手和四次挥手机制</h3><h4 id="一、TCP-三次握手（连接建立）"><a href="#一、TCP-三次握手（连接建立）" class="headerlink" title="一、TCP 三次握手（连接建立）"></a>一、TCP 三次握手（连接建立）</h4><p>三次握手的目的是为了保证客户端和服务器双方都确认对方收到了自己的请求，成功建立可靠的连接。过程如下：</p>
+<ol>
+<li><p>第一次握手</p>
+<p> ：</p>
+<ul>
+<li>客户端向服务器发送一个 <strong>SYN</strong>（同步）报文，表示要建立连接。此时客户端进入 <strong>SYN_SENT</strong> 状态。</li>
+</ul>
+</li>
+<li><p>第二次握手</p>
+<p> ：</p>
+<ul>
+<li>服务器收到客户端的 SYN 报文后，确认收到，回复一个 <strong>SYN-ACK</strong> 报文，表示同意建立连接并确认 SYN。此时服务器进入 <strong>SYN_RCVD</strong> 状态。</li>
+</ul>
+</li>
+<li><p>第三次握手</p>
+<p> ：</p>
+<ul>
+<li>客户端收到服务器的 SYN-ACK 报文后，发送一个 <strong>ACK</strong>（确认）报文，确认服务器的响应。此时，客户端进入 <strong>ESTABLISHED</strong>（连接已建立）状态，服务器收到 ACK 后也进入 <strong>ESTABLISHED</strong> 状态。</li>
+</ul>
+</li>
+</ol>
+<p>这三次握手的主要目的是确认双方的发送、接收能力和初始化序列号的同步。</p>
+<h4 id="二、TCP-四次挥手（连接关闭）"><a href="#二、TCP-四次挥手（连接关闭）" class="headerlink" title="二、TCP 四次挥手（连接关闭）"></a>二、TCP 四次挥手（连接关闭）</h4><p>四次挥手的目的是保证双方都确认连接已经正常关闭。其步骤如下：</p>
+<ol>
+<li><p>第一次挥手</p>
+<p> ：</p>
+<ul>
+<li>当客户端想要关闭连接时，发送一个 <strong>FIN</strong>（结束）报文，表示不再发送数据。此时客户端进入 <strong>FIN_WAIT_1</strong> 状态。</li>
+</ul>
+</li>
+<li><p>第二次挥手</p>
+<p> ：</p>
+<ul>
+<li>服务器收到 FIN 报文后，确认收到，回复一个 <strong>ACK</strong> 报文。此时服务器进入 <strong>CLOSE_WAIT</strong> 状态，客户端收到 ACK 后进入 <strong>FIN_WAIT_2</strong> 状态。</li>
+</ul>
+</li>
+<li><p>第三次挥手</p>
+<p> ：</p>
+<ul>
+<li>服务器在确认客户端不再发送数据后，也发送一个 <strong>FIN</strong> 报文，表示自己也不再发送数据。此时服务器进入 <strong>LAST_ACK</strong> 状态。</li>
+</ul>
+</li>
+<li><p>第四次挥手</p>
+<p> ：</p>
+<ul>
+<li>客户端收到服务器的 FIN 报文后，发送 <strong>ACK</strong> 报文确认。此时客户端进入 <strong>TIME_WAIT</strong> 状态，等待一段时间（通常为 2 倍的报文最大生存时间，即 2MSL）以确保服务器接收到了 ACK，之后客户端进入 <strong>CLOSED</strong> 状态，连接关闭。</li>
+</ul>
+</li>
+</ol>
+<p>服务器收到 ACK 后，也进入 <strong>CLOSED</strong> 状态，至此连接完全关闭。</p>
+<h3 id="使用TCP-IP协议进行通信（基于python）"><a href="#使用TCP-IP协议进行通信（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行通信（基于python）"></a>使用TCP&#x2F;IP协议进行通信（基于python）</h3><h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP服务器的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定IP地址和端口号</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始监听</span></span><br><span class="line">server_socket.listen(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TCP服务器启动，等待客户端连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待客户端连接</span></span><br><span class="line">client_socket, addr = server_socket.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;连接建立，客户端地址: <span class="subst">&#123;addr&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收数据</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;收到的数据: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送响应</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，客户端！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line">server_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="TCP客户端："><a href="#TCP客户端：" class="headerlink" title="TCP客户端："></a>TCP客户端：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP客户端的socket对象</span></span><br><span class="line">client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接服务器</span></span><br><span class="line">client_socket.connect((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送数据</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，服务器！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收服务器的响应</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;从服务器收到的响应: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -8997,6 +9047,92 @@
       <tags>
         <tag>笔记</tag>
         <tag>计算机网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>民谣吉他即兴笔记</title>
+    <url>/2024/10/06/%E6%B0%91%E8%B0%A3%E5%90%89%E4%BB%96%E5%8D%B3%E5%85%B4%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="节奏型武器库"><a href="#节奏型武器库" class="headerlink" title="节奏型武器库"></a>节奏型武器库</h1><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1852844021&bvid=BV1Mp421977n&cid=1496964053&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+<p>【【吉他就该这么玩】节奏太单调？学会它你能弹所有流行歌！扫弦&amp;分解节奏型汇总 伴奏武器库】 <a href="https://www.bilibili.com/video/BV1Mp421977n/?share_source=copy_web&vd_source=7a16ec5db4e5a23503ea8070ff118363">https://www.bilibili.com/video/BV1Mp421977n/?share_source=copy_web&amp;vd_source=7a16ec5db4e5a23503ea8070ff118363</a></p>
+<h2 id="分解和弦"><a href="#分解和弦" class="headerlink" title="分解和弦"></a>分解和弦</h2><p>使用的和弦</p>
+<p><img src="/../images/guitar/1.png" alt="和弦"></p>
+<ul>
+<li>节奏型</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><ol>
+<li><p><img src="/../images/guitar/2.png" alt="1"></p>
+</li>
+<li><p><img src="/../images/guitar/3.png" alt="2"></p>
+</li>
+<li><p><img src="/../images/guitar/4.png" alt="3"></p>
+</li>
+<li><p><img src="/../images/guitar/5.png" alt="4"></p>
+</li>
+<li><p><img src="/../images/guitar/6.png" alt="6"></p>
+</li>
+<li><p><img src="/../images/guitar/7.png" alt="6"></p>
+</li>
+<li><p><img src="/../images/guitar/8.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/9.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/10.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/11.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/11.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/12.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/13.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/14.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/15.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/16.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/17.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/18.png" alt="和弦"></p>
+</li>
+<li><p><img src="/../images/guitar/19.png" alt="和弦"></p>
+</li>
+</ol>
+<h2 id="扫弦节奏型"><a href="#扫弦节奏型" class="headerlink" title="扫弦节奏型"></a>扫弦节奏型</h2><p><img src="/../images/guitar/20.png" alt="和弦"></p>
+<ol>
+<li><p><img src="/../images/guitar/21.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/22.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/23.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/24.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/25.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/26.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/27.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/28.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/29.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/30.png" alt="扫弦"></p>
+</li>
+<li><p><img src="/../images/guitar/31.png" alt="扫弦"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活</category>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>吉他</tag>
+        <tag>音乐</tag>
       </tags>
   </entry>
 </search>
