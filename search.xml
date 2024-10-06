@@ -8425,24 +8425,6 @@
       </tags>
   </entry>
   <entry>
-    <title>VUE前端项目实战</title>
-    <url>/2024/09/26/VUE%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/</url>
-    <content><![CDATA[<p>项目地址：<a href="https://github.com/creativetimofficial/vue-black-dashboard">creativetimofficial&#x2F;vue-black-dashboard: Vue Black Dashboard (github.com)</a></p>
-<p>登录注册界面比较容易写，接下来试试登录后的管理界面以及展示界面。即 <strong>DashBoard</strong></p>
-<p>说是实战其实是消化理解一下大佬的项目</p>
-]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>vue</tag>
-        <tag>前端</tag>
-        <tag>javascript</tag>
-        <tag>html</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>计算机网络笔记</title>
     <url>/2024/09/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>基于计算机网络第八版，用于考试。</p>
@@ -9133,6 +9115,27 @@
       <tags>
         <tag>吉他</tag>
         <tag>音乐</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VUE前端项目笔记</title>
+    <url>/2024/09/26/VUE%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>项目地址：<a href="https://github.com/creativetimofficial/vue-black-dashboard">creativetimofficial&#x2F;vue-black-dashboard: Vue Black Dashboard (github.com)</a></p>
+<p>登录注册界面比较容易写，接下来试试登录后的管理界面以及展示界面。即 <strong>DashBoard</strong></p>
+<p>说是实战其实是消化理解一下大佬的项目。</p>
+<h3 id="i18n"><a href="#i18n" class="headerlink" title="i18n"></a>i18n</h3><blockquote>
+<p>i18n 是指在软件、应用程序或网站开发过程中，通过适当的设计和编程，使其能够方便地支持不同的语言、地区和文化规范，而无需对代码进行大量修改。i18n 是实现全球化（globalization，g11n）的重要组成部分。</p>
+</blockquote>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>vue</tag>
+        <tag>前端</tag>
+        <tag>javascript</tag>
+        <tag>html</tag>
       </tags>
   </entry>
 </search>
