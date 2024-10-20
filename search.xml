@@ -8385,7 +8385,7 @@
 </ul>
 <p><img src="/../images/iotWaterPump/6.png" alt="regen"></p>
 <p><img src="/../images/iotWaterPump/7.png" alt="regen"></p>
-<h2 id="Final-部署到服务器b"><a href="#Final-部署到服务器b" class="headerlink" title="Final!!!!!!部署到服务器b"></a>Final!!!!!!部署到服务器b</h2><ul>
+<h2 id="Final-部署到服务器"><a href="#Final-部署到服务器" class="headerlink" title="Final!!!!!!部署到服务器"></a>Final!!!!!!部署到服务器</h2><ul>
 <li><p>发现一个神器<code>remote-ssh</code>，一个vscode插件，可以直接连接服务器，使用vscode进行部署和编辑。</p>
 </li>
 <li><p>部署flask后端</p>
@@ -8412,9 +8412,69 @@
 </ol>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>​	这一次没有采用自己搭建的mqtt服务器，使用的是emqx的免费服务器集群，说实话有点麻烦，需要ca认证才能连接上。早知道就用自己之前搭建的服务器了。不过学到了新的东西，也是蛮不错的。	</p>
 <p>​	接下来试试加上别的传感器，再写个dashboard，方便展示数据和发送命令。</p>
-<h1 id="升级"><a href="#升级" class="headerlink" title="升级"></a>升级</h1><p>​	加入数据可视化显示以及实时显示当前数据的功能。</p>
-<p>​	</p>
-]]></content>
+<h1 id="升级—-V2-0"><a href="#升级—-V2-0" class="headerlink" title="升级—-&gt; V2.0"></a>升级—-&gt; V2.0</h1><p>​	加入数据可视化显示以及实时显示当前数据的功能。</p>
+<p><img src="/../images/iotWaterPump/v2/1.png" alt="v2"></p>
+<h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><h3 id="1-获取当地天气等数据"><a href="#1-获取当地天气等数据" class="headerlink" title="1. 获取当地天气等数据"></a>1. 获取当地天气等数据</h3><ul>
+<li><p><strong>实现方法</strong></p>
+<p>  ​	尝试使用现有的api，例如高德。</p>
+</li>
+</ul>
+<h4 id="高德api的使用"><a href="#高德api的使用" class="headerlink" title="高德api的使用"></a>高德api的使用</h4><blockquote>
+<ol>
+<li>打开并注册<a href="https://lbs.amap.com/">高德开放平台</a></li>
+<li>进入<a href="https://console.amap.com/dev/key/app">高德开发平台的控制台</a></li>
+<li>创建<strong>web服务</strong>应用并获取 API Key</li>
+</ol>
+</blockquote>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line">https://restapi.amap.com/v3/weather/weatherInfo?city=110101&amp;key=&lt;用户key&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>参数的选择</p>
+<table>
+<thead>
+<tr>
+<th><strong>参数名</strong></th>
+<th><strong>含义</strong></th>
+<th><strong>规则说明</strong></th>
+<th><strong>是否必须</strong></th>
+<th><strong>缺省值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>key</td>
+<td>请求服务权限标识</td>
+<td>用户在高德地图官网 <a href="https://lbs.amap.com/dev/">申请 web 服务 API 类型 KEY</a></td>
+<td>必填</td>
+<td>无</td>
+</tr>
+<tr>
+<td>city</td>
+<td>城市编码</td>
+<td>输入城市的 adcode，adcode 信息可参考 <a href="https://lbs.amap.com/api/webservice/download">城市编码表</a></td>
+<td>必填</td>
+<td>无</td>
+</tr>
+<tr>
+<td>extensions</td>
+<td>气象类型</td>
+<td>可选值：base&#x2F;allbase:返回实况天气all:返回预报天气</td>
+<td>可选</td>
+<td>无</td>
+</tr>
+<tr>
+<td>output</td>
+<td>返回格式</td>
+<td>可选值：JSON,XML</td>
+<td>可选</td>
+<td>JSON</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>返回案例结果，浦东新区为案例</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;count&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span> <span class="string">&quot;OK&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;infocode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lives&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;province&quot;</span><span class="punctuation">:</span> <span class="string">&quot;上海&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;浦东新区&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;adcode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;310115&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;weather&quot;</span><span class="punctuation">:</span> <span class="string">&quot;阴&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;temperature&quot;</span><span class="punctuation">:</span> <span class="string">&quot;19&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;winddirection&quot;</span><span class="punctuation">:</span> <span class="string">&quot;西北&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;windpower&quot;</span><span class="punctuation">:</span> <span class="string">&quot;≤3&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;humidity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;reporttime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-10-20 15:33:12&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;temperature_float&quot;</span><span class="punctuation">:</span> <span class="string">&quot;19.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;humidity_float&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77.0&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="前端展示"><a href="#前端展示" class="headerlink" title="前端展示"></a>前端展示</h4><p><img src="/../images/iotWaterPump/v2/2.png" alt="v2 show GD api"></p>
+<h3 id="2-获取传感器数据（实时更新）"><a href="#2-获取传感器数据（实时更新）" class="headerlink" title="2. 获取传感器数据（实时更新）"></a>2. 获取传感器数据（实时更新）</h3><h3 id="3-数据可视化（折线图等方式）"><a href="#3-数据可视化（折线图等方式）" class="headerlink" title="3. 数据可视化（折线图等方式）"></a>3. 数据可视化（折线图等方式）</h3>]]></content>
       <categories>
         <category>软硬件结合</category>
       </categories>
@@ -9221,6 +9281,27 @@
         <tag>esp32</tag>
         <tag>Iot</tag>
         <tag>物联网协议</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于python的聊天脚本</title>
+    <url>/2024/10/13/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E8%81%8A%E5%A4%A9%E8%84%9A%E6%9C%AC/</url>
+    <content><![CDATA[<p>用于学习tcp&#x2F;ip协议的脚本。</p>
+<p>目标：实现不同网络主机之间的通信</p>
+<ol>
+<li>服务器一直运行，获取用户请求，转发客服消息。</li>
+<li>类似mqtt协议分类为不同频道。</li>
+<li>用户登录只需提供昵称。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>python</tag>
+        <tag>计算机网络</tag>
+        <tag>脚本</tag>
       </tags>
   </entry>
 </search>
