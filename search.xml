@@ -6298,6 +6298,8 @@
     <content><![CDATA[<h1 id="PCB-Technique"><a href="#PCB-Technique" class="headerlink" title="PCB Technique"></a>PCB Technique</h1><p>​	本篇课程基于B站UP主<code>Expert电子实验室</code>的教学视频，同时加上本人思考与总结汇总而成。</p>
 <p>​	<a href="https://www.bilibili.com/video/BV1At421h7Ui/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=c33a47a3f08b3b6b6c1614d37f34903f">零基础入门PCB设计保姆级教学</a></p>
 <p>​	<a href="https://space.bilibili.com/346179450">Expert电子实验室</a></p>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1800822510&bvid=BV1At421h7Ui&cid=1445021959&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
 <p>​	本部分笔记为扫盲篇（基础篇）</p>
 <h6 id="进阶需实战，纸上得来终觉浅，绝知此事要躬行。"><a href="#进阶需实战，纸上得来终觉浅，绝知此事要躬行。" class="headerlink" title="&#x3D;&#x3D;进阶需实战，纸上得来终觉浅，绝知此事要躬行。&#x3D;&#x3D;"></a>&#x3D;&#x3D;进阶需实战，纸上得来终觉浅，绝知此事要躬行。&#x3D;&#x3D;</h6><p>​	</p>
 <h2 id="1-电路设计"><a href="#1-电路设计" class="headerlink" title="1. 电路设计"></a>1. 电路设计</h2><h2 id="1-1-原理图四要素"><a href="#1-1-原理图四要素" class="headerlink" title="1.1 原理图四要素"></a>1.1 原理图四要素</h2><ol>
@@ -6485,7 +6487,7 @@
 </ul>
 <p><img src="/images/PCB/%E5%9B%BE%E7%89%8714.png" alt="PCB叠层结构"></p>
 <h3 id="2-3-PCB设计流程"><a href="#2-3-PCB设计流程" class="headerlink" title="2.3  PCB设计流程"></a>2.3  PCB设计流程</h3><p><img src="/images/PCB/%E5%9B%BE%E7%89%8715.png" alt="设计流程"></p>
-<h3 id="2-end-1PCB设计规则总览（持续添加ing）"><a href="#2-end-1PCB设计规则总览（持续添加ing）" class="headerlink" title="2.end.1PCB设计规则总览（持续添加ing）"></a>2.end.1PCB设计规则总览（持续添加ing）</h3><ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="2-end-1PCB设计规则总览（持续添加ing）"><a href="#2-end-1PCB设计规则总览（持续添加ing）" class="headerlink" title="2.end.1PCB设计规则总览（持续添加ing）"></a>2.end.1PCB设计规则总览（持续添加ing）</h3><ol>
 <li><p><strong>电路布局与元器件安放</strong>：</p>
 <ul>
 <li><p>电路布局是否合理？</p>
@@ -6511,7 +6513,12 @@
 </ul>
 </li>
 <li><p><strong>信号管理：</strong></p>
-<ul>
+<ol>
+<li><blockquote>
+<p><strong>线宽与过孔</strong></p>
+<p>1）8&#x2F;8mil，过孔选择12mil（0.3mm）。<br>2）6&#x2F;6mil，过孔选择12mil（0.3mm）。<br>3）4&#x2F;4mil，过孔选择8mil（0.2mm）。<br>4）3.5&#x2F;3.5mil，过孔选择8mil（0.2mm）。<br>5）3.5&#x2F;3.5mil，过孔选择4mil（0.1mm，激光打孔）。<br>6）2&#x2F;2mil，过孔选择4mil（0.1mm，激光打孔）。<br>参考过孔：内径12mil、外径20mil<br>参考内径20mil、外径30mil</p>
+</blockquote>
+</li>
 <li><p>是否进行了信号完整性分析？</p>
 </li>
 <li><p>是否进行了阻抗匹配设计？</p>
@@ -6528,10 +6535,17 @@
 </li>
 <li><p>是否进行了线路的阻抗匹配设计？</p>
 </li>
-</ul>
+</ol>
 </li>
 <li><p><strong>电源管理：</strong></p>
-<ul>
+<ol>
+<li><p>电流与布线宽度</p>
+<blockquote>
+<p>电源线、地线的宽度最好尽可能宽，地线比电源线宽。这些关系为：地线&gt;电源线&gt;信号线，通常信号线的宽度为0.2-0.3mm(8-12mil)，最细的宽度为0.05-0.07mm(2-2.8mil)，电源线为1.2-2.5mm(48-100mil)。(0.025mm&#x3D;1mil).</p>
+<p><a href="https://eda365.com/article-12-1.html">PCB走线载流计算器-EDA365电子论坛通信数码-人工智能-计算机-半导体-手机家电消费电子硬件门户网站</a></p>
+<p><img src="/../images/pcb/1.png"></p>
+</blockquote>
+</li>
 <li><p>是否考虑了电源的滤波和稳压？</p>
 </li>
 <li><p>是否进行了电源线和地线的分离和规范设计？</p>
@@ -6540,7 +6554,7 @@
 </li>
 <li><p>是否进行了电源供应的充足性和稳定性分析？</p>
 </li>
-</ul>
+</ol>
 </li>
 <li><p><strong>PCB工艺与环境因素：</strong></p>
 <ul>
