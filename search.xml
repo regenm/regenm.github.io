@@ -6558,7 +6558,7 @@
 </li>
 <li><p><strong>PCB工艺与环境因素：</strong></p>
 <ul>
-<li><p>是否考虑了PCB的工作环境和应用场景？</p>
+<li><p>是否考虑了PCB的工作环境和应用场景</p>
 </li>
 <li><p>是否进行了PCB的加工工艺和成本分析？</p>
 </li>
@@ -8488,7 +8488,16 @@
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;count&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;info&quot;</span><span class="punctuation">:</span> <span class="string">&quot;OK&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;infocode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;10000&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;lives&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;province&quot;</span><span class="punctuation">:</span> <span class="string">&quot;上海&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;city&quot;</span><span class="punctuation">:</span> <span class="string">&quot;浦东新区&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;adcode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;310115&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;weather&quot;</span><span class="punctuation">:</span> <span class="string">&quot;阴&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;temperature&quot;</span><span class="punctuation">:</span> <span class="string">&quot;19&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;winddirection&quot;</span><span class="punctuation">:</span> <span class="string">&quot;西北&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;windpower&quot;</span><span class="punctuation">:</span> <span class="string">&quot;≤3&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;humidity&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;reporttime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2024-10-20 15:33:12&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;temperature_float&quot;</span><span class="punctuation">:</span> <span class="string">&quot;19.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;humidity_float&quot;</span><span class="punctuation">:</span> <span class="string">&quot;77.0&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
 </ol>
 <h4 id="前端展示"><a href="#前端展示" class="headerlink" title="前端展示"></a>前端展示</h4><p><img src="/../images/iotWaterPump/v2/2.png" alt="v2 show GD api"></p>
-<h3 id="2-获取传感器数据（实时更新）"><a href="#2-获取传感器数据（实时更新）" class="headerlink" title="2. 获取传感器数据（实时更新）"></a>2. 获取传感器数据（实时更新）</h3><p>思路</p>
+<h3 id="2-获取传感器数据（实时更新）"><a href="#2-获取传感器数据（实时更新）" class="headerlink" title="2. 获取传感器数据（实时更新）"></a>2. 获取传感器数据（实时更新）</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
+<li>使用Flask制作api。每次刷新即重新发送请求获取传感器数据。</li>
+<li>服务器获取到的数据存进MySQL数据库，然后每次请求则返回数据库最新数据</li>
+<li>使用实时通信技术<ol>
+<li>WebSocket</li>
+<li>ServerSentEvents</li>
+</ol>
+</li>
+<li>前端直接使用mqtt库，获取数据。</li>
+</ol>
 <h3 id="3-数据可视化（折线图等方式）"><a href="#3-数据可视化（折线图等方式）" class="headerlink" title="3. 数据可视化（折线图等方式）"></a>3. 数据可视化（折线图等方式）</h3>]]></content>
       <categories>
         <category>软硬件结合</category>
@@ -9318,6 +9327,169 @@
         <tag>python</tag>
         <tag>计算机网络</tag>
         <tag>脚本</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Nginx入门基础知识</title>
+    <url>/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>最近Nginx部署用的多点，学过的tomcat仅仅适合用于java项目。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>开源的高性能 HTTP 服务器和反向代理服务器</p>
+<p>IMAP&#x2F;POP3 邮件代理服务器</p>
+</blockquote>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>高并发处理能力</li>
+<li>反向代理和负载均衡</li>
+<li>动静分离</li>
+<li>高效的静态文件服务</li>
+<li>支持多种协议</li>
+</ol>
+<h2 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h2><p>反向代理充当客户端和后端服务器之间的中间层。它的作用是接收客户端的请求，转发给后端服务器处理，然后将处理结果返回给客户端。使用反向代理的主要目的是提高系统性能、安全性和可扩展性。Nginx 和 Apache 等服务器软件通常被配置为反向代理。</p>
+<h3 id="单个服务器使用反向代理"><a href="#单个服务器使用反向代理" class="headerlink" title="单个服务器使用反向代理"></a>单个服务器使用反向代理</h3><p>可以用于分发请求、缓存静态资源、隐藏后端服务等</p>
+<p><strong>优势：</strong></p>
+<p><strong>安全性</strong>：隐藏后端服务器的 IP，防止直接攻击。</p>
+<p><strong>可扩展性</strong>：在需要扩展时，可以在同一 Nginx 配置下代理多个应用或服务。</p>
+<p><strong>性能优化</strong>：通过缓存静态资源和 SSL 卸载，提升整体性能。</p>
+<h3 id="多个服务器使用反向代理"><a href="#多个服务器使用反向代理" class="headerlink" title="多个服务器使用反向代理"></a>多个服务器使用反向代理</h3><p>后端服务器不需要直接连接互联网，只要它们和反向代理服务器（例如 Nginx）在同一个内网中。</p>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ol>
+<li><strong>安全性</strong><ul>
+<li>后端服务器的 IP 地址不会暴露在公网上，降低了受到外部攻击的风险。</li>
+<li>可以通过 Nginx 过滤和控制访问，进一步增强安全性。</li>
+</ul>
+</li>
+<li><strong>负载均衡和容错</strong><ul>
+<li>Nginx 可以使用负载均衡策略在内网中将请求分发到多台服务器上，提高系统的整体并发能力。</li>
+<li>通过健康检查，Nginx 可以检测后端服务器的状态，自动跳过故障服务器，提高系统容错能力。</li>
+</ul>
+</li>
+<li><strong>简化配置</strong><ul>
+<li>后端服务器只需与反向代理服务器（Nginx）进行通讯，而不需要考虑公网的 IP 和 DNS 配置，简化了网络配置。</li>
+<li>通过内网 IP 直接访问，减少了外部因素的影响，通信效率更高。</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>分布式服务器基础知识</title>
+    <url>/2024/10/31/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</url>
+    <content><![CDATA[<p>最近常常看到分布式这个词，好记性不如烂键盘，简单记录记录，并没有深入研究。</p>
+<h1 id="分布式服务器架构"><a href="#分布式服务器架构" class="headerlink" title="分布式服务器架构"></a>分布式服务器架构</h1><blockquote>
+<p>分布式服务器架构是一种将服务和计算任务分散到多个服务器或节点上来处理的系统架构。</p>
+</blockquote>
+<h2 id="目的或者功能"><a href="#目的或者功能" class="headerlink" title="目的或者功能"></a>目的或者功能</h2><blockquote>
+<ol>
+<li>提高系统的性能、可用性和扩展性。</li>
+<li>适合应对高并发访问和海量数据处理的需求。</li>
+<li>分布式架构的核心理念是将负载分摊到多个服务器上，避免单点故障（SPOF），并根据需求动态扩展。</li>
+</ol>
+</blockquote>
+<h1 id="分布式服务器架构的主要组成和常见设计模式"><a href="#分布式服务器架构的主要组成和常见设计模式" class="headerlink" title="分布式服务器架构的主要组成和常见设计模式"></a>分布式服务器架构的主要组成和常见设计模式</h1><h2 id="主要组成"><a href="#主要组成" class="headerlink" title="主要组成"></a>主要组成</h2><h3 id="1-负载均衡层"><a href="#1-负载均衡层" class="headerlink" title="1. 负载均衡层"></a>1. <strong>负载均衡层</strong></h3><ul>
+<li><strong>功能</strong>：将用户请求分发到多个服务器节点，避免单个服务器过载。</li>
+<li><strong>实现方式</strong>：常用的负载均衡工具有硬件负载均衡（如 F5）和软件负载均衡（如 Nginx、HAProxy）。</li>
+<li><strong>常见策略</strong>：轮询、加权轮询、最小连接、IP 哈希等，选择最佳策略分发流量。</li>
+</ul>
+<h3 id="2-应用服务层"><a href="#2-应用服务层" class="headerlink" title="2. 应用服务层"></a>2. <strong>应用服务层</strong></h3><ul>
+<li><p><strong>功能</strong>：部署核心应用逻辑，如 Web 应用、API 服务、后端管理系统等。</p>
+</li>
+<li><p>架构模式</p>
+<p>  ：微服务架构和单体架构。</p>
+<ul>
+<li><strong>微服务架构</strong>：将应用拆分为多个独立服务，每个服务独立部署和管理，便于扩展和更新。</li>
+<li><strong>单体架构</strong>：应用服务集中于一台服务器或一个容器内，适合小型系统。</li>
+</ul>
+</li>
+<li><p><strong>技术栈</strong>：可以选择基于 Spring Boot、Flask、Django、Node.js 等的框架。</p>
+</li>
+</ul>
+<h3 id="3-缓存层"><a href="#3-缓存层" class="headerlink" title="3. 缓存层"></a>3. <strong>缓存层</strong></h3><ul>
+<li><strong>功能</strong>：减少数据库压力，加快响应速度，存储经常访问的数据。</li>
+<li><strong>常用缓存技术</strong>：Redis、Memcached 等。</li>
+<li><strong>缓存策略</strong>：设置缓存过期时间（TTL）、缓存更新策略（LRU、LFU）等来优化缓存使用。</li>
+</ul>
+<h3 id="4-数据库层"><a href="#4-数据库层" class="headerlink" title="4. 数据库层"></a>4. <strong>数据库层</strong></h3><ul>
+<li><strong>功能</strong>：持久化存储系统的数据，支持查询和事务处理。</li>
+<li><strong>数据库分布</strong>：分库分表、读写分离、主从同步。</li>
+<li><strong>常见数据库</strong>：MySQL、PostgreSQL（关系型数据库），MongoDB、Cassandra（非关系型数据库）。</li>
+<li><strong>数据同步</strong>：使用主从复制、分片（Sharding）等技术提高数据访问性能和可用性。</li>
+</ul>
+<h3 id="5-消息队列层"><a href="#5-消息队列层" class="headerlink" title="5. 消息队列层"></a>5. <strong>消息队列层</strong></h3><ul>
+<li><strong>功能</strong>：在系统内部传递消息，解耦不同服务模块，适合高并发需求。</li>
+<li><strong>常用消息队列</strong>：RabbitMQ、Kafka、ActiveMQ 等。</li>
+<li><strong>应用场景</strong>：订单处理、消息通知、日志存储等高并发场景。</li>
+</ul>
+<h3 id="6-文件存储层"><a href="#6-文件存储层" class="headerlink" title="6. 文件存储层"></a>6. <strong>文件存储层</strong></h3><ul>
+<li><strong>功能</strong>：存储文件、图片、视频等大数据文件。</li>
+<li><strong>常用技术</strong>：分布式文件系统（如 HDFS）、对象存储（如 AWS S3、阿里云 OSS）。</li>
+<li><strong>适用场景</strong>：大文件上传、图片存储、备份数据等。</li>
+</ul>
+<h3 id="7-监控和日志系统"><a href="#7-监控和日志系统" class="headerlink" title="7. 监控和日志系统"></a>7. <strong>监控和日志系统</strong></h3><ul>
+<li><strong>功能</strong>：实时监控系统的状态、日志记录，便于发现故障和优化系统。</li>
+<li><strong>常用工具</strong>：Prometheus、Grafana、ELK（Elasticsearch、Logstash、Kibana）等。</li>
+<li><strong>功能</strong>：监控 CPU、内存、网络流量，分析错误日志等，确保系统稳定。</li>
+</ul>
+<h2 id="常见设计模式"><a href="#常见设计模式" class="headerlink" title="常见设计模式"></a>常见设计模式</h2><ol>
+<li><strong>微服务架构</strong>：将单体应用拆分为多个独立的服务，每个服务独立开发和部署，易于扩展。</li>
+<li><strong>服务网格</strong>：通常用于管理微服务间的通信，确保服务间通信的安全性、可靠性和可观测性。</li>
+<li><strong>CQRS 和事件溯源</strong>：使用不同模型处理读写请求，并记录系统的每次状态变更以支持回溯。</li>
+</ol>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><h3 id="系统复杂性增加"><a href="#系统复杂性增加" class="headerlink" title="系统复杂性增加"></a>系统复杂性增加</h3><ul>
+<li>分布式架构涉及多个模块和服务的协调工作，相比单体架构，系统设计和开发变得更复杂。</li>
+<li>服务之间的通信、数据同步、容错等都需要精细的设计和测试，开发成本和时间显著增加。</li>
+<li>开发人员需要掌握分布式系统的知识，如一致性算法、分布式锁等，增加了技术要求。</li>
+</ul>
+<h3 id="数据一致性难以保障"><a href="#数据一致性难以保障" class="headerlink" title="数据一致性难以保障"></a>数据一致性难以保障</h3><ul>
+<li>在分布式系统中，数据可能分散在不同的节点上，维护一致性变得困难。</li>
+<li>CAP 理论（Consistency, Availability, Partition tolerance）指出分布式系统无法同时满足一致性、可用性和分区容错性，这导致设计时需在一致性和可用性之间进行权衡。</li>
+<li>常用的一致性方案，如最终一致性、强一致性等，都有各自的复杂性和延迟问题。</li>
+</ul>
+<h3 id="网络通信开销"><a href="#网络通信开销" class="headerlink" title="网络通信开销"></a>网络通信开销</h3><ul>
+<li>分布式架构中，各个节点通过网络通信相互协作，网络延迟、带宽限制等因素会影响系统性能。</li>
+<li>网络故障会导致部分节点不可用，甚至造成服务的暂时中断。</li>
+<li>额外的通信开销还可能增加系统的成本，如需要负载均衡器、API 网关等组件来优化网络流量。</li>
+</ul>
+<h3 id="部署和运维成本高"><a href="#部署和运维成本高" class="headerlink" title="部署和运维成本高"></a>部署和运维成本高</h3><ul>
+<li>分布式架构通常需要更多的硬件和软件资源，以及专业的运维团队来支持系统的运行。</li>
+<li>部署需要对多个节点和服务进行管理，更新和回滚复杂，尤其是在微服务架构中。</li>
+<li>持续集成、持续交付（CI&#x2F;CD）流程的复杂度增加，需要额外的工具和策略来确保部署的稳定性。</li>
+</ul>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="分布式mqtt服务器"><a href="#分布式mqtt服务器" class="headerlink" title="分布式mqtt服务器"></a>分布式mqtt服务器</h2><p>分布式 MQTT 服务器架构设计是为了实现 MQTT 消息的高可用性、高扩展性和高并发处理。分布式 MQTT 服务器可以承载大量物联网设备的连接，同时能够保证消息的快速分发和数据的一致性。在设计和实现分布式 MQTT 服务器时，通常会使用负载均衡、集群、数据分片、消息持久化等技术。</p>
+<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><p>Spring Cloud、Kubernetes、Docker、Istio。将应用拆分为多个独立的服务，每个服务独立开发、部署和扩展，适合大型企业系统的开发。分布式服务独立运作，降低单个服务出错影响，全栈服务自主扩展，可快速响应不同功能模块的需求。</p>
+<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>Bitcoin、Ethereum、Hyperledger Fabric、Polkadot。构建去中心化系统，支持加密货币交易、智能合约、数据安全和隐私保护。采用分布式账本、共识算法、加密技术，数据公开透明且难以篡改，适用于去中心化应用（DApp）和数据溯源等。</p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>分布式服务器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>STM32开发板绘制（首次使用嘉立创SMT）</title>
+    <url>/2024/10/31/STM32%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BB%98%E5%88%B6%EF%BC%88%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%98%89%E7%AB%8B%E5%88%9BSMT%EF%BC%89/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+        <tag>PCB</tag>
+        <tag>项目</tag>
+        <tag>最小系统</tag>
+        <tag>SMT</tag>
+        <tag>嘉立创</tag>
       </tags>
   </entry>
 </search>
