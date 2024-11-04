@@ -8581,14 +8581,30 @@
 <h3 id="2-获取传感器数据（实时更新）"><a href="#2-获取传感器数据（实时更新）" class="headerlink" title="2. 获取传感器数据（实时更新）"></a>2. 获取传感器数据（实时更新）</h3><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><ol>
 <li>使用Flask制作api。每次刷新即重新发送请求获取传感器数据。</li>
 <li>服务器获取到的数据存进MySQL数据库，然后每次请求则返回数据库最新数据</li>
-<li>使用实时通信技术<ol>
+<li>使用实时通信技术，前端直接使用mqtt库，获取数据<ol>
 <li>WebSocket</li>
 <li>ServerSentEvents</li>
 </ol>
 </li>
-<li>前端直接使用mqtt库，获取数据。</li>
 </ol>
-<h3 id="3-数据可视化（折线图等方式）"><a href="#3-数据可视化（折线图等方式）" class="headerlink" title="3. 数据可视化（折线图等方式）"></a>3. 数据可视化（折线图等方式）</h3>]]></content>
+<h3 id="3-数据可视化（折线图等方式）"><a href="#3-数据可视化（折线图等方式）" class="headerlink" title="3. 数据可视化（折线图等方式）"></a>3. 数据可视化（折线图等方式）</h3><p>已经崩溃了。</p>
+<p>下图是VUE+MQTT.js的效果，可以直接从emqx获取数据，省去了get后端api的步骤，实时更新。</p>
+<ul>
+<li>遇到的报错<ol>
+<li>mqtt.js包版本问题</li>
+<li>WebSocket over SSL 连接不上emqx</li>
+<li>数据json化</li>
+<li>官方项目和自己的项目各种包版本不同</li>
+</ol>
+</li>
+<li>涨的知识<ol>
+<li>一般前端使用WebSocket获取数据，后端用mqtts获取数据。</li>
+<li>github可以直接使用codespace！直接一步调试太厉害了。</li>
+</ol>
+</li>
+</ul>
+<p><img src="/../images/iotWaterPump/10.png" alt="v2 show GD api"></p>
+]]></content>
       <categories>
         <category>软硬件结合</category>
       </categories>
@@ -9649,5 +9665,10 @@
         <tag>SMT</tag>
         <tag>嘉立创</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>WordPress建站速成</title>
+    <url>/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
