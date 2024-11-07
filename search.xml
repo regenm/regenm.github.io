@@ -9692,4 +9692,20 @@
         <tag>随手记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>CAN总线笔记</title>
+    <url>/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>STM32</tag>
+        <tag>51</tag>
+        <tag>Iot</tag>
+        <tag>CAN总线</tag>
+      </tags>
+  </entry>
 </search>
