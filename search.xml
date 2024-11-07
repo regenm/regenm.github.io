@@ -8928,16 +8928,25 @@
   </entry>
   <entry>
     <title>电子电路基础</title>
-    <url>/2024/02/06/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<h1 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h1><ul>
-<li><p>VCC：C&#x3D;circuit，表示电路的意思，即接入电路的电压。</p>
+    <url>/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<p>随手记下一些不清楚的电子电路知识点</p>
+<h1 id="反应性原件"><a href="#反应性原件" class="headerlink" title="反应性原件"></a>反应性原件</h1><h2 id="L-R时间常数"><a href="#L-R时间常数" class="headerlink" title="L&#x2F;R时间常数"></a>L&#x2F;R时间常数</h2><blockquote>
+<p>描述电感电路（RL电路）中的一个重要参数，它表示电流达到其最终值的63.2%所需的时间。</p>
+<p>L代表电感量（以亨利H为单位），R代表电阻值（以欧姆Ω为单位），因此L&#x2F;R时间常数的单位是秒（s）。</p>
+<p>在RL电路中，当施加一个电压时，电流不会立刻达到最大值，而是逐渐增加，达到最终稳定值。电流随时间的变化可以用指数函数描述，公式为：<br>$$<br>I(t)&#x3D;Imax×(1−e^{-τ&#x2F;t})<br>$$<br>其中：</p>
+<ul>
+<li><p>I(t)I(t)I(t) 是时间 ttt 时刻的电流，</p>
 </li>
-<li><p>VDD：D&#x3D;device，表示器件的意思，即器件内部的工作电压。</p>
+<li><p>ImaxI_{\text{max}}Imax 是最终的最大电流值，</p>
 </li>
-<li><p>VSS：S&#x3D;series，表示公共连接的意思，通常指电路公共接地端电压。</p>
+<li><p>eee 是自然对数的底，</p>
+</li>
+<li><p>τ&#x3D;LR\tau &#x3D; \frac{L}{R}τ&#x3D;RL 是时间常数。</p>
 </li>
 </ul>
-<h1 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h1>]]></content>
+<p>当时间 t&#x3D;τt &#x3D; \taut&#x3D;τ 时，电流 I(t)I(t)I(t) 达到最大值的约63.2%。在工程应用中，这个时间常数描述了电路响应的速度——L&#x2F;R越大，电流建立的速度越慢。</p>
+</blockquote>
+]]></content>
       <categories>
         <category>硬件技术</category>
       </categories>
@@ -9670,7 +9679,57 @@
 </ul>
 </li>
 </ul>
-<h2 id="点对点协议-PPP"><a href="#点对点协议-PPP" class="headerlink" title="点对点协议 PPP"></a>点对点协议 PPP</h2><h2 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h2><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+<h2 id="点对点协议-PPP"><a href="#点对点协议-PPP" class="headerlink" title="点对点协议 PPP"></a>点对点协议 PPP</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>简单</li>
+<li>封装成帧</li>
+<li>透明性</li>
+<li>多种网络层协议</li>
+<li>多种类型链路 </li>
+<li>差错检测</li>
+</ol>
+<h3 id="帧格式"><a href="#帧格式" class="headerlink" title="帧格式"></a>帧格式</h3><p><img src="/../images/computerNetwork/7.png" alt="格式"></p>
+<h3 id="字符填充"><a href="#字符填充" class="headerlink" title="字符填充"></a>字符填充</h3><ol>
+<li>将信息字段中出现的每一个 0x7E 字节转变成为 2 字节序列 (0x7D, 0x5E)。 </li>
+<li>若信息字段中出现一个 0x7D 的字节, 则将其转变成为 2 字节序列 (0x7D, 0x5D)。</li>
+<li>若信息字段中出现 ASCII 码的控制字符（即数值小于 0x20 的字符），则在该字符前面要加入一个 0x7D 字节，同时将该字符的编码加以改变。</li>
+</ol>
+<h3 id="工作状态"><a href="#工作状态" class="headerlink" title="工作状态"></a>工作状态</h3><ul>
+<li>当用户拨号接入 ISP 时，路由器的调制解调器对拨号做出确认，并建立一条物理连接。</li>
+<li>PC 机向路由器发送一系列的 LCP 分组（封装成多个 PPP 帧）。</li>
+<li>这些分组及其响应选择一些 PPP 参数，并进行网络层配置，NCP 给新接入的 PC 机分配一个临时的 IP 地址，使 PC 机成为因特网上的一个主机。</li>
+<li>通信完毕时，NCP 释放网络层连接，收回原来分配出去的 IP 地址。接着，LCP 释放数据链路层连接。最后释放的是物理层的连接。</li>
+<li>可见，PPP 协议已不是纯粹的数据链路层的协议，它还包含了物理层和网络层的内容。</li>
+</ul>
+<h2 id="使用广播信道的数据链路层"><a href="#使用广播信道的数据链路层" class="headerlink" title="使用广播信道的数据链路层"></a>使用广播信道的数据链路层</h2><h3 id="局域网的数据链路层"><a href="#局域网的数据链路层" class="headerlink" title="局域网的数据链路层"></a>局域网的数据链路层</h3><h4 id="局域网的特点"><a href="#局域网的特点" class="headerlink" title="局域网的特点"></a>局域网的特点</h4><ul>
+<li>网络为一个单位所拥有；</li>
+<li>地理范围和站点数目均有限。</li>
+</ul>
+<h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ol>
+<li>有广播功能，从一个站点可很方便地访问全网。局域网上的主机可共享连接在局域网上的各种硬件和软件资源。 </li>
+<li>便于系统的扩展和逐渐地演变，各设备的位置可灵活调整和改变。</li>
+<li>提高了系统的可靠性、可用性和残存性。</li>
+</ol>
+<p><strong>局域网的数据链路层的两个子层</strong></p>
+<ol>
+<li>逻辑链路控制 LLC (Logical Link Control)子层；</li>
+<li>媒体接入控制 MAC (Medium Access Control)子层。</li>
+</ol>
+<p>不管采用何种协议的局域网，对 LLC 子层来说都是透明的。</p>
+<p>网络接口板又称为<strong>通信适配器</strong> (adapter) 或网络接口卡 NIC (Network Interface Card)，或“网卡”。 </p>
+<p><strong>适配器的重要功能</strong>：</p>
+<ol>
+<li>进行串行&#x2F;并行转换。对数据进行缓存。</li>
+<li>在计算机的操作系统安装设备驱动程序。</li>
+<li>实现以太网协议。</li>
+</ol>
+<h3 id="CSMA-CD-协议"><a href="#CSMA-CD-协议" class="headerlink" title="CSMA&#x2F;CD 协议"></a>CSMA&#x2F;CD 协议</h3><p>CSMA&#x2F;CD 含义：载波监听多点接入 &#x2F; 碰撞检测  (Carrier Sense Multiple Access with Collision Detection) 。</p>
+<p>载波监听”是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。 </p>
+<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
+<li>使用 CSMA&#x2F;CD 协议的以太网不能进行全双工通信而只能进行双向交替通信（半双工通信）。</li>
+<li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。 </li>
+<li>这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。</li>
+</ol>
+<h3 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h3><h3 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h3><h3 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h3><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
         <category>软硬件技术</category>
       </categories>
@@ -9695,7 +9754,11 @@
   <entry>
     <title>CAN总线笔记</title>
     <url>/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p><strong>CAN总线</strong></p>
+<blockquote>
+<p>CAN（Controller Area Network）总线是一种串行通信协议，用于在汽车、工业自动化设备和物联网等嵌入式系统中实现设备之间的可靠数据传输。</p>
+</blockquote>
+]]></content>
       <categories>
         <category>硬件技术</category>
       </categories>
