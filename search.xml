@@ -9266,7 +9266,14 @@
 <li><p><strong>万维网 (World Wide Web, 简称 WWW)</strong>   全球性的信息空间，人们可以通过互联网访问和共享信息</p>
 </li>
 </ul>
-<h2 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h2><ol>
+<h2 id="互联网的组成"><a href="#互联网的组成" class="headerlink" title="互联网的组成"></a>互联网的组成</h2><p>网络协议三要素</p>
+<ol>
+<li><p>语法</p>
+</li>
+<li><p>语义</p>
+</li>
+<li><p>同步</p>
+</li>
 <li><p><strong>边缘部分</strong></p>
 <p> ​	由所有连接在互联网上的主机组成。这部分是用户直接使用的，用来进行通信（传送数据、音频或视频）和资源共享。</p>
 </li>
@@ -9724,12 +9731,29 @@
 </ol>
 <h3 id="CSMA-CD-协议"><a href="#CSMA-CD-协议" class="headerlink" title="CSMA&#x2F;CD 协议"></a>CSMA&#x2F;CD 协议</h3><p>CSMA&#x2F;CD 含义：载波监听多点接入 &#x2F; 碰撞检测  (Carrier Sense Multiple Access with Collision Detection) 。</p>
 <p>载波监听”是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。 </p>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ol>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ol>
 <li>使用 CSMA&#x2F;CD 协议的以太网不能进行全双工通信而只能进行双向交替通信（半双工通信）。</li>
 <li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。 </li>
 <li>这种发送的不确定性使整个以太网的平均通信量远小于以太网的最高数据率。</li>
 </ol>
-<h3 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h3><h3 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h3><h3 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h3><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+<h4 id="要点"><a href="#要点" class="headerlink" title="要点"></a><strong>要点</strong></h4><p>(1) 准备发送。但在发送之前，必须先检测信道。</p>
+<p>(2) 检测信道。若检测到信道忙，则应不停地检测，一直等待信道转为空闲。若检测到信道空闲，并在 96 比特时间内信道保持空闲（保证了帧间最小间隔），就发送这个帧。</p>
+<p>(3) 检查碰撞。在发送过程中仍不停地检测信道，即网络适配器要边发送边监听。这里只有两种可能性：</p>
+<p>​	①发送成功：在争用期内一直未检测到碰撞。这个帧肯定能够发送成功。发送完毕后，其他什么也不做。然后回到 (1)。</p>
+<p>​	②发送失败：在争用期内检测到碰撞。这时立即停止发送数据，并按规定发送人为干扰信号。适配器接着就执行指数退避算法，等待 r 倍 512 比特时间后，返回到步骤 (2)，继续检测信道。但若重传达 16 次仍不能成功，则停止重传而向上报错。</p>
+<h3 id="使用集线器的星形拓扑"><a href="#使用集线器的星形拓扑" class="headerlink" title="使用集线器的星形拓扑"></a>使用集线器的星形拓扑</h3><p><strong>10BASE-T</strong></p>
+<ol>
+<li>10 Mbit&#x2F;s </li>
+<li>距离不超过 100 m。</li>
+</ol>
+<p><strong>集线器的特点</strong></p>
+<ol>
+<li>集线器是使用电子器件来模拟实际电缆线的工作，因此整个系统仍然像一个传统的以太网那样运行。</li>
+<li>使用集线器的以太网在逻辑上仍是一个总线网，各工作站使用的还是 CSMA&#x2F;CD 协议，并共享逻辑上的总线。 </li>
+<li>集线器很像一个多接口的转发器，工作在物理层。</li>
+<li>集线器采用了专门的芯片，进行自适应串音回波抵消，减少了近端串音。</li>
+</ol>
+<h3 id="以太网的信道利用率"><a href="#以太网的信道利用率" class="headerlink" title="以太网的信道利用率"></a>以太网的信道利用率</h3><h3 id="以太网的-MAC-层"><a href="#以太网的-MAC-层" class="headerlink" title="以太网的 MAC 层"></a>以太网的 MAC 层</h3><h2 id="扩展的以太网"><a href="#扩展的以太网" class="headerlink" title="扩展的以太网"></a>扩展的以太网</h2><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
         <category>软硬件技术</category>
       </categories>
@@ -9758,6 +9782,10 @@
 <blockquote>
 <p>CAN（Controller Area Network）总线是一种串行通信协议，用于在汽车、工业自动化设备和物联网等嵌入式系统中实现设备之间的可靠数据传输。</p>
 </blockquote>
+<h2 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h2><p><strong>多主架构</strong>：CAN总线采用多主通信方式，任何节点（即连接在总线上的设备）都可以在总线空闲时发起通信。这种设计提高了系统的灵活性和可靠性。</p>
+<p><strong>差分信号传输</strong>：CAN总线使用差分信号传输数据，即CAN_H和CAN_L两根信号线之间的电压差用来表示逻辑状态。这种方式能有效地降低电磁干扰的影响，适合在工业环境中使用。</p>
+<p><strong>优先级机制</strong>：CAN协议内置消息优先级，通过标识符的方式决定通信优先级，当两个或多个节点同时发送消息时，优先级高的节点可以继续发送，而优先级低的节点会自动延迟发送。这种机制保障了紧急消息能够优先传输。</p>
+<p><strong>高可靠性与数据完整性</strong>：CAN协议内置多种错误检测和纠正机制，如CRC校验、帧检测和ACK确认机制。通过这些机制，CAN总线能够及时检测和纠正数据传输过程中的错误，确保数据的准确性和可靠性。</p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
