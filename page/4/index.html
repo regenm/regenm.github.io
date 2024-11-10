@@ -52,7 +52,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-11-08 21:17:29'
+  postUpdate: '2024-11-10 21:22:06'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -149,88 +149,290 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/" title="大创项目《自动化农业无人机》记录">大创项目《自动化农业无人机》记录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-09T04:31:00.000Z" title="Created 2024-05-09 12:31:00">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">​	记录一下大创项目《自动化农业无人机》。实现项目转化知识成果
-硬件选型
-实现思路PID算法三轴陀螺仪的使用（以mpu6050为例）[MPU6050 basic  with Arduino](link to be added)
-PID算法数据传输mqtt协议简介esp8266连接服务器（基于mosquitto的mqtt server） | Regen (regenm.github.io)
-mqtt服务器搭建MQTT服务器搭建（mosquitto） | Regen (regenm.github.io)
-传输系统1. 数据传输mqtt协议基于代理，订阅和发布。
-因此在服务器里创建一个频道/topic/dataFromSensors用于各类传感器的数据传输
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/07/Java-Projects/" title="Java Projects">Java Projects</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-07T08:42:42.000Z" title="Created 2023-12-07 16:42:42">2023-12-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/02/%E3%80%8A%E4%B8%A7%E9%92%9F%E4%B8%BA%E8%B0%81%E8%80%8C%E9%B8%A3%E3%80%8B/" title="《丧钟为谁而鸣》">《丧钟为谁而鸣》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-02T10:59:14.000Z" title="Created 2023-12-02 18:59:14">2023-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">
 
-高度传感器
-二氧化碳传感器
-温湿度传感器
-电池消耗
+这本书是Winston推荐的，其实我原本是想问问他给推荐几本简单易读的英文原著。回来一看，是一部长篇qwq，感觉读原著的话会有些吃力（英语水平有限: sigh :），于是就先读了翻译后的版本。看完以后久久不能释怀。
 
-2. 命令传输在服务器里创建一个频道/topic/commandToDrone用于各类命令的传输
+昨天深夜读完这本书，看看时间，恰好 2 : 00，合上眼，情节一幕幕复现在眼前，再过一个小时，皮拉尔就应该发现巴勃罗将罗伯托的起爆器和雷管偷走了。不知道如果巴勃罗没有偷走它们，又或者没有将它们扔下悬崖，罗伯托和巴塞尔默会不会能够活下去。巴塞尔默是那么热心肠，那么认真的令人尊敬的老人啊！不过死亡也许对他来说也是一种解脱吧。
 
-UP
-DOWM
-LEFT
-RIGHT
-SPIN
-
-因为基于mqtt协议，因此自动化控制很简单，上位机很好写，也可以不用上位机，在服务器上写的shell脚本就能很好的完成自动化功能。
-m ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/06/STM32-IIC-with-0-96-OLED/" title="STM32 IIC with 0.96 OLED">STM32 IIC with 0.96 OLED</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-06T09:24:10.000Z" title="Created 2024-05-06 17:24:10">2024-05-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">IIC 通信原理基本介绍点击跳转
-原理介绍Init硬件层​	需要接上拉电阻（保证传输稳定性）
-代码1234void IIC_Init()&#123;  IIC_SCL=1;  IIC_SDA=1;&#125;
-
-
-Start物理层​	IIC总线的SCL保持高电平，SDA由高电平变为低电平后，延时(&gt;4.7us)，SCL变为低电平。
-
-步骤
-
-
-SCL 高
-SDA 高-&gt;低 + 延时（&gt;4.7us）
-SCL 高-&gt;低
-
-代码123456789void IIC_Start()&#123;  IIC_SCL=1;  IIC_SDA=1;  delay_us(5);  IIC_SDA=0;  delay_us(5);  IIC_SCL=0;  &#125; 
-
-Tramsmit Data物理层 传输时，SDA的宽度应该大于SCL的宽度，在SCL为高时读取SDA，SCL为低时改变SDA的电平。
- ==注意：==传输数据过程总不允许SDA变化（否则会被视为开始或停止信号）
-
-
-步骤
-
-
-拉低SCL进行数据传输
-SDA传送高低电平（0或1）
-SCL在高电平时期读取SDA的数据 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/27/mqttSender/" title="mqttSender">mqttSender</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-27T05:48:17.000Z" title="Created 2024-04-27 13:48:17">2024-04-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">用于记录项目mqttSender
-regenm&#x2F;mqttSender
-MqttSenderdescriptionA Software For me to send message to my mqtt serverSo that I can contral my devices such as esp32 ,esp8266.
-Another purpose is to learn python tkinter(GUI lib)
-Technique
-python tkinter
-python pyinstaller
-python mqtt
-
-requirements analization v1.0GUIversion1.0
-conponents
-
-
-1 text call box（for output）
-1 entry box (for input)
-a send button()
-
-
-features(or limits? qwq )
-
-
-simple
-change server(ip address, password , topics) by editing sourc ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/25/Pytohn-pyinstaller/" title="Pytohn pyinstaller">Pytohn pyinstaller</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-25T05:37:05.000Z" title="Created 2024-04-25 13:37:05">2024-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/25/Pytohn-tkinter-GUI-lib/" title="Pytohn tkinter(GUI lib)">Pytohn tkinter(GUI lib)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-25T05:36:42.000Z" title="Created 2024-04-25 13:36:42">2024-04-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/17/%E3%80%8A%E5%A4%AA%E9%98%B3%E7%85%A7%E5%B8%B8%E5%8D%87%E8%B5%B7%E3%80%8B/" title="《太阳照常升起》">《太阳照常升起》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-17T14:46:58.000Z" title="Created 2024-04-17 22:46:58">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/17/%E3%80%8A%E7%88%B1%E4%BD%A0%E5%B0%B1%E5%83%8F%E7%88%B1%E7%94%9F%E5%91%BD%E3%80%8B/" title="《爱你就像爱生命》">《爱你就像爱生命》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-17T14:46:41.000Z" title="Created 2024-04-17 22:46:41">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/17/%E3%80%8A%E4%BA%BA%E9%97%B4%E5%A4%A9%E5%A0%82%E3%80%8B/" title="《人间天堂》">《人间天堂》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-17T14:46:22.000Z" title="Created 2024-04-17 22:46:22">2024-04-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/04/16/STM32-PROJECT-keyboard/" title="STM32 PROJECT keyboard">STM32 PROJECT keyboard</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-04-16T14:59:10.000Z" title="Created 2024-04-16 22:59:10">2024-04-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">​	之前就有使用别烧好的MCU来进行键盘客制化，始终觉得不得劲。仅仅只是设计了键位PCB和外观，虽然也学到了点东西，但是我就是不爽啊。有一种核心技术自己没掌握的感觉。
-​	新坑_STM32_KEYBOARD 开始！
-​	二话不说就弃坑了一段时间。。。
-​	直接上手STM32有些难了点，先用了别人的方案试试先。基于 sayo monkey board的键盘
-Layout基于网站[keyboard-layout-editor](Keyboard Layout Editor (keyboard-layout-editor.com))设计，同时使用Plate &amp; Case Builder - swillkb)导出DXF。
-
-PCB设计​	其实很简单，就是模块套模块，画一下 板子的封装即可。
+在爱情上，我和罗伯托都是这样的人，在爱情上认为自己不会爱上别人，孑然一身，只是做着自己的事。然而他找到了小兔子玛利亚。在这样恐怖的栈帧中，能与她将往后余生的长相厮守浓缩为三天就已经十分幸运了不是吗？何必奢求永远。
 
 
 
-外壳设计​	只是简单的用亚克力打的，CAD还不是很会用。
+“  你在要求不可能的事，你在要求绝不可能的事。所以，如果你真像你说的那样深爱这姑娘，那最好的，就是好好爱她，用尽全力，用浓烈填补这段关系中必将缺乏的长度与跨度。你听到了？过去，人们用一生的时间来做这件事。而现在，当你找到它，你得到 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/28/Linux-Projects/" title="Linux Projects">Linux Projects</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-28T11:49:32.000Z" title="Created 2023-11-28 19:49:32">2023-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">​	以下项目都是我在已经完成之后补录的笔记，包括但不限于遇到的报错，问题。便于以后复现。实际上不能说是项目，仅仅是复现并且享受大佬的成果而已。开源不易，感谢大佬们开源！
+ZeroTier 内网穿透1.简介​	官网：ZeroTier
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/28/DC-DC-Convert/" title="DC-DC Convert">DC-DC Convert</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-28T08:13:14.000Z" title="Created 2024-03-28 16:13:14">2024-03-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content"></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="电子电路基础">电子电路基础</a><time datetime="2024-11-07T10:55:20.000Z" title="Created 2024-11-07 18:55:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/" title="CAN总线笔记">CAN总线笔记</a><time datetime="2024-11-07T04:08:20.000Z" title="Created 2024-11-07 12:08:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成">WordPress建站速成</a><time datetime="2024-11-04T15:00:58.000Z" title="Created 2024-11-04 23:00:58">2024-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/STM32%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BB%98%E5%88%B6%EF%BC%88%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%98%89%E7%AB%8B%E5%88%9BSMT%EF%BC%89/" title="STM32开发板绘制（首次使用嘉立创SMT）">STM32开发板绘制（首次使用嘉立创SMT）</a><time datetime="2024-10-31T15:43:05.000Z" title="Created 2024-10-31 23:43:05">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识">Nginx入门基础知识</a><time datetime="2024-10-31T15:41:59.000Z" title="Created 2024-10-31 23:41:59">2024-10-31</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+ZeroTier Client :
+The ZeroTier client is used to connect to virtual networks previously created in the ZeroTier Central web-based UI. Endpoint connections are peer-to-peer and end-to-end encrypted. STUN and hole punching are used to establish direct connections between peers behind NAT. Direct connection route discovery is made with the help of a global network of root servers via ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/28/Linux-system-Notes/" title="Linux Notes">Linux Notes</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-28T11:49:18.000Z" title="Created 2023-11-28 19:49:18">2023-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">A note about linux basic operation.
+*系统操作1.显示后台指令​	1.提供所有进程信息
+1ps aux
+
+
+提供父进程信息
+
+1ps lax
+
+2. 终止某项进程1kill pid
+
+
+kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号
+
+
+查看硬件信息
+
+
+查看内存占用和 swap 分区占用
+
+1free -h
+
+
+查看CPU使用情况
+
+1top
+
+*文件操作vim 编辑器
+more
+空白键 (space)：代表向下翻一页；
+Enter     ：代表向下翻『一行』；
+&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；
+:f      ：立刻显示出档名以及目前显示的行数；
+q       ：代表立刻离开 more ，不再显示该文件内容。
+b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。
+
+less
+空白键  ：向下翻动一页；
+[pagedown]：向下翻动一页；
+[pageup] ：向上翻动一页；
+&#x2F;字串   ：向下搜寻『字串』的功能；
+?字串   ：向上搜 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/26/GIT-basic/" title="GIT basic">GIT basic</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-26T13:01:57.000Z" title="Created 2023-11-26 21:01:57">2023-11-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">Git 以及github，gitee的使用git简介：
+Git (&#x2F;ɡɪt&#x2F;) is a distributed version control system that tracks changes in any set of computer files, usually used for coordinating work among programmers who are collaboratively developing source code during software development. Its goals include speed, data integrity, and support for distributed, non-linear workflows (thousands of parallel branches running on different computers).
+
+What is Git?Git is a popular version control system. It was created by Lin ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/12/Data-Structure-and-Algorithm/" title="Data Structure and Algorithm">Data Structure and Algorithm</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-11-12T13:58:40.000Z" title="Created 2023-11-12 21:58:40">2023-11-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">Start树哈夫曼树（最优二叉树）
+​		哈夫曼算法：
+
+构造 n 棵二叉树森林，每一个都是带权值的根节点。
+选择权值最小的两棵树作为左右子树，其根节点的权值为左右子树权值之和。
+删除这两棵树，将新的树加入森林。
+重复操作到只剩下一棵树为止。
+
+
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115116117118119120121122123124125126127128129130131132133134135136137138139140141142143144145146147148149/**  基于结构体数组的哈曼树*  C++*/#include &lt; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/31/MySql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MySql学习笔记">MySql学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-31T04:27:48.000Z" title="Created 2023-10-31 12:27:48">2023-10-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MySQL学习笔记（8.0）​		一切只因花几十块买了一年的云服务器。刚好目前需要用 用 JDBC ，于是就把数据库部署到了服务器上面。然而这其中却遇到了难以想象的困难（后来才发现没有必要这么弄，且一般也不这么弄，安全性大打折扣）。
+1.部署环境以及初始化配置
+Ubuntu
+
+1.下载安装，配置密码以root用户登录之后：
+123apt updateapt upgrade  #不解释apt install mysql-server -y  #下载
+
+此时你可以直接进入mysql
+123456789101112mysqlmysql&gt; use mysql;mysql&gt; apt install mysql-server -y #（将密码置为空）mysql&gt; quit;#  然后重启mysql，再次进入systemstl restart mysqlmysqlmysql&gt; use mysql;mysql&gt; ALTER USER &#x27;root&#x27;@&#x27;localhost&#x27; (如果不用远程链接则为&#x27;localhost&#x27 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/26/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%AC%94%E8%AE%B0/" title="51单片机笔记">51单片机笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-26T03:43:20.000Z" title="Created 2023-10-26 11:43:20">2023-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">git test message
+
+Information	&amp;  	Data sheet
+
+Based on –AT89C51.
+
+The Atmel AT89 series is an Intel 8051-compatible family of 8 bit microcontrollers (μCs) manufactured by the Atmel Corporation.
+Based on the Intel 8051 core, the AT89 series remains very popular as general purpose microcontrollers, due to their industry standard instruction set, their low unit cost, and the availability of these chips in DIL (DIP) packages. This allows a great amount of legacy code to be reused without modific ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/26/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" title="微机原理与接口技术笔记">微机原理与接口技术笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-26T03:42:48.000Z" title="Created 2023-10-26 11:42:48">2023-10-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">汇编语言（8086为例）—-基于《汇编语言第三版》王爽
+1.基础知识
+8086 CPU的简介
+
+
+(1) 16位微处理器；
+(2) 采用高速运算性能的 HMOS 工艺制造，芯片上集成了2.9万只晶体管；
+(3) 使用单一的 +5V 电源，40 条引脚双列直插式封装；
+(4) 时钟频率为 5MHz~10MHz ，基本指令执行时间为0.3ms~0.6ms ；
+(5) 16根数据线和 20根地址线，可寻址的地址空间达 1MB (毕竟 16根地址线只可以寻址 64KB，太小了) ；
+
+
+冯诺依曼架构
+
+
+冯·诺伊曼结构（英语：Von Neumann architecture），也称范·诺伊曼模型（Von Neumann model）或普林斯顿结构（Princeton architecture），是一种将程序指令存储器和数据存储器合并在一起的电脑设计概念结构。该结构包含：运算器、控制器、存储器、输入设备、输出设备。
+
+结构特点：
+
+以运算单元为中心
+采用存储程序原理
+存储器是按地址访问、线性编址的空间
+控制流由指令流产生
+指令由操作码和地址码组成
+数据以二进制编码
+
+
+
+
+存储单元
+
+
+1 KB ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/16/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="java学习笔记">java学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-16T15:55:18.000Z" title="Created 2023-10-16 23:55:18">2023-10-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">JAVA学习笔记基础知识1.String
+初始化
+
+123String str1=“Java”；// 字符串常量值String str3=“Java”;  //  字符串常量，并且与str1地址相同String str2=new String(“Java”);
+
+
+返回长度
+
+1str1.length()   //带括号,与数组不同！！！
+
+
+字符串查找
+
+12345str1.charAt(0);  // Jstr1.charAt(1);  // astr1.charAt(2);  // vstr1.charAt(4);  // astr1.charAt(5);  // 报错
+
+
+返回字符出现的第一个位置下标，否则返回-1
+
+a. 从字符串的头开始
+12int index = str1.indexOf(&#x27;J&#x27;);System.out.println(index);//  0
+
+b. 从下表x开始
+12int index1 = str1.indexOf(&#x27;a&#x27;,2);System.out.println(index1);  //3
+
+
+返回字符串出 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/09/%E9%9A%8F%E6%89%8B%E8%AE%B0/" title="随手记">随手记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-09T15:33:03.000Z" title="Created 2023-10-09 23:33:03">2023-10-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">困饿累睡不着
+​	上课的时候随便乱写的&lt;3,没想到我还是这么中二
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/06/python%E7%94%BB%E7%94%BB/" title="python画画">python画画</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-06T06:55:02.000Z" title="Created 2023-10-06 14:55:02">2023-10-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">起因​		学校在国庆节和中秋节中举办了一个编程比赛：内容是在一个小时内用编程语言画出节日符号；例如月饼和国旗之类的。假期闲来无事，于是就浅浅参加了一下。
+使用python的TURTLE库​		说要用编程画画，我立马就想到了用python ，毕竟人生苦短，我用python。其实主要还是不想用字符串来在终端输出，过于麻烦。
+基础知识        * 中心点在screen中心
+        * (0,0) 即 Home
+        * 默认初始化画笔向右
+
+1234&gt;&gt;&gt; t.right(90)   &gt;&gt;&gt; t.forward(100)&gt;&gt;&gt; t.left(90)&gt;&gt;&gt; t.backward(100)
+
+
+内置图形12t.circle(60)t.dot(20)
+
+背景颜色1turtle.bgcolor(&quot;blue&quot;)
+
+画笔的粗细12&gt;&gt;&gt; t.pensize(5)&gt;&gt;&gt; t.forward(100)
+
+填充颜色1234567&gt;&gt;&gt; t.b ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/04/python%E8%84%9A%E6%9C%AC%E5%88%B6%E4%BD%9C/" title="python脚本制作">python脚本制作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-04T05:25:57.000Z" title="Created 2023-10-04 13:25:57">2023-10-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">​	我突然打算不用知识点记录的方式记录我的学习笔记，打算以发现问题解决问题的方法记录学习过程。
+1.记录的第一个脚本。1.问题导入​	过去我常常把我拍的照片导入桌面，p完图之后再粘贴到我的移动硬盘留底，过程虽然不长，但是我就是懒。
+2.分析​	我的桌面一般没有东西，所以我可以直接将整个桌面文件夹复制到我的目标目录，或者在匹配后缀位jpg或者png的文件转移到目标文件夹。
+
+3.实现过程1. 转移工作目录到桌面
+1. 在目标文件夹创建文件夹
+1. 复制文件到该文件夹
+
+123456789101112131415161718192021222324252627282930313233import osimport datetimeimport shutilfileName=&quot;null&quot;os.chdir(&#x27;C:/Users/Regen/Desktop&#x27;)#转到desktopdesktopPath=os.getcwd()#记录桌面路径fileName=datetime.datetime.now().strftime(&quot;%Y-%m-%d&quot ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" title="C语言二级指针">C语言二级指针</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-01T15:55:07.000Z" title="Created 2023-10-01 23:55:07">2023-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">C语言的二级指针1.起因。​	想记录一下这个我难受的知识点。
+​	事情的起因：在自己用C实现简单的数据结构 “ 栈 ”的时候，写了这样一段代码。在后面遍历的时候不论怎么修改都会出现segmentation fault。 后来通过debug才发现S的地址从来都没有发生变化。
+12345678void pushStack(int dataToStore,myStack S)&#123;    ptrToNode tmp=(myStack)malloc(sizeof(struct MyStack));    S-&gt;nextNode=tmp;    tmp-&gt;lastNode=S;    tmp-&gt;data=dataToStore;    tmp-&gt;nextNode=NULL;    S= tmp;&#125;
+
+​	以上代码错误的原因是：S作为一个指针参数被传入函数 虽然函数的末尾覆盖了S的地址，但这只是在这个函数开辟的栈空间里，结束后S的地址并不会变化
+2.解决。1.方法一：​			在主函数覆盖S的地址
+12345678myStack pushStack(int d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/21/%E3%80%8A%E5%86%8D%E7%A9%B7%E4%B9%9F%E8%A6%81%E5%8E%BB%E6%97%85%E6%B8%B8%E3%80%8B/" title="《再穷也要去旅游》">《再穷也要去旅游》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-21T15:29:32.000Z" title="Created 2023-09-21 23:29:32">2023-09-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">《再穷也要去旅游》​	我今天才开始接触这本书，初见时就是惊鸿一瞥，可能是比较贴切当代像我一样穷大学生的现状吧 &lt;3。
+​	唉，我好像老是嘴上说着要去哪里哪里走一走，但是到头来总是会出现各种各样的阻挠。就像今年夏天，驾照啦，作业啦之类的。但是仔细想想，好像这只是给自己家里蹲找的借口而已。于是不了终了，开学时只得借大隐隐于市聊以自慰。
+​	不行啊！这个寒假可不能在颓废了！你不是会骑摩托了吗？！这个寒假就加满油去野营吧！看看能否找到冬季银河的踪迹。（回家之前）
+​	nmmd，这么冷，不是下雨就是下雪，这个世界又多了一个伤心的人。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/21/leetcode%E5%88%B7%E9%A2%98%E7%AC%94%E8%AE%B0/" title="leetcode刷题笔记">leetcode刷题笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-20T16:05:26.000Z" title="Created 2023-09-21 00:05:26">2023-09-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">1.两数之和。获得技能：哈希表，c++容器MAP。
+123456789101112131415161718class Solution &#123;public:    vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) &#123;        map&lt;int,int&gt; a;//提供一对一的hash        vector&lt;int&gt; b(2,-1);//用来承载结果，初始化一个大小为2，值为-1的容器b        for(int i=0;i&lt;nums.size();i++)        &#123;            if(a.count(target-nums[i])&gt;0)            &#123;                b[0]=a[target-nums[i]];                b[1]=i;                break;            &#125;            a[nums[i]] ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/20/about-me/" title="About me">About me</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:32:59.000Z" title="Created 2023-09-20 00:32:59">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">Regen_m	:smile:​	这是我的cyber name。这一页就用来介绍介绍我自己吧！
+首先，​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影等等。同时二次元纯度也非常之高。
+虽然，​		不知道有谁会看到这个网页，但我打算在接下来的大学生活中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。
+总之，​		自我介绍就到这里啦！晚安。哦对了，这是我的qq 3525936749，邮箱同。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/20/PHOTOGRAPHY/" title="PHOTOGRAPHY!">PHOTOGRAPHY!</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-19T16:31:30.000Z" title="Created 2023-09-20 00:31:30">2023-09-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">星空拍摄笔记一定要带快门线！
+参数的选择一，焦段：​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。
+二，光圈：​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。
+三，对焦：​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。
+四，曝光：​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。
+​	例如：
+200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）
+24mm（全画幅）：理想快门速度约为20秒（500除以24mm）
+16mm（全画幅）：理想快门速度约为31秒（500除以16mm）
+14mm（全画幅）：理想快门速度约为35秒（500除以14mm）
+五，感光度：​	常用2000-6400的感光度拍摄银河（偶尔1600）​	如果是拍摄星轨的话建议直接100，拉长曝光时间。
+六，白平衡：（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）
+烟花拍摄笔记1. 准备
+注意风向，别去下风处
+采用长曝光，需要三脚架，快门线
+
+2.参数的选择
+iso 最低 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="vim 学习笔记">vim 学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T15:49:02.000Z" title="Created 2023-09-16 23:49:02">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">* VIM普通模式​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复
+移动光标光标上下左右移动
+1234h       #左移j      #下移k      #上移l      #右移
+
+移动多行
+12344h       #左移4格4j      #上移4行4k      #下移4行4l      #右移4格
+
+跳转到单词末尾或者开头(下一个空格前)
+12w      # wordb      # begining
+
+跳转到文档开始或末尾
+12gg        # 跳转到文档开头G  (shift + g)   # 跳转到文档末尾
+
+上下翻页
+123ctrl + u  #向上翻页ctrl + d  #向下翻页
+
+快速到最近的某个字母（区分大小写）
+123fu      #到最近1的ufc      #到最近的cfK      #到最近的K
+
+
+
+
+复制粘贴复制​	y
+
+复制单词
+
+12yaw      # y(yank)  aw(a word)
+
+
+复制n行
+
+123456789yy      # 复制本行nyy      # 复制n行 包括当前行y4j    ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="MD语法学习笔记">MD语法学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-16T15:47:12.000Z" title="Created 2023-09-16 23:47:12">2023-09-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MD语法学习笔记1.基本符号：​	md文档中基本标记都是基于 * - +. &gt; 这几个符号的组合操作
+2.标题。​	MD总共有六级标题
+123456# 标题1 # ## 标题2 ##### 标题3 ####### 标题4 ######### 标题5 ########### 标题6 #######
+
+标题1标题2标题3标题4标题5标题63.列表。
+无序列表
+
+1234567891011+ a+ b+ c - d- e- f * g* h* i
+
+
+a
+b
+c
+
+
+d
+e
+f
+
+
+g
+h
+i
+
+
+有序列表
+
+123456789有序列表1. abc2. abc3. dada 错序列表2. awfa5. awef25. dfaf
+
+
+
+有序列表
+
+abc
+abc
+dada
+
+错序列表2. awfa5. awef25. dfaf
+
+嵌套列表
+
+1234567891011121314无序+ a  + a1  + a2+ ba+ c 有序1. a   1. adac      1. adaw   2. adfsda2. ad3. sad
+
+无序
+
+a
+a1
+a2
+
+
+ba
+c
+
+有序
+
+a
+a ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/3/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/5/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/10/verilog-HDL-basics/" title="verilog HDL basics">verilog HDL basics</a><time datetime="2024-11-10T04:50:14.000Z" title="Created 2024-11-10 12:50:14">2024-11-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="电子电路基础">电子电路基础</a><time datetime="2024-11-07T10:55:20.000Z" title="Created 2024-11-07 18:55:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/" title="CAN总线笔记">CAN总线笔记</a><time datetime="2024-11-07T04:08:20.000Z" title="Created 2024-11-07 12:08:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成">WordPress建站速成</a><time datetime="2024-11-04T15:00:58.000Z" title="Created 2024-11-04 23:00:58">2024-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/STM32%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BB%98%E5%88%B6%EF%BC%88%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%98%89%E7%AB%8B%E5%88%9BSMT%EF%BC%89/" title="STM32开发板绘制（首次使用嘉立创SMT）">STM32开发板绘制（首次使用嘉立创SMT）</a><time datetime="2024-10-31T15:43:05.000Z" title="Created 2024-10-31 23:43:05">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识">Nginx入门基础知识</a><time datetime="2024-10-31T15:41:59.000Z" title="Created 2024-10-31 23:41:59">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="分布式服务器基础知识">分布式服务器基础知识</a><time datetime="2024-10-31T15:40:50.000Z" title="Created 2024-10-31 23:40:50">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/13/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E8%81%8A%E5%A4%A9%E8%84%9A%E6%9C%AC/" title="基于python的聊天脚本">基于python的聊天脚本</a><time datetime="2024-10-13T09:00:35.000Z" title="Created 2024-10-13 17:00:35">2024-10-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/11/%E7%89%A9%E8%81%94%E7%BD%91%E6%B0%B4%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%A1%AC%E4%BB%B6%E9%83%A8%E5%88%86/" title="物联网水控系统硬件部分">物联网水控系统硬件部分</a><time datetime="2024-10-11T03:43:51.000Z" title="Created 2024-10-11 11:43:51">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/06/%E6%B0%91%E8%B0%A3%E5%90%89%E4%BB%96%E5%8D%B3%E5%85%B4%E7%AC%94%E8%AE%B0/" title="民谣吉他即兴笔记">民谣吉他即兴笔记</a><time datetime="2024-10-06T06:37:36.000Z" title="Created 2024-10-06 14:37:36">2024-10-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="View More">
@@ -238,5 +440,5 @@ PCB设计​	其实很简单，就是模块套模块，画一下 板子的封装
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9F%B3%E4%B9%90/"><span class="card-category-list-name">音乐</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">英语学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软硬件技术</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/pyinstaller/" style="font-size: 1.1em; color: #999">pyinstaller</a> <a href="/tags/51/" style="font-size: 1.4em; color: #99a5b6">51</a> <a href="/tags/CAN%E6%80%BB%E7%BA%BF/" style="font-size: 1.1em; color: #999">CAN总线</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/verilog/" style="font-size: 1.1em; color: #999">verilog</a> <a href="/tags/PCB/" style="font-size: 1.3em; color: #99a1ac">PCB</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.2em; color: #999da3">Data-Structure-and-Algorithm</a> <a href="/tags/%E6%A8%A1%E7%94%B5/" style="font-size: 1.2em; color: #999da3">模电</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">电路基础</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/mosquitto/" style="font-size: 1.3em; color: #99a1ac">mosquitto</a> <a href="/tags/MPU6050/" style="font-size: 1.1em; color: #999">MPU6050</a> <a href="/tags/NextCloud/" style="font-size: 1.1em; color: #999">NextCloud</a> <a href="/tags/notes/" style="font-size: 1.5em; color: #99a9bf">notes</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.2em; color: #999da3">电子元件</a> <a href="/tags/HDL/" style="font-size: 1.1em; color: #999">HDL</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">数据库</a> <a href="/tags/css/" style="font-size: 1.1em; color: #999">css</a> <a href="/tags/%E6%BC%94%E8%AE%B2%E7%A8%BF/" style="font-size: 1.1em; color: #999">演讲稿</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/esp32/" style="font-size: 1.2em; color: #999da3">esp32</a> <a href="/tags/vue/" style="font-size: 1.3em; color: #99a1ac">vue</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.4em; color: #99a5b6">旅行</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/javascript/" style="font-size: 1.3em; color: #99a1ac">javascript</a> <a href="/tags/mysql/" style="font-size: 1.3em; color: #99a1ac">mysql</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">分布式服务器</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 1.1em; color: #999">无人机</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/language/" style="font-size: 1.1em; color: #999">language</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/wordpress/" style="font-size: 1.1em; color: #999">wordpress</a> <a href="/tags/turtle/" style="font-size: 1.1em; color: #999">turtle</a> <a href="/tags/IIC/" style="font-size: 1.4em; color: #99a5b6">IIC</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">82</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-08T13:17:29.128Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/stdlib/" style="font-size: 1.1em; color: #999">stdlib</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/esp32/" style="font-size: 1.2em; color: #999da3">esp32</a> <a href="/tags/PCB/" style="font-size: 1.3em; color: #99a1ac">PCB</a> <a href="/tags/esp8266/" style="font-size: 1.4em; color: #99a5b6">esp8266</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" style="font-size: 1.2em; color: #999da3">模拟电路</a> <a href="/tags/NextCloud/" style="font-size: 1.1em; color: #999">NextCloud</a> <a href="/tags/mosquitto/" style="font-size: 1.3em; color: #99a1ac">mosquitto</a> <a href="/tags/md/" style="font-size: 1.2em; color: #999da3">md</a> <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 1.1em; color: #999">无人机</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 1.1em; color: #999">吉他</a> <a href="/tags/mqtt/" style="font-size: 1.4em; color: #99a5b6">mqtt</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.2em; color: #999da3">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.2em; color: #999da3">电子元件</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/CAN%E6%80%BB%E7%BA%BF/" style="font-size: 1.1em; color: #999">CAN总线</a> <a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.1em; color: #999">英文</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/web/" style="font-size: 1.1em; color: #999">web</a> <a href="/tags/notes/" style="font-size: 1.5em; color: #99a9bf">notes</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/pyinstaller/" style="font-size: 1.1em; color: #999">pyinstaller</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/rust/" style="font-size: 1.1em; color: #999">rust</a> <a href="/tags/%E5%98%89%E7%AB%8B%E5%88%9B/" style="font-size: 1.1em; color: #999">嘉立创</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/%E6%BC%94%E8%AE%B2%E7%A8%BF/" style="font-size: 1.1em; color: #999">演讲稿</a> <a href="/tags/%E6%A8%A1%E7%94%B5/" style="font-size: 1.2em; color: #999da3">模电</a> <a href="/tags/java/" style="font-size: 1.2em; color: #999da3">java</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/" style="font-size: 1.3em; color: #99a1ac">物联网协议</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/github%E9%A1%B9%E7%9B%AE/" style="font-size: 1.1em; color: #999">github项目</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/IoT/" style="font-size: 1.3em; color: #99a1ac">IoT</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">82</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-10T13:22:06.271Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

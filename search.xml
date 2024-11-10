@@ -6991,8 +6991,9 @@
   </entry>
   <entry>
     <title>verilog HDL basics</title>
-    <url>/2024/07/22/verilog-HDL-basics/</url>
-    <content><![CDATA[<h1 id="Verilog-Language"><a href="#Verilog-Language" class="headerlink" title="Verilog Language"></a>Verilog Language</h1><h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><ul>
+    <url>/2024/11/10/verilog-HDL-basics/</url>
+    <content><![CDATA[<h1 id="Verilog-Language"><a href="#Verilog-Language" class="headerlink" title="Verilog Language"></a>Verilog Language</h1><p> 基于HDLbits</p>
+<h2 id="Basics"><a href="#Basics" class="headerlink" title="Basics"></a>Basics</h2><ul>
 <li><p><strong>bitwise</strong> and <strong>logical</strong></p>
 <ul>
 <li><p>bitwise-NOT (<code>~</code>) and logical-NOT (<code>!</code>)</p>
@@ -7012,7 +7013,32 @@
 </ul>
 </li>
 </ul>
-<h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><h2 id="Other-features"><a href="#Other-features" class="headerlink" title="Other features"></a>Other features</h2>]]></content>
+<h3 id="Norgate"><a href="#Norgate" class="headerlink" title="Norgate"></a>Norgate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">    <span class="keyword">assign</span> out=~(a|b);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Xnorgate"><a href="#Xnorgate" class="headerlink" title="Xnorgate"></a>Xnorgate</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> a, </span><br><span class="line">    <span class="keyword">input</span> b, </span><br><span class="line">    <span class="keyword">output</span> out );</span><br><span class="line">    <span class="keyword">assign</span> out=~(a^b);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Wire-decl"><a href="#Wire-decl" class="headerlink" title="Wire decl"></a>Wire decl</h3><p><img src="/../images/fpga/verilog/1.png"></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">default_nettype</span> none</span></span><br><span class="line"><span class="keyword">module</span> top_module(</span><br><span class="line">    <span class="keyword">input</span> a,</span><br><span class="line">    <span class="keyword">input</span> b,</span><br><span class="line">    <span class="keyword">input</span> c,</span><br><span class="line">    <span class="keyword">input</span> d,</span><br><span class="line">    <span class="keyword">output</span> out,</span><br><span class="line">    <span class="keyword">output</span> out_n   ); </span><br><span class="line"><span class="keyword">wire</span> a_and_b,c_and_d;</span><br><span class="line">    <span class="keyword">assign</span> a_and_b=a&amp;b;</span><br><span class="line">    <span class="keyword">assign</span> c_and_d=c&amp;d;</span><br><span class="line">    <span class="keyword">assign</span> out=a_and_b| c_and_d;</span><br><span class="line">    <span class="keyword">assign</span> out_n=~out;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7458"><a href="#7458" class="headerlink" title="7458"></a>7458</h3><p><img src="/../images/fpga/verilog/2.png"></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( </span><br><span class="line">    <span class="keyword">input</span> p1a, p1b, p1c, p1d, p1e, p1f,</span><br><span class="line">    <span class="keyword">output</span> p1y,</span><br><span class="line">    <span class="keyword">input</span> p2a, p2b, p2c, p2d,</span><br><span class="line">    <span class="keyword">output</span> p2y );</span><br><span class="line"><span class="keyword">wire</span> and_1,and_2,and_3,and_4;</span><br><span class="line">    <span class="keyword">assign</span> and_1=p2a&amp;p2b,</span><br><span class="line">    and_2=p1a&amp;p1b&amp;p1c,</span><br><span class="line">    and_3=p2d&amp;p2c,</span><br><span class="line">    and_4=p1f&amp;p1d&amp;p1e;</span><br><span class="line">    <span class="keyword">assign</span> p2y=and_1|and_3,p1y=and_2|and_4;</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Vectors"><a href="#Vectors" class="headerlink" title="Vectors"></a>Vectors</h2><h3 id="Vector-0"><a href="#Vector-0" class="headerlink" title="Vector 0"></a>Vector 0</h3><p><img src="/../images/fpga/verilog/3.png"></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module ( </span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> [<span class="number">2</span>:<span class="number">0</span>] vec,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> [<span class="number">2</span>:<span class="number">0</span>] outv,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> o2,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> o1,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> o0  ); <span class="comment">// Module body starts after module declaration</span></span><br><span class="line"><span class="keyword">assign</span> outv=vec;</span><br><span class="line">    <span class="keyword">assign</span> o0=vec[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">assign</span> o1=vec[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">assign</span> o2=vec[<span class="number">2</span>];</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Vector-1"><a href="#Vector-1" class="headerlink" title="Vector 1"></a>Vector 1</h3><h4 id="Declaring-Vectors"><a href="#Declaring-Vectors" class="headerlink" title="Declaring Vectors"></a>Declaring Vectors</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">wire</span> [<span class="number">7</span>:<span class="number">0</span>] w;         <span class="comment">// 8-bit wire</span></span><br><span class="line"><span class="keyword">reg</span>  [<span class="number">4</span>:<span class="number">1</span>] x;         <span class="comment">// 4-bit reg</span></span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">0</span>:<span class="number">0</span>] y;   <span class="comment">// 1-bit reg that is also an output port (this is still a vector)</span></span><br><span class="line"><span class="keyword">input</span> <span class="keyword">wire</span> [<span class="number">3</span>:-<span class="number">2</span>] z;  <span class="comment">// 6-bit wire input (negative ranges are allowed)</span></span><br><span class="line"><span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] a;       <span class="comment">// 4-bit output wire. Type is &#x27;wire&#x27; unless specified otherwise.</span></span><br><span class="line"><span class="keyword">wire</span> [<span class="number">0</span>:<span class="number">7</span>] b;         <span class="comment">// 8-bit wire where b[0] is the most-significant bit.</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><h2 id="Other-features"><a href="#Other-features" class="headerlink" title="Other features"></a>Other features</h2>]]></content>
       <categories>
         <category>硬件技术</category>
       </categories>

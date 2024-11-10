@@ -52,7 +52,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-11-08 21:17:29'
+  postUpdate: '2024-11-10 21:22:06'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -149,135 +149,440 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/07/03/SpringBoot-vue-mysql%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%AE%AD/" title="SpringBoot+vue+mysql项目实训">SpringBoot+vue+mysql项目实训</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-07-03T01:57:04.000Z" title="Created 2024-07-03 09:57:04">2024-07-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">常见的项目类型以及优缺点和应用范围
-Spring Boot + Vue + MySQL
-优点
-强大的后端支持：
-Spring Boot 提供了成熟的后端框架和丰富的生态系统，包括依赖注入、数据访问、事务管理等功能，适合构建复杂的企业级应用。
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/images/cover/cover_1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Regen</h1><div id="site_social_icons"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/25/RUST-basic/" title="RUST basic">RUST basic</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-25T02:54:03.000Z" title="Created 2024-03-25 10:54:03">2024-03-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">RUST简介优点内存安全性：
+​	Rust 提供了内存安全的保证，通过所有权系统、借用检查器和生命周期检查器，可以在编译时捕获大多数常见的内存安全问题，如空指针解引用、数据竞争等。
+
+并发安全性：
+​	Rust 的所有权和借用系统使得编写并发程序更加容易和安全。它通过编译时检查来避免数据竞争和多线程错误，使得编写并行代码更加可靠。
+
+性能：
+ Rust 允许开发者获得接近底层语言（如 C 和 C++）的性能，因为它提供了对内存和并发的细粒度控制，同时不需要牺牲安全性和抽象性。
 
 
-灵活的前端开发：
-Vue 是一个轻量级的前端框架，易于学习和上手，具有响应式数据绑定和组件化开发的优势，适合构建动态且高效的用户界面。
+表达能力：
+​	Rust 具有功能强大的类型系统和模式匹配功能，使得开发者可以以一种清晰、灵活的方式表达复杂的数据结构和逻辑。
 
+资源管理：
+​	Rust 的所有权模型允许开发者在编写代码时显式地管理资源，避免了像内存泄漏和使用后释放的问题。它还通过 RAII（资源获取即初始化）模式自动管理资源生命周期。
 
-可靠的数据库：
-MySQL 是一个广泛使用的开源关系型数据库管理系统，具有稳定性高、性能优越、支持大规模并发访问等特点，适合各种规模的应用。
+生态系统：
+​	虽然相对较年轻，但 Rust 生态系统不断壮大，拥有丰富的库和工具，支持各种应用场景，从嵌入式系统到网络服务都有涉及。
 
+跨平台性：
+​	Rust 具有良好的跨平台支持，可以轻松地在各种操 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/16/Raspberry-Pi/" title="Raspberry Pi">Raspberry Pi</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-16T10:18:50.000Z" title="Created 2024-03-16 18:18:50">2024-03-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">嘿嘿开新坑！（目前基于python）​	早就久仰树莓派大名，奈何前两年芯片减产导致树莓派价格居高不下，甚至翻倍。现在终于降下来了，于是斥巨资买了一块3B前来学习。本篇Blog用于记录我的探索历程。
+​	目前打算先使用python进行学习，待到有一定理解之后再使用C。
+1. 装系统！​	要什么桌面环境，直接上命令行！
+2.联网-WIFI
+方法一：使用系统工具
 
-全栈开发一体化：
-Spring Boot + Vue 的组合使得开发人员可以使用相似的语言和工具栈进行全栈开发，提高了开发效率和团队协作。
+1sudo raspi-config
 
+选择系统选项，地区之后就可以通过ssid和pask进行联网
+再使用ifconfig查看是否连接成功（会分配新的 ip 地址）
 
-社区支持和文档丰富：
-Spring Boot 和 Vue 都拥有庞大的社区和丰富的文档资源，开发过程中能够快速获取到解决方案和技术支持。
+方法二：使用系统配置/etc/
 
-
-
-缺点
-复杂的配置和学习曲线：
-Spring Boot 的配置和依赖管理相对复杂，需要一定的学习成本和经验来优化和调整项目。
-Vue 虽然易于上手，但在复杂的单页应用中，需要深入理解 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/25/M-2-STC89C52/" title="M.2 STC89C52">M.2 STC89C52</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-25T08:13:08.000Z" title="Created 2024-05-25 16:13:08">2024-05-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">​	最近在学画PCB的时候突发奇想，想利用M.2接口的易插拔特性来画一片51最小系统板，同时还引出了大部分引脚，外形类似于Arduino。第一版有点丑。
-
-
-
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/" title="塘下公路片">塘下公路片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T15:16:02.000Z" title="Created 2024-05-19 23:16:02">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">​	比起繁华的钢铁丛林，我还是性本爱丘山。在塘下公路骑行是一种很奇妙的体验，就好步入桃花源记，在一群群高楼大厦中站立的两排密集的大树，让长久受到屏幕自己的眼镜也得到了放松。
-
+12345678910# 一开始没有VIMsudo nano /etc/wpa_supplicant/wpa_supplicant.conf# add network=&#123;        ssid=&quot;ssid_name&quot;        key_mgmt=WPA-PSK        psk=&quot;password&quot;&#125;
 
 
 
-​	自从知道了塘下公路以后，我再没去过别的地方骑行。每次骑行都很兴奋，有时感觉回到了家乡，有时感觉在国外一般。真的很喜欢这条路两边的树。恰到好处的遮了大半边天空，只留下一条光路延伸到远方。
+3. 创建新用户并授权​	总不能一直用root吧，qwq ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/03/03/PCB-Technique/" title="PCB Technique">PCB Technique</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-03-03T15:57:40.000Z" title="Created 2024-03-03 23:57:40">2024-03-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">PCB Technique​	本篇课程基于B站UP主Expert电子实验室的教学视频，同时加上本人思考与总结汇总而成。
+​	零基础入门PCB设计保姆级教学
+​	Expert电子实验室
 
 
-​	在路边发现了一只孤独的椅子，白色的墙与周围有稍许违和感，有一种很清新的感觉，同时还有一种苔痕上阶绿，草色入帘青的感觉。
+​	本部分笔记为扫盲篇（基础篇）
+&#x3D;&#x3D;进阶需实战，纸上得来终觉浅，绝知此事要躬行。&#x3D;&#x3D;​	
+1. 电路设计1.1 原理图四要素
+元件符号
+连接线
+结点
+注释
+
+1.2 基本原件介绍1.2.1 电阻
+对于贴片电阻的读数
 
 
-这应该就是治愈内耗的良药了吧。
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/" title="苏州行">苏州行</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T15:15:33.000Z" title="Created 2024-05-19 23:15:33">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">平江路苏州-＞平江路。     初见时是辰时，庆幸自己通宵到五点后直奔平江路。若是晚一两个时辰则是截然不同的人山人海。     此时摇船还未开始 河面平静,水波不兴.阳光刚开始洒入这条小街.江南古街的倒影跃然水面，沿着主街直走,我的眼光全在黑白灰的建筑与绿色的树木和蓝色的天空和水面之间游走.这时的平江路尚未被外人所打搅,几对老翁坐在河旁的藤椅上,借着尚不刺眼的阳光看报,一切都显得与背景和谐。     一个时辰不到这条小街就变得喧闹与繁忙.越来越多的女性穿着汉服，涌入这条小巷,或摆拍撒骄,或漫步于河边桥头.刚开始紧闭大门的店铺也逐渐开张,宁静典雅的小巷也就逐渐消失。     我庆幸自己看到了平江路的本原面貌,也看到了她浓妆粉饰后的面貌.但我总觉得少了些东西,可能是恋人或朋友吧.下次带本散文书好了。
+1）3位读数：前2位为有效数字，第3位表示10的n次幂(也可以理解为0的个数)。精度为±5%
+2）4位读数：前3位为有效数字，第4位表示10的n次幂(也可以理解为0的个数)。读法和3位的原理一样，精度为±1%
+3）阻值小于10的读数：通常在两个数之间插入一个字母R，用字母R来代替小数点
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/STM32-SPI-with-0-96-OLED/" title="STM32 SPI with 0.96 OLED">STM32 SPI with 0.96 OLED</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T11:16:47.000Z" title="Created 2024-05-19 19:16:47">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">SPI协议基本介绍点击跳转
-​	SPI有主、从两种模式，通常由一个主模块和一个或多个从模块组成（SPI不支持多主机），主模块选择一个从模块进行同步通信，从而完成数据的交换。提供时钟的为主设备（Master），接收时钟的设备为从设备（Slave），SPI接口的读写操作，都是由主设备发起，当存在多个从设备时，通过各自的片选信号进行管理。
-引脚定义
-MISO（ Master Input Slave Output）：主设备数据输入，从设备数据输出；
-MOSI（Master Output Slave Input）：主设备数据输出，从设备数据输入；
-SCLK（Serial Clock）：时钟信号，由主设备产生；
-CS&#x2F;SS（Chip Select&#x2F;Slave Select）：从设备使能信号，由主设备控制，一主多从时，CS&#x2F;SS是从芯片是否被主芯片选中的控制信号，只有片选信号为预先规定的使能信号时（高电位或低电位），主芯片对此从芯片的操作才有效。
+1.2.2 电容
+主要功能：储能和滤波
 
-通信原理SPI主设备和从设备都有一个串行移位寄存器，一次传输为8位。
-通信流程
-主设备发起信号，将CS&#x2F;SS拉低 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/19/MPU6050-basic-based-on-arduino/" title="MPU6050 basic (based on arduino)">MPU6050 basic (based on arduino)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-19T11:15:49.000Z" title="Created 2024-05-19 19:15:49">2024-05-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">MPU6050简介The MPU-6050 is the world’s first and only 6-axis motion tracking devices designed for the low power, low cost, and high performance requirements of smartphones, tablets and wearable sensors.
-应用领域
-BlurFree™ technology (for Video&#x2F;Still Image Stabilization)
-AirSign™ technology (for Security&#x2F;Authentication)
-TouchAnywhere™ technology (for “no touch” UI Application Control&#x2F;Navigation) 
-MotionCommand™ technology (for Gesture Short-cuts) 
-Motion-enabled game and application fram ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/15/%E7%A7%81%E6%9C%89%E4%BA%91%E6%90%AD%E5%BB%BA_NextCloud/" title="一行代码搭建私有云（基于docker NextCloud）">一行代码搭建私有云（基于docker NextCloud）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-15T06:43:31.000Z" title="Created 2024-05-15 14:43:31">2024-05-15</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">一行代码搭建私有云（基于docker NextCloud）简介​	老早以前就很想有一朵属于自己的云了，机缘巧合发现了NextCloud	这个项目，使用Docker一键部署简直不要太简单！    
-​	项目地址：	NextCloud repo on github​	搭完以后再也没有用过文件传输助手，多平台文件传输秒传。太厉害了。​	开源不易，感谢大佬
-一行代码1docker run -d -p 8080:80 nextcloud
-
-然后直接IP:8080就访问到了
+单位计算
 
 
-</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" title="0.96OLED玩法">0.96OLED玩法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-14T11:08:23.000Z" title="Created 2024-05-14 19:08:23">2024-05-14</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">基于0.96寸OLED，主控ssd1306
-显示原理基于数据手册
-硬件特性每个像素点独立控制，通过写入现存的二进制数据进行每个像素的熄灭和点亮
+1uF=1000nF；1nF=1000pF
 
-像素
-  128*64
+分类
 
 
-名词定义123456789# 0.96 OLED&#x27;&#x27;&#x27;|********************************||********************************||********************************||********************************||********************************|&#x27;&#x27;&#x27;# 模拟图
+
+读数以及含义
 
 
-SEG
-
-相当于一列：一列64个像素
-
-COLOMN
-
-相当于一行：一行128个像素
-
-COMMON
-
-相当于一行：一行128个像素
-
-PAGE
-
-相当于8行：128*8个像素
-显示方式（ssd1306）
-There are 3 different memory addressing mode in SSD1306: page addressing ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/13/C-C-%E5%A4%A7%E5%9E%8B%E9%A1%B9%E7%9B%AE%E7%BC%96%E7%A8%8B%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" title="C/C++大型项目编程注意事项">C/C++大型项目编程注意事项</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-13T06:43:31.000Z" title="Created 2024-05-13 14:43:31">2024-05-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">C&#x2F;C++大型项目编程规范
-​	最近在参与（或者说使用）某些项目的代码时，感觉其代码之简洁精炼，语言习惯之规范，外观之整洁，可读性之高令人赏心悦目。
-​	在其基础上进行增删改查后总是觉得自己的代码不够优雅，就好像一篇书法作品中掺杂几行我写的字。
-​	于是打算学习C&#x2F;C++项目编程规范，不求优雅，只求规整可读，结构合理。
-​	基于华为C语言编程规范 在线wiki文档
-代码总体原则1、清晰第一代码的可阅读性高于性能，只有确定性能是瓶颈时，才应该主动优化
-
-优秀的代码可以自我解释（以我的水平可能做到比较难）
-
-常写注释，并且注释写的清晰
 
 
-2、简洁为美写的代码越多，意味着出错的地方越多，也就意味着代码的可靠性越低。
-术语
-原则：编程时必须坚持的指导思想。
-规则：编程时强制必须遵守的约定。
-建议：编程时必须加以考虑的约定。
-说明：对此原则&#x2F;规则&#x2F;建议进行必要的解释。
-示例：对此原则&#x2F;规则&#x2F;建议从正、反两个方面给出例子。
-延伸阅读材料：建议进一步阅读的参考材料。
 
-头文件原则不合理的头文件布局是编译时间过长的根因，不合理的头文件实际上 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/05/09/STM32-Menu-frameV1-0/" title="STM32_Menu_frameV1.0">STM32_Menu_frameV1.0</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-05-09T13:39:07.000Z" title="Created 2024-05-09 21:39:07">2024-05-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">Record project  STM32_Menu_frame
-[STM32_Menu_frame](to be added)
-Requirement AnalysisVersion 1
-实现单级菜单
-按键选择
-SPI或IIC的oled屏显示
+1.2.3 电感​	Inductor，
 
-Version 2based on Version 1
+单位换算
 
-多级菜单
-UI美化
+1H=1000mH；1mH=1000uH；
 
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="电子电路基础">电子电路基础</a><time datetime="2024-11-07T10:55:20.000Z" title="Created 2024-11-07 18:55:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/" title="CAN总线笔记">CAN总线笔记</a><time datetime="2024-11-07T04:08:20.000Z" title="Created 2024-11-07 12:08:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成">WordPress建站速成</a><time datetime="2024-11-04T15:00:58.000Z" title="Created 2024-11-04 23:00:58">2024-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/STM32%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BB%98%E5%88%B6%EF%BC%88%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%98%89%E7%AB%8B%E5%88%9BSMT%EF%BC%89/" title="STM32开发板绘制（首次使用嘉立创SMT）">STM32开发板绘制（首次使用嘉立创SMT）</a><time datetime="2024-10-31T15:43:05.000Z" title="Created 2024-10-31 23:43:05">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识">Nginx入门基础知识</a><time datetime="2024-10-31T15:41:59.000Z" title="Created 2024-10-31 23:41:59">2024-10-31</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+主要功能：滤波，扼流， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/27/Operating-System-Principles/" title="Operating System Principles">Operating System Principles</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-27T11:40:51.000Z" title="Created 2024-02-27 19:40:51">2024-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">&#x3D;&#x3D;操作系统原理&#x3D;&#x3D;
+1.操作系统概论2.操作系统接口用户与操作系统接口的分类
+用户接口 提供给用户使用，通过该接口取得操作系统的服务。
+程序接口 提供给程序员使用，用户程序使用系统服务的唯一途径
+
+用户接口（操作接口）
+联机用户接口（交互式）
+脱机用户接口（批处理 ）
+
+联机用户接口（交互式）
+字符显示式联机用户接口
+
+
+命令行方式：shell 语言
+批命令方式：.sh
+
+
+图形化联机用户接口
+
+
+GUI ：包括窗口，图标，菜单，鼠标和面向对象技术
+
+脱机用户接口（批处理 ）由一组作业控制语言组成。
+
+
+作业：一次应用业务处理中，从输入开始到输入结束。用户要求计算机所做工作的集合。
+作业步：作业加工处理的技术
+作业分类：脱机作业，联机作业。
+作业I&#x2F;O方式：联机IO，脱机IO，SpooLing方式
+
+系统调用系统调用（System Call），提供了用户程序和操作系统之间的接口。用户不能直接调用，但是用户程序可以。
+
+作业
+
+作业：在一次应用业务处理过程中，从输入开始到输出结束，用户要求计算机所做工作的集合。
+作业步：作业加工处理的步 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/27/Computer-Composition-Principle/" title="Computer Composition Principle">Computer Composition Principle</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-27T11:40:10.000Z" title="Created 2024-02-27 19:40:10">2024-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">​			计算机组成原理
+&#x3D;&#x3D;HIghLIght &#x3D;&#x3D;
+计算机系统概论计算机基本组成冯诺依曼计算机
+特点
+
+
+五大部件：运算器（ALU），控制器（CU），存储器（MEM），输入输出（I&#x2F;O）
+指令与数据同等地位存储与存储器
+使用二进制
+指令由操作码和地址码组成
+指令在存储器内顺序存放
+以运算器为中心（现代计算以存储器为中心）
+
+计算机工作过程存储器的基本组成
+存储体：由存储单元组成（存储单元由存储原件组成，存储原件存储0和1）
+
+存储字：存储单元中的二进制代码组合（？）
+
+存储字长：
+
+MAR：存储器的地址寄存器
+
+MDR：存储器的数据寄存器
+
+
+运算器的基本组成以及操作过程
+ACC：	被加数，被减数，乘积高位，被除数，余数
+ALU（算术逻辑单元）： 
+MQ： 	乘数，乘积低位
+
+控制器的基本组成
+CU：控制单元
+IR：指令寄存器
+PC：程序计数器
+
+计算机硬件的主要技术指标
+机器字长 CPU一次能处理的数据位数与ALU中的寄存器位数有关
+运算速度
+
+
+MIP（Million Instructions Per Second）
+
+​	表示每 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/27/Database-Principles/" title="Database Principles">Database Principles</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-27T11:38:59.000Z" title="Created 2024-02-27 19:38:59">2024-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">数据库原理1.数据库概论数据库以及相关概念
+数据（data）：信息的表现形式和载体。
+数据库（database）：长期存储在计算机内，有组织的，统一管理的相关数据的集合。
+数据库管理系统（DBMS）：位于用户与操作系统逐之间的一层数据管理软件，为用户或应用程序提供访问DB的方法，包括DB的建立，查询，更新及各种数据控制。
+数据库系统（DBS）：采用数据库技术的计算机系统。
+数据库技术：研究数据库结构，存储设计管理和使用的一门软件学科。
+
+高级数据库阶段对象数据库技术
+面向对象与数据库技术结合的产物
+
+
+主要特征
+
+可以完整的描述现实数据结构，以及数据之间嵌套递归的联系。 
+具有封装性和继承性，提高了软件的可重用性
+
+
+分布式数据库系统
+主要特征：
+
+数据物理上分布在不同场地，逻辑上是一个整体 。
+每个场地可以执行局部应用，也可以执行全部应用3.。 各地计算机由数据通信网络联系，本地计算机不能完成的任务可以通过通信网络获取其他场地支持。
+
+
+开放数据库互联技术
+用于单个应用程序访问不同的数据库
+
+
+XML数据库技术
+
+
+灵活
+
+现代信息集成技术
+数据仓库
+连及分析处理技术
+数据挖掘
+
+数 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/27/PHOTO/" title="PHOTO">PHOTO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-27T11:23:50.000Z" title="Created 2024-02-27 19:23:50">2024-02-27</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/">摄影</a></span></div><div class="content">说走就走（南昌）​	去完南昌回来之后几天。想了想，果然还是想记下来当时间胶囊。
+​	回家那一刻我就知道了2024的寒假注定是灰色的，看到最近天气15日阴天，以及温度逐渐下降甚至出现下雪的时候，我心情是复杂的。
+​	上学期因荒废暑假后在学期中越想越痛，于是就发誓要好好利用寒假出去逛一逛，看看不同城市的风景。看到这天气后就有点挫伤。
+​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。
+​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！
+​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）
+
+
+​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。
+
+我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/18/%E3%80%8A%E6%A0%91%E4%B8%8A%E7%9A%84%E7%94%B7%E7%88%B5%E3%80%8B/" title="《树上的男爵》">《树上的男爵》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-17T16:18:43.000Z" title="Created 2024-02-18 00:18:43">2024-02-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">​	
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/17/%E3%80%8A%E6%B5%81%E6%98%9F%E4%B9%8B%E7%BB%8A%E3%80%8B/" title="《流星之绊》">《流星之绊》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-17T15:48:55.000Z" title="Created 2024-02-17 23:48:55">2024-02-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">《流星之绊》​	一直想看看短篇小说，想要重新体验一下过去一次性读完一本短篇的感觉（吃快餐…嘘！）。于是就立马想到了东野圭吾和村上春树。
+​	偶然发现原来我还有很多没看过的东野圭吾的作品。其中就有这本《流星之绊》，只消半个夜晚就看毕了，关上ipad，躺在床上，他们三兄妹以及他们的故事在脑海里不断重现。
+
+“我们三人就像流星，毫无目标地飞逝，不知将在何处燃烧殆尽。”
+
+​	看完后感觉剧情挺一般的，好像这本书少了点东野圭吾的味道了。如果是换做以前的我，大概会觉得这本书挺温暖的，至少就结局来说。也许我真的已经长大了，已经不在相信书里的奇迹了或者说已经不太习惯大团圆结局了。
+​	看的时候就觉得这个剧情很适合拍成电视剧供像我一样百无聊赖的人群观看，第二天一查，没想到真的有日剧，而且好像日剧的受众还更广一点。
+​	流星之绊啊，我一开始其实是理解为像流星一样转瞬即逝的羁绊，后来才知道是一起约定看流星的羁绊。虽然流星易逝，但是观看流星的他们之间的羁绊却被永远铭记。
+
+“
+然而最美的流星永远是第一次映入眼帘的那颗“第一次”给人的永恒美是人们对“纯真”最后的忠诚流星雨那年也因狮子座流星雨二更而起无数渴望的眼 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" title="docker容器技术">docker容器技术</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T19:04:22.000Z" title="Created 2024-02-09 03:04:22">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">constructing
+toBeContinued
+简介
+​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系。
+​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，不会再有“在我的环境上可以运行”，真正实现“build once, run everywhere”。
+
+概念​	docker 中的几个概念：
+
+
+dockerfile
+image
+container
+
+
+dockerfile​	Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像makefile一样。
+image​	Dock ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" title="MQTT服务器搭建（mosquitto）">MQTT服务器搭建（mosquitto）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T16:58:48.000Z" title="Created 2024-02-09 00:58:48">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">MQTT服务器搭建（mosquitto）0.简介
+简介
+
+
+MQTT也称为”消息代理”（Broker）。
+MQTT是一个基于客户端-服务器的消息发布&#x2F;订阅传输协议。MQTT协议是轻量、简单、开放和易于实现的，这些特点使它适用范围非常广泛。在很多情况下，包括受限的环境中，如：机器与机器（M2M）通信和物联网（IoT）。其在，通过卫星链路通信传感器、偶尔拨号的医疗设备、智能家居、及一些小型化设备中已广泛使用。
+
+
+原理
+
+
+MQTT协议原理MQTT协议实现方式实现MQTT协议需要客户端和服务器端通讯完成，在通讯过程中，MQTT协议中有三种身份：发布者（Publish）、代理（Broker）（服务器）、订阅者（Subscribe）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，消息发布者可以同时是订阅者。
+MQTT传输的消息分为：主题（Topic）和负载（payload）两部分：
+（1）Topic，可以理解为消息的类型，订阅者订阅（Subscribe）后，就会收到该主题的消息内容（payload）
+（2）payload，可以理解为消息的内容，是指订阅者具体要使用的内容。
+ ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/" title="esp8266连接服务器（基于mosquitto的mqtt server）">esp8266连接服务器（基于mosquitto的mqtt server）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-08T16:39:50.000Z" title="Created 2024-02-09 00:39:50">2024-02-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E7%BB%93%E5%90%88/">软硬件结合</a></span></div><div class="content">
+Time：2024-02-09 00:39:50
+
+还挺兴奋的，这个项目算是我自己搭建云服务器的最后一步。
+
+
+idea​	起因是想要自己搭建云服务器，同时还想要利用手上已经有的esp8266开发板实现对该服务器的远程控制（开关机）。
+​	本来打算整一个备用电源给服务器供电，奈何这台服务器是普通PC，即使配置已经很低（与现代PC比较为拉胯，但是比大多数出售的服务器例如某云2核4g更加）但功耗的保守估计已经超过70w。
+​	于是便打算使用远程开关降低平均功耗。同时进行物联网方面知识的扫盲与学习。
+过程1.前期准备​	首先，在已经搭建好的mqtt服务器上创建了用户user和密码passwd，同时处于安全性考虑禁止匿名访问。配置mqtt服务器的过程)
+​	创建好测试主题（topic）test后进行测试。多平台测试收发message没问题。
+2.中期打BOSS​	接下来就是攻克esp8266这边的问题了。
+
+问题一：esp8266开发环境
+
+​	由于这块esp8266开发板是我在高中时期玩的，那时候的电脑早已坏掉，这台电脑的arduinoIDE 还未配置esp8266的环境。
+​	本来打算使 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/02/01/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80/" title="模拟电子技术基础">模拟电子技术基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-02-01T11:47:28.000Z" title="Created 2024-02-01 19:47:28">2024-02-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">模拟电子技术基础1.半导体器件
+本征半导体：纯净，具有晶体结构的半导体
+N型半导体：negative，掺入5价元素，多一个电子。
+P型半导体：positive，掺入3价元素，少一个电子。
+PN结：将P型半导体和N型半导体制作在同一硅片上，交界处形成PN结。
+空间电荷区：PN结交接处区域的复合。也称为耗尽层。
+
+1.PN结1.PN结的伏安特性
+反向击穿
+
+
+
+齐纳击穿：在高掺杂，耗尽层宽度窄的情况下，较低的反向电压即可击穿
+雪崩击穿：在低掺杂，耗尽层宽度宽的情况下，较高的反向电压可击穿
+
+
+2.PN结的电容效应
+势垒电容
+
+​	当PN结的反向电压变化时，空间电荷区的宽度随之变化，耗尽层电荷变化，导致等效电容变化。
+2.二极管1.伏安特性
+同PN结的对比
+
+
+
+单向导电性
+二极管存在半导体体电阻和引线电阻（同电压下正向电压更小）
+表面漏电流（反向电流更大）。漏电流（当施加反向电压时，电流仍然流过器件）
+
+
+2.不同材料二极管的对比
+
+
+材料
+开启电压
+导通电压
+反向饱和电流
+
+
+
+硅
+0.5
+0.6-0.8
+&lt;0&#x2F;1
+
+
+锗
+0.1
+0.1-0.3
+几十
+
+
+3.温度的影响 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/29/%E5%B8%B8%E8%A7%81%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%E4%BB%A5%E5%8F%8A%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F/" title="常见通信协议以及通信方式">常见通信协议以及通信方式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-29T08:49:03.000Z" title="Created 2024-01-29 16:49:03">2024-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">常用的通信方式1. 串行和并行通信
+串行通信优缺点
+
+
+优点：
+​	1. 占用资源少（只需一根线）
+缺点：
+​	1. 传输速率慢
+
+
+并行通信优缺点
+
+
+优点：
+​	1. 传输速率快
+缺点：
+​	1. 占用资源多（多根线同时使用）
+
+2. 同步和异步通信1.概念
+同步通信
+
+
+同步通信： 发送端在发送串行数据的同时，提供一个时钟信号，并按照一定的约定（例如：在时钟信号的上升沿的时候，将数据发送出去）发送数据，接收端根据发送端提供的时钟信号，以及大家的约定，接收数据。如：I2C、SPI等有时钟信号的协议，都属于这种通信方式。
+
+
+异步通信
+
+
+异步通信： 接收方并不知道数据什么时候会到达，收发双方可以有各自自己的时钟。发送方发送的时间间隔可以不均，接收方是在数据的起始位和停止位的帮助下实现信息同步的。这种传输通常是很小的分组，比如：一个字符为一组，数据组配备起始位和结束位。所以这种传输方式的效率是比较低的，因为额外加入了很多的辅助位作为负载，常用在低速的传输中。
+
+2. 比较
+同步通信要求接收端时钟频率和发送端时钟频率一致，发送端发送连续的比特流；异步通信时不要求接收端时钟和发送端时钟同 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/29/STM32/" title="STM32">STM32</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-29T08:18:02.000Z" title="Created 2024-01-29 16:18:02">2024-01-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="content">嵌入式基本概念
+嵌入式系统  嵌入式系统是一种专门设计用于执行特定任务或控制特定设备的计算机系统。它通常包括硬件和软件两个部分，被嵌入到目标设备中，以实现特定的功能。
+
+RTOS（Real-Time OS）
+  一种专门设计用于嵌入式系统的操作系统。RTOS的主要特点是能够保证任务在预定的时间内得到及时处理，具有良好的实时性。
+
+
+1. STM32和511. 51的优缺点1. 51 的优点
+硬件层面
+
+
+
+结构简单，8位
+硬件到软件有一套按位操作系统。（进行位的操作：传送、置位、清零、测试，逻辑运算）
+包含乘除法指令
+
+
+
+软件层面
+
+
+
+可以使用C进行编程
+
+
+2. 51的缺点
+硬件层面
+
+
+
+功能少，运行速度慢
+I&#x2F;O高电平无输出能力
+保护能力差
+
+
+2.stm32的简介
+​	由ST厂商推出的STM32系列单片机，行业的朋友都知道，这是一款性价比超高的系列单片机，应该没有之一，功能及其强大。其基于专为要求高性能、低成本、低功耗的嵌入式应用专门设计的ARM Cortex-M内核，同时具有一流的外设：1μs的双12位ADC，4兆位&#x2F;秒的UART，18兆位&#x2F; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/26/%E3%80%8A%E9%9C%8D%E4%B9%B1%E6%97%B6%E6%9C%9F%E7%9A%84%E7%88%B1%E6%83%85%E3%80%8B/" title="《霍乱时期的爱情》">《霍乱时期的爱情》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-26T07:17:23.000Z" title="Created 2024-01-26 15:17:23">2024-01-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">​	在老家整理东西的时候发现了许多在高中时代写的文字，怀念的感觉油然而生。这本书是我在高二的时候看过的。那时看完之后心情久久不得平静，就撕下一页稿纸，随手写了这点东西。
+ 
+​	想到那时的自己还是书虫，每日不读书就浑身难受。再看看现在，好像已经有几个月没有拿起一本书像过去的我一样一有时间就打开阅读了。
+​	最近就把过去看过的书再温习一遍吧！
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/26/%E3%80%8A%E5%A5%87%E9%A3%8E%E5%B2%81%E6%9C%88%E3%80%8B/" title="《奇风岁月》">《奇风岁月》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-26T07:16:57.000Z" title="Created 2024-01-26 15:16:57">2024-01-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">​	这应该是我青少年时期最喜欢的一本书了，那时推荐给了很多人看。高中时很喜欢一个up主，他一边介绍高质量游戏，一边给我们推荐他觉得好看的有意思的书。这本书就是他推荐的。
+​	也是在整理东西的时候发现的过去写的文字。
+
+
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/01/26/%E6%97%B6%E9%97%B4%E8%83%B6%E5%9B%8A/" title="时间胶囊">时间胶囊</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2024-01-26T07:15:39.000Z" title="Created 2024-01-26 15:15:39">2024-01-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%94%9F%E6%B4%BB/">生活</a></span></div><div class="content">​	
+​	高中晚自习的时候，下暴雨时有感。
+​	
+​	高中午休时胡思乱想有感。
+​	
+​	高中数学课有感。
+​	
+​	高中被室友呼噜声吵失眠有感。
+​	
+​	看完凯鲁亚克的《在路上》后有感。
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/" title="《寂寞的游戏》">《寂寞的游戏》</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-24T14:00:39.000Z" title="Created 2023-12-24 22:00:39">2023-12-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%BB%E4%B9%A6/">读书</a></span></div><div class="content">《寂寞的游戏》	
+​	其实，这本书我在2020年就看过一遍了，因为十分合拍的原因，还拍下了当时读书时的画面。当时就感受到了袁哲生先生的文字下的细腻，将一个敏感的青年通过笔墨绘于纸上。
+​	那时，我刚刚升入高中，不曾想到进了高一的奥赛班，以为以我的适应能力能够立马就与同学打成一片，然而这个班的同学早已互相认识，只留少数几个像我一样对于新环境完全陌生的新人，不仅是交际上的原因，学业上也频频受挫。初中时的锐气与自信受到巨大的打击，于是便抓住文字这根救命稻草，以求在陌生而冷淡的环境汲取一丝慰藉。
+​	文字，从未给过我失望，透过《寂寞的游戏》，我看到了一个像我一样的青年，借由他的经历，让我那时的无力感得到稍许减弱。
+
+“	我想，人天生就喜欢躲藏，
+渴望消失，这是一点都不奇怪的事。	”
+“	我就这样躲躲藏藏了许多年，直到有一天，捉迷藏的乐趣像一颗流星，眨眼就消失的无影无踪。	”
+
+​	这些细腻且真实的文字打动着我，让那时的我感动：我不是一个人，袁哲生先生也和我一样。
+
+​	那时，图片中的有着斑马图案像条形码的马克杯还没碎。那是妈妈在外地别人家打工时，住在那里的姐姐托妈妈送给我的，杯子里还有一张写着 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/12/22/css%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="css学习笔记">css学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-12-22T15:46:18.000Z" title="Created 2023-12-22 23:46:18">2023-12-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="content">CSS简介
+​	
+CSS：Cascading Style Sheet 层叠样式表，是一组样式设置的规则，用于控制页面的外观样式。
+广泛用于页面外观美化，布局和定位。
+
+CSS如何使用
+嵌入HTML或者JSP
+
+123456789&lt;head&gt;  &lt;meta charset=&quot;UTF-8&quot;&gt;  &lt;title&gt;Document&lt;/title&gt;  &lt;style&gt;    p&#123;      color:blue;    &#125;  &lt;/style&gt;&lt;/head&gt;
+
+
+
+
+外部导入（常用，更加方便，便于复制黏贴 :D）
+
+123&lt;head&gt;  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/eg.css&quot;&gt; &lt;/head&gt;
+
+基本语法
+选择器：要修饰的对象，例如HTML的各类标签
+属性名：属于修饰对象的属性
+属性值：修饰对象的属性的样式取值
+ ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/#content-inner">4</a><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/4/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">82</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">107</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/10/verilog-HDL-basics/" title="verilog HDL basics">verilog HDL basics</a><time datetime="2024-11-10T04:50:14.000Z" title="Created 2024-11-10 12:50:14">2024-11-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" title="电子电路基础">电子电路基础</a><time datetime="2024-11-07T10:55:20.000Z" title="Created 2024-11-07 18:55:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/" title="CAN总线笔记">CAN总线笔记</a><time datetime="2024-11-07T04:08:20.000Z" title="Created 2024-11-07 12:08:20">2024-11-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成">WordPress建站速成</a><time datetime="2024-11-04T15:00:58.000Z" title="Created 2024-11-04 23:00:58">2024-11-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/STM32%E5%BC%80%E5%8F%91%E6%9D%BF%E7%BB%98%E5%88%B6%EF%BC%88%E9%A6%96%E6%AC%A1%E4%BD%BF%E7%94%A8%E5%98%89%E7%AB%8B%E5%88%9BSMT%EF%BC%89/" title="STM32开发板绘制（首次使用嘉立创SMT）">STM32开发板绘制（首次使用嘉立创SMT）</a><time datetime="2024-10-31T15:43:05.000Z" title="Created 2024-10-31 23:43:05">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识">Nginx入门基础知识</a><time datetime="2024-10-31T15:41:59.000Z" title="Created 2024-10-31 23:41:59">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/31/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="分布式服务器基础知识">分布式服务器基础知识</a><time datetime="2024-10-31T15:40:50.000Z" title="Created 2024-10-31 23:40:50">2024-10-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/13/%E5%9F%BA%E4%BA%8Epython%E7%9A%84%E8%81%8A%E5%A4%A9%E8%84%9A%E6%9C%AC/" title="基于python的聊天脚本">基于python的聊天脚本</a><time datetime="2024-10-13T09:00:35.000Z" title="Created 2024-10-13 17:00:35">2024-10-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/11/%E7%89%A9%E8%81%94%E7%BD%91%E6%B0%B4%E6%8E%A7%E7%B3%BB%E7%BB%9F%E7%A1%AC%E4%BB%B6%E9%83%A8%E5%88%86/" title="物联网水控系统硬件部分">物联网水控系统硬件部分</a><time datetime="2024-10-11T03:43:51.000Z" title="Created 2024-10-11 11:43:51">2024-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/06/%E6%B0%91%E8%B0%A3%E5%90%89%E4%BB%96%E5%8D%B3%E5%85%B4%E7%AC%94%E8%AE%B0/" title="民谣吉他即兴笔记">民谣吉他即兴笔记</a><time datetime="2024-10-06T06:37:36.000Z" title="Created 2024-10-06 14:37:36">2024-10-06</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>Categories</span>
             <a class="card-more-btn" href="/categories/" title="View More">
@@ -285,5 +590,5 @@ UI美化
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/"><span class="card-category-list-name">生活</span><span class="card-category-list-count">9</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E6%91%84%E5%BD%B1/"><span class="card-category-list-name">摄影</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%94%9F%E6%B4%BB/%E9%9F%B3%E4%B9%90/"><span class="card-category-list-name">音乐</span><span class="card-category-list-count">1</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">硬件技术</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">英语学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%BB%E4%B9%A6/"><span class="card-category-list-name">读书</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软件技术</span><span class="card-category-list-count">31</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/"><span class="card-category-list-name">软硬件技术</span><span class="card-category-list-count">2</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/pyinstaller/" style="font-size: 1.1em; color: #999">pyinstaller</a> <a href="/tags/51/" style="font-size: 1.4em; color: #99a5b6">51</a> <a href="/tags/CAN%E6%80%BB%E7%BA%BF/" style="font-size: 1.1em; color: #999">CAN总线</a> <a href="/tags/%E4%BA%91%E7%9B%98/" style="font-size: 1.1em; color: #999">云盘</a> <a href="/tags/verilog/" style="font-size: 1.1em; color: #999">verilog</a> <a href="/tags/PCB/" style="font-size: 1.3em; color: #99a1ac">PCB</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.2em; color: #999da3">Data-Structure-and-Algorithm</a> <a href="/tags/%E6%A8%A1%E7%94%B5/" style="font-size: 1.2em; color: #999da3">模电</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">电路基础</a> <a href="/tags/Operating-System/" style="font-size: 1.1em; color: #999">Operating System</a> <a href="/tags/mosquitto/" style="font-size: 1.3em; color: #99a1ac">mosquitto</a> <a href="/tags/MPU6050/" style="font-size: 1.1em; color: #999">MPU6050</a> <a href="/tags/NextCloud/" style="font-size: 1.1em; color: #999">NextCloud</a> <a href="/tags/notes/" style="font-size: 1.5em; color: #99a9bf">notes</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.2em; color: #999da3">电子元件</a> <a href="/tags/HDL/" style="font-size: 1.1em; color: #999">HDL</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.1em; color: #999">数据库</a> <a href="/tags/css/" style="font-size: 1.1em; color: #999">css</a> <a href="/tags/%E6%BC%94%E8%AE%B2%E7%A8%BF/" style="font-size: 1.1em; color: #999">演讲稿</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/Linux/" style="font-size: 1.1em; color: #999">Linux</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a> <a href="/tags/esp32/" style="font-size: 1.2em; color: #999da3">esp32</a> <a href="/tags/vue/" style="font-size: 1.3em; color: #99a1ac">vue</a> <a href="/tags/%E6%97%85%E8%A1%8C/" style="font-size: 1.4em; color: #99a5b6">旅行</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/%E7%A7%81%E6%9C%89%E4%BA%91/" style="font-size: 1.1em; color: #999">私有云</a> <a href="/tags/javascript/" style="font-size: 1.3em; color: #99a1ac">javascript</a> <a href="/tags/mysql/" style="font-size: 1.3em; color: #99a1ac">mysql</a> <a href="/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1.1em; color: #999">分布式服务器</a> <a href="/tags/%E6%B1%87%E7%BC%96/" style="font-size: 1.1em; color: #999">汇编</a> <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 1.1em; color: #999">无人机</a> <a href="/tags/M-2%E6%8E%A5%E5%8F%A3/" style="font-size: 1.1em; color: #999">M.2接口</a> <a href="/tags/language/" style="font-size: 1.1em; color: #999">language</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/wordpress/" style="font-size: 1.1em; color: #999">wordpress</a> <a href="/tags/turtle/" style="font-size: 1.1em; color: #999">turtle</a> <a href="/tags/IIC/" style="font-size: 1.4em; color: #99a5b6">IIC</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">82</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-08T13:17:29.128Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/stdlib/" style="font-size: 1.1em; color: #999">stdlib</a> <a href="/tags/%E9%9F%B3%E4%B9%90/" style="font-size: 1.1em; color: #999">音乐</a> <a href="/tags/esp32/" style="font-size: 1.2em; color: #999da3">esp32</a> <a href="/tags/PCB/" style="font-size: 1.3em; color: #99a1ac">PCB</a> <a href="/tags/esp8266/" style="font-size: 1.4em; color: #99a5b6">esp8266</a> <a href="/tags/%E6%A8%A1%E6%8B%9F%E7%94%B5%E8%B7%AF/" style="font-size: 1.2em; color: #999da3">模拟电路</a> <a href="/tags/NextCloud/" style="font-size: 1.1em; color: #999">NextCloud</a> <a href="/tags/mosquitto/" style="font-size: 1.3em; color: #99a1ac">mosquitto</a> <a href="/tags/md/" style="font-size: 1.2em; color: #999da3">md</a> <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA/" style="font-size: 1.1em; color: #999">无人机</a> <a href="/tags/%E5%90%89%E4%BB%96/" style="font-size: 1.1em; color: #999">吉他</a> <a href="/tags/mqtt/" style="font-size: 1.4em; color: #99a5b6">mqtt</a> <a href="/tags/Data-Structure-and-Algorithm/" style="font-size: 1.2em; color: #999da3">Data-Structure-and-Algorithm</a> <a href="/tags/%E7%94%B5%E5%AD%90%E5%85%83%E4%BB%B6/" style="font-size: 1.2em; color: #999da3">电子元件</a> <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" style="font-size: 1.1em; color: #999">跨平台</a> <a href="/tags/CAN%E6%80%BB%E7%BA%BF/" style="font-size: 1.1em; color: #999">CAN总线</a> <a href="/tags/%E8%8B%B1%E6%96%87/" style="font-size: 1.1em; color: #999">英文</a> <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">图形化工具</a> <a href="/tags/web/" style="font-size: 1.1em; color: #999">web</a> <a href="/tags/notes/" style="font-size: 1.5em; color: #99a9bf">notes</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.1em; color: #999">计算机组成原理</a> <a href="/tags/c51/" style="font-size: 1.1em; color: #999">c51</a> <a href="/tags/SPI/" style="font-size: 1.1em; color: #999">SPI</a> <a href="/tags/pyinstaller/" style="font-size: 1.1em; color: #999">pyinstaller</a> <a href="/tags/UI/" style="font-size: 1.1em; color: #999">UI</a> <a href="/tags/rust/" style="font-size: 1.1em; color: #999">rust</a> <a href="/tags/%E5%98%89%E7%AB%8B%E5%88%9B/" style="font-size: 1.1em; color: #999">嘉立创</a> <a href="/tags/HID/" style="font-size: 1.1em; color: #999">HID</a> <a href="/tags/%E6%BC%94%E8%AE%B2%E7%A8%BF/" style="font-size: 1.1em; color: #999">演讲稿</a> <a href="/tags/%E6%A8%A1%E7%94%B5/" style="font-size: 1.2em; color: #999da3">模电</a> <a href="/tags/java/" style="font-size: 1.2em; color: #999da3">java</a> <a href="/tags/%E7%94%B5%E6%BA%90/" style="font-size: 1.1em; color: #999">电源</a> <a href="/tags/%E7%94%B5%E8%B7%AF%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">电路设计</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">编程规范</a> <a href="/tags/%E7%89%A9%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE/" style="font-size: 1.3em; color: #99a1ac">物联网协议</a> <a href="/tags/software/" style="font-size: 1.1em; color: #999">software</a> <a href="/tags/github%E9%A1%B9%E7%9B%AE/" style="font-size: 1.1em; color: #999">github项目</a> <a href="/tags/Raspberry-Pi/" style="font-size: 1.1em; color: #999">Raspberry Pi</a> <a href="/tags/IoT/" style="font-size: 1.3em; color: #99a1ac">IoT</a> <a href="/tags/c/" style="font-size: 1.1em; color: #999">c</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span><a class="card-more-btn" href="/archives/" title="View More">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/11/"><span class="card-archive-list-date">November 2024</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/10/"><span class="card-archive-list-date">October 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/09/"><span class="card-archive-list-date">September 2024</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/08/"><span class="card-archive-list-date">August 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/07/"><span class="card-archive-list-date">July 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">May 2024</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/04/"><span class="card-archive-list-date">April 2024</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">March 2024</span><span class="card-archive-list-count">4</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">82</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-11-10T13:22:06.271Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2024 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
