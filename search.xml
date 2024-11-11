@@ -7032,7 +7032,16 @@
 
 <h3 id="Vector-1"><a href="#Vector-1" class="headerlink" title="Vector 1"></a>Vector 1</h3><h4 id="Declaring-Vectors"><a href="#Declaring-Vectors" class="headerlink" title="Declaring Vectors"></a>Declaring Vectors</h4><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">wire</span> [<span class="number">7</span>:<span class="number">0</span>] w;         <span class="comment">// 8-bit wire</span></span><br><span class="line"><span class="keyword">reg</span>  [<span class="number">4</span>:<span class="number">1</span>] x;         <span class="comment">// 4-bit reg</span></span><br><span class="line"><span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">0</span>:<span class="number">0</span>] y;   <span class="comment">// 1-bit reg that is also an output port (this is still a vector)</span></span><br><span class="line"><span class="keyword">input</span> <span class="keyword">wire</span> [<span class="number">3</span>:-<span class="number">2</span>] z;  <span class="comment">// 6-bit wire input (negative ranges are allowed)</span></span><br><span class="line"><span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] a;       <span class="comment">// 4-bit output wire. Type is &#x27;wire&#x27; unless specified otherwise.</span></span><br><span class="line"><span class="keyword">wire</span> [<span class="number">0</span>:<span class="number">7</span>] b;         <span class="comment">// 8-bit wire where b[0] is the most-significant bit.</span></span><br></pre></td></tr></table></figure>
 
+<p>Build a combinational circuit that splits an input half-word (16 bits, [15:0] ) into lower [7:0] and upper [15:8] bytes.</p>
+<h4 id="Module-Declaration"><a href="#Module-Declaration" class="headerlink" title="Module Declaration"></a>Module Declaration</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">`default_nettype none     // Disable implicit nets. Reduces some types of bugs.</span><br><span class="line">module top_module( </span><br><span class="line">    input wire [15:0] in,</span><br><span class="line">    output wire [7:0] out_hi,</span><br><span class="line">    output wire [7:0] out_lo );</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="meta">`<span class="keyword">default_nettype</span> none     </span><span class="comment">// Disable implicit nets. Reduces some types of bugs.</span></span><br><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> [<span class="number">15</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> [<span class="number">7</span>:<span class="number">0</span>] out_hi,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> [<span class="number">7</span>:<span class="number">0</span>] out_lo );</span><br><span class="line">    <span class="keyword">assign</span> out_lo=in[<span class="number">7</span>:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">assign</span> out_hi=in[<span class="number">15</span>:<span class="number">8</span>];</span><br><span class="line">    </span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Vector-2"><a href="#Vector-2" class="headerlink" title="Vector 2"></a>Vector 2</h3><p>A 32-bit vector can be viewed as containing 4 bytes (bits [31:24], [23:16], etc.). Build a circuit that will reverse the <em>byte</em> ordering of the 4-byte word.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">AaaaaaaaBbbbbbbbCcccccccDddddddd =&gt; DdddddddCcccccccBbbbbbbbAaaaaaaa</span><br></pre></td></tr></table></figure>
+
+<p>This operation is often used when the <a href="https://en.wikipedia.org/wiki/Endianness">endianness</a> of a piece of data needs to be swapped, for example between little-endian x86 systems and the big-endian formats used in many Internet protocols.</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">31</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">31</span>:<span class="number">0</span>] out );<span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// assign out[31:24] = ...;</span></span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">31</span>:<span class="number">24</span>]=in[<span class="number">7</span>:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">23</span>:<span class="number">16</span>]=in[<span class="number">15</span>:<span class="number">8</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">15</span>:<span class="number">8</span>]=in[<span class="number">23</span>:<span class="number">16</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">7</span>:<span class="number">0</span>]=in[<span class="number">31</span>:<span class="number">24</span>];</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -8672,7 +8681,8 @@
   <entry>
     <title>物联网水控系统</title>
     <url>/2024/09/19/%E7%89%A9%E8%81%94%E7%BD%91%E6%B0%B4%E6%8E%A7%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="1-软件系统"><a href="#1-软件系统" class="headerlink" title="1. 软件系统"></a>1. 软件系统</h2><ul>
+    <content><![CDATA[<p><img src="/../images/iotWaterPump/xmind.png" alt="regen"></p>
+<h1 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h1><h2 id="1-软件系统"><a href="#1-软件系统" class="headerlink" title="1. 软件系统"></a>1. 软件系统</h2><ul>
 <li>Flask+VUE+MySQL</li>
 <li>Python脚本使用Mqtt协议传送命令以及数据</li>
 </ul>
@@ -8698,7 +8708,7 @@
 <li><p>无数据库的Flak+Vue项目部署</p>
 <ol>
 <li><p>服务器的准备阶段 </p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install nginx -y <span class="comment"># 安装nginx</span></span><br><span class="line">sudo aot install python3 python3-pip3 -y</span><br><span class="line">sudo pip3 install paho-mqtt Flask Flask-CORS</span><br></pre></td></tr></table></figure>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install nginx -y <span class="comment"># 安装nginx</span></span><br><span class="line"><span class="built_in">sudo</span> aot install python3 python3-pip3 -y</span><br><span class="line"><span class="built_in">sudo</span> pip3 install paho-mqtt Flask Flask-CORS</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>打包阶段</p>
  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> frontend</span><br><span class="line">scp -r dist/ root@123.456.789.000:/var/www/vue-app</span><br><span class="line">spc -r backend/ root@123.456.789.000:/var/www/flask-app</span><br></pre></td></tr></table></figure>
@@ -8861,7 +8871,12 @@
 </ol>
 </li>
 </ul>
-<p><img src="/../images/iotWaterPump/10.png" alt="v2 show GD api"></p>
+<p><img src="/../images/iotWaterPump/10.png" alt="v2 "></p>
+<h1 id="升级—-V3-0"><a href="#升级—-V3-0" class="headerlink" title="升级—-&gt; V3.0"></a>升级—-&gt; V3.0</h1><p>增加其他功能</p>
+<p><img src="/../images/iotWaterPump/v3/1.png" alt="v3"></p>
+<p><img src="/../images/iotWaterPump/v3/2.png" alt="v3"></p>
+<p><img src="/../images/iotWaterPump/v3/3.png" alt="v3"></p>
+<p><img src="/../images/iotWaterPump/v3/4.png" alt="v3"></p>
 ]]></content>
       <categories>
         <category>软硬件结合</category>
@@ -9097,6 +9112,18 @@
 <p>672<br>00:50:38,874 –&gt; 00:50:41,626<br>But you don’t wanna do that,<br>do you, sport?</p>
 <p>673<br>00:50:44,254 –&gt; 00:50:46,127<br>You’re terrified<br>of what you might say.</p>
 <p>674<br>00:50:52,219 –&gt; 00:50:54,211<br>Your move, chief.</p>
+</blockquote>
+<h2 id="3-What-can-I-hold-you-with"><a href="#3-What-can-I-hold-you-with" class="headerlink" title="3. What can I hold you with?"></a>3. What can I hold you with?</h2><blockquote>
+<p><strong>What can I hold you with?</strong></p>
+<p>I offer you lean streets, desperate sunsets, the moon of the ragged suburbs.</p>
+<p>I offer you the bitterness of a man who has looked long and long at the lonely moon.</p>
+<p>I offer you my ancestors, my dead men, the ghost that living men have honoured in marble: my father’s father killed in the frontier of Buenos Aires, two bullets through his lungs, bearded and dead, wrapped by his soldiers in the hide of a cow; my mother’s grandfather—just twentyfour—heading a charge of three hundred men in Perú, now ghosts on vanished horses.</p>
+<p>I offer you whatever insight my books may hold, whatever manliness humour my life.</p>
+<p>I offer you the loyalty of a man who has never been loyal.</p>
+<p>I offer her that kernel of myself that I have saved, somehow–the central heart that deals not in words, traffics not with dreams and is untouched by time, by joy, by adversities.</p>
+<p>I offer you the memory of a yellow rose seen at sunset, years before you were born.</p>
+<p>I offer you explanations of yourself, theories about yourself, authentic and surprising news of yourself.</p>
+<p>I can give you my loneliness, my darkness, the hunger of my heart; I am trying to bribe you with uncertainty, with danger, with defeat.</p>
 </blockquote>
 ]]></content>
       <categories>
