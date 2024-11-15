@@ -304,7 +304,7 @@
 <p>When both column and page address pointers reach the end address, the pointers are reset to column start address and page start address </p>
 <p>(Dotted line in Figure 10-4.) </p>
 </blockquote>
-<p><img src="/images/OLED/3.png" alt="vertical addressing mode"></p>
+<p><img src="/../images/OLED/3.png" alt="vertical addressing mode"></p>
 <h3 id="总结-我的理解"><a href="#总结-我的理解" class="headerlink" title="总结(我的理解)"></a>总结(我的理解)</h3><p>三种模式都是一次竖着写<code>1Byte(8位)</code>，</p>
 <ol>
 <li>第一种向右延伸，到终点不回来</li>
@@ -2003,11 +2003,11 @@
 <p>The ZeroTier client is used to connect to virtual networks previously created in the ZeroTier Central web-based <a href="https://en.wikipedia.org/wiki/User_interface">UI</a>. Endpoint connections are peer-to-peer and <a href="https://en.wikipedia.org/wiki/End-to-end_encryption">end-to-end encrypted</a>. <a href="https://en.wikipedia.org/wiki/STUN">STUN</a> and <a href="https://en.wikipedia.org/wiki/Hole_punching_(networking)">hole punching</a> are used to establish direct connections between peers behind <a href="https://en.wikipedia.org/wiki/Network_Address_Translation">NAT</a>. Direct connection route discovery is made with the help of a global network of <em>root servers</em> via a mechanism similar to <a href="https://en.wikipedia.org/wiki/Interactive_Connectivity_Establishment">ICE</a> in <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>.</p>
 </blockquote>
 <h2 id="2-安装"><a href="#2-安装" class="headerlink" title="2.安装"></a>2.安装</h2><p>​		实际上十分简单，对于Windows，iPad，Android，macOS都有相应软件。</p>
-<p><img src="/images/ZeroTIerDownload.png"></p>
+<p><img src="/../images/ZeroTIerDownload.png"></p>
 <h3 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h3><ol>
 <li>安装</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -s https://install.zerotier.com | <span class="built_in">sudo</span> bash</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>操作：加入，离开，查看已经连接的网络</li>
@@ -2015,7 +2015,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zerotier-cli <span class="built_in">join</span> &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#加入</span></span><br><span class="line">zerotier-cli leave &lt;NETWORK ID&gt;</span><br><span class="line"><span class="comment">#离开</span></span><br><span class="line">zerotier-cli listnetworks</span><br><span class="line"><span class="comment">#连接列表</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="3-管理"><a href="#3-管理" class="headerlink" title="3.管理"></a>3.管理</h2><p>​	直接登录官网即可进行对已组网络的管理，例如授权用户，修改网络内部IP地址以及备注信息等等</p>
-<p><img src="/images/ZeroTierAdmin.jpg" alt="Admin Page"></p>
+<p><img src="/../images/ZeroTierAdmin.jpg" alt="Admin Page"></p>
 <h2 id="4-Last"><a href="#4-Last" class="headerlink" title="4.Last"></a>4.Last</h2><p>​	世上还是好人多啊，ZeroTier的出现真的让内网穿透方便了很多，免费用户的配置也很不错！</p>
 <h1 id="FTP-服务器搭建"><a href="#FTP-服务器搭建" class="headerlink" title="FTP 服务器搭建"></a>FTP 服务器搭建</h1><h1 id="MQTT服务器搭建（mosquitto）"><a href="#MQTT服务器搭建（mosquitto）" class="headerlink" title="MQTT服务器搭建（mosquitto）"></a>MQTT服务器搭建（mosquitto）</h1><h2 id="0-简介"><a href="#0-简介" class="headerlink" title="0.简介"></a>0.简介</h2><ol>
 <li>简介</li>
@@ -2115,9 +2115,6 @@
 <ul>
 <li>连接esp32或8266</li>
 </ul>
-<h1 id="VPN隧道搭建"><a href="#VPN隧道搭建" class="headerlink" title="VPN隧道搭建"></a>VPN隧道搭建</h1><h2 id="1-协议选择-V2RAY的VMess协议"><a href="#1-协议选择-V2RAY的VMess协议" class="headerlink" title="1.协议选择 V2RAY的VMess协议"></a>1.协议选择 V2RAY的VMess协议</h2><h2 id="2-一键安装脚本-：v2ray-sh"><a href="#2-一键安装脚本-：v2ray-sh" class="headerlink" title="2.一键安装脚本 ：v2ray.sh"></a>2.一键安装脚本 ：v2ray.sh</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo su root</span><br><span class="line"></span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-查看信息"><a href="#3-查看信息" class="headerlink" title="3.查看信息"></a>3.查看信息</h2><p>信息目录：<code> /etc/v2ray/config.json</code></p>
 <h1 id="自建服务器（搭配ZeroTier食用）"><a href="#自建服务器（搭配ZeroTier食用）" class="headerlink" title="自建服务器（搭配ZeroTier食用）"></a>自建服务器（搭配ZeroTier食用）</h1><h2 id="1-begin"><a href="#1-begin" class="headerlink" title="1. begin"></a>1. begin</h2><p>​	虽然和hxy合伙买的白菜价国外服务器性能也还够用，但是也仅仅是够用，之前发现的内网穿透神器Zerotier刚好可以拿来当我的梦中情机的最后一块拼图。使用ZeroTier就可以让我方便的在SH连接到JX的家中局域网内的服务器了！</p>
 <h2 id="2-介绍"><a href="#2-介绍" class="headerlink" title="2.介绍"></a>2.介绍</h2><h3 id="1-硬件介绍"><a href="#1-硬件介绍" class="headerlink" title="1.硬件介绍"></a>1.硬件介绍</h3><p>​			硬件部分的清单：</p>
 <blockquote>
@@ -2128,7 +2125,7 @@
 </blockquote>
 <h3 id="2-软件介绍"><a href="#2-软件介绍" class="headerlink" title="2.软件介绍"></a>2.软件介绍</h3><p>​		由于我正在使用的pc中恰好有四个下载好的镜像文件，分别是 macOS.Ventura_13.4 , deepin ，ubuntu22.04，kali2023，最终使用的是kali,原因在于kali已经安装好绝大部分软件和其需运行的环境，例如：httpd，JDK，javarun，makefile等等。</p>
 <h2 id="3-组装（跳过）"><a href="#3-组装（跳过）" class="headerlink" title="3.组装（跳过）"></a>3.组装（跳过）</h2><h2 id="4-配置ZeroTier-如上篇ZeroTier内网穿透"><a href="#4-配置ZeroTier-如上篇ZeroTier内网穿透" class="headerlink" title="4.配置ZeroTier(如上篇ZeroTier内网穿透)"></a>4.配置ZeroTier(如上篇ZeroTier内网穿透)</h2><h2 id="5-结束"><a href="#5-结束" class="headerlink" title="5.结束"></a>5.结束</h2><p>最终效果，通过ipad的终端ssh外网连接kali</p>
-<p><img src="/images/ipadConnectKali.jpg" alt="ipadConnectKali"></p>
+<p><img src="/../images/ipadConnectKali.jpg" alt="ipadConnectKali"></p>
 <h1 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h1><h2 id="1-make简要介绍"><a href="#1-make简要介绍" class="headerlink" title="1.make简要介绍"></a>1.make简要介绍</h2><blockquote>
 <p>​	In <a href="https://en.wikipedia.org/wiki/Software_development">software development</a>, <strong>Make</strong> is a <a href="https://en.wikipedia.org/wiki/Build_automation">build automation</a> tool that <a href="https://en.wikipedia.org/wiki/Software_build">builds</a> <a href="https://en.wikipedia.org/wiki/Executable_program">executable programs</a> and <a href="https://en.wikipedia.org/wiki/Library_(software)">libraries</a> from <a href="https://en.wikipedia.org/wiki/Source_code">source code</a> by reading <a href="https://en.wikipedia.org/wiki/File_(computing)">files</a> called <em>makefiles</em> which specify how to derive the target program. Though <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">integrated development environments</a> and <a href="https://en.wikipedia.org/wiki/Programming_language">language</a>-specific <a href="https://en.wikipedia.org/wiki/Compiler_(computing)">compiler</a> features can also be used to manage a build process, Make remains widely used, especially in <a href="https://en.wikipedia.org/wiki/Unix">Unix</a> and <a href="https://en.wikipedia.org/wiki/Unix-like">Unix-like</a> <a href="https://en.wikipedia.org/wiki/Operating_system">operating systems</a>.</p>
 </blockquote>
@@ -2270,27 +2267,6 @@
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>M.2 STC89C52</title>
-    <url>/2024/05/25/M-2-STC89C52/</url>
-    <content><![CDATA[<p>​	最近在学画PCB的时候突发奇想，想利用M.2接口的易插拔特性来画一片51最小系统板，同时还引出了大部分引脚，外形类似于Arduino。第一版有点丑。</p>
-<p><img src="/images/m251/1.png" alt="Schematic"></p>
-<p><img src="/images/m251/2.png" alt="Pcb"></p>
-<p><img src="/images/m251/3.png" alt="Pcb_3D"></p>
-]]></content>
-      <categories>
-        <category>软硬件结合</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>嵌入式</tag>
-        <tag>项目</tag>
-        <tag>51</tag>
-        <tag>最小系统</tag>
-        <tag>M.2接口</tag>
-        <tag>PCB</tag>
       </tags>
   </entry>
   <entry>
@@ -2827,8 +2803,8 @@
   <entry>
     <title>MD语法尝试插入图片到博客</title>
     <url>/2023/09/16/MD%E8%AF%AD%E6%B3%95%E5%B0%9D%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E5%88%B0%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h1 id="1-COVER1"><a href="#1-COVER1" class="headerlink" title="1.COVER1"></a>1.COVER1</h1><h1 id=""><a href="#" class="headerlink" title=""></a><img src="/images/cover1.jpg"></h1><h1 id="2-COVER2"><a href="#2-COVER2" class="headerlink" title="2.COVER2"></a>2.COVER2</h1><p><img src="/images/cover2.jpg"></p>
-<h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/images/cover1.jpg">	</p>
+    <content><![CDATA[<h1 id="1-COVER1"><a href="#1-COVER1" class="headerlink" title="1.COVER1"></a>1.COVER1</h1><h1 id=""><a href="#" class="headerlink" title=""></a><img src="/../images/cover1.jpg"></h1><h1 id="2-COVER2"><a href="#2-COVER2" class="headerlink" title="2.COVER2"></a>2.COVER2</h1><p><img src="/../images/cover2.jpg"></p>
+<h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/../images/cover1.jpg">	</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -3120,14 +3096,14 @@
 <ul>
 <li>分类</li>
 </ul>
-<p><img src="/images/PCB/capacityType.png" alt="Type"></p>
+<p><img src="/../images/PCB/capacityType.png" alt="Type"></p>
 <ul>
 <li>读数以及含义</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%872.png" alt="Type—1"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%873.png" alt="Type—2"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%874.png" alt="Type—3"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%875.png" alt="Type—4"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%872.png" alt="Type—1"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%873.png" alt="Type—2"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%874.png" alt="Type—3"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%875.png" alt="Type—4"></p>
 <h3 id="1-2-3-电感"><a href="#1-2-3-电感" class="headerlink" title="1.2.3 电感"></a>1.2.3 电感</h3><p>​	Inductor，</p>
 <ul>
 <li>单位换算</li>
@@ -3137,12 +3113,12 @@
 <li>主要功能：滤波，扼流，谐振，储能</li>
 <li>分类</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%876.png" alt="Inductors"></p>
+<p><img src="/../images/PCB/6.png" alt="Inductors"></p>
 <ul>
 <li>读数以及含义</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%877.png" alt="Type—1"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%878.png" alt="Type—2"></p>
+<p><img src="/../images/PCB/7.png" alt="Type1"></p>
+<p><img src="/../images/PCB/8.png" alt="Type2"></p>
 <h3 id="1-2-4-二极管"><a href="#1-2-4-二极管" class="headerlink" title="1.2.4 二极管"></a>1.2.4 二极管</h3><ul>
 <li>主要功能</li>
 </ul>
@@ -3150,7 +3126,7 @@
 <ul>
 <li>分类以及简单介绍</li>
 </ul>
-<p><img src="/images/PCB/%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%86%E7%B1%BB.png" alt="二极管种类以及介绍"></p>
+<p><img src="/../images/PCB/%E4%BA%8C%E6%9E%81%E7%AE%A1%E5%88%86%E7%B1%BB.png" alt="二极管种类以及介绍"></p>
 <ul>
 <li>外观（判断正负极）</li>
 </ul>
@@ -3158,7 +3134,7 @@
 <li>对于直插式发光二极管：长脚为正极，内部小块为正极。</li>
 <li>一般封装类型的正负极判断</li>
 </ol>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%879.png" alt="二极管一般封装类型的正负极判断"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%879.png" alt="二极管一般封装类型的正负极判断"></p>
 <h3 id="1-2-5-三极管"><a href="#1-2-5-三极管" class="headerlink" title="1.2.5 三极管"></a>1.2.5 三极管</h3><ul>
 <li><p>分类：NPN（控地） 和 PNP（控电源）</p>
 </li>
@@ -3181,7 +3157,7 @@
 <ul>
 <li>常见封装</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%8710.png" alt="三极管一般封装类型"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%8710.png" alt="三极管一般封装类型"></p>
 <h3 id="1-2-6-场效应管（尚未掌握）"><a href="#1-2-6-场效应管（尚未掌握）" class="headerlink" title="1.2.6 场效应管（尚未掌握）"></a>1.2.6 场效应管（尚未掌握）</h3><ul>
 <li>基本介绍</li>
 </ul>
@@ -3202,13 +3178,13 @@
 <ul>
 <li>与三极管的对比</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%8711.png" alt="compare"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%8711.png" alt="compare"></p>
 <ul>
 <li>封装</li>
 </ul>
-<p><img src="/images/PCB/MOS.png" alt="MOS"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%8712.png" alt="MOS"></p>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%8713.png" alt="MOS"></p>
+<p><img src="/../images/PCB/MOS.png" alt="MOS"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%8712.png" alt="MOS"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%8713.png" alt="MOS"></p>
 <h3 id="1-2-7-芯片-IC"><a href="#1-2-7-芯片-IC" class="headerlink" title="1.2.7 芯片 &#x2F; IC"></a>1.2.7 芯片 &#x2F; IC</h3><p><strong>&#x3D;&#x3D;具体见数据手册&#x3D;&#x3D;</strong></p>
 <h2 id="1-3-数据手册"><a href="#1-3-数据手册" class="headerlink" title="1.3 数据手册"></a>1.3 数据手册</h2><p>自己找去</p>
 <h2 id="1-4-电路原理图设计"><a href="#1-4-电路原理图设计" class="headerlink" title="1.4 电路原理图设计"></a>1.4 电路原理图设计</h2><h3 id="网络标签"><a href="#网络标签" class="headerlink" title="网络标签"></a>网络标签</h3><p>​	网络标签 (Net Label)：网络标号表示一个电器连接点，具有相同网络标号的器件表明是电气连接在一起。</p>
@@ -3279,8 +3255,8 @@
 <li>&#x3D;&#x3D;叠层结构布局有讲究&#x3D;&#x3D;，但是一般的二层板双面都可能需要走底地线和电源。</li>
 <li>图示</li>
 </ul>
-<p><img src="/images/PCB/%E5%9B%BE%E7%89%8714.png" alt="PCB叠层结构"></p>
-<h3 id="2-3-PCB设计流程"><a href="#2-3-PCB设计流程" class="headerlink" title="2.3  PCB设计流程"></a>2.3  PCB设计流程</h3><p><img src="/images/PCB/%E5%9B%BE%E7%89%8715.png" alt="设计流程"></p>
+<p><img src="/../images/PCB/%E5%9B%BE%E7%89%8714.png" alt="PCB叠层结构"></p>
+<h3 id="2-3-PCB设计流程"><a href="#2-3-PCB设计流程" class="headerlink" title="2.3  PCB设计流程"></a>2.3  PCB设计流程</h3><p><img src="/../images/PCB/%E5%9B%BE%E7%89%8715.png" alt="设计流程"></p>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="2-end-1PCB设计规则总览（持续添加ing）"><a href="#2-end-1PCB设计规则总览（持续添加ing）" class="headerlink" title="2.end.1PCB设计规则总览（持续添加ing）"></a>2.end.1PCB设计规则总览（持续添加ing）</h3><ol>
 <li><p><strong>电路布局与元器件安放</strong>：</p>
 <ul>
@@ -3363,6 +3339,7 @@
 </ul>
 </li>
 </ol>
+<p>​    </p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
@@ -5019,8 +4996,8 @@
 <p>​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。</p>
 <p>​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！</p>
 <p>​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1163.jpg"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1164.jpg"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1163.jpg"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1164.jpg"></p>
 <p>​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。</p>
 <blockquote>
 <p><strong>我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东西。她是我见过的最勇敢的人。</strong></p>
@@ -5030,12 +5007,12 @@
 </blockquote>
 <p>​	第二天早上，大雨，开始后悔。</p>
 <p>​	在滕王阁附近的洪都大拇指奶茶店点了一杯推荐，坐在墙角的小板凳上，看着越下越大的雨，耳边Ólafur Arnalds的《1440》更增加了凄惨的氛围。 能够稍微安慰我的也就只有 手上的 “雪顶幽兰”逐渐散去的余热了。</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1165.jpg" alt="路上"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1166.jpg"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1170.jpg" alt="远处"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1165.jpg" alt="路上"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1166.jpg"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1170.jpg" alt="远处"></p>
 <p>​	走近看才发现滕王阁原来这么大 ，虽然古人上滕王阁是用爬的，但是时代不一样了，有电梯了。 但是迁客骚人的览物之情却没怎么变化（古今对比），从最顶楼的许愿牌便可得出此结论。</p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1172.jpg" alt="顶"></p>
-<p><img src="/images/nanchang/Nikon2023_5_3_332023_6_1168.jpg" alt="檐"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1172.jpg" alt="顶"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1168.jpg" alt="檐"></p>
 <p>​	越下越大的雨好像放大了览物之情，让我突然想念起了坐在电炉前乱弹吉他的温暖。于是便回家了······</p>
 <hr>
 ]]></content>
@@ -5083,12 +5060,12 @@
 <h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
 
 <p>​	小雨，很喜欢下雨的时候路灯下的氛围感。于是就拿起三脚架背上吉他就出发咯。要是有灯就好了qwq.hexo</p>
-<h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="/images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
+<h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="../images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
 <p>​	这本书的名字是《杀死一只知更鸟》，那天下午阳光正好，所以我就踩着脚踏车愉快地出门了。带着我的小单反，不过过几天我应该就能换新镜头了。希望那时可以拍出更好看的照片。不过同时，还得好好学摄影，毕竟打铁还需自身硬。</p>
-<h1 id="2023-10-28"><a href="#2023-10-28" class="headerlink" title="2023.10.28"></a>2023.10.28</h1><p><img src="/images/202310281.jpg" alt="gentle sunlight cheers me up"></p>
-<p><img src="/images/202310282.jpg" alt="one building&#39;s glow"></p>
+<h1 id="2023-10-28"><a href="#2023-10-28" class="headerlink" title="2023.10.28"></a>2023.10.28</h1><p><img src="/../images/202310281.jpg" alt="gentle sunlight cheers me up"></p>
+<p><img src="/../images/202310282.jpg" alt="one building&#39;s glow"></p>
 <p>​	阳台外面就是一个小湖，每天都能看到日落。中午时光练练吉他，看看书，简单的快乐。</p>
-<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" /images/202311111.jpg" width="400" height="300" alt="NIKON GUYS">
+<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" ../images/202311111.jpg"  alt="NIKON GUYS">
 ]]></content>
       <categories>
         <category>生活</category>
@@ -6968,7 +6945,7 @@
     <content><![CDATA[<p>​	我突然打算不用知识点记录的方式记录我的学习笔记，打算以发现问题解决问题的方法记录学习过程。</p>
 <h1 id="1-记录的第一个脚本。"><a href="#1-记录的第一个脚本。" class="headerlink" title="1.记录的第一个脚本。"></a>1.记录的第一个脚本。</h1><h2 id="1-问题导入"><a href="#1-问题导入" class="headerlink" title="1.问题导入"></a>1.问题导入</h2><p>​	过去我常常把我拍的照片导入桌面，p完图之后再粘贴到我的移动硬盘留底，过程虽然不长，但是我就是懒。</p>
 <h2 id="2-分析"><a href="#2-分析" class="headerlink" title="2.分析"></a>2.分析</h2><p>​	我的桌面一般没有东西，所以我可以直接将整个桌面文件夹复制到我的目标目录，或者在匹配后缀位jpg或者png的文件转移到目标文件夹。</p>
-<p><img src="/images/desktop.png" alt="desktop"></p>
+<p><img src="/../images/desktop.png" alt="desktop"></p>
 <h2 id="3-实现过程"><a href="#3-实现过程" class="headerlink" title="3.实现过程"></a>3.实现过程</h2><pre><code>1. 转移工作目录到桌面
 1. 在目标文件夹创建文件夹
 1. 复制文件到该文件夹
@@ -6979,7 +6956,7 @@
 1. 发现其实可以用windows自带的脚本语言，CMD实现（相当于Linux的shell脚本）
 </code></pre>
 <h2 id="5-收尾"><a href="#5-收尾" class="headerlink" title="5.收尾"></a>5.收尾</h2><p>​	很简单的脚本还写了两个小时。不过过程中又学会了一点东西。可以，好玩！</p>
-<p>​	<img src="/images/wenjianzhuanyi.PNG" alt="result"></p>
+<p>​	<img src="/../images/wenjianzhuanyi.PNG" alt="result"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -7163,7 +7140,7 @@
   <entry>
     <title>《丧钟为谁而鸣》</title>
     <url>/2023/12/02/%E3%80%8A%E4%B8%A7%E9%92%9F%E4%B8%BA%E8%B0%81%E8%80%8C%E9%B8%A3%E3%80%8B/</url>
-    <content><![CDATA[<p><img src="/images/bookszwsrm.jpg" alt="丧钟为谁而鸣"></p>
+    <content><![CDATA[<p><img src="/../images/bookszwsrm.jpg" alt="丧钟为谁而鸣"></p>
 <ul>
 <li><p>这本书是Winston推荐的，其实我原本是想问问他给推荐几本简单易读的英文原著。回来一看，是一部长篇qwq，感觉读原著的话会有些吃力（英语水平有限: sigh :），于是就先读了翻译后的版本。看完以后久久不能释怀。</p>
 </li>
@@ -7254,8 +7231,8 @@
     <url>/2024/01/26/%E3%80%8A%E5%A5%87%E9%A3%8E%E5%B2%81%E6%9C%88%E3%80%8B/</url>
     <content><![CDATA[<p>​	这应该是我青少年时期最喜欢的一本书了，那时推荐给了很多人看。高中时很喜欢一个up主，他一边介绍高质量游戏，一边给我们推荐他觉得好看的有意思的书。这本书就是他推荐的。</p>
 <p>​	也是在整理东西的时候发现的过去写的文字。</p>
-<p><img src="/images/read/qiFengSuiYue_1.jpg" alt="看完一年后高三时怀念奇风镇"></p>
-<p><img src="/images/read/qiFengSuiYue_2.jpg" alt="第一次看《奇风岁月》"></p>
+<p><img src="C:\Users\Regen\Desktop\qiFengSuiYue_1.jpg" alt="看完一年后高三时怀念奇风镇"></p>
+<p><img src="C:\Users\Regen\Desktop\qiFengSuiYue_2.jpg" alt="第一次看《奇风岁月》"></p>
 ]]></content>
       <categories>
         <category>读书</category>
@@ -7268,7 +7245,7 @@
   <entry>
     <title>《寂寞的游戏》</title>
     <url>/2023/12/24/%E3%80%8A%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《寂寞的游戏》"><a href="#《寂寞的游戏》" class="headerlink" title="《寂寞的游戏》"></a>《寂寞的游戏》</h1><p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F.jpg" alt="寂寞的游戏">	</p>
+    <content><![CDATA[<h1 id="《寂寞的游戏》"><a href="#《寂寞的游戏》" class="headerlink" title="《寂寞的游戏》"></a>《寂寞的游戏》</h1><p><img src="/../images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F.jpg" alt="寂寞的游戏">	</p>
 <p>​	<strong>其实</strong>，这本书我在2020年就看过一遍了，因为十分合拍的原因，还拍下了当时读书时的画面。当时就感受到了袁哲生先生的文字下的细腻，将一个敏感的青年通过笔墨绘于纸上。</p>
 <p>​	<strong>那时</strong>，我刚刚升入高中，不曾想到进了高一的奥赛班，以为以我的适应能力能够立马就与同学打成一片，然而这个班的同学早已互相认识，只留少数几个像我一样对于新环境完全陌生的新人，不仅是交际上的原因，学业上也频频受挫。初中时的锐气与自信受到巨大的打击，于是便抓住文字这根救命稻草，以求在陌生而冷淡的环境汲取一丝慰藉。</p>
 <p>​	<strong>文字</strong>，从未给过我失望，透过《寂寞的游戏》，我看到了一个像我一样的青年，借由他的经历，让我那时的无力感得到稍许减弱。</p>
@@ -7278,7 +7255,7 @@
 <p>“	我就这样躲躲藏藏了许多年，直到有一天，捉迷藏的乐趣像一颗流星，眨眼就消失的无影无踪。	”</p>
 </blockquote>
 <p>​	这些细腻且真实的文字打动着我，让那时的我感动：我不是一个人，袁哲生先生也和我一样。</p>
-<p><img src="/images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F2.jpg" alt="2020 第一次读这本书就被吸引"></p>
+<p><img src="/../images/%E5%AF%82%E5%AF%9E%E7%9A%84%E6%B8%B8%E6%88%8F2.jpg" alt="2020 第一次读这本书就被吸引"></p>
 <p>​	<strong>那时</strong>，图片中的有着斑马图案像条形码的马克杯还没碎。那是妈妈在外地别人家打工时，住在那里的姐姐托妈妈送给我的，杯子里还有一张写着QQ号码和昵称 Nancy 的纸条。依稀记得为了这个纸条找发小帮忙注册了一个QQ号。然而她没有同意我的申请添加，而后QQ号也给弄丢了。</p>
 <p>​	<strong>再次</strong>，拿起这本书的原因是在市区的书架上看到，蓝色的书封，和我在那会同时看的《夜晚的潜水艇》有几分相似，在手指触碰到书的瞬间，那时的回忆涌现出来，那个茶杯，那本有淡淡香味的书，把我拉到过去，回过神来，同行的朋友早已不见。那晚，沉浸在过去回忆中的我，打开手机，下来了电子书看，那时我是这么热爱看书，而今双手却不离键盘手机。过去的我如果看到我这个模样，估计会因为不理解而叹息吧。重读过程，不仅是过去的回忆，读书时的令人享受的感觉也再次回到我的大脑。大概是内啡肽吧。不知不觉就读完了这本。</p>
 <blockquote>
@@ -7387,7 +7364,7 @@
     <title>《霍乱时期的爱情》</title>
     <url>/2024/01/26/%E3%80%8A%E9%9C%8D%E4%B9%B1%E6%97%B6%E6%9C%9F%E7%9A%84%E7%88%B1%E6%83%85%E3%80%8B/</url>
     <content><![CDATA[<p>​	在老家整理东西的时候发现了许多在高中时代写的文字，怀念的感觉油然而生。这本书是我在高二的时候看过的。那时看完之后心情久久不得平静，就撕下一页稿纸，随手写了这点东西。</p>
-<p> <img src="/images/read/huoLuanShiQiDeAiQing.jpg"></p>
+<p> <img src="/../images/read/huoLuanShiQiDeAiQing.jpg"></p>
 <p>​	想到那时的自己还是书虫，每日不读书就浑身难受。再看看现在，好像已经有几个月没有拿起一本书像过去的我一样一有时间就打开阅读了。</p>
 <p>​	最近就把过去看过的书再温习一遍吧！</p>
 ]]></content>
@@ -7520,7 +7497,7 @@
     <title>大创项目《自动化农业无人机》记录</title>
     <url>/2024/05/09/%E5%A4%A7%E5%88%9B%E9%A1%B9%E7%9B%AE%E3%80%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%86%9C%E4%B8%9A%E6%97%A0%E4%BA%BA%E6%9C%BA%E3%80%8B%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<p>​	记录一下大创项目《自动化农业无人机》。实现项目转化知识成果</p>
-<h1 id="硬件选型"><a href="#硬件选型" class="headerlink" title="硬件选型"></a>硬件选型</h1><p><img src="/images/dachaung/1.png" alt="硬件选型"></p>
+<h1 id="硬件选型"><a href="#硬件选型" class="headerlink" title="硬件选型"></a>硬件选型</h1><p><img src="/../images/dachaung/1.png" alt="硬件选型"></p>
 <h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><h2 id="PID算法"><a href="#PID算法" class="headerlink" title="PID算法"></a>PID算法</h2><h3 id="三轴陀螺仪的使用（以mpu6050为例）"><a href="#三轴陀螺仪的使用（以mpu6050为例）" class="headerlink" title="三轴陀螺仪的使用（以mpu6050为例）"></a>三轴陀螺仪的使用（以mpu6050为例）</h3><p>[MPU6050 basic  with Arduino](link to be added)</p>
 <h3 id="PID算法-1"><a href="#PID算法-1" class="headerlink" title="PID算法"></a>PID算法</h3><h2 id="数据传输"><a href="#数据传输" class="headerlink" title="数据传输"></a>数据传输</h2><h3 id="mqtt协议简介"><a href="#mqtt协议简介" class="headerlink" title="mqtt协议简介"></a>mqtt协议简介</h3><p><a href="https://regenm.github.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (regenm.github.io)</a></p>
 <h3 id="mqtt服务器搭建"><a href="#mqtt服务器搭建" class="headerlink" title="mqtt服务器搭建"></a>mqtt服务器搭建</h3><p><a href="https://regenm.github.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">MQTT服务器搭建（mosquitto） | Regen (regenm.github.io)</a></p>
@@ -7560,16 +7537,16 @@
     <title>塘下公路片</title>
     <url>/2024/05/19/%E5%A1%98%E4%B8%8B%E5%85%AC%E8%B7%AF%E7%89%87/</url>
     <content><![CDATA[<p>​	比起繁华的钢铁丛林，我还是性本爱丘山。在塘下公路骑行是一种很奇妙的体验，就好步入桃花源记，在一群群高楼大厦中站立的两排密集的大树，让长久受到屏幕自己的眼镜也得到了放松。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1360.jpg" alt="boring screens"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1361.jpg" alt="Green Road"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1362.jpg" alt="Green Road"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1363.jpg" alt="Green Road"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1360.jpg" alt="boring screens"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1361.jpg" alt="Green Road"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1362.jpg" alt="Green Road"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1363.jpg" alt="Green Road"></p>
 <p>​	自从知道了塘下公路以后，我再没去过别的地方骑行。每次骑行都很兴奋，有时感觉回到了家乡，有时感觉在国外一般。真的很喜欢这条路两边的树。恰到好处的遮了大半边天空，只留下一条光路延伸到远方。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1366.jpg" alt="Trees"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1368.jpg" alt="Trees"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1366.jpg" alt="Trees"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1368.jpg" alt="Trees"></p>
 <p>​	在路边发现了一只孤独的椅子，白色的墙与周围有稍许违和感，有一种很清新的感觉，同时还有一种苔痕上阶绿，草色入帘青的感觉。</p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1364.jpg" alt="lonely chair"></p>
-<p><img src="/images/tangxia_road/Nikon2023_5_3_332023_6_1365.jpg" alt="lonely chair"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1364.jpg" alt="lonely chair"></p>
+<p><img src="/../images/tangxia_road/Nikon2023_5_3_332023_6_1365.jpg" alt="lonely chair"></p>
 <p>这应该就是治愈内耗的良药了吧。</p>
 ]]></content>
       <categories>
@@ -8280,15 +8257,15 @@
   <entry>
     <title>时间胶囊</title>
     <url>/2024/01/26/%E6%97%B6%E9%97%B4%E8%83%B6%E5%9B%8A/</url>
-    <content><![CDATA[<p>​	<img src="/images/timeCapsule/1.jpg"></p>
+    <content><![CDATA[<p>​	<img src="/../images/timeCapsule/1.jpg"></p>
 <p>​	高中晚自习的时候，下暴雨时有感。</p>
-<p>​	<img src="/images/timeCapsule/2.jpg"></p>
+<p>​	<img src="/../images/timeCapsule/2.jpg"></p>
 <p>​	高中午休时胡思乱想有感。</p>
-<p>​	<img src="/images/timeCapsule/3.jpg"></p>
+<p>​	<img src="/../images/timeCapsule/3.jpg"></p>
 <p>​	高中数学课有感。</p>
-<p>​	<img src="/images/timeCapsule/4.jpg"></p>
+<p>​	<img src="/../images/timeCapsule/4.jpg"></p>
 <p>​	高中被室友呼噜声吵失眠有感。</p>
-<p>​	<img src="/images/timeCapsule/5.jpg"></p>
+<p>​	<img src="/../images/timeCapsule/5.jpg"></p>
 <p>​	看完凯鲁亚克的《在路上》后有感。</p>
 ]]></content>
       <categories>
@@ -8396,7 +8373,7 @@
 <td>2v</td>
 </tr>
 </tbody></table>
-<h3 id="5-光电二极管（Optoelectronic-Diode）"><a href="#5-光电二极管（Optoelectronic-Diode）" class="headerlink" title="5.光电二极管（Optoelectronic Diode）"></a>5.光电二极管（Optoelectronic Diode）</h3><p><img src="/images/analogElectronics/%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%AC%A6%E5%8F%B7.png" alt="符号"></p>
+<h3 id="5-光电二极管（Optoelectronic-Diode）"><a href="#5-光电二极管（Optoelectronic-Diode）" class="headerlink" title="5.光电二极管（Optoelectronic Diode）"></a>5.光电二极管（Optoelectronic Diode）</h3><p><img src="/../images/analogElectronics/%E5%85%89%E7%94%B5%E4%BA%8C%E6%9E%81%E7%AE%A1%E7%AC%A6%E5%8F%B7.png" alt="符号"></p>
 <ul>
 <li>暗电流：反向电压下的产生的反向电流。</li>
 <li>光电流：反压下受到光照而产生的电流。（照度越大光电流越大）</li>
@@ -9007,8 +8984,8 @@
 <h2 id="一行代码"><a href="#一行代码" class="headerlink" title="一行代码"></a>一行代码</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 8080:80 nextcloud</span><br></pre></td></tr></table></figure>
 
 <p>然后直接<code>IP:8080</code>就访问到了</p>
-<p><img src="/images/nc/1.png" alt="1"></p>
-<p><img src="/images/nc/2.png" alt="2"></p>
+<p><img src="/../images/nc/1.png" alt="1"></p>
+<p><img src="/../images/nc/2.png" alt="2"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -9028,7 +9005,7 @@
     <title>苏州行</title>
     <url>/2024/05/19/%E8%8B%8F%E5%B7%9E%E8%A1%8C/</url>
     <content><![CDATA[<h1 id="平江路"><a href="#平江路" class="headerlink" title="平江路"></a>平江路</h1><p>苏州-＞平江路。<br>     初见时是辰时，庆幸自己通宵到五点后直奔平江路。若是晚一两个时辰则是截然不同的人山人海。<br>     此时摇船还未开始 河面平静,水波不兴.阳光刚开始洒入这条小街.江南古街的倒影跃然水面，沿着主街直走,我的眼光全在黑白灰的建筑与绿色的树木和蓝色的天空和水面之间游走.这时的平江路尚未被外人所打搅,几对老翁坐在河旁的藤椅上,借着尚不刺眼的阳光看报,一切都显得与背景和谐。<br>     一个时辰不到这条小街就变得喧闹与繁忙.越来越多的女性穿着汉服，涌入这条小巷,或摆拍撒骄,或漫步于河边桥头.刚开始紧闭大门的店铺也逐渐开张,宁静典雅的小巷也就逐渐消失。<br>     我庆幸自己看到了平江路的本原面貌,也看到了她浓妆粉饰后的面貌.但我总觉得少了些东西,可能是恋人或朋友吧.下次带本散文书好了。</p>
-<p><img src="/images/suzhou_trip/1.jpg" alt="lonely chair"><img src="/images/suzhou_trip/2.jpg" alt="lonely chair"><img src="/images/suzhou_trip/3.jpg" alt="lonely chair"><img src="/images/suzhou_trip/4.jpg" alt="lonely chair"><img src="/images/suzhou_trip/5.jpg" alt="lonely chair"><img src="/images/suzhou_trip/6.jpg" alt="lonely chair"><img src="/images/suzhou_trip/7.jpg" alt="lonely chair"><img src="/images/suzhou_trip/8.jpg" alt="lonely chair"><img src="/images/suzhou_trip/9.jpg" alt="lonely chair"><img src="/images/suzhou_trip/10.jpg" alt="lonely chair"></p>
+<p><img src="/../images/suzhou_trip/1.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/2.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/3.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/4.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/5.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/6.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/7.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/8.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/9.jpg" alt="lonely chair"><img src="/images/suzhou_trip/10.jpg" alt="lonely chair"></p>
 ]]></content>
       <categories>
         <category>生活</category>
@@ -9313,8 +9290,10 @@
   <entry>
     <title>随手记</title>
     <url>/2023/10/09/%E9%9A%8F%E6%89%8B%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="困饿累睡不着"><a href="#困饿累睡不着" class="headerlink" title="困饿累睡不着"></a>困饿累睡不着</h1><p><img src="/images/myPoems_1.jpg" alt="myPoems_1.jpg"></p>
+    <content><![CDATA[<h1 id="困饿累睡不着"><a href="#困饿累睡不着" class="headerlink" title="困饿累睡不着"></a>困饿累睡不着</h1><p><img src="/../images/myPoems/1.jpg" alt="myPoems_1.jpg"></p>
 <p>​	上课的时候随便乱写的&lt;3,没想到我还是这么中二</p>
+<p>续集</p>
+<p><img src="/../images/myPoems/2.jpg" alt="myPoems_1.jpg"></p>
 ]]></content>
       <categories>
         <category>生活</category>
