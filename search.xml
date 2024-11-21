@@ -7020,7 +7020,16 @@
 <p>This operation is often used when the <a href="https://en.wikipedia.org/wiki/Endianness">endianness</a> of a piece of data needs to be swapped, for example between little-endian x86 systems and the big-endian formats used in many Internet protocols.</p>
 <figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">31</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">31</span>:<span class="number">0</span>] out );<span class="comment">//</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// assign out[31:24] = ...;</span></span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">31</span>:<span class="number">24</span>]=in[<span class="number">7</span>:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">23</span>:<span class="number">16</span>]=in[<span class="number">15</span>:<span class="number">8</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">15</span>:<span class="number">8</span>]=in[<span class="number">23</span>:<span class="number">16</span>];</span><br><span class="line">    <span class="keyword">assign</span> out[<span class="number">7</span>:<span class="number">0</span>]=in[<span class="number">31</span>:<span class="number">24</span>];</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="Vectorgates"><a href="#Vectorgates" class="headerlink" title="Vectorgates"></a>Vectorgates</h3><p><img src="/../images/fpga/verilog/4.png"></p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">2</span>:<span class="number">0</span>] a,</span><br><span class="line">    <span class="keyword">input</span> [<span class="number">2</span>:<span class="number">0</span>] b,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">2</span>:<span class="number">0</span>] out_or_bitwise,</span><br><span class="line">    <span class="keyword">output</span> out_or_logical,</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">5</span>:<span class="number">0</span>] out_not</span><br><span class="line">);</span><br><span class="line"><span class="keyword">assign</span> out_or_bitwise=a|b;</span><br><span class="line"><span class="keyword">assign</span> out_or_logical = |(a | b);</span><br><span class="line"><span class="keyword">assign</span> out_not[<span class="number">2</span>:<span class="number">0</span>]=~a;</span><br><span class="line"><span class="keyword">assign</span> out_not[<span class="number">5</span>:<span class="number">3</span>]=~b;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+<h3 id="Gates4"><a href="#Gates4" class="headerlink" title="Gates4"></a>Gates4</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"><span class="keyword">module</span> top_module( </span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] in,</span><br><span class="line">    <span class="keyword">output</span> out_and,</span><br><span class="line">    <span class="keyword">output</span> out_or,</span><br><span class="line">    <span class="keyword">output</span> out_xor</span><br><span class="line">);</span><br><span class="line"><span class="keyword">assign</span> out_and=&amp;in;</span><br><span class="line">    <span class="keyword">assign</span> out_or=|in;</span><br><span class="line">    <span class="keyword">assign</span> out_xor=^in;</span><br><span class="line"><span class="keyword">endmodule</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Vector3"><a href="#Vector3" class="headerlink" title="Vector3"></a>Vector3</h3><figure class="highlight verilog"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -9831,14 +9840,73 @@
   <entry>
     <title>CAN总线笔记</title>
     <url>/2024/11/07/CAN%E6%80%BB%E7%BA%BF%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>CAN总线</strong></p>
-<blockquote>
+    <content><![CDATA[<h1 id="CAN总线"><a href="#CAN总线" class="headerlink" title="CAN总线"></a><strong>CAN总线</strong></h1><blockquote>
 <p>CAN（Controller Area Network）总线是一种串行通信协议，用于在汽车、工业自动化设备和物联网等嵌入式系统中实现设备之间的可靠数据传输。</p>
 </blockquote>
 <h2 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h2><p><strong>多主架构</strong>：CAN总线采用多主通信方式，任何节点（即连接在总线上的设备）都可以在总线空闲时发起通信。这种设计提高了系统的灵活性和可靠性。</p>
 <p><strong>差分信号传输</strong>：CAN总线使用差分信号传输数据，即CAN_H和CAN_L两根信号线之间的电压差用来表示逻辑状态。这种方式能有效地降低电磁干扰的影响，适合在工业环境中使用。</p>
 <p><strong>优先级机制</strong>：CAN协议内置消息优先级，通过标识符的方式决定通信优先级，当两个或多个节点同时发送消息时，优先级高的节点可以继续发送，而优先级低的节点会自动延迟发送。这种机制保障了紧急消息能够优先传输。</p>
 <p><strong>高可靠性与数据完整性</strong>：CAN协议内置多种错误检测和纠正机制，如CRC校验、帧检测和ACK确认机制。通过这些机制，CAN总线能够及时检测和纠正数据传输过程中的错误，确保数据的准确性和可靠性。</p>
+<h1 id="硬件特性"><a href="#硬件特性" class="headerlink" title="硬件特性"></a>硬件特性</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><ol>
+<li>每个设备通过CAN收发器挂载在CAN总线网络上</li>
+<li>高速CAN使用闭环网络，CAN_H和CAN_L两端添加120Ω的终端电阻</li>
+<li>低速CAN使用开环网络，CAN_H和CAN_L其中一端添加2.2kΩ的终端电阻</li>
+</ol>
+<p><img src="/../images/hardWare/can/1.png"></p>
+<h2 id="电平标准"><a href="#电平标准" class="headerlink" title="电平标准"></a>电平标准</h2><p><strong>CAN总线采用差分信号，</strong>即两线电压差（VCAN_H-VCAN_L）传输数据位</p>
+<p><strong>高速CAN规定：</strong>	</p>
+<pre><code>1. 电压差为0V时表示逻辑1（隐性电平）	
+1. 电压差为2V时表示逻辑0（显性电平）
+</code></pre>
+<p><strong>低速CAN规定：</strong>	</p>
+<ol>
+<li>电压差为-1.5V时表示逻辑1（隐性电平）	</li>
+<li>电压差为3V时表示逻辑0（显性电</li>
+</ol>
+<h1 id="CAN总线帧格式"><a href="#CAN总线帧格式" class="headerlink" title="CAN总线帧格式"></a>CAN总线帧格式</h1><table>
+<thead>
+<tr>
+<th><strong>帧类型</strong></th>
+<th><strong>用途</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据帧</td>
+<td>发送设备主动发送数据（广播式）</td>
+</tr>
+<tr>
+<td>遥控帧</td>
+<td>接收设备主动请求数据（请求式）</td>
+</tr>
+<tr>
+<td>错误帧</td>
+<td>某个设备检测出错误时向其他设备通知错误</td>
+</tr>
+<tr>
+<td>过载帧</td>
+<td>接收设备通知其尚未做好接收准备</td>
+</tr>
+<tr>
+<td>帧间隔</td>
+<td>用于将数据帧及遥控帧与前面的帧分离开</td>
+</tr>
+</tbody></table>
+<p><img src="/../images/hardWare/can/2.png"></p>
+<blockquote>
+<h1 id="数据帧各部分用途简介"><a href="#数据帧各部分用途简介" class="headerlink" title="数据帧各部分用途简介"></a><strong>数据帧各部分用途简介</strong></h1><ol>
+<li>SOF（Start of Frame）：帧起始，表示后面一段波形为传输的数据位</li>
+<li>ID（Identify）：标识符，区分功能，同时决定优先级</li>
+<li>RTR（Remote Transmission Request ）：远程请求位，区分数据帧和遥控帧</li>
+<li>IDE（Identifier Extension）：扩展标志位，区分标准格式和扩展格式</li>
+<li>SRR（Substitute Remote Request）：替代RTR，协议升级时留下的无意义位</li>
+<li>r0&#x2F;r1（Reserve）：保留位，为后续协议升级留下空间DLC（Data Length Code）：数据长度，指示数据段有几个字节</li>
+<li>Data：数据段的1~8个字节有效数据</li>
+<li>CRC（Cyclic Redundancy Check）：循环冗余校验，校验数据是否正确</li>
+<li>ACK（Acknowledgement）：应答位，判断数据有没有被接收方接收</li>
+<li>CRC&#x2F;ACK界定符：为应答位前后发送方和接收方释放总线留下时间</li>
+<li>EOF（End of Frame ）：帧结束，表示数据位已经传输完毕</li>
+</ol>
+</blockquote>
 ]]></content>
       <categories>
         <category>硬件技术</category>
