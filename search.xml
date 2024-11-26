@@ -239,7 +239,7 @@
 <p>Good luck .</p>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -2969,7 +2969,7 @@
 
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5151,14 +5151,14 @@
 <h2 id="2-联网-WIFI"><a href="#2-联网-WIFI" class="headerlink" title="2.联网-WIFI"></a>2.联网-WIFI</h2><ul>
 <li>方法一：使用系统工具</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo raspi-config</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> raspi-config</span><br></pre></td></tr></table></figure>
 
 <p>选择系统选项，地区之后就可以通过<code>ssid</code>和<code>pask</code>进行联网</p>
 <p>再使用<code>ifconfig</code>查看是否连接成功（会分配新的 ip 地址）</p>
 <ul>
 <li>方法二：使用系统配置<code>/etc/</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一开始没有VIM</span></span><br><span class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># add </span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=<span class="string">&quot;ssid_name&quot;</span></span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">        psk=<span class="string">&quot;password&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一开始没有VIM</span></span><br><span class="line"><span class="built_in">sudo</span> nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># add </span></span><br><span class="line"></span><br><span class="line">network=&#123;</span><br><span class="line">        ssid=<span class="string">&quot;ssid_name&quot;</span></span><br><span class="line">        key_mgmt=WPA-PSK</span><br><span class="line">        psk=<span class="string">&quot;password&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -5187,10 +5187,10 @@
 
 <p>然后就报错了。。。</p>
 <p>没有安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install wiringpi</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install wiringpi</span><br></pre></td></tr></table></figure>
 
 <p>又报错了。。。没有依赖</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt --fix-broken install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt --fix-broken install</span><br></pre></td></tr></table></figure>
 
 <p>解决</p>
 <h3 id="4-2-代码控制"><a href="#4-2-代码控制" class="headerlink" title="4.2  代码控制"></a>4.2  代码控制</h3><h4 id="4-2-1-使用Python的命令模式"><a href="#4-2-1-使用Python的命令模式" class="headerlink" title="4.2.1 使用Python的命令模式"></a>4.2.1 使用Python的命令模式</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setmode(GPIO.BOARD)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.setup(<span class="number">11</span>,GPIO.OUT)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>GPIO.output(<span class="number">11</span>,<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
@@ -5200,7 +5200,7 @@
 <ul>
 <li>开头也需要加<code>sudo</code>，否则报错</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo curl -s https://install.zerotier.com | sudo bash</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> curl -s https://install.zerotier.com | <span class="built_in">sudo</span> bash</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>加入我的内网</li>
@@ -5215,7 +5215,7 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim AutoStart/ZeroTierAutoStart.sh</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;network ID&gt;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zerotier network joined successfully&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">sudo</span> zerotier-cli <span class="built_in">join</span> &lt;network ID&gt;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;zerotier network joined successfully&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>添加自启动</li>
@@ -5255,7 +5255,7 @@
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt</span><br></pre></td></tr></table></figure>
 
 <p>  ，可以更简便地更新和管理软件包：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update        <span class="comment"># 更新软件源列表</span></span><br><span class="line">sudo apt upgrade       <span class="comment"># 升级已安装的软件包</span></span><br><span class="line">sudo apt full-upgrade  <span class="comment"># 升级并处理依赖关系（更适合大版本更新）</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update        <span class="comment"># 更新软件源列表</span></span><br><span class="line"><span class="built_in">sudo</span> apt upgrade       <span class="comment"># 升级已安装的软件包</span></span><br><span class="line"><span class="built_in">sudo</span> apt full-upgrade  <span class="comment"># 升级并处理依赖关系（更适合大版本更新）</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="2-查看系统信息的改进命令"><a href="#2-查看系统信息的改进命令" class="headerlink" title="2. 查看系统信息的改进命令"></a>2. <strong>查看系统信息的改进命令</strong></h3><ul>
 <li><p>Debian 11 引入了一些新工具，例如 </p>
@@ -5280,7 +5280,7 @@
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ufw</span><br></pre></td></tr></table></figure>
 
 <p>  （Uncomplicated Firewall），可以简化防火墙管理：</p>
-  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install ufw</span><br><span class="line">sudo ufw <span class="built_in">enable</span>            <span class="comment"># 启用防火墙</span></span><br><span class="line">sudo ufw status            <span class="comment"># 查看防火墙状态</span></span><br><span class="line">sudo ufw allow 22/tcp      <span class="comment"># 允许端口，例如 SSH</span></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install ufw</span><br><span class="line"><span class="built_in">sudo</span> ufw <span class="built_in">enable</span>            <span class="comment"># 启用防火墙</span></span><br><span class="line"><span class="built_in">sudo</span> ufw status            <span class="comment"># 查看防火墙状态</span></span><br><span class="line"><span class="built_in">sudo</span> ufw allow 22/tcp      <span class="comment"># 允许端口，例如 SSH</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="6-进程监控工具-bpytop"><a href="#6-进程监控工具-bpytop" class="headerlink" title="6. 进程监控工具 bpytop"></a>6. <strong>进程监控工具 <code>bpytop</code></strong></h3><ul>
 <li><pre><code>  bpytop
@@ -5332,7 +5332,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5501,7 +5501,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5571,7 +5571,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5907,6 +5907,9 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">wordpress:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">wordpress:latest</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wordpress_app</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;80:80&quot;</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_HOST:</span> <span class="string">db:3306</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_NAME:</span> <span class="string">wordpress_db</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_USER:</span> <span class="string">wordpress_user</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_PASSWORD:</span> <span class="string">strong_password</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">wordpress_data:/var/www/html</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:5.7</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wordpress_db</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">root_password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">wordpress_db</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">wordpress_user</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span> <span class="string">strong_password</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db_data:/var/lib/mysql</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">wordpress_data:</span></span><br><span class="line">  <span class="attr">db_data:</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -7530,7 +7533,7 @@
 <p><a href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
 <h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4>]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>项目</tag>
@@ -8256,7 +8259,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -8865,7 +8868,7 @@
 <p><img src="/../images/iotWaterPump/v3/4.png" alt="v3"></p>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>软硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10004,6 +10007,194 @@
         <tag>Flask</tag>
         <tag>vue</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PID算法入门</title>
+    <url>/2024/11/26/PID%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="PID基本概念"><a href="#PID基本概念" class="headerlink" title="PID基本概念"></a>PID基本概念</h1><p>PID 控制器通过以下三部分组成调整行为：</p>
+<ul>
+<li><strong>比例控制（P）：快速响应当前误差</strong><ul>
+<li>根据误差的大小调整输出，误差越大，输出越强。</li>
+<li>简单但可能存在偏差。</li>
+</ul>
+</li>
+<li><strong>积分控制（I）：消除长期误差</strong><ul>
+<li>累计误差的总和，让输出逐渐补偿偏差。</li>
+</ul>
+</li>
+<li><strong>微分控制（D）：预测趋势减少震荡</strong><ul>
+<li>根据误差变化的速度，平滑输出，避免过度反应。</li>
+</ul>
+</li>
+</ul>
+<h1 id="PID基本原理"><a href="#PID基本原理" class="headerlink" title="PID基本原理"></a>PID基本原理</h1><ul>
+<li><p>稳态误差</p>
+<blockquote>
+<p>系统达到稳定后与目标值之间的偏差</p>
+</blockquote>
+</li>
+<li><p>历史误差</p>
+<blockquote>
+<p>系统运行过程中误差的累积总和</p>
+</blockquote>
+</li>
+<li><p>超调</p>
+<blockquote>
+<p>系统响应首次超过目标值的最大幅度</p>
+</blockquote>
+</li>
+<li><p>震荡</p>
+<blockquote>
+<p>系统输出围绕目标值反复波动，未能稳定</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>P</p>
+<blockquote>
+<p><strong>Proportional Control</strong></p>
+<p>比例控制根据当前误差 e(t)e(t)e(t) 调整输出：</p>
+<p><img src="/../images/algorithm/pid/1.png"></p>
+<ul>
+<li><strong>优点</strong>：快速响应当前误差，简单直观。</li>
+<li><strong>缺点</strong>：可能存在稳态误差，即系统到达目标附近但不能完全达到。</li>
+</ul>
+<p><strong>形象理解</strong>：像一个弹簧，偏离目标越远，弹簧拉力越大。</p>
+</blockquote>
+<p>I</p>
+<blockquote>
+<p><strong>Integral Control</strong></p>
+<p>积分控制根据误差的累计值调整输出：</p>
+<p><img src="/../images/algorithm/pid/2.png"><br>$$</p>
+<p>$$</p>
+<ul>
+<li><strong>优点</strong>：消除稳态误差，确保系统最终达到目标值。</li>
+<li><strong>缺点</strong>：<ul>
+<li><strong>积分饱和</strong>：如果误差持续存在，积分项的累积会无限增加，导致控制信号过大，甚至会导致控制系统的<strong>振荡</strong>。这是因为积分会在误差存在时不断增加，即使误差已经很小，积分项依然很大。</li>
+<li><strong>引起过度反应</strong>：积分项的过度增大可能导致系统的过度调整（比如温度突然快速上升或下降），从而产生不稳定的行为或<strong>超调</strong>。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>积分部分主要用来<strong>消除稳态误差</strong>（steady-state error），即当系统误差存在较长时间时，积分部分会逐渐积累误差，推动系统调整，直到误差为零为止。</p>
+<p>积分部分通过<strong>累积误差</strong>来对系统进行调整。它会随着时间的推移逐渐增大或减小，直到误差消除。假设在系统中存在一个持续的小误差，积分部分会随着时间的积累，产生越来越大的控制信号，从而帮助系统摆脱稳态误差。</p>
+</blockquote>
+</blockquote>
+<p>D</p>
+<blockquote>
+<p><strong>Derivative Control</strong></p>
+<p>微分控制根据误差的变化率调整输出：</p>
+<p><img src="/../images/algorithm/pid/3.png"></p>
+<ul>
+<li><strong>优点</strong>：预测误差变化趋势，减少震荡，提高系统稳定性。</li>
+<li><strong>缺点</strong>：对噪声敏感，可能引入高频抖动。</li>
+</ul>
+<p><strong>形象理解</strong>：像一辆车的刹车系统，车速变化越快，刹车越强。</p>
+<blockquote>
+<p>微分部分主要关注<strong>误差变化的速率</strong>，即系统如何快速变化。它的目的是通过“预见”误差的变化趋势来<strong>减少系统的超调和震荡</strong>，使系统更平稳地达到目标值。</p>
+<p>微分部分计算的是<strong>误差变化率</strong>，即误差在单位时间内的变化。它可以对误差变化的速度作出反应。如果误差变化很快，微分部分会增加控制信号来阻止系统反应过度；如果误差变化缓慢，微分部分的作用较小。</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h1 id="PID性能指标"><a href="#PID性能指标" class="headerlink" title="PID性能指标"></a>PID性能指标</h1><h3 id="1-稳态误差-Steady-State-Error"><a href="#1-稳态误差-Steady-State-Error" class="headerlink" title="1. 稳态误差 (Steady-State Error)"></a>1. <strong>稳态误差 (Steady-State Error)</strong></h3><p>稳态误差是指系统在达到稳定状态后，输出与目标值之间的差异。一个好的 PID 控制器应该尽量使稳态误差接近于零。</p>
+<ul>
+<li><strong>计算方法</strong>：稳态误差可以通过系统长期运行后的输出和设定点（目标值）进行比较，计算两者的差值。</li>
+<li><strong>理想情况</strong>：PID 控制器的目标是使稳态误差最小化，最好为零（虽然在一些情况下可能会有一个微小的误差）。</li>
+</ul>
+<h3 id="2-超调-Overshoot"><a href="#2-超调-Overshoot" class="headerlink" title="2. 超调 (Overshoot)"></a>2. <strong>超调 (Overshoot)</strong></h3><p>超调是指系统响应在超过目标值后再回落的现象。PID 控制器的超调应尽可能小，避免系统响应过度。</p>
+<ul>
+<li><strong>计算方法</strong>：从系统响应的图像中可以看到，系统超过目标值后的最大偏差，即为超调量。一般来说，超调量越小越好。</li>
+<li><strong>理想情况</strong>：超调应该接近零或者非常小，避免过度反应。</li>
+</ul>
+<h3 id="3-振荡-Oscillation"><a href="#3-振荡-Oscillation" class="headerlink" title="3. 振荡 (Oscillation)"></a>3. <strong>振荡 (Oscillation)</strong></h3><p>振荡是指系统输出在目标值附近来回波动，导致系统无法稳定在设定点附近。PID 控制器的输出应尽量减少振荡。</p>
+<ul>
+<li><strong>计算方法</strong>：通过绘制系统响应曲线，如果系统频繁地上下波动且没有快速收敛到目标值，则存在振荡。可以通过系统的频率和幅度来判断振荡的严重性。</li>
+<li><strong>理想情况</strong>：没有明显的振荡，系统响应应平稳。</li>
+</ul>
+<h3 id="4-响应时间-Settling-Time"><a href="#4-响应时间-Settling-Time" class="headerlink" title="4. 响应时间 (Settling Time)"></a>4. <strong>响应时间 (Settling Time)</strong></h3><p>响应时间是指系统输出从开始到稳定在设定点附近所需的时间。响应时间越短，系统反应越快。</p>
+<ul>
+<li><strong>计算方法</strong>：从系统响应曲线中测量，从起始时间到系统最终稳定在目标值附近的时间。</li>
+<li><strong>理想情况</strong>：响应时间越短越好，但必须与其他指标（如超调、振荡）平衡。</li>
+</ul>
+<h3 id="5-积分时间-Integral-Time-IT"><a href="#5-积分时间-Integral-Time-IT" class="headerlink" title="5. 积分时间 (Integral Time, IT)"></a>5. <strong>积分时间 (Integral Time, IT)</strong></h3><p>积分时间是系统从零误差到稳态时误差累积的时间。积分时间短意味着控制器在达到稳态时能迅速消除累积的误差。</p>
+<ul>
+<li><strong>计算方法</strong>：计算系统的积分误差时间，即误差在时间上的累计，较短的积分时间有助于快速消除误差。</li>
+<li><strong>理想情况</strong>：积分时间越短越好，但要平衡可能引发的振荡和超调。</li>
+</ul>
+<h3 id="6-控制信号的饱和-Saturation-of-Control-Signal"><a href="#6-控制信号的饱和-Saturation-of-Control-Signal" class="headerlink" title="6. 控制信号的饱和 (Saturation of Control Signal)"></a>6. <strong>控制信号的饱和 (Saturation of Control Signal)</strong></h3><p>控制信号饱和是指控制器的输出值达到最大限制，不能进一步增大，这通常会导致系统反应迟缓，甚至无法达到设定目标。</p>
+<ul>
+<li><strong>计算方法</strong>：观察控制信号的输出，如果系统经常达到最大或最小输出限制，则表示控制信号饱和。</li>
+<li><strong>理想情况</strong>：控制信号应尽量避免饱和，控制器的输出应适应系统需求。</li>
+</ul>
+<h3 id="7-控制器的稳定性"><a href="#7-控制器的稳定性" class="headerlink" title="7. 控制器的稳定性"></a>7. <strong>控制器的稳定性</strong></h3><p>稳定性是指系统在受到扰动或变化时是否能够保持其稳定性，并最终收敛到目标值。一个不稳定的 PID 控制器会导致系统过度波动，甚至无法收敛到设定点。</p>
+<ul>
+<li><strong>计算方法</strong>：观察系统响应，是否会在目标值附近发生不规则的波动，是否会收敛到目标值。</li>
+<li><strong>理想情况</strong>：系统应稳定且快速收敛。</li>
+</ul>
+<h1 id="PID三个参数的调整"><a href="#PID三个参数的调整" class="headerlink" title="PID三个参数的调整"></a>PID三个参数的调整</h1><blockquote>
+<p>**增加比例增益 (Kp)**：可以减少稳态误差，但可能导致系统超调和振荡。</p>
+<p>**增加积分增益 (Ki)**：可以减少稳态误差，尤其是在误差为零时；但过高会导致系统振荡。</p>
+<p>**增加微分增益 (Kd)**：可以减少超调并提高响应速度，但过高的微分增益可能导致控制信号的噪声增大。</p>
+</blockquote>
+<h2 id="一般流程"><a href="#一般流程" class="headerlink" title="一般流程"></a>一般流程</h2><blockquote>
+<p><strong>第一步：确定比例增益P</strong></p>
+<p>确定比例增益 P 时，首先去掉 PID 的积分项和微分项，一般是令 Ti&#x3D;0、 Td&#x3D;0（具体见PID 的参数设定说明），使PID 为纯比例调节。</p>
+<p>输入设定为系统允许的最大值60%<del>70%，由0逐渐加大比例增益 P，直至系统出现振荡；再反过来，从此时的比例增益 P 逐渐减小，直至系统振荡消失，记录此时的比例增益 P，设定 PID 的比例增益 P 为当前值60%</del>70%。比例增益 P 调试完成。</p>
+<p><strong>第二步：确定比例增益I</strong></p>
+<p>比例增益 P 确定后，设定一个较大的积分时间常数 Ti 的初值，然后逐渐减小 Ti，直至系统出现振荡，之后在反过来，逐渐加大 Ti，直至系统振荡消失。记录此时的 Ti，设定 PID的积分时间常数 Ti 为当前值的150%~180%。积分时间常数 Ti 调试完成</p>
+<p><strong>第三步：确定比例增益d</strong></p>
+<p>积分时间常数 Td 一般不用设定，为0即可。若要设定，与确定 P 和 Ti 的方法相同，取不振<br>荡时的30%。</p>
+<p><strong>第四步：进一步调整参数</strong></p>
+<p>系统空载、带载联调，再对 PID 参数进行微调，直至满足要求。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>python</tag>
+        <tag>plt</tag>
+        <tag>控制技术</tag>
+        <tag>PID算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见电源电路实现</title>
+    <url>/2024/11/25/%E5%B8%B8%E8%A7%81%E7%94%B5%E6%BA%90%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="实现目的"><a href="#实现目的" class="headerlink" title="实现目的"></a>实现目的</h1><ol>
+<li>熟悉常见电源电路的设计</li>
+<li>设计自己的电源电路</li>
+<li>改进自己的设计</li>
+</ol>
+<h1 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h1><p><img src="/../images/hardware/power/1.png"></p>
+<h1 id="AC-DC"><a href="#AC-DC" class="headerlink" title="AC-DC"></a>AC-DC</h1><h2 id="220v–-5v"><a href="#220v–-5v" class="headerlink" title="220v–&gt;5v"></a>220v–&gt;5v</h2><ul>
+<li>选用反激拓扑结构<ul>
+<li>用于低于100瓦的功率输出</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="220v–-12v"><a href="#220v–-12v" class="headerlink" title="220v–&gt;12v"></a>220v–&gt;12v</h2><h1 id="DC-DC"><a href="#DC-DC" class="headerlink" title="DC-DC"></a>DC-DC</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>电源</tag>
+        <tag>DC-DC</tag>
+        <tag>AC-DC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件工程导论</title>
+    <url>/2024/11/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="软件生存周期与软件过程"><a href="#软件生存周期与软件过程" class="headerlink" title="软件生存周期与软件过程"></a>软件生存周期与软件过程</h1>]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>软件工程</tag>
+        <tag>考试</tag>
       </tags>
   </entry>
 </search>
