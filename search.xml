@@ -9909,8 +9909,391 @@
 </ul>
 </li>
 </ol>
-<h4 id="在数据链路层扩展以太网"><a href="#在数据链路层扩展以太网" class="headerlink" title="在数据链路层扩展以太网"></a>在数据链路层扩展以太网</h4><p><strong>扩展以太网更常用的方法</strong></p>
-<h4 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h4><h4 id=""><a href="#" class="headerlink" title=""></a></h4><h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
+<h4 id="在数据链路层扩展以太网"><a href="#在数据链路层扩展以太网" class="headerlink" title="在数据链路层扩展以太网"></a>在数据链路层扩展以太网</h4><h5 id="以太网交换机"><a href="#以太网交换机" class="headerlink" title="以太网交换机"></a><strong>以太网交换机</strong></h5><ul>
+<li><p><strong>特点</strong></p>
+</li>
+<li><p>以太网交换机具有并行性。能同时连通多对接口，使多对主机能同时通信。</p>
+</li>
+<li><p>相互通信的主机都是独占传输媒体，无碰撞地传输数据。</p>
+</li>
+<li><p>交换方式</p>
+<ul>
+<li>存储转发方式</li>
+<li>直通 (cut-through) 方式<ul>
+<li>接收数据帧的同时就立即按数据帧的目的 MAC 地址决定该帧的转发接口，因而<strong>提高了帧的转发速度</strong>。缺点是它不<strong>检查差错</strong>就直接将帧转发出去，因此有可能也将一些无效帧转发给其他的站。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h4><p><strong>VLAN 标记</strong></p>
+<ul>
+<li>4字节的标识符：用来指明发送该帧的计算机属于哪一个虚拟局域网。</li>
+</ul>
+<h3 id="虚拟互联网络"><a href="#虚拟互联网络" class="headerlink" title="虚拟互联网络"></a>虚拟互联网络</h3><ul>
+<li>即逻辑互连网络<ul>
+<li>互连起来的各种物理网络的异构性本来是客观存在的，但是我们利用 IP 协议就可以使这些性能各异的网络从用户看起来好像是一个统一的网络。</li>
+</ul>
+</li>
+<li>使用 IP 协议的虚拟互连网络可简称为 IP 网。</li>
+<li>互联网 (Internet)：覆盖全球的 IP 网的上层使用 TCP 协议</li>
+</ul>
+<h1 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h1><h2 id="网络层提供的两种服务"><a href="#网络层提供的两种服务" class="headerlink" title="网络层提供的两种服务"></a>网络层提供的两种服务</h2><ol>
+<li><strong>虚电路服务</strong></li>
+<li><strong>数据报服务</strong></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><strong>对比的方面</strong></th>
+<th><strong>虚电路服务</strong></th>
+<th><strong>数据报服务</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>思路</strong></td>
+<td><strong>可靠通信应当由网络来保证</strong></td>
+<td><strong>可靠通信应当由用户主机来保证</strong></td>
+</tr>
+<tr>
+<td><strong>连接的建立</strong></td>
+<td><strong>必须有</strong></td>
+<td><strong>不需要</strong></td>
+</tr>
+<tr>
+<td><strong>终点地址</strong></td>
+<td><strong>仅在连接建立阶段使用，每个分组使用短的虚电路号</strong></td>
+<td><strong>每个分组都有终点的完整地址</strong></td>
+</tr>
+<tr>
+<td><strong>分组的转发</strong></td>
+<td><strong>属于同一条虚电路的分组均按照同一路由进行转发</strong></td>
+<td><strong>每个分组独立选择路由进行转发</strong></td>
+</tr>
+<tr>
+<td><strong>当结点出故障时</strong></td>
+<td><strong>所有通过出故障的结点的虚电路均不能工作</strong></td>
+<td><strong>出故障的结点可能会丢失分组，一些路由可能会发生变化</strong></td>
+</tr>
+<tr>
+<td><strong>分组的顺序</strong></td>
+<td><strong>总是按发送顺序到达终点</strong></td>
+<td><strong>到达终点时不一定按发送顺序</strong></td>
+</tr>
+<tr>
+<td><strong>端到端的差错处理和流量控制</strong></td>
+<td><strong>可以由网络负责，也可以由用户主机负责</strong></td>
+<td><strong>由用户主机负责</strong></td>
+</tr>
+</tbody></table>
+<h2 id="网际协议-IP"><a href="#网际协议-IP" class="headerlink" title="* 网际协议 IP"></a>* 网际协议 IP</h2><p>网际协议 IP 是 TCP&#x2F;IP 体系中两个最主要的协议之一。</p>
+<ul>
+<li>与 IP 协议配套使用的还有三个协议：<ol>
+<li>地址解析协议 ARP    (Address Resolution Protocol)</li>
+<li>网际控制报文协议 ICMP   (Internet Control Message Protocol)</li>
+<li>网际组管理协议 IGMP   (Internet Group Management Protocol)</li>
+</ol>
+</li>
+</ul>
+<p><img src="/../images/computerNetwork/10.png" alt="png"></p>
+<h3 id="IP-地址及其表示方法"><a href="#IP-地址及其表示方法" class="headerlink" title="* IP 地址及其表示方法"></a>* IP 地址及其表示方法</h3><blockquote>
+<p>IP 地址就是给每个连接在互联网上的主机（或路由器）分配一个在全世界范围是唯一的 32 位的标识符。由互联网名字和数字分配机构ICANN (Internet Corporation for Assigned Names and Numbers)进行分配</p>
+</blockquote>
+<ul>
+<li><p><strong>IP 地址的编址方法</strong></p>
+<ol>
+<li>分类的 IP 地址。这是最基本的编址方法，在 1981 年就通过了相应的标准协议。</li>
+<li>子网的划分。这是对最基本的编址方法的改进，其标准[RFC 950] 在 1985 年通过。</li>
+<li>构成超网。这是比较新的无分类编址方法。1993 年提出后很快就得到推广应用。</li>
+</ol>
+</li>
+<li><p><strong>分类IP地址</strong></p>
+<blockquote>
+<p>将IP地址划分为若干个固定类。</p>
+<p>每一类地址都由两个固定长度的字段组成，其中一个字段是网络号 net-id，它标志主机（或路由器）所连接到的网络，而另一个字段则是主机号 host-id，它标志该主机（或路由器）。</p>
+<p>主机号在它前面的网络号所指明的网络范围内必须是唯一的。</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/../images/computerNetwork/11.png" alt="png"></p>
+<ul>
+<li>点分十进制记法</li>
+</ul>
+<p> 	</p>
+<h2 id="常用的三种类别的-IP-地址"><a href="#常用的三种类别的-IP-地址" class="headerlink" title="常用的三种类别的 IP 地址"></a>常用的三种类别的 IP 地址</h2><table>
+<thead>
+<tr>
+<th>网络类别</th>
+<th>最大可指派的网络数</th>
+<th>第一个可指派的网络号</th>
+<th>最后一个可指派的网络号</th>
+<th>每个网络中最大主机数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>126 (27 – 2)</td>
+<td>1</td>
+<td>126</td>
+<td>16777214</td>
+</tr>
+<tr>
+<td>B</td>
+<td>16383 (214 – 1)</td>
+<td>128.1</td>
+<td>191.255</td>
+<td>65534</td>
+</tr>
+<tr>
+<td>C</td>
+<td>2097151 (221 – 1)</td>
+<td>192.0.1</td>
+<td>223.255.255</td>
+<td>254</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th><strong>网络号</strong></th>
+<th><strong>主机号</strong></th>
+<th>源地址使用</th>
+<th><strong>目的地址</strong>使用</th>
+<th><strong>代表的意思</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td><strong>0</strong></td>
+<td><strong>可以</strong></td>
+<td><strong>不可</strong></td>
+<td>在本网络上的本主机</td>
+</tr>
+<tr>
+<td><strong>0</strong></td>
+<td><strong>host-id</strong></td>
+<td><strong>可以</strong></td>
+<td><strong>不可</strong></td>
+<td><strong>在本网络上的某台主机</strong>host-id</td>
+</tr>
+<tr>
+<td>全1</td>
+<td>全1</td>
+<td><strong>不可</strong></td>
+<td><strong>可以</strong></td>
+<td><strong>只在本网络上进行广播（各路由器均不转发）</strong></td>
+</tr>
+<tr>
+<td><strong>net-id</strong></td>
+<td>全1</td>
+<td><strong>不可</strong></td>
+<td><strong>可以</strong></td>
+<td><strong>对</strong>net-id上的所有主机进行广播</td>
+</tr>
+<tr>
+<td><strong>127</strong></td>
+<td>非全0或全1的任何数</td>
+<td><strong>可以</strong></td>
+<td><strong>可以</strong></td>
+<td><strong>用作本地软件环回测试之用</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<ul>
+<li>源地址：表示数据包的发送方IP地址，即哪个设备发出了该数据包。</li>
+<li>目的地址：表示数据包的接收方IP地址，即该数据包需要被送达的目标设备地址。</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>IP地址的重要特点</p>
+<ol>
+<li>IP 地址是一种分等级的地址结构。	<ol>
+<li>第一，IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。这样就方便了 IP 地址的管理</li>
+<li>第二，路由器仅根据目的主机所连接的网络号来转发分组（而不考虑目的主机号），这样就可以使路由表中的项目数大幅度减少，从而减小了路由表所占的存储空间。</li>
+</ol>
+</li>
+<li>实际上 IP 地址是标志一个主机（或路由器）和一条链路的接口。<ol>
+<li>当一个主机同时连接到两个网络上时，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为多归属主机 (multihomed host)。</li>
+<li>当一个主机同时连接到两个网络上时，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为多归属主机 (multihomed host)。</li>
+</ol>
+</li>
+<li>用转发器或网桥连接起来的若干个局域网仍为一个网络，因此这些局域网都具有同样的网络号 net-id。</li>
+<li>所有分配到网络号 net-id 的网络，无论是范围很小的局域网，还是可能覆盖很大地理范围的广域网，都是平等的。</li>
+</ol>
+</li>
+<li><p>地址解析协议 ARP</p>
+<ul>
+<li>从网络层使用的 IP 地址，解析出在数据链路层使用的硬件地址。</li>
+<li>每一个主机都设有一个 ARP 高速缓存 (ARP cache)，里面有所在的局域网上的各主机和路由器的 IP 地址到硬件地址的映射表。<ul>
+<li>高速缓存的作用：存放最近获得的 IP 地址到 MAC 地址的绑定，以减少 ARP 广播的数量。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>IP数据报的格式</p>
+<ul>
+<li><p>首部和数据</p>
+<ul>
+<li>首部：首部的前一部分是固定长度，共 20 字节，是所有 IP 数据报必须具有的。后面是一些可选字段，其长度是可变的。</li>
+</ul>
+<p>  <img src="/../images/computerNetwork/12.png" alt="png"></p>
+</li>
+</ul>
+</li>
+<li><p>IP数据报的可变部分</p>
+<ul>
+<li>目的：支持排错、测量以及安全等措施</li>
+<li>实际上这些选项很少被使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="划分子网和构造超网"><a href="#划分子网和构造超网" class="headerlink" title="划分子网和构造超网"></a>划分子网和构造超网</h2><ul>
+<li><p>划分子网纯属一个单位内部的事情，对外部网络透明，对外仍然表现为没有划分子网的一个网络。</p>
+</li>
+<li><p>优点</p>
+<ol>
+<li>减少了 IP 地址的浪费</li>
+<li>使网络的组织更加灵活</li>
+<li>更便于维护和管理</li>
+</ol>
+</li>
+<li><p><strong>子网掩码</strong></p>
+<ul>
+<li>减少了 IP 地址的浪费使网络的组织更加灵活更便于维护和管理</li>
+</ul>
+</li>
+<li><p>子网掩码是一个网络或一个子网的重要属性。</p>
+</li>
+<li><p>划分子网增加了灵活性，但却减少了能够连接在网络上的主机总数。</p>
+</li>
+<li><p>(IP 地址) <strong>AND</strong> (子网掩码) **&#x3D;**网络地址</p>
+</li>
+<li><p><strong>无分类地址CIDR</strong></p>
+<ul>
+<li><p>主要特点</p>
+<ol>
+<li>使用各种长度的“网络前缀”(network-prefix)来代替分类地址中的网络号和子网号。</li>
+<li>从三级编址（使用子网掩码）又回到了两级编址。</li>
+</ol>
+</li>
+<li><p>斜线记法</p>
+<blockquote>
+<p>CIDR 使用“斜线记法”(slash notation)，它又称为 CIDR 记法，即在 IP 地址面加上一个斜线“&#x2F;”，然后写上网络前缀所占的位数（这个数值对应于三级编址中子网掩码中 1 的个数）。例如： 220.78.168.0&#x2F;24</p>
+</blockquote>
+</li>
+<li><p>路由聚合 也称为构成超网 (supernetting)。</p>
+<ul>
+<li>使得路由表中的一个项目可以表示很多个（例如上千个）原来传统分类地址的路由。</li>
+<li>有利于减少路由器之间的路由选择信息的交换，从而提高了整个互联网的性能。</li>
+</ul>
+</li>
+<li><p>最长前缀匹配（最长匹配或最佳匹配）</p>
+<blockquote>
+<p>使用 CIDR 时，路由表中的每个项目由“网络前缀”和“下一跳地址”组成。在查找路由表时可能会得到不止一个匹配结果。 应当从匹配结果中选择具有最长网络前缀的路由：最长前缀匹配 (longest-prefix matching)。网络前缀越长，其地址块就越小，因而路由就越具体 (more specific) 。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/computerNetwork/1.png" alt="png"></p>
+<h2 id="网际控制报文协议-ICMP"><a href="#网际控制报文协议-ICMP" class="headerlink" title="网际控制报文协议 ICMP"></a>网际控制报文协议 ICMP</h2><blockquote>
+<p>ICMP 是互联网的标准协议。</p>
+<p>ICMP <strong>允许主机或路由器报告差错情况和提供有关异常情况的报告。</strong></p>
+<p>ICMP 不是高层协议，而是 IP 层的协议。</p>
+</blockquote>
+<ul>
+<li><strong>ICMP 报文的格式</strong></li>
+</ul>
+<p><img src="/../images/computerNetwork/13.png" alt="png"></p>
+<h2 id="互联网的路由选择协议"><a href="#互联网的路由选择协议" class="headerlink" title="互联网的路由选择协议"></a>互联网的路由选择协议</h2><ul>
+<li><p>理想的路由算法</p>
+<ul>
+<li>正确、完整；计算简单；自适应性；稳定性；公平性；最佳</li>
+</ul>
+</li>
+<li><p>路由算法的分类</p>
+<ol>
+<li>静态路由选择策略——即非自适应路由选择<ul>
+<li>简单和开销较小，但不能及时适应网络状态的变化。</li>
+</ul>
+</li>
+<li>动态路由选择策略——即自适应路由选择<ul>
+<li>能较好地适应网络状态的变化，但实现起来较为复杂，开销也比较大。</li>
+</ul>
+</li>
+<li>全局式路由选择算法<ul>
+<li>用完整的、全局性的网络知识计算出从源到目的地之间的最低费用路径。</li>
+<li>具有全局状态信息的算法常被称为链路状态（Link State，LS）算法</li>
+</ul>
+</li>
+<li>分散式路由选择算法<ul>
+<li>以迭代、分布式的方式计算出最低费用路径。</li>
+</ul>
+</li>
+<li>负载敏感算法<ul>
+<li>链路费用会动态地变化以反映出底层链路的当前拥塞水平。</li>
+</ul>
+</li>
+<li>负载迟钝算法<ul>
+<li>某条链路的费用不明显地反映其当前（或最近）的拥塞水平。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>分层次的路由选择协议</p>
+<ul>
+<li><p><strong>互联网采用自适应、分布式的路由选择协议。</strong></p>
+</li>
+<li><p>自治系统 AS</p>
+<blockquote>
+<p>在单一的技术管理下的一组路由器，而这些路由器使用一种 AS 内部的路由选择协议和共同的度量以确定分组在该 AS 内的路由，同时还使用一种 AS 之间的路由选择协议用以确定分组在 AS之间的路由。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>互联网路由选择协议</p>
+<ol>
+<li><p>内部网关协议 IGP (Interior Gateway Protocol)</p>
+<blockquote>
+<p>在一个自治系统内部使用的路由选择协议。目前这类路由选择协议使用得最多，如 RIP 和 OSPF 协议。</p>
+</blockquote>
+<ul>
+<li><p>路由信息协议 RIP (Routing Information Protocol) </p>
+<ul>
+<li><p>内部网关协议 IGP 中最先得到广泛使用的协议</p>
+<blockquote>
+<p>RIP 是一种分布式的、基于距离向量的路由选择协议。RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记录。</p>
+<p>RIP 协议中的“距离”也称为“跳数”(hop count)</p>
+<p>RIP 允许一条路径最多只能包含 15 个路由器。</p>
+<p>RIP 不能在两个网络之间同时使用多条路由</p>
+<p>RIP 选择一个具有最少路由器的路由（即最短路由），哪怕还存在另一条高速(低时延)但路由器较多的路由。   </p>
+</blockquote>
+</li>
+<li><p>三个特点</p>
+<ol>
+<li>仅和相邻路由器交换信息。 </li>
+<li>交换的信息是当前本路由器所知道的全部信息，即自己的路由表。</li>
+</ol>
+<p>  按固定的时间间隔交换路由信息，例如，每隔 30 秒。当网络拓扑发生变化时，路由器也及时向相邻路由器通告拓扑变化后的路由信息。</p>
+</li>
+<li><p>距离向量算法</p>
+<blockquote>
+<p>设X是结点 A 到 B 的最短路径上的一个结点。若把路径 A→B 拆成两段路径 A→X 和 X→B，则每一段路径 A→X 和 X→B 也都分别是结点 A 到 X 和结点 X 到 B 的最短路径。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>外部网关协议 EGP (External Gateway Protocol) </p>
+<blockquote>
+<p>若源站和目的站处在不同的自治系统中，当数据报传到一个自治系统的边界时，就需要使用一种协议将路由选择信息传递到另一个自治系统中。这样的协议就是外部网关协议 EGP。在外部网关协议中目前使用最多的是 BGP-4。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="IPv64-7-IP-多播"><a href="#IPv64-7-IP-多播" class="headerlink" title="IPv64.7  IP 多播"></a>IPv64.7  IP 多播</h2><h2 id="虚拟专用网-VPN-和网络地址转换-NAT"><a href="#虚拟专用网-VPN-和网络地址转换-NAT" class="headerlink" title="虚拟专用网 VPN 和网络地址转换 NAT"></a>虚拟专用网 VPN 和网络地址转换 NAT</h2><h2 id="多协议标记交换-MPLS"><a href="#多协议标记交换-MPLS" class="headerlink" title="多协议标记交换 MPLS"></a>多协议标记交换 MPLS</h2><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
         <category>软硬件技术</category>
       </categories>
@@ -10287,6 +10670,25 @@
         <tag>笔记</tag>
         <tag>软件工程</tag>
         <tag>考试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ESP32物联网开发板大失败</title>
+    <url>/2025/12/03/ESP32%E7%89%A9%E8%81%94%E7%BD%91%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%A7%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h1 id="ESP32物联网开发板大失败"><a href="#ESP32物联网开发板大失败" class="headerlink" title="ESP32物联网开发板大失败"></a>ESP32物联网开发板大失败</h1><p><strong>挂这篇一年提醒自己别走太快，太快了容易跌跟头，慢一点吃透一点。</strong></p>
+<p>第一版ESP32开发板，出现太多问题，需要认真总结。<del>开始想要放弃电路设计。</del></p>
+<p><img src="/../images/hardware/esp32iotboard/1.jpg"></p>
+<p><img src="/../images/hardware/esp32iotboard/2.jpg"></p>
+]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>嵌入式</tag>
+        <tag>esp8266</tag>
+        <tag>Iot</tag>
+        <tag>物联网协议</tag>
       </tags>
   </entry>
 </search>
