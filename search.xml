@@ -11473,4 +11473,441 @@
         <tag>可视化操作</tag>
       </tags>
   </entry>
+  <entry>
+    <title>系统运维</title>
+    <url>/2025/02/24/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/</url>
+    <content><![CDATA[<p><strong>学习路线以及方向</strong></p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><strong>基础知识</strong></h3><ul>
+<li><strong>操作系统</strong>：<ul>
+<li><strong>Linux</strong>（最常用的运维操作系统，建议学习Ubuntu、CentOS等）</li>
+<li><strong>Windows Server</strong>（掌握Windows Server的安装、配置、维护）</li>
+<li><strong>命令行操作</strong>（熟悉Shell命令、PowerShell）</li>
+</ul>
+</li>
+<li><strong>网络基础</strong>：<ul>
+<li><strong>TCP&#x2F;IP协议</strong>、<strong>HTTP&#x2F;HTTPS</strong>协议</li>
+<li><strong>DNS、DHCP</strong>的工作原理</li>
+<li><strong>子网划分</strong>、<strong>IP地址分配</strong></li>
+<li><strong>路由与交换原理</strong>（了解基本的网络设备和拓扑）</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-服务器与虚拟化"><a href="#2-服务器与虚拟化" class="headerlink" title="2. 服务器与虚拟化"></a>2. <strong>服务器与虚拟化</strong></h3><ul>
+<li><p><strong>服务器硬件管理</strong>（了解常见服务器硬件、配置与故障排查）</p>
+</li>
+<li><p>虚拟化技术</p>
+<p>  ：</p>
+<ul>
+<li><strong>VMware</strong> 或 <strong>KVM</strong>（虚拟机的安装与管理）</li>
+<li><strong>Docker</strong>（容器化技术，能够打包和管理应用）</li>
+<li><strong>Kubernetes</strong>（容器编排，部署和管理多个容器）</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-自动化与脚本"><a href="#3-自动化与脚本" class="headerlink" title="3. 自动化与脚本"></a>3. <strong>自动化与脚本</strong></h3><ul>
+<li><strong>Shell脚本</strong>（自动化运维任务）</li>
+<li><strong>Python</strong>（写脚本、处理日志、定时任务等）</li>
+<li><strong>Ansible</strong>、<strong>Puppet</strong>、<strong>Chef</strong>等自动化运维工具（配置管理）</li>
+</ul>
+<h3 id="4-运维工具"><a href="#4-运维工具" class="headerlink" title="4. 运维工具"></a>4. <strong>运维工具</strong></h3><ul>
+<li><p>监控工具</p>
+<p>  ：</p>
+<ul>
+<li><strong>Zabbix</strong>、<strong>Nagios</strong>、<strong>Prometheus</strong>（服务器、网络设备监控）</li>
+<li><strong>Grafana</strong>（监控数据可视化）</li>
+</ul>
+</li>
+<li><p>日志管理</p>
+<p>  ：</p>
+<ul>
+<li><strong>ELK Stack</strong>（Elasticsearch、Logstash、Kibana）</li>
+<li><strong>Fluentd</strong>、<strong>Graylog</strong>等日志收集和分析工具</li>
+</ul>
+</li>
+<li><p>备份与恢复</p>
+<p>  ：</p>
+<ul>
+<li><strong>Rsync</strong>、<strong>Bacula</strong>（数据备份与恢复）</li>
+<li><strong>数据库备份与恢复</strong>（MySQL、PostgreSQL等）</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-安全性"><a href="#5-安全性" class="headerlink" title="5. 安全性"></a>5. <strong>安全性</strong></h3><ul>
+<li><strong>防火墙</strong>（iptables、ufw等）</li>
+<li><strong>加密技术</strong>（SSL&#x2F;TLS证书、SSH配置）</li>
+<li><strong>漏洞扫描与修复</strong>（使用工具如<strong>Nessus</strong>、<strong>OpenVAS</strong>）</li>
+</ul>
+<h3 id="6-数据库运维"><a href="#6-数据库运维" class="headerlink" title="6. 数据库运维"></a>6. <strong>数据库运维</strong></h3><ul>
+<li><strong>MySQL&#x2F;PostgreSQL</strong>（数据库的安装、优化、备份、恢复、性能调优）</li>
+<li><strong>NoSQL数据库</strong>（如<strong>MongoDB</strong>、<strong>Redis</strong>）</li>
+</ul>
+<h3 id="7-高可用与负载均衡"><a href="#7-高可用与负载均衡" class="headerlink" title="7. 高可用与负载均衡"></a>7. <strong>高可用与负载均衡</strong></h3><ul>
+<li><strong>Nginx&#x2F;Apache</strong>（Web服务器配置与反向代理）</li>
+<li><strong>HAProxy</strong>（负载均衡）</li>
+<li><strong>Keepalived</strong>（高可用性配置）</li>
+</ul>
+<h3 id="8-云平台与大规模运维"><a href="#8-云平台与大规模运维" class="headerlink" title="8. 云平台与大规模运维"></a>8. <strong>云平台与大规模运维</strong></h3><ul>
+<li><strong>AWS</strong>、<strong>Azure</strong>、<strong>Google Cloud</strong>（云平台服务管理）</li>
+<li><strong>Docker Swarm</strong>、<strong>Kubernetes</strong>（容器编排与云原生技术）</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>K8s</tag>
+        <tag>系统运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语单词</title>
+    <url>/2025/02/24/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
+    <content><![CDATA[<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><blockquote>
+<p>heterogeneous[ ˌhetərəˈdʒiːniəs ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 由很多种类组成的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=21012121470000022696&i=18">查看来源</a></p>
+</li>
+</ul>
+<p>uniform[ ˈjuːnɪfɔːm ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 制服</p>
+</li>
+<li><p>adj. 始终如一的，一律的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=19120916294422503001&i=35">查看来源</a></p>
+</li>
+</ul>
+<p>kindred[ ˈkɪndrəd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 家人，亲属</p>
+</li>
+<li><p>adj. 相似的，类似的，同类的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22012008002569103001&i=44">查看来源</a></p>
+</li>
+</ul>
+<p>identical[ aɪˈdentɪkl ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 完全相同的，同样的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=18080409135338602001&i=68">查看来源</a></p>
+</li>
+</ul>
+<p>homogeneous[ ˌhɒməˈdʒiːniəs ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 由同种族人组成的，同类组成的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24082917084837603001&i=32">查看来源</a></p>
+</li>
+</ul>
+<p>apt[ æpt ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 有…倾向的；恰当的；聪明的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20150427153411100000044&i=00058">查看来源</a></p>
+</li>
+</ul>
+<p>hurdle[ ˈhɜːdl ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 障碍，难关；跳栏；跨栏赛跑</p>
+</li>
+<li><p>vt. vi. (奔跑中) 跳跃，跨越</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22072801081587303001&i=30">查看来源</a></p>
+</li>
+</ul>
+<p>destined[ ˈdestɪnd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 命中注定的；开往…的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=19080316260083103001&i=21">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h1><blockquote>
+<p>spasm[ ˈspæzəm ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 痉挛；(不愉快情感的) 迸发</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20130418213908100002223&i=00171">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h1><blockquote>
+<p>traverse[ trəˈvɜːs ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vt. 横越，横渡</p>
+</li>
+<li><p>n. (在陡坡上的)侧向移动</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22052222321432103001&i=23">查看来源</a></p>
+</li>
+</ul>
+<p>hinterland[ ˈhɪntəlænd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 内陆，腹地，内地</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23051412203201703001&i=03">查看来源</a></p>
+</li>
+</ul>
+<p>hunched[ hʌntʃt ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 耸肩弓身的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24100114585466603001&i=38">查看来源</a></p>
+</li>
+</ul>
+<p>hunch[ hʌntʃ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 预感，直觉</p>
+</li>
+<li><p>vi. vt. 弓身，弓背</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23070518595074903001&i=10">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h1><blockquote>
+<p>proceed[ prəˈsiːd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. 继续做，接着做；行进，前往</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22011408263718903001&i=65">查看来源</a></p>
+</li>
+</ul>
+<p>tug[ tʌɡ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. vt. 拉，拖，拽</p>
+</li>
+<li><p>n. 拖船；猛拽；一股强烈的感情</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24011714594508203001&i=09">查看来源</a></p>
+</li>
+</ul>
+<p>casualty[ ˈkæʒuəlti ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 伤亡人员；受害者；急诊室</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20070102443175503001&i=47">查看来源</a></p>
+</li>
+</ul>
+<p>slip[ slɪp ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. 滑倒；滑落；溜走；变差；陷入</p>
+</li>
+<li><p>vt. 悄悄塞；摆脱，松开</p>
+</li>
+<li><p>vi. vt. (迅速且容易地) 穿或脱</p>
+</li>
+<li><p>n. 差错；纸条；滑倒；衬裙</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=21080112041279103001&i=65">查看来源</a></p>
+</li>
+</ul>
+<p>glide[ ɡlaɪd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. 滑行，滑动；滑翔</p>
+</li>
+<li><p>n. 滑行，掠过，滑翔</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=21120218405023803001&i=23">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第五天"><a href="#第五天" class="headerlink" title="第五天"></a>第五天</h1><blockquote>
+<p>limp[ lɪmp ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 疲软的，无力的</p>
+</li>
+<li><p>vi. 一瘸一拐地走；艰难地进展</p>
+</li>
+<li><p>n. 一瘸一拐，跛行</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=21012121470000047479&i=13">查看来源</a></p>
+</li>
+</ul>
+<p>revenue[ ˈrevənjuː ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 收入；财政收入，税收</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22072316103609003001&i=03">查看来源</a></p>
+</li>
+</ul>
+<p>acrobat[ ˈækrəbæt ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 杂技演员</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24050521291829003001&i=10">查看来源</a></p>
+</li>
+</ul>
+<p>practically[ ˈpræktɪkli ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adv. 几乎，差不多；实际上，实践上</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20103114452267003001&i=48">查看来源</a></p>
+</li>
+</ul>
+<p>commitment[ kəˈmɪtmənt ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 承诺；献身，投入；义务</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22122523272872403001&i=46">查看来源</a></p>
+</li>
+</ul>
+<p>committed[ kəˈmɪtɪd ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 尽心尽力的，坚定的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23072719085319603001&i=07">查看来源</a></p>
+</li>
+</ul>
+<p>bumpy[ ˈbʌmpi ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 崎岖不平的；颠簸的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23102520444101403001&i=19">查看来源</a></p>
+</li>
+</ul>
+<p>interpose[ ˌɪntəˈpəʊz ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vt. vi. 插话，插嘴</p>
+</li>
+<li><p>vt. 使介入 (两者之间)</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20150210121123100001321&i=00026">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第六天"><a href="#第六天" class="headerlink" title="第六天"></a>第六天</h1><blockquote>
+<p>pledge[ pledʒ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 保证，诺言，承诺；抵押品</p>
+</li>
+<li><p>vt. (使) 保证，(使) 发誓；抵押</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20150618132059100000108&i=00311">查看来源</a></p>
+</li>
+</ul>
+<p>gallop[ ˈɡæləp ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. (马等) 飞奔，奔驰；(人) 飞跑</p>
+</li>
+<li><p>vi. vt. 骑马奔驰，使 (马) 飞奔</p>
+</li>
+<li><p>n. (马的) 飞奔；骑马奔驰；飞快</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20141015145424100000042&i=00024">查看来源</a></p>
+</li>
+</ul>
+<p>plagiarism[ ˈpleɪdʒərɪzəm ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 剽窃 (作品)</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24112310465843003001&i=16">查看来源</a></p>
+</li>
+</ul>
+<p>foremost[ ˈfɔːməʊst ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 最重要的，最好的</p>
+</li>
+<li><p>adv. 最重要地，首要地</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24030920270271903001&i=52">查看来源</a></p>
+</li>
+</ul>
+<p>magnify[ ˈmæɡnɪfaɪ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vt. 放大；使(问题等)加重；夸大</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23112119352863303002&i=58">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<p>第七天</p>
+<blockquote>
+<p>executive[ ɪɡˈzekjətɪv ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 经理，主管；行政部门</p>
+</li>
+<li><p>adj. 执行的，行政的；高级的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23040504143023203001&i=05">查看来源</a></p>
+</li>
+</ul>
+<p>notify[ ˈnəʊtɪfaɪ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vt. (正式) 通知，告知</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=18080409135338602001&i=01">查看来源</a></p>
+</li>
+</ul>
+<p>handy[ ˈhændi ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 有用的，方便的；手边的；手巧的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20103114452267003001&i=50">查看来源</a></p>
+</li>
+</ul>
+<p>appreciable[ əˈpriːʃəbl ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 明显的，可觉察的，值得重视的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=21012121470000048657&i=07">查看来源</a></p>
+</li>
+</ul>
+<p>effective[ ɪˈfektɪv ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li>adj. 有效的；生效的；实际的</li>
+</ul>
+</blockquote>
+]]></content>
+      <categories>
+        <category>英语学习</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>英文</tag>
+        <tag>单词</tag>
+      </tags>
+  </entry>
 </search>
