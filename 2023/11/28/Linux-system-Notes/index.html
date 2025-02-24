@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux Notes | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="A note about linux basic operation. *系统操作1.显示后台指令​	1.提供所有进程信息 1ps aux   提供父进程信息  1ps lax  2. 终止某项进程1kill pid   kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号   查看硬件信息   查看内存占用和 swap 分区占用  1free -h   查看CPU使用情况  1">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux Notes | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="A note about linux basic operation. 常用命令 文件查看类    more   123456789101112    ：    - 空白键 (space)：代表向下翻一页；    - Enter ：代表向下翻『一行』；    - &#x2F; 字串 ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；    - :f ：立刻显示出档名以及目前显示的行数；    - q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Notes">
 <meta property="og:url" content="http://example.com/2023/11/28/Linux-system-Notes/index.html">
 <meta property="og:site_name" content="Regen">
-<meta property="og:description" content="A note about linux basic operation. *系统操作1.显示后台指令​	1.提供所有进程信息 1ps aux   提供父进程信息  1ps lax  2. 终止某项进程1kill pid   kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号   查看硬件信息   查看内存占用和 swap 分区占用  1free -h   查看CPU使用情况  1">
+<meta property="og:description" content="A note about linux basic operation. 常用命令 文件查看类    more   123456789101112    ：    - 空白键 (space)：代表向下翻一页；    - Enter ：代表向下翻『一行』；    - &#x2F; 字串 ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；    - :f ：立刻显示出档名以及目前显示的行数；    - q">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/images/touxiang.jpg">
 <meta property="article:published_time" content="2023-11-28T11:49:18.000Z">
-<meta property="article:modified_time" content="2024-07-02T07:34:45.465Z">
+<meta property="article:modified_time" content="2025-02-24T14:45:28.368Z">
 <meta property="article:author" content="Regen">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="linux">
@@ -59,7 +59,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2024-07-02 15:34:45'
+  postUpdate: '2025-02-24 22:45:28'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -156,289 +156,151 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">119</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux Notes</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-28T11:49:18.000Z" title="Created 2023-11-28 19:49:18">2023-11-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-07-02T07:34:45.465Z" title="Updated 2024-07-02 15:34:45">2024-07-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2023/11/28/Linux-system-Notes/" data-flag-title="Linux Notes"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>A note about linux basic operation.</p>
-<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="*系统操作"></a>*系统操作</h1><h2 id="1-显示后台指令"><a href="#1-显示后台指令" class="headerlink" title="1.显示后台指令"></a>1.显示后台指令</h2><p>​	1.提供所有进程信息</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><h2 id="提供父进程信息"><a href="#提供父进程信息" class="headerlink" title="提供父进程信息"></a>提供父进程信息</h2></li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps lax</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-终止某项进程"><a href="#2-终止某项进程" class="headerlink" title="2. 终止某项进程"></a>2. 终止某项进程</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill pid</span><br></pre></td></tr></table></figure>
-
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">119</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux Notes</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-11-28T11:49:18.000Z" title="Created 2023-11-28 19:49:18">2023-11-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-02-24T14:45:28.368Z" title="Updated 2025-02-24 22:45:28">2025-02-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2023/11/28/Linux-system-Notes/" data-flag-title="Linux Notes"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>A note about linux basic operation.</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ol>
+<li><p>文件查看类</p>
 <ul>
-<li>kill的意思实际上不是“杀死” ， kill 只是像程序发送一个信号</li>
-</ul>
-<ol start="3">
-<li><h2 id="查看硬件信息"><a href="#查看硬件信息" class="headerlink" title="查看硬件信息"></a>查看硬件信息</h2></li>
-</ol>
-<ul>
-<li>查看内存占用和 swap 分区占用</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">free -h</span><br></pre></td></tr></table></figure>
+<li><pre><code>  more
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br><span class="line">    - 空白键 (space)：代表向下翻一页；</span><br><span class="line">    - Enter ：代表向下翻『一行』；</span><br><span class="line">    - / 字串 ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</span><br><span class="line">    - :f ：立刻显示出档名以及目前显示的行数；</span><br><span class="line">    - q ：代表立刻离开 more ，不再显示该文件内容；</span><br><span class="line">    - b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">    less</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><h2 id="查看CPU使用情况"><a href="#查看CPU使用情况" class="headerlink" title="查看CPU使用情况"></a>查看CPU使用情况</h2></li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">top</span><br></pre></td></tr></table></figure>
+  ：
 
-<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="*文件操作"></a>*文件操作</h1><h2 id="vim-编辑器"><a href="#vim-编辑器" class="headerlink" title="vim 编辑器"></a>vim 编辑器</h2><p><img src="https://www.runoob.com/wp-content/uploads/2015/10/vi-vim-cheat-sheet-sch.gif" alt="img"></p>
-<h2 id="more"><a href="#more" class="headerlink" title="more"></a>more</h2><ul>
-<li>空白键 (space)：代表向下翻一页；</li>
-<li>Enter     ：代表向下翻『一行』；</li>
-<li>&#x2F;字串     ：代表在这个显示的内容当中，向下搜寻『字串』这个关键字；</li>
-<li>:f      ：立刻显示出档名以及目前显示的行数；</li>
-<li>q       ：代表立刻离开 more ，不再显示该文件内容。</li>
-<li>b 或 [ctrl]-b ：代表往回翻页，不过这动作只对文件有用，对管线无用。</li>
-</ul>
-<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><ul>
-<li>空白键  ：向下翻动一页；</li>
-<li>[pagedown]：向下翻动一页；</li>
-<li>[pageup] ：向上翻动一页；</li>
-<li><strong>&#x2F;字串   ：向下搜寻『字串』的功能；</strong></li>
-<li><strong>?字串   ：向上搜寻『字串』的功能；</strong></li>
-<li><strong>n     ：重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li><strong>N     ：反向的重复前一个搜寻 (与 &#x2F; 或 ? 有关！)</strong></li>
-<li>q     ：离开 less 这个程序；</li>
-</ul>
-<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>​	读取前几行文本</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>​	与head相反</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tail -n 20 text.txt</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用gzip进行压缩和解压缩"><a href="#使用gzip进行压缩和解压缩" class="headerlink" title="使用gzip进行压缩和解压缩"></a>使用gzip进行压缩和解压缩</h2><p>​	压缩：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<p>​	</p>
-<p>​	解压缩： </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunzip linuxFiles.tar.gz</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>2.文件打包tar</p>
-<p>​	1.打包文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf linuxFiles.tar home/</span><br></pre></td></tr></table></figure>
-
-<p>​	2.解开打包后的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<pre><code>3. tar -w 选项，每次将选择单个文件抽出或加入
+  - 空白键 ：向下翻动一页；
+  - [pagedown]：向下翻动一页；
+  - [pageup] ：向上翻动一页；
+  - **/ 字串 ：向下搜寻『字串』的功能；**
+  - **? 字串 ：向上搜寻『字串』的功能；**
+  - **n ：重复前一个搜寻 (与 / 或？有关！)**
+  - **N ：反向的重复前一个搜寻 (与 / 或？有关！)**
+  - q ：离开 less 这个程序；
 </code></pre>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvwf linuxFiles.tar //</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>tar -z 自动调用gzip进行解压缩</li>
-</ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -czvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">tar -cvf linuxFiles.tar home/</span><br><span class="line">gzip linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf linuxFiles.tar.gz home/</span><br><span class="line">等价于</span><br><span class="line">gzip -d linuxFiles.tar.gz</span><br><span class="line">tar -xvf linuxFiles.tar</span><br></pre></td></tr></table></figure>
-
-<h1 id="用户权限"><a href="#用户权限" class="headerlink" title="*用户权限"></a>*用户权限</h1><p><img src="https://www.runoob.com/wp-content/uploads/2014/06/file-llls22.jpg" alt="img"></p>
-<h1 id="开放端口"><a href="#开放端口" class="headerlink" title="*开放端口"></a>*开放端口</h1><h2 id="1-查看端口"><a href="#1-查看端口" class="headerlink" title="1. 查看端口"></a>1. 查看端口</h2><h3 id="1-查看某个端口（使用管道-过滤）"><a href="#1-查看某个端口（使用管道-过滤）" class="headerlink" title="1.查看某个端口（使用管道+过滤）"></a>1.查看某个端口（使用管道+过滤）</h3><h4 id="1-一般情况下"><a href="#1-一般情况下" class="headerlink" title="1. 一般情况下"></a>1. 一般情况下</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 8080  <span class="comment"># -a(all)n(numeric)p(programs)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="2-netstat的其他参数"><a href="#2-netstat的其他参数" class="headerlink" title="2. netstat的其他参数"></a>2. netstat的其他参数</h4><blockquote>
-<p>-a (all) 显示所有选项，默认不显示LISTEN相关。<br>-t (tcp) 仅显示tcp相关选项。<br>-u (udp) 仅显示udp相关选项。<br>-n 拒绝显示别名，能显示数字的全部转化成数字。<br>-l 仅列出有在 Listen (监听) 的服务状态。<br>-p 显示建立相关链接的程序名<br>-r 显示路由信息，路由表<br>-e 显示扩展信息，例如 uid 等<br>-s 按各个协议进行统计<br>-c 每隔一个固定时间，执行该 netstat 命令<br>LISTEN 和 LISTENING 的状态只有用 -a 或者 -l 才能看到</p>
-</blockquote>
-<h2 id="2-开放端口-通用"><a href="#2-开放端口-通用" class="headerlink" title="2.开放端口(通用)"></a>2.开放端口(通用)</h2><h3 id="1-防火墙的设置"><a href="#1-防火墙的设置" class="headerlink" title="1.防火墙的设置"></a>1.防火墙的设置</h3><p><strong>防火墙这一块后续还需要学习一下，很多情况下我都是直接关。。。</strong></p>
-<h4 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1. 查看防火墙状态"></a>1. 查看防火墙状态</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="2-开启防火墙"><a href="#2-开启防火墙" class="headerlink" title="2.开启防火墙"></a>2.开启防火墙</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld</span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="3-关闭防火墙"><a href="#3-关闭防火墙" class="headerlink" title="3. 关闭防火墙"></a>3. 关闭防火墙</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2-端口操作"><a href="#2-端口操作" class="headerlink" title="2.端口操作"></a>2.端口操作</h3><h4 id="1-开放端口"><a href="#1-开放端口" class="headerlink" title="1.开放端口"></a>1.开放端口</h4><ul>
-<li>例如开放ssh端口</li>
+</li>
+<li><p><code>head</code>：读取前几行文本，如 <code>head -n 20 text.txt</code></p>
+</li>
+<li><p><code>tail</code>：与 <code>head</code> 相反，如 <code>tail -n 20 text.txt</code></p>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --add-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>文件压缩解压缩类</p>
 <ul>
-<li>使之生效</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+<li><pre><code>  gzip
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br><span class="line">    - 压缩：`gzip linuxFiles.tar`</span><br><span class="line">    - 解压缩：`gunzip linuxFiles.tar.gz` 或 `gzip -d linuxFiles.tar.gz`</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">    tar</span><br></pre></td></tr></table></figure>
 
+  ：
+
+  - 打包文件：`tar -cvf linuxFiles.tar home/`
+
+  - 解开打包后的文件：`tar -xvf linuxFiles.tar`
+
+  - `tar -w` 选项，每次将选择单个文件抽出或加入，如 `tar -xvwf linuxFiles.tar`
+
+  - ```
+      tar -z
+      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">自动调用</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      gzip
+      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">             </span><br><span class="line"></span><br><span class="line">            进行解压缩：</span><br><span class="line"></span><br><span class="line">            - 压缩：`tar -czvf linuxFiles.tar.gz home/` （等价于 `tar -cvf linuxFiles.tar home/` 和 `gzip linuxFiles.tar` ）</span><br><span class="line">            - 解压缩：`tar -xzvf linuxFiles.tar.gz home/` （等价于 `gzip -d linuxFiles.tar.gz` 和 `tar -xvf linuxFiles.tar` ）</span><br><span class="line"></span><br><span class="line">3. 系统信息查看类</span><br><span class="line"></span><br><span class="line">    - 查看内存占用和 swap 分区占用：`free -h`</span><br><span class="line">    - 查看 CPU 使用情况：`top`</span><br><span class="line">    - 查看设备挂载情况：</span><br><span class="line">        - 所有设备：`lsblk` 、`lsblk -f`</span><br><span class="line">        - 查看硬盘使用情况：`df -h`</span><br><span class="line"></span><br><span class="line">4. 端口查看类</span><br><span class="line"></span><br><span class="line">    - 查看某个端口（使用管道 + 过滤）：</span><br><span class="line"></span><br><span class="line">        - 一般情况下：`netstat -anp | grep 8080` （`-a(all)n(numeric)p(programs)` ）</span><br><span class="line"></span><br><span class="line">        - ```</span><br><span class="line">            netstat</span><br></pre></td></tr></table></figure>
+
+       
+
+      的其他参数：
+
+      - `-a (all)` ：显示所有选项，默认不显示 LISTEN 相关；
+      - `-t (tcp)` ：仅显示 tcp 相关选项；
+      - `-u (udp)` ：仅显示 udp 相关选项；
+      - `-n` ：拒绝显示别名，能显示数字的全部转化成数字；
+      - `-l` ：仅列出有在 Listen (监听) 的服务状态；
+      - `-p` ：显示建立相关链接的程序名；
+      - `-r` ：显示路由信息，路由表；
+      - `-e` ：显示扩展信息，例如 uid 等；
+      - `-s` ：按各个协议进行统计；
+      - `-c` ：每隔一个固定时间，执行该 netstat 命令；
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>任务调度类</p>
 <ul>
-<li>检查是否生效</li>
+<li><pre><code>  crontab
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">：</span><br><span class="line"></span><br><span class="line">- 参数选项：</span><br><span class="line"></span><br><span class="line">    - `-e` ：编辑 / 设置 / 修改当前用户的定时任务；</span><br><span class="line">    - `-l` ：列出 / 查看 / 打印 / 输出当前用户的全部定时任务；</span><br><span class="line">    - `-r` ：移除 / 删除当前用户的全部定时任务；</span><br><span class="line"></span><br><span class="line">- 语法中</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      * * * * * 
+      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">            参数的解释：</span><br><span class="line"></span><br><span class="line">            - `*` ：如 `1 2 * * *` 表示每天的 2:01 执行一次；</span><br><span class="line">            - `*/n` ：如 `*/5 * * * *` 表示每隔 5 分钟执行一次；</span><br><span class="line">            - `,(和)` ：如 `1 2 3,4 * *` 表示每月的 3,4 日 2:01 执行一次；</span><br><span class="line">            - `-（范围）` ：如 `1 2 3-6 * *` 表示每月的 3-6 日 2:01 执行一次；</span><br><span class="line"></span><br><span class="line">        - 使用方法：</span><br><span class="line"></span><br><span class="line">            - 进入编辑模式：`crontab -e`</span><br><span class="line">            - 编写任务后保存退出。</span><br><span class="line"></span><br><span class="line">### 文件权限与管理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 文件系统相关</span><br><span class="line"></span><br><span class="line">    - ```</span><br><span class="line">        ext4</span><br></pre></td></tr></table></figure>
+
+   
+
+  文件系统介绍：
+
+  - 与 `ext3` 相比，`ext4` 文件系统可支持最高 1EB 的分区与最大 16TB 的文件；
+  - 拓展了子目录的数量，理论上可以无限个；
+  - 与 `ext3` 相比，引入了块组的概念，提高了存取的效率；
+  - 预留空间、延迟获取空间，减少了文件的分散；
+  - 更详细的 `inodes`，提高了系统的性能；
+  - 可以实现快速的文件系统检查；
+  - 提供日志校验和，提高了可靠性；
+</code></pre>
+</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --query-port=22/tcp</span><br></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow 端口</span><br></pre></td></tr></table></figure>
-
-<h4 id="2-关闭端口"><a href="#2-关闭端口" class="headerlink" title="2.关闭端口"></a>2.关闭端口</h4><ul>
-<li>限制ssh端口</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=public --remove-port=22/tcp --permanent</span><br></pre></td></tr></table></figure>
-
-<p>或者（ufw）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw denty 端口</span><br></pre></td></tr></table></figure>
-
-<h1 id="任务调度"><a href="#任务调度" class="headerlink" title="*任务调度"></a>*任务调度</h1><h2 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h2><blockquote>
+</li>
+<li><p>新硬盘的分区以及挂载流程</p>
 <ul>
-<li><strong>任务调度</strong>：系统在某个时间定时执行特定的命令或程序</li>
-<li>任务调度的分类：<ul>
-<li><strong>系统任务调度</strong>：系统某些工作需要周而复始、重复地执行，如病毒扫描、日志清理</li>
-<li><strong>用户任务调度</strong>：个别用户可能需要定时执行的工作，如备份数据库、用户数据备份</li>
+<li>查看是否已经存在设备：<code>lsblk</code> 、<code>lsblk -f</code> 或者查看 <code>/dev/</code> 下是否存在设备；</li>
+<li>使用 <code>fdisk</code> 进行分区设置：<code>fdisk /dev/sdb</code></li>
+<li>分区格式化：<code>mkfs -t ext4 /dev/sdb1</code></li>
+<li>挂载硬盘到文件夹：<code>mount /dev/sdb1 /newDisk</code></li>
+<li>取消挂载：<code>unmount /dev/sdb1</code></li>
 </ul>
 </li>
-</ul>
-</blockquote>
-<h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><ul>
-<li>基本介绍</li>
-</ul>
-<blockquote>
-<ol>
-<li>系统任务调度配置文件目录：<code>/etc/crontab</code></li>
-<li>用户的crontab文件放置于<code>/var/spool/cron</code></li>
 </ol>
-</blockquote>
+<h3 id="系统服务与进程管理"><a href="#系统服务与进程管理" class="headerlink" title="系统服务与进程管理"></a>系统服务与进程管理</h3><ol>
+<li><p>进程相关</p>
 <ul>
-<li>指令介绍</li>
+<li>提供所有进程信息：<code>ps aux</code></li>
+<li>提供父进程信息：<code>ps lax</code></li>
+<li>终止某项进程：<code>kill pid</code> （<code>kill</code> 只是向程序发送一个信号）</li>
 </ul>
-<ol>
-<li>参数选项</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">-e</td>
-<td>e是edit的意识，即编辑&#x2F;设置&#x2F;修改当前用户的定时任务</td>
-</tr>
-<tr>
-<td align="center">-l</td>
-<td>l是list的意思，即列出&#x2F;查看&#x2F;打印&#x2F;输出当前用户的全部定时任务</td>
-</tr>
-<tr>
-<td align="center">-r</td>
-<td>r是remove的意思，即移除&#x2F;删除当前用户的全部定时任务</td>
-</tr>
-</tbody></table>
-<ol start="2">
-<li>语法介绍</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Example of job definition:</span></span><br><span class="line"><span class="comment"># .---------------- minute (0 - 59)</span></span><br><span class="line"><span class="comment"># |  .------------- hour (0 - 23)</span></span><br><span class="line"><span class="comment"># |  |  .---------- day of month (1 - 31)</span></span><br><span class="line"><span class="comment"># |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...</span></span><br><span class="line"><span class="comment"># |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat</span></span><br><span class="line"><span class="comment"># |  |  |  |  |</span></span><br><span class="line"><span class="comment"># *  *  *  *  * user-name command to be executed</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>系统服务（防火墙）相关</p>
 <ul>
-<li>开头<code>*  *  *  *  * </code>参数的解释</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>案例</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>*</td>
-<td>1 2 * * *</td>
-<td>每天的2:01执行一次</td>
-</tr>
-<tr>
-<td>*&#x2F;n</td>
-<td>*&#x2F;5 * * * *</td>
-<td>每隔5分钟执行一次</td>
-</tr>
-<tr>
-<td>,(和)</td>
-<td>1 2 3,4 * *</td>
-<td>每月的3,4日2:01执行一次</td>
-</tr>
-<tr>
-<td>-（范围）</td>
-<td>1 2 3-6 * *</td>
-<td>每月的3-6日2:01执行一次</td>
-</tr>
-</tbody></table>
+<li><p>查看防火墙状态：</p>
 <ul>
-<li>使用方法</li>
+<li><code>systemctl status firewalld</code></li>
+<li><code>sudo ufw status</code></li>
 </ul>
-<ol>
-<li>进入编辑模式</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>编写任务</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Edit this file to introduce tasks to be run by cron.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Each task to run has to be defined through a single line</span></span><br><span class="line"><span class="comment"># indicating with different fields when the task will be run</span></span><br><span class="line"><span class="comment"># and what command to run for the task</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># To define the time you can provide concrete values for</span></span><br><span class="line"><span class="comment"># minute (m), hour (h), day of month (dom), month (mon),</span></span><br><span class="line"><span class="comment"># and day of week (dow) or use &#x27;*&#x27; in these fields (for &#x27;any&#x27;).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Notice that tasks will be started based on the cron&#x27;s system</span></span><br><span class="line"><span class="comment"># daemon&#x27;s notion of time and timezones.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Output of the crontab jobs (including errors) is sent through</span></span><br><span class="line"><span class="comment"># email to the user the crontab file belongs to (unless redirected).</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For example, you can run a backup of all your user accounts</span></span><br><span class="line"><span class="comment"># at 5 a.m every week with:</span></span><br><span class="line"><span class="comment"># 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># For more information see the manual pages of crontab(5) and cron(8)</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># m h  dom mon dow   command</span></span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>开启防火墙：</p>
 <ul>
-<li>编辑后保存退出即可</li>
+<li><code>systemctl start firewalld</code> 、<code>systemctl enable firewalld</code></li>
+<li><code>sudo ufw enable</code></li>
 </ul>
-<h1 id="磁盘，分区，挂载操作"><a href="#磁盘，分区，挂载操作" class="headerlink" title="* 磁盘，分区，挂载操作"></a>* 磁盘，分区，挂载操作</h1><h2 id="linux硬盘文件系统介绍"><a href="#linux硬盘文件系统介绍" class="headerlink" title="linux硬盘文件系统介绍:"></a>linux硬盘文件系统介绍:</h2><h3 id="ext4"><a href="#ext4" class="headerlink" title="ext4:"></a>ext4:</h3><ul>
-<li><p>与ext3相比，ext4文件系统可支持最高1EB的分区与最大16TB的文件</p>
 </li>
-<li><p>拓展了子目录的数量，理论上可以无限个</p>
+<li><p>关闭防火墙：</p>
+<ul>
+<li><code>systemctl stop firewalld</code></li>
+<li><code>sudo ufw disable</code></li>
+</ul>
 </li>
-<li><p>与ext3相比，引入了块组的概念，提高了存取的效率</p>
+<li><p>端口操作（以</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewalld</span><br></pre></td></tr></table></figure>
+
+<p>  为例）：</p>
+<ul>
+<li>开放端口：<ul>
+<li>例如开放 <code>ssh</code> 端口：<code>firewall-cmd --zone=public --add-port=22/tcp --permanent</code></li>
+<li>使之生效：<code>firewall-cmd --reload</code></li>
+<li>检查是否生效：<code>firewall-cmd --zone=public --query-port=22/tcp</code></li>
+<li>或者 <code>sudo ufw allow 端口</code></li>
+</ul>
 </li>
-<li><p>预留空间、延迟获取空间，减少了文件的分散</p>
-</li>
-<li><p>更详细的inodes，提高了系统的性能</p>
-</li>
-<li><p>可以实现快速的文件系统检查</p>
-</li>
-<li><p>提供日志校验和，提高了可靠性</p>
+<li>关闭端口：<ul>
+<li>限制 <code>ssh</code> 端口：<code>firewall-cmd --zone=public --remove-port=22/tcp --permanent</code></li>
+<li>或者 <code>sudo ufw denty 端口</code></li>
+</ul>
 </li>
 </ul>
-<h2 id="查看设备挂载情况"><a href="#查看设备挂载情况" class="headerlink" title="查看设备挂载情况"></a>查看设备挂载情况</h2><ol>
-<li>所有设备</li>
+</li>
+</ul>
+</li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>查看硬盘使用情况</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="新硬盘的分区以及挂载流程"><a href="#新硬盘的分区以及挂载流程" class="headerlink" title="新硬盘的分区以及挂载流程"></a>新硬盘的分区以及挂载流程</h2><ol>
-<li>查看是否已经存在设备</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">lsblk -f</span><br></pre></td></tr></table></figure>
-
-<p>或者查看<code>/dev/</code>下是否存在设备</p>
-<ol start="2">
-<li>使用fdisk进行分区设置</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br></pre></td></tr></table></figure>
-
-<p>​	3.分区格式化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs  -t  ext4     /dev/sdb1</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>挂载硬盘到文件夹</li>
-</ol>
-<p>使用<code>mount</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/sdb1 /newDisk</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>取消挂载</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unmount /dev/sdb1</span><br></pre></td></tr></table></figure>
-
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/11/28/Linux-system-Notes/">http://example.com/2023/11/28/Linux-system-Notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/system/">system</a><a class="post-meta__tags" href="/tags/command/">command</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/28/Linux-Projects/" title="Linux Projects"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Linux Projects</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/26/GIT-basic/" title="GIT basic"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">GIT basic</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/11/28/Linux-Projects/" title="Linux Projects"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Projects</div></div></a></div><div><a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" title="MQTT服务器搭建（mosquitto）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-09</div><div class="title">MQTT服务器搭建（mosquitto）</div></div></a></div><div><a href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-31</div><div class="title">Nginx入门基础知识</div></div></a></div><div><a href="/2024/03/16/Raspberry-Pi/" title="Raspberry Pi"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-16</div><div class="title">Raspberry Pi</div></div></a></div><div><a href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-04</div><div class="title">WordPress建站速成</div></div></a></div><div><a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" title="docker容器技术"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-09</div><div class="title">docker容器技术</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">119</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">*系统操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%98%BE%E7%A4%BA%E5%90%8E%E5%8F%B0%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">1.显示后台指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%90%E4%BE%9B%E7%88%B6%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF"><span class="toc-number">1.2.</span> <span class="toc-text">提供父进程信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BB%88%E6%AD%A2%E6%9F%90%E9%A1%B9%E8%BF%9B%E7%A8%8B"><span class="toc-number">1.3.</span> <span class="toc-text">2. 终止某项进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">1.4.</span> <span class="toc-text">查看硬件信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8BCPU%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">1.5.</span> <span class="toc-text">查看CPU使用情况</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">*文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vim-%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">2.1.</span> <span class="toc-text">vim 编辑器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#more"><span class="toc-number">2.2.</span> <span class="toc-text">more</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-number">2.3.</span> <span class="toc-text">less</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">2.4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tail"><span class="toc-number">2.5.</span> <span class="toc-text">tail</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8gzip%E8%BF%9B%E8%A1%8C%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9"><span class="toc-number">2.6.</span> <span class="toc-text">使用gzip进行压缩和解压缩</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">*用户权限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.</span> <span class="toc-text">*开放端口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.1.</span> <span class="toc-text">1. 查看端口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E7%AB%AF%E5%8F%A3%EF%BC%88%E4%BD%BF%E7%94%A8%E7%AE%A1%E9%81%93-%E8%BF%87%E6%BB%A4%EF%BC%89"><span class="toc-number">4.1.1.</span> <span class="toc-text">1.查看某个端口（使用管道+过滤）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%E4%B8%8B"><span class="toc-number">4.1.1.1.</span> <span class="toc-text">1. 一般情况下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-netstat%E7%9A%84%E5%85%B6%E4%BB%96%E5%8F%82%E6%95%B0"><span class="toc-number">4.1.1.2.</span> <span class="toc-text">2. netstat的其他参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3-%E9%80%9A%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">2.开放端口(通用)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-number">4.2.1.</span> <span class="toc-text">1.防火墙的设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%9F%A5%E7%9C%8B%E9%98%B2%E7%81%AB%E5%A2%99%E7%8A%B6%E6%80%81"><span class="toc-number">4.2.1.1.</span> <span class="toc-text">1. 查看防火墙状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.2.1.2.</span> <span class="toc-text">2.开启防火墙</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">4.2.1.3.</span> <span class="toc-text">3. 关闭防火墙</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%AB%AF%E5%8F%A3%E6%93%8D%E4%BD%9C"><span class="toc-number">4.2.2.</span> <span class="toc-text">2.端口操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%BC%80%E6%94%BE%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.2.2.1.</span> <span class="toc-text">1.开放端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%85%B3%E9%97%AD%E7%AB%AF%E5%8F%A3"><span class="toc-number">4.2.2.2.</span> <span class="toc-text">2.关闭端口</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6"><span class="toc-number">5.</span> <span class="toc-text">*任务调度</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D"><span class="toc-number">5.1.</span> <span class="toc-text">关键词</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#crontab"><span class="toc-number">5.2.</span> <span class="toc-text">crontab</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%EF%BC%8C%E5%88%86%E5%8C%BA%EF%BC%8C%E6%8C%82%E8%BD%BD%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">* 磁盘，分区，挂载操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux%E7%A1%AC%E7%9B%98%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%BB%8B%E7%BB%8D"><span class="toc-number">6.1.</span> <span class="toc-text">linux硬盘文件系统介绍:</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ext4"><span class="toc-number">6.1.1.</span> <span class="toc-text">ext4:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E5%A4%87%E6%8C%82%E8%BD%BD%E6%83%85%E5%86%B5"><span class="toc-number">6.2.</span> <span class="toc-text">查看设备挂载情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E7%A1%AC%E7%9B%98%E7%9A%84%E5%88%86%E5%8C%BA%E4%BB%A5%E5%8F%8A%E6%8C%82%E8%BD%BD%E6%B5%81%E7%A8%8B"><span class="toc-number">6.3.</span> <span class="toc-text">新硬盘的分区以及挂载流程</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/24/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" title="系统运维">系统运维</a><time datetime="2025-02-24T08:12:53.000Z" title="Created 2025-02-24 16:12:53">2025-02-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/24/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" title="英语单词">英语单词</a><time datetime="2025-02-23T23:37:57.000Z" title="Created 2025-02-24 07:37:57">2025-02-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/18/RPA-%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96/" title="RPA-机器人流程自动化">RPA-机器人流程自动化</a><time datetime="2025-02-18T15:22:27.000Z" title="Created 2025-02-18 23:22:27">2025-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/SnapSound-%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E6%97%B6%E6%89%8B%E6%8C%87%E5%93%8D%E5%A3%B0%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F/" title="SnapSound: 基于深度学习的实时手指响声识别系统">SnapSound: 基于深度学习的实时手指响声识别系统</a><time datetime="2025-02-15T05:32:09.000Z" title="Created 2025-02-15 13:32:09">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" title="软件工程导论">软件工程导论</a><time datetime="2025-01-01T08:40:12.000Z" title="Created 2025-01-01 16:40:12">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/15/ESP32-Wroom-32%E7%8E%A9%E6%B3%95/" title="ESP32-Wroom-32玩法">ESP32-Wroom-32玩法</a><time datetime="2024-12-15T08:18:10.000Z" title="Created 2024-12-15 16:18:10">2024-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/04/ESP32%E7%B3%BB%E5%88%97%E7%AE%80%E4%BB%8B/" title="ESP32系列简介">ESP32系列简介</a><time datetime="2024-12-04T06:28:51.000Z" title="Created 2024-12-04 14:28:51">2024-12-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/03/ESP32%E7%89%A9%E8%81%94%E7%BD%91%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%A7%E5%A4%B1%E8%B4%A5/" title="ESP32物联网开发板大失败">ESP32物联网开发板大失败</a><time datetime="2024-12-02T16:37:46.000Z" title="Created 2024-12-03 00:37:46">2024-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/PID%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" title="PID算法入门">PID算法入门</a><time datetime="2024-11-26T11:09:02.000Z" title="Created 2024-11-26 19:09:02">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/25/%E5%B8%B8%E8%A7%81%E7%94%B5%E6%BA%90%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/" title="常见电源电路实现">常见电源电路实现</a><time datetime="2024-11-25T04:49:48.000Z" title="Created 2024-11-25 12:49:48">2024-11-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+<h3 id="日志管理与分析"><a href="#日志管理与分析" class="headerlink" title="日志管理与分析"></a>日志管理与分析</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/11/28/Linux-system-Notes/">http://example.com/2023/11/28/Linux-system-Notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/system/">system</a><a class="post-meta__tags" href="/tags/command/">command</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/28/Linux-Projects/" title="Linux Projects"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Linux Projects</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/26/GIT-basic/" title="GIT basic"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">GIT basic</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/11/28/Linux-Projects/" title="Linux Projects"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Projects</div></div></a></div><div><a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" title="MQTT服务器搭建（mosquitto）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-09</div><div class="title">MQTT服务器搭建（mosquitto）</div></div></a></div><div><a href="/2024/10/31/Nginx%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Nginx入门基础知识"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-10-31</div><div class="title">Nginx入门基础知识</div></div></a></div><div><a href="/2024/03/16/Raspberry-Pi/" title="Raspberry Pi"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-16</div><div class="title">Raspberry Pi</div></div></a></div><div><a href="/2024/11/04/WordPress%E5%BB%BA%E7%AB%99%E9%80%9F%E6%88%90/" title="WordPress建站速成"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-11-04</div><div class="title">WordPress建站速成</div></div></a></div><div><a href="/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/" title="docker容器技术"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-09</div><div class="title">docker容器技术</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">92</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">119</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E4%B8%8E%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">系统服务与进程管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">日志管理与分析</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/24/%E7%B3%BB%E7%BB%9F%E8%BF%90%E7%BB%B4/" title="系统运维">系统运维</a><time datetime="2025-02-24T08:12:53.000Z" title="Created 2025-02-24 16:12:53">2025-02-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/24/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/" title="英语单词">英语单词</a><time datetime="2025-02-23T23:37:57.000Z" title="Created 2025-02-24 07:37:57">2025-02-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/18/RPA-%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%B5%81%E7%A8%8B%E8%87%AA%E5%8A%A8%E5%8C%96/" title="RPA-机器人流程自动化">RPA-机器人流程自动化</a><time datetime="2025-02-18T15:22:27.000Z" title="Created 2025-02-18 23:22:27">2025-02-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/15/SnapSound-%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AE%9E%E6%97%B6%E6%89%8B%E6%8C%87%E5%93%8D%E5%A3%B0%E8%AF%86%E5%88%AB%E7%B3%BB%E7%BB%9F/" title="SnapSound: 基于深度学习的实时手指响声识别系统">SnapSound: 基于深度学习的实时手指响声识别系统</a><time datetime="2025-02-15T05:32:09.000Z" title="Created 2025-02-15 13:32:09">2025-02-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%AF%BC%E8%AE%BA/" title="软件工程导论">软件工程导论</a><time datetime="2025-01-01T08:40:12.000Z" title="Created 2025-01-01 16:40:12">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/15/ESP32-Wroom-32%E7%8E%A9%E6%B3%95/" title="ESP32-Wroom-32玩法">ESP32-Wroom-32玩法</a><time datetime="2024-12-15T08:18:10.000Z" title="Created 2024-12-15 16:18:10">2024-12-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/04/ESP32%E7%B3%BB%E5%88%97%E7%AE%80%E4%BB%8B/" title="ESP32系列简介">ESP32系列简介</a><time datetime="2024-12-04T06:28:51.000Z" title="Created 2024-12-04 14:28:51">2024-12-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/12/03/ESP32%E7%89%A9%E8%81%94%E7%BD%91%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%A7%E5%A4%B1%E8%B4%A5/" title="ESP32物联网开发板大失败">ESP32物联网开发板大失败</a><time datetime="2024-12-02T16:37:46.000Z" title="Created 2024-12-03 00:37:46">2024-12-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/26/PID%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" title="PID算法入门">PID算法入门</a><time datetime="2024-11-26T11:09:02.000Z" title="Created 2024-11-26 19:09:02">2024-11-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/25/%E5%B8%B8%E8%A7%81%E7%94%B5%E6%BA%90%E7%94%B5%E8%B7%AF%E5%AE%9E%E7%8E%B0/" title="常见电源电路实现">常见电源电路实现</a><time datetime="2024-11-25T04:49:48.000Z" title="Created 2024-11-25 12:49:48">2024-11-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
   const initValine = () => {
     const valine = new Valine(Object.assign({
       el: '#vcomment',
