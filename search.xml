@@ -11308,6 +11308,7 @@
         <tag>笔记</tag>
         <tag>linux</tag>
         <tag>深度学习</tag>
+        <tag>AI</tag>
       </tags>
   </entry>
   <entry>
@@ -11907,6 +11908,48 @@
 <li>n. 规格，具体要求</li>
 </ul>
 </blockquote>
+<h1 id="第十二天"><a href="#第十二天" class="headerlink" title="第十二天"></a>第十二天</h1><blockquote>
+<p>affluence[ ˈæfluəns ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 富裕，富足</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20150210110857100001176&i=00025">查看来源</a></p>
+</li>
+</ul>
+<p>profusion[ prəˈfjuːʒn ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 大量，众多</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20130801102744100000380&i=00000">查看来源</a></p>
+</li>
+</ul>
+<p>diffusion[ dɪˈfjuːʒn ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 传播，扩散</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23072712171915003001&i=18">查看来源</a></p>
+</li>
+</ul>
+<p>abundance[ əˈbʌndəns ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 大量，充足</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20150120183943100003757&i=00000">查看来源</a></p>
+</li>
+</ul>
+<p>diploma[ dɪˈpləʊmə ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 毕业文凭，学位证书；文凭课程</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23052410421387203001&i=41">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
 ]]></content>
       <categories>
         <category>英语学习</category>
@@ -11940,6 +11983,52 @@
       <tags>
         <tag>笔记</tag>
         <tag>编译原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI技术的学习与总结</title>
+    <url>/2025/03/01/AI%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>​	最近一个星期看到了身边的牛人是如何使用AI大模型进行提高工作效率，以及实现新想法促进个人以及企业发展的高效性。于是搭建了一套可以客制化的本地的AI，基于以下方案（项目）。</p>
+<ol>
+<li><p>Dify</p>
+<blockquote>
+<p>​	用工作流的方式组合各种模型、知识库、工具来搭建高度客制化的AI工具。</p>
+</blockquote>
+</li>
+<li><p>ollama + deepseek-r1:7b + bge-m3</p>
+<blockquote>
+<p>ollama 帮助管理推理模型以及知识库模型，提供API接口给DIFY使用</p>
+</blockquote>
+</li>
+<li><p>ragflow</p>
+<blockquote>
+<p>基于检索增强生成（Retrieval-Augmented Generation, RAG）技术的工作流工具，旨在通过结合检索和生成模型提升问答系统、文本生成等任务的性能。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="ragflow和dify的不同应用"><a href="#ragflow和dify的不同应用" class="headerlink" title="ragflow和dify的不同应用"></a>ragflow和dify的不同应用</h1><blockquote>
+<ol>
+<li>RAGFlow更适合需要深度文档解析和无幻觉生成的企业，尤其是处理复杂格式文档的场景。</li>
+<li>Dify更适合需要灵活工作流编排和多模型集成的开发者，尤其是构建复杂AI应用的场景。</li>
+<li>如果企业需要高度定制化的文档解析和检索增强生成，建议选择RAGFlow；如果需要快速构建生产级AI应用，建议选择Dify。</li>
+</ol>
+</blockquote>
+<h1 id="我的下一步AI应用计划"><a href="#我的下一步AI应用计划" class="headerlink" title="我的下一步AI应用计划"></a>我的下一步AI应用计划</h1><h2 id="1-学习dify的工作流原理"><a href="#1-学习dify的工作流原理" class="headerlink" title="1. 学习dify的工作流原理"></a>1. 学习dify的工作流原理</h2><h2 id="2-使用bge-m3搭建一个知识库模型"><a href="#2-使用bge-m3搭建一个知识库模型" class="headerlink" title="2. 使用bge-m3搭建一个知识库模型"></a>2. 使用bge-m3搭建一个知识库模型</h2><h2 id="3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"><a href="#3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）" class="headerlink" title="3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"></a>3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）</h2><h2 id="4-使用ragflow基于相同数据源搭建客制化AI应用"><a href="#4-使用ragflow基于相同数据源搭建客制化AI应用" class="headerlink" title="4. 使用ragflow基于相同数据源搭建客制化AI应用"></a>4. 使用ragflow基于相同数据源搭建客制化AI应用</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>深度学习</tag>
+        <tag>AI</tag>
+        <tag>deepseek-r1</tag>
+        <tag>ragflow</tag>
+        <tag>dify</tag>
+        <tag>bge-m3</tag>
+        <tag>知识库</tag>
+        <tag>本地部署</tag>
+        <tag>客制化AI</tag>
       </tags>
   </entry>
 </search>
