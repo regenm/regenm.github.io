@@ -12036,6 +12036,40 @@
 </li>
 </ul>
 </blockquote>
+<h1 id="第十四天"><a href="#第十四天" class="headerlink" title="第十四天"></a>第十四天</h1><blockquote>
+<h4 id="2025年03月03日"><a href="#2025年03月03日" class="headerlink" title="2025年03月03日"></a>2025年03月03日</h4><p>intrinsically[ ɪnˈtrɪnzɪkli ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adv. 本质上，内在地</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24100317053199403001&i=45">查看来源</a></p>
+</li>
+</ul>
+<p>intrinsic[ ɪnˈtrɪnzɪk ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 本质的，内在的，固有的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20041214114308703001&i=04">查看来源</a></p>
+</li>
+</ul>
+<p>headquarters[ ˌhedˈkwɔːtəz ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 总部，总公司，指挥部</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=18092622240702903001&i=46">查看来源</a></p>
+</li>
+</ul>
+<p>declarative[ dɪˈklærətɪv ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. (句子) 陈述的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=24092500475934603001&i=04">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
 ]]></content>
       <categories>
         <category>英语学习</category>
@@ -12099,7 +12133,7 @@
 <li>如果企业需要高度定制化的文档解析和检索增强生成，建议选择RAGFlow；如果需要快速构建生产级AI应用，建议选择Dify。</li>
 </ol>
 </blockquote>
-<h1 id="我的下一步AI应用计划"><a href="#我的下一步AI应用计划" class="headerlink" title="我的下一步AI应用计划"></a>我的下一步AI应用计划</h1><h2 id="1-学习dify的工作流原理"><a href="#1-学习dify的工作流原理" class="headerlink" title="1. 学习dify的工作流原理"></a>1. 学习dify的工作流原理</h2><h2 id="2-使用bge-m3搭建一个知识库模型"><a href="#2-使用bge-m3搭建一个知识库模型" class="headerlink" title="2. 使用bge-m3搭建一个知识库模型"></a>2. 使用bge-m3搭建一个知识库模型</h2><h2 id="3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"><a href="#3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）" class="headerlink" title="3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"></a>3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）</h2><h2 id="4-使用ragflow基于相同数据源搭建客制化AI应用"><a href="#4-使用ragflow基于相同数据源搭建客制化AI应用" class="headerlink" title="4. 使用ragflow基于相同数据源搭建客制化AI应用"></a>4. 使用ragflow基于相同数据源搭建客制化AI应用</h2><h1 id="有关各种AI模型以及工具、概念的扫盲"><a href="#有关各种AI模型以及工具、概念的扫盲" class="headerlink" title="有关各种AI模型以及工具、概念的扫盲"></a>有关各种AI模型以及工具、概念的扫盲</h1>]]></content>
+<h1 id="我的下一步AI应用计划"><a href="#我的下一步AI应用计划" class="headerlink" title="我的下一步AI应用计划"></a>我的下一步AI应用计划</h1><h2 id="1-学习dify的工作流原理"><a href="#1-学习dify的工作流原理" class="headerlink" title="1. 学习dify的工作流原理"></a>1. 学习dify的工作流原理</h2><h2 id="2-使用bge-m3搭建一个知识库模"><a href="#2-使用bge-m3搭建一个知识库模" class="headerlink" title="2. 使用bge-m3搭建一个知识库模"></a>2. 使用bge-m3搭建一个知识库模</h2><h2 id="型"><a href="#型" class="headerlink" title="型"></a>型</h2><h2 id="3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"><a href="#3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）" class="headerlink" title="3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"></a>3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）</h2><h2 id="4-使用ragflow基于相同数据源搭建客制化AI应用"><a href="#4-使用ragflow基于相同数据源搭建客制化AI应用" class="headerlink" title="4. 使用ragflow基于相同数据源搭建客制化AI应用"></a>4. 使用ragflow基于相同数据源搭建客制化AI应用</h2><h1 id="有关各种AI模型以及工具、概念的扫盲"><a href="#有关各种AI模型以及工具、概念的扫盲" class="headerlink" title="有关各种AI模型以及工具、概念的扫盲"></a>有关各种AI模型以及工具、概念的扫盲</h1>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
