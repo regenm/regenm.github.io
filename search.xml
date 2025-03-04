@@ -2365,6 +2365,36 @@
 <li>取消挂载：<code>unmount /dev/sdb1</code></li>
 </ul>
 </li>
+<li><p>文件在已有服务器之间的传输</p>
+<ul>
+<li><p>通过scp或者rsync</p>
+<ol>
+<li><p>scp</p>
+<blockquote>
+<p><strong>传过去</strong></p>
+<p><code>scp local_file.txt user@remote_host:/path/to/destination/</code></p>
+<p><code>scp -r local_folder user@remote_host:/path/to/destination/</code></p>
+<p><strong>传过来</strong></p>
+<p><code>scp user@remote_host:/path/to/remote_file local_destination/</code></p>
+</blockquote>
+</li>
+<li><p>rsync</p>
+<blockquote>
+<p><strong>传过去</strong></p>
+<p><code>rsync -avz local_file user@remote_host:/path/to/destination/</code></p>
+<p><code>rsync -avz local_folder/ user@remote_host:/path/to/destination/</code></p>
+<p><strong>传过来</strong></p>
+<p><code> rsync -avz user@remote_host:/path/to/remote_file local_destination/</code></p>
+</blockquote>
+<ul>
+<li><strong><code>scp</code></strong>: Simple and straightforward, good for one-time transfers.</li>
+<li><strong><code>rsync</code></strong>: More efficient for syncing directories and updating files.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
 </ol>
 <h3 id="系统服务与进程管理"><a href="#系统服务与进程管理" class="headerlink" title="系统服务与进程管理"></a>系统服务与进程管理</h3><ol>
 <li><p>进程相关</p>
@@ -12107,6 +12137,67 @@
 <li><p>adj. (句子) 陈述的</p>
 </li>
 <li><p><a href="https://langeasy.com.cn/m/player?f=24092500475934603001&i=04">查看来源</a></p>
+</li>
+</ul>
+</blockquote>
+<h1 id="第十五天"><a href="#第十五天" class="headerlink" title="第十五天"></a>第十五天</h1><blockquote>
+<h4 id="2025年03月04日"><a href="#2025年03月04日" class="headerlink" title="2025年03月04日"></a>2025年03月04日</h4><p>lateralize[ ˈlætərəˌlaɪz ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li>vt. 把…移到一侧</li>
+</ul>
+<p>lateral[ ˈlætərəl ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 侧面的；横向的；侧向的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22103008394583203001&i=16">查看来源</a></p>
+</li>
+</ul>
+<p>shift[ ʃɪft ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>vi. vt. 转移，挪动；换 (挡)</p>
+</li>
+<li><p>vi. (情况等) 改变</p>
+</li>
+<li><p>vt. 改变观点 (态度等)；推卸 (责任)</p>
+</li>
+<li><p>n. 改变，转变；轮班 (职工)</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=23051412203240903001&i=01">查看来源</a></p>
+</li>
+</ul>
+<p>turnover[ ˈtɜːnəʊvə(r) ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>n. 营业额；人员流动率；三角馅饼</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=22101117180422503001&i=80">查看来源</a></p>
+</li>
+</ul>
+<p>indifferent[ ɪnˈdɪfrənt ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 不感兴趣的，冷淡的；一般的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20070319274215403001&i=22">查看来源</a></p>
+</li>
+</ul>
+<p>extrinsic[ eksˈtrɪnzɪk ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 非固有的，外在的，外来的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20030111301780303001&i=24">查看来源</a></p>
+</li>
+</ul>
+<p>creeping[ ˈkriːpɪŋ ]</p>
+<p>隐藏词义例句</p>
+<ul>
+<li><p>adj. 不知不觉发生的，缓慢行进的</p>
+</li>
+<li><p><a href="https://langeasy.com.cn/m/player?f=20160918102236100000120&i=00036">查看来源</a></p>
 </li>
 </ul>
 </blockquote>
