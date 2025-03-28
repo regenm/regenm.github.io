@@ -5236,7 +5236,13 @@
   <entry>
     <title>Regen&#39;s first page</title>
     <url>/2023/09/12/Regen-s-first-page/</url>
-    <content><![CDATA[<h1 id="HOLA"><a href="#HOLA" class="headerlink" title="HOLA!!!!"></a>HOLA!!!!</h1><h1 id="INTRODUCTION-TOTHISBLOG"><a href="#INTRODUCTION-TOTHISBLOG" class="headerlink" title="INTRODUCTION 	TO	THIS	BLOG !!!!!!"></a>INTRODUCTION 	TO	THIS	BLOG !!!!!!</h1><p>​	<strong>这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的</strong>。</p>
+    <content><![CDATA[<blockquote>
+<p>The notes tucked in drawers shall fade<br>Like ink dissolving in time’s charade<br>Yellowed pages where whispers once bled—<br>Embers of a fiery soul now shed.</p>
+<p>Yet when memory’s tide ebbs low<br>And weathered hands tremble slow<br>If digital pages breathe anew<br>Echoes of today might shimmer through—</p>
+<p>A flicker of solace, faint yet bright<br>In the gloaming of forgotten light<br>Where fading scripts and mortal clay<br>Meet dawn’s first blush of yesterday.</p>
+</blockquote>
+<p>多年以后，抽屉里的纸条会消失不见，那些写满了的笔记本，里面曾有我炽热灵魂的痕迹，也会消失不见。但是某一天，在我记忆不再清晰，身躯不再健壮的时候，能再打开这个博客，看一看现在活着的痕迹也许会感到一丝欣慰。</p>
+<h1 id="HOLA"><a href="#HOLA" class="headerlink" title="HOLA!!!!"></a><strong>HOLA!!!!</strong></h1><h2 id="INTRODUCTION-TOTHISBLOG"><a href="#INTRODUCTION-TOTHISBLOG" class="headerlink" title="INTRODUCTION 	TO	THIS	BLOG !!!!!!"></a>INTRODUCTION 	TO	THIS	BLOG !!!!!!</h2><p>​	<strong>这个博客目前是由国内代码平台 Gitee 托管。Gitee（码云）相当于中国国内的github,所以在这里托管可以不用挂代理。访问速度也是比较快的</strong>。</p>
 <p>​	<strong>这个博客是基于开源框架HEXO,全站都是静态的，也许后续会更换框架试试WordPress等开源框架，不过需要购买云服务器了，这都是后话。</strong></p>
 <p>​		查看链接：<a href="(https://github.com/hexojs/hexo)">HEXO</a></p>
 <p>​	<strong>同时这个博客的主题也是开源的。名字是ayer。可以在github上面搜到。</strong></p>
@@ -5244,14 +5250,15 @@
 <p>​	<strong>本网站所有的笔记（MarkDowm格式）都同步更新到了github</strong></p>
 <p>​		查看链接：<a href="https://github.com/regenm/Notes">regenm&#x2F;Notes</a></p>
 <p>​	感谢开源大佬们的贡献，让我这样的小白也可以有自己的博客，同时也希望自己在不久的将来也能在开源社区做出一点贡献。</p>
-<h1 id="update"><a href="#update" class="headerlink" title="update"></a>update</h1><h2 id="Blog-转到了github"><a href="#Blog-转到了github" class="headerlink" title="Blog 转到了github !"></a><strong>Blog 转到了github !</strong></h2><ul>
+<hr>
+<h1 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a><strong>UPDATE</strong></h1><h2 id="Blog-转到了github"><a href="#Blog-转到了github" class="headerlink" title="Blog 转到了github !"></a>Blog 转到了github !</h2><ul>
 <li><p>原因</p>
 <p> 由于最近gitee的gitee pages服务不太稳定，可能是不让用了？因此转到了github，发现速度不必gitee慢！打算以后长期使用github了！</p>
 <p> <img src="/images/gitee_issue_pages.png" alt="gitee issues pages can not update"></p>
 </li>
 </ul>
 <p><a href="https://github.com/regenm/regenm.github.io">new Blog repo</a></p>
-<h1 id="Important-Update"><a href="#Important-Update" class="headerlink" title="Important Update"></a>Important Update</h1><p>更新Theme！</p>
+<h1 id="Important-Update"><a href="#Important-Update" class="headerlink" title="Important Update"></a><strong>Important Update</strong></h1><p>更新Theme！</p>
 <p>这是以前的博客样式：</p>
 <p><img src="/../images/oldBlog/1.png" alt="1"></p>
 <p><img src="/../images/oldBlog/2.png" alt="2"></p>
@@ -6186,12 +6193,14 @@
     <title>About me</title>
     <url>/2023/09/20/about-me/</url>
     <content><![CDATA[<h1 id="Regen-m-smile"><a href="#Regen-m-smile" class="headerlink" title="Regen_m	:smile:"></a>Regen_m	:smile:</h1><p>​	这是我的cyber name。这一页就用来介绍介绍我自己吧！</p>
-<h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影等等。同时二次元纯度也非常之高。</p>
-<h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		不知道有谁会看到这个网页，但我打算在接下来的大学生活中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</p>
-<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。哦对了，这是我的<code>qq 3525936749</code>，邮箱同。</p>
+<h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影，看书，乒乓球，游泳，爬山等等。</p>
+<h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		不知道有谁会看到这个网页，但我打算在接下来的大学生活（也许这辈子？）中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</p>
+<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。</p>
 ]]></content>
       <categories>
         <category>生活</category>
+        <category>Regen</category>
+        <category>自己</category>
       </categories>
       <tags>
         <tag>about</tag>
@@ -13278,6 +13287,60 @@
 </li>
 </ol>
 </blockquote>
+<h1 id="第三十六天"><a href="#第三十六天" class="headerlink" title="第三十六天"></a>第三十六天</h1><blockquote>
+<h4 id="2025年03月27日"><a href="#2025年03月27日" class="headerlink" title="2025年03月27日"></a>2025年03月27日</h4><ol>
+<li><strong>oversee</strong> [ ˌəʊvəˈsiː ]<ul>
+<li><strong>中文释义</strong>：监督；监管</li>
+<li>The project manager will <strong>oversee</strong> the construction process to ensure quality standards.<br>  （项目经理将<strong>监督</strong>施工过程以确保质量标准。）</li>
+<li>A government committee was established to <strong>oversee</strong> the implementation of new regulations.<br>  （成立政府委员会来<strong>监管</strong>新法规的实施。）</li>
+</ul>
+</li>
+<li><strong>institute</strong> [ ˈɪnstɪtjuːt ]<ul>
+<li><strong>中文释义</strong>：学院；研究所；建立</li>
+<li>She works at a famous research <strong>institute</strong> that specializes in marine biology.<br>  （她在一家著名的海洋生物研究<strong>所</strong>工作。）</li>
+<li>The company will <strong>institute</strong> new safety protocols starting next month.<br>  （公司将从下月起<strong>实施</strong>新的安全规程。）</li>
+</ul>
+</li>
+<li><strong>compel</strong> [ kəmˈpel ]<ul>
+<li><strong>中文释义</strong>：强迫；迫使</li>
+<li>The law <strong>compels</strong> all citizens to pay taxes according to their income.<br>  （法律<strong>强制</strong>所有公民根据收入纳税。）</li>
+<li>His passionate speech <strong>compelled</strong> the audience to reconsider their views.<br>  （他激昂的演讲<strong>促使</strong>听众重新思考他们的观点。）</li>
+</ul>
+</li>
+<li><strong>sinew</strong> [ ˈsɪnjuː ]<ul>
+<li><strong>中文释义</strong>：肌腱；力量来源</li>
+<li>The butcher carefully removed the <strong>sinews</strong> from the meat to make it more tender.<br>  （屠夫仔细剔除肉中的<strong>肌腱</strong>使其更嫩。）</li>
+<li>Education is the <strong>sinew</strong> of a nation’s development.<br>  （教育是国家发展的<strong>支柱</strong>。）</li>
+</ul>
+</li>
+<li><strong>illegality</strong> [ ˌɪliˈɡæləti ]<ul>
+<li><strong>中文释义</strong>：违法；非法行为</li>
+<li>The lawyer argued that the <strong>illegality</strong> of the search made the evidence inadmissible.<br>  （律师辩称搜查的<strong>违法性</strong>使证据不可采信。）</li>
+<li>There’s growing concern about the <strong>illegality</strong> of certain online activities.<br>  （人们对某些网络活动的<strong>非法性</strong>日益关注。）</li>
+</ul>
+</li>
+<li><strong>flexitime</strong> [ ˈfleksitaɪm ]<ul>
+<li><strong>中文释义</strong>：弹性工作时间制</li>
+<li>Our company offers <strong>flexitime</strong>, allowing employees to choose their working hours.<br>  （我们公司实行<strong>弹性工作制</strong>，允许员工自选工作时间。）</li>
+<li>With <strong>flexitime</strong>, she can adjust her schedule to pick up her children from school.<br>  （通过<strong>弹性工作制</strong>，她能调整时间接送孩子放学。）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="用法扩展："><a href="#用法扩展：" class="headerlink" title="用法扩展："></a>用法扩展：</h3><ol>
+<li><strong>oversee</strong> vs supervise：<br>oversee 侧重宏观监管，supervise 侧重具体指导</li>
+<li><strong>institute</strong> 作动词的常见搭配：<ul>
+<li>institute proceedings（提起诉讼）</li>
+<li>institute an inquiry（展开调查）</li>
+</ul>
+</li>
+<li><strong>compel</strong> 的形容词形式：<br>compelling（令人信服的）<br>compulsory（强制性的）</li>
+<li><strong>sinew</strong> 的文学用法：<br>“the sinews of war”（战争的财力&#x2F;资源）</li>
+<li><strong>flexitime</strong> 的常见变体：<br>flextime（美式拼写）<br>core hours（核心工作时间）</li>
+</ol>
+</blockquote>
+<h1 id="第三十七天"><a href="#第三十七天" class="headerlink" title="第三十七天"></a>第三十七天</h1><blockquote>
+<h4 id="2025年03月28日"><a href="#2025年03月28日" class="headerlink" title="2025年03月28日"></a>2025年03月28日</h4></blockquote>
 ]]></content>
       <categories>
         <category>英语学习</category>
@@ -13462,6 +13525,38 @@
         <tag>知识库</tag>
         <tag>本地部署</tag>
         <tag>客制化AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>冬天的诗--伯莱</title>
+    <url>/2025/03/28/%E5%86%AC%E5%A4%A9%E7%9A%84%E8%AF%97-%E4%BC%AF%E8%8E%B1/</url>
+    <content><![CDATA[<blockquote>
+<p>Winter Poem</p>
+<p>[Robert Bly](<a href="https://poemwiki.org/q/Robert">https://poemwiki.org/q/Robert</a> Bly)</p>
+<p>The quivering wings of the winter ant<br>wait for lean winter to end.<br>I love you in slow, dim-witted ways,<br>hardly speaking, one or two words only.</p>
+<p>What caused us each to live hidden?<br>A wound, the wind, a word, a parent.<br>Sometimes we wait in a helpless way,<br>awkwardly, not whole and not healed.</p>
+<p>When we hid the wound, we fell back<br>from a human to a shelled life.<br>Now we feel the ant’s hard chest,<br>the carapace, the silent tongue.</p>
+<p>This must be the way of the ant,<br>the winter ant, the way of those<br>who are wounded and want to live:<br>to breathe, to sense another, and to wait.</p>
+<p>PoemWiki <a href="https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2">https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2</a></p>
+</blockquote>
+<div style="display: flex;">
+  <div style="flex: 1; padding-right: 20px;">
+    这是左侧内容，可以很长很长很长……  
+    竖线会随着内容高度自动延伸。
+  </div>
+  <div style="border-left: 1px solid #ccc; margin: 0 10px;"></div>
+  <div style="flex: 1; padding-left: 20px;">
+    这是右侧内容，可以很长很长很长……  
+    竖线会随着内容高度自动延伸。
+  </div>
+</div>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
       </tags>
   </entry>
 </search>
