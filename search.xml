@@ -14719,4 +14719,68 @@ to breathe, to sense another, and to wait.<br>
         <tag>随手记</tag>
       </tags>
   </entry>
+  <entry>
+    <title>使用samba将armlinux小主机作为nas</title>
+    <url>/2025/04/04/%E4%BD%BF%E7%94%A8samba%E5%B0%86armlinux%E5%B0%8F%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BAnas/</url>
+    <content><![CDATA[<h1 id="使用samba将armlinux小主机作为nas"><a href="#使用samba将armlinux小主机作为nas" class="headerlink" title="使用samba将armlinux小主机作为nas"></a>使用samba将armlinux小主机作为nas</h1><h2 id="先上结果！"><a href="#先上结果！" class="headerlink" title="先上结果！"></a>先上结果！</h2><p><img src="/../images/linux/samba/1.png"></p>
+<p><img src="/../images/linux/samba/2.jpg"></p>
+<p><img src="/../images/linux/samba/3.jpg"></p>
+<p>​	arm小主机为rk3399 4+32g（70块钱捡的二手），作为nas主控完全够用。</p>
+<h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>​	本来想把自己那块2t的机械硬盘改为共享盘，可惜里面已经有300多g的图片了，因为涉及到了修改文件系统需要格式化所以先拿手头上的sata ssd做测试。没想到这个ssd挂了（悲），于是换成了最后的32g限制u盘了。</p>
+<h3 id="步骤-Liunx端"><a href="#步骤-Liunx端" class="headerlink" title="步骤-Liunx端"></a>步骤-Liunx端</h3><h4 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h4><ol>
+<li><p>插入U盘。</p>
+</li>
+<li><p>ssh连接。</p>
+</li>
+<li><p>清空U盘并创建ext4文件系统。</p>
+<ol>
+<li><p>找到插入的U盘</p>
+<p> <code>lsblk</code>可以找到插入的硬盘（会显示硬盘大小以及种类，例如我的就是sda 29.3g）</p>
+</li>
+<li><p>清空U盘并创建ext4文件系统。</p>
+<p> <code>sudo mkfs.ext4 /dev/sdb1</code></p>
+</li>
+</ol>
+</li>
+<li><p>创建一个用于共享的根文件夹并挂载U盘</p>
+<p><code>sudo mkdir /mnt/shared</code></p>
+<p><code>sudo mount /dev/sda /mnt/shared</code></p>
+</li>
+<li><p>赋予系统用户这个文件夹读写权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R pi:pi /mnt/shared  <span class="comment"># 更改所有者为 regen</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 770 /mnt/shared          <span class="comment"># 设置读写执行权限</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="2-安装以及配置Samba"><a href="#2-安装以及配置Samba" class="headerlink" title="2. 安装以及配置Samba"></a>2. 安装以及配置Samba</h4><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt upgrade</span><br><span class="line"><span class="built_in">sudo</span> apt install samba -y</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>配置</p>
+<p> 我这边是基于vscode的ssh扩展进行编辑配置的（非常好用）。</p>
+<p> <code>code /etc/samba/</code></p>
+<p> 然后编辑<code>smb.conf</code>，在末尾加上</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[shared]</span><br><span class="line">   path = /mnt/shared</span><br><span class="line">   browseable = <span class="built_in">yes</span></span><br><span class="line">   writable = <span class="built_in">yes</span></span><br><span class="line">   <span class="built_in">read</span> only = no</span><br><span class="line">   guest ok = no</span><br><span class="line">   valid <span class="built_in">users</span> = pi   <span class="comment"># 当前Linux系统用户ID</span></span><br><span class="line">   force create mode = 0660</span><br><span class="line">   force directory mode = 2770</span><br></pre></td></tr></table></figure>
+
+<p> 保存后退出，然后配置一下密码。</p>
+<p> <code>sudo smbpasswd -a pi</code>输入两次想要设置的密码即可。</p>
+</li>
+</ol>
+<h3 id="使用-Windows"><a href="#使用-Windows" class="headerlink" title="使用-Windows"></a>使用-Windows</h3><p>很简单，win +R 输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">\\IP\shared</span><br></pre></td></tr></table></figure>
+
+<p>再输入账号密码即可。</p>
+<p>需要注意的是samba的账号必须是Linux系统的用户。</p>
+<h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/linux/samba/4.png"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>samba</tag>
+        <tag>nas</tag>
+        <tag>共享盘</tag>
+      </tags>
+  </entry>
 </search>
