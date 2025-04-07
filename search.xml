@@ -14923,8 +14923,8 @@ to breathe, to sense another, and to wait.<br>
     <title>使用samba将armlinux小主机作为nas</title>
     <url>/2025/04/04/%E4%BD%BF%E7%94%A8samba%E5%B0%86armlinux%E5%B0%8F%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BAnas/</url>
     <content><![CDATA[<h1 id="使用samba将armlinux小主机作为nas"><a href="#使用samba将armlinux小主机作为nas" class="headerlink" title="使用samba将armlinux小主机作为nas"></a>使用samba将armlinux小主机作为nas</h1><h2 id="先上结果！"><a href="#先上结果！" class="headerlink" title="先上结果！"></a>先上结果！</h2><p><img src="/../images/Linux/samba/1.png"></p>
-<p><img src="/../images/linux/samba/2.jpg"></p>
-<p><img src="/../images/linux/samba/3.jpg"></p>
+<p><img src="/../images/Linux/samba/2.jpg"></p>
+<p><img src="/../images/Linux/samba/3.jpg"></p>
 <p>​	arm小主机为rk3399 4+32g（70块钱捡的二手），作为nas主控完全够用。</p>
 <h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>​	本来想把自己那块2t的机械硬盘改为共享盘，可惜里面已经有300多g的图片了，因为涉及到了修改文件系统需要格式化所以先拿手头上的sata ssd做测试。没想到这个ssd挂了（悲），于是换成了最后的32g限制u盘了。</p>
 <h3 id="步骤-Liunx端"><a href="#步骤-Liunx端" class="headerlink" title="步骤-Liunx端"></a>步骤-Liunx端</h3><h4 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h4><ol>
@@ -14970,7 +14970,7 @@ to breathe, to sense another, and to wait.<br>
 
 <p>再输入账号密码即可。</p>
 <p>需要注意的是samba的账号必须是Linux系统的用户。</p>
-<h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/linux/samba/4.png"></p>
+<h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/Linux/samba/4.png"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
