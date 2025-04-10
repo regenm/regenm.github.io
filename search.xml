@@ -11545,8 +11545,1037 @@
       </tags>
   </entry>
   <entry>
+    <title>编译原理</title>
+    <url>/2025/02/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<h1 id="编译原理课程笔记"><a href="#编译原理课程笔记" class="headerlink" title="编译原理课程笔记"></a><strong>编译原理课程笔记</strong></h1><h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="编译器概述"><a href="#编译器概述" class="headerlink" title="编译器概述"></a>编译器概述</h2><ul>
+<li>翻译器:<ul>
+<li>把某一种语言程序(称为源语言程序)等价地转换成另一种语言程序(称为目标语言程序)的程序</li>
+</ul>
+</li>
+<li>解释器：<ul>
+<li>把源语言（高级语言）写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序</li>
+</ul>
+</li>
+<li>编译器：<ul>
+<li>把一种高级语言程序等价地转换成另一种低级语言程序(汇编语言或机器语言程序)的程序</li>
+</ul>
+</li>
+</ul>
+<h3 id="编译前端与后端"><a href="#编译前端与后端" class="headerlink" title="编译前端与后端"></a>编译前端与后端</h3><ul>
+<li>编译前端：<ul>
+<li>与源语言有关，如词法分析，语法分析，语义分析与中间代码产生，与机器无关的优化</li>
+</ul>
+</li>
+<li>编译后端：<ul>
+<li>与目标机有关，与目标机有关的优化，目标代码产生</li>
+</ul>
+</li>
+</ul>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><ol>
+<li>词法分析</li>
+<li>语法分析</li>
+<li>语义分析</li>
+<li>中间代码产生</li>
+<li>优化</li>
+<li>目标代码产生</li>
+</ol>
+<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>任务: 输入源程序，对构成源程序的字符串进行扫描和分解，识别出一个个单词符号。依循的原则：构词规则描述工具：有限自动机</p>
+<h4 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h4><p>任务:在词法分析的基础上，根据语言的语法规则把单词符号串分解成各类语法单位。依循的原则：语法规则,语法树描述工具：上下文无关文法</p>
+<h4 id="语义分析和中间代码产生"><a href="#语义分析和中间代码产生" class="headerlink" title="语义分析和中间代码产生"></a>语义分析和中间代码产生</h4><p>任务:对各类不同语法范畴按语言的语义进行初步翻译。–声明语句和操作语句依循的原则：语义规则中间代码:三元式，四元式，树形结构等</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>任务：对于前阶段产生的中间代码进行加工变换，以期在最后阶段产生更高效的目标代码。依循的原则：程序的等价变换规则</p>
+<h4 id="目标代码产生"><a href="#目标代码产生" class="headerlink" title="目标代码产生"></a>目标代码产生</h4><p>任务: 把中间代码变换成特定机器上的目标代码。依赖于硬件系统结构和机器指令的含义目标代码三种形式:绝对指令代码: 可直接运行 汇编指令代码: 需要进行汇编可重新定位指令代码: 需要连接装配</p>
+<h2 id="编译技术的应用"><a href="#编译技术的应用" class="headerlink" title="编译技术的应用"></a>编译技术的应用</h2><p>编译技术广泛应用于计算机领域核心场景：  </p>
+<ol>
+<li><strong>程序开发</strong>：将高级语言（C&#x2F;Java&#x2F;Python）编译为机器码或字节码，支撑编程语言生态；解释器实现动态执行；  </li>
+<li><strong>性能优化</strong>：通过代码精简、内联扩展、循环优化提升效率，JIT技术（如Java&#x2F;JavaScript）实现运行时加速；  </li>
+<li><strong>跨平台支持</strong>：交叉编译生成多平台目标代码，虚拟机（如JVM）通过中间码实现“一次编写，到处运行”；  </li>
+<li><strong>静态分析</strong>：检测代码漏洞、内存泄漏，支撑IDE智能提示与代码规范检查；  </li>
+<li><strong>硬件与嵌入式</strong>：编译Verilog&#x2F;VHDL生成电路，为物联网设备生成低功耗固件；  </li>
+<li><strong>安全防护</strong>：代码混淆防止反编译，静态分析识别恶意代码；  </li>
+<li><strong>领域专用</strong>：实现SQL、正则表达式等DSL，提升领域开发效率。<br>此外，编译技术还用于代码生成工具、并行计算框架（如CUDA）和教育研究领域，是软件与硬件协同的核心纽带。（199字）</li>
+</ol>
+<h1 id="第二章-词法分析"><a href="#第二章-词法分析" class="headerlink" title="第二章 词法分析"></a>第二章 词法分析</h1><h2 id="词法分析的任务"><a href="#词法分析的任务" class="headerlink" title="词法分析的任务"></a>词法分析的任务</h2><p>​	从左至右逐个字符地对源程序进行扫描，产生一个个单词符号。</p>
+<ul>
+<li>法分析器(Lexical Analyzer) 又称扫描器(Scanner)：<ul>
+<li>是执行词法分析的程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="词法分析器构造"><a href="#词法分析器构造" class="headerlink" title="词法分析器构造"></a>词法分析器构造</h2><h3 id="方法一-通过状态转换图编写词法分析器"><a href="#方法一-通过状态转换图编写词法分析器" class="headerlink" title="方法一:   通过状态转换图编写词法分析器"></a>方法一:   通过状态转换图编写词法分析器</h3><ul>
+<li><p>词法分析器手工编制方法</p>
+</li>
+<li><p>词法分析器的功能和输出形式</p>
+<ul>
+<li>功能:输入源程序、输出单词符号</li>
+</ul>
+</li>
+</ul>
+<h4 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h4><ul>
+<li>状态转换图是一张有限方向图。<ol>
+<li>结点代表状态，用圆圈表示。</li>
+<li>状态之间用代箭头的弧线连结，弧线上的标记(字符或其他)代表射出结点状态下可能出现的输入字符或字符类。</li>
+<li>一张转换图只包含有限个状态，其中有一个为初态，至少要有一个终态双圆圈</li>
+</ol>
+</li>
+</ul>
+<h1 id="编译原理作业"><a href="#编译原理作业" class="headerlink" title="编译原理作业"></a><strong>编译原理作业</strong></h1><p><img src="/../images/compiler/1.png"></p>
+<blockquote>
+<p>**1. ** 词法分析器以源程序的字符流为输入，按词法规则将其识别为一个个单词，并转换为统一的（单词类别，单词值）二元组内部表示形式。它还负责检查词法错误，如非法字符、错误关键字等，之后将单词逐个传递给语法分析器，为其提供输入单元，同时在预处理时简化源程序，提高编译效率。 </p>
+<p>**2. ** 状态转换图是由状态节点与带条件或事件标注的有向转换边构成的有向图 。它能直观展现系统或对象的运行逻辑，清晰呈现各种状态及转换关系，在系统设计时辅助架构规划，开发中用于检测错误、辅助调试，也是团队沟通的有力工具，在算法设计与分析领域，还能描述算法执行、助力性能分析 。 </p>
+<p>**3. ** </p>
+<p>知识点：</p>
+<ol>
+<li>词法分析器、输入输出</li>
+<li>语法分析器</li>
+<li>状态转换图</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>编译原理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AI技术的学习与总结</title>
+    <url>/2025/03/01/AI%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>​	最近一个星期看到了身边的牛人是如何使用AI大模型进行提高工作效率，以及实现新想法促进个人以及企业发展的高效性。于是搭建了一套可以客制化的本地的AI，基于以下方案（项目）。</p>
+<ol>
+<li><p>Dify</p>
+<blockquote>
+<p>​	用工作流的方式组合各种模型、知识库、工具来搭建高度客制化的AI工具。</p>
+</blockquote>
+</li>
+<li><p>ollama + deepseek-r1:7b + bge-m3</p>
+<blockquote>
+<p>ollama 帮助管理推理模型以及知识库模型，提供API接口给DIFY使用</p>
+</blockquote>
+</li>
+<li><p>ragflow</p>
+<blockquote>
+<p>基于检索增强生成（Retrieval-Augmented Generation, RAG）技术的工作流工具，旨在通过结合检索和生成模型提升问答系统、文本生成等任务的性能。</p>
+</blockquote>
+</li>
+</ol>
+<h1 id="ragflow和dify的不同应用"><a href="#ragflow和dify的不同应用" class="headerlink" title="ragflow和dify的不同应用"></a>ragflow和dify的不同应用</h1><blockquote>
+<ol>
+<li>RAGFlow更适合需要深度文档解析和无幻觉生成的企业，尤其是处理复杂格式文档的场景。</li>
+<li>Dify更适合需要灵活工作流编排和多模型集成的开发者，尤其是构建复杂AI应用的场景。</li>
+<li>如果企业需要高度定制化的文档解析和检索增强生成，建议选择RAGFlow；如果需要快速构建生产级AI应用，建议选择Dify。</li>
+</ol>
+</blockquote>
+<h1 id="我的下一步AI应用计划"><a href="#我的下一步AI应用计划" class="headerlink" title="我的下一步AI应用计划"></a>我的下一步AI应用计划</h1><h2 id="1-学习dify的工作流原理"><a href="#1-学习dify的工作流原理" class="headerlink" title="1. 学习dify的工作流原理"></a>1. 学习dify的工作流原理</h2><ul>
+<li>搭建一个简单的工作流并运行</li>
+</ul>
+<p><img src="/../images/AI/1.png"></p>
+<h2 id="2-使用bge-m3搭建一个知识库模"><a href="#2-使用bge-m3搭建一个知识库模" class="headerlink" title="2. 使用bge-m3搭建一个知识库模"></a>2. 使用bge-m3搭建一个知识库模</h2><h2 id="型"><a href="#型" class="headerlink" title="型"></a>型</h2><ol>
+<li><p>手头恰好有40g的电子书，在pdf格式里面随机选择了几册。</p>
+</li>
+<li><p>先尝试硅基流动的bge-m3模型</p>
+</li>
+<li><p>检索设置</p>
+<blockquote>
+<h1 id="Rerank模型"><a href="#Rerank模型" class="headerlink" title="Rerank模型"></a>Rerank模型</h1><p>在知识库检索中，Rerank是一个非常重要的环节，尤其在检索增强生成（RAG）架构中。它可以帮助大语言模型（LLM）获取更精确的内容，从而提高生成回答的准确性和相关性。</p>
+<p>Rerank的原理和机制：</p>
+<ol>
+<li><p>初步检索</p>
+<p> 在知识库检索的过程中，首先通过向量检索或其他检索方法，从知识库中检索出于用户问题相关的多个文档或文本片段。这些文档可能与用户问题的相关性不同，有些可能非常贴切，而有些知只是稍微相关，甚至不相关。</p>
+</li>
+<li><p>重新排序、过滤和优化</p>
+<p> Rerank模型 接收初步检索到的文档和列表和用户的问题作为输入。评估每个结果与用户问题的<strong>相关性</strong>，计算相关性分数。根据分数对文档进行重新排序，将最相关订单文档排在前面。并且，过滤掉不相关的文档，从而减少噪声。这样，当LLM生成回答时，会优先考虑排名靠前的、更加相关订单文档。最后，重新排序的文档作为上下文输入到LLM中，LLM根据这些<strong>更精确</strong>的上下文生成回答。</p>
+</li>
+</ol>
+<h1 id="Top-K"><a href="#Top-K" class="headerlink" title="Top K"></a>Top K</h1><p>Top K用于控制检索系统返回结果的数量。例如，如果配置为2，会返回最多两个结果。</p>
+<p>Top K通常与👇🏻的Score阈值配合使用。Score阈值用于过滤掉相似度低于某个阈值的结果，而Top K则在满足阈值条件的基础上，进一步筛选出来最相关的K个结果。</p>
+<ul>
+<li>更全面的结果，可以适当增加 <strong>Top K</strong> 的值。</li>
+<li>更精准的结果，可以适当减小 <strong>Top K</strong> 的值，并结合较高的 <strong>Score 阈值</strong>。</li>
+</ul>
+<h1 id="Score-阈"><a href="#Score-阈" class="headerlink" title="Score 阈"></a>Score 阈</h1><p>Score阈值作为一种标准选择检索结果。用于过滤掉相似度低于阈值的结果。</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/../images/AI/2.png"></p>
+<h2 id="3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"><a href="#3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）" class="headerlink" title="3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"></a>3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）</h2><p>已实现</p>
+<h2 id="4-使用ragflow基于相同数据源搭建客制化AI应用"><a href="#4-使用ragflow基于相同数据源搭建客制化AI应用" class="headerlink" title="4. 使用ragflow基于相同数据源搭建客制化AI应用"></a>4. 使用ragflow基于相同数据源搭建客制化AI应用</h2><p>已实现</p>
+<h2 id="5-使用工具例如搜索引擎实现联网"><a href="#5-使用工具例如搜索引擎实现联网" class="headerlink" title="5. 使用工具例如搜索引擎实现联网"></a>5. 使用工具例如搜索引擎实现联网</h2><h1 id="有关各种AI模型以及工具、概念的扫盲"><a href="#有关各种AI模型以及工具、概念的扫盲" class="headerlink" title="有关各种AI模型以及工具、概念的扫盲"></a>有关各种AI模型以及工具、概念的扫盲</h1><blockquote>
+<h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><p>​	RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>深度学习</tag>
+        <tag>AI</tag>
+        <tag>deepseek-r1</tag>
+        <tag>ragflow</tag>
+        <tag>dify</tag>
+        <tag>bge-m3</tag>
+        <tag>知识库</tag>
+        <tag>本地部署</tag>
+        <tag>客制化AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>冬天的诗--伯莱</title>
+    <url>/2025/03/28/%E5%86%AC%E5%A4%A9%E7%9A%84%E8%AF%97-%E4%BC%AF%E8%8E%B1/</url>
+    <content><![CDATA[<div style="display: flex;">
+  <div style="flex: 1; padding-right: 20px;">
+      Winter poem<br>
+[Robert Bly](https://poemwiki.org/q/Robert Bly)<br>
+<br>
+The quivering wings of the winter ant<br>
+wait for lean winter to end.<br>
+I love you in slow, dim-witted ways,<br>
+hardly speaking, one or two words only.<br>
+<br>
+What caused us each to live hidden?<br>
+A wound, the wind, a word, a parent.<br>
+Sometimes we wait in a helpless way,<br>
+awkwardly, not whole and not healed.<br>
+<br>
+When we hid the wound, we fell back<br>
+from a human to a shelled life.<br>
+Now we feel the ant’s hard chest,<br>
+the carapace, the silent tongue.<br>
+ This must be the way of the ant,<br>
+the winter ant, the way of those<br>
+who are wounded and want to live:<br>
+to breathe, to sense another, and to wait.<br>
+
+<p>PoemWiki <a href="https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2">https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2</a><br><br>  </div><br>  <div style="border-left: 1px solid #ccc; margin: 0 10px;"></div><br>  <div style="flex: 1; padding-left: 20px;"><br>冬天的诗<br><br>罗伯特 伯莱<br><br><br><br>冬天的蚂蚁颤抖的翅膀<br><br>等待瘦瘦的冬天结束。<br><br>我用缓慢的，呆笨的方式爱你，<br><br>几乎不说话，仅有只言片语。<br><br><br><br>是什么导致我们各自隐藏生活？<br><br>一个伤口，风，一个言词，一个起源。<br><br>我们有时用一种无助的方式等待，<br><br>笨拙地，并非全部也未愈合。<br><br><br><br>当我们藏起伤口，我们从一个人<br><br>退缩到一个带壳的生命。<br><br>现在我们触摸到蚂蚁坚硬的胸膛，<br><br>那背甲。那沉默的舌头。<br><br><br><br>这一定是蚂蚁的方式<br><br>冬天的蚂蚁的方式，那些<br><br>被伤害的并且想生活的人的方式：<br><br>呼吸，感知他人，以及等待。<br><br><br><br>  </div></p>
+</div>
+
+
+
+<p>​	这首诗真的很准确的说出像我一样普通的人的生活态度。呼吸，感知他人，以及等待。今天打完球准备去吃饭的时候已经九点多了，学校的食堂都关闭了于是只能去附近的商业街找沙县料理。因为打了四个小时球稍微有点累，于是趴在桌子听音乐等着。过了一会老板端过来一份超级豪华的盖浇饭给我，刚递到我手上他就进去厨房忙碌了。吃饭的时候心里暖暖的，想到了高中时候坐火车离家出走时遇到的那个大叔。也是在寥寥数言就知道了我的情况，路过鹰潭的时候买了好多鸡腿让我吃，现在想起来真的很感动，明明他还要坐十多个小时火车去浙江的某个工厂打工，却愿意照顾一个迷失的小孩。不管是不是他馋了还是其他原因，我都很感激他。现在我理解了，这是蚂蚁的方式，沉默的方式，感知他人，以及等待。为了防止自己变得越来越冷漠，我希望你开始想要变得冷漠的时候就去想想那些人，那些以沉默的方式帮助你爱你的人。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《傲慢与偏见》</title>
+    <url>/2025/03/28/%E3%80%8A%E5%82%B2%E6%85%A2%E4%B8%8E%E5%81%8F%E8%A7%81%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《傲慢与偏见》——奥斯丁"><a href="#《傲慢与偏见》——奥斯丁" class="headerlink" title="《傲慢与偏见》——奥斯丁"></a>《傲慢与偏见》——奥斯丁</h1><blockquote>
+<hr>
+<p>婚姻生活是否能幸福，</p>
+<p>完全是个机会问题。一对爱人婚前脾气摸得非常透，或者脾气非常相同，这</p>
+<p>并不能保证他们俩就会幸福。他们总是弄到后来距离越来越远，彼此烦恼。</p>
+<p>你既然得和这个人过一辈子，你最好尽量少了解他的缺点。</p>
+<hr>
+<p>你认为你思想敏捷，懒得去注意书法，而且你认为你这些方面即使算不</p>
+<p>得什么了不起，至少也非常有趣。凡是事情做得快的人总是自以为了不起，</p>
+<p>完全不考虑到做出来的成绩是不是完美。你今天早上跟班纳特太太说，如果</p>
+<p>你决定要从尼日斐花园搬走，你五分钟之内就可以搬走，这种话无非是夸耀</p>
+<p>自己，恭维自己。再说，急躁的结果只会使得应该要做好的事情没有做好，</p>
+<p>无论对人对己，都没有真正的好处，这有什么值得赞美的呢？</p>
+<hr>
+<p>她不禁大声叫道：“我做得多么卑鄙！我一向自负有知人之明！我一向</p>
+<p>自以为有本领！一向看不起姐姐那种宽大的胸襟！为了满足我自己的虚荣心，</p>
+<p>我待人老是不着边际地猜忌多端，而且还要做得使我自己无懈可击。这是我</p>
+<p>多么可耻的地方！可是，这种耻辱又是多么活该！即使我真的爱上了人家，</p>
+<p>也不该盲目到这样该死的地步。然而我的愚蠢，并不是在恋爱方面，而是在</p>
+<p>虚荣心方面。开头刚刚认识他们两位的时候，一个喜欢我，我很高兴，一个</p>
+<p>怠慢我，我就生气，因此造成了我的偏见和无知，遇到与他们有关的事情，</p>
+<p>我就不能明辨是非。我到现在才算有了自知之明。”</p>
+<hr>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《人生若只如初见》</title>
+    <url>/2025/03/28/%E3%80%8A%E4%BA%BA%E7%94%9F%E8%8B%A5%E5%8F%AA%E5%A6%82%E5%88%9D%E8%A7%81%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《人生若只如初见》——安意如"><a href="#《人生若只如初见》——安意如" class="headerlink" title="《人生若只如初见》——安意如"></a>《人生若只如初见》——安意如</h1><hr>
+<p>​	这本书很适合碎片时间看，我几乎是在地铁上，回家的火车，庭院的阳光下看完的。虽然很多都是跳着看的，但是这本书确实给我带来了一场中国诗歌的美学享受，很是喜欢。</p>
+<blockquote>
+<h1 id="《木兰花·拟古决绝词柬友》"><a href="#《木兰花·拟古决绝词柬友》" class="headerlink" title="《木兰花·拟古决绝词柬友》"></a>《<a href="https://www.gushiwen.cn/shiwenv_85e93138ed65.aspx">木兰花·拟古决绝词柬友</a>》</h1><p><a href="https://www.gushiwen.cn/authorv_01611cc80faf.aspx"><strong>纳兰性德</strong></a></p>
+<p>人生若只如初见，何事秋风悲画扇。</p>
+<p>等闲变却故人心，却道故人心易变。</p>
+<p>骊山语罢清宵半，泪雨霖铃终不怨。</p>
+<p>何如薄幸锦衣郎，比翼连枝当日愿。</p>
+</blockquote>
+<hr>
+<blockquote>
+<h1 id="击鼓"><a href="#击鼓" class="headerlink" title="击鼓"></a>击鼓</h1><p><a href="https://www.gushiwen.cn/shiwens/default.aspx?astr=%E8%AF%97%E7%BB%8F%C2%B7%E5%9B%BD%E9%A3%8E%C2%B7%E9%82%B6%E9%A3%8E">诗经·国风·邶风</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%85%88%E7%A7%A6">〔先秦〕</a></p>
+<p>击鼓其镗，踊跃用兵。土国城漕，我独南行。<br>从孙子仲，平陈与宋。不我以归，忧心有忡。<br>爰居爰处？爰丧其马？于以求之？于林之下。<br>死生契阔，与子成说。执子之手，与子偕老。<br>于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。</p>
+</blockquote>
+<hr>
+<blockquote>
+<h1 id="子衿"><a href="#子衿" class="headerlink" title="子衿"></a>子衿</h1><p><a href="https://www.gushiwen.cn/shiwens/default.aspx?astr=%E8%AF%97%E7%BB%8F%C2%B7%E5%9B%BD%E9%A3%8E%C2%B7%E9%83%91%E9%A3%8E">诗经·国风·郑风</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%85%88%E7%A7%A6">〔先秦〕</a></p>
+<p>青青子衿，悠悠我心。纵我不往，子宁不嗣音？<br>青青子佩，悠悠我思。纵我不往，子宁不来？<br>挑兮达兮，在城阙兮。一日不见，如三月兮！</p>
+</blockquote>
+<hr>
+<blockquote>
+<h1 id="子夜四时歌-其十六"><a href="#子夜四时歌-其十六" class="headerlink" title="子夜四时歌 其十六"></a>子夜四时歌 其十六</h1><p>佚名](<a href="https://www.gushiwen.cn/authorv_2128926194cd.aspx)[%E3%80%94%E9%AD%8F%E6%99%8B%E3%80%95](https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E9%AD%8F%E6%99%8B)">https://www.gushiwen.cn/authorv_2128926194cd.aspx)[〔魏晋〕](https://www.gushiwen.cn/shiwens/default.aspx?cstr=魏晋)</a></p>
+<p>白露朝夕生，秋风凄长夜。忆郎须寒服，乘月捣白素。</p>
+</blockquote>
+<hr>
+<blockquote>
+<h1 id="相思怨"><a href="#相思怨" class="headerlink" title="相思怨"></a>相思怨</h1><p><a href="https://www.gushiwen.cn/authorv_e0a677d5273e.aspx">李冶</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%94%90%E4%BB%A3">〔唐代〕</a></p>
+<p>人道海水深，不抵相思半。<br>海水尚有涯，相思渺无畔。<br>携琴上高楼，楼虚月华满。<br>弹著相思曲，弦肠一时断。</p>
+</blockquote>
+<hr>
+<blockquote>
+<h1 id="《结素鱼贻友人》"><a href="#《结素鱼贻友人》" class="headerlink" title="《结素鱼贻友人》"></a>《<a href="https://www.gushiwen.cn/shiwenv_893709d6de57.aspx">结素鱼贻友人</a>》</h1><p><a href="https://www.gushiwen.cn/authorv_e0a677d5273e.aspx">李冶</a></p>
+<p>尺素如残雪，结为双鲤鱼。<br>欲知心里事，看取腹中书。</p>
+<p>你的腹中书是什么呢？是《百年孤独》？还是《资本论》？亦或《道德经》？</p>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《月亮和六便士》</title>
+    <url>/2025/03/29/%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《月亮和六便士》"><a href="#《月亮和六便士》" class="headerlink" title="《月亮和六便士》"></a>《月亮和六便士》</h1><p>​	很早就接触过这本书，只是不知道出于什么原因一直都是读了一点就不太想读下去。后来实在是书荒了又刚好在图书馆遇到，索性就下决心完整地读一遍。也许是我的悟性不高，并没有很太读懂。qwq</p>
+<blockquote>
+<p>我不记得是谁曾经建议过，为了使灵魂宁静，一个人每天要做两件他不喜欢的事。说这句话的人是个聪明人，我也一直在一丝不苟地按照这条格言行事：因为我每天早上都起床，每天也都上床睡觉。但是我这个人生来还有苦行主义的性格，我还一直叫我的肉体每个星期经受一次更大的磨难。《泰晤士报》的文学增刊我一期也没有漏掉。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>一本书要能从这汪洋大海中挣扎出来希望是多么渺茫啊！即使获得成功，那成功又是多么瞬息即逝的事啊！天晓得，作者为他一本书花费了多少心血，经受多少磨折，尝尽了多少辛酸，只为了给偶然读到这本书的人几小时的休憩，帮助他驱除一下旅途中的疲劳。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>我没有时间干这种无聊的事。生命太短促了，没有时间既闹恋爱又搞艺术。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>要是一个女人爱上了你，除非连你的灵魂也叫她占有了，她是不会感到满足的。因为女人是软弱的，所以她们具有非常强烈的统治欲，不把你完全控制在手就不甘心。女人的心胸狭窄，对那些她理解不了的抽象东西非常反感。她们满脑子想的都是物质的东西，所以对于精神和理想非常妒忌。男人的灵魂在宇宙的最遥远的地方邀游，女人却想把它禁锢在家庭收支的账簿里。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>这一定是世间无数对夫妻的故事。这种生活模式给人以安详亲切之感。它使人想到一条平静的小河，蜿蜒流过绿茸茸的牧场，与郁郁的树荫交相掩映，直到最后泻入烟波浩渺的大海中。但是大海却总是那么平静，总是沉默无言、声色不动，你会突然感到一种莫名的不安。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>我总觉得大多数人这样度过一生好象欠缺一点什么。我承认这种生活的社会价值，我也看到了它的井然有序的幸福，但是我的血液里却有一种强烈的愿望，渴望一种更狂放不羁的旅途。这种安详宁静的快乐好象有一种叫我惊惧不安的东西。我的心渴望一种更加惊险的生活。只要在我的生活中能有变迁——变迁和无法预见的刺激，我是准备踏上怪石嶙峋的山崖，奔赴暗礁满布的海滩的。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《悲惨世界》</title>
+    <url>/2025/03/30/%E3%80%8A%E6%82%B2%E6%83%A8%E4%B8%96%E7%95%8C%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《悲惨世界》"><a href="#《悲惨世界》" class="headerlink" title="《悲惨世界》"></a>《悲惨世界》</h1><blockquote>
+<p>人类的一切罪恶都是从儿童的流浪生活开始的。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>世上有一种人就象虾似的不断退向黑暗，他们一生中只后退，不前进，并且利用经验，增加他们的丑恶，不停地日益败坏下去，心地也日益狠毒起来。这一对男女，便是那种东西。 </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 城市会使人变得凶残，因为它使人腐化堕落。山、海和森林使人变得粗野。它们只发展这种野性，却不毁灭人性。</p>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《言叶之庭》</title>
+    <url>/2025/03/29/%E3%80%8A%E8%A8%80%E5%8F%B6%E4%B9%8B%E5%BA%AD%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《言叶之庭》"><a href="#《言叶之庭》" class="headerlink" title="《言叶之庭》"></a>《言叶之庭》</h1><p>​	其我是先看的动漫，一天在图书馆晃悠的时候发现自助换书机器旁边有一摞别人刚刚还过来的书。随手一翻，《言叶之庭》突然出现。绿色的封面，稍微有些旧的痕迹把我带回了初二。那个梅雨季节里，潮湿的空气中，我坐在大大的窗户前的书桌看完了这部动漫。每次看到剪辑都能感受到雨的气味。</p>
+<blockquote>
+<p><strong>隐约雷鸣 阴霾天空 但盼风雨来 能留你在此</strong><br><strong>隐约雷鸣 阴霾天空 即使天无雨 我亦留此地</strong></p>
+</blockquote>
+<p>​	当时真的很喜欢这句台词，后来还找出了原文，在几十兆的电子书《万叶集》慢慢阅读寻找。</p>
+<blockquote>
+<p>原文</p>
+<p>雷神小动，刺云雨零耶，君将留？</p>
+<p>雷神小动，虽不零，吾将留妹留者。</p>
+<p>日文</p>
+<p><a href="https://zhida.zhihu.com/search?content_id=231695448&content_type=Answer&match_order=1&q=%E9%B3%B4%E7%A5%9E&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NDM0MzMwNzYsInEiOiLps7TnpZ4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzE2OTU0NDgsImNvbnRlbnRfdHlwZSI6IkFuc3dlciIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.mKPWP-8HsBXpl3ePaX5pJVNg7iTFrf3aK3Ay9Ft_QU0&zhida_source=entity">鳴神</a>(<em>なるかみ</em>)の 少しとよみて さし曇(<em>ぐも</em>)り 雨(<em>あめ</em>)も降(<em>ふ</em>)らんか 君を留(<em>とど</em>)めん。</p>
+<p>鳴神の 少しとよみて 降らずとも 我(<em>われ</em>)は止(<em>と</em>)まらん 妹(<em>いも</em>)し留めば。</p>
+</blockquote>
+<blockquote>
+<p>走过日式庭院的木桥，雨声又变化了。 树叶摇摆的声音比雨滴落在水面的声音还大，孝雄穿着自制的尖角牛津靴慢慢走着，地上的脚步声与暗绿绣眼鸟的清澈叫声交叠在一起。透过黑松看到的水面上倒映着杜鹃花的粉色、多行松树皮的红色和枫叶的浅绿色。 孝雄背后的背包里装着送给那个人的鞋子，是一双五厘米高跟的小巧浅口鞋。脚尖部分是浅粉色，鞋身是近于白色的浅肤色，鞋跟是被太阳晒过般的柠檬色，鞋上面有用来系在脚踝上的长长鞋带，鞋带顶头是苹果绿皮革缝成的树叶。这次为那个人做的是一双能长时间走路的鞋子。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>不知何时开始认真做鞋的弟弟、不顾一切想成为演员的梨花，还有与小自己一轮的男子认真相处的母亲。<br>　　——这些家伙都是笨蛋吗？我在心中焦躁地恶骂。朝着明明不可能到达的终点一个劲地奔跑，仿佛其他地方都不存在似的——每个人都如此。不觉眼里涌起了今天的第二次泪水。今天到底是什么破日子。</p>
+</blockquote>
+<p>​	有时候真的很喜欢日本文学里面的细节描写和心理描写，那么细致入微，那么敏感，就好像这些事情真的在世界上某个角落发生过一样。</p>
+<p>​	可惜对于我来说，不管是村上春树还是东野圭吾又或是太宰治和芥川龙之介，都不宜多读。因为总是在读完会有一种很浓烈的惆怅感觉。此时往往需要读一些欧洲或者是我们国家的小说才能缓过来。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《孤独是迷人的》</title>
+    <url>/2025/03/30/%E3%80%8A%E5%AD%A4%E7%8B%AC%E6%98%AF%E8%BF%B7%E4%BA%BA%E7%9A%84%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《孤独是迷人的》"><a href="#《孤独是迷人的》" class="headerlink" title="《孤独是迷人的》"></a>《孤独是迷人的》</h1><h2 id="艾米丽迪金森"><a href="#艾米丽迪金森" class="headerlink" title="艾米丽迪金森"></a><strong>艾米丽迪金森</strong></h2><p>​	很庆幸在2024年遇到了艾米丽迪金森，我真的太喜欢她的现代诗诗集了。初见时是在图书馆的诗集书架一角，一同借过去的还有布考斯基的《爱是地狱冥犬》。可惜出于个人喜好原因，这本《爱是地狱冥犬》并没有在我手头逗留很久就回归了。</p>
+<p>​	简单的紫色的封面，极简地布局排版，善解人意的中英对照，读来十分享受。很多次做完家教回学校的路上都是这本书陪着我，有时候夕阳透过大大的玻璃窗映在书上，我就会想到这个世界上的美好，为这个世界还有着像艾米丽迪金森一样可爱的人们感到欢喜。</p>
+<h4 id="Nobody-knows-this-little-Rose"><a href="#Nobody-knows-this-little-Rose" class="headerlink" title="Nobody knows this little Rose"></a>Nobody knows this little Rose</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Nobody knows this little rose</h3><p><em>Nobody knows this little Rose—<br>It might a pilgrim be<br>Did I not take it from the ways<br>And lift it up to thee.</em></p><p><em>Only a Bee will miss it—<br>Only a Butterfly,<br>Hastening from far journey—<br>On its breast to lie—</em></p><p><em>Only a Bird will wonder—<br>Only a Breeze will sigh—<br>Ah Little Rose—how easy<br>For such as thee to die!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>无人知晓这朵小玫瑰</h3><p>无人知晓这朵小玫瑰——<br>它或许是朝圣者<br>若非我从路旁将它采撷<br>捧起献予你</p><p>只有蜜蜂会惦念——<br>只有蝴蝶，<br>从远途匆匆赶来——<br>停驻在它的胸膛——</p><p>只有鸟儿会疑惑——<br>只有微风会叹息——<br>啊小玫瑰——对你而言<br>凋零竟如此轻易！</p></div></div>
+</blockquote>
+<h4 id="If-I-should-die"><a href="#If-I-should-die" class="headerlink" title="If I should die"></a>If I should die</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>If I Should Die</h3><p><em>If I should die,<br>And you should live,<br>And time should gurgle on,<br>And morn should beam,<br>And noon should burn,<br>As it has usual done;</em></p><p><em>If birds should build as early,<br>And bees as bustling go,—<br>One might depart at option<br>From enterprise below!</em></p><p><em>’T is sweet to know that stocks will stand<br>When we with daisies lie,<br>That commerce will continue,<br>And trades as briskly fly.</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>倘若我死去</h3><p>倘若我死去，<br>而你仍活着，<br>时间依旧汩汩流淌，<br>晨光仍会倾泻，<br>烈日仍会灼烧，<br>如往常一样；</p><p>倘若鸟儿依旧早早筑巢，<br>蜜蜂依旧匆忙奔忙，——<br>人们或许能随意选择<br>离开尘世的纷扰！</p><p>知道股票仍会交易，<br>当我们与雏菊同眠，<br>商业仍会继续，<br>贸易仍会飞旋。</p></div></div>
+</blockquote>
+<h4 id="Success-is-counted-sweetest"><a href="#Success-is-counted-sweetest" class="headerlink" title="Success is counted sweetest"></a>Success is counted sweetest</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Success is counted sweetest</h3><p><em>Success is counted sweetest<br>By those who ne'er succeed.<br>To comprehend a nectar<br>Requires sorest need.</em></p><p><em>Not one of all the purple Host<br>Who took the Flag today<br>Can tell the definition,<br>So clear, of Victory,</em></p><p><em>As he, defeated, dying,<br>On whose forbidden ear<br>The distant strains of triumph<br>Break, agonized and clear.</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>成功最甜美</h3><p>成功最甜美，<br>属于从未成功的人。<br>要领悟琼浆的滋味，<br>需最痛切的渴恨。</p><p>今日那紫袍加身的胜者，<br>虽高擎凯旋的旗帜，<br>却无人能像他——战败者，垂死时，</p><p>听远方欢庆的号角刺入耳际，<br>那般清晰地懂得胜利的真谛。</p></div></div>
+</blockquote>
+<h4 id="I-taste-a-liquor-never-brewed"><a href="#I-taste-a-liquor-never-brewed" class="headerlink" title="I taste a liquor never brewed"></a>I taste a liquor never brewed</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I taste a liquor never brewed</h3><p><em>I taste a liquor never brewed—<br>From Tankards scooped in Pearl—<br>Not all the Vats upon the Rhine<br>Yield such an Alcohol!</em></p><p><em>Inebriate of Air—am I—<br>And Debauchee of Dew—<br>Reeling—thro endless summer days—<br>From inns of Molten Blue—</em></p><p><em>When "Landlords" turn the drunken Bee<br>Out of the Foxglove's door—<br>When Butterflies—renounce their "drams"—<br>I shall but drink the more!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我啜饮一杯未经酿造的琼浆</h3><p>我啜饮一杯未经酿造的琼浆——<br>从珍珠镂成的酒樽——<br>莱茵河畔所有的酒窖<br>都榨不出这般醇醪！</p><p>我陶醉于空气——我是——<br>露水的浪荡子——<br>蹒跚着——穿越无尽的夏日——<br>自熔蓝的客栈出离——</p><p>当"店主"将醉酒的蜜蜂<br>逐出毛地黄的门扉——<br>当蝴蝶——放弃它们的"烈酒"——<br>我定要痛饮至酩酊！</p></div></div>
+</blockquote>
+<h4 id="New-feet-within-my-garden-go"><a href="#New-feet-within-my-garden-go" class="headerlink" title="New feet within my garden go"></a>New feet within my garden go</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>New feet within my garden go</h3><p><em>New feet within my garden go—<br>New fingers stir the sod—<br>A Troubadour upon the Elm<br>Betrays the solitude.</em></p><p><em>New Children play upon the green—<br>New Weary sleep below—<br>And still the pensive Spring returns—<br>And still the punctual snow!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>新的脚步踏入我的花园</h3><p>新的脚步踏入我的花园——<br>新的手指拨动草皮——<br>榆树上的游吟诗人<br>泄露了这片孤寂</p><p>新的孩童在绿茵嬉戏——<br>新的倦客长眠地下——<br>沉思的春天依然归来——<br>守时的雪依然落下！</p></div></div>
+</blockquote>
+<h4 id="The-soul-selects-her-own-society"><a href="#The-soul-selects-her-own-society" class="headerlink" title="The soul selects her own society"></a>The soul selects her own society</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The soul selects her own society</h3><p><em>The soul selects her own society—<br>Then shuts the door—<br>To her divine Majority—<br>Present no more—</em></p><p><em>Unmoved—she notes the Chariots—pausing—<br>At her low Gate—<br>Unmoved—an Emperor be kneeling<br>Upon her Mat—</em></p><p><em>I've known her—from an ample nation—<br>Choose One—<br>Then—close the Valves of her attention—<br>Like Stone—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>灵魂选择自己的伴侣</h3><p>灵魂选择自己的伴侣——<br>然后关上大门——<br>对她神圣的抉择——<br>不再表明心迹——</p><p>无动于衷——她看见车辇——停在——<br>她低矮的门前——<br>无动于衷——一位皇帝跪在<br>她的席垫——</p><p>我知道她——从泱泱大国——<br>选中一人——<br>然后——关闭注意的阀门——<br>像石头般坚定——</p></div></div>
+</blockquote>
+<h4 id="The-grass-so-little-has-to-do"><a href="#The-grass-so-little-has-to-do" class="headerlink" title="The grass so little has to do"></a>The grass so little has to do</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The grass so little has to do</h3><p><em>The grass so little has to do—<br>A sphere of simple green—<br>With only butterflies to brood<br>And bees to entertain—</em></p><p><em>And stir all day to pretty tunes<br>The breezes fetch along—<br>And hold the sunshine in its lap<br>And bow to everything—</em></p><p><em>And thread the dews all night like pearls—<br>And make itself so fine—<br>A duchess were too common<br>For such a noticing—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>青草何其卑微</h3><p>青草何其卑微——<br>不过一球简单的绿——<br>只需照料蝴蝶<br>款待蜜蜂——</p><p>整日随清风送来的<br>美妙旋律摇曳——<br>将阳光揽在怀中<br>向万物鞠躬——</p><p>整夜将露珠穿成珍珠——<br>把自己装扮精致——<br>公爵夫人都显得俗气<br>配不上这般注视——</p></div></div>
+</blockquote>
+<h4 id="The-moon-is-distant-from-the-sea"><a href="#The-moon-is-distant-from-the-sea" class="headerlink" title="The moon is distant from the sea"></a>The moon is distant from the sea</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The moon is distant from the sea</h3><p><em>The moon is distant from the sea—<br>And yet with amber hands—<br>She leads him—docile as a boy—<br>Along appointed sands—</em></p><p><em>He never misses a Degree—<br>Obedient to Her eye—<br>He comes just so far—and no farther—<br>Than She thinks fit to pry—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>月亮远离大海</h3><p>月亮远离大海——<br>却用琥珀色的手——<br>牵引他——温顺如男孩——<br>沿着命定的沙洲——</p><p>他从不偏离分毫——<br>顺从她的目光——<br>只走近到此——不再向前——<br>恰是她允许的远方——</p></div></div>
+</blockquote>
+<h4 id="I-had-no-time-to-hate"><a href="#I-had-no-time-to-hate" class="headerlink" title="I had no time to hate"></a>I had no time to hate</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I had no time to hate</h3><p><em>I had no time to hate—because<br>The grave would hinder me—<br>And life was not so ample I<br>Could finish enmity—</em></p><p><em>Nor had I time to love—but since<br>Some industry must be—<br>The little toil of love—I thought<br>Be large enough for me—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我来不及恨</h3><p>我来不及恨——因为<br>坟墓会阻挠我——<br>生命也不够辽阔<br>让我完成敌意——</p><p>我也来不及爱——但既然<br>必须有所经营——<br>爱的微小辛劳——我想<br>对我已足够丰盈——</p></div></div>
+</blockquote>
+<h4 id="To-wait-an-hour-is-long"><a href="#To-wait-an-hour-is-long" class="headerlink" title="To wait an hour is long"></a>To wait an hour is long</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>To wait an hour is long</h3><p><em>To wait an hour is long—<br>If love be just beyond—<br>To wait Eternity—is short—<br>If love reward the end—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>等待一小时太久</h3><p>等待一小时太久——<br>如果爱近在咫尺——<br>等待永恒却短暂——<br>若爱在终点相迎——</p></div></div>
+</blockquote>
+<h4 id="I-hide-myself-within-my-flower"><a href="#I-hide-myself-within-my-flower" class="headerlink" title="I hide myself within my flower"></a>I hide myself within my flower</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I hide myself within my flower</h3><p><em>I hide myself within my flower—<br>That fading from your vase—<br>You—unsuspecting—feel for me—<br>Almost a loneliness—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我藏身于花朵</h3><p>我藏身于花朵——<br>当你从花瓶里取出凋谢的我——<br>你——毫无察觉地——为我感到——<br>近乎一种寂寞——</p></div></div>
+</blockquote>
+<h4 id="Had-I-not-seen-the-sun"><a href="#Had-I-not-seen-the-sun" class="headerlink" title="Had I not seen the sun"></a>Had I not seen the sun</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Had I not seen the sun</h3><p><em>Had I not seen the sun<br>I could have borne the shade<br>But Light a newer Wilderness<br>My Wilderness has made—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我本可以忍受黑暗</h3><p>我本可以忍受黑暗<br>如果我不曾见过太阳<br>然而阳光已使我的荒凉<br>成为更新的荒凉——</p></div></div>
+</blockquote>
+<h4 id="There-is-no-frigate-like-a-book"><a href="#There-is-no-frigate-like-a-book" class="headerlink" title="There is no frigate like a book"></a>There is no frigate like a book</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>There is no frigate like a book</h3><p><em>There is no frigate like a book<br>To take us lands away,<br>Nor any coursers like a page<br>Of prancing poetry.</em></p><p><em>This traverse may the poorest take<br>Without oppress of toll;<br>How frugal is the chariot<br>That bears a human soul!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>没有一艘船能像一本书</h3><p>没有一艘船能像一本书<br>带我们远渡重洋，<br>也没有骏马能像一页<br>跳跃的诗行。</p><p>最贫穷的人也可由此穿越<br>无需支付通行税；<br>承载人类灵魂的马车<br>何等节俭实惠！</p></div></div>
+</blockquote>
+<h4 id="He-ate-and-drank-the-precious-words"><a href="#He-ate-and-drank-the-precious-words" class="headerlink" title="He ate and drank the precious words"></a>He ate and drank the precious words</h4><blockquote>
+<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>He ate and drank the precious words</h3><p><em>He ate and drank the precious words—<br>His spirit grew robust—<br>He knew no more that he was poor,<br>Nor that his frame was dust.</em></p><p><em>He danced along the dingy days,<br>And this bequest of wings<br>Was but a book. What liberty<br>A loosened spirit brings!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>他啜饮珍贵的词语</h3><p>他啜饮珍贵的词语——<br>灵魂变得强健——<br>不再知晓自己贫穷<br>也不觉肉身如尘烟</p><p>他在黯淡岁月起舞，<br>这双翼的遗产<br>不过是一本书。挣脱束缚的灵魂<br>带来何等自由无边！</p></div></div>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《不能承受的生命之轻》</title>
+    <url>/2025/03/30/%E3%80%8A%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%8B%E8%BD%BB%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《不能承受的生命之轻》"><a href="#《不能承受的生命之轻》" class="headerlink" title="《不能承受的生命之轻》"></a>《不能承受的生命之轻》</h1><h2 id="米兰·昆德拉"><a href="#米兰·昆德拉" class="headerlink" title="米兰·昆德拉"></a>米兰·昆德拉</h2><p>​	从这本书开始了解米兰昆德拉，开始迷上米兰昆德拉。</p>
+<hr>
+<blockquote>
+<p>也许最沉重的负担同时也是一种生活最为充实的象征，负担越沉，我们的生活也就越贴近大地，越趋近真切和实在。<br>相反，完全没有负担，人变得比大气还轻，会高高地飞起，离别大地亦即离别真实的生活。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>更使他悲伤的是，真正的男子汉通常能果敢行动的时刻，他总是犹豫不决，以至他经历过的一个个美妙瞬间（比如说跪在她床上，想着不能让她先死的瞬间），由此而丧失全部意义。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>托马斯得出结论：同女人做爱和同女人睡觉是两种互不相关的感情，岂止不同，简直对立。爱情不会使人产生性交的欲望（即对无数女人的激望），却会引起同眠共寝的欲求（只限于对一个女人的欲求）。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>背叛意味着打乱原有的秩序，背叛意味着打乱秩序和进入未知。萨宾娜看不出什么比进入未知状态更奇妙诱人的了。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>她从他的视界里消失之前，塞给了他那把海格立斯的扫帚。他用它把自己藐视的一切都从生活中扫去了。一种突然的庆幸，一阵狂乱的欣喜，还有自由和新生带来的欢乐，都是她留下的馈赠。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>女人无力抗拒任何呼唤着她受惊灵魂的声音，而男人则无力阻挡任何灵魂正在响应呼唤的女人。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>人类生命只有一次，我们不能测定我们的决策孰好孰坏，原因就是在一个给定购情境中，我们只能作一个决定。我们没有被赐予第二次、第三次或第四次生命来比较各种各样的决断。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>历史和个人生命一样，轻得不能承受，轻若鸿毛，轻如尘埃，卷入了太空，它是明天不复存在的任何东西。</strong></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>如果说，性亢奋是我们的造物主为了自己取乐而用的一种装置，那么爱就是唯独属于我们自己的东西，能使我们摆脱造物主。爱情是我们的自由，爱情处于“非如此不可”的规则之外。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>特丽莎与托马斯的死显示着重，她想用自己的死来表明轻，她将比大气还轻。正如巴门尼德曾经指出的，消极会变成积极。</strong></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《周国平自选集》</title>
+    <url>/2025/03/30/%E3%80%8A%E5%91%A8%E5%9B%BD%E5%B9%B3%E8%87%AA%E9%80%89%E9%9B%86%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《周国平自选集》"><a href="#《周国平自选集》" class="headerlink" title="《周国平自选集》"></a>《周国平自选集》</h1><p>​	当做睡前读物跳着看的，记录一些个人比较喜欢的段落。</p>
+<blockquote>
+<p> 每个人都是一个宇宙，每个人的天性中都蕴藏着大自然赋予的创造力。把这个观点运用到读 书上，爱默生提倡一种”创造性的阅读”。这就是：把自己的生活当作正文，把书籍当作注 解；听别人发言是为了使自己能说话；以一颗活跃的灵魂，为获得灵感而读书。    </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 好的书籍是朋友，但也仅仅是朋友。与好友会晤是快事，但必须自己有话可说，才能真正快 乐。一个愚钝的人，再智慧的朋友对他也是毫无用处的，他坐在一群才华横溢的朋友中间， 不过是一具木偶，一个讽刺，一种折磨。每人都是一个神，然后才有奥林匹斯神界的欢聚。    </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 心灵是一本奇特的账簿，只有收入，没有支出，人生的一切痛苦和欢乐，都化作宝贵的体验 记入它的收入栏中。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 正如作者所说，童年时代的 太阳要炽热得多，草要茂盛得多，雨要大得多，天空的颜色要深得多，周围的人要有趣得多 。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 怕只怕文明与野蛮握手言欢，金钱与权力狼狈为奸，那才真正是民族的灾难。物 质上的贫富悬殊已经有目共睹，精神上何尝不也发生着两极分化?好在一个人只要耐得贫困 ，自甘寂寞，总还可以为灵魂守一块家园，不致在这纷纷扰扰的世界上流离失所。认清贫困 和寂寞乃是心灵高贵者在这个时代的命运，困惑中倒也生出了一些坦然。    </p>
+</blockquote>
+<hr>
+<blockquote>
+<p>  拜伦在《唐璜》中写道：”一切悲剧皆因死亡而结束，一切喜剧皆因婚姻而告终。”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 我身上必定有两个自我。一个好动，什么都要尝试，什么都想经历。另一个喜静，对一切加 以审视和消化。这另一个自我，如同罗曼·罗兰所说，是”一颗清明宁静而非常关切的灵魂 “。仿佛是它把我派遣到人世间活动，鼓励我拼命感受生命的一切欢乐和苦难，同时又始终 关切地把我置于它的视野之内，随时准备把我召回它的身边。即使我在世上遭受最悲惨的灾 难和失败，只要我识得返回它的途径，我就不会全军覆没。它是我的守护神，为我守护着一 个任何风雨都侵袭不到也损坏不了的家园，使我在最风雨飘摇的日子里也不致无家可归。    </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 调情是轻松的，爱情是沉重的。风流韵事不过是躯体的游戏，至多还是感情的游戏。可是， 当真的爱情来临时，灵魂因恐惧和狂喜而战栗了。    </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 人的灵魂生活比外在的肉身生活和社会生活更为本质，每个人的人生质量 首先取决于他的灵魂生活的质量。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《海子诗集》</title>
+    <url>/2025/03/30/%E3%80%8A%E6%B5%B7%E5%AD%90%E8%AF%97%E9%9B%86%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《海子诗集》"><a href="#《海子诗集》" class="headerlink" title="《海子诗集》"></a>《海子诗集》</h1><blockquote>
+<p><strong>幸福的一日——致秋天的花楸树</strong></p>
+<p>作者：海子</p>
+<p>我无限的热爱着新的一日</p>
+<p>今天的太阳 今天的马 今天的花楸树</p>
+<p>使我健康 富足 拥有一生</p>
+<p>从黎明到黄昏</p>
+<p>阳光充足</p>
+<p>胜过一切过去的诗</p>
+<p>幸福找到我</p>
+<p>幸福说：“瞧 这个诗人</p>
+<p>他比我本人还要幸福“</p>
+<p>在劈开了我的秋天</p>
+<p>在劈开了我的骨头的秋天</p>
+<p>我爱你，花楸树</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>活在珍贵的人间</strong></p>
+<p>活在这珍贵的人间<br>太阳强烈<br>水波温柔<br>一层层白云覆盖着<br>我<br>踩在青草上<br>感到自己是彻底干净的黑土块</p>
+<p>活在这珍贵的人间<br>泥土高溅<br>扑打面颊<br>活在这珍贵的人间<br>人类和植物一样幸福<br>爱情和雨水一样幸福</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《罪与罚》</title>
+    <url>/2025/03/30/%E3%80%8A%E7%BD%AA%E4%B8%8E%E7%BD%9A%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《罪与罚》"><a href="#《罪与罚》" class="headerlink" title="《罪与罚》"></a>《罪与罚》</h1><p>​	依旧是那个味道，那种独特的心脏跳动的感觉。陀思妥耶夫斯基总是能给我带来俄罗斯式的震撼。看完这本书我又有了面对生活的勇气了。</p>
+<hr>
+<blockquote>
+<p> 可我是怎么杀的？难道别人是这样杀人吗？难道别人是像我当时那样去杀人吗？以后什么时候我会讲给您听，我是怎么去的……难道我杀死的是老太婆吗？我杀死的是我自己，而不是老太婆！我真的是一下子结果了自己的性命，永远杀死了自己！</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 要不，就完全放弃生活！”他突然发狂似地大声叫喊，“顺从地听天由命，一劳永逸，放弃行动、生活和爱的一切权利，扼杀自己心中的一切！”</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 何况真要了解任何一个人，必须一步一步地细心观察，才不至于产生错误和偏见，否则以后纠正错误和消除成见就十分困难了。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 这是怎么发生的，他自己也不知道，但是好像不知有什么突然把他举起来，丢到了她的脚下。他哭了，抱住了她的双膝。最初一瞬间她大吃一惊，吓得面无人色。她跳了起来，浑身发抖，望着他。但立刻，就在这一刹那，她什么都明白了。她的眼睛闪闪发光，露出无限幸福的神情；她明白了，她已经毫不怀疑，他爱她，无限地热爱她，这个时刻终于到了……</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 他们想要说话，可是谁也说不出来。他们都热泪盈眶。他们俩都面色苍白，两人都很瘦；但是在这两张仍然带有病容的、苍白的脸上已经闪烁着获得新生的未来的曙光。爱情使他们获得了新生，这一个人的心包含有另一颗心的无穷无尽的生活源泉。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>而且这一切究竟是什么呢，一切痛苦都已经过去了！现在，在最初的感情冲动中，一切，就连他犯的罪，就连判决和流放，他都觉得好像是某种身外的、奇怪的、甚至仿佛不是他亲身经历的事情。不过这天晚上他不能长久和固定地去想某一件事，不能把思想集中到某一件事情上去；而且现在他也并未有意识地作出任何决定；他只是有这样的一些感觉。生活取代了雄辩，思想意识里应该形成完全不同的另一种东西。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《荀子》</title>
+    <url>/2025/03/30/%E3%80%8A%E8%8D%80%E5%AD%90%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《荀子》"><a href="#《荀子》" class="headerlink" title="《荀子》"></a>《荀子》</h1><blockquote>
+<p>君子之学也，入乎耳，箸乎心，布乎四体，形乎动静。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>故声无小而不闻，行无隐而不形。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>古之学者为己，今之学者为人。君子之学也，以美其身；小人之学也，以为禽犊。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>故相形不如论心，论心不如择术</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>术正而心顺之，则形相虽恶而心术善，无害为君子也。形相虽善而心术恶，无害为小人也。</p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《飞鸟集》</title>
+    <url>/2025/03/30/%E3%80%8A%E9%A3%9E%E9%B8%9F%E9%9B%86%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《飞鸟集》"><a href="#《飞鸟集》" class="headerlink" title="《飞鸟集》"></a>《飞鸟集》</h1><p>​	记录一些个人比较喜欢的短诗。</p>
+<blockquote>
+<p>Do not seat your love upon a precipice because it is high.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> We, the rustling leaves, have a voice that answers the storms, but who are you so silent<br>I am a mere flower.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Your voice, my friend, wanders in my heart, like the muffled sound<br>of the sea among these listening pines. </p>
+</blockquote>
+<hr>
+<blockquote>
+<p> Let life be beautiful like summer flowers and death like autumn leaves.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> Not hammer-strokes, but dance of the water sings the pebbles</p>
+<p>不是槌的打击，乃是水的载歌载舞，使鹅卵石臻于完美。</p>
+<p>记起来这句诗我在高中班级里开班会时用过，主题是<strong>水</strong>来着。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>世界以痛吻我，我报之以歌。</p>
+<p>The world has kissed my soul with its pain, asking for its return</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> The best does not come alone.<br>It comes with the company of the all.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p> 当我去时，让我的思想到你那里来，如那夕阳的余光，映在沉默的星天边上。<br>Let my thoughts come to you, when I am gone, like the after glow of<br>sunset at the margin of starry silence.</p>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《局外人》</title>
+    <url>/2025/03/30/%E3%80%8A%E5%B1%80%E5%A4%96%E4%BA%BA%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《局外人》"><a href="#《局外人》" class="headerlink" title="《局外人》"></a>《局外人》</h1><h1 id="看不懂。。。"><a href="#看不懂。。。" class="headerlink" title="看不懂。。。"></a>看不懂。。。</h1><blockquote>
+<p><img src="/../images/read/juwairen.jpg"></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《无知》</title>
+    <url>/2025/03/30/%E3%80%8A%E6%97%A0%E7%9F%A5%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《无知》"><a href="#《无知》" class="headerlink" title="《无知》"></a>《无知》</h1><h2 id="米兰·昆德拉"><a href="#米兰·昆德拉" class="headerlink" title="米兰·昆德拉"></a>米兰·昆德拉</h2><p>​	</p>
+<blockquote>
+<p>如果往事不能在与朋友的交谈中被一而再、再而三地提及，就会消失。流亡者集中居住在一些移民地，同胞们不厌其烦地反复讲着同样的事情，因此不会淡忘。而对于那些不怎么和同胞来往的人，就像伊莱娜或尤利西斯，他们就不可避免地会得失忆症。他们的思乡之情越强烈，他们的记忆就越空洞。尤利西斯越是痛苦，他忘记的事就越多。这是因为思乡之情并不能促进人的记忆活动，并不会唤起从前的记忆，相反，它满足于本身，满足于自己的激情，完全淹没在自己的痛苦中。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>二十年里尤利西斯惟一想的就是回归故乡。但一旦回来后，他惊讶地发现，他的生活，也就是他生命的精华、重心、财富，其实并不在伊萨卡，而是存在于他二十年的漂泊之中。这笔财富，他已然失去，而且无法在讲述中再找回来了。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在一首四行诗里面,他就写到了他的悲苦。他说想要用悲苦造一间屋,把自己关在里面三百年。三百年啊，我们都明白，眼前是一条三百年的漫长的隧道。”</p>
+</blockquote>
+<hr>
+<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《橡果兄弟》</title>
+    <url>/2025/03/30/%E3%80%8A%E6%A9%A1%E6%9E%9C%E5%85%84%E5%BC%9F%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《橡果兄弟》"><a href="#《橡果兄弟》" class="headerlink" title="《橡果兄弟》"></a>《橡果兄弟》</h1><p>​	这是一部电影啦！但是太好看了，所以记录一下。</p>
+<blockquote>
+<p>00:37:00,218 –&gt; 00:37:02,880<br>很蓝</p>
+<p>622<br>00:37:05,181 –&gt; 00:37:07,137<br>中间的这个是？</p>
+<p>623<br>00:37:07,183 –&gt; 00:37:08,172<br>是瓢虫</p>
+<p>624<br>00:37:08,351 –&gt; 00:37:09,215<br>它飞起来了？</p>
+<p>625<br>00:37:09,811 –&gt; 00:37:10,721<br>对啊</p>
+<p>626<br>00:37:11,146 –&gt; 00:37:14,229<br>虽然很难但是很有趣 对吧</p>
+<p>627<br>00:37:14,274 –&gt; 00:37:18,313<br>它会把再也不会到来的瞬间化为永恒</p>
+<p>628<br>00:37:18,528 –&gt; 00:37:24,444<br>把我第一次按下快门那瞬间的心情<br>一起变成永远</p>
+<p>629<br>00:37:25,410 –&gt; 00:37:31,781<br>将没有人发现<br>却即将发生在这个世界角落的小故事</p>
+<p>630<br>00:37:31,833 –&gt; 00:37:34,074<br>在当下烙印起来</p>
+<p>631<br>00:37:34,586 –&gt; 00:37:40,047<br>替我用任何人都看得到的形式来证明</p>
+<p>632<br>00:37:40,091 –&gt; 00:37:43,254<br>我用全身心感受到的世界确实存在</p>
+<p>633<br>00:37:44,220 –&gt; 00:37:46,461<br>你不觉得这样很厉害吗？</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>897<br>00:51:00,224 –&gt; 00:51:02,931<br>感觉你们在一起每天都过得很开心</p>
+<p>898<br>00:51:03,018 –&gt; 00:51:04,303<br>你们可是在闪闪发光哦</p>
+<p>899<br>00:51:04,812 –&gt; 00:51:07,053<br>虽然我没办法知道在我们相遇之前</p>
+<p>900<br>00:51:07,106 –&gt; 00:51:09,813<br>你们两个是怎么相处的</p>
+<p>901<br>00:51:09,858 –&gt; 00:51:14,397<br>但和最要好的朋友玩在一起</p>
+<p>902<br>00:51:14,488 –&gt; 00:51:17,150<br>那可是最棒最快乐的事哦</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>1002<br>00:56:29,177 –&gt; 00:56:32,340<br>闪耀在蓝色世界里的红色流星</p>
+<p>1003<br>00:56:35,142 –&gt; 00:56:37,383<br>是明亮的红色，真漂亮</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>1007<br>00:56:50,741 –&gt; 00:56:52,982<br>就算逃避个一次</p>
+<p>1008<br>00:56:53,035 –&gt; 00:56:55,276<br>我也还是可以重新再战对吧</p>
+<p>1009<br>00:56:56,705 –&gt; 00:56:58,946<br>没错，因为你还活着啊</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>1249<br>01:26:29,476 –&gt; 01:26:34,937<br><strong>（我的宝物）</strong><br><strong>（见证我15岁最后英姿的好朋友们）</strong></p>
+</blockquote>
+<p><img src="/../images/read/xiangguoxiongdi_2.jpg"></p>
+<p><img src="/../images/read/xiangguoxiongdi_1.jpg"></p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《星，雪，火》</title>
+    <url>/2025/03/30/%E3%80%8A%E6%98%9F%EF%BC%8C%E9%9B%AA%EF%BC%8C%E7%81%AB%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《星，雪，火》"><a href="#《星，雪，火》" class="headerlink" title="《星，雪，火》"></a>《星，雪，火》</h1><h2 id="约翰·海恩斯"><a href="#约翰·海恩斯" class="headerlink" title="约翰·海恩斯"></a>约翰·海恩斯</h2><p>​	这本书完完全全是在地铁上看完的，在最现代化的城市中，在地面以下的钢铁列车中，我的思绪已然飘向阿拉斯加。哪里的极地、大雪，干净的夜空和星星都把我留住，以至于多次坐过站。很幸运能遇到这本书——这本随手从书堆中抽出，读起来却一发不可收拾的书。叙事慢慢的，就好像在冬天的阿拉斯加的雪夜里，坐在火堆旁边听一位老者讲故事。</p>
+<blockquote>
+<p>​	一个人在这样遥远、孤寂的地方能够做些什么？首先，他可以看看天气、星星、雪或者是火，这是他最常阅读的书。而他所做的一切，不论是将木柴和几桶雪带进，或是将废水带出，都需要他站在野地的空旷处，暂时远离墙，远离人类写就的书，远离做梦的脑袋。当我站在这儿，当我因夜晚的寂静和亲切而精神抖擞时，我认为这是一种很好的生活方式。流浪的精灵回归，以人的形式在森林中辟出一块空地，用身边的树盖了一个遮蔽所。它来这儿学习此地的生存之道，来这儿睡觉和苏醒，成长和变老，来这儿观看河流、东移的云朵和草上的霜花。我想象着这样一个人，他可能是世界上最冷的学者，追逐着雪上的每一条线索，边前进边写下一本书，那将是一本雪的历史，一本冬日之书，一本古时候在这些山丘上打猎的人阅读的千年文本。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用samba将armlinux小主机作为nas</title>
+    <url>/2025/04/04/%E4%BD%BF%E7%94%A8samba%E5%B0%86armlinux%E5%B0%8F%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BAnas/</url>
+    <content><![CDATA[<h1 id="使用samba将armlinux小主机作为nas"><a href="#使用samba将armlinux小主机作为nas" class="headerlink" title="使用samba将armlinux小主机作为nas"></a>使用samba将armlinux小主机作为nas</h1><h2 id="先上结果！"><a href="#先上结果！" class="headerlink" title="先上结果！"></a>先上结果！</h2><p><img src="/../images/Linux/samba/1.png"></p>
+<p><img src="/../images/Linux/samba/2.jpg"></p>
+<p><img src="/../images/Linux/samba/3.jpg"></p>
+<p>​	arm小主机为rk3399 4+32g（70块钱捡的二手），作为nas主控完全够用。</p>
+<h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>​	本来想把自己那块2t的机械硬盘改为共享盘，可惜里面已经有300多g的图片了，因为涉及到了修改文件系统需要格式化所以先拿手头上的sata ssd做测试。没想到这个ssd挂了（悲），于是换成了最后的32g限制u盘了。</p>
+<h3 id="步骤-Liunx端"><a href="#步骤-Liunx端" class="headerlink" title="步骤-Liunx端"></a>步骤-Liunx端</h3><h4 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h4><ol>
+<li><p>插入U盘。</p>
+</li>
+<li><p>ssh连接。</p>
+</li>
+<li><p>清空U盘并创建ext4文件系统。</p>
+<ol>
+<li><p>找到插入的U盘</p>
+<p> <code>lsblk</code>可以找到插入的硬盘（会显示硬盘大小以及种类，例如我的就是sda 29.3g）</p>
+</li>
+<li><p>清空U盘并创建ext4文件系统。</p>
+<p> <code>sudo mkfs.ext4 /dev/sdb1</code></p>
+</li>
+</ol>
+</li>
+<li><p>创建一个用于共享的根文件夹并挂载U盘</p>
+<p><code>sudo mkdir /mnt/shared</code></p>
+<p><code>sudo mount /dev/sda /mnt/shared</code></p>
+</li>
+<li><p>赋予系统用户这个文件夹读写权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R pi:pi /mnt/shared  <span class="comment"># 更改所有者为 regen</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 770 /mnt/shared          <span class="comment"># 设置读写执行权限</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="2-安装以及配置Samba"><a href="#2-安装以及配置Samba" class="headerlink" title="2. 安装以及配置Samba"></a>2. 安装以及配置Samba</h4><ol>
+<li>安装</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt upgrade</span><br><span class="line"><span class="built_in">sudo</span> apt install samba -y</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>配置</p>
+<p> 我这边是基于vscode的ssh扩展进行编辑配置的（非常好用）。</p>
+<p> <code>code /etc/samba/</code></p>
+<p> 然后编辑<code>smb.conf</code>，在末尾加上</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[shared]</span><br><span class="line">   path = /mnt/shared</span><br><span class="line">   browseable = <span class="built_in">yes</span></span><br><span class="line">   writable = <span class="built_in">yes</span></span><br><span class="line">   <span class="built_in">read</span> only = no</span><br><span class="line">   guest ok = no</span><br><span class="line">   valid <span class="built_in">users</span> = pi   <span class="comment"># 当前Linux系统用户ID</span></span><br><span class="line">   force create mode = 0660</span><br><span class="line">   force directory mode = 2770</span><br></pre></td></tr></table></figure>
+
+<p> 保存后退出，然后配置一下密码。</p>
+<p> <code>sudo smbpasswd -a pi</code>输入两次想要设置的密码即可。</p>
+</li>
+</ol>
+<h3 id="使用-Windows"><a href="#使用-Windows" class="headerlink" title="使用-Windows"></a>使用-Windows</h3><p>很简单，win +R 输入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">\\IP\shared</span><br></pre></td></tr></table></figure>
+
+<p>再输入账号密码即可。</p>
+<p>需要注意的是samba的账号必须是Linux系统的用户。</p>
+<h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/Linux/samba/4.png"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>samba</tag>
+        <tag>nas</tag>
+        <tag>共享盘</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>英语口语生词</title>
+    <url>/2025/04/08/%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E7%94%9F%E8%AF%8D/</url>
+    <content><![CDATA[<h3 id="2025-4-8"><a href="#2025-4-8" class="headerlink" title="2025.4.8"></a>2025.4.8</h3><blockquote>
+<p>以下是这些词汇的中英文对照、<strong>音标（美式发音）</strong>及简要解释：  </p>
+<hr>
+<h3 id="1-Domestic"><a href="#1-Domestic" class="headerlink" title="1. Domestic"></a><strong>1. Domestic</strong></h3><ul>
+<li><strong>中文</strong>：国内的；家用的；驯养的  </li>
+<li><strong>音标</strong>：&#x2F;dəˈmɛstɪk&#x2F;  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>Domestic flights</em>（国内航班）  </li>
+<li><em>Domestic animals</em>（家养动物，如猫、狗）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-Moor"><a href="#2-Moor" class="headerlink" title="2. Moor"></a><strong>2. Moor</strong></h3><ul>
+<li><strong>中文</strong>：  <ul>
+<li>（动词）<strong>停泊、系泊</strong>（船只）  </li>
+<li>（名词）<strong>荒野、沼泽地</strong>（尤指英国的高地沼泽）</li>
+</ul>
+</li>
+<li><strong>音标</strong>：  <ul>
+<li>动词：&#x2F;mʊr&#x2F;  </li>
+<li>名词：&#x2F;mɔr&#x2F;</li>
+</ul>
+</li>
+<li><strong>例句</strong>：  <ul>
+<li>*The ship was moored at the harbor.*（船停泊在港口。）  </li>
+<li><em>The Yorkshire Moors</em>（约克郡荒原）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="3-Arugula（🇺🇸美式）-Rocket（🇬🇧英式）"><a href="#3-Arugula（🇺🇸美式）-Rocket（🇬🇧英式）" class="headerlink" title="3. Arugula（🇺🇸美式） &#x2F; Rocket（🇬🇧英式）"></a><strong>3. Arugula</strong>（🇺🇸美式） &#x2F; <strong>Rocket</strong>（🇬🇧英式）</h3><ul>
+<li><strong>中文</strong>：<strong>芝麻菜</strong>  </li>
+<li><strong>音标</strong>：&#x2F;əˈruːɡələ&#x2F;（美式）  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>The salad has arugula, tomatoes, and feta cheese.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="4-Hummus"><a href="#4-Hummus" class="headerlink" title="4. Hummus"></a><strong>4. Hummus</strong></h3><ul>
+<li><strong>中文</strong>：<strong>鹰嘴豆泥</strong>  </li>
+<li><strong>音标</strong>：&#x2F;ˈhʊməs&#x2F;（或 &#x2F;ˈhʌməs&#x2F;）  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>We ate hummus with pita bread.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-Spinach"><a href="#5-Spinach" class="headerlink" title="5. Spinach"></a><strong>5. Spinach</strong></h3><ul>
+<li><strong>中文</strong>：<strong>菠菜</strong>  </li>
+<li><strong>音标</strong>：&#x2F;ˈspɪnɪtʃ&#x2F;  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>Spinach is rich in iron.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="6-Artichoke"><a href="#6-Artichoke" class="headerlink" title="6. Artichoke"></a><strong>6. Artichoke</strong></h3><ul>
+<li><strong>中文</strong>：<strong>洋蓟</strong>  </li>
+<li><strong>音标</strong>：&#x2F;ˈɑːrtɪtʃoʊk&#x2F;  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>Steamed artichoke with garlic butter.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="7-Appetizer（🇺🇸）-Starter（🇬🇧）"><a href="#7-Appetizer（🇺🇸）-Starter（🇬🇧）" class="headerlink" title="7. Appetizer（🇺🇸） &#x2F; Starter（🇬🇧）"></a><strong>7. Appetizer</strong>（🇺🇸） &#x2F; <strong>Starter</strong>（🇬🇧）</h3><ul>
+<li><strong>中文</strong>：<strong>开胃菜</strong>  </li>
+<li><strong>音标</strong>：&#x2F;ˈæpɪtaɪzər&#x2F;  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>We ordered hummus as an appetizer.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="8-Feta"><a href="#8-Feta" class="headerlink" title="8. Feta"></a><strong>8. Feta</strong></h3><ul>
+<li><strong>中文</strong>：<strong>菲达奶酪</strong>  </li>
+<li><strong>音标</strong>：&#x2F;ˈfɛtə&#x2F;  </li>
+<li><strong>例句</strong>：  <ul>
+<li><em>Greek salad with feta and olives.</em></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="发音小贴士"><a href="#发音小贴士" class="headerlink" title="发音小贴士"></a><strong>发音小贴士</strong></h3><ul>
+<li><strong>Arugula</strong>：注意重音在第二个音节（ə-<strong>ROO</strong>-gə-lə）。  </li>
+<li><strong>Hummus</strong>：读音接近“<strong>胡姆斯</strong>”，而非“hum-us”。  </li>
+<li><strong>Artichoke</strong>：结尾的“choke”发音类似“choke”（&#x2F;tʃoʊk&#x2F;）。</li>
+</ul>
+<p> 😊</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>英语学习</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>英文</tag>
+        <tag>单词</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>英语单词</title>
-    <url>/2025/02/24/%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
+    <url>/2025/02/24/%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><blockquote>
 <p>heterogeneous[ ˌhetərəˈdʒiːniəs ]</p>
 <p>隐藏词义例句</p>
@@ -14051,6 +15080,319 @@
 </tr>
 </tbody></table>
 </blockquote>
+<h1 id="第四十五天"><a href="#第四十五天" class="headerlink" title="第四十五天"></a>第四十五天</h1><blockquote>
+<h3 id="2025年04月08日-词汇表"><a href="#2025年04月08日-词汇表" class="headerlink" title="2025年04月08日 词汇表"></a><strong>2025年04月08日 词汇表</strong></h3><p>以下是2025年04月06日词汇表的详细解析（按使用频率排序）：</p>
+<ol>
+<li><p><strong>settlement</strong> [ˈsetlmənt]</p>
+<ul>
+<li>高频商务&#x2F;法律词汇</li>
+<li>中文释义：定居点；和解协议；结算</li>
+<li>The two companies reached a $2 million out-of-court settlement.<br>(两家公司达成200万美元庭外和解)</li>
+<li>This area was the first European settlement in North America.<br>(该地区是欧洲人在北美的首个定居点)</li>
+</ul>
+</li>
+<li><p><strong>modernism</strong> [ˈmɒdənɪzəm] &amp; <strong>modernist</strong> [ˈmɒdənɪst]</p>
+<ul>
+<li>艺术&#x2F;文学高频术语</li>
+<li>中文释义：现代主义（思潮）；现代主义的</li>
+<li>James Joyce was a leading modernist writer.<br>(詹姆斯·乔伊斯是现代主义代表作家)</li>
+<li>The building reflects the principles of architectural modernism.<br>(该建筑体现现代主义建筑原则)</li>
+</ul>
+</li>
+<li><p><strong>excavation</strong> [ˌekskəˈveɪʃn]</p>
+<ul>
+<li>考古&#x2F;工程常用词</li>
+<li>中文释义：挖掘；发掘现场</li>
+<li>The excavation uncovered a 3,000-year-old temple complex.<br>(挖掘发现了一座3000年前的庙宇群)</li>
+<li>Safety barriers were installed around the excavation site.<br>(挖掘现场周围设置了安全护栏)</li>
+</ul>
+</li>
+<li><p><strong>hypothesis</strong> [haɪˈpɒθəsɪs]</p>
+<ul>
+<li>学术写作核心词</li>
+<li>中文释义：假设；假说</li>
+<li>The research team is testing their hypothesis about memory formation.<br>(研究团队正在验证关于记忆形成的假说)</li>
+<li>This theory remains a unproven hypothesis.<br>(该理论仍是个未证实的假设)</li>
+</ul>
+</li>
+<li><p><strong>premise</strong> [ˈpremɪs]</p>
+<ul>
+<li>逻辑&#x2F;法律重要词</li>
+<li>中文释义：前提；经营场所</li>
+<li>The argument is based on a false premise.<br>(该论点建立在错误前提上)</li>
+<li>Alcohol is prohibited on school premises.<br>(校园内禁止饮酒)</li>
+</ul>
+</li>
+<li><p><strong>discerning</strong> [dɪˈsɜːnɪŋ]</p>
+<ul>
+<li>高端书面用语</li>
+<li>中文释义：有洞察力的；眼光独到的</li>
+<li>The shop caters to discerning customers who appreciate quality.<br>(该店服务追求品质的鉴赏型顾客)</li>
+<li>She has a discerning eye for antique furniture.<br>(她对古董家具有独到眼光)</li>
+</ul>
+</li>
+<li><p><strong>liaise</strong> [liˈeɪz]</p>
+<ul>
+<li>职场高频动词</li>
+<li>中文释义：联络；协作</li>
+<li>My job is to liaise between the design and marketing teams.<br>(我的工作是协调设计部和市场部)</li>
+<li>We need to liaise with local authorities.<br>(我们需要与地方政府沟通)</li>
+</ul>
+</li>
+<li><p><strong>troupe</strong> [truːp]</p>
+<ul>
+<li>艺术领域专有词</li>
+<li>中文释义：表演团体</li>
+<li>The dance troupe is touring Europe this summer.<br>(该舞蹈团今夏在欧洲巡演)</li>
+<li>A troupe of actors performed Shakespeare in the park.<br>(剧团在公园表演莎士比亚戏剧)</li>
+</ul>
+</li>
+<li><p><strong>fallow</strong> [ˈfæləʊ]</p>
+<ul>
+<li>农业&#x2F;生态术语</li>
+<li>中文释义：休耕的；闲置的</li>
+<li>Farmers leave fields fallow to restore soil nutrients.<br>(农民休耕以恢复土壤养分)</li>
+<li>Her creative talents lay fallow for years.<br>(她的创作才能多年闲置)</li>
+</ul>
+</li>
+<li><p><strong>prospectus</strong> [prəˈspektəs]</p>
+<ul>
+<li>教育&#x2F;金融文件</li>
+<li>中文释义：章程；招股说明书</li>
+<li>The university prospectus details all degree programs.<br>(大学章程详列所有学位课程)</li>
+<li>Read the investment prospectus carefully before buying shares.<br>(购股前仔细阅读招股书)</li>
+</ul>
+</li>
+<li><p><strong>niggle</strong> [ˈnɪɡl]</p>
+<ul>
+<li>英式口语词</li>
+<li>中文释义：小问题；不断挑剔</li>
+<li>A back niggle prevented him from playing.<br>(背部小伤使他无法参赛)</li>
+<li>She’s always niggling about minor details.<br>(她总爱挑剔细枝末节)</li>
+</ul>
+</li>
+</ol>
+<p>记忆技巧：</p>
+<ul>
+<li>词根联想：modern(现代)+ism(主义)&#x3D;现代主义</li>
+<li>对比记忆：premise(前提)-promise(承诺)</li>
+<li>场景记忆：excavation(挖掘)+site(现场)&#x3D;考古现场</li>
+</ul>
+<p>常见搭配：</p>
+<ul>
+<li>reach a settlement 达成和解</li>
+<li>working hypothesis 工作假设</li>
+<li>main premise 主要前提</li>
+<li>fallow period 休眠期</li>
+<li>prospectus requirements 招生要求</li>
+</ul>
+</blockquote>
+<h1 id="第四十六天"><a href="#第四十六天" class="headerlink" title="第四十六天"></a>第四十六天</h1><blockquote>
+<h3 id="2025年04月09日-词汇表"><a href="#2025年04月09日-词汇表" class="headerlink" title="2025年04月09日 词汇表"></a><strong>2025年04月09日 词汇表</strong></h3><h3 id="premium-ˈpriːmiəm"><a href="#premium-ˈpriːmiəm" class="headerlink" title="premium [ˈpriːmiəm]"></a><strong>premium</strong> [ˈpriːmiəm]</h3><p><strong>中文释义</strong>：  </p>
+<ol>
+<li><strong>高价的；优质的</strong>  </li>
+<li><strong>保险费</strong>  </li>
+<li><strong>额外费用；溢价</strong></li>
+</ol>
+<p><strong>例句</strong>：  </p>
+<ol>
+<li><p><strong>优质&#x2F;高价</strong>  </p>
+<ul>
+<li>This brand is known for its <strong>premium</strong> quality products.<br>（该品牌以其<strong>优质</strong>产品闻名。）  </li>
+<li>They stayed at a <strong>premium</strong> hotel during their vacation.<br>（度假期间，他们住在一家<strong>高档</strong>酒店。）</li>
+</ul>
+</li>
+<li><p><strong>保险费</strong>  </p>
+<ul>
+<li>Car insurance <strong>premiums</strong> have increased this year.<br>（今年汽车保险<strong>费</strong>上涨了。）  </li>
+<li>He pays a monthly <strong>premium</strong> for his health insurance.<br>（他每月支付健康保险<strong>费</strong>。）</li>
+</ul>
+</li>
+<li><p><strong>额外费用；溢价</strong>  </p>
+<ul>
+<li>You have to pay a <strong>premium</strong> for express delivery.<br>（快递需支付<strong>额外费用</strong>。）  </li>
+<li>Shares of the company are trading at a <strong>premium</strong>.<br>（该公司股票正以<strong>溢价</strong>交易。）</li>
+</ul>
+</li>
+</ol>
+<p><strong>常见搭配</strong>：  </p>
+<ul>
+<li><strong>at a premium</strong>（供不应求；高价）  <ul>
+<li>Office space in the city center is <strong>at a premium</strong>.<br>（市中心的办公空间<strong>供不应求</strong>。）</li>
+</ul>
+</li>
+<li><strong>premium price</strong>（溢价价格）  </li>
+<li><strong>premium service</strong>（高端服务）</li>
+</ul>
+<hr>
+<h3 id="artery-ˈɑːtəri"><a href="#artery-ˈɑːtəri" class="headerlink" title="artery [ˈɑːtəri]"></a><strong>artery</strong> [ˈɑːtəri]</h3><p><strong>中文释义</strong>：  </p>
+<ol>
+<li><strong>动脉</strong>（解剖学）  </li>
+<li><strong>交通要道；主干道</strong></li>
+</ol>
+<p><strong>例句</strong>：  </p>
+<ol>
+<li><p><strong>动脉（医学）</strong>  </p>
+<ul>
+<li>A blocked <strong>artery</strong> can cause a heart attack.<br>（<strong>动脉</strong>堵塞可能导致心脏病发作。）  </li>
+<li>The doctor checked his <strong>arteries</strong> for signs of plaque buildup.<br>（医生检查他的<strong>动脉</strong>是否有斑块堆积。）</li>
+</ul>
+</li>
+<li><p><strong>交通要道</strong>  </p>
+<ul>
+<li>The highway serves as a major <strong>artery</strong> for commuters.<br>（这条高速公路是通勤者的<strong>主干道</strong>。）  </li>
+<li>The city plans to widen the main <strong>artery</strong> to reduce traffic jams.<br>（该市计划拓宽<strong>主干道</strong>以减少拥堵。）</li>
+</ul>
+</li>
+</ol>
+<p><strong>常见搭配</strong>：  </p>
+<ul>
+<li><strong>coronary artery</strong>（冠状动脉）  </li>
+<li><strong>major artery</strong>（主要干道）  </li>
+<li><strong>arterial road</strong>（主干道路）</li>
+</ul>
+<p><strong>记忆技巧</strong>：  </p>
+<ul>
+<li><strong>artery（动脉）↔ vein（静脉）</strong>（动脉输送血液<strong>离开心脏</strong>，静脉输送血液<strong>回到心脏</strong>）  </li>
+<li><strong>交通比喻</strong>：城市的主干道就像人体的动脉，承担主要运输功能。</li>
+</ul>
+<hr>
+<h3 id="对比记忆"><a href="#对比记忆" class="headerlink" title="对比记忆"></a><strong>对比记忆</strong></h3><table>
+<thead>
+<tr>
+<th>单词</th>
+<th>主要含义</th>
+<th>例句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>premium</strong></td>
+<td>高价的；保险费</td>
+<td>He bought a <strong>premium</strong> car.</td>
+</tr>
+<tr>
+<td><strong>artery</strong></td>
+<td>动脉；主干道</td>
+<td>The highway is a key <strong>artery</strong>.</td>
+</tr>
+</tbody></table>
+</blockquote>
+<h1 id="第四十七天"><a href="#第四十七天" class="headerlink" title="第四十七天"></a>第四十七天</h1><blockquote>
+<h3 id="2025年04月10日-词汇表"><a href="#2025年04月10日-词汇表" class="headerlink" title="2025年04月10日 词汇表"></a><strong>2025年04月10日 词汇表</strong></h3><ol>
+<li><strong>surplus</strong> [ˈsɜːpləs] ★★★★</li>
+</ol>
+<ul>
+<li>中文释义：过剩；盈余</li>
+<li>经济高频词：<br><em>The budget has a $2 million surplus this year.</em><br>（今年预算有200万美元盈余）</li>
+<li>反义词：deficit（赤字）</li>
+<li>搭配：trade surplus（贸易顺差）&#x2F; surplus stock（过剩库存）</li>
+</ul>
+<ol start="2">
+<li><strong>surpass</strong> [səˈpɑːs] ★★★★</li>
+</ol>
+<ul>
+<li>中文释义：超越</li>
+<li>商务&#x2F;学术常用：<br><em>The new model surpasses all competitors in fuel efficiency.</em><br>（新款在燃油效率上超越所有竞品）</li>
+<li>近义词：exceed（更中性）&#x2F; outstrip（速度上超越）</li>
+</ul>
+<ol start="3">
+<li><strong>procession</strong> [prəˈseʃn] ★★★</li>
+</ol>
+<ul>
+<li>中文释义：游行队伍；列队行进</li>
+<li>文化场景：<br><em>The wedding procession moved slowly through the village.</em><br>（婚礼队伍缓行穿过村庄）</li>
+<li>派生词：processional（行进式的）</li>
+</ul>
+<ol start="4">
+<li><strong>succession</strong> [səkˈseʃn] ★★★</li>
+</ol>
+<ul>
+<li>中文释义：继任；连续</li>
+<li>两个核心用法：<br><em>The succession of wet days ruined the crops.</em><br>（连续的雨天毁了庄稼）<br><em>The board discussed the CEO succession plan.</em><br>（董事会讨论CEO继任计划）</li>
+<li>法律短语：in succession to（继承…职位）</li>
+</ul>
+<ol start="5">
+<li><strong>haul</strong> [hɔːl] ★★★</li>
+</ol>
+<ul>
+<li>中文释义：拖运；运输量</li>
+<li>物流术语：<br><em>The truck made three hauls per day.</em><br>（卡车每天运输三趟）</li>
+<li>渔业用语：a good haul of fish（大量渔获）</li>
+</ul>
+<ol start="6">
+<li><strong>surmount</strong> [səˈmaʊnt] ★★</li>
+</ol>
+<ul>
+<li>中文释义：克服（困难）</li>
+<li>正式用语：<br><em>They surmounted language barriers through gestures.</em><br>（他们通过手势克服语言障碍）</li>
+<li>近义词：overcome（更口语化）</li>
+</ul>
+<ol start="7">
+<li><strong>sift</strong> [sɪft] ★★</li>
+</ol>
+<ul>
+<li>中文释义：筛选；细查</li>
+<li>两个典型场景：<br><em>Sift the flour before baking.</em><br>（烘焙前先筛面粉）<br><em>Police are sifting through the evidence.</em><br>（警方正在仔细审查证据）</li>
+</ul>
+<ol start="8">
+<li><strong>crash</strong> [kræʃ] ★★</li>
+</ol>
+<ul>
+<li>中文释义：碰撞；暴跌；崩溃</li>
+<li>多义词注意：<br>*The stock market crashed.*（股市暴跌）<br>*A loud crash came from the kitchen.*（厨房传来撞击声）<br>*My computer keeps crashing.*（电脑不断死机）</li>
+</ul>
+<ol start="9">
+<li><strong>bistro</strong> [ˈbiːstrəʊ] ★</li>
+</ol>
+<ul>
+<li>中文释义：小餐馆</li>
+<li>文化背景：<br><em>Parisian bistros serve simple French dishes.</em><br>（巴黎小餐馆供应简法餐）</li>
+<li>辨析：bistro（休闲）&#x2F; brasserie（更大更正式）</li>
+</ul>
+<ol start="10">
+<li><strong>gullibly</strong> [ˈɡʌləbəlɪ] ★</li>
+</ol>
+<ul>
+<li>中文释义：轻信地</li>
+<li>心理学词汇：<br><em>He gullibly believed the email scam.</em><br>（他轻信了邮件诈骗）</li>
+<li>词根：gull（欺骗）+ible（易…的）</li>
+</ul>
+<p>记忆策略：</p>
+<ol>
+<li><p>“sur-“前缀三兄弟：</p>
+<ul>
+<li>surmount（克服障碍）</li>
+<li>surplus（多到溢出来）</li>
+<li>surpass（超越他人）</li>
+</ul>
+</li>
+<li><p>场景联想：</p>
+<ul>
+<li>烘焙时需要sift面粉</li>
+<li>金融新闻常出现surplus和crash</li>
+</ul>
+</li>
+<li><p>对比记忆：</p>
+<ul>
+<li>procession（有序行进）</li>
+<li>succession（时间上的连续）</li>
+</ul>
+</li>
+</ol>
+<p>常见错误警示：</p>
+<ul>
+<li>surplus ≠ sufficient（足够）</li>
+<li>surpass ≠ surprise（惊喜）</li>
+<li>succession ≠ success（成功）</li>
+</ul>
+<p>专业领域应用：</p>
+<ul>
+<li>经济报告：surplus&#x2F;shortage</li>
+<li>企业管理：succession planning</li>
+<li>计算机：system crash</li>
+<li>烹饪：sifting dry ingredients</li>
+</ul>
+</blockquote>
 ]]></content>
       <categories>
         <category>英语学习</category>
@@ -14059,928 +15401,6 @@
         <tag>笔记</tag>
         <tag>英文</tag>
         <tag>单词</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>编译原理</title>
-    <url>/2025/02/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</url>
-    <content><![CDATA[<h1 id="编译原理课程笔记"><a href="#编译原理课程笔记" class="headerlink" title="编译原理课程笔记"></a><strong>编译原理课程笔记</strong></h1><h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="编译器概述"><a href="#编译器概述" class="headerlink" title="编译器概述"></a>编译器概述</h2><ul>
-<li>翻译器:<ul>
-<li>把某一种语言程序(称为源语言程序)等价地转换成另一种语言程序(称为目标语言程序)的程序</li>
-</ul>
-</li>
-<li>解释器：<ul>
-<li>把源语言（高级语言）写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序</li>
-</ul>
-</li>
-<li>编译器：<ul>
-<li>把一种高级语言程序等价地转换成另一种低级语言程序(汇编语言或机器语言程序)的程序</li>
-</ul>
-</li>
-</ul>
-<h3 id="编译前端与后端"><a href="#编译前端与后端" class="headerlink" title="编译前端与后端"></a>编译前端与后端</h3><ul>
-<li>编译前端：<ul>
-<li>与源语言有关，如词法分析，语法分析，语义分析与中间代码产生，与机器无关的优化</li>
-</ul>
-</li>
-<li>编译后端：<ul>
-<li>与目标机有关，与目标机有关的优化，目标代码产生</li>
-</ul>
-</li>
-</ul>
-<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><ol>
-<li>词法分析</li>
-<li>语法分析</li>
-<li>语义分析</li>
-<li>中间代码产生</li>
-<li>优化</li>
-<li>目标代码产生</li>
-</ol>
-<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>任务: 输入源程序，对构成源程序的字符串进行扫描和分解，识别出一个个单词符号。依循的原则：构词规则描述工具：有限自动机</p>
-<h4 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h4><p>任务:在词法分析的基础上，根据语言的语法规则把单词符号串分解成各类语法单位。依循的原则：语法规则,语法树描述工具：上下文无关文法</p>
-<h4 id="语义分析和中间代码产生"><a href="#语义分析和中间代码产生" class="headerlink" title="语义分析和中间代码产生"></a>语义分析和中间代码产生</h4><p>任务:对各类不同语法范畴按语言的语义进行初步翻译。–声明语句和操作语句依循的原则：语义规则中间代码:三元式，四元式，树形结构等</p>
-<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>任务：对于前阶段产生的中间代码进行加工变换，以期在最后阶段产生更高效的目标代码。依循的原则：程序的等价变换规则</p>
-<h4 id="目标代码产生"><a href="#目标代码产生" class="headerlink" title="目标代码产生"></a>目标代码产生</h4><p>任务: 把中间代码变换成特定机器上的目标代码。依赖于硬件系统结构和机器指令的含义目标代码三种形式:绝对指令代码: 可直接运行 汇编指令代码: 需要进行汇编可重新定位指令代码: 需要连接装配</p>
-<h2 id="编译技术的应用"><a href="#编译技术的应用" class="headerlink" title="编译技术的应用"></a>编译技术的应用</h2><p>编译技术广泛应用于计算机领域核心场景：  </p>
-<ol>
-<li><strong>程序开发</strong>：将高级语言（C&#x2F;Java&#x2F;Python）编译为机器码或字节码，支撑编程语言生态；解释器实现动态执行；  </li>
-<li><strong>性能优化</strong>：通过代码精简、内联扩展、循环优化提升效率，JIT技术（如Java&#x2F;JavaScript）实现运行时加速；  </li>
-<li><strong>跨平台支持</strong>：交叉编译生成多平台目标代码，虚拟机（如JVM）通过中间码实现“一次编写，到处运行”；  </li>
-<li><strong>静态分析</strong>：检测代码漏洞、内存泄漏，支撑IDE智能提示与代码规范检查；  </li>
-<li><strong>硬件与嵌入式</strong>：编译Verilog&#x2F;VHDL生成电路，为物联网设备生成低功耗固件；  </li>
-<li><strong>安全防护</strong>：代码混淆防止反编译，静态分析识别恶意代码；  </li>
-<li><strong>领域专用</strong>：实现SQL、正则表达式等DSL，提升领域开发效率。<br>此外，编译技术还用于代码生成工具、并行计算框架（如CUDA）和教育研究领域，是软件与硬件协同的核心纽带。（199字）</li>
-</ol>
-<h1 id="第二章-词法分析"><a href="#第二章-词法分析" class="headerlink" title="第二章 词法分析"></a>第二章 词法分析</h1><h2 id="词法分析的任务"><a href="#词法分析的任务" class="headerlink" title="词法分析的任务"></a>词法分析的任务</h2><p>​	从左至右逐个字符地对源程序进行扫描，产生一个个单词符号。</p>
-<ul>
-<li>法分析器(Lexical Analyzer) 又称扫描器(Scanner)：<ul>
-<li>是执行词法分析的程序</li>
-</ul>
-</li>
-</ul>
-<h2 id="词法分析器构造"><a href="#词法分析器构造" class="headerlink" title="词法分析器构造"></a>词法分析器构造</h2><h3 id="方法一-通过状态转换图编写词法分析器"><a href="#方法一-通过状态转换图编写词法分析器" class="headerlink" title="方法一:   通过状态转换图编写词法分析器"></a>方法一:   通过状态转换图编写词法分析器</h3><ul>
-<li><p>词法分析器手工编制方法</p>
-</li>
-<li><p>词法分析器的功能和输出形式</p>
-<ul>
-<li>功能:输入源程序、输出单词符号</li>
-</ul>
-</li>
-</ul>
-<h4 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h4><ul>
-<li>状态转换图是一张有限方向图。<ol>
-<li>结点代表状态，用圆圈表示。</li>
-<li>状态之间用代箭头的弧线连结，弧线上的标记(字符或其他)代表射出结点状态下可能出现的输入字符或字符类。</li>
-<li>一张转换图只包含有限个状态，其中有一个为初态，至少要有一个终态双圆圈</li>
-</ol>
-</li>
-</ul>
-<h1 id="编译原理作业"><a href="#编译原理作业" class="headerlink" title="编译原理作业"></a><strong>编译原理作业</strong></h1><p><img src="/../images/compiler/1.png"></p>
-<blockquote>
-<p>**1. ** 词法分析器以源程序的字符流为输入，按词法规则将其识别为一个个单词，并转换为统一的（单词类别，单词值）二元组内部表示形式。它还负责检查词法错误，如非法字符、错误关键字等，之后将单词逐个传递给语法分析器，为其提供输入单元，同时在预处理时简化源程序，提高编译效率。 </p>
-<p>**2. ** 状态转换图是由状态节点与带条件或事件标注的有向转换边构成的有向图 。它能直观展现系统或对象的运行逻辑，清晰呈现各种状态及转换关系，在系统设计时辅助架构规划，开发中用于检测错误、辅助调试，也是团队沟通的有力工具，在算法设计与分析领域，还能描述算法执行、助力性能分析 。 </p>
-<p>**3. ** </p>
-<p>知识点：</p>
-<ol>
-<li>词法分析器、输入输出</li>
-<li>语法分析器</li>
-<li>状态转换图</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软硬件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>编译原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AI技术的学习与总结</title>
-    <url>/2025/03/01/AI%E6%8A%80%E6%9C%AF%E7%9A%84%E5%AD%A6%E4%B9%A0%E4%B8%8E%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>​	最近一个星期看到了身边的牛人是如何使用AI大模型进行提高工作效率，以及实现新想法促进个人以及企业发展的高效性。于是搭建了一套可以客制化的本地的AI，基于以下方案（项目）。</p>
-<ol>
-<li><p>Dify</p>
-<blockquote>
-<p>​	用工作流的方式组合各种模型、知识库、工具来搭建高度客制化的AI工具。</p>
-</blockquote>
-</li>
-<li><p>ollama + deepseek-r1:7b + bge-m3</p>
-<blockquote>
-<p>ollama 帮助管理推理模型以及知识库模型，提供API接口给DIFY使用</p>
-</blockquote>
-</li>
-<li><p>ragflow</p>
-<blockquote>
-<p>基于检索增强生成（Retrieval-Augmented Generation, RAG）技术的工作流工具，旨在通过结合检索和生成模型提升问答系统、文本生成等任务的性能。</p>
-</blockquote>
-</li>
-</ol>
-<h1 id="ragflow和dify的不同应用"><a href="#ragflow和dify的不同应用" class="headerlink" title="ragflow和dify的不同应用"></a>ragflow和dify的不同应用</h1><blockquote>
-<ol>
-<li>RAGFlow更适合需要深度文档解析和无幻觉生成的企业，尤其是处理复杂格式文档的场景。</li>
-<li>Dify更适合需要灵活工作流编排和多模型集成的开发者，尤其是构建复杂AI应用的场景。</li>
-<li>如果企业需要高度定制化的文档解析和检索增强生成，建议选择RAGFlow；如果需要快速构建生产级AI应用，建议选择Dify。</li>
-</ol>
-</blockquote>
-<h1 id="我的下一步AI应用计划"><a href="#我的下一步AI应用计划" class="headerlink" title="我的下一步AI应用计划"></a>我的下一步AI应用计划</h1><h2 id="1-学习dify的工作流原理"><a href="#1-学习dify的工作流原理" class="headerlink" title="1. 学习dify的工作流原理"></a>1. 学习dify的工作流原理</h2><ul>
-<li>搭建一个简单的工作流并运行</li>
-</ul>
-<p><img src="/../images/AI/1.png"></p>
-<h2 id="2-使用bge-m3搭建一个知识库模"><a href="#2-使用bge-m3搭建一个知识库模" class="headerlink" title="2. 使用bge-m3搭建一个知识库模"></a>2. 使用bge-m3搭建一个知识库模</h2><h2 id="型"><a href="#型" class="headerlink" title="型"></a>型</h2><ol>
-<li><p>手头恰好有40g的电子书，在pdf格式里面随机选择了几册。</p>
-</li>
-<li><p>先尝试硅基流动的bge-m3模型</p>
-</li>
-<li><p>检索设置</p>
-<blockquote>
-<h1 id="Rerank模型"><a href="#Rerank模型" class="headerlink" title="Rerank模型"></a>Rerank模型</h1><p>在知识库检索中，Rerank是一个非常重要的环节，尤其在检索增强生成（RAG）架构中。它可以帮助大语言模型（LLM）获取更精确的内容，从而提高生成回答的准确性和相关性。</p>
-<p>Rerank的原理和机制：</p>
-<ol>
-<li><p>初步检索</p>
-<p> 在知识库检索的过程中，首先通过向量检索或其他检索方法，从知识库中检索出于用户问题相关的多个文档或文本片段。这些文档可能与用户问题的相关性不同，有些可能非常贴切，而有些知只是稍微相关，甚至不相关。</p>
-</li>
-<li><p>重新排序、过滤和优化</p>
-<p> Rerank模型 接收初步检索到的文档和列表和用户的问题作为输入。评估每个结果与用户问题的<strong>相关性</strong>，计算相关性分数。根据分数对文档进行重新排序，将最相关订单文档排在前面。并且，过滤掉不相关的文档，从而减少噪声。这样，当LLM生成回答时，会优先考虑排名靠前的、更加相关订单文档。最后，重新排序的文档作为上下文输入到LLM中，LLM根据这些<strong>更精确</strong>的上下文生成回答。</p>
-</li>
-</ol>
-<h1 id="Top-K"><a href="#Top-K" class="headerlink" title="Top K"></a>Top K</h1><p>Top K用于控制检索系统返回结果的数量。例如，如果配置为2，会返回最多两个结果。</p>
-<p>Top K通常与👇🏻的Score阈值配合使用。Score阈值用于过滤掉相似度低于某个阈值的结果，而Top K则在满足阈值条件的基础上，进一步筛选出来最相关的K个结果。</p>
-<ul>
-<li>更全面的结果，可以适当增加 <strong>Top K</strong> 的值。</li>
-<li>更精准的结果，可以适当减小 <strong>Top K</strong> 的值，并结合较高的 <strong>Score 阈值</strong>。</li>
-</ul>
-<h1 id="Score-阈"><a href="#Score-阈" class="headerlink" title="Score 阈"></a>Score 阈</h1><p>Score阈值作为一种标准选择检索结果。用于过滤掉相似度低于阈值的结果。</p>
-</blockquote>
-</li>
-</ol>
-<p><img src="/../images/AI/2.png"></p>
-<h2 id="3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"><a href="#3-使用dify搭建一个简单的客制化的AI应用（使用2的知识库）" class="headerlink" title="3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）"></a>3. 使用dify搭建一个简单的客制化的AI应用（使用2的知识库）</h2><h2 id="4-使用ragflow基于相同数据源搭建客制化AI应用"><a href="#4-使用ragflow基于相同数据源搭建客制化AI应用" class="headerlink" title="4. 使用ragflow基于相同数据源搭建客制化AI应用"></a>4. 使用ragflow基于相同数据源搭建客制化AI应用</h2><h2 id="5-使用工具例如搜索引擎实现联网"><a href="#5-使用工具例如搜索引擎实现联网" class="headerlink" title="5. 使用工具例如搜索引擎实现联网"></a>5. 使用工具例如搜索引擎实现联网</h2><h1 id="有关各种AI模型以及工具、概念的扫盲"><a href="#有关各种AI模型以及工具、概念的扫盲" class="headerlink" title="有关各种AI模型以及工具、概念的扫盲"></a>有关各种AI模型以及工具、概念的扫盲</h1><blockquote>
-<h1 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h1><p>​	RAG（Retrieval-Augmented Generation，检索增强生成） 是一种结合了信息检索技术与语言生成模型的人工智能技术。该技术通过从外部知识库中检索相关信息，并将其作为提示（Prompt）输入给大型语言模（LLMs），以增强模型处理知识密集型任务的能力，如问答、文本摘要、内容生成等。RAG模型由Facebook AI Research（FAIR）团队于2020年首次提出，并迅速成为大模型应用中的热门方案。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>linux</tag>
-        <tag>深度学习</tag>
-        <tag>AI</tag>
-        <tag>deepseek-r1</tag>
-        <tag>ragflow</tag>
-        <tag>dify</tag>
-        <tag>bge-m3</tag>
-        <tag>知识库</tag>
-        <tag>本地部署</tag>
-        <tag>客制化AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>冬天的诗--伯莱</title>
-    <url>/2025/03/28/%E5%86%AC%E5%A4%A9%E7%9A%84%E8%AF%97-%E4%BC%AF%E8%8E%B1/</url>
-    <content><![CDATA[<div style="display: flex;">
-  <div style="flex: 1; padding-right: 20px;">
-      Winter poem<br>
-[Robert Bly](https://poemwiki.org/q/Robert Bly)<br>
-<br>
-The quivering wings of the winter ant<br>
-wait for lean winter to end.<br>
-I love you in slow, dim-witted ways,<br>
-hardly speaking, one or two words only.<br>
-<br>
-What caused us each to live hidden?<br>
-A wound, the wind, a word, a parent.<br>
-Sometimes we wait in a helpless way,<br>
-awkwardly, not whole and not healed.<br>
-<br>
-When we hid the wound, we fell back<br>
-from a human to a shelled life.<br>
-Now we feel the ant’s hard chest,<br>
-the carapace, the silent tongue.<br>
- This must be the way of the ant,<br>
-the winter ant, the way of those<br>
-who are wounded and want to live:<br>
-to breathe, to sense another, and to wait.<br>
-
-<p>PoemWiki <a href="https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2">https://poemwiki.org/p/MTI0MzE1MTUxNTE0MzA2</a><br><br>  </div><br>  <div style="border-left: 1px solid #ccc; margin: 0 10px;"></div><br>  <div style="flex: 1; padding-left: 20px;"><br>冬天的诗<br><br>罗伯特 伯莱<br><br><br><br>冬天的蚂蚁颤抖的翅膀<br><br>等待瘦瘦的冬天结束。<br><br>我用缓慢的，呆笨的方式爱你，<br><br>几乎不说话，仅有只言片语。<br><br><br><br>是什么导致我们各自隐藏生活？<br><br>一个伤口，风，一个言词，一个起源。<br><br>我们有时用一种无助的方式等待，<br><br>笨拙地，并非全部也未愈合。<br><br><br><br>当我们藏起伤口，我们从一个人<br><br>退缩到一个带壳的生命。<br><br>现在我们触摸到蚂蚁坚硬的胸膛，<br><br>那背甲。那沉默的舌头。<br><br><br><br>这一定是蚂蚁的方式<br><br>冬天的蚂蚁的方式，那些<br><br>被伤害的并且想生活的人的方式：<br><br>呼吸，感知他人，以及等待。<br><br><br><br>  </div></p>
-</div>
-
-
-
-<p>​	这首诗真的很准确的说出像我一样普通的人的生活态度。呼吸，感知他人，以及等待。今天打完球准备去吃饭的时候已经九点多了，学校的食堂都关闭了于是只能去附近的商业街找沙县料理。因为打了四个小时球稍微有点累，于是趴在桌子听音乐等着。过了一会老板端过来一份超级豪华的盖浇饭给我，刚递到我手上他就进去厨房忙碌了。吃饭的时候心里暖暖的，想到了高中时候坐火车离家出走时遇到的那个大叔。也是在寥寥数言就知道了我的情况，路过鹰潭的时候买了好多鸡腿让我吃，现在想起来真的很感动，明明他还要坐十多个小时火车去浙江的某个工厂打工，却愿意照顾一个迷失的小孩。不管是不是他馋了还是其他原因，我都很感激他。现在我理解了，这是蚂蚁的方式，沉默的方式，感知他人，以及等待。为了防止自己变得越来越冷漠，我希望你开始想要变得冷漠的时候就去想想那些人，那些以沉默的方式帮助你爱你的人。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《傲慢与偏见》</title>
-    <url>/2025/03/28/%E3%80%8A%E5%82%B2%E6%85%A2%E4%B8%8E%E5%81%8F%E8%A7%81%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《傲慢与偏见》——奥斯丁"><a href="#《傲慢与偏见》——奥斯丁" class="headerlink" title="《傲慢与偏见》——奥斯丁"></a>《傲慢与偏见》——奥斯丁</h1><blockquote>
-<hr>
-<p>婚姻生活是否能幸福，</p>
-<p>完全是个机会问题。一对爱人婚前脾气摸得非常透，或者脾气非常相同，这</p>
-<p>并不能保证他们俩就会幸福。他们总是弄到后来距离越来越远，彼此烦恼。</p>
-<p>你既然得和这个人过一辈子，你最好尽量少了解他的缺点。</p>
-<hr>
-<p>你认为你思想敏捷，懒得去注意书法，而且你认为你这些方面即使算不</p>
-<p>得什么了不起，至少也非常有趣。凡是事情做得快的人总是自以为了不起，</p>
-<p>完全不考虑到做出来的成绩是不是完美。你今天早上跟班纳特太太说，如果</p>
-<p>你决定要从尼日斐花园搬走，你五分钟之内就可以搬走，这种话无非是夸耀</p>
-<p>自己，恭维自己。再说，急躁的结果只会使得应该要做好的事情没有做好，</p>
-<p>无论对人对己，都没有真正的好处，这有什么值得赞美的呢？</p>
-<hr>
-<p>她不禁大声叫道：“我做得多么卑鄙！我一向自负有知人之明！我一向</p>
-<p>自以为有本领！一向看不起姐姐那种宽大的胸襟！为了满足我自己的虚荣心，</p>
-<p>我待人老是不着边际地猜忌多端，而且还要做得使我自己无懈可击。这是我</p>
-<p>多么可耻的地方！可是，这种耻辱又是多么活该！即使我真的爱上了人家，</p>
-<p>也不该盲目到这样该死的地步。然而我的愚蠢，并不是在恋爱方面，而是在</p>
-<p>虚荣心方面。开头刚刚认识他们两位的时候，一个喜欢我，我很高兴，一个</p>
-<p>怠慢我，我就生气，因此造成了我的偏见和无知，遇到与他们有关的事情，</p>
-<p>我就不能明辨是非。我到现在才算有了自知之明。”</p>
-<hr>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《人生若只如初见》</title>
-    <url>/2025/03/28/%E3%80%8A%E4%BA%BA%E7%94%9F%E8%8B%A5%E5%8F%AA%E5%A6%82%E5%88%9D%E8%A7%81%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《人生若只如初见》——安意如"><a href="#《人生若只如初见》——安意如" class="headerlink" title="《人生若只如初见》——安意如"></a>《人生若只如初见》——安意如</h1><hr>
-<p>​	这本书很适合碎片时间看，我几乎是在地铁上，回家的火车，庭院的阳光下看完的。虽然很多都是跳着看的，但是这本书确实给我带来了一场中国诗歌的美学享受，很是喜欢。</p>
-<blockquote>
-<h1 id="《木兰花·拟古决绝词柬友》"><a href="#《木兰花·拟古决绝词柬友》" class="headerlink" title="《木兰花·拟古决绝词柬友》"></a>《<a href="https://www.gushiwen.cn/shiwenv_85e93138ed65.aspx">木兰花·拟古决绝词柬友</a>》</h1><p><a href="https://www.gushiwen.cn/authorv_01611cc80faf.aspx"><strong>纳兰性德</strong></a></p>
-<p>人生若只如初见，何事秋风悲画扇。</p>
-<p>等闲变却故人心，却道故人心易变。</p>
-<p>骊山语罢清宵半，泪雨霖铃终不怨。</p>
-<p>何如薄幸锦衣郎，比翼连枝当日愿。</p>
-</blockquote>
-<hr>
-<blockquote>
-<h1 id="击鼓"><a href="#击鼓" class="headerlink" title="击鼓"></a>击鼓</h1><p><a href="https://www.gushiwen.cn/shiwens/default.aspx?astr=%E8%AF%97%E7%BB%8F%C2%B7%E5%9B%BD%E9%A3%8E%C2%B7%E9%82%B6%E9%A3%8E">诗经·国风·邶风</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%85%88%E7%A7%A6">〔先秦〕</a></p>
-<p>击鼓其镗，踊跃用兵。土国城漕，我独南行。<br>从孙子仲，平陈与宋。不我以归，忧心有忡。<br>爰居爰处？爰丧其马？于以求之？于林之下。<br>死生契阔，与子成说。执子之手，与子偕老。<br>于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。</p>
-</blockquote>
-<hr>
-<blockquote>
-<h1 id="子衿"><a href="#子衿" class="headerlink" title="子衿"></a>子衿</h1><p><a href="https://www.gushiwen.cn/shiwens/default.aspx?astr=%E8%AF%97%E7%BB%8F%C2%B7%E5%9B%BD%E9%A3%8E%C2%B7%E9%83%91%E9%A3%8E">诗经·国风·郑风</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%85%88%E7%A7%A6">〔先秦〕</a></p>
-<p>青青子衿，悠悠我心。纵我不往，子宁不嗣音？<br>青青子佩，悠悠我思。纵我不往，子宁不来？<br>挑兮达兮，在城阙兮。一日不见，如三月兮！</p>
-</blockquote>
-<hr>
-<blockquote>
-<h1 id="子夜四时歌-其十六"><a href="#子夜四时歌-其十六" class="headerlink" title="子夜四时歌 其十六"></a>子夜四时歌 其十六</h1><p>佚名](<a href="https://www.gushiwen.cn/authorv_2128926194cd.aspx)[%E3%80%94%E9%AD%8F%E6%99%8B%E3%80%95](https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E9%AD%8F%E6%99%8B)">https://www.gushiwen.cn/authorv_2128926194cd.aspx)[〔魏晋〕](https://www.gushiwen.cn/shiwens/default.aspx?cstr=魏晋)</a></p>
-<p>白露朝夕生，秋风凄长夜。忆郎须寒服，乘月捣白素。</p>
-</blockquote>
-<hr>
-<blockquote>
-<h1 id="相思怨"><a href="#相思怨" class="headerlink" title="相思怨"></a>相思怨</h1><p><a href="https://www.gushiwen.cn/authorv_e0a677d5273e.aspx">李冶</a><a href="https://www.gushiwen.cn/shiwens/default.aspx?cstr=%E5%94%90%E4%BB%A3">〔唐代〕</a></p>
-<p>人道海水深，不抵相思半。<br>海水尚有涯，相思渺无畔。<br>携琴上高楼，楼虚月华满。<br>弹著相思曲，弦肠一时断。</p>
-</blockquote>
-<hr>
-<blockquote>
-<h1 id="《结素鱼贻友人》"><a href="#《结素鱼贻友人》" class="headerlink" title="《结素鱼贻友人》"></a>《<a href="https://www.gushiwen.cn/shiwenv_893709d6de57.aspx">结素鱼贻友人</a>》</h1><p><a href="https://www.gushiwen.cn/authorv_e0a677d5273e.aspx">李冶</a></p>
-<p>尺素如残雪，结为双鲤鱼。<br>欲知心里事，看取腹中书。</p>
-<p>你的腹中书是什么呢？是《百年孤独》？还是《资本论》？亦或《道德经》？</p>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《月亮和六便士》</title>
-    <url>/2025/03/29/%E3%80%8A%E6%9C%88%E4%BA%AE%E5%92%8C%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《月亮和六便士》"><a href="#《月亮和六便士》" class="headerlink" title="《月亮和六便士》"></a>《月亮和六便士》</h1><p>​	很早就接触过这本书，只是不知道出于什么原因一直都是读了一点就不太想读下去。后来实在是书荒了又刚好在图书馆遇到，索性就下决心完整地读一遍。也许是我的悟性不高，并没有很太读懂。qwq</p>
-<blockquote>
-<p>我不记得是谁曾经建议过，为了使灵魂宁静，一个人每天要做两件他不喜欢的事。说这句话的人是个聪明人，我也一直在一丝不苟地按照这条格言行事：因为我每天早上都起床，每天也都上床睡觉。但是我这个人生来还有苦行主义的性格，我还一直叫我的肉体每个星期经受一次更大的磨难。《泰晤士报》的文学增刊我一期也没有漏掉。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>一本书要能从这汪洋大海中挣扎出来希望是多么渺茫啊！即使获得成功，那成功又是多么瞬息即逝的事啊！天晓得，作者为他一本书花费了多少心血，经受多少磨折，尝尽了多少辛酸，只为了给偶然读到这本书的人几小时的休憩，帮助他驱除一下旅途中的疲劳。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>我没有时间干这种无聊的事。生命太短促了，没有时间既闹恋爱又搞艺术。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>要是一个女人爱上了你，除非连你的灵魂也叫她占有了，她是不会感到满足的。因为女人是软弱的，所以她们具有非常强烈的统治欲，不把你完全控制在手就不甘心。女人的心胸狭窄，对那些她理解不了的抽象东西非常反感。她们满脑子想的都是物质的东西，所以对于精神和理想非常妒忌。男人的灵魂在宇宙的最遥远的地方邀游，女人却想把它禁锢在家庭收支的账簿里。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>这一定是世间无数对夫妻的故事。这种生活模式给人以安详亲切之感。它使人想到一条平静的小河，蜿蜒流过绿茸茸的牧场，与郁郁的树荫交相掩映，直到最后泻入烟波浩渺的大海中。但是大海却总是那么平静，总是沉默无言、声色不动，你会突然感到一种莫名的不安。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>我总觉得大多数人这样度过一生好象欠缺一点什么。我承认这种生活的社会价值，我也看到了它的井然有序的幸福，但是我的血液里却有一种强烈的愿望，渴望一种更狂放不羁的旅途。这种安详宁静的快乐好象有一种叫我惊惧不安的东西。我的心渴望一种更加惊险的生活。只要在我的生活中能有变迁——变迁和无法预见的刺激，我是准备踏上怪石嶙峋的山崖，奔赴暗礁满布的海滩的。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《悲惨世界》</title>
-    <url>/2025/03/30/%E3%80%8A%E6%82%B2%E6%83%A8%E4%B8%96%E7%95%8C%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《悲惨世界》"><a href="#《悲惨世界》" class="headerlink" title="《悲惨世界》"></a>《悲惨世界》</h1><blockquote>
-<p>人类的一切罪恶都是从儿童的流浪生活开始的。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>世上有一种人就象虾似的不断退向黑暗，他们一生中只后退，不前进，并且利用经验，增加他们的丑恶，不停地日益败坏下去，心地也日益狠毒起来。这一对男女，便是那种东西。 </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 城市会使人变得凶残，因为它使人腐化堕落。山、海和森林使人变得粗野。它们只发展这种野性，却不毁灭人性。</p>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《言叶之庭》</title>
-    <url>/2025/03/29/%E3%80%8A%E8%A8%80%E5%8F%B6%E4%B9%8B%E5%BA%AD%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《言叶之庭》"><a href="#《言叶之庭》" class="headerlink" title="《言叶之庭》"></a>《言叶之庭》</h1><p>​	其我是先看的动漫，一天在图书馆晃悠的时候发现自助换书机器旁边有一摞别人刚刚还过来的书。随手一翻，《言叶之庭》突然出现。绿色的封面，稍微有些旧的痕迹把我带回了初二。那个梅雨季节里，潮湿的空气中，我坐在大大的窗户前的书桌看完了这部动漫。每次看到剪辑都能感受到雨的气味。</p>
-<blockquote>
-<p><strong>隐约雷鸣 阴霾天空 但盼风雨来 能留你在此</strong><br><strong>隐约雷鸣 阴霾天空 即使天无雨 我亦留此地</strong></p>
-</blockquote>
-<p>​	当时真的很喜欢这句台词，后来还找出了原文，在几十兆的电子书《万叶集》慢慢阅读寻找。</p>
-<blockquote>
-<p>原文</p>
-<p>雷神小动，刺云雨零耶，君将留？</p>
-<p>雷神小动，虽不零，吾将留妹留者。</p>
-<p>日文</p>
-<p><a href="https://zhida.zhihu.com/search?content_id=231695448&content_type=Answer&match_order=1&q=%E9%B3%B4%E7%A5%9E&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NDM0MzMwNzYsInEiOiLps7TnpZ4iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzE2OTU0NDgsImNvbnRlbnRfdHlwZSI6IkFuc3dlciIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.mKPWP-8HsBXpl3ePaX5pJVNg7iTFrf3aK3Ay9Ft_QU0&zhida_source=entity">鳴神</a>(<em>なるかみ</em>)の 少しとよみて さし曇(<em>ぐも</em>)り 雨(<em>あめ</em>)も降(<em>ふ</em>)らんか 君を留(<em>とど</em>)めん。</p>
-<p>鳴神の 少しとよみて 降らずとも 我(<em>われ</em>)は止(<em>と</em>)まらん 妹(<em>いも</em>)し留めば。</p>
-</blockquote>
-<blockquote>
-<p>走过日式庭院的木桥，雨声又变化了。 树叶摇摆的声音比雨滴落在水面的声音还大，孝雄穿着自制的尖角牛津靴慢慢走着，地上的脚步声与暗绿绣眼鸟的清澈叫声交叠在一起。透过黑松看到的水面上倒映着杜鹃花的粉色、多行松树皮的红色和枫叶的浅绿色。 孝雄背后的背包里装着送给那个人的鞋子，是一双五厘米高跟的小巧浅口鞋。脚尖部分是浅粉色，鞋身是近于白色的浅肤色，鞋跟是被太阳晒过般的柠檬色，鞋上面有用来系在脚踝上的长长鞋带，鞋带顶头是苹果绿皮革缝成的树叶。这次为那个人做的是一双能长时间走路的鞋子。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>不知何时开始认真做鞋的弟弟、不顾一切想成为演员的梨花，还有与小自己一轮的男子认真相处的母亲。<br>　　——这些家伙都是笨蛋吗？我在心中焦躁地恶骂。朝着明明不可能到达的终点一个劲地奔跑，仿佛其他地方都不存在似的——每个人都如此。不觉眼里涌起了今天的第二次泪水。今天到底是什么破日子。</p>
-</blockquote>
-<p>​	有时候真的很喜欢日本文学里面的细节描写和心理描写，那么细致入微，那么敏感，就好像这些事情真的在世界上某个角落发生过一样。</p>
-<p>​	可惜对于我来说，不管是村上春树还是东野圭吾又或是太宰治和芥川龙之介，都不宜多读。因为总是在读完会有一种很浓烈的惆怅感觉。此时往往需要读一些欧洲或者是我们国家的小说才能缓过来。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《孤独是迷人的》</title>
-    <url>/2025/03/30/%E3%80%8A%E5%AD%A4%E7%8B%AC%E6%98%AF%E8%BF%B7%E4%BA%BA%E7%9A%84%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《孤独是迷人的》"><a href="#《孤独是迷人的》" class="headerlink" title="《孤独是迷人的》"></a>《孤独是迷人的》</h1><h2 id="艾米丽迪金森"><a href="#艾米丽迪金森" class="headerlink" title="艾米丽迪金森"></a><strong>艾米丽迪金森</strong></h2><p>​	很庆幸在2024年遇到了艾米丽迪金森，我真的太喜欢她的现代诗诗集了。初见时是在图书馆的诗集书架一角，一同借过去的还有布考斯基的《爱是地狱冥犬》。可惜出于个人喜好原因，这本《爱是地狱冥犬》并没有在我手头逗留很久就回归了。</p>
-<p>​	简单的紫色的封面，极简地布局排版，善解人意的中英对照，读来十分享受。很多次做完家教回学校的路上都是这本书陪着我，有时候夕阳透过大大的玻璃窗映在书上，我就会想到这个世界上的美好，为这个世界还有着像艾米丽迪金森一样可爱的人们感到欢喜。</p>
-<h4 id="Nobody-knows-this-little-Rose"><a href="#Nobody-knows-this-little-Rose" class="headerlink" title="Nobody knows this little Rose"></a>Nobody knows this little Rose</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Nobody knows this little rose</h3><p><em>Nobody knows this little Rose—<br>It might a pilgrim be<br>Did I not take it from the ways<br>And lift it up to thee.</em></p><p><em>Only a Bee will miss it—<br>Only a Butterfly,<br>Hastening from far journey—<br>On its breast to lie—</em></p><p><em>Only a Bird will wonder—<br>Only a Breeze will sigh—<br>Ah Little Rose—how easy<br>For such as thee to die!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>无人知晓这朵小玫瑰</h3><p>无人知晓这朵小玫瑰——<br>它或许是朝圣者<br>若非我从路旁将它采撷<br>捧起献予你</p><p>只有蜜蜂会惦念——<br>只有蝴蝶，<br>从远途匆匆赶来——<br>停驻在它的胸膛——</p><p>只有鸟儿会疑惑——<br>只有微风会叹息——<br>啊小玫瑰——对你而言<br>凋零竟如此轻易！</p></div></div>
-</blockquote>
-<h4 id="If-I-should-die"><a href="#If-I-should-die" class="headerlink" title="If I should die"></a>If I should die</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>If I Should Die</h3><p><em>If I should die,<br>And you should live,<br>And time should gurgle on,<br>And morn should beam,<br>And noon should burn,<br>As it has usual done;</em></p><p><em>If birds should build as early,<br>And bees as bustling go,—<br>One might depart at option<br>From enterprise below!</em></p><p><em>’T is sweet to know that stocks will stand<br>When we with daisies lie,<br>That commerce will continue,<br>And trades as briskly fly.</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>倘若我死去</h3><p>倘若我死去，<br>而你仍活着，<br>时间依旧汩汩流淌，<br>晨光仍会倾泻，<br>烈日仍会灼烧，<br>如往常一样；</p><p>倘若鸟儿依旧早早筑巢，<br>蜜蜂依旧匆忙奔忙，——<br>人们或许能随意选择<br>离开尘世的纷扰！</p><p>知道股票仍会交易，<br>当我们与雏菊同眠，<br>商业仍会继续，<br>贸易仍会飞旋。</p></div></div>
-</blockquote>
-<h4 id="Success-is-counted-sweetest"><a href="#Success-is-counted-sweetest" class="headerlink" title="Success is counted sweetest"></a>Success is counted sweetest</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Success is counted sweetest</h3><p><em>Success is counted sweetest<br>By those who ne'er succeed.<br>To comprehend a nectar<br>Requires sorest need.</em></p><p><em>Not one of all the purple Host<br>Who took the Flag today<br>Can tell the definition,<br>So clear, of Victory,</em></p><p><em>As he, defeated, dying,<br>On whose forbidden ear<br>The distant strains of triumph<br>Break, agonized and clear.</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>成功最甜美</h3><p>成功最甜美，<br>属于从未成功的人。<br>要领悟琼浆的滋味，<br>需最痛切的渴恨。</p><p>今日那紫袍加身的胜者，<br>虽高擎凯旋的旗帜，<br>却无人能像他——战败者，垂死时，</p><p>听远方欢庆的号角刺入耳际，<br>那般清晰地懂得胜利的真谛。</p></div></div>
-</blockquote>
-<h4 id="I-taste-a-liquor-never-brewed"><a href="#I-taste-a-liquor-never-brewed" class="headerlink" title="I taste a liquor never brewed"></a>I taste a liquor never brewed</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I taste a liquor never brewed</h3><p><em>I taste a liquor never brewed—<br>From Tankards scooped in Pearl—<br>Not all the Vats upon the Rhine<br>Yield such an Alcohol!</em></p><p><em>Inebriate of Air—am I—<br>And Debauchee of Dew—<br>Reeling—thro endless summer days—<br>From inns of Molten Blue—</em></p><p><em>When "Landlords" turn the drunken Bee<br>Out of the Foxglove's door—<br>When Butterflies—renounce their "drams"—<br>I shall but drink the more!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我啜饮一杯未经酿造的琼浆</h3><p>我啜饮一杯未经酿造的琼浆——<br>从珍珠镂成的酒樽——<br>莱茵河畔所有的酒窖<br>都榨不出这般醇醪！</p><p>我陶醉于空气——我是——<br>露水的浪荡子——<br>蹒跚着——穿越无尽的夏日——<br>自熔蓝的客栈出离——</p><p>当"店主"将醉酒的蜜蜂<br>逐出毛地黄的门扉——<br>当蝴蝶——放弃它们的"烈酒"——<br>我定要痛饮至酩酊！</p></div></div>
-</blockquote>
-<h4 id="New-feet-within-my-garden-go"><a href="#New-feet-within-my-garden-go" class="headerlink" title="New feet within my garden go"></a>New feet within my garden go</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>New feet within my garden go</h3><p><em>New feet within my garden go—<br>New fingers stir the sod—<br>A Troubadour upon the Elm<br>Betrays the solitude.</em></p><p><em>New Children play upon the green—<br>New Weary sleep below—<br>And still the pensive Spring returns—<br>And still the punctual snow!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>新的脚步踏入我的花园</h3><p>新的脚步踏入我的花园——<br>新的手指拨动草皮——<br>榆树上的游吟诗人<br>泄露了这片孤寂</p><p>新的孩童在绿茵嬉戏——<br>新的倦客长眠地下——<br>沉思的春天依然归来——<br>守时的雪依然落下！</p></div></div>
-</blockquote>
-<h4 id="The-soul-selects-her-own-society"><a href="#The-soul-selects-her-own-society" class="headerlink" title="The soul selects her own society"></a>The soul selects her own society</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The soul selects her own society</h3><p><em>The soul selects her own society—<br>Then shuts the door—<br>To her divine Majority—<br>Present no more—</em></p><p><em>Unmoved—she notes the Chariots—pausing—<br>At her low Gate—<br>Unmoved—an Emperor be kneeling<br>Upon her Mat—</em></p><p><em>I've known her—from an ample nation—<br>Choose One—<br>Then—close the Valves of her attention—<br>Like Stone—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>灵魂选择自己的伴侣</h3><p>灵魂选择自己的伴侣——<br>然后关上大门——<br>对她神圣的抉择——<br>不再表明心迹——</p><p>无动于衷——她看见车辇——停在——<br>她低矮的门前——<br>无动于衷——一位皇帝跪在<br>她的席垫——</p><p>我知道她——从泱泱大国——<br>选中一人——<br>然后——关闭注意的阀门——<br>像石头般坚定——</p></div></div>
-</blockquote>
-<h4 id="The-grass-so-little-has-to-do"><a href="#The-grass-so-little-has-to-do" class="headerlink" title="The grass so little has to do"></a>The grass so little has to do</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The grass so little has to do</h3><p><em>The grass so little has to do—<br>A sphere of simple green—<br>With only butterflies to brood<br>And bees to entertain—</em></p><p><em>And stir all day to pretty tunes<br>The breezes fetch along—<br>And hold the sunshine in its lap<br>And bow to everything—</em></p><p><em>And thread the dews all night like pearls—<br>And make itself so fine—<br>A duchess were too common<br>For such a noticing—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>青草何其卑微</h3><p>青草何其卑微——<br>不过一球简单的绿——<br>只需照料蝴蝶<br>款待蜜蜂——</p><p>整日随清风送来的<br>美妙旋律摇曳——<br>将阳光揽在怀中<br>向万物鞠躬——</p><p>整夜将露珠穿成珍珠——<br>把自己装扮精致——<br>公爵夫人都显得俗气<br>配不上这般注视——</p></div></div>
-</blockquote>
-<h4 id="The-moon-is-distant-from-the-sea"><a href="#The-moon-is-distant-from-the-sea" class="headerlink" title="The moon is distant from the sea"></a>The moon is distant from the sea</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>The moon is distant from the sea</h3><p><em>The moon is distant from the sea—<br>And yet with amber hands—<br>She leads him—docile as a boy—<br>Along appointed sands—</em></p><p><em>He never misses a Degree—<br>Obedient to Her eye—<br>He comes just so far—and no farther—<br>Than She thinks fit to pry—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>月亮远离大海</h3><p>月亮远离大海——<br>却用琥珀色的手——<br>牵引他——温顺如男孩——<br>沿着命定的沙洲——</p><p>他从不偏离分毫——<br>顺从她的目光——<br>只走近到此——不再向前——<br>恰是她允许的远方——</p></div></div>
-</blockquote>
-<h4 id="I-had-no-time-to-hate"><a href="#I-had-no-time-to-hate" class="headerlink" title="I had no time to hate"></a>I had no time to hate</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I had no time to hate</h3><p><em>I had no time to hate—because<br>The grave would hinder me—<br>And life was not so ample I<br>Could finish enmity—</em></p><p><em>Nor had I time to love—but since<br>Some industry must be—<br>The little toil of love—I thought<br>Be large enough for me—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我来不及恨</h3><p>我来不及恨——因为<br>坟墓会阻挠我——<br>生命也不够辽阔<br>让我完成敌意——</p><p>我也来不及爱——但既然<br>必须有所经营——<br>爱的微小辛劳——我想<br>对我已足够丰盈——</p></div></div>
-</blockquote>
-<h4 id="To-wait-an-hour-is-long"><a href="#To-wait-an-hour-is-long" class="headerlink" title="To wait an hour is long"></a>To wait an hour is long</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>To wait an hour is long</h3><p><em>To wait an hour is long—<br>If love be just beyond—<br>To wait Eternity—is short—<br>If love reward the end—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>等待一小时太久</h3><p>等待一小时太久——<br>如果爱近在咫尺——<br>等待永恒却短暂——<br>若爱在终点相迎——</p></div></div>
-</blockquote>
-<h4 id="I-hide-myself-within-my-flower"><a href="#I-hide-myself-within-my-flower" class="headerlink" title="I hide myself within my flower"></a>I hide myself within my flower</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>I hide myself within my flower</h3><p><em>I hide myself within my flower—<br>That fading from your vase—<br>You—unsuspecting—feel for me—<br>Almost a loneliness—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我藏身于花朵</h3><p>我藏身于花朵——<br>当你从花瓶里取出凋谢的我——<br>你——毫无察觉地——为我感到——<br>近乎一种寂寞——</p></div></div>
-</blockquote>
-<h4 id="Had-I-not-seen-the-sun"><a href="#Had-I-not-seen-the-sun" class="headerlink" title="Had I not seen the sun"></a>Had I not seen the sun</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>Had I not seen the sun</h3><p><em>Had I not seen the sun<br>I could have borne the shade<br>But Light a newer Wilderness<br>My Wilderness has made—</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>我本可以忍受黑暗</h3><p>我本可以忍受黑暗<br>如果我不曾见过太阳<br>然而阳光已使我的荒凉<br>成为更新的荒凉——</p></div></div>
-</blockquote>
-<h4 id="There-is-no-frigate-like-a-book"><a href="#There-is-no-frigate-like-a-book" class="headerlink" title="There is no frigate like a book"></a>There is no frigate like a book</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>There is no frigate like a book</h3><p><em>There is no frigate like a book<br>To take us lands away,<br>Nor any coursers like a page<br>Of prancing poetry.</em></p><p><em>This traverse may the poorest take<br>Without oppress of toll;<br>How frugal is the chariot<br>That bears a human soul!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>没有一艘船能像一本书</h3><p>没有一艘船能像一本书<br>带我们远渡重洋，<br>也没有骏马能像一页<br>跳跃的诗行。</p><p>最贫穷的人也可由此穿越<br>无需支付通行税；<br>承载人类灵魂的马车<br>何等节俭实惠！</p></div></div>
-</blockquote>
-<h4 id="He-ate-and-drank-the-precious-words"><a href="#He-ate-and-drank-the-precious-words" class="headerlink" title="He ate and drank the precious words"></a>He ate and drank the precious words</h4><blockquote>
-<div style="display:flex;"><div style="flex:1;padding-right:20px;"><h3>He ate and drank the precious words</h3><p><em>He ate and drank the precious words—<br>His spirit grew robust—<br>He knew no more that he was poor,<br>Nor that his frame was dust.</em></p><p><em>He danced along the dingy days,<br>And this bequest of wings<br>Was but a book. What liberty<br>A loosened spirit brings!</em></p></div><div style="border-left:1px solid #ccc;margin:0 10px;"></div><div style="flex:1;padding-left:20px;"><h3>他啜饮珍贵的词语</h3><p>他啜饮珍贵的词语——<br>灵魂变得强健——<br>不再知晓自己贫穷<br>也不觉肉身如尘烟</p><p>他在黯淡岁月起舞，<br>这双翼的遗产<br>不过是一本书。挣脱束缚的灵魂<br>带来何等自由无边！</p></div></div>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《不能承受的生命之轻》</title>
-    <url>/2025/03/30/%E3%80%8A%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E7%9A%84%E7%94%9F%E5%91%BD%E4%B9%8B%E8%BD%BB%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《不能承受的生命之轻》"><a href="#《不能承受的生命之轻》" class="headerlink" title="《不能承受的生命之轻》"></a>《不能承受的生命之轻》</h1><h2 id="米兰·昆德拉"><a href="#米兰·昆德拉" class="headerlink" title="米兰·昆德拉"></a>米兰·昆德拉</h2><p>​	从这本书开始了解米兰昆德拉，开始迷上米兰昆德拉。</p>
-<hr>
-<blockquote>
-<p>也许最沉重的负担同时也是一种生活最为充实的象征，负担越沉，我们的生活也就越贴近大地，越趋近真切和实在。<br>相反，完全没有负担，人变得比大气还轻，会高高地飞起，离别大地亦即离别真实的生活。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>更使他悲伤的是，真正的男子汉通常能果敢行动的时刻，他总是犹豫不决，以至他经历过的一个个美妙瞬间（比如说跪在她床上，想着不能让她先死的瞬间），由此而丧失全部意义。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>托马斯得出结论：同女人做爱和同女人睡觉是两种互不相关的感情，岂止不同，简直对立。爱情不会使人产生性交的欲望（即对无数女人的激望），却会引起同眠共寝的欲求（只限于对一个女人的欲求）。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>背叛意味着打乱原有的秩序，背叛意味着打乱秩序和进入未知。萨宾娜看不出什么比进入未知状态更奇妙诱人的了。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>她从他的视界里消失之前，塞给了他那把海格立斯的扫帚。他用它把自己藐视的一切都从生活中扫去了。一种突然的庆幸，一阵狂乱的欣喜，还有自由和新生带来的欢乐，都是她留下的馈赠。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>女人无力抗拒任何呼唤着她受惊灵魂的声音，而男人则无力阻挡任何灵魂正在响应呼唤的女人。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>人类生命只有一次，我们不能测定我们的决策孰好孰坏，原因就是在一个给定购情境中，我们只能作一个决定。我们没有被赐予第二次、第三次或第四次生命来比较各种各样的决断。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>历史和个人生命一样，轻得不能承受，轻若鸿毛，轻如尘埃，卷入了太空，它是明天不复存在的任何东西。</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>如果说，性亢奋是我们的造物主为了自己取乐而用的一种装置，那么爱就是唯独属于我们自己的东西，能使我们摆脱造物主。爱情是我们的自由，爱情处于“非如此不可”的规则之外。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>特丽莎与托马斯的死显示着重，她想用自己的死来表明轻，她将比大气还轻。正如巴门尼德曾经指出的，消极会变成积极。</strong></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《周国平自选集》</title>
-    <url>/2025/03/30/%E3%80%8A%E5%91%A8%E5%9B%BD%E5%B9%B3%E8%87%AA%E9%80%89%E9%9B%86%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《周国平自选集》"><a href="#《周国平自选集》" class="headerlink" title="《周国平自选集》"></a>《周国平自选集》</h1><p>​	当做睡前读物跳着看的，记录一些个人比较喜欢的段落。</p>
-<blockquote>
-<p> 每个人都是一个宇宙，每个人的天性中都蕴藏着大自然赋予的创造力。把这个观点运用到读 书上，爱默生提倡一种”创造性的阅读”。这就是：把自己的生活当作正文，把书籍当作注 解；听别人发言是为了使自己能说话；以一颗活跃的灵魂，为获得灵感而读书。    </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 好的书籍是朋友，但也仅仅是朋友。与好友会晤是快事，但必须自己有话可说，才能真正快 乐。一个愚钝的人，再智慧的朋友对他也是毫无用处的，他坐在一群才华横溢的朋友中间， 不过是一具木偶，一个讽刺，一种折磨。每人都是一个神，然后才有奥林匹斯神界的欢聚。    </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 心灵是一本奇特的账簿，只有收入，没有支出，人生的一切痛苦和欢乐，都化作宝贵的体验 记入它的收入栏中。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 正如作者所说，童年时代的 太阳要炽热得多，草要茂盛得多，雨要大得多，天空的颜色要深得多，周围的人要有趣得多 。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 怕只怕文明与野蛮握手言欢，金钱与权力狼狈为奸，那才真正是民族的灾难。物 质上的贫富悬殊已经有目共睹，精神上何尝不也发生着两极分化?好在一个人只要耐得贫困 ，自甘寂寞，总还可以为灵魂守一块家园，不致在这纷纷扰扰的世界上流离失所。认清贫困 和寂寞乃是心灵高贵者在这个时代的命运，困惑中倒也生出了一些坦然。    </p>
-</blockquote>
-<hr>
-<blockquote>
-<p>  拜伦在《唐璜》中写道：”一切悲剧皆因死亡而结束，一切喜剧皆因婚姻而告终。”</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 我身上必定有两个自我。一个好动，什么都要尝试，什么都想经历。另一个喜静，对一切加 以审视和消化。这另一个自我，如同罗曼·罗兰所说，是”一颗清明宁静而非常关切的灵魂 “。仿佛是它把我派遣到人世间活动，鼓励我拼命感受生命的一切欢乐和苦难，同时又始终 关切地把我置于它的视野之内，随时准备把我召回它的身边。即使我在世上遭受最悲惨的灾 难和失败，只要我识得返回它的途径，我就不会全军覆没。它是我的守护神，为我守护着一 个任何风雨都侵袭不到也损坏不了的家园，使我在最风雨飘摇的日子里也不致无家可归。    </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 调情是轻松的，爱情是沉重的。风流韵事不过是躯体的游戏，至多还是感情的游戏。可是， 当真的爱情来临时，灵魂因恐惧和狂喜而战栗了。    </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 人的灵魂生活比外在的肉身生活和社会生活更为本质，每个人的人生质量 首先取决于他的灵魂生活的质量。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《海子诗集》</title>
-    <url>/2025/03/30/%E3%80%8A%E6%B5%B7%E5%AD%90%E8%AF%97%E9%9B%86%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《海子诗集》"><a href="#《海子诗集》" class="headerlink" title="《海子诗集》"></a>《海子诗集》</h1><blockquote>
-<p><strong>幸福的一日——致秋天的花楸树</strong></p>
-<p>作者：海子</p>
-<p>我无限的热爱着新的一日</p>
-<p>今天的太阳 今天的马 今天的花楸树</p>
-<p>使我健康 富足 拥有一生</p>
-<p>从黎明到黄昏</p>
-<p>阳光充足</p>
-<p>胜过一切过去的诗</p>
-<p>幸福找到我</p>
-<p>幸福说：“瞧 这个诗人</p>
-<p>他比我本人还要幸福“</p>
-<p>在劈开了我的秋天</p>
-<p>在劈开了我的骨头的秋天</p>
-<p>我爱你，花楸树</p>
-</blockquote>
-<hr>
-<blockquote>
-<p><strong>活在珍贵的人间</strong></p>
-<p>活在这珍贵的人间<br>太阳强烈<br>水波温柔<br>一层层白云覆盖着<br>我<br>踩在青草上<br>感到自己是彻底干净的黑土块</p>
-<p>活在这珍贵的人间<br>泥土高溅<br>扑打面颊<br>活在这珍贵的人间<br>人类和植物一样幸福<br>爱情和雨水一样幸福</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《罪与罚》</title>
-    <url>/2025/03/30/%E3%80%8A%E7%BD%AA%E4%B8%8E%E7%BD%9A%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《罪与罚》"><a href="#《罪与罚》" class="headerlink" title="《罪与罚》"></a>《罪与罚》</h1><p>​	依旧是那个味道，那种独特的心脏跳动的感觉。陀思妥耶夫斯基总是能给我带来俄罗斯式的震撼。看完这本书我又有了面对生活的勇气了。</p>
-<hr>
-<blockquote>
-<p> 可我是怎么杀的？难道别人是这样杀人吗？难道别人是像我当时那样去杀人吗？以后什么时候我会讲给您听，我是怎么去的……难道我杀死的是老太婆吗？我杀死的是我自己，而不是老太婆！我真的是一下子结果了自己的性命，永远杀死了自己！</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 要不，就完全放弃生活！”他突然发狂似地大声叫喊，“顺从地听天由命，一劳永逸，放弃行动、生活和爱的一切权利，扼杀自己心中的一切！”</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 何况真要了解任何一个人，必须一步一步地细心观察，才不至于产生错误和偏见，否则以后纠正错误和消除成见就十分困难了。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 这是怎么发生的，他自己也不知道，但是好像不知有什么突然把他举起来，丢到了她的脚下。他哭了，抱住了她的双膝。最初一瞬间她大吃一惊，吓得面无人色。她跳了起来，浑身发抖，望着他。但立刻，就在这一刹那，她什么都明白了。她的眼睛闪闪发光，露出无限幸福的神情；她明白了，她已经毫不怀疑，他爱她，无限地热爱她，这个时刻终于到了……</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 他们想要说话，可是谁也说不出来。他们都热泪盈眶。他们俩都面色苍白，两人都很瘦；但是在这两张仍然带有病容的、苍白的脸上已经闪烁着获得新生的未来的曙光。爱情使他们获得了新生，这一个人的心包含有另一颗心的无穷无尽的生活源泉。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>而且这一切究竟是什么呢，一切痛苦都已经过去了！现在，在最初的感情冲动中，一切，就连他犯的罪，就连判决和流放，他都觉得好像是某种身外的、奇怪的、甚至仿佛不是他亲身经历的事情。不过这天晚上他不能长久和固定地去想某一件事，不能把思想集中到某一件事情上去；而且现在他也并未有意识地作出任何决定；他只是有这样的一些感觉。生活取代了雄辩，思想意识里应该形成完全不同的另一种东西。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《荀子》</title>
-    <url>/2025/03/30/%E3%80%8A%E8%8D%80%E5%AD%90%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《荀子》"><a href="#《荀子》" class="headerlink" title="《荀子》"></a>《荀子》</h1><blockquote>
-<p>君子之学也，入乎耳，箸乎心，布乎四体，形乎动静。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>故声无小而不闻，行无隐而不形。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>古之学者为己，今之学者为人。君子之学也，以美其身；小人之学也，以为禽犊。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>故相形不如论心，论心不如择术</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>术正而心顺之，则形相虽恶而心术善，无害为君子也。形相虽善而心术恶，无害为小人也。</p>
-</blockquote>
-<hr>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《飞鸟集》</title>
-    <url>/2025/03/30/%E3%80%8A%E9%A3%9E%E9%B8%9F%E9%9B%86%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《飞鸟集》"><a href="#《飞鸟集》" class="headerlink" title="《飞鸟集》"></a>《飞鸟集》</h1><p>​	记录一些个人比较喜欢的短诗。</p>
-<blockquote>
-<p>Do not seat your love upon a precipice because it is high.</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> We, the rustling leaves, have a voice that answers the storms, but who are you so silent<br>I am a mere flower.</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>Your voice, my friend, wanders in my heart, like the muffled sound<br>of the sea among these listening pines. </p>
-</blockquote>
-<hr>
-<blockquote>
-<p> Let life be beautiful like summer flowers and death like autumn leaves.</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> Not hammer-strokes, but dance of the water sings the pebbles</p>
-<p>不是槌的打击，乃是水的载歌载舞，使鹅卵石臻于完美。</p>
-<p>记起来这句诗我在高中班级里开班会时用过，主题是<strong>水</strong>来着。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>世界以痛吻我，我报之以歌。</p>
-<p>The world has kissed my soul with its pain, asking for its return</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> The best does not come alone.<br>It comes with the company of the all.</p>
-</blockquote>
-<hr>
-<blockquote>
-<p> 当我去时，让我的思想到你那里来，如那夕阳的余光，映在沉默的星天边上。<br>Let my thoughts come to you, when I am gone, like the after glow of<br>sunset at the margin of starry silence.</p>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-<blockquote>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《局外人》</title>
-    <url>/2025/03/30/%E3%80%8A%E5%B1%80%E5%A4%96%E4%BA%BA%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《局外人》"><a href="#《局外人》" class="headerlink" title="《局外人》"></a>《局外人》</h1><h1 id="看不懂。。。"><a href="#看不懂。。。" class="headerlink" title="看不懂。。。"></a>看不懂。。。</h1><blockquote>
-<p><img src="/../images/read/juwairen.jpg"></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《无知》</title>
-    <url>/2025/03/30/%E3%80%8A%E6%97%A0%E7%9F%A5%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《无知》"><a href="#《无知》" class="headerlink" title="《无知》"></a>《无知》</h1><h2 id="米兰·昆德拉"><a href="#米兰·昆德拉" class="headerlink" title="米兰·昆德拉"></a>米兰·昆德拉</h2><p>​	</p>
-<blockquote>
-<p>如果往事不能在与朋友的交谈中被一而再、再而三地提及，就会消失。流亡者集中居住在一些移民地，同胞们不厌其烦地反复讲着同样的事情，因此不会淡忘。而对于那些不怎么和同胞来往的人，就像伊莱娜或尤利西斯，他们就不可避免地会得失忆症。他们的思乡之情越强烈，他们的记忆就越空洞。尤利西斯越是痛苦，他忘记的事就越多。这是因为思乡之情并不能促进人的记忆活动，并不会唤起从前的记忆，相反，它满足于本身，满足于自己的激情，完全淹没在自己的痛苦中。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>二十年里尤利西斯惟一想的就是回归故乡。但一旦回来后，他惊讶地发现，他的生活，也就是他生命的精华、重心、财富，其实并不在伊萨卡，而是存在于他二十年的漂泊之中。这笔财富，他已然失去，而且无法在讲述中再找回来了。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>在一首四行诗里面,他就写到了他的悲苦。他说想要用悲苦造一间屋,把自己关在里面三百年。三百年啊，我们都明白，眼前是一条三百年的漫长的隧道。”</p>
-</blockquote>
-<hr>
-<blockquote>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《橡果兄弟》</title>
-    <url>/2025/03/30/%E3%80%8A%E6%A9%A1%E6%9E%9C%E5%85%84%E5%BC%9F%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《橡果兄弟》"><a href="#《橡果兄弟》" class="headerlink" title="《橡果兄弟》"></a>《橡果兄弟》</h1><p>​	这是一部电影啦！但是太好看了，所以记录一下。</p>
-<blockquote>
-<p>00:37:00,218 –&gt; 00:37:02,880<br>很蓝</p>
-<p>622<br>00:37:05,181 –&gt; 00:37:07,137<br>中间的这个是？</p>
-<p>623<br>00:37:07,183 –&gt; 00:37:08,172<br>是瓢虫</p>
-<p>624<br>00:37:08,351 –&gt; 00:37:09,215<br>它飞起来了？</p>
-<p>625<br>00:37:09,811 –&gt; 00:37:10,721<br>对啊</p>
-<p>626<br>00:37:11,146 –&gt; 00:37:14,229<br>虽然很难但是很有趣 对吧</p>
-<p>627<br>00:37:14,274 –&gt; 00:37:18,313<br>它会把再也不会到来的瞬间化为永恒</p>
-<p>628<br>00:37:18,528 –&gt; 00:37:24,444<br>把我第一次按下快门那瞬间的心情<br>一起变成永远</p>
-<p>629<br>00:37:25,410 –&gt; 00:37:31,781<br>将没有人发现<br>却即将发生在这个世界角落的小故事</p>
-<p>630<br>00:37:31,833 –&gt; 00:37:34,074<br>在当下烙印起来</p>
-<p>631<br>00:37:34,586 –&gt; 00:37:40,047<br>替我用任何人都看得到的形式来证明</p>
-<p>632<br>00:37:40,091 –&gt; 00:37:43,254<br>我用全身心感受到的世界确实存在</p>
-<p>633<br>00:37:44,220 –&gt; 00:37:46,461<br>你不觉得这样很厉害吗？</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>897<br>00:51:00,224 –&gt; 00:51:02,931<br>感觉你们在一起每天都过得很开心</p>
-<p>898<br>00:51:03,018 –&gt; 00:51:04,303<br>你们可是在闪闪发光哦</p>
-<p>899<br>00:51:04,812 –&gt; 00:51:07,053<br>虽然我没办法知道在我们相遇之前</p>
-<p>900<br>00:51:07,106 –&gt; 00:51:09,813<br>你们两个是怎么相处的</p>
-<p>901<br>00:51:09,858 –&gt; 00:51:14,397<br>但和最要好的朋友玩在一起</p>
-<p>902<br>00:51:14,488 –&gt; 00:51:17,150<br>那可是最棒最快乐的事哦</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>1002<br>00:56:29,177 –&gt; 00:56:32,340<br>闪耀在蓝色世界里的红色流星</p>
-<p>1003<br>00:56:35,142 –&gt; 00:56:37,383<br>是明亮的红色，真漂亮</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>1007<br>00:56:50,741 –&gt; 00:56:52,982<br>就算逃避个一次</p>
-<p>1008<br>00:56:53,035 –&gt; 00:56:55,276<br>我也还是可以重新再战对吧</p>
-<p>1009<br>00:56:56,705 –&gt; 00:56:58,946<br>没错，因为你还活着啊</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>1249<br>01:26:29,476 –&gt; 01:26:34,937<br><strong>（我的宝物）</strong><br><strong>（见证我15岁最后英姿的好朋友们）</strong></p>
-</blockquote>
-<p><img src="/../images/read/xiangguoxiongdi_2.jpg"></p>
-<p><img src="/../images/read/xiangguoxiongdi_1.jpg"></p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《星，雪，火》</title>
-    <url>/2025/03/30/%E3%80%8A%E6%98%9F%EF%BC%8C%E9%9B%AA%EF%BC%8C%E7%81%AB%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="《星，雪，火》"><a href="#《星，雪，火》" class="headerlink" title="《星，雪，火》"></a>《星，雪，火》</h1><h2 id="约翰·海恩斯"><a href="#约翰·海恩斯" class="headerlink" title="约翰·海恩斯"></a>约翰·海恩斯</h2><p>​	这本书完完全全是在地铁上看完的，在最现代化的城市中，在地面以下的钢铁列车中，我的思绪已然飘向阿拉斯加。哪里的极地、大雪，干净的夜空和星星都把我留住，以至于多次坐过站。很幸运能遇到这本书——这本随手从书堆中抽出，读起来却一发不可收拾的书。叙事慢慢的，就好像在冬天的阿拉斯加的雪夜里，坐在火堆旁边听一位老者讲故事。</p>
-<blockquote>
-<p>​	一个人在这样遥远、孤寂的地方能够做些什么？首先，他可以看看天气、星星、雪或者是火，这是他最常阅读的书。而他所做的一切，不论是将木柴和几桶雪带进，或是将废水带出，都需要他站在野地的空旷处，暂时远离墙，远离人类写就的书，远离做梦的脑袋。当我站在这儿，当我因夜晚的寂静和亲切而精神抖擞时，我认为这是一种很好的生活方式。流浪的精灵回归，以人的形式在森林中辟出一块空地，用身边的树盖了一个遮蔽所。它来这儿学习此地的生存之道，来这儿睡觉和苏醒，成长和变老，来这儿观看河流、东移的云朵和草上的霜花。我想象着这样一个人，他可能是世界上最冷的学者，追逐着雪上的每一条线索，边前进边写下一本书，那将是一本雪的历史，一本冬日之书，一本古时候在这些山丘上打猎的人阅读的千年文本。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>使用samba将armlinux小主机作为nas</title>
-    <url>/2025/04/04/%E4%BD%BF%E7%94%A8samba%E5%B0%86armlinux%E5%B0%8F%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BAnas/</url>
-    <content><![CDATA[<h1 id="使用samba将armlinux小主机作为nas"><a href="#使用samba将armlinux小主机作为nas" class="headerlink" title="使用samba将armlinux小主机作为nas"></a>使用samba将armlinux小主机作为nas</h1><h2 id="先上结果！"><a href="#先上结果！" class="headerlink" title="先上结果！"></a>先上结果！</h2><p><img src="/../images/Linux/samba/1.png"></p>
-<p><img src="/../images/Linux/samba/2.jpg"></p>
-<p><img src="/../images/Linux/samba/3.jpg"></p>
-<p>​	arm小主机为rk3399 4+32g（70块钱捡的二手），作为nas主控完全够用。</p>
-<h2 id="部署过程"><a href="#部署过程" class="headerlink" title="部署过程"></a>部署过程</h2><p>​	本来想把自己那块2t的机械硬盘改为共享盘，可惜里面已经有300多g的图片了，因为涉及到了修改文件系统需要格式化所以先拿手头上的sata ssd做测试。没想到这个ssd挂了（悲），于是换成了最后的32g限制u盘了。</p>
-<h3 id="步骤-Liunx端"><a href="#步骤-Liunx端" class="headerlink" title="步骤-Liunx端"></a>步骤-Liunx端</h3><h4 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h4><ol>
-<li><p>插入U盘。</p>
-</li>
-<li><p>ssh连接。</p>
-</li>
-<li><p>清空U盘并创建ext4文件系统。</p>
-<ol>
-<li><p>找到插入的U盘</p>
-<p> <code>lsblk</code>可以找到插入的硬盘（会显示硬盘大小以及种类，例如我的就是sda 29.3g）</p>
-</li>
-<li><p>清空U盘并创建ext4文件系统。</p>
-<p> <code>sudo mkfs.ext4 /dev/sdb1</code></p>
-</li>
-</ol>
-</li>
-<li><p>创建一个用于共享的根文件夹并挂载U盘</p>
-<p><code>sudo mkdir /mnt/shared</code></p>
-<p><code>sudo mount /dev/sda /mnt/shared</code></p>
-</li>
-<li><p>赋予系统用户这个文件夹读写权限</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R pi:pi /mnt/shared  <span class="comment"># 更改所有者为 regen</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 770 /mnt/shared          <span class="comment"># 设置读写执行权限</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4 id="2-安装以及配置Samba"><a href="#2-安装以及配置Samba" class="headerlink" title="2. 安装以及配置Samba"></a>2. 安装以及配置Samba</h4><ol>
-<li>安装</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt upgrade</span><br><span class="line"><span class="built_in">sudo</span> apt install samba -y</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>配置</p>
-<p> 我这边是基于vscode的ssh扩展进行编辑配置的（非常好用）。</p>
-<p> <code>code /etc/samba/</code></p>
-<p> 然后编辑<code>smb.conf</code>，在末尾加上</p>
- <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[shared]</span><br><span class="line">   path = /mnt/shared</span><br><span class="line">   browseable = <span class="built_in">yes</span></span><br><span class="line">   writable = <span class="built_in">yes</span></span><br><span class="line">   <span class="built_in">read</span> only = no</span><br><span class="line">   guest ok = no</span><br><span class="line">   valid <span class="built_in">users</span> = pi   <span class="comment"># 当前Linux系统用户ID</span></span><br><span class="line">   force create mode = 0660</span><br><span class="line">   force directory mode = 2770</span><br></pre></td></tr></table></figure>
-
-<p> 保存后退出，然后配置一下密码。</p>
-<p> <code>sudo smbpasswd -a pi</code>输入两次想要设置的密码即可。</p>
-</li>
-</ol>
-<h3 id="使用-Windows"><a href="#使用-Windows" class="headerlink" title="使用-Windows"></a>使用-Windows</h3><p>很简单，win +R 输入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">\\IP\shared</span><br></pre></td></tr></table></figure>
-
-<p>再输入账号密码即可。</p>
-<p>需要注意的是samba的账号必须是Linux系统的用户。</p>
-<h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/Linux/samba/4.png"></p>
-]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>linux</tag>
-        <tag>samba</tag>
-        <tag>nas</tag>
-        <tag>共享盘</tag>
       </tags>
   </entry>
 </search>
