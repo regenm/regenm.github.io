@@ -1,0 +1,681 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>编译原理 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="编译原理课程笔记第一章 引论编译器概述 翻译器: 把某一种语言程序(称为源语言程序)等价地转换成另一种语言程序(称为目标语言程序)的程序   解释器： 把源语言（高级语言）写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序   编译器： 把一种高级语言程序等价地转换成另一种低级语言程序(汇编语言或机器语言程序)的程序    编译前端与后端 编译前端： 与源语言有关，如词法分析，语法分析，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理">
+<meta property="og:url" content="http://example.com/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="编译原理课程笔记第一章 引论编译器概述 翻译器: 把某一种语言程序(称为源语言程序)等价地转换成另一种语言程序(称为目标语言程序)的程序   解释器： 把源语言（高级语言）写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序   编译器： 把一种高级语言程序等价地转换成另一种低级语言程序(汇编语言或机器语言程序)的程序    编译前端与后端 编译前端： 与源语言有关，如词法分析，语法分析，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-05-26T00:46:00.000Z">
+<meta property="article:modified_time" content="2025-05-29T03:38:12.963Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '编译原理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-29 11:38:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">120</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">139</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">编译原理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-05-26T00:46:00.000Z" title="Created 2025-05-26 08:46:00">2025-05-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-05-29T03:38:12.963Z" title="Updated 2025-05-29 11:38:12">2025-05-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">软硬件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" data-flag-title="编译原理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="编译原理课程笔记"><a href="#编译原理课程笔记" class="headerlink" title="编译原理课程笔记"></a><strong>编译原理课程笔记</strong></h1><h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="编译器概述"><a href="#编译器概述" class="headerlink" title="编译器概述"></a>编译器概述</h2><ul>
+<li>翻译器:<ul>
+<li>把某一种语言程序(称为源语言程序)等价地转换成另一种语言程序(称为目标语言程序)的程序</li>
+</ul>
+</li>
+<li>解释器：<ul>
+<li>把源语言（高级语言）写的源程序作为输入，但不产生目标程序，而是边解释边执行源程序</li>
+</ul>
+</li>
+<li>编译器：<ul>
+<li>把一种高级语言程序等价地转换成另一种低级语言程序(汇编语言或机器语言程序)的程序</li>
+</ul>
+</li>
+</ul>
+<h3 id="编译前端与后端"><a href="#编译前端与后端" class="headerlink" title="编译前端与后端"></a>编译前端与后端</h3><ul>
+<li>编译前端：<ul>
+<li>与源语言有关，如词法分析，语法分析，语义分析与中间代码产生，与机器无关的优化</li>
+</ul>
+</li>
+<li>编译后端：<ul>
+<li>与目标机有关，与目标机有关的优化，目标代码产生</li>
+</ul>
+</li>
+</ul>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><ol>
+<li>词法分析</li>
+<li>语法分析</li>
+<li>语义分析</li>
+<li>中间代码产生</li>
+<li>优化</li>
+<li>目标代码产生</li>
+</ol>
+<h4 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h4><p>任务: 输入源程序，对构成源程序的字符串进行扫描和分解，识别出一个个单词符号。依循的原则：构词规则描述工具：有限自动机</p>
+<h4 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h4><p>任务:在词法分析的基础上，根据语言的语法规则把单词符号串分解成各类语法单位。依循的原则：语法规则,语法树描述工具：上下文无关文法</p>
+<h4 id="语义分析和中间代码产生"><a href="#语义分析和中间代码产生" class="headerlink" title="语义分析和中间代码产生"></a>语义分析和中间代码产生</h4><p>任务:对各类不同语法范畴按语言的语义进行初步翻译。–声明语句和操作语句依循的原则：语义规则中间代码:三元式，四元式，树形结构等</p>
+<h4 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h4><p>任务：对于前阶段产生的中间代码进行加工变换，以期在最后阶段产生更高效的目标代码。依循的原则：程序的等价变换规则</p>
+<h4 id="目标代码产生"><a href="#目标代码产生" class="headerlink" title="目标代码产生"></a>目标代码产生</h4><p>任务: 把中间代码变换成特定机器上的目标代码。依赖于硬件系统结构和机器指令的含义目标代码三种形式:绝对指令代码: 可直接运行 汇编指令代码: 需要进行汇编可重新定位指令代码: 需要连接装配</p>
+<h2 id="编译技术的应用"><a href="#编译技术的应用" class="headerlink" title="编译技术的应用"></a>编译技术的应用</h2><p>编译技术广泛应用于计算机领域核心场景：  </p>
+<ol>
+<li><strong>程序开发</strong>：将高级语言（C&#x2F;Java&#x2F;Python）编译为机器码或字节码，支撑编程语言生态；解释器实现动态执行；  </li>
+<li><strong>性能优化</strong>：通过代码精简、内联扩展、循环优化提升效率，JIT技术（如Java&#x2F;JavaScript）实现运行时加速；  </li>
+<li><strong>跨平台支持</strong>：交叉编译生成多平台目标代码，虚拟机（如JVM）通过中间码实现“一次编写，到处运行”；  </li>
+<li><strong>静态分析</strong>：检测代码漏洞、内存泄漏，支撑IDE智能提示与代码规范检查；  </li>
+<li><strong>硬件与嵌入式</strong>：编译Verilog&#x2F;VHDL生成电路，为物联网设备生成低功耗固件；  </li>
+<li><strong>安全防护</strong>：代码混淆防止反编译，静态分析识别恶意代码；  </li>
+<li><strong>领域专用</strong>：实现SQL、正则表达式等DSL，提升领域开发效率。<br>此外，编译技术还用于代码生成工具、并行计算框架（如CUDA）和教育研究领域，是软件与硬件协同的核心纽带。（199字）</li>
+</ol>
+<h1 id="第二章-词法分析"><a href="#第二章-词法分析" class="headerlink" title="第二章 词法分析"></a>第二章 词法分析</h1><h2 id="词法分析的任务"><a href="#词法分析的任务" class="headerlink" title="词法分析的任务"></a>词法分析的任务</h2><p>​	从左至右逐个字符地对源程序进行扫描，产生一个个单词符号。</p>
+<ul>
+<li>法分析器(Lexical Analyzer) 又称扫描器(Scanner)：<ul>
+<li>是执行词法分析的程序</li>
+</ul>
+</li>
+</ul>
+<h2 id="词法分析器构造"><a href="#词法分析器构造" class="headerlink" title="词法分析器构造"></a>词法分析器构造</h2><h3 id="方法一-通过状态转换图编写词法分析器"><a href="#方法一-通过状态转换图编写词法分析器" class="headerlink" title="方法一:   通过状态转换图编写词法分析器"></a>方法一:   通过状态转换图编写词法分析器</h3><ul>
+<li><p>词法分析器手工编制方法</p>
+</li>
+<li><p>词法分析器的功能和输出形式</p>
+<ul>
+<li>功能:输入源程序、输出单词符号</li>
+</ul>
+</li>
+</ul>
+<h4 id="状态转换图"><a href="#状态转换图" class="headerlink" title="状态转换图"></a>状态转换图</h4><ul>
+<li>状态转换图是一张有限方向图。<ol>
+<li>结点代表状态，用圆圈表示。</li>
+<li>状态之间用代箭头的弧线连结，弧线上的标记(字符或其他)代表射出结点状态下可能出现的输入字符或字符类。</li>
+<li>一张转换图只包含有限个状态，其中有一个为初态，至少要有一个终态双圆圈</li>
+</ol>
+</li>
+</ul>
+<h1 id="编译原理作业"><a href="#编译原理作业" class="headerlink" title="编译原理作业"></a><strong>编译原理作业</strong></h1><p><img src="/../images/compiler/1.png"></p>
+<blockquote>
+<p>**1. ** 词法分析器以源程序的字符流为输入，按词法规则将其识别为一个个单词，并转换为统一的（单词类别，单词值）二元组内部表示形式。它还负责检查词法错误，如非法字符、错误关键字等，之后将单词逐个传递给语法分析器，为其提供输入单元，同时在预处理时简化源程序，提高编译效率。 </p>
+<p>**2. ** 状态转换图是由状态节点与带条件或事件标注的有向转换边构成的有向图 。它能直观展现系统或对象的运行逻辑，清晰呈现各种状态及转换关系，在系统设计时辅助架构规划，开发中用于检测错误、辅助调试，也是团队沟通的有力工具，在算法设计与分析领域，还能描述算法执行、助力性能分析 。 </p>
+<p>**3. ** </p>
+<p>知识点：</p>
+<ol>
+<li>词法分析器、输入输出</li>
+<li>语法分析器</li>
+<li>状态转换图</li>
+</ol>
+</blockquote>
+<h1 id="编译原理自测题目"><a href="#编译原理自测题目" class="headerlink" title="编译原理自测题目"></a><strong>编译原理自测题目</strong></h1><h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><blockquote>
+<p>结合常用的语言，例如JAVA、Python 、C、C++等，说明：</p>
+<p>1．什么是编译程序</p>
+<p>\2. 什么是解释程序</p>
+<p>\3. 什么是翻译程序</p>
+<p>\4. 以上3种程序的区别</p>
+<p>5、简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？</p>
+<p><strong>综合题</strong></p>
+<p>1、 论述编译过程的每个阶段的输入及输出，以及每个阶段所采用的相关技术（P6图1.3）, 以声明语句的处理过程为例。</p>
+</blockquote>
+<p>根据《编译原理》（第三版）教材内容，并结合常见编程语言（如 Java、Python、C、C++），我们来逐一解答你的问题：</p>
+<hr>
+<h2 id="1-什么是编译程序？"><a href="#1-什么是编译程序？" class="headerlink" title="1. 什么是编译程序？"></a><strong>1. 什么是编译程序？</strong></h2><p><strong>定义：</strong><br>编译程序（Compiler）是一种将高级语言源程序翻译成等价的低级语言（如汇编语言或机器语言）的程序。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>编译是一次性翻译整个程序。</li>
+<li>翻译后生成目标代码，可执行文件可以脱离原语言环境运行。</li>
+<li>执行效率高，但开发调试周期较长。</li>
+</ul>
+<p><strong>举例说明：</strong></p>
+<ul>
+<li>C、C++ 是典型的编译型语言。使用 <code>gcc</code> 或 <code>g++</code> 编译器将 <code>.c</code> 或 <code>.cpp</code> 文件编译为可执行文件（如 <code>.exe</code> 或 Linux 下的可执行文件）。</li>
+<li>Java 的 <code>.java</code> 文件也被编译为字节码（<code>.class</code>），由 JVM 解释或即时编译执行。</li>
+</ul>
+<hr>
+<h2 id="2-什么是解释程序？"><a href="#2-什么是解释程序？" class="headerlink" title="2. 什么是解释程序？"></a><strong>2. 什么是解释程序？</strong></h2><p><strong>定义：</strong><br>解释程序（Interpreter）是直接分析并执行高级语言源代码的程序，不生成独立的目标代码。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>每次运行都要逐行解释执行。</li>
+<li>调试方便，但执行速度较慢。</li>
+<li>不需要编译过程，适合脚本语言和交互式编程。</li>
+</ul>
+<p><strong>举例说明：</strong></p>
+<ul>
+<li>Python 默认使用解释执行方式。例如使用 <code>python script.py</code> 直接运行源代码。</li>
+<li>JavaScript 在浏览器中通常由 JS 引擎解释执行。</li>
+</ul>
+<hr>
+<h2 id="3-什么是翻译程序？"><a href="#3-什么是翻译程序？" class="headerlink" title="3. 什么是翻译程序？"></a><strong>3. 什么是翻译程序？</strong></h2><p><strong>定义：</strong><br>翻译程序（Translator）是一个更广义的概念，指任何将一种语言转换为另一种语言的程序。包括：</p>
+<ul>
+<li>编译程序（高级语言 → 低级语言）</li>
+<li>汇编程序（汇编语言 → 机器语言）</li>
+<li>源到源翻译程序（如将 Python 转换为 C）</li>
+</ul>
+<p><strong>总结：</strong></p>
+<blockquote>
+<p>编译程序是翻译程序的一种特殊形式，翻译程序是一个更大的类别。</p>
+</blockquote>
+<hr>
+<h2 id="4-上述三种程序的区别"><a href="#4-上述三种程序的区别" class="headerlink" title="4. 上述三种程序的区别"></a><strong>4. 上述三种程序的区别</strong></h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>工作方式</th>
+<th>是否生成目标代码</th>
+<th>执行效率</th>
+<th>典型语言</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>编译程序</td>
+<td>将源程序一次性翻译为目标代码</td>
+<td>✅</td>
+<td>高</td>
+<td>C、C++、Java</td>
+</tr>
+<tr>
+<td>解释程序</td>
+<td>逐行读取并执行源程序</td>
+<td>❌</td>
+<td>较低</td>
+<td>Python、JS</td>
+</tr>
+<tr>
+<td>翻译程序</td>
+<td>广义概念，涵盖编译与汇编等</td>
+<td>可能有</td>
+<td>视情况而定</td>
+<td>多种</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5-简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？"><a href="#5-简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？" class="headerlink" title="5. 简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？"></a><strong>5. 简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？</strong></h2><h3 id="编译前端（Front-End）："><a href="#编译前端（Front-End）：" class="headerlink" title="编译前端（Front End）："></a><strong>编译前端（Front End）：</strong></h3><p>负责处理与源语言相关的任务，主要关注语法结构和语义分析。</p>
+<h4 id="编译前端包含的主要阶段（依据《编译原理》第三版）："><a href="#编译前端包含的主要阶段（依据《编译原理》第三版）：" class="headerlink" title="编译前端包含的主要阶段（依据《编译原理》第三版）："></a><strong>编译前端包含的主要阶段（依据《编译原理》第三版）：</strong></h4><ol>
+<li><p><strong>词法分析（Lexical Analysis）：</strong></p>
+<ul>
+<li>输入：字符序列</li>
+<li>输出：记号（Token）序列</li>
+<li>功能：识别关键字、标识符、运算符等基本单位</li>
+</ul>
+</li>
+<li><p><strong>语法分析（Syntax Analysis）：</strong></p>
+<ul>
+<li>输入：Token 序列</li>
+<li>输出：语法树（Parse Tree &#x2F; Abstract Syntax Tree）</li>
+<li>功能：检查语法是否符合文法规则</li>
+</ul>
+</li>
+<li><p><strong>语义分析（Semantic Analysis）：</strong></p>
+<ul>
+<li>输入：语法树</li>
+<li>输出：带类型信息的中间表示</li>
+<li>功能：检查变量类型、作用域、函数调用是否合法等</li>
+</ul>
+</li>
+<li><p><strong>中间代码生成（Intermediate Code Generation）：</strong></p>
+<ul>
+<li>输入：语义分析后的结构</li>
+<li>输出：中间语言（如三地址码、四元式等）</li>
+<li>功能：生成便于优化和目标代码生成的中间表示</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="编译后端（Back-End）："><a href="#编译后端（Back-End）：" class="headerlink" title="编译后端（Back End）："></a><strong>编译后端（Back End）：</strong></h3><p>负责与目标机器相关的任务，主要目标是生成高效的目标代码。</p>
+<h4 id="编译后端的主要任务包括："><a href="#编译后端的主要任务包括：" class="headerlink" title="编译后端的主要任务包括："></a><strong>编译后端的主要任务包括：</strong></h4><ol>
+<li><p><strong>代码优化（Code Optimization）：</strong></p>
+<ul>
+<li>对中间代码进行优化以提高性能（如常量折叠、死代码消除等）</li>
+</ul>
+</li>
+<li><p><strong>目标代码生成（Target Code Generation）：</strong></p>
+<ul>
+<li>将中间代码转换为目标机器指令</li>
+</ul>
+</li>
+<li><p><strong>寄存器分配（Register Allocation）：</strong></p>
+<ul>
+<li>分配寄存器以减少内存访问，提高执行效率</li>
+</ul>
+</li>
+<li><p><strong>指令选择（Instruction Selection）：</strong></p>
+<ul>
+<li>根据目标架构选择合适的机器指令</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="✅-总结图示（简化流程）："><a href="#✅-总结图示（简化流程）：" class="headerlink" title="✅ 总结图示（简化流程）："></a>✅ 总结图示（简化流程）：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">源程序</span><br><span class="line">   ↓ 词法分析</span><br><span class="line">Token流</span><br><span class="line">   ↓ 语法分析</span><br><span class="line">语法树</span><br><span class="line">   ↓ 语义分析</span><br><span class="line">中间表示（IR）</span><br><span class="line">   ↓ 中间代码优化（前端）</span><br><span class="line">   ↓ 目标代码生成</span><br><span class="line">目标代码</span><br><span class="line">   ↓ 优化（后端）</span><br><span class="line">最终可执行代码</span><br></pre></td></tr></table></figure>
+
+<p>根据《编译原理》（第三版）教材中第1章图1.3所示的<strong>编译过程主要阶段</strong>，我们可以以一个典型的<strong>声明语句</strong>为例（如：<code>int x = 5;</code>），来系统地论述每个阶段的输入、输出以及所采用的相关技术。</p>
+<hr>
+<h2 id="✅-一、总体流程概述（参考P6-图1-3）"><a href="#✅-一、总体流程概述（参考P6-图1-3）" class="headerlink" title="✅ 一、总体流程概述（参考P6 图1.3）"></a>✅ 一、总体流程概述（参考P6 图1.3）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">源程序 → 词法分析 → 语法分析 → 语义分析 → 中间代码生成 → 代码优化 → 目标代码生成 → 目标程序</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-二、以声明语句-int-x-5-为例，逐阶段分析"><a href="#✅-二、以声明语句-int-x-5-为例，逐阶段分析" class="headerlink" title="✅ 二、以声明语句 int x = 5; 为例，逐阶段分析"></a>✅ 二、以声明语句 <code>int x = 5;</code> 为例，逐阶段分析</h2><h3 id="1-词法分析（Lexical-Analysis）"><a href="#1-词法分析（Lexical-Analysis）" class="headerlink" title="1. 词法分析（Lexical Analysis）"></a><strong>1. 词法分析（Lexical Analysis）</strong></h3><ul>
+<li><p><strong>输入</strong>：字符序列<br><code>&quot;int x = 5;&quot;</code></p>
+</li>
+<li><p><strong>输出</strong>：记号（Token）序列<br><code>[keyword(int), identifier(x), operator(=), number(5), punctuation(;)]</code></p>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>正则表达式（Regular Expressions）</li>
+<li>确定有限自动机（DFA）</li>
+<li>使用工具：Flex &#x2F; Lex</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：将字符序列转换为有意义的记号，便于后续处理。</p>
+</li>
+</ul>
+<hr>
+<h3 id="2-语法分析（Syntax-Analysis）"><a href="#2-语法分析（Syntax-Analysis）" class="headerlink" title="2. 语法分析（Syntax Analysis）"></a><strong>2. 语法分析（Syntax Analysis）</strong></h3><ul>
+<li><p><strong>输入</strong>：Token 序列<br><code>[int, x, =, 5, ;]</code></p>
+</li>
+<li><p><strong>输出</strong>：语法树（Parse Tree 或 Abstract Syntax Tree, AST）  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Declaration</span><br><span class="line"> ├── Type: int</span><br><span class="line"> └── Assignment</span><br><span class="line">     ├── Variable: x</span><br><span class="line">     └── Value: 5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>上下文无关文法（CFG）</li>
+<li>自顶向下解析（LL 文法）</li>
+<li>自底向上解析（LR 文法）</li>
+<li>使用工具：Yacc &#x2F; Bison &#x2F; ANTLR</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：验证 Token 序列是否符合语言的语法规则，并构建结构化表示。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-语义分析（Semantic-Analysis）"><a href="#3-语义分析（Semantic-Analysis）" class="headerlink" title="3. 语义分析（Semantic Analysis）"></a><strong>3. 语义分析（Semantic Analysis）</strong></h3><ul>
+<li><p><strong>输入</strong>：语法树</p>
+</li>
+<li><p><strong>输出</strong>：带有类型信息和符号表信息的中间表示<br>（例如添加变量类型、检查赋值类型匹配等）</p>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>类型检查（Type Checking）</li>
+<li>符号表管理（Symbol Table）</li>
+<li>属性文法（Attribute Grammar）</li>
+</ul>
+</li>
+<li><p><strong>示例</strong>：</p>
+<ul>
+<li>检查 <code>x</code> 是否为合法标识符</li>
+<li>检查 <code>5</code> 是否可以赋给 <code>int</code> 类型变量</li>
+<li>在符号表中插入变量 <code>x</code> 的类型为 <code>int</code></li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：确保程序在语义上是正确的，避免类型错误、未定义变量等问题。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-中间代码生成（Intermediate-Code-Generation）"><a href="#4-中间代码生成（Intermediate-Code-Generation）" class="headerlink" title="4. 中间代码生成（Intermediate Code Generation）"></a><strong>4. 中间代码生成（Intermediate Code Generation）</strong></h3><ul>
+<li><p><strong>输入</strong>：带语义信息的语法树或抽象语法树（AST）</p>
+</li>
+<li><p><strong>输出</strong>：中间代码（如三地址码、四元式、SSA 形式）<br>示例（三地址码）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t1 = 5</span><br><span class="line">x = t1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>三地址码（Three-address code）</li>
+<li>四元式&#x2F;三元式</li>
+<li>控制流图（CFG）</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：生成与目标机器无关的中间表示，便于后续优化和代码生成。</p>
+</li>
+</ul>
+<hr>
+<h3 id="5-代码优化（Code-Optimization）"><a href="#5-代码优化（Code-Optimization）" class="headerlink" title="5. 代码优化（Code Optimization）"></a><strong>5. 代码优化（Code Optimization）</strong></h3><ul>
+<li><p><strong>输入</strong>：中间代码（如上述三地址码）</p>
+</li>
+<li><p><strong>输出</strong>：优化后的中间代码<br>示例（常量折叠）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x = 5</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>常量传播与折叠（Constant Folding）</li>
+<li>死代码消除（Dead Code Elimination）</li>
+<li>公共子表达式消除（Common Subexpression Elimination）</li>
+<li>循环优化（Loop Optimization）</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：提高程序执行效率，减少资源消耗。</p>
+</li>
+</ul>
+<hr>
+<h3 id="6-目标代码生成（Target-Code-Generation）"><a href="#6-目标代码生成（Target-Code-Generation）" class="headerlink" title="6. 目标代码生成（Target Code Generation）"></a><strong>6. 目标代码生成（Target Code Generation）</strong></h3><ul>
+<li><p><strong>输入</strong>：优化后的中间代码<br><code>x = 5</code></p>
+</li>
+<li><p><strong>输出</strong>：目标机器指令（如汇编代码或机器码）<br>示例（x86 汇编）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movl $5, x</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>相关技术</strong>：</p>
+<ul>
+<li>指令选择（Instruction Selection）</li>
+<li>寄存器分配（Register Allocation）</li>
+<li>指令调度（Instruction Scheduling）</li>
+</ul>
+</li>
+<li><p><strong>作用</strong>：将中间代码翻译为目标平台上的可执行指令。</p>
+</li>
+</ul>
+<hr>
+<h3 id="7-表格管理（Symbol-Table-Management）"><a href="#7-表格管理（Symbol-Table-Management）" class="headerlink" title="7. 表格管理（Symbol Table Management）"></a><strong>7. 表格管理（Symbol Table Management）</strong></h3><ul>
+<li><strong>贯穿整个编译过程</strong></li>
+<li><strong>作用</strong>：<ul>
+<li>记录变量名、函数名、类型、作用域等信息</li>
+<li>支持语义分析、代码生成等阶段使用</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="8-错误处理（Error-Handling）"><a href="#8-错误处理（Error-Handling）" class="headerlink" title="8. 错误处理（Error Handling）"></a><strong>8. 错误处理（Error Handling）</strong></h3><ul>
+<li><strong>贯穿整个编译过程</strong></li>
+<li><strong>作用</strong>：<ul>
+<li>检测并报告词法、语法、语义错误</li>
+<li>尽可能恢复并继续编译，给出多个错误提示</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="✅-三、总结表格（以-int-x-5-为例）"><a href="#✅-三、总结表格（以-int-x-5-为例）" class="headerlink" title="✅ 三、总结表格（以 int x = 5; 为例）"></a>✅ 三、总结表格（以 <code>int x = 5;</code> 为例）</h2><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>输入</th>
+<th>输出</th>
+<th>主要技术</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>词法分析</td>
+<td>字符串 <code>&quot;int x = 5;&quot;</code></td>
+<td>Token 序列</td>
+<td>DFA、正则表达式</td>
+</tr>
+<tr>
+<td>语法分析</td>
+<td>Token 序列</td>
+<td>语法树 &#x2F; AST</td>
+<td>CFG、LL&#x2F;LR 分析</td>
+</tr>
+<tr>
+<td>语义分析</td>
+<td>语法树</td>
+<td>带类型信息的 AST</td>
+<td>类型检查、符号表</td>
+</tr>
+<tr>
+<td>中间代码生成</td>
+<td>AST</td>
+<td>三地址码</td>
+<td>IR 构建</td>
+</tr>
+<tr>
+<td>代码优化</td>
+<td>中间代码</td>
+<td>优化后的中间代码</td>
+<td>常量折叠、死代码消除</td>
+</tr>
+<tr>
+<td>目标代码生成</td>
+<td>优化后的中间代码</td>
+<td>汇编或机器码</td>
+<td>指令选择、寄存器分配</td>
+</tr>
+<tr>
+<td>表格管理</td>
+<td>所有阶段</td>
+<td>符号表</td>
+<td>哈希表、作用域链</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>各阶段输入</td>
+<td>错误信息</td>
+<td>错误恢复、错误提示</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✅-四、结语"><a href="#✅-四、结语" class="headerlink" title="✅ 四、结语"></a>✅ 四、结语</h2><p>通过以上对 <code>int x = 5;</code> 编译过程的逐阶段分析，可以看出编译器是一个高度模块化的系统，各阶段协同工作，最终将高级语言转化为高效的机器代码。理解这些阶段及其关键技术，有助于深入掌握《编译原理》课程的核心内容。</p>
+<p>如果你需要我为你整理成 <strong>思维导图</strong> 或 <strong>PPT提纲</strong>，也可以告诉我，我可以帮你进一步整理用于复习或汇报。</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
+<p>1、词法分析器常用的构造方法有哪几种？</p>
+<p>2、判断如下图所示的有限自动机是NFA还是DFA，并判断它能识别何种字符串，给出它对应的状态转换表。</p>
+<p><img src="/../images/compiler/2.png"></p>
+</blockquote>
+<h3 id="一、词法分析器常用的构造方法"><a href="#一、词法分析器常用的构造方法" class="headerlink" title="一、词法分析器常用的构造方法"></a><strong>一、词法分析器常用的构造方法</strong></h3><p>词法分析器（Lexical Analyzer）是编译器的第一个阶段，其主要任务是将源程序的字符序列转换为记号（Token）序列。词法分析器的构造方法主要有以下几种：</p>
+<hr>
+<h4 id="1-手工编写词法分析器"><a href="#1-手工编写词法分析器" class="headerlink" title="1. 手工编写词法分析器"></a><strong>1. 手工编写词法分析器</strong></h4><ul>
+<li><strong>描述</strong>：开发人员手动编写代码来识别和处理输入字符流。</li>
+<li><strong>优点</strong>：<ul>
+<li>灵活性高，可以针对特定语言进行定制化设计。</li>
+<li>对于简单的语言或特殊情况，手工实现可能更高效。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>编写复杂，容易出错。</li>
+<li>维护成本高，难以扩展。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="2-使用正则表达式"><a href="#2-使用正则表达式" class="headerlink" title="2. 使用正则表达式"></a><strong>2. 使用正则表达式</strong></h4><ul>
+<li><strong>描述</strong>：利用正则表达式定义词法规则，然后通过正则表达式匹配引擎自动识别记号。</li>
+<li><strong>优点</strong>：<ul>
+<li>表达能力强，适合描述复杂的模式。</li>
+<li>开发效率高，易于维护。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>正则表达式可能不够灵活，难以处理某些复杂的上下文依赖问题。</li>
+<li>性能可能不如手工优化的词法分析器。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="3-使用工具生成词法分析器"><a href="#3-使用工具生成词法分析器" class="headerlink" title="3. 使用工具生成词法分析器"></a><strong>3. 使用工具生成词法分析器</strong></h4><ul>
+<li><strong>描述</strong>：使用专门的工具自动生成词法分析器。常见的工具有：<ul>
+<li><strong>Flex</strong>（Fast Lexical Analyzer）：基于正则表达式的词法分析器生成器。</li>
+<li><strong>Lex</strong>：早期的词法分析器生成器，与 Yacc 配合使用。</li>
+<li><strong>ANTLR</strong>：支持语法和词法分析的综合工具，也可以单独用于词法分析。</li>
+</ul>
+</li>
+<li><strong>优点</strong>：<ul>
+<li>自动化程度高，减少手写代码的工作量。</li>
+<li>生成的词法分析器通常性能较好。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>工具的学习曲线可能较陡峭。</li>
+<li>对于非常规语言，可能需要额外的配置或扩展。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="4-基于有限自动机（Finite-Automaton）"><a href="#4-基于有限自动机（Finite-Automaton）" class="headerlink" title="4. 基于有限自动机（Finite Automaton）"></a><strong>4. 基于有限自动机（Finite Automaton）</strong></h4><ul>
+<li><strong>描述</strong>：通过构建确定有限自动机（DFA）或非确定有限自动机（NFA），并将其转化为词法分析器。</li>
+<li><strong>优点</strong>：<ul>
+<li>理论基础清晰，易于理解。</li>
+<li>可以精确控制词法分析的过程。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>手动构建 DFA 或 NFA 的过程较为繁琐。</li>
+<li>需要一定的理论知识。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="5-混合方法"><a href="#5-混合方法" class="headerlink" title="5. 混合方法"></a><strong>5. 混合方法</strong></h4><ul>
+<li><strong>描述</strong>：结合上述方法，例如先用工具生成初步的词法分析器，再根据需求进行手动调整。</li>
+<li><strong>优点</strong>：<ul>
+<li>结合了工具的自动化优势和手工的灵活性。</li>
+</ul>
+</li>
+<li><strong>缺点</strong>：<ul>
+<li>需要开发者具备较高的技术水平。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">http://example.com/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/05/26/%E3%80%8A%E5%85%8B%E6%8B%89%E5%85%8B%E6%A3%AE%E7%9A%84%E5%86%9C%E5%9C%BA%E3%80%8B/" title="《克拉克森的农场》"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">《克拉克森的农场》</div></div></a></div><div class="next-post pull-right"><a href="/2025/05/06/%E3%80%8A%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA%E3%80%8B/" title="《焦虑的人》"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">《焦虑的人》</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/26/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%AC%94%E8%AE%B0/" title="51单片机笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-26</div><div class="title">51单片机笔记</div></div></a></div><div><a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" title="0.96OLED玩法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-14</div><div class="title">0.96OLED玩法</div></div></a></div><div><a href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" title="C语言二级指针"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">C语言二级指针</div></div></a></div><div><a href="/2023/11/12/Data-Structure-and-Algorithm/" title="Data Structure and Algorithm"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-12</div><div class="title">Data Structure and Algorithm</div></div></a></div><div><a href="/2024/02/27/Computer-Composition-Principle/" title="Computer Composition Principle"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-27</div><div class="title">Computer Composition Principle</div></div></a></div><div><a href="/2024/02/27/Database-Principles/" title="Database Principles"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-27</div><div class="title">Database Principles</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">120</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">139</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">编译原理课程笔记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BC%95%E8%AE%BA"><span class="toc-number">2.</span> <span class="toc-text">第一章 引论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">编译器概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E4%B8%8E%E5%90%8E%E7%AB%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">编译前端与后端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">编译过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.1.</span> <span class="toc-text">词法分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">2.1.2.2.</span> <span class="toc-text">语法分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90%E5%92%8C%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E4%BA%A7%E7%94%9F"><span class="toc-number">2.1.2.3.</span> <span class="toc-text">语义分析和中间代码产生</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">2.1.2.4.</span> <span class="toc-text">优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81%E4%BA%A7%E7%94%9F"><span class="toc-number">2.1.2.5.</span> <span class="toc-text">目标代码产生</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E6%8A%80%E6%9C%AF%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.2.</span> <span class="toc-text">编译技术的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">第二章 词法分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="toc-number">3.1.</span> <span class="toc-text">词法分析的任务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E6%9E%84%E9%80%A0"><span class="toc-number">3.2.</span> <span class="toc-text">词法分析器构造</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-%E9%80%9A%E8%BF%87%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE%E7%BC%96%E5%86%99%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-number">3.2.1.</span> <span class="toc-text">方法一:   通过状态转换图编写词法分析器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2%E5%9B%BE"><span class="toc-number">3.2.1.1.</span> <span class="toc-text">状态转换图</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%BD%9C%E4%B8%9A"><span class="toc-number">4.</span> <span class="toc-text">编译原理作业</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E8%87%AA%E6%B5%8B%E9%A2%98%E7%9B%AE"><span class="toc-number">5.</span> <span class="toc-text">编译原理自测题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">6.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">1. 什么是编译程序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%A7%A3%E9%87%8A%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">2. 什么是解释程序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E7%BF%BB%E8%AF%91%E7%A8%8B%E5%BA%8F%EF%BC%9F"><span class="toc-number">6.3.</span> <span class="toc-text">3. 什么是翻译程序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8A%E8%BF%B0%E4%B8%89%E7%A7%8D%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">6.4.</span> <span class="toc-text">4. 上述三种程序的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%AE%80%E8%BF%B0%E4%BB%80%E4%B9%88%E6%98%AF%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E5%92%8C%E7%BC%96%E8%AF%91%E5%90%8E%E7%AB%AF%EF%BC%8C%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E5%8C%85%E6%8B%AC%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%93%AA%E5%87%A0%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%9F"><span class="toc-number">6.5.</span> <span class="toc-text">5. 简述什么是编译前端和编译后端，编译前端包括编译器的哪几个阶段？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%EF%BC%88Front-End%EF%BC%89%EF%BC%9A"><span class="toc-number">6.5.1.</span> <span class="toc-text">编译前端（Front End）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%89%8D%E7%AB%AF%E5%8C%85%E5%90%AB%E7%9A%84%E4%B8%BB%E8%A6%81%E9%98%B6%E6%AE%B5%EF%BC%88%E4%BE%9D%E6%8D%AE%E3%80%8A%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E3%80%8B%E7%AC%AC%E4%B8%89%E7%89%88%EF%BC%89%EF%BC%9A"><span class="toc-number">6.5.1.1.</span> <span class="toc-text">编译前端包含的主要阶段（依据《编译原理》第三版）：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%90%8E%E7%AB%AF%EF%BC%88Back-End%EF%BC%89%EF%BC%9A"><span class="toc-number">6.5.2.</span> <span class="toc-text">编译后端（Back End）：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E5%90%8E%E7%AB%AF%E7%9A%84%E4%B8%BB%E8%A6%81%E4%BB%BB%E5%8A%A1%E5%8C%85%E6%8B%AC%EF%BC%9A"><span class="toc-number">6.5.2.1.</span> <span class="toc-text">编译后端的主要任务包括：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E6%80%BB%E7%BB%93%E5%9B%BE%E7%A4%BA%EF%BC%88%E7%AE%80%E5%8C%96%E6%B5%81%E7%A8%8B%EF%BC%89%EF%BC%9A"><span class="toc-number">6.6.</span> <span class="toc-text">✅ 总结图示（简化流程）：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%B8%80%E3%80%81%E6%80%BB%E4%BD%93%E6%B5%81%E7%A8%8B%E6%A6%82%E8%BF%B0%EF%BC%88%E5%8F%82%E8%80%83P6-%E5%9B%BE1-3%EF%BC%89"><span class="toc-number">6.7.</span> <span class="toc-text">✅ 一、总体流程概述（参考P6 图1.3）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%BA%8C%E3%80%81%E4%BB%A5%E5%A3%B0%E6%98%8E%E8%AF%AD%E5%8F%A5-int-x-5-%E4%B8%BA%E4%BE%8B%EF%BC%8C%E9%80%90%E9%98%B6%E6%AE%B5%E5%88%86%E6%9E%90"><span class="toc-number">6.8.</span> <span class="toc-text">✅ 二、以声明语句 int x &#x3D; 5; 为例，逐阶段分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%EF%BC%88Lexical-Analysis%EF%BC%89"><span class="toc-number">6.8.1.</span> <span class="toc-text">1. 词法分析（Lexical Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%EF%BC%88Syntax-Analysis%EF%BC%89"><span class="toc-number">6.8.2.</span> <span class="toc-text">2. 语法分析（Syntax Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90%EF%BC%88Semantic-Analysis%EF%BC%89"><span class="toc-number">6.8.3.</span> <span class="toc-text">3. 语义分析（Semantic Analysis）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%AD%E9%97%B4%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88Intermediate-Code-Generation%EF%BC%89"><span class="toc-number">6.8.4.</span> <span class="toc-text">4. 中间代码生成（Intermediate Code Generation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%EF%BC%88Code-Optimization%EF%BC%89"><span class="toc-number">6.8.5.</span> <span class="toc-text">5. 代码优化（Code Optimization）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E7%9B%AE%E6%A0%87%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90%EF%BC%88Target-Code-Generation%EF%BC%89"><span class="toc-number">6.8.6.</span> <span class="toc-text">6. 目标代码生成（Target Code Generation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E8%A1%A8%E6%A0%BC%E7%AE%A1%E7%90%86%EF%BC%88Symbol-Table-Management%EF%BC%89"><span class="toc-number">6.8.7.</span> <span class="toc-text">7. 表格管理（Symbol Table Management）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%EF%BC%88Error-Handling%EF%BC%89"><span class="toc-number">6.8.8.</span> <span class="toc-text">8. 错误处理（Error Handling）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E4%B8%89%E3%80%81%E6%80%BB%E7%BB%93%E8%A1%A8%E6%A0%BC%EF%BC%88%E4%BB%A5-int-x-5-%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="toc-number">6.9.</span> <span class="toc-text">✅ 三、总结表格（以 int x &#x3D; 5; 为例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%9C%85-%E5%9B%9B%E3%80%81%E7%BB%93%E8%AF%AD"><span class="toc-number">6.10.</span> <span class="toc-text">✅ 四、结语</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="toc-number">7.</span> <span class="toc-text">第二章</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8%E5%B8%B8%E7%94%A8%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">7.0.1.</span> <span class="toc-text">一、词法分析器常用的构造方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%89%8B%E5%B7%A5%E7%BC%96%E5%86%99%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-number">7.0.1.1.</span> <span class="toc-text">1. 手工编写词法分析器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">7.0.1.2.</span> <span class="toc-text">2. 使用正则表达式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8%E5%B7%A5%E5%85%B7%E7%94%9F%E6%88%90%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-number">7.0.1.3.</span> <span class="toc-text">3. 使用工具生成词法分析器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%9F%BA%E4%BA%8E%E6%9C%89%E9%99%90%E8%87%AA%E5%8A%A8%E6%9C%BA%EF%BC%88Finite-Automaton%EF%BC%89"><span class="toc-number">7.0.1.4.</span> <span class="toc-text">4. 基于有限自动机（Finite Automaton）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B7%B7%E5%90%88%E6%96%B9%E6%B3%95"><span class="toc-number">7.0.1.5.</span> <span class="toc-text">5. 混合方法</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="toc-number">8.</span> <span class="toc-text">第三章</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E3%80%8A%E5%85%8B%E6%8B%89%E5%85%8B%E6%A3%AE%E7%9A%84%E5%86%9C%E5%9C%BA%E3%80%8B/" title="《克拉克森的农场》">《克拉克森的农场》</a><time datetime="2025-05-26T15:16:54.000Z" title="Created 2025-05-26 23:16:54">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理">编译原理</a><time datetime="2025-05-26T00:46:00.000Z" title="Created 2025-05-26 08:46:00">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/06/%E3%80%8A%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA%E3%80%8B/" title="《焦虑的人》">《焦虑的人》</a><time datetime="2025-05-06T05:21:09.000Z" title="Created 2025-05-06 13:21:09">2025-05-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/01/undertale/" title="undertale">undertale</a><time datetime="2025-05-01T05:17:20.000Z" title="Created 2025-05-01 13:17:20">2025-05-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/28/%E5%BD%93%E6%97%B6%E5%8F%AA%E9%81%93%E6%98%AF%E5%AF%BB%E5%B8%B8/" title="当时只道是寻常">当时只道是寻常</a><time datetime="2025-04-28T12:50:35.000Z" title="Created 2025-04-28 20:50:35">2025-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/23/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%EF%BC%9A%E8%AE%B0%E4%B8%80%E6%AC%A1Vue-Flask%E9%A1%B9%E7%9B%AE%E5%9C%A8%E5%86%85%E7%BD%91PC%E7%9A%84%E9%83%A8%E7%BD%B2%E5%8E%86%E9%99%A9%E8%AE%B0/" title="从零到一：记一次Vue+Flask项目在内网PC的部署历险记">从零到一：记一次Vue+Flask项目在内网PC的部署历险记</a><time datetime="2025-04-23T07:08:20.000Z" title="Created 2025-04-23 15:08:20">2025-04-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/22/dify%E5%92%8CBisheng/" title="dify和Bisheng">dify和Bisheng</a><time datetime="2025-04-22T09:26:51.000Z" title="Created 2025-04-22 17:26:51">2025-04-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E3%80%8A%E6%B6%85%E6%9C%B5%E5%A5%87%E5%8D%A1%E3%80%8B/" title="《涅朵奇卡》">《涅朵奇卡》</a><time datetime="2025-04-13T09:04:52.000Z" title="Created 2025-04-13 17:04:52">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/08/%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E7%94%9F%E8%AF%8D/" title="英语口语生词">英语口语生词</a><time datetime="2025-04-08T12:44:11.000Z" title="Created 2025-04-08 20:44:11">2025-04-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/04/%E4%BD%BF%E7%94%A8samba%E5%B0%86armlinux%E5%B0%8F%E4%B8%BB%E6%9C%BA%E4%BD%9C%E4%B8%BAnas/" title="使用samba将armlinux小主机作为nas">使用samba将armlinux小主机作为nas</a><time datetime="2025-04-04T14:10:09.000Z" title="Created 2025-04-04 22:10:09">2025-04-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
