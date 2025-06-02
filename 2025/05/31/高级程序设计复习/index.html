@@ -1,0 +1,1106 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>高级程序设计复习 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="第一章 Windows编程基础知识 可视化开发系统集成了一系列系统可用资源和开发工具  程序调试工具：包括源程序语法检查、可执行程序修改和运行监视等 资源管理器：包括图形化窗口及组成元素的多种对象的编辑器 系统函数库和系统函数开发工具 源程序编辑器和编译器 应用程序Help和Setup开发工具包 可选择并构成具体语句或源程序结构的例程库及Help   Windows的程序设计语言  都是“面向对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级程序设计复习">
+<meta property="og:url" content="http://example.com/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="第一章 Windows编程基础知识 可视化开发系统集成了一系列系统可用资源和开发工具  程序调试工具：包括源程序语法检查、可执行程序修改和运行监视等 资源管理器：包括图形化窗口及组成元素的多种对象的编辑器 系统函数库和系统函数开发工具 源程序编辑器和编译器 应用程序Help和Setup开发工具包 可选择并构成具体语句或源程序结构的例程库及Help   Windows的程序设计语言  都是“面向对象">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-05-31T05:04:29.000Z">
+<meta property="article:modified_time" content="2025-05-31T08:11:35.292Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="复习">
+<meta property="article:tag" content="高级程序设计">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '高级程序设计复习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-05-31 16:11:35'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">141</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">高级程序设计复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-05-31T05:04:29.000Z" title="Created 2025-05-31 13:04:29">2025-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-05-31T08:11:35.292Z" title="Updated 2025-05-31 16:11:35">2025-05-31</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/" data-flag-title="高级程序设计复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="第一章-Windows编程基础知识"><a href="#第一章-Windows编程基础知识" class="headerlink" title="第一章 Windows编程基础知识"></a>第一章 Windows编程基础知识</h1><ul>
+<li><p>可视化开发系统集成了一系列系统可用资源和开发工具</p>
+<ol>
+<li>程序调试工具：包括源程序语法检查、可执行程序修改和运行监视等</li>
+<li>资源管理器：包括图形化窗口及组成元素的多种对象的编辑器</li>
+<li>系统函数库和系统函数开发工具</li>
+<li>源程序编辑器和编译器</li>
+<li>应用程序Help和Setup开发工具包</li>
+<li>可选择并构成具体语句或源程序结构的例程库及Help</li>
+</ol>
+</li>
+<li><p>Windows的程序设计语言</p>
+<ul>
+<li>都是“面向对象”的程序设计语言</li>
+</ul>
+<ol>
+<li>VC</li>
+<li>VB</li>
+<li>VJ</li>
+</ol>
+<ul>
+<li><p>对象是Windows的规范部件</p>
+<ol>
+<li>窗口</li>
+<li>菜单</li>
+<li>按钮</li>
+<li>对话框</li>
+<li>程序模块</li>
+</ol>
+</li>
+<li><p>对象特征：具有规范形态和操作模式</p>
+</li>
+<li><p>编程方法</p>
+<ol>
+<li><p>传统编写法–&gt;API</p>
+</li>
+<li><p>交互式方法–&gt;MFC</p>
+<blockquote>
+<p>采用交互式方法时，可视化开发平台给出了许多选用的对象，程序员可选择所需对象并确定其属性，由此搭建起应用程序的“大框架”，并可根据需要进一步编写必要的细节代码段，最后构成完整的应用程序</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li><strong>API</strong><ul>
+<li>为应用程序提供Windows系统特殊函数及数据结构</li>
+<li>Win应用程序可以利用标准大量API函数调用系统功能</li>
+<li>是Win系统与Win应用程序间的标准程序接口</li>
+</ul>
+</li>
+<li><strong>API函数的功能</strong><ul>
+<li>窗口管理函数实现窗口的创建、移动和修改功能</li>
+<li>系统服务函数：实现与操作系统有关的多种功能</li>
+<li>图形设备(GDI)函数：实现与设备无关的图形操作功能</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>利用Windows API函数编写Windows应用程序必须首先了解以下内容：</strong></p>
+<p>(1)窗口的概念</p>
+<p>(2)事件驱动的概念</p>
+<p>(3)句柄</p>
+<p>(4)消息</p>
+<h4 id="窗口"><a href="#窗口" class="headerlink" title="窗口"></a>窗口</h4><p>​	系统管理应用程序的基本单位，应用程序与用户之间交互的接口环境，Win应用程序基本的操作单元</p>
+<p>​	一个应用程序的窗口一般包含下列成分：</p>
+<ol>
+<li>控制菜单框</li>
+<li>下拉菜单</li>
+<li>标题栏</li>
+<li>工作区</li>
+<li>窗口边界</li>
+<li>最大化按钮</li>
+<li>最小化按钮</li>
+<li>垂直滚动条</li>
+<li>水平滚动条</li>
+</ol>
+<p>​	编写一个Windows应用程序首先应创建一个或多个窗口，随后应用程序的运行过程即是窗口内部、窗口与窗口之间、窗口与系统之间进行数据处理与数据交换的过程。</p>
+<h4 id="事件驱动"><a href="#事件驱动" class="headerlink" title="事件驱动"></a>事件驱动</h4><p>​	Windows程序设计是针对事件或消息的处理进行（消息是描述事件发生的信息(如按下鼠标或键盘)。Windows程序的执行顺序取决于事件发生的顺序，程序的执行顺序是由顺序产生的消息驱动的，但是消息的产生往往并不要求有次序之分。</p>
+<p>​	事件驱动编程方法对于编写交互式程序很有用处，它避免了死板的操作模式</p>
+<h4 id="句柄"><a href="#句柄" class="headerlink" title="句柄"></a>句柄</h4><p>​	句柄是PVOID型的数据一个4字节长的数值，用于标识应用程序中不同的对象和同类对象中不同的实例，应用程序通过句柄访问相应的对象信息。</p>
+<blockquote>
+<p>HWND			窗口句柄		<br>HDC		 	   设备环境句柄<br>HBITMAP	  	   位图句柄		<br>HCURSOR		     光标句柄<br>HICON			图标句柄		<br>HFONT			字体句柄<br>HMENU			菜单句柄		<br>HPEN			画笔句柄<br>HFILE			文件句柄		<br>HBRUSH   		画刷句柄		<br>HINSTANCE		当前实例句柄</p>
+</blockquote>
+<h4 id="消息"><a href="#消息" class="headerlink" title="消息"></a>消息</h4><p>​	Windows应用程序利用Windows消息(Message)与应用程序及系统进行信息交换。</p>
+<p>消息：</p>
+<ol>
+<li>消息号：由事先定义好的消息名标识、</li>
+<li>字参数(wParam) ：用于提供消息的附加信息</li>
+<li>长字参数(lParam) ：用于提供消息的附加信息</li>
+</ol>
+<p>VC中存在几种系统定义的消息分类，不同的前缀符号经常用于消息宏识别消息附属的分类，系统定义的消息宏前缀如下：</p>
+<blockquote>
+<p>BM	表示按钮控制消息<br>CB	表示组合框控制消息<br>DM	表示默认下压式按钮控制消息<br>EM	表示编辑控制消息<br>LB	表示列表框控制消息<br>SBM	表示滚动条控制消息<br>WM	表示窗口消息</p>
+</blockquote>
+<p><strong>常用消息类型</strong></p>
+<ul>
+<li><strong>鼠标消息</strong>：<code>WM_LBUTTONDOWN</code>、<code>WM_RBUTTONDBLCLK</code>等。</li>
+<li><strong>键盘消息</strong>：<code>WM_KEYDOWN</code>（虚拟键码）、<code>WM_CHAR</code>（ASCII码）。</li>
+<li><strong>窗口生命周期消息</strong>：<code>WM_CREATE</code>（创建）、<code>WM_CLOSE</code>（关闭）、<code>WM_DESTROY</code>（销毁）、<code>WM_QUIT</code>（退出）。</li>
+<li><strong>绘图消息</strong>：<code>WM_PAINT</code>（窗口需重绘时触发）</li>
+</ul>
+<h4 id="事件驱动程序设计"><a href="#事件驱动程序设计" class="headerlink" title="事件驱动程序设计"></a>事件驱动程序设计</h4><ul>
+<li>与传统过程驱动的区别：<ul>
+<li><strong>过程驱动</strong>：严格按代码顺序执行（如输入成绩→计算平均分）。</li>
+<li><strong>事件驱动</strong>：由用户交互触发消息（如点击按钮后计算平均分）。</li>
+</ul>
+</li>
+<li><strong>优势</strong>：灵活响应用户操作，适合交互式程序。</li>
+</ul>
+<h4 id="Windows应用程序结构"><a href="#Windows应用程序结构" class="headerlink" title="Windows应用程序结构"></a><strong>Windows应用程序结构</strong></h4><ol>
+<li><p><strong>文件组成</strong></p>
+<ul>
+<li>C源文件、头文件、模块定义文件、资源描述文件、项目文件。</li>
+</ul>
+</li>
+<li><p><strong>程序框架</strong></p>
+<ul>
+<li><p><strong>入口函数</strong>：<code>WinMain</code>（初始化、消息循环）。</p>
+</li>
+<li><p><strong>窗口函数</strong>：<code>WndProc</code>（处理消息的分支逻辑）。</p>
+</li>
+<li><p>  核心流程</p>
+<p>  ：</p>
+<ul>
+<li><strong>初始化</strong>：注册窗口类（<code>RegisterClass</code>）、创建窗口（<code>CreateWindow</code>）、显示窗口（<code>ShowWindow</code>）。</li>
+<li><strong>消息循环</strong>：<code>GetMessage</code>获取消息→<code>TranslateMessage</code>转换→<code>DispatchMessage</code>分发。</li>
+<li><strong>退出</strong>：<code>WM_DESTROY</code>调用<code>PostQuitMessage(0)</code>结束循环。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>关键数据结构</strong></p>
+<ul>
+<li><code>WNDCLASSEX</code>：窗口类属性（图标、光标、背景等）。</li>
+<li><code>POINT</code>&#x2F;<code>RECT</code>：坐标与矩形区域定义。</li>
+</ul>
+</li>
+</ol>
+<h1 id="第二章-Windows的图形设备接口及windows绘图"><a href="#第二章-Windows的图形设备接口及windows绘图" class="headerlink" title="第二章 Windows的图形设备接口及windows绘图"></a>第二章 Windows的图形设备接口及windows绘图</h1><h4 id="一、-GDI基础概念与设备环境-DC"><a href="#一、-GDI基础概念与设备环境-DC" class="headerlink" title="一、 GDI基础概念与设备环境(DC)"></a>一、 GDI基础概念与设备环境(DC)</h4><ol>
+<li><p>GDI定义与目的：<br>◦   Windows GDI (Graphics Device Interface) 是为实现设备无关性图形设计的系统组件。</p>
+<p>◦   设备无关性： 操作系统屏蔽硬件差异，开发者编程时无需关心具体硬件配置。</p>
+</li>
+<li><p>GDI作用：<br>◦   负责系统、用户&#x2F;绘图程序之间的信息交换。</p>
+<p>◦   控制输出设备（显示器、打印机等）上的图形和文字显示。</p>
+<p>◦   是Windows系统的核心组成部分。</p>
+</li>
+<li><p>设备环境(DC - Device Context)：<br>◦   本质： 设备描述表是设备环境属性的集合。</p>
+<p>◦   角色： 是应用程序与物理输出设备之间的桥梁。</p>
+<p>◦   功能： 为实现图形输出的设备无关性，GDI提供统一的DC。应用程序通过DC与设备连接，利用GDI函数和设备驱动程序进行绘图。</p>
+<p>◦   关键点： 应用程序不能直接访问外设，必须通过DC。</p>
+</li>
+</ol>
+<h4 id="二、-图形刷新"><a href="#二、-图形刷新" class="headerlink" title="二、 图形刷新"></a>二、 图形刷新</h4><ol>
+<li><p>必要性： 绘图过程中必须处理窗口内容被覆盖或改变后的恢复问题。</p>
+</li>
+<li><p>刷新请求来源：<br>◦   窗口移动、大小调整。</p>
+<p>◦   被其他窗口（如下拉菜单、对话框）覆盖后恢复。</p>
+<p>◦   程序滚动窗口。</p>
+<p>◦   光标&#x2F;图标穿越用户区（系统自动处理）。</p>
+<p>◦   应用程序需要恢复被覆盖部分（如颜色选择框覆盖图形后）。</p>
+</li>
+<li><p>系统响应：<br>◦   当用户区需要刷新时，系统向应用程序消息队列发送 <code>WM_PAINT</code> 消息。</p>
+<p>◦   被覆盖的区域称为无效区域(Invalid Region)。</p>
+</li>
+<li><p>刷新数据结构：<br>◦   Windows为每个窗口维护一个 <code>PAINTSTRUCT</code> 结构。</p>
+<p>◦   关键成员：</p>
+<pre><code>▪   `hdc`: 刷新用的设备环境句柄。
+
+▪   `fErase`: 指示是否擦除无效矩形背景（通常为`TRUE`）。
+
+▪   `rcPaint`: 一个 `RECT` 结构，定义了包围无效区域的最小矩形（无效矩形），包含左上角(`left`, `top`)和右下角(`right`, `bottom`)坐标。
+</code></pre>
+</li>
+<li><p>有效刷新方法：<br>◦   记录事件： 刷新时重新执行导致绘图的事件。</p>
+<p>◦   保存副本： 刷新时将保存的窗口内容副本拷贝回相应区域。</p>
+<p>◦   重新绘制： 最常用。将图形绘制代码放在响应 <code>WM_PAINT</code> 消息的模块中，刷新时调用这些代码重绘图形。应用程序根据 <code>rcPaint</code> 标识的无效矩形进行优化绘制。</p>
+</li>
+</ol>
+<h4 id="三、-获取设备环境-DC"><a href="#三、-获取设备环境-DC" class="headerlink" title="三、 获取设备环境(DC)"></a>三、 获取设备环境(DC)</h4><ol>
+<li><p>响应 <code>WM_PAINT</code> 刷新：<br>◦   使用 <code>BeginPaint</code> 函数获取DC。</p>
+<p>◦   函数原型：<code>hdc = BeginPaint(hwnd, &amp;ps);</code> (<code>ps</code> 是 <code>PAINTSTRUCT</code> 类型变量)。</p>
+<p>◦   作用： 获取DC的同时，系统填充 <code>ps</code> 结构（特别是 <code>rcPaint</code>）标识无效区域。</p>
+<p>◦   释放： 必须使用 <code>EndPaint(hwnd, &amp;ps)</code> 释放获取的DC。</p>
+</li>
+<li><p>非 <code>WM_PAINT</code> 驱动绘图：<br>◦   使用 <code>GetDC</code> 函数获取DC。</p>
+<p>◦   函数原型：<code>hdc = GetDC(hwnd);</code></p>
+<p>◦   释放： 必须使用 <code>ReleaseDC(hwnd, hdc)</code> 释放获取的DC。</p>
+</li>
+</ol>
+<h4 id="四、-绘图工具与颜色"><a href="#四、-绘图工具与颜色" class="headerlink" title="四、 绘图工具与颜色"></a>四、 绘图工具与颜色</h4><ol>
+<li><p>画笔(Pen)： 用于绘制线条和形状边框。<br>◦   创建：</p>
+<pre><code>▪   定义句柄：`HPEN hP;`
+
+▪   获取库存画笔：`hP = GetStockObject(STOCK_PEN_TYPE);` (如 `BLACK_PEN`, `WHITE_PEN`, `DC_PEN`, `NULL_PEN`)。
+
+▪   创建新画笔：`hP = CreatePen(nPenStyle, nWidth, rgbColor);`
+
+    ▪   `nPenStyle`: 线型 (`PS_SOLID`, `PS_DASH`, `PS_DOT`, `PS_DASHDOT`, `PS_DASHDOTDOT`, `PS_INSIDEFRAME`, `PS_NULL`)。
+
+    ▪   `nWidth`: 线宽（逻辑单位）。
+
+    ▪   `rgbColor`: 颜色 (`COLORREF`)。
+</code></pre>
+<p>◦   选入DC： <code>SelectObject(hdc, hP);</code></p>
+<p>◦   删除： <code>DeleteObject(hP);</code> (不再使用时释放资源)。</p>
+</li>
+<li><p>画刷(Brush)： 用于填充形状内部。<br>◦   创建：</p>
+<pre><code>▪   定义句柄：`HBRUSH hBr;`
+
+▪   获取库存画刷：`hBr = (HBRUSH)GetStockObject(STOCK_BRUSH_TYPE);` (如 `BLACK_BRUSH`, `DKGRAY_BRUSH`, `GRAY_BRUSH`, `LTGRAY_BRUSH`, `HOLLOW_BRUSH`, `NULL_BRUSH`, `WHITE_BRUSH`)。
+
+▪   创建单色画刷：`hBr = CreateSolidBrush(rgbColor);`
+
+▪   创建阴影画刷：`hBr = CreateHatchBrush(nHatchStyle, rgbColor);`
+
+    ▪   `nHatchStyle`: 阴影模式 (`HS_HORIZONTAL`, `HS_VERTICAL`, `HS_FDIAGONAL`, `HS_BDIAGONAL`, `HS_CROSS`, `HS_DIAGCROSS`)。
+</code></pre>
+<p>◦   选入DC： <code>SelectObject(hdc, hBr);</code></p>
+<p>◦   删除： <code>DeleteObject(hBr);</code> (不再使用时释放资源)。</p>
+</li>
+<li><p>颜色：<br>◦   使用 <code>RGB</code> 宏定义颜色：<code>RGB(nRed, nGreen, nBlue)</code> (每个分量0-255)。</p>
+<p>◦   示例：<code>RGB(255,0,0)</code> (红), <code>RGB(0,255,0)</code> (绿), <code>RGB(0,0,255)</code> (蓝)。</p>
+<p>◦   也可用十六进制表示：<code>0x00bbggrr</code> (文档中 <code>0x00rrggbb</code> 似有笔误，标准为 <code>0x00bbggrr</code>)。</p>
+</li>
+</ol>
+<h4 id="五、-常用绘图函数"><a href="#五、-常用绘图函数" class="headerlink" title="五、 常用绘图函数"></a>五、 常用绘图函数</h4><p>•   <code>MoveToEx(hdc, X, Y, lpPoint)</code>: 设置当前画笔位置到(<code>X</code>,<code>Y</code>)，<code>lpPoint</code>可返回原位置。</p>
+<p>•   <code>LineTo(hdc, X, Y)</code>: 从当前位置画直线到(<code>X</code>,<code>Y</code>)，更新当前位置。</p>
+<p>•   <code>Polyline(hdc, lpPoints, nCount)</code>: 从当前位置开始，依次连接<code>lpPoints</code>(指向<code>POINT</code>数组)中的<code>nCount</code>个点画折线。</p>
+<p>•   <code>Arc(hdc, X1, Y1, X2, Y2, X3, Y3, X4, Y4)</code>: 绘制椭圆弧。(<code>X1</code>,<code>Y1</code>)-(<code>X2</code>,<code>Y2</code>)定义边框矩形，(X3,Y3)指定弧起点径向线交点，(X4,Y4)指定弧终点径向线交点。弧按逆时针方向从起点到终点绘制。</p>
+<p>•   <code>Pie(hdc, X1, Y1, X2, Y2, X3, Y3, X4, Y4)</code>: 绘制饼图（填充扇形）。参数含义同<code>Arc</code>，但会填充起点、终点与椭圆中心点连线形成的扇形区域。</p>
+<p>•   <code>Rectangle(hdc, X1, Y1, X2, Y2)</code>: 绘制（并填充）矩形。(<code>X1</code>,<code>Y1</code>)左上角，(<code>X2</code>,<code>Y2</code>)右下角。</p>
+<p>•   <code>RoundRect(hdc, X1, Y1, X2, Y2, nWidth, nHeight)</code>: 绘制（并填充）圆角矩形。<code>nWidth</code>, <code>nHeight</code> 定义圆角椭圆的宽和高。</p>
+<p>•   <code>Ellipse(hdc, X1, Y1, X2, Y2)</code>: 绘制（并填充）椭圆。(<code>X1</code>,<code>Y1</code>)-(<code>X2</code>,<code>Y2</code>)定义边框矩形。</p>
+<p>•   <code>Polygon(hdc, lpPoints, nCount)</code>: 绘制（并填充）多边形。连接<code>lpPoints</code>(指向<code>POINT</code>数组)中的<code>nCount</code>个点，并自动闭合图形。</p>
+<h4 id="六、-映像模式-Mapping-Mode"><a href="#六、-映像模式-Mapping-Mode" class="headerlink" title="六、 映像模式 (Mapping Mode)"></a>六、 映像模式 (Mapping Mode)</h4><ol>
+<li><p>目的： 定义逻辑单位如何转换为设备单位（像素、毫米等）以及设备X、Y轴的方向。实现逻辑坐标系与物理设备坐标系的映射，使程序员能在统一逻辑坐标系中工作。</p>
+</li>
+<li><p>关键概念：<br>◦   窗口(Window)： 程序员在逻辑坐标系中定义的区域。</p>
+<p>◦   视口(Viewport)： 程序员在物理输出设备上定义的区域。</p>
+<p>◦   映射： 将窗口中的点映射到视口中的点。映射比例由窗口范围和视口范围决定。</p>
+<p>◦   目标： 保持图形比例（等比例映射）或允许独立缩放（非等比例映射）。</p>
+</li>
+<li><p>设置与获取：<br>◦   设置映像模式： <code>SetMapMode(hdc, nMapMode);</code></p>
+<p>◦   获取当前映像模式： <code>nMapMode = GetMapMode(hdc);</code></p>
+</li>
+<li><p>设置窗口与视口范围 (仅对 <code>MM_ISOTROPIC</code> 和 <code>MM_ANISOTROPIC</code> 有效)：<br>◦   设置窗口范围： <code>SetWindowExtEx(hdc, nWidth, nHeight, lpSize);</code> (逻辑单位)</p>
+<p>◦   设置视口范围： <code>SetViewportExtEx(hdc, nWidth, nHeight, lpSize);</code> (设备单位)</p>
+<p>◦   作用： 定义窗口(逻辑)区域大小和视口(物理)区域大小，确定缩放比例。</p>
+<pre><code>▪   `MM_ISOTROPIC`: 强制X、Y方向缩放比例相同（保持纵横比）。
+
+▪   `MM_ANISOTROPIC`: 允许X、Y方向独立缩放。
+</code></pre>
+</li>
+<li><p>设置窗口与视口原点：<br>◦   设置窗口原点： <code>SetWindowOrgEx(hdc, X, Y, lpPoint);</code> (逻辑坐标)</p>
+<p>◦   设置视口原点： <code>SetViewportOrgEx(hdc, X, Y, lpPoint);</code> (设备坐标)</p>
+<p>◦   作用： 定义逻辑坐标系原点(<code>SetWindowOrgEx</code>)映射到设备坐标系的位置(<code>SetViewportOrgEx</code>)。</p>
+</li>
+<li><p>缺省模式： <code>MM_TEXT</code> (1逻辑单位&#x3D;1像素，X向右，Y向下)。</p>
+</li>
+<li><p>获取窗口尺寸 (辅助绘图适应)：<br>◦   获取窗口矩形(含边框、标题栏等)： <code>GetWindowRect(hWnd, &amp;rect);</code></p>
+<p>◦   获取客户区矩形(仅绘图区域)： <code>GetClientRect(hWnd, &amp;rect);</code></p>
+</li>
+</ol>
+<h4 id="七、-应用实例-核心要点"><a href="#七、-应用实例-核心要点" class="headerlink" title="七、 应用实例 (核心要点)"></a>七、 应用实例 (核心要点)</h4><ol>
+<li><p>例4-1：填充图形与映像模式切换<br>◦   功能： 绘制圆角矩形(深灰填充)、椭圆(亮灰填充)、饼图(虚画刷填充，效果不可见)。</p>
+<p>◦   交互： 鼠标左键点击切换6种映像模式演示：</p>
+<pre><code>▪   `MM_TEXT` (默认)
+
+▪   `MM_ISOTROPIC` (窗口20x20 -&gt; 视口10x10，图形缩小)
+
+▪   `MM_ISOTROPIC` (窗口10x10 -&gt; 视口20x20，图形放大)
+
+▪   `MM_ANISOTROPIC` (窗口10x10 -&gt; 视口20x10，横向拉伸)
+
+▪   `MM_ANISOTROPIC` (窗口10x10 -&gt; 视口20x5，横向拉伸纵向压缩)
+
+▪   `MM_ISOTROPIC` (窗口10x10 -&gt; 视口20x5，系统自动调整比例保持纵横比)
+</code></pre>
+<p>◦   实现： 在<code>WM_PAINT</code>中根据<code>dispMode</code>变量设置<code>SetMapMode</code>, <code>SetWindowExtEx</code>, <code>SetViewportExtEx</code>，然后绘制图形。</p>
+</li>
+<li><p>例4-2：销售数据图表 (柱形图 &amp; 饼图)<br>◦   功能： 根据季度销售数据(75,50,60,90)，在窗口左侧绘制柱形图，右侧绘制饼图展示比例。</p>
+<p>◦   关键点：</p>
+<pre><code>▪   计算数据总和(`s`)和最大值(`maxValue`)。
+▪   获取客户区尺寸(`GetClientRect`)。
+▪   检查客户区尺寸是否足够绘图
+▪   柱形图：
+    ▪   计算坐标原点(`xOrg`, `yOrg`)。
+    ▪   计算坐标轴范围(`xEnd`, `yEnd`)。
+    ▪   计算单位数据对应的像素(`deltaX` 水平间隔, `deltaY` 垂直高度)。
+    ▪   使用不同阴影模式的画刷(`CreateHatchBrush`)绘制柱体(`Rectangle`)。
+▪   饼图：
+
+    ▪   计算饼图中心(`xOrg`, `yOrg`)和半径(`deltaX`, `deltaY`取最小值)。
+    ▪   计算每个扇形的角度(`sita = sita - 2*π*a[i]/s`)。
+    ▪   使用不同颜色的单色画刷(`CreateSolidBrush`)绘制扇形(`Pie`)。
+</code></pre>
+<p>◦   目标： 图形随窗口尺寸自动调整比例。</p>
+</li>
+<li><p>例4-3：模拟时钟<br>◦   功能： 绘制带刻度的粉色表盘，并模拟秒针、分针、时针的实时运动。</p>
+<p>◦   关键点：</p>
+<pre><code>▪   数据结构： `TimeStructure &#123; hour, min, sec &#125;` 存储时间。
+▪   定时器： 在`WM_CREATE`中设置定时器(`SetTimer`)，间隔1000ms (1秒)。
+▪   时间更新： 在`WM_TIMER`消息中增加秒数，调用`AdjustTime`函数处理进位(秒-&gt;分-&gt;时)，并触发刷新(`InvalidateRect`)。
+▪   绘制(`WM_PAINT`):
+    ▪   更新时间(`x.sec++`, `AdjustTime(&amp;x)`)。
+    ▪  获取客户区中心(`xOrg`, `yOrg`)。
+    ▪   计算表盘半径(`rClock`)和各指针长度(`rSec`, `rMin`, `rHour`)。
+    ▪   绘制粉色表盘(`Ellipse`)。
+    ▪   绘制刻度：
+        ▪   循环60次(每分钟/秒)。
+        ▪   区分整点刻度(粗长)和非整点刻度(细短)。
+        ▪   使用三角函数(`sin`, `cos`)计算刻度起点和终点坐标。
+    ▪   绘制指针：
+        ▪   秒针： 细红线(`PS_SOLID, 2`)，计算角度(`sita=2π*x.sec/60`)，计算端点坐标，画线(`MoveToEx`, `LineTo`)。
+        ▪   分针： 粗黑线(`PS_SOLID, 5`)，计算角度(`sita=2π*x.min/60`)，同上。
+        ▪   时针： 更粗黑线(`PS_SOLID, 10`)，计算角度(`sita=2π*x.hour/12`)，同上。
+▪   窗口调整： 响应`WM_SIZE`消息刷新窗口(`InvalidateRect`)。
+</code></pre>
+</li>
+</ol>
+<h1 id="第三章-文本的输出方法和字体的设计"><a href="#第三章-文本的输出方法和字体的设计" class="headerlink" title="第三章  文本的输出方法和字体的设计"></a>第三章  文本的输出方法和字体的设计</h1><h3 id="第3章-文本输出与字体设计"><a href="#第3章-文本输出与字体设计" class="headerlink" title="第3章 文本输出与字体设计"></a><strong>第3章 文本输出与字体设计</strong></h3><h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a><strong>核心概念</strong></h4><p>1. </p>
+<pre><code>GDI文本输出原理
+
+- 图形与文本无明确界限，均视为图形实体
+- 使用设备无关的**逻辑字体**实现&quot;所见即所得&quot;
+- 流程：获取文本句柄 → 设置属性 → 选入设备环境
+</code></pre>
+<h4 id="5-1-设置文本设备环境"><a href="#5-1-设置文本设备环境" class="headerlink" title="5.1 设置文本设备环境"></a><strong>5.1 设置文本设备环境</strong></h4><ol>
+<li><p><strong>系统字体获取</strong></p>
+<ul>
+<li><p>步骤：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HFONT hF;  // 定义字体句柄</span><br><span class="line">hF = GetStockObject(字体类型);  // 获取系统字体</span><br><span class="line">SelectObject(hdc, hF);          // 选入设备环境</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>常用系统字体类型：</p>
+<table>
+<thead>
+<tr>
+<th>字体常量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ANSI_FIXED</code></td>
+<td>ANSI标准固定宽度（默认字体）</td>
+</tr>
+<tr>
+<td><code>ANSI_VAR</code></td>
+<td>ANSI可变宽度</td>
+</tr>
+<tr>
+<td><code>DEFAULT_GUI</code></td>
+<td>当前GUI默认字体</td>
+</tr>
+<tr>
+<td><code>OEM_FIXED</code></td>
+<td>设备制造商提供字体</td>
+</tr>
+<tr>
+<td><code>SYSTEM_FIXED</code></td>
+<td>Windows固定宽度字体</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p><strong>创建自定义字体</strong></p>
+<ul>
+<li><p><strong>函数</strong>：<code>HFONT CreateFont(14个参数)</code></p>
+</li>
+<li><p>关键参数解析：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">int nHeight,         // 字体高度（0=系统默认）</span><br><span class="line">int nEscapement,     // 文本行倾斜角（0.1度单位）</span><br><span class="line">DWORD nWeight,       // 字体粗细（0-1000，如FW_BOLD=700）</span><br><span class="line">DWORD dwItalic,      // 斜体（非0启用）</span><br><span class="line">DWORD dwUnderline,   // 下划线（非0启用）</span><br><span class="line">DWORD dwCharset      // 字符集（如GB2312_CHARSET）</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>颜色设置</strong></p>
+<ul>
+<li>文本色：<code>SetTextColor(hdc, RGB(r,g,b))</code></li>
+<li>背景色：<code>SetBkColor(hdc, RGB(r,g,b))</code></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="5-2-文本输出流程"><a href="#5-2-文本输出流程" class="headerlink" title="5.2 文本输出流程"></a><strong>5.2 文本输出流程</strong></h4><ol>
+<li><p><strong>获取字体信息</strong></p>
+<ul>
+<li><p><strong>函数</strong>：<code>GetTextMetrics(hdc, &amp;tm)</code></p>
+</li>
+<li><p>关键结构体：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TEXTMETRIC tm</span><br></pre></td></tr></table></figure>
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tm.tmHeight;           // 总高度</span><br><span class="line">tm.tmAscent;           // 基线以上高度</span><br><span class="line">tm.tmExternalLeading;  // 行间距</span><br><span class="line">tm.tmAveCharWidth;     // 平均字符宽度</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>坐标计算</strong></p>
+<ul>
+<li><p>后续文本坐标：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SIZE size;</span><br><span class="line">GetTextExtentPoint32(hdc, text, len, &amp;size);  // 获取字符串尺寸</span><br><span class="line">x_next = x_current + size.cx;                 // 计算下一文本起点</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>换行坐标：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y_next = y_current + tm.tmHeight + tm.tmExternalLeading;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>文本输出函数</strong></p>
+<ul>
+<li><p>基础输出：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TextOut(hdc, x, y, text, len);  // 指定坐标输出</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>格式化输出：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DrawText(hdc, text, len, &amp;rect, DT_LEFT);  // 在矩形区域内左对齐输出</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ol>
+<hr>
+<h4 id="5-3-实例分析"><a href="#5-3-实例分析" class="headerlink" title="5.3 实例分析"></a><strong>5.3 实例分析</strong></h4><h5 id="例5-1：扇形诗词输出"><a href="#例5-1：扇形诗词输出" class="headerlink" title="例5-1：扇形诗词输出"></a><strong>例5-1：扇形诗词输出</strong></h5><ul>
+<li><p>核心逻辑：</p>
+<ol>
+<li><p>计算扇形极坐标：<code>x = org.x + r*cos(θ)</code>, <code>y = org.y - r*sin(θ)</code></p>
+</li>
+<li><p>动态创建字体：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CreateFont(高度, 0, 倾斜角, 0, FW_HEAVY, ... , &quot;楷体_GB2312&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>逐字输出：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TextOut(hdc, x, y, &amp;诗句[i], 1);  // 单字符输出</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>特效：</p>
+<ul>
+<li>文字颜色渐变（RGB动态计算）</li>
+<li>文字沿扇形径向排列</li>
+</ul>
+</li>
+</ul>
+<h5 id="例5-2：多格式文本输出"><a href="#例5-2：多格式文本输出" class="headerlink" title="例5-2：多格式文本输出"></a><strong>例5-2：多格式文本输出</strong></h5><ul>
+<li><p>技术要点：</p>
+<p>  1. </p>
+<pre><code>  多行格式控制
+
+  ：
+
+  - 通过`tm.tmHeight + tm.tmExternalLeading`计算行间距
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y += tm.tmHeight + 5*tm.tmExternalLeading;  // 增加5倍行距</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="2">
+<li><p>混合字体效果：</p>
+<ul>
+<li>红色系统字体、绿色自定义粗体、蓝色粗体、灰色斜体下划线</li>
+</ul>
+</li>
+<li><p>卡拉OK效果：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rect.right += 2;  // 矩形右边界扩展</span><br><span class="line">DrawText(hdc, text, len, &amp;rect, DT_LEFT);  // 动态绘制区域</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同行输出多字符串：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TextOut(hdc, x, y, text1, len1);    // 输出第一部分</span><br><span class="line">GetTextExtentPoint32(...);          // 计算宽度</span><br><span class="line">TextOut(hdc, x+size.cx+5, y, text2, len2); // 紧接输出</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="关键总结"><a href="#关键总结" class="headerlink" title="关键总结"></a><strong>关键总结</strong></h3><table>
+<thead>
+<tr>
+<th><strong>技术点</strong></th>
+<th><strong>实现方式</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>字体管理</strong></td>
+<td><code>GetStockObject()</code>获取系统字体，<code>CreateFont()</code>自定义</td>
+</tr>
+<tr>
+<td><strong>坐标计算</strong></td>
+<td><code>GetTextMetrics()</code> + <code>GetTextExtentPoint32()</code></td>
+</tr>
+<tr>
+<td><strong>基础输出</strong></td>
+<td><code>TextOut()</code> 直接坐标定位</td>
+</tr>
+<tr>
+<td><strong>高级排版</strong></td>
+<td><code>DrawText()</code> 矩形区域格式化输出</td>
+</tr>
+<tr>
+<td><strong>动态效果</strong></td>
+<td>定时器刷新 + 矩形区域扩展</td>
+</tr>
+</tbody></table>
+<h1 id="第四章-Windows应用程序对键盘与鼠标的响应"><a href="#第四章-Windows应用程序对键盘与鼠标的响应" class="headerlink" title="第四章  Windows应用程序对键盘与鼠标的响应"></a>第四章  Windows应用程序对键盘与鼠标的响应</h1><p>以下是对PPT文档《第四章 Windows应用程序对键盘与鼠标的响应》的细致总结，严格依据原始内容整理：</p>
+<hr>
+<h3 id="一、键盘处理机制"><a href="#一、键盘处理机制" class="headerlink" title="一、键盘处理机制"></a><strong>一、键盘处理机制</strong></h3><ol>
+<li><p><strong>输入流程</strong></p>
+<ul>
+<li>物理按键 → 扫描码（设备相关）→ 设备驱动程序 → 虚拟码（设备无关）→ 系统消息队列 → 线程消息队列 → 窗口过程处理。</li>
+<li>虚拟码值存储在 <code>wParam</code> 中（如 <code>VK_BACK</code>、<code>VK_RETURN</code>）。</li>
+</ul>
+</li>
+<li><p><strong>消息类型</strong></p>
+<p> - </p>
+<pre><code> 按键消息
+
+ ：按下/释放键时触发
+
+ - 系统按键：`WM_SYSKEYDOWN`/`WM_SYSKEYUP`（Alt组合键，通常由系统处理）。
+ - 非系统按键：`WM_KEYDOWN`/`WM_KEYUP`（应用程序处理）。
+</code></pre>
+<ul>
+<li><strong>字符消息</strong>：<code>WM_CHAR</code>（TranslateMessage转换后生成，对应可显示字符）。</li>
+</ul>
+</li>
+<li><p><strong>按键消息参数解析</strong></p>
+<ul>
+<li><p><code>wParam</code>：虚拟键码（标识具体按键）。</p>
+</li>
+<li><pre><code>  lParam
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        （32位）：</span><br><span class="line"></span><br><span class="line">        - 重复计数（0-15位）、OEM扫描码（16-23位）、扩展键标志（24位）、关联码（29位）、键先前状态（30位）、转换状态（31位）。</span><br><span class="line"></span><br><span class="line">4. **特殊键处理**</span><br><span class="line"></span><br><span class="line">    - **回车键**：换行并调整字符缓冲区。</span><br><span class="line">    - **退格键**：删除字符并移动光标，行首时提示“已至文件头”。</span><br><span class="line">    - **Delete键**：行末时提示“已至文件尾”。</span><br><span class="line">    - **方向键**：移动光标位置（边界检查）。</span><br><span class="line">    - **Home/End键**：光标跳至行首/行末。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **二、插字符（Caret）管理**</span><br><span class="line"></span><br><span class="line">1. **特性**</span><br><span class="line"></span><br><span class="line">    - 指示文本输入位置，仅拥有输入焦点的窗口可持有。</span><br><span class="line"></span><br><span class="line">    - 桌面唯一，通过函数控制：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  CreateCaret()  // 创建位图插字符
+  ShowCaret()    // 显示
+  SetCaretPos()  // 设置位置
+  GetCaretPos()  // 获取位置
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **应用示例**</span><br><span class="line"></span><br><span class="line">    - 在 `WM_PAINT` 中计算文本尺寸 → `SetCaretPos()` 更新光标位置。</span><br><span class="line">    - 行编辑时动态调整坐标（如换行后光标移至新行首）。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **三、鼠标处理机制**</span><br><span class="line"></span><br><span class="line">1. **消息类型**</span><br><span class="line">    - 基础消息：`WM_LBUTTONDOWN`、`WM_LBUTTONUP`、`WM_MOUSEMOVE`。</span><br><span class="line">    - 双击消息：`WM_LBUTTONDBLCLK`（需窗口类含 `CS_DBLCLKS` 样式）。</span><br><span class="line">2. **参数解析**</span><br><span class="line">    - `lParam`：低16位为X坐标，高16位为Y坐标（窗口客户区坐标系）。</span><br><span class="line">    - `wParam`：指示辅助键状态（如 `MK_CONTROL`、`MK_SHIFT`）。</span><br><span class="line">3. **光标控制**</span><br><span class="line">    - **预定义光标**：通过 `LoadCursor(NULL, IDC_常量)` 加载（如 `IDC_WAIT`沙漏）。</span><br><span class="line">    - **自定义光标**：资源文件定义 → `LoadCursor(hInst, 资源名)` 加载。</span><br><span class="line">    - 动态切换：在 `WM_MOUSEMOVE` 中根据坐标区域设置不同光标（例：十字/箭头/I型）。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **四、核心代码逻辑示例**</span><br><span class="line"></span><br><span class="line">#### **1. 键盘输入程序（例6-1）**</span><br><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">    数据结构</span><br><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ static TCHAR cCharInfo[MAXLINE][MAXNUMCHAR]; // 字符缓冲区
+ static int nX, nY; // 光标行列位置
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">    消息处理</span><br><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br><span class="line">    - `WM_CHAR`：处理字符插入、退格、换行及边界提示。</span><br><span class="line">    - `WM_KEYDOWN`：处理方向键、Home/End/Del键的光标移动与删除。</span><br><span class="line">    - `WM_PAINT`：绘制文本并更新插字符位置。</span><br><span class="line"></span><br><span class="line">#### **2. 组合键检测（例6-2）**</span><br><span class="line"></span><br><span class="line">- `WM_KEYDOWN`：检测 `VK_CONTROL`。</span><br><span class="line">- `WM_CHAR`：检测 `&#x27;K&#x27;`（独立按）或 `&#x27;K&#x27;-64`（Ctrl+K组合）。</span><br><span class="line">- 输出对应提示信息（如&quot;CTRL+K键被压下&quot;）。</span><br><span class="line"></span><br><span class="line">#### **3. 鼠标动态效果（例6-3）**</span><br><span class="line"></span><br><span class="line">- </span><br><span class="line"></span><br><span class="line">    字符串跟随光标</span><br><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br><span class="line">    - `WM_TIMER` 定时刷新 → `WM_PAINT` 中获取光标位置 → 重绘渐变颜色字符串。</span><br><span class="line"></span><br><span class="line">- **颜色渐变**：每个字符颜色值按 `RGB(255-color[i], color[i], 255)` 变化。</span><br><span class="line"></span><br><span class="line">#### **4. 光标区域响应（例6-2扩展）**</span><br><span class="line"></span><br><span class="line">- 在 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ WM_MOUSEMOVE
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">中：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ if (x∈[50,150] &amp;&amp; y∈[50,150]) 
+  SetCursor(LoadCursor(NULL, IDC_CROSS)); // 十字光标
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **五、关键细节**</span><br><span class="line"></span><br><span class="line">1. **设备无关性**：虚拟码屏蔽硬件差异，确保跨设备兼容。</span><br><span class="line">2. **双击检测**：窗口类必须包含 `CS_DBLCLKS` 样式，否则视为两次单击。</span><br><span class="line">3. **坐标转换**：`ScreenToClient()` 将屏幕坐标转为窗口客户区坐标。</span><br><span class="line">4. **资源释放**：删除创建的GDI对象（如 `DeleteObject(hF)`）</span><br><span class="line"></span><br><span class="line"># 第五章  资源在windows编程中的应用</span><br><span class="line"></span><br><span class="line">### **5.1 菜单和加速键资源**</span><br><span class="line"></span><br><span class="line">#### **5.1.1 菜单的创建过程**</span><br><span class="line"></span><br><span class="line">1. **定义菜单（资源描述文件）**</span><br><span class="line"></span><br><span class="line">    - **语法**：`menuID MENU [载入特性] &#123; 菜单项列表 &#125;`</span><br><span class="line"></span><br><span class="line">    - 载入特性：</span><br><span class="line"></span><br><span class="line">        - `DISCARDABLE`（可丢弃）</span><br><span class="line">        - `FIXED`（固定内存位置）</span><br><span class="line">        - `MOVEABLE`（内存可移动）</span><br><span class="line">        - `LOADONCALL`（需时加载）</span><br><span class="line">        - `PRELOAD`（立即加载）</span><br><span class="line"></span><br><span class="line">    - 菜单项类型：</span><br><span class="line"></span><br><span class="line">        - `POPUP &quot;菜单项名&quot; [选项]`：定义弹出菜单，选项包括 `MENUBARBREAK`（纵向分隔）、`CHECKED`（选中标志）、`INACTIVE`（禁用）、`GRAYED`（禁用且变灰）。</span><br><span class="line">        - `MENUITEM &quot;文本&quot; ID [选项]`：定义普通菜单项，`&amp;`定义热键（如`&quot;文件(&amp;F)&quot;`）。</span><br><span class="line">        - `MENUITEM SEPARATOR`：创建水平分隔线。</span><br><span class="line"></span><br><span class="line">    - 示例</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  My_menu MENU MOVEABLE &#123;
+      POPUP &quot;文件(&amp;F)&quot; &#123;
+          MENUITEM &quot;新建(&amp;N)&quot;, IDM_NEW
+          MENUITEM &quot;打开(&amp;O)&quot;, IDM_OPEN
+          MENUITEM SEPARATOR
+          MENUITEM &quot;退出(&amp;X)&quot;, IDM_EXIT
+      &#125;
+  &#125;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. **加载菜单资源**</span><br><span class="line"></span><br><span class="line">    - 窗口类中加载：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  wndclass.lpszMenuName = lpszMenuName;
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 创建窗口时加载：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  hmenu = LoadMenu(hInstance, &quot;My_menu&quot;);
+  CreateWindow(..., hmenu, ...);
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 动态加载：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  SetMenu(hwnd, LoadMenu(hInstance, &quot;Menu2&quot;));
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **5.1.2 操作菜单项**</span><br><span class="line"></span><br><span class="line">1. **启用/禁用菜单项**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ EnableMenuItem(hmenu, ID, MF_BYCOMMAND | MF_GRAYED);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - **选项**：`MF_BYCOMMAND`（按ID标识）、`MF_BYPOSITION`（按位置标识）、`MF_ENABLED`（启用）、`MF_GRAYED`（禁用变灰）。</span><br><span class="line"></span><br><span class="line">2. **设置选中标志**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ CheckMenuItem(hmenu, ID, MF_BYCOMMAND | MF_CHECKED);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. **增删改菜单项**</span><br><span class="line"></span><br><span class="line">    - **末尾添加**：`AppendMenu(hmenu, MF_ENABLED, IDM_NEW, &quot;新建(&amp;N)&quot;);`</span><br><span class="line">    - **插入**：`InsertMenu(hmenu, IDM_EXIT, MF_BYCOMMAND, IDM_PRINT, &quot;打印(&amp;P)&quot;);`</span><br><span class="line">    - **删除**：`DeleteMenu(hmenu, IDM_SAVEAS, MF_BYCOMMAND);`</span><br><span class="line">    - **修改**：`ModifyMenu(hmenu, IDM_OPEN, MF_BYCOMMAND, IDM_LOAD, &quot;加载(&amp;L)&quot;);`</span><br><span class="line"></span><br><span class="line">4. **刷新菜单**：`DrawMenuBar(hwnd);`</span><br><span class="line"></span><br><span class="line">#### **5.1.3 动态创建菜单**</span><br><span class="line"></span><br><span class="line">1. 创建空菜单：`CreateMenu()`</span><br><span class="line"></span><br><span class="line">2. 添加菜单项：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ AppendMenu()
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">或 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ InsertMenu()
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+ haddmenu = CreateMenu();
+ AppendMenu(haddmenu, MF_ENABLED, IDM_qiuhe, &quot;求和&quot;);
+ InsertMenu(hmenu, 2, MF_POPUP, (UINT)haddmenu, &quot;统计计算(&amp;C)&quot;);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### **5.1.4 加速键资源**</span><br><span class="line"></span><br><span class="line">1. **定义加速键（资源文件）**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ 加速键名 ACCELERATORS &#123;
+&quot;^S&quot;, IDM_SAVE          // Ctrl+S
+VK_F1, IDM_HELP, VIRTKEY // F1键
+ &#125;
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - **选项**：`NOINVERT`（不高亮菜单项）、`ALT/SHIFT/CONTROL`（组合键）。</span><br><span class="line"></span><br><span class="line">2. **加载与翻译**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ HACCEL hAccel = LoadAccelerators(hInstance, &quot;MYMENUACCEL&quot;);
+ while (GetMessage(&amp;msg, NULL, 0, 0)) &#123;
+  if (!TranslateAccelerator(hwnd, hAccel, &amp;msg)) &#123;
+      TranslateMessage(&amp;msg);
+      DispatchMessage(&amp;msg);
+  &#125;
+ &#125;
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **5.2 位图资源**</span><br><span class="line"></span><br><span class="line">#### **操作流程**</span><br><span class="line"></span><br><span class="line">1. 加载位图：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ HBITMAP hBm = LoadBitmap(hInstance, &quot;pic7&quot;); // 从资源加载
+ // 或创建兼容位图：CreateCompatibleBitmap(hdc, width, height);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 获取位图信息：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ BITMAP bm;
+ GetObject(hBm, sizeof(BITMAP), &amp;bm);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 选入内存设备环境：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ HDC hdcmem = CreateCompatibleDC(hdc);
+ SelectObject(hdcmem, hBm);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 输出位图：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ BitBlt(hdc, x, y, bm.bmWidth, bm.bmHeight, hdcmem, 0, 0, SRCCOPY);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    - **光栅操作码**：`SRCCOPY`（直接复制）、`SRCAND`（与操作）、`WHITENESS`（全白输出）等。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **5.3 对话框资源**</span><br><span class="line"></span><br><span class="line">#### **5.3.1 模式对话框**</span><br><span class="line"></span><br><span class="line">1. 定义对话框（资源文件）：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ IDD_DIALOG1 DIALOGEX x, y, width, height
+ STYLE DS_SETFONT | WS_POPUP | WS_CAPTION
+ BEGIN
+DEFPUSHBUTTON &quot;确定&quot;, IDOK, x, y, width, height
+EDITTEXT IDC_EDIT1, x, y, width, height
+ END
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 显示对话框</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ DialogBox(hInst, &quot;IDD_DIALOG1&quot;, hwnd, (DLGPROC)DlgProc);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 处理消息：</span><br><span class="line"></span><br><span class="line">    - `WM_INITDIALOG`：初始化控件（如 `SetDlgItemText()`）。</span><br><span class="line">    - `WM_COMMAND`：响应按钮事件（如 `IDOK` 保存数据，`IDCANCEL` 关闭）。</span><br><span class="line">    - **关闭**：`EndDialog(hdlg, 0);`</span><br><span class="line"></span><br><span class="line">#### **5.3.2 非模式对话框**</span><br><span class="line"></span><br><span class="line">1. **样式要求**：必须包含 `WS_VISIBLE`。</span><br><span class="line"></span><br><span class="line">2. 创建对话框：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ HWND hdlg = CreateDialog(hInst, &quot;IDD_DIALOG1&quot;, hwnd, (DLGPROC)DlgProc);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 消息循环处理：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ while (GetMessage(&amp;msg, NULL, 0, 0)) &#123;
+  if (!IsDialogMessage(hdlg, &amp;msg)) &#123;
+      TranslateMessage(&amp;msg);
+      DispatchMessage(&amp;msg);
+  &#125;
+ &#125;
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. **关闭**：`DestroyWindow(hdlg);`</span><br><span class="line"></span><br><span class="line">#### **消息框（特殊模式对话框）**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ol>
+<p>MessageBox(hwnd, “内容”, “标题”, MB_OKCANCEL | MB_ICONQUESTION);</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **5.4 图标资源**</span><br><span class="line"></span><br><span class="line">1. 定义图标（资源文件）：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>TREE ICON tree.ico   // 自定义图标
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 加载图标：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+// 自定义图标
+wndclass.hIcon = LoadIcon(hInstance, &quot;TREE&quot;);
+// 系统图标（如 IDI_APPLICATION）
+wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **关键总结**</span><br><span class="line"></span><br><span class="line">- **菜单**：通过资源定义，支持动态增删改，加速键需配合消息循环翻译。</span><br><span class="line">- **位图**：需内存设备环境操作，使用 `BitBlt` 输出。</span><br><span class="line">- 对话框：</span><br><span class="line">    - 模式：阻塞父窗口，需 `EndDialog` 关闭。</span><br><span class="line">    - 非模式：需特殊消息循环和 `DestroyWindow` 关闭。</span><br><span class="line">- **图标**：在窗口类中加载，区分自定义与系统图标。</span><br><span class="line">- **资源文件**：统一定义各类资源（菜单、加速键、位图、对话框、图标）。</span><br><span class="line"></span><br><span class="line"># 第六章  MFC概述</span><br><span class="line"></span><br><span class="line">### **第6章 MFC基础知识**</span><br><span class="line"></span><br><span class="line">#### **6.1 MFC概述**</span><br><span class="line"></span><br><span class="line">1. **MFC定义**</span><br><span class="line"></span><br><span class="line">    - 用于编写Windows应用程序的**C++类库**，以层次结构组织。</span><br><span class="line">    - 封装大部分Windows API函数和控件，覆盖整个Windows操作系统功能。</span><br><span class="line"></span><br><span class="line">2. **核心功能**</span><br><span class="line"></span><br><span class="line">    - 提供Windows图形应用程序框架及创建组件。</span><br><span class="line">    - 提供大量可扩展的基类，支持自定义和扩展类。</span><br><span class="line">    - 保持向下兼容性和跨平台移植性。</span><br><span class="line"></span><br><span class="line">3. **发展历程**</span><br><span class="line"></span><br><span class="line">    | 版本     | 关键特性                                        | 配套环境     |</span><br><span class="line">    | -------- | ----------------------------------------------- | ------------ |</span><br><span class="line">    | MFC 1.0  | 基础GUI类                                       | MS C/C++ 7.0 |</span><br><span class="line">    | MFC 2.0  | 增强应用程序功能                                | VC++ 1.0/1.5 |</span><br><span class="line">    | MFC 3.0  | 支持32位应用、Win95新控件、DAO、MAPI            | VC++ 2.0     |</span><br><span class="line">    | MFC 4.0  | 强化数据库支持（DAO类）                         | -            |</span><br><span class="line">    | MFC 4.21 | 增强Internet支持                                | -            |</span><br><span class="line">    | MFC 5.0  | 支持ODBC/DAO数据库、Win32 Internet API、ActiveX | -            |</span><br><span class="line">    | MFC 6.0  | 活动文档容器、动态HTML（CHtmlView）、新控件     | -            |</span><br><span class="line">    | MFC 9.0  | 支持AJax、强化数据库、工作流编程模型            | VC++ 2008    |</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### **6.2 MFC类的组织结构**</span><br><span class="line"></span><br><span class="line">1. **类层次划分（10大类）**</span><br><span class="line">    - 根类：`CObject`</span><br><span class="line">    - 应用程序体系结构类</span><br><span class="line">    - 窗口、对话框和控件类</span><br><span class="line">    - 绘图和打印类</span><br><span class="line">    - 简单数据类型类</span><br><span class="line">    - 数组、列表和映射类</span><br><span class="line">    - 文件和数据库类</span><br><span class="line">    - Internet和网络类</span><br><span class="line">    - OLE类</span><br><span class="line">    - 调试和异常类</span><br><span class="line">2. **关键类详解**</span><br><span class="line">    - **根类 `CObject`**</span><br><span class="line">        - 所有MFC类的基类，提供公共操作：</span><br><span class="line">            - 对象创建/删除、运行时类型信息、串行化支持、诊断输出。</span><br><span class="line">    - **应用程序体系结构类**</span><br><span class="line">        - `CCmdTarget`：消息映射基类（如菜单命令处理）。</span><br><span class="line">        - `CWinThread`：线程基类，`CWinApp`（应用程序主对象）的父类。</span><br><span class="line">        - 文档/视类</span><br><span class="line">            - 文档类管理数据，视类（`CView`）显示数据并处理用户交互。</span><br><span class="line">    - **可视对象类**</span><br><span class="line">        - `CWnd`：所有窗口的基类，封装窗口操作。</span><br><span class="line">        - `CView`：框架窗口客户区显示，派生类包括滚动视图（`CScrollView`）、编辑视图（`CEditView`）。</span><br><span class="line">        - 控件类：按钮、列表框等UI组件。</span><br><span class="line">        - `CDC`：设备上下文类，支持绘图操作。</span><br><span class="line">        - `CGdiObject`：绘图工具基类（画笔、画刷等）。</span><br><span class="line">    - **通用类**</span><br><span class="line">        - 文件类：`CFile`（文件I/O）、`CArchive`（序列化）。</span><br><span class="line">        - 异常类：`CException`及其子类（如内存异常`CMemoryException`、文件异常`CFileException`）。</span><br><span class="line">        - 模板收集类：管理数组、列表、映射等数据结构。</span><br><span class="line">    - **OLE类**</span><br><span class="line">        - 支持OLE技术，包含9个核心类（如`COleDocument`、`COleServer`）。</span><br><span class="line">    - **ODBC数据库类**</span><br><span class="line">        - `CDatabase`：连接数据源。</span><br><span class="line">        - `CRecordset`：操作记录集。</span><br><span class="line">        - `CRecordView`：表单视图显示记录。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### **6.3 全局函数与变量**</span><br><span class="line"></span><br><span class="line">- **命名规则**：以 `Afx` 为前缀（数据库类函数除外）。</span><br><span class="line">- 常用全局函数：</span><br><span class="line">    - `AfxMessageBox()`：弹出消息框。</span><br><span class="line">    - `AfxGetApp()`：获取当前应用程序对象指针。</span><br><span class="line">    - `AfxBeginThread()`：创建新线程。</span><br><span class="line">    - `AfxRegisterWndClass()`：注册窗口类。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">#### **6.4 应用程序向导**</span><br><span class="line"></span><br><span class="line">- 用于生成**单文档应用（SDI）** 框架，提供项目配置选项卡。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **关键要点总结**</span><br><span class="line"></span><br><span class="line">1. **MFC定位**：封装Windows API的C++类库，提供应用程序框架和组件。</span><br><span class="line">2. **类层次结构**：以`CObject`为根，10大类覆盖从UI到数据库的全功能支持。</span><br><span class="line">3. 核心类：</span><br><span class="line">    - `CWinApp`管理应用生命周期，`CWinThread`支持多线程。</span><br><span class="line">    - 文档/视结构分离数据管理与显示逻辑。</span><br><span class="line">    - `CWnd`和`CDC`实现窗口与绘图功能。</span><br><span class="line">4. 扩展能力：</span><br><span class="line">    - 数据库（ODBC/DAO）、Internet（Win32 Internet API）、OLE技术深度集成。</span><br><span class="line">5. 开发支持</span><br><span class="line">    - 全局函数简化常用操作（如`AfxMessageBox`）。</span><br><span class="line">    - 应用程序向导快速生成项目框架。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 第7章 Windows 标准控件在可视化编程中的应用</span><br><span class="line"></span><br><span class="line">#### **7.1 概述**</span><br><span class="line">• 控件的作用：Windows GUI的核心组件，用户通过控件与应用程序交互，体现面向对象特性。</span><br><span class="line"></span><br><span class="line">• 控件添加方法：</span><br><span class="line"></span><br><span class="line">  1. 代码创建：</span><br><span class="line"></span><br><span class="line">    ◦ 步骤：定义控件对象（如 `CButton mybtn`）→ 调用 `Create()` 初始化（指定样式、位置、父窗口、ID）→ 显示控件（`ShowWindow()`）→ 管理控件（`MoveWindow()`, `SetWindowText()`等）。</span><br><span class="line">    </span><br><span class="line">    ◦ 备注：需预定义窗口类。</span><br><span class="line"></span><br><span class="line">  2. 可视化工具：在对话框编辑器中拖放控件。</span><br><span class="line"></span><br><span class="line">• 消息映射机制：</span><br><span class="line"></span><br><span class="line">  • 目的：绑定控件事件与处理函数。</span><br><span class="line"></span><br><span class="line">  • 流程：</span><br><span class="line"></span><br><span class="line">    ◦ 声明消息处理函数（如 `afx_msg void OnBnClickedButton1();`）。</span><br><span class="line">    </span><br><span class="line">    ◦ 添加消息映射宏（如 `ON_BN_CLICKED(IDC_BUTTON1, OnBnClickedButton1)`）。</span><br><span class="line">    </span><br><span class="line">    ◦ 实现处理函数（如 `void CMyDlg::OnBnClickedExit() &#123; OnOK(); &#125;`）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">• 控件使用技巧：</span><br><span class="line"></span><br><span class="line">  1. 获取控件指针：`GetDlgItem(IDC_EDIT1)` 返回 `CWnd*`。</span><br><span class="line">  2. 控件变量绑定：</span><br><span class="line"></span><br><span class="line">    ◦ Control型：访问控件成员（如 `CEdit* pEdit`）。</span><br><span class="line">    </span><br><span class="line">    ◦ Value型（如 `CString`）：通过 `UpdateData(TRUE/FALSE)` 刷新数据，依赖 `DoDataExchange()` 中的 `DDX_Text` 等函数。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">• 自定义控件类：</span><br><span class="line"></span><br><span class="line">  • 步骤：继承MFC控件类（如 `CButton`）→ 添加新功能成员 → 在变量类型中使用自定义类。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">#### **7.2 按钮控件（CButton）**</span><br><span class="line">• 类型：普通按钮、单选按钮、复选框、组框、自绘按钮。</span><br><span class="line"></span><br><span class="line">• 创建方法：</span><br><span class="line"></span><br><span class="line">  ```cpp</span><br><span class="line">  BOOL Create(LPCTSTR lpszCaption, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID);</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>• 常用消息：</p>
+<p>  • <code>ON_BN_CLICKED</code>：单击事件。</p>
+<p>  • <code>ON_BN_DBLCLICKED</code>：双击事件。</p>
+<p>• 状态管理函数：</p>
+<p>  • <code>GetCheck()</code>&#x2F;<code>SetCheck()</code>：获取&#x2F;设置选中状态。</p>
+<p>  • <code>SetBitmap()</code>&#x2F;<code>SetIcon()</code>：设置位图&#x2F;图标。</p>
+<p>• 特殊按钮类：</p>
+<p>  • <code>CBitmapButton</code>：支持4种状态位图（正常、按下、聚焦、禁用），通过 <code>LoadBitmaps()</code> 加载。</p>
+<hr>
+<h4 id="7-3-滚动条控件（CScrollBar）"><a href="#7-3-滚动条控件（CScrollBar）" class="headerlink" title="7.3 滚动条控件（CScrollBar）"></a><strong>7.3 滚动条控件（CScrollBar）</strong></h4><p>• 与窗口滚动条的区别：独立创建、由用户管理。</p>
+<p>• 关键消息码：</p>
+<p>  • <code>SB_LINEUP/DOWN</code>：单步滚动。</p>
+<p>  • <code>SB_PAGEUP/DOWN</code>：翻页滚动。</p>
+<p>  • <code>SB_THUMBTRACK</code>：拖动滑块。</p>
+<p>• 初始化步骤：</p>
+<ol>
+<li>创建对象：<code>CScrollBar* pMyScroll = new CScrollBar</code>。</li>
+<li>初始化：<code>pMyScroll-&gt;Create(...)</code>。</li>
+<li>设置范围：<code>pMyScroll-&gt;SetScrollRange(min, max)</code>。</li>
+<li>设置位置：<code>pMyScroll-&gt;SetScrollPos(value)</code>。</li>
+</ol>
+<hr>
+<h4 id="7-4-静态控件（CStatic）"><a href="#7-4-静态控件（CStatic）" class="headerlink" title="7.4 静态控件（CStatic）"></a><strong>7.4 静态控件（CStatic）</strong></h4><p>• 特点：默认不发送消息，需添加 <code>SS_NOTIFY</code> 样式才能响应事件（如单击）。</p>
+<p>• 应用示例：</p>
+<p>  • 显示位图：<code>m_bmp.ModifyStyle(0, SS_BITMAP)</code> + <code>SetBitmap()</code>。</p>
+<p>  • 响应单击：处理 <code>BN_CLICKED</code> 消息，获取位图尺寸并显示。</p>
+<hr>
+<h4 id="7-5-列表框控件（CListBox）"><a href="#7-5-列表框控件（CListBox）" class="headerlink" title="7.5 列表框控件（CListBox）"></a><strong>7.5 列表框控件（CListBox）</strong></h4><p>• 功能：从列表中选择单项或多项。</p>
+<p>• 关键方法：</p>
+<p>  • 通用：<code>AddString()</code>, <code>DeleteString()</code>, <code>ResetContent()</code>。</p>
+<p>  • 单项选择：<code>GetCurSel()</code>, <code>SetCurSel()</code>。</p>
+<p>  • 多项选择：<code>GetSelItems()</code>, <code>SetSel()</code>。</p>
+<p>• 消息传递：</p>
+<p>  • 用户操作 → 发送 <code>WM_COMMAND</code>（含 <code>LBN_DBLCLK</code> 等通知码）。</p>
+<p>  • 程序操作：通过 <code>SendMessage</code> 发送消息（如 <code>LB_DIR</code> 加载文件列表）。</p>
+<hr>
+<h4 id="7-6-编辑框控件（CEdit）"><a href="#7-6-编辑框控件（CEdit）" class="headerlink" title="7.6 编辑框控件（CEdit）"></a><strong>7.6 编辑框控件（CEdit）</strong></h4><p>• 类型：单行&#x2F;多行（支持滚动条）。</p>
+<p>• 数据交互：</p>
+<p>  • 获取&#x2F;设置文本：<code>GetWindowText()</code>&#x2F;<code>SetWindowText()</code>。</p>
+<p>  • 剪贴板操作：<code>Copy()</code>, <code>Paste()</code>。</p>
+<p>  • 撤销操作：<code>Undo()</code>。</p>
+<p>• 实时计算示例：编辑框内容变化时触发 <code>OnEnChangeNum1()</code> 更新结果。</p>
+<hr>
+<h4 id="7-7-组合框控件（CComboBox）"><a href="#7-7-组合框控件（CComboBox）" class="headerlink" title="7.7 组合框控件（CComboBox）"></a><strong>7.7 组合框控件（CComboBox）</strong></h4><p>• 特点：编辑框 + 列表框的组合。</p>
+<p>• 常用方法：</p>
+<p>  • <code>AddString()</code>：添加选项。</p>
+<p>  • <code>GetCurSel()</code>&#x2F;<code>GetLBText()</code>：获取选中项。</p>
+<p>• 消息响应：<code>CBN_SELCHANGE</code> 选项改变时触发。</p>
+<hr>
+<h4 id="7-8-对话框通用控件"><a href="#7-8-对话框通用控件" class="headerlink" title="7.8 对话框通用控件"></a><strong>7.8 对话框通用控件</strong></h4><ol>
+<li><p>Picture控件：<br>• 分隔线：设置 <code>Type=Frame</code>, <code>Color=Etched</code>。</p>
+<p>• 显示图片：<code>Type=Bitmap/Icon</code>, 绑定资源ID。</p>
+</li>
+<li><p>Spin控件：<br>• 与伙伴控件（如编辑框）联动：设置 <code>Auto Buddy</code> 和 <code>SetBuddy()</code>。</p>
+<p>• 范围设置：<code>SetRange(0, 100)</code>。</p>
+</li>
+<li><p>Progress控件：<br>• 初始化：<code>SetRange(0,100)</code>, <code>SetPos(0)</code>。</p>
+<p>• 模拟进度：定时器调用 <code>SetPos(i++)</code>。</p>
+</li>
+<li><p>Slider控件：<br>• 响应滑动：处理 <code>WM_HSCROLL</code> 消息，用 <code>GetPos()</code> 更新显示。</p>
+</li>
+<li><p>DateTimePicker控件：<br>• 格式化日期：<code>SetFormat(&quot;&#39;Today: &#39;yy&#39;/&#39;MM&#39;/&#39;dd&quot;)</code>。</p>
+<p>• 获取时间：<code>GetTime(t)</code> → <code>t.Format()</code>。</p>
+</li>
+<li><p>List Control控件：<br>• 视图模式：图标&#x2F;列表&#x2F;报表。</p>
+<p>• 关键操作：<code>InsertItem()</code>, 响应 <code>LVN_ENDLABELEDIT</code> 编辑标签。</p>
+</li>
+<li><p>Tree Control控件：<br>• 构建层级：<code>InsertItem()</code> 填充 <code>TV_INSERTSTRUCT</code> 结构。</p>
+<p>• 消息响应：<code>TVN_SELCHANGED</code> 获取选中项，<code>TVN_ENDLABELEDIT</code> 编辑节点。</p>
+</li>
+</ol>
+<hr>
+<h3 id="核心知识点总结"><a href="#核心知识点总结" class="headerlink" title="核心知识点总结"></a><strong>核心知识点总结</strong></h3><p>• 控件共性：通过 <code>Create()</code> 动态创建或资源编辑器添加，依赖消息映射处理事件。</p>
+<p>• 数据绑定：<code>DDX</code> 机制实现控件与变量同步（<code>UpdateData()</code>）。</p>
+<p>• 高级控件：如 <code>CListCtrl</code> 和 <code>CTreeCtrl</code> 需配合图像列表（<code>CImageList</code>）管理图标。</p>
+<p>• 交互设计：滚动条&#x2F;滑块的范围控制、Spin的伙伴控件、Progress的定时更新等需精细处理。</p>
+<p>此总结完全基于原始文档内容，未增删技术细节，保留了所有关键API、消息机制和示例逻辑。</p>
+<h1 id="第8章-在MFC中创建应用程序的资源"><a href="#第8章-在MFC中创建应用程序的资源" class="headerlink" title="第8章 在MFC中创建应用程序的资源"></a>第8章 在MFC中创建应用程序的资源</h1><h4 id="8-0-资源基础"><a href="#8-0-资源基础" class="headerlink" title="8.0 资源基础"></a><strong>8.0 资源基础</strong></h4><ul>
+<li>资源特性<ul>
+<li>独立于代码，由Resource Compiler编译后嵌入可执行文件。</li>
+<li>支持复用：通过导入&#x2F;导出功能实现。</li>
+<li>国际化：通过资源替换实现多语言支持。</li>
+</ul>
+</li>
+<li>资源查看示例<ul>
+<li>路径：<code>c:\Windows\cards.dll</code> 或 <code>c:\WINNT\System32</code>（查看图片资源）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="8-2-资源应用"><a href="#8-2-资源应用" class="headerlink" title="8.2 资源应用"></a><strong>8.2 资源应用</strong></h4><h5 id="8-2-1-菜单资源"><a href="#8-2-1-菜单资源" class="headerlink" title="8.2.1 菜单资源"></a><strong>8.2.1 菜单资源</strong></h5><ul>
+<li><p><strong>示例功能</strong><br>   单文档程序显示字符串”Hello World!”，通过菜单控制显示状态和颜色（红&#x2F;绿&#x2F;蓝）。</p>
+</li>
+<li><p><strong>关键步骤</strong></p>
+<p>  1. </p>
+<pre><code>  成员变量声明
+
+  （
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CMy_ResView.h</span><br></pre></td></tr></table></figure>
+
+  ）:
+
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">COLORREF m_nColors[3];  // 颜色数组</span><br><span class="line">DWORD m_nColorIndex;    // 当前颜色索引</span><br><span class="line">CString m_strShow;      // 显示内容</span><br><span class="line">BOOL m_bShow;           // 显示状态</span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="2">
+<li><p>初始化</p>
+<p> （构造函数）:</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">m_nColors[0] = RGB(255,0,0);  // 红</span><br><span class="line">m_nColors[1] = RGB(0,255,0);  // 绿</span><br><span class="line">m_nColors[2] = RGB(0,0,255);  // 蓝</span><br><span class="line">m_nColorIndex = 0;</span><br><span class="line">m_strShow = L&quot;Hello World!&quot;;</span><br><span class="line">m_bShow = TRUE;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>绘制字符串</p>
+<p> （</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OnDraw</span><br></pre></td></tr></table></figure>
+
+<p> ）:</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">if(m_bShow) &#123;</span><br><span class="line">    pDC-&gt;SetTextColor(m_nColors[m_nColorIndex]);</span><br><span class="line">    pDC-&gt;TextOut(100, 100, m_strShow);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>消息处理机制</strong></p>
+<ul>
+<li><p>COMMAND消息</p>
+<p>  （菜单点击响应）:</p>
+<ul>
+<li>函数：<code>OnOperShow()</code>，切换<code>m_bShow</code>并刷新视图。</li>
+<li>映射：<code>ON_COMMAND(ID_OPER_SHOW, OnOperShow)</code>。</li>
+</ul>
+</li>
+<li><p>UPDATE_COMMAND_UI消息</p>
+<p>  （菜单状态更新）:</p>
+<ul>
+<li>函数：<code>OnUpdateOperShow(CCmdUI* pCmdUI)</code>，设置勾选状态。</li>
+<li>方法：<code>pCmdUI-&gt;SetCheck(m_bShow)</code>。</li>
+</ul>
+</li>
+<li><p>批量处理连续ID</p>
+<p>  （颜色菜单）:</p>
+<ul>
+<li>宏：<code>ON_COMMAND_RANGE(ID_OPER_RED, ID_OPER_BLUE, OnOperColorChange)</code>。</li>
+<li>函数：<code>OnOperColorChange(WORD nID)</code>，计算颜色索引。</li>
+<li>更新宏：<code>ON_UPDATE_COMMAND_UI_RANGE</code>，设置单选状态。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h5 id="8-2-2-快捷菜单"><a href="#8-2-2-快捷菜单" class="headerlink" title="8.2.2 快捷菜单"></a><strong>8.2.2 快捷菜单</strong></h5><ul>
+<li><p>创建步骤</p>
+<ol>
+<li><p>新增菜单资源 <code>IDR_MENU_POP</code>。</p>
+</li>
+<li><p>声明变量：<code>CMenu m_PopMenu</code>, <code>CMenu* m_pPop</code>。</p>
+</li>
+<li><p>加载资源（构造函数）：<code>m_PopMenu.LoadMenu(IDR_MENU_VIEW)</code>。</p>
+</li>
+<li><p>右键响应：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OnRButtonDown()</span><br></pre></td></tr></table></figure>
+
+<p> 中显示菜单：</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">m_pPop = m_PopMenu.GetSubMenu(0);</span><br><span class="line">m_pPop-&gt;TrackPopupMenu(TPM_LEFTALIGN, point.x, point.y, this);</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ul>
+<hr>
+<h5 id="8-2-3-加速键"><a href="#8-2-3-加速键" class="headerlink" title="8.2.3 加速键"></a><strong>8.2.3 加速键</strong></h5><ul>
+<li>添加方法<ol>
+<li>在加速键资源表（<code>IDR_MAINFRAME</code>）新增条目。</li>
+<li>绑定菜单项ID（如 <code>ID_OPER_SHOW</code>）。</li>
+<li>设置快捷键：按 <code>Ctrl+W</code> 自动填充属性。</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h5 id="8-2-4-工具条"><a href="#8-2-4-工具条" class="headerlink" title="8.2.4 工具条"></a><strong>8.2.4 工具条</strong></h5><ul>
+<li><p><strong>关键类</strong>：<code>CToolBar</code>（派生自 <code>CWnd</code>）。</p>
+<p>  创建流程</p>
+<ol>
+<li><p>添加工具条资源 <code>IDR_TOOLBAR_NEW</code>。</p>
+</li>
+<li><p>在 <code>CMainFrame</code> 声明变量：<code>CToolBar m_wndToolBarNew</code>。</p>
+</li>
+<li><pre><code> OnCreate()
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">中创建并加载：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ m_wndToolBarNew.CreateEx(...);
+ m_wndToolBarNew.LoadToolBar(IDR_TOOLBAR_NEW);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. </span><br><span class="line"></span><br><span class="line">    停靠设置</span><br><span class="line"></span><br><span class="line">    ：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ m_wndToolBarNew.EnableDocking(CBRS_ALIGN_ANY);
+ DockControlBar(&amp;m_wndToolBarNew);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **样式控制**：</span><br><span class="line">     `SetBarStyle()` 设置提示文本（`CBRS_TOOLTIPS`）和动态尺寸（`CBRS_SIZE_DYNAMIC`）。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">##### **8.2.5 图标资源**</span><br><span class="line"></span><br><span class="line">- **用途**：程序窗口/任务栏/资源管理器图标。</span><br><span class="line">- 修改方法</span><br><span class="line">    1. 编辑资源 `IDR_MAINFRAME`。</span><br><span class="line">    2. 支持多尺寸：16×16（任务栏）、32×32（对话框）、48×48（缩略图）。</span><br><span class="line">    3. 通过 **New Device Image** 添加新尺寸。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">##### **8.2.6 字符串资源**</span><br><span class="line"></span><br><span class="line">- 多语言支持</span><br><span class="line">    1. 在字符串表新增条目（如 `IDS_STRING_HELLO`）。</span><br><span class="line">    2. 代码加载：`m_strShow.LoadString(IDS_STRING_HELLO)`。</span><br><span class="line">- **优势**：集中管理字符串，便于维护和国际化。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">##### **8.2.7 对话框资源**</span><br><span class="line"></span><br><span class="line">- 创建步骤</span><br><span class="line"></span><br><span class="line">    1. 添加对话框资源 `IDD_DIALOG_NEW`。</span><br><span class="line"></span><br><span class="line">    2. 绑定类 `CInputDlg`，关联控件变量 `m_strInput`（`DDX_Text` 映射）。</span><br><span class="line"></span><br><span class="line">    3. 使用对话框：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ CInputDlg dlgInput;
+ if (dlgInput.DoModal() == IDOK) &#123;
+     m_strShow = dlgInput.m_strInput;
+     Invalidate();
+ &#125;
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">##### **8.2.8 位图资源**</span><br><span class="line"></span><br><span class="line">- 显示流程</span><br><span class="line"></span><br><span class="line">    1. 加载位图资源：`bmp.LoadBitmap(IDB_BITMAP_256)`。</span><br><span class="line"></span><br><span class="line">    2. 获取尺寸：`bmp.GetBitmap(&amp;bmpInfo)`。</span><br><span class="line"></span><br><span class="line">    3. 内存DC缓冲：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ CDC dcMemory;
+ dcMemory.CreateCompatibleDC(pDC);
+ dcMemory.SelectObject(&amp;bmp);
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    4. 绘制到屏幕：`pDC-&gt;BitBlt(...)`。</span><br><span class="line"></span><br><span class="line">- **注意事项**：VC6 仅支持 ≤256 色位图编辑。</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">### **关键总结**</span><br><span class="line"></span><br><span class="line">- **资源复用**：通过导入/导出实现跨项目共享。</span><br><span class="line">- 消息机制：</span><br><span class="line">    - `COMMAND` 响应操作，`UPDATE_COMMAND_UI` 更新状态。</span><br><span class="line">    - `ON_COMMAND_RANGE` 批量处理连续ID。</span><br><span class="line">- **资源类型关联**：菜单、加速键、工具条需绑定同一ID实现功能统一。</span><br><span class="line">- **内存管理**：手动释放资源（如 `m_PopMenu.DestroyMenu()`）。</span><br><span class="line"></span><br><span class="line"># 第9章 单文档与多文档 </span><br><span class="line"></span><br><span class="line">### </span><br><span class="line">#### **9.1 概述**</span><br><span class="line">1. 9.1.1 单文档界面（SDI）与多文档界面（MDI）</span><br><span class="line">   • SDI特点：</span><br><span class="line"></span><br><span class="line">     ◦ 仅一个主窗口（`CMainFrame`基类为`CFrameWnd`）。</span><br><span class="line"></span><br><span class="line">     ◦ 每次操作一个文档（如记事本）。</span><br><span class="line"></span><br><span class="line">   • MDI特点：</span><br><span class="line"></span><br><span class="line">     ◦ 多个子窗口（`CMainFrame`基类为`CMDIFrameWnd`）。</span><br><span class="line"></span><br><span class="line">     ◦ 同时操作多个文档（如Visual Studio）。</span><br><span class="line"></span><br><span class="line">   • 创建流程：</span><br><span class="line"></span><br><span class="line">     ◦ 使用AppWizard创建SDI/MDI过程相似。</span><br><span class="line"></span><br><span class="line">     ◦ MDI通过`CDocument::OnNewDocument`创建子窗口。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. 9.1.2 文档/视图结构</span><br><span class="line">   • 核心分工：</span><br><span class="line"></span><br><span class="line">     ◦ 文档类（CDocument）：</span><br><span class="line"></span><br><span class="line">       ◦ 管理数据（成员变量存储）。</span><br><span class="line">       </span><br><span class="line">       ◦ 串行化（`Serialize`）保存/加载数据。</span><br><span class="line">       </span><br><span class="line">       ◦ 仅处理`WM_COMMAND`消息（菜单/工具栏）。</span><br><span class="line"></span><br><span class="line">     ◦ 视图类（CView）：</span><br><span class="line"></span><br><span class="line">       ◦ 显示数据（通过`GetDocument`访问文档）。</span><br><span class="line">       </span><br><span class="line">       ◦ 接收用户输入并更新文档。</span><br><span class="line">       </span><br><span class="line">       ◦ 可处理所有Windows消息。</span><br><span class="line"></span><br><span class="line">   • 工作机制：</span><br><span class="line"></span><br><span class="line">     ◦ 视图通过`GetDocument`获取文档指针。</span><br><span class="line"></span><br><span class="line">     ◦ 用户通过视图修改数据 → 视图通知文档更新 → 文档保存数据。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 9.1.3 SDI对象创建流程</span><br><span class="line">   • 在`InitInstance()`中通过文档模板创建：</span><br><span class="line"></span><br><span class="line">     ```cpp</span><br><span class="line">     CSingleDocTemplate* pDocTemplate = new CSingleDocTemplate(</span><br><span class="line">         IDR_MAINFRAME,</span><br><span class="line">         RUNTIME_CLASS(CMyDoc),    // 文档类</span><br><span class="line">         RUNTIME_CLASS(CMainFrame), // 框架类</span><br><span class="line">         RUNTIME_CLASS(CMyView)     // 视图类</span><br><span class="line">     );</span><br><span class="line">     AddDocTemplate(pDocTemplate);</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="4">
+<li><p>9.1.4 SDI消息传递<br>• <code>WM_COMMAND</code>消息传递路径：  </p>
+<p>  视图 → 文档 → 文档模板 → 框架窗口 → 应用程序。</p>
+</li>
+</ol>
+<hr>
+<h4 id="9-2-Doc-View框架核心类"><a href="#9-2-Doc-View框架核心类" class="headerlink" title="9.2 Doc&#x2F;View框架核心类"></a><strong>9.2 Doc&#x2F;View框架核心类</strong></h4><table>
+<thead>
+<tr>
+<th>类</th>
+<th>核心职责</th>
+<th>关键成员&#x2F;方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CWinApp</td>
+<td>管理进程生命周期、消息循环、资源</td>
+<td><code>m_pMainWnd</code>（主窗口指针）<br><code>LoadCursor()</code>（加载资源）</td>
+</tr>
+<tr>
+<td>CDocument</td>
+<td>数据管理、串行化、维护视图列表</td>
+<td><code>SetModifiedFlag()</code>（标记修改）<br><code>UpdateAllViews()</code>（刷新视图）<br><code>Serialize()</code></td>
+</tr>
+<tr>
+<td>CView</td>
+<td>数据显示、用户交互</td>
+<td><code>OnDraw()</code>（绘制数据）<br><code>GetDocument()</code>（获取文档指针）</td>
+</tr>
+<tr>
+<td>CDocTemplate</td>
+<td>关联文档&#x2F;视图&#x2F;框架对象</td>
+<td>构造函数绑定运行时类（文档、框架、视图）</td>
+</tr>
+<tr>
+<td>CFrameWnd</td>
+<td>管理框架窗口（菜单&#x2F;工具栏&#x2F;状态栏）</td>
+<td>维护视图布局和消息路由</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="9-3-关键技术概念"><a href="#9-3-关键技术概念" class="headerlink" title="9.3 关键技术概念"></a><strong>9.3 关键技术概念</strong></h4><ol>
+<li><p>9.3.1 串行化（Serialization）<br>• 流程：通过<code>CArchive</code>对象读写数据。</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">CMyDoc::Serialize</span><span class="params">(CArchive&amp; ar)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ar.<span class="built_in">IsStoring</span>()) ar &lt;&lt; m_data; <span class="comment">// 保存</span></span><br><span class="line">    <span class="keyword">else</span> ar &gt;&gt; m_data;               <span class="comment">// 加载</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>• 文件操作路径：  </p>
+<p>  <code>CWinApp::OnFileOpen</code> → <code>CDocument::OnOpenDocument</code> → <code>Serialize()</code>。</p>
+</li>
+<li><p>9.3.2 消息映射（Message Map）<br>• 机制：消息处理函数绑定（通过宏实现）：</p>
+  <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">BEGIN_MESSAGE_MAP</span>(CMyView, CView)</span><br><span class="line">    <span class="built_in">ON_COMMAND</span>(ID_EDIT_CUT, OnEditCut)   <span class="comment">// 菜单命令</span></span><br><span class="line">    <span class="built_in">ON_WM_MOUSEMOVE</span>()                    <span class="comment">// Windows消息</span></span><br><span class="line"><span class="built_in">END_MESSAGE_MAP</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>9.3.3 消息传递顺序<br>视图 → 文档 → 文档模板 → 子框架（MDI）→ 主框架 → 应用程序。</p>
+</li>
+</ol>
+<hr>
+<h4 id="9-4-SDI实例：动态文本显示"><a href="#9-4-SDI实例：动态文本显示" class="headerlink" title="9.4 SDI实例：动态文本显示"></a><strong>9.4 SDI实例：动态文本显示</strong></h4><p>• 功能：窗口中央显示文本，通过对话框修改内容。</p>
+<p>• 关键实现：</p>
+<ol>
+<li>文档类：<br>定义<code>CString m_str</code>存储文本，在<code>OnNewDocument()</code>中初始化。</li>
+<li>菜单命令：<br>调用对话框修改<code>m_str</code>，触发<code>UpdateAllViews(NULL)</code>刷新视图。</li>
+<li>视图类：<br><code>OnDraw()</code>中调用<code>pDC-&gt;TextOut()</code>居中显示文本。</li>
+<li>串行化：<br><code>Serialize()</code>中保存&#x2F;加载<code>m_str</code>。</li>
+</ol>
+<hr>
+<h4 id="9-5-MDI实例：多类型文档支持"><a href="#9-5-MDI实例：多类型文档支持" class="headerlink" title="9.5 MDI实例：多类型文档支持"></a><strong>9.5 MDI实例：多类型文档支持</strong></h4><p>• 功能：支持文本文档（默认）和绘图文档。</p>
+<p>• 关键实现：</p>
+<ol>
+<li><p>多文档模板注册：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在InitInstance()中添加第二类文档模板</span></span><br><span class="line">CMultiDocTemplate* pDocTemplate2 = <span class="keyword">new</span> <span class="built_in">CMultiDocTemplate</span>(</span><br><span class="line">    IDR_MYMDITYPE2,              <span class="comment">// 资源ID</span></span><br><span class="line">    <span class="built_in">RUNTIME_CLASS</span>(CMyMdiDoc2),    <span class="comment">// 自定义文档类</span></span><br><span class="line">    <span class="built_in">RUNTIME_CLASS</span>(CChildFrame),   <span class="comment">// 子框架</span></span><br><span class="line">    <span class="built_in">RUNTIME_CLASS</span>(CMyMdiView2)    <span class="comment">// 自定义视图类</span></span><br><span class="line">);</span><br><span class="line"><span class="built_in">AddDocTemplate</span>(pDocTemplate2);</span><br></pre></td></tr></table></figure></li>
+<li><p>绘图文档：<br>◦ 文档类：用<code>CPtrArray m_data</code>存储图形数据（<code>DrawData</code>对象）。</p>
+<p>◦ 视图类：处理鼠标事件（<code>OnLButtonDown/Up</code>），在<code>OnDraw()</code>中绘制图形。</p>
+</li>
+<li><p>资源定制：<br>◦ 为第二类文档定义独立菜单（ID范围：<code>ID_LINE</code>至<code>ID_RECTANGLE</code>）。</p>
+</li>
+</ol>
+<hr>
+<h3 id="附录：关键技术速查表"><a href="#附录：关键技术速查表" class="headerlink" title="附录：关键技术速查表"></a><strong>附录：关键技术速查表</strong></h3><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>获取文档关联的视图</td>
+<td><code>GetFirstViewPosition()</code> + <code>GetNextView()</code></td>
+</tr>
+<tr>
+<td>视图获取文档指针</td>
+<td><code>GetDocument()</code></td>
+</tr>
+<tr>
+<td>视图获取框架窗口</td>
+<td><code>GetParentFrame()</code></td>
+</tr>
+<tr>
+<td>全局获取应用程序对象</td>
+<td><code>AfxGetApp()</code></td>
+</tr>
+<tr>
+<td>强制刷新视图</td>
+<td><code>Invalidate()</code> + <code>UpdateWindow()</code></td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/">http://example.com/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E5%A4%8D%E4%B9%A0/">复习</a><a class="post-meta__tags" href="/tags/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">高级程序设计</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/05/26/%E3%80%8A%E5%85%8B%E6%8B%89%E5%85%8B%E6%A3%AE%E7%9A%84%E5%86%9C%E5%9C%BA%E3%80%8B/" title="《克拉克森的农场》"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">《克拉克森的农场》</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-05-26</div><div class="title">编译原理</div></div></a></div><div><a href="/2023/10/26/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%AC%94%E8%AE%B0/" title="51单片机笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-26</div><div class="title">51单片机笔记</div></div></a></div><div><a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" title="0.96OLED玩法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-14</div><div class="title">0.96OLED玩法</div></div></a></div><div><a href="/2023/10/01/C%E8%AF%AD%E8%A8%80%E4%BA%8C%E7%BA%A7%E6%8C%87%E9%92%88/" title="C语言二级指针"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-01</div><div class="title">C语言二级指针</div></div></a></div><div><a href="/2023/11/12/Data-Structure-and-Algorithm/" title="Data Structure and Algorithm"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-12</div><div class="title">Data Structure and Algorithm</div></div></a></div><div><a href="/2024/02/27/Computer-Composition-Principle/" title="Computer Composition Principle"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-27</div><div class="title">Computer Composition Principle</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">121</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">141</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-Windows%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">第一章 Windows编程基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">窗口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">事件驱动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%A5%E6%9F%84"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">句柄</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B6%88%E6%81%AF"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">消息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">事件驱动程序设计</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">1.0.0.6.</span> <span class="toc-text">Windows应用程序结构</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-Windows%E7%9A%84%E5%9B%BE%E5%BD%A2%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%E5%8F%8Awindows%E7%BB%98%E5%9B%BE"><span class="toc-number">2.</span> <span class="toc-text">第二章 Windows的图形设备接口及windows绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81-GDI%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E4%B8%8E%E8%AE%BE%E5%A4%87%E7%8E%AF%E5%A2%83-DC"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">一、 GDI基础概念与设备环境(DC)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-%E5%9B%BE%E5%BD%A2%E5%88%B7%E6%96%B0"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">二、 图形刷新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81-%E8%8E%B7%E5%8F%96%E8%AE%BE%E5%A4%87%E7%8E%AF%E5%A2%83-DC"><span class="toc-number">2.0.0.3.</span> <span class="toc-text">三、 获取设备环境(DC)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81-%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7%E4%B8%8E%E9%A2%9C%E8%89%B2"><span class="toc-number">2.0.0.4.</span> <span class="toc-text">四、 绘图工具与颜色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81-%E5%B8%B8%E7%94%A8%E7%BB%98%E5%9B%BE%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.0.5.</span> <span class="toc-text">五、 常用绘图函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81-%E6%98%A0%E5%83%8F%E6%A8%A1%E5%BC%8F-Mapping-Mode"><span class="toc-number">2.0.0.6.</span> <span class="toc-text">六、 映像模式 (Mapping Mode)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%83%E3%80%81-%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B-%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9"><span class="toc-number">2.0.0.7.</span> <span class="toc-text">七、 应用实例 (核心要点)</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%96%87%E6%9C%AC%E7%9A%84%E8%BE%93%E5%87%BA%E6%96%B9%E6%B3%95%E5%92%8C%E5%AD%97%E4%BD%93%E7%9A%84%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.</span> <span class="toc-text">第三章  文本的输出方法和字体的设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC3%E7%AB%A0-%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA%E4%B8%8E%E5%AD%97%E4%BD%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">3.0.1.</span> <span class="toc-text">第3章 文本输出与字体设计</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-1-%E8%AE%BE%E7%BD%AE%E6%96%87%E6%9C%AC%E8%AE%BE%E5%A4%87%E7%8E%AF%E5%A2%83"><span class="toc-number">3.0.1.2.</span> <span class="toc-text">5.1 设置文本设备环境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-2-%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA%E6%B5%81%E7%A8%8B"><span class="toc-number">3.0.1.3.</span> <span class="toc-text">5.2 文本输出流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-3-%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90"><span class="toc-number">3.0.1.4.</span> <span class="toc-text">5.3 实例分析</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B5-1%EF%BC%9A%E6%89%87%E5%BD%A2%E8%AF%97%E8%AF%8D%E8%BE%93%E5%87%BA"><span class="toc-number">3.0.1.4.1.</span> <span class="toc-text">例5-1：扇形诗词输出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B5-2%EF%BC%9A%E5%A4%9A%E6%A0%BC%E5%BC%8F%E6%96%87%E6%9C%AC%E8%BE%93%E5%87%BA"><span class="toc-number">3.0.1.4.2.</span> <span class="toc-text">例5-2：多格式文本输出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B3%E9%94%AE%E6%80%BB%E7%BB%93"><span class="toc-number">3.0.2.</span> <span class="toc-text">关键总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-Windows%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%AF%B9%E9%94%AE%E7%9B%98%E4%B8%8E%E9%BC%A0%E6%A0%87%E7%9A%84%E5%93%8D%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">第四章  Windows应用程序对键盘与鼠标的响应</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%94%AE%E7%9B%98%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">4.0.1.</span> <span class="toc-text">一、键盘处理机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-%E6%BB%9A%E5%8A%A8%E6%9D%A1%E6%8E%A7%E4%BB%B6%EF%BC%88CScrollBar%EF%BC%89"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">7.3 滚动条控件（CScrollBar）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-4-%E9%9D%99%E6%80%81%E6%8E%A7%E4%BB%B6%EF%BC%88CStatic%EF%BC%89"><span class="toc-number">4.0.1.2.</span> <span class="toc-text">7.4 静态控件（CStatic）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-5-%E5%88%97%E8%A1%A8%E6%A1%86%E6%8E%A7%E4%BB%B6%EF%BC%88CListBox%EF%BC%89"><span class="toc-number">4.0.1.3.</span> <span class="toc-text">7.5 列表框控件（CListBox）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-6-%E7%BC%96%E8%BE%91%E6%A1%86%E6%8E%A7%E4%BB%B6%EF%BC%88CEdit%EF%BC%89"><span class="toc-number">4.0.1.4.</span> <span class="toc-text">7.6 编辑框控件（CEdit）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-7-%E7%BB%84%E5%90%88%E6%A1%86%E6%8E%A7%E4%BB%B6%EF%BC%88CComboBox%EF%BC%89"><span class="toc-number">4.0.1.5.</span> <span class="toc-text">7.7 组合框控件（CComboBox）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-8-%E5%AF%B9%E8%AF%9D%E6%A1%86%E9%80%9A%E7%94%A8%E6%8E%A7%E4%BB%B6"><span class="toc-number">4.0.1.6.</span> <span class="toc-text">7.8 对话框通用控件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">4.0.2.</span> <span class="toc-text">核心知识点总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC8%E7%AB%A0-%E5%9C%A8MFC%E4%B8%AD%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%B5%84%E6%BA%90"><span class="toc-number">5.</span> <span class="toc-text">第8章 在MFC中创建应用程序的资源</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-0-%E8%B5%84%E6%BA%90%E5%9F%BA%E7%A1%80"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">8.0 资源基础</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-%E8%B5%84%E6%BA%90%E5%BA%94%E7%94%A8"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">8.2 资源应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-1-%E8%8F%9C%E5%8D%95%E8%B5%84%E6%BA%90"><span class="toc-number">5.0.0.2.1.</span> <span class="toc-text">8.2.1 菜单资源</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-2-%E5%BF%AB%E6%8D%B7%E8%8F%9C%E5%8D%95"><span class="toc-number">5.0.0.2.2.</span> <span class="toc-text">8.2.2 快捷菜单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-3-%E5%8A%A0%E9%80%9F%E9%94%AE"><span class="toc-number">5.0.0.2.3.</span> <span class="toc-text">8.2.3 加速键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-2-4-%E5%B7%A5%E5%85%B7%E6%9D%A1"><span class="toc-number">5.0.0.2.4.</span> <span class="toc-text">8.2.4 工具条</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-Doc-View%E6%A1%86%E6%9E%B6%E6%A0%B8%E5%BF%83%E7%B1%BB"><span class="toc-number">5.0.0.3.</span> <span class="toc-text">9.2 Doc&#x2F;View框架核心类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E6%A6%82%E5%BF%B5"><span class="toc-number">5.0.0.4.</span> <span class="toc-text">9.3 关键技术概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-SDI%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%8A%A8%E6%80%81%E6%96%87%E6%9C%AC%E6%98%BE%E7%A4%BA"><span class="toc-number">5.0.0.5.</span> <span class="toc-text">9.4 SDI实例：动态文本显示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5-MDI%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%A4%9A%E7%B1%BB%E5%9E%8B%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81"><span class="toc-number">5.0.0.6.</span> <span class="toc-text">9.5 MDI实例：多类型文档支持</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%BD%95%EF%BC%9A%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E9%80%9F%E6%9F%A5%E8%A1%A8"><span class="toc-number">5.0.1.</span> <span class="toc-text">附录：关键技术速查表</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/" title="高级程序设计复习">高级程序设计复习</a><time datetime="2025-05-31T05:04:29.000Z" title="Created 2025-05-31 13:04:29">2025-05-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E3%80%8A%E5%85%8B%E6%8B%89%E5%85%8B%E6%A3%AE%E7%9A%84%E5%86%9C%E5%9C%BA%E3%80%8B/" title="《克拉克森的农场》">《克拉克森的农场》</a><time datetime="2025-05-26T15:16:54.000Z" title="Created 2025-05-26 23:16:54">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理">编译原理</a><time datetime="2025-05-26T00:46:00.000Z" title="Created 2025-05-26 08:46:00">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/06/%E3%80%8A%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA%E3%80%8B/" title="《焦虑的人》">《焦虑的人》</a><time datetime="2025-05-06T05:21:09.000Z" title="Created 2025-05-06 13:21:09">2025-05-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/01/undertale/" title="undertale">undertale</a><time datetime="2025-05-01T05:17:20.000Z" title="Created 2025-05-01 13:17:20">2025-05-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/28/%E5%BD%93%E6%97%B6%E5%8F%AA%E9%81%93%E6%98%AF%E5%AF%BB%E5%B8%B8/" title="当时只道是寻常">当时只道是寻常</a><time datetime="2025-04-28T12:50:35.000Z" title="Created 2025-04-28 20:50:35">2025-04-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/23/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%EF%BC%9A%E8%AE%B0%E4%B8%80%E6%AC%A1Vue-Flask%E9%A1%B9%E7%9B%AE%E5%9C%A8%E5%86%85%E7%BD%91PC%E7%9A%84%E9%83%A8%E7%BD%B2%E5%8E%86%E9%99%A9%E8%AE%B0/" title="从零到一：记一次Vue+Flask项目在内网PC的部署历险记">从零到一：记一次Vue+Flask项目在内网PC的部署历险记</a><time datetime="2025-04-23T07:08:20.000Z" title="Created 2025-04-23 15:08:20">2025-04-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/22/dify%E5%92%8CBisheng/" title="dify和Bisheng">dify和Bisheng</a><time datetime="2025-04-22T09:26:51.000Z" title="Created 2025-04-22 17:26:51">2025-04-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/13/%E3%80%8A%E6%B6%85%E6%9C%B5%E5%A5%87%E5%8D%A1%E3%80%8B/" title="《涅朵奇卡》">《涅朵奇卡》</a><time datetime="2025-04-13T09:04:52.000Z" title="Created 2025-04-13 17:04:52">2025-04-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/04/08/%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E7%94%9F%E8%AF%8D/" title="英语口语生词">英语口语生词</a><time datetime="2025-04-08T12:44:11.000Z" title="Created 2025-04-08 20:44:11">2025-04-08</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
