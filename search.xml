@@ -18379,4 +18379,69 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>高级程序设计</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Nginx + Docker 实现多级域名访问 Web 应用</title>
+    <url>/2025/06/12/Nginx-Docker-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE-Web-%E5%BA%94%E7%94%A8/</url>
+    <content><![CDATA[<p>​	起因是只有一个域名，regenblogs.fun，但是云服务器在跑的服务有好几个，所以打算使用多级域名的方式进行充分利用这单个域名。过程也比较简单，总结一下便于下次复用。</p>
+<hr>
+<h3 id="多级域名简要介绍"><a href="#多级域名简要介绍" class="headerlink" title="多级域名简要介绍"></a>多级域名简要介绍</h3><blockquote>
+<p>域名的核心是<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F">域名系统</a>（英语：Domain Name System，<a href="https://zh.wikipedia.org/wiki/%E7%BC%A9%E5%86%99">缩写</a>：DNS），域名系统中的任何名称都是域名。在域名系统的层次结构中，各种域名都隶属于域名系统根域的下级。域名的第一级是<a href="https://zh.wikipedia.org/wiki/%E9%A0%82%E7%B4%9A%E5%9F%9F">顶级域</a>，它包括<a href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E9%A0%82%E7%B4%9A%E5%9F%9F">通用顶级域</a>，例如<a href="https://zh.wikipedia.org/wiki/.com">.com</a>、<a href="https://zh.wikipedia.org/wiki/.net">.net</a>和<a href="https://zh.wikipedia.org/wiki/.org">.org</a>；以及<a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%92%8C%E5%9C%B0%E5%8D%80%E9%A0%82%E7%B4%9A%E5%9F%9F">国家和地区顶级域</a>，例如<a href="https://zh.wikipedia.org/wiki/.us">.us</a>、<a href="https://zh.wikipedia.org/wiki/.cn">.cn</a>和<a href="https://zh.wikipedia.org/wiki/.tk">.tk</a>。顶级域名下一层是<a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E7%BA%A7%E5%9F%9F">二级域名</a>，一级一级地往下。现在，还有一些新兴的中文域名，例如<a href="https://zh.wikipedia.org/wiki/.%E5%9C%A8%E7%BA%BF">.在线</a>等。这些域名向人们提供注册服务，人们可以用它创建公开的互联网资源或运行<a href="https://zh.wikipedia.org/wiki/%E7%B6%B2%E7%AB%99">网站</a>。顶级域名的管理服务由对应的<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%B1%80">域名注册管理机构（域名注册局）</a>负责，注册服务通常由<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E6%B3%A8%E5%86%8C%E5%95%86">域名注册商</a>负责[<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D#cite_note-:1-2">2]</a>。</p>
+</blockquote>
+<h1 id="使用宿主机-Nginx-Docker-实现多级域名访问-Web-应用"><a href="#使用宿主机-Nginx-Docker-实现多级域名访问-Web-应用" class="headerlink" title="使用宿主机 Nginx + Docker 实现多级域名访问 Web 应用"></a>使用宿主机 Nginx + Docker 实现多级域名访问 Web 应用</h1><hr>
+<h2 id="场景背景"><a href="#场景背景" class="headerlink" title="场景背景"></a>场景背景</h2><p>​	我有一个 Nuxt 项目，使用 Docker 进行打包，镜像中使用 Nginx 进行静态文件托管。我们希望通过 <code>yuxuan.regenblogs.fun</code> 访问这个 Web 应用。</p>
+<hr>
+<h2 id="Dockerfile-和-Nginx-配置"><a href="#Dockerfile-和-Nginx-配置" class="headerlink" title="Dockerfile 和 Nginx 配置"></a>Dockerfile 和 Nginx 配置</h2><p>Dockerfile：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> nginx:alpine</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> dist /usr/share/nginx/html</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> nginx.conf /etc/nginx/conf.d/default.conf</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;nginx&quot;</span>, <span class="string">&quot;-g&quot;</span>, <span class="string">&quot;daemon off;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>容器内 <code>nginx.conf</code>：</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">  <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">  <span class="attribute">server_name</span> yuxuan.regenblogs.fun;</span><br><span class="line"></span><br><span class="line">  <span class="attribute">root</span> /usr/share/nginx/html;</span><br><span class="line">  <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">  <span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="容器启动"><a href="#容器启动" class="headerlink" title="容器启动"></a>容器启动</h2><p>​	不直接映射宿主机的 80 端口，而是使用 3000 端口，避免与宿主机 Nginx 冲突：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker build -t nuxt-yuxuan-app .</span><br><span class="line">docker run -d --name nuxt-yuxuan-container -p 3000:80 nuxt-yuxuan-app</span><br></pre></td></tr></table></figure>
+
+<p>​	这表示容器内 Nginx 启动在 80 端口，宿主机通过 3000 端口访问它。</p>
+<hr>
+<h2 id="安装宿主机-Nginx-并配置反向代理"><a href="#安装宿主机-Nginx-并配置反向代理" class="headerlink" title="安装宿主机 Nginx 并配置反向代理"></a>安装宿主机 Nginx 并配置反向代理</h2><ol>
+<li>安装 Nginx：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install nginx</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>新建配置文件 <code>/etc/nginx/sites-available/yuxuan.regenblogs.fun</code>：</li>
+</ol>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> yuxuan.regenblogs.fun;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://127.0.0.1:3000;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>启用配置并重启 Nginx：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">ln</span> -s /etc/nginx/sites-available/yuxuan.regenblogs.fun /etc/nginx/sites-enabled/</span><br><span class="line"><span class="built_in">sudo</span> nginx -t</span><br><span class="line"><span class="built_in">sudo</span> systemctl reload nginx</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="域名解析设置"><a href="#域名解析设置" class="headerlink" title="域名解析设置"></a>域名解析设置</h2><p>​	在域名服务商控制台中，将 <code>yuxuan.regenblogs.fun</code> 的 A 记录指向服务器公网 IP。</p>
+<p>​	我这里使用的是在阿里云注册的域名，可以直接添加DNS解析，就在控制台中。</p>
+<p><img src="/../images/Linux/subdomain/1.png"></p>
+<hr>
+<h2 id="成功验证"><a href="#成功验证" class="headerlink" title="成功验证"></a>成功验证</h2><p>确保服务器防火墙或云安全组放行 80 端口后，浏览器访问：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://yuxuan.regenblogs.fun</span><br></pre></td></tr></table></figure>
+
+<p>如果一切配置无误，即可正常访问部署的前端页面。</p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过将 Docker 部署与宿主机 Nginx 配合使用，我们实现了：</p>
+<ul>
+<li>避免容器占用宿主机 80 端口</li>
+<li>灵活配置多个二级域名</li>
+<li>为日后配置 HTTPS、负载均衡打下基础</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>Nginx</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
 </search>
