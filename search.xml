@@ -18444,4 +18444,174 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>Docker</tag>
       </tags>
   </entry>
+  <entry>
+    <title>vmWare安装龙蜥Linux-minimal</title>
+    <url>/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/</url>
+    <content><![CDATA[<ol>
+<li>龙蜥8.9</li>
+<li>shell安装mysql5.7</li>
+<li>docker 安装mysql5.7</li>
+</ol>
+<hr>
+<h1 id="一、vmWare龙蜥8-9系统安装过程"><a href="#一、vmWare龙蜥8-9系统安装过程" class="headerlink" title="一、vmWare龙蜥8.9系统安装过程"></a>一、vmWare龙蜥8.9系统安装过程</h1><ol>
+<li><p><strong>安装最小镜像</strong></p>
+<ul>
+<li>使用龙蜥8.9的最小安装镜像，保证系统精简、基础环境可控。</li>
+</ul>
+<p> <img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day01/2.png"></p>
+</li>
+<li><p><strong>确认内核版本</strong></p>
+<ul>
+<li>根据内核版本选择Linux5.x进行客制化安装。</li>
+<li><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day01/5.png"></li>
+</ul>
+</li>
+<li><p><strong>进入安装环境</strong></p>
+<ul>
+<li>选择现在的iso文件，启动安装程序。</li>
+<li>选择初始软件包（基础软件，网络工具，桌面环境）。</li>
+<li>进行硬盘分区：<ul>
+<li>确定分区大小和文件系统格式，保证系统运行稳定。</li>
+<li><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day01/1.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>设置root密码后进行安装</p>
+</li>
+</ol>
+<hr>
+<h1 id="二、系统配置"><a href="#二、系统配置" class="headerlink" title="二、系统配置"></a>二、系统配置</h1><ol>
+<li><p><strong>网络配置</strong></p>
+<ul>
+<li>配置静态IP，避免使用DHCP带来的不稳定。<ul>
+<li><code>vim /etc/sysconfig/network-scripts/ifcfg-ens33</code></li>
+<li><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day01/7.png"></li>
+</ul>
+</li>
+<li>遇到网络配置过程卡住的问题，排查发现与NAT模式子网网段不一致有关，调整后恢复正常。<ul>
+<li>这主要与vmware的设置有关，虚拟机的子网网段需要和Vmware设置中的网段一致，都则无法互联以及访问互联网(可以发现网段是72，所以在设置静态IP的时候网段也应该是72)<ul>
+<li><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day01/6.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注意网络配置时需保证网段一致性，尤其虚拟机或云服务器环境中。</li>
+</ul>
+</li>
+<li><p><strong>数据库MySQL安装</strong></p>
+<ul>
+<li><p><strong>Shell方式安装MySQL 5.7</strong></p>
+<ul>
+<li><p>下载tar包进行安装，手动解压</p>
+<ul>
+<li><code>tar -zxvf mysql-5.7.35-linux-glibc2.12-x86_64.tar.gz</code></li>
+</ul>
+</li>
+<li><p>初始化数据库。</p>
+<ul>
+<li><pre><code class="bash">    
+  // 重命名为mysql目录
+  [root@xxxx local]# mv mysql-5.7.35-linux-glibc2.12-x86_64/ mysql
+  // 创建mysql用户组和用户
+  [root@xxxx local]# groupadd mysql
+  [root@xxxx local]# useradd -r -g mysql mysql
+  [root@xxxx local]# groups mysql
+  mysql : mysql
+  [root@xxxx local]# cd mysql/
+  // 创建目录
+  [root@xxxx mysql]# mkdir data
+  // 赋权
+  [root@xxxx mysql]# chown -R mysql:mysql ./
+  // 配置my.cnf
+  [root@xxxx mysql]# vim /etc/my.cnf
+  
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* my.cnf</span><br><span class="line"></span><br><span class="line">    ```bash</span><br><span class="line">    [mysqld]</span><br><span class="line">    bind-address=0.0.0.0</span><br><span class="line">    port=3306</span><br><span class="line">    user=mysql</span><br><span class="line">    # 下载的目录</span><br><span class="line">    basedir=/usr/local/mysql</span><br><span class="line">    datadir=/usr/local/mysql/data</span><br><span class="line">    socket=/tmp/mysql.sock</span><br><span class="line">    log-error=/usr/local/mysql/data/mysql.err</span><br><span class="line">    pid-file=/usr/local/mysql/data/mysql.pid</span><br><span class="line">    #character config</span><br><span class="line">    character_set_server=utf8mb4</span><br><span class="line">    symbolic-links=0</span><br><span class="line">    explicit_defaults_for_timestamp=true</span><br><span class="line">    max_connections=512</span><br><span class="line">    lower_case_table_names=1</span><br><span class="line">    default-time-zone=timezone</span><br><span class="line">    default-time-zone = &#x27;+8:00&#x27;</span><br><span class="line">    sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION</span><br><span class="line">    log-bin=mysql-bin</span><br><span class="line">    binlog-format=ROW</span><br><span class="line">    server_id=1</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>初始化并查看密码</p>
+<ul>
+<li><pre><code class="bash">  // 初始化数据库
+  [root@xxxx bin]# ./mysqld --defaults-file=/etc/my.cnf --basedir=/usr/local/mysql/ --datadir=/usr/local/mysql/data/ --user=mysql --initialize
+  [root@xxxx bin]# cd ../
+  // 查看初始密码
+  [root@xxxx bin]# cat data/mysql.err
+  
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">        * </span><br><span class="line"></span><br><span class="line">- 遇到宿主机访问权限问题，调整MySQL用户权限及防火墙策略解决。</span><br><span class="line"></span><br><span class="line">    - ![](C:\Users\Regen\Desktop\工作笔记\上海城建信息科技有限公司\img\3.png)</span><br><span class="line"></span><br><span class="line">    - 这和mysql本体的设置有关</span><br><span class="line"></span><br><span class="line">    - 首先查看root用户权限</span><br><span class="line"></span><br><span class="line">        - `SELECT user, host FROM mysql.user WHERE user=&#x27;你的用户名&#x27;;`</span><br><span class="line"></span><br><span class="line">        - 这里已经有了权限，如果没有则需要执行</span><br><span class="line"></span><br><span class="line">            - ```bash</span><br><span class="line">                ALTER USER &#x27;root&#x27;@&#x27;%&#x27; IDENTIFIED BY &#x27;密码&#x27;;</span><br><span class="line">                GRANT ALL PRIVILEGES ON *.* TO &#x27;root&#x27;@&#x27;%&#x27; WITH GRANT OPTION;</span><br><span class="line">                FLUSH PRIVILEGES;</span><br><span class="line">                </span><br></pre></td></tr></table></figure>
+
+  -
+</code></pre>
+</li>
+</ul>
+<ul>
+<li><img src="C:\Users\Regen\Desktop\工作笔记\上海城建信息科技有限公司\img\4.png"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Docker方式安装MySQL 5.7</strong></p>
+<ul>
+<li><p>使用docker或podman拉取MySQL 5.7镜像。</p>
+<ul>
+<li><code>docker pull mysql:5.7</code></li>
+</ul>
+</li>
+<li><p>发现podman和docker部分命令或配置差异，注意兼容性问题。</p>
+<ul>
+<li><p>选择了删除podman</p>
+</li>
+<li><pre><code>  sudo dnf remove podman buildah
+  sudo dnf install -y yum-utils device-mapper-persistent-data lvm2
+  
+  sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  
+  sudo dnf install -y docker-ce docker-ce-cli containerd.io
+  
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    - </span><br><span class="line"></span><br><span class="line">- 遇到拉取镜像慢或失败，尝试配置国内镜像加速器，解决网络瓶颈。</span><br><span class="line"></span><br><span class="line">    - ```bash</span><br><span class="line">        vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
+
+  - 案例daemon.json
+
+  - ```json
+      &#123;
+         
+          &quot;registry-mirrors&quot;: [
+              &quot;https://dockerproxy.com&quot;,
+              &quot;https://hub-mirror.c.163.com&quot;,
+              &quot;https://mirror.baidubce.com&quot;,
+              &quot;https://ccr.ccs.tencentyun.com&quot;
+          ]
+      &#125;
+      <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">                - </span><br><span class="line"></span><br><span class="line">            - **需要可靠的源，否则最后就会走官网的镜像。**</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"># 三、遇到的主要问题及解决方案</span><br><span class="line"></span><br><span class="line">| 问题                                 | 原因及分析                          | 解决方案                                       |</span><br><span class="line">| ------------------------------------ | ----------------------------------- | ---------------------------------------------- |</span><br><span class="line">| 网络配置过程卡住                     | 静态IP配置错误；NAT子网网段不一致   | 调整静态IP设置，确保子网网段匹配NAT配置        |</span><br><span class="line">| 宿主机无法访问MySQL容器              | MySQL权限配置不正确；防火墙阻止访问 | 修改MySQL用户权限；开放防火墙相关端口          |</span><br><span class="line">| docker拉取镜像失败或速度慢           | 镜像源不稳定或权限不足              | 使用国内镜像加速器；选择官方或公开镜像源       |</span><br><span class="line">| podman与docker命令不兼容             | 两者实现有差异                      | 针对podman调整命令；删除podman，优先使用docker |</span><br><span class="line">| 容器名称冲突（启动已有容器名时报错） | 容器名称重复                        | 停止并删除冲突容器，或使用新的容器名称         |</span><br><span class="line"></span><br><span class="line"># 使用到的一些命令</span><br><span class="line"></span><br><span class="line">## 有关系统</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"># 查看网络配置、路由信息</span><br><span class="line">ip a</span><br><span class="line">ip route</span><br><span class="line">cat /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">cat /etc/resolv.conf</span><br><span class="line">ping baidu.com</span><br><span class="line">ping &lt;域名&gt;</span><br><span class="line">nslookup &lt;域名&gt;</span><br><span class="line"># 查看系统信息</span><br><span class="line">cat /etc/os-release</span><br><span class="line">cat /etc/redhat-release</span><br><span class="line">uname -a</span><br><span class="line"># 查看硬件信息</span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line">free -h</span><br><span class="line">lsblk</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"># 启动防火墙</span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line">sudo systemctl start firewalld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="有关MySql"><a href="#有关MySql" class="headerlink" title="有关MySql"></a>有关MySql</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 解压 tar 包</span></span><br><span class="line">tar -xvf mysql-5.7.xx-linux-glibc2.12-x86_64.tar.gz -C /opt/mysql/</span><br><span class="line"><span class="built_in">mv</span> /opt/mysql/mysql-5.7.xx /opt/mysql/mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据目录和用户</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/mysql/mysql/data</span><br><span class="line">useradd -r mysql</span><br><span class="line"><span class="built_in">chown</span> -R mysql:mysql /opt/mysql/mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化数据库</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld --defaults-file=/opt/mysql/my.cnf --initialize --user=mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 MySQL</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld_safe --defaults-file=/opt/mysql/my.cnf &amp;</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld --defaults-file=/opt/mysql/my.cnf --user=mysql &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录 MySQL</span></span><br><span class="line">/opt/mysql/mysql/bin/mysql -u root -p --socket=/opt/mysql/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 root 密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;yourpassword&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 授权远程登录</span></span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;yourpassword&#x27;</span> WITH GRANT OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="有关Docker-podman"><a href="#有关Docker-podman" class="headerlink" title="有关Docker&#x2F;podman"></a>有关Docker&#x2F;podman</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动 Podman 测试</span></span><br><span class="line">podman run hello-world</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建 Dockerfile 镜像（podman 兼容）</span></span><br><span class="line">podman build -t my-mysql:5.7 .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行容器（MySQL 5.7）</span></span><br><span class="line">podman run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3305:3306 -d docker.io/mysql:5.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器状态</span></span><br><span class="line">podman ps -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># Docker 方式拉取镜像</span></span><br><span class="line">docker pull mysql:5.7</span><br><span class="line">docker run --name my-mysql57 -e MYSQL_ROOT_PASSWORD=my-secret-pw -p 3306:3306 -d mysql:5.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># Docker 相关错误排查</span></span><br><span class="line">systemctl start docker</span><br><span class="line">docker info</span><br><span class="line"><span class="comment"># 镜像加速文件修改</span></span><br><span class="line">vim /etc/containers/registries.conf</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+        <tag>Anolis</tag>
+      </tags>
+  </entry>
 </search>
