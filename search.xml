@@ -18544,7 +18544,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </li>
 </ul>
 <ul>
-<li><img src="C:\Users\Regen\Desktop\工作笔记\上海城建信息科技有限公司\img\4.png"></li>
+<li><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/4.png"></li>
 </ul>
 </li>
 </ul>
@@ -18569,7 +18569,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   
   sudo dnf install -y docker-ce docker-ce-cli containerd.io
   
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 遇到拉取镜像慢或失败，尝试配置国内镜像加速器，解决网络瓶颈。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">        - 遇到拉取镜像慢或失败，尝试配置国内镜像加速器，解决网络瓶颈。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
@@ -18579,12 +18579,10 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 </li>
 </ol>
-<p>vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 案例daemon.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">    &quot;registry-mirrors&quot;: [</span><br><span class="line">        &quot;https://dockerproxy.com&quot;,</span><br><span class="line">        &quot;https://hub-mirror.c.163.com&quot;,</span><br><span class="line">        &quot;https://mirror.baidubce.com&quot;,</span><br><span class="line">        &quot;https://ccr.ccs.tencentyun.com&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
+<ul>
+<li>案例daemon.json</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">   </span><br><span class="line">    <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="string">&quot;https://dockerproxy.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;https://hub-mirror.c.163.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;https://mirror.baidubce.com&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="string">&quot;https://ccr.ccs.tencentyun.com&quot;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -18725,7 +18723,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/6.png"></p>
 <h2 id="7-检查数据"><a href="#7-检查数据" class="headerlink" title="7. 检查数据"></a>7. 检查数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -P3307 -uroot -p</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250626144852682.png" alt="image-20250626144852682"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/13.png" alt="image-20250626144852682"></p>
 <p>数据成功恢复。</p>
 <h1 id="Docker部署Nginx"><a href="#Docker部署Nginx" class="headerlink" title="Docker部署Nginx"></a>Docker部署Nginx</h1><hr>
 <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="1-创建目录结构："><a href="#1-创建目录结构：" class="headerlink" title="1. 创建目录结构："></a>1. 创建目录结构：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/conf.d</span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/html</span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/logs</span><br></pre></td></tr></table></figure>
