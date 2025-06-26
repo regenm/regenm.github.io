@@ -18569,21 +18569,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   
   sudo dnf install -y docker-ce docker-ce-cli containerd.io
   
-  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    - </span><br><span class="line"></span><br><span class="line">- 遇到拉取镜像慢或失败，尝试配置国内镜像加速器，解决网络瓶颈。</span><br><span class="line"></span><br><span class="line">    - ```bash</span><br><span class="line">        vim /etc/docker/daemon.json</span><br></pre></td></tr></table></figure>
-
-  - 案例daemon.json
-
-  - ```json
-      &#123;
-         
-          &quot;registry-mirrors&quot;: [
-              &quot;https://dockerproxy.com&quot;,
-              &quot;https://hub-mirror.c.163.com&quot;,
-              &quot;https://mirror.baidubce.com&quot;,
-              &quot;https://ccr.ccs.tencentyun.com&quot;
-          ]
-      &#125;
-      <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">                - </span><br><span class="line"></span><br><span class="line">            - **需要可靠的源，否则最后就会走官网的镜像。**</span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line"># 三、遇到的主要问题及解决方案</span><br><span class="line"></span><br><span class="line">| 问题                                 | 原因及分析                          | 解决方案                                       |</span><br><span class="line">| ------------------------------------ | ----------------------------------- | ---------------------------------------------- |</span><br><span class="line">| 网络配置过程卡住                     | 静态IP配置错误；NAT子网网段不一致   | 调整静态IP设置，确保子网网段匹配NAT配置        |</span><br><span class="line">| 宿主机无法访问MySQL容器              | MySQL权限配置不正确；防火墙阻止访问 | 修改MySQL用户权限；开放防火墙相关端口          |</span><br><span class="line">| docker拉取镜像失败或速度慢           | 镜像源不稳定或权限不足              | 使用国内镜像加速器；选择官方或公开镜像源       |</span><br><span class="line">| podman与docker命令不兼容             | 两者实现有差异                      | 针对podman调整命令；删除podman，优先使用docker |</span><br><span class="line">| 容器名称冲突（启动已有容器名时报错） | 容器名称重复                        | 停止并删除冲突容器，或使用新的容器名称         |</span><br><span class="line"></span><br><span class="line"># 使用到的一些命令</span><br><span class="line"></span><br><span class="line">## 有关系统</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line"># 查看网络配置、路由信息</span><br><span class="line">ip a</span><br><span class="line">ip route</span><br><span class="line">cat /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line">cat /etc/resolv.conf</span><br><span class="line">ping baidu.com</span><br><span class="line">ping &lt;域名&gt;</span><br><span class="line">nslookup &lt;域名&gt;</span><br><span class="line"># 查看系统信息</span><br><span class="line">cat /etc/os-release</span><br><span class="line">cat /etc/redhat-release</span><br><span class="line">uname -a</span><br><span class="line"># 查看硬件信息</span><br><span class="line">cat /proc/cpuinfo</span><br><span class="line">free -h</span><br><span class="line">lsblk</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"># 启动防火墙</span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line">sudo systemctl start firewalld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 遇到拉取镜像慢或失败，尝试配置国内镜像加速器，解决网络瓶颈。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
@@ -18593,6 +18579,55 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 </li>
 </ol>
+<p>vim &#x2F;etc&#x2F;docker&#x2F;daemon.json</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- 案例daemon.json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">```json</span><br><span class="line">&#123;</span><br><span class="line">   </span><br><span class="line">    &quot;registry-mirrors&quot;: [</span><br><span class="line">        &quot;https://dockerproxy.com&quot;,</span><br><span class="line">        &quot;https://hub-mirror.c.163.com&quot;,</span><br><span class="line">        &quot;https://mirror.baidubce.com&quot;,</span><br><span class="line">        &quot;https://ccr.ccs.tencentyun.com&quot;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<ul>
+<li><strong>需要可靠的源，否则最后就会走官网的镜像。</strong></li>
+</ul>
+<hr>
+<h1 id="三、遇到的主要问题及解决方案"><a href="#三、遇到的主要问题及解决方案" class="headerlink" title="三、遇到的主要问题及解决方案"></a>三、遇到的主要问题及解决方案</h1><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因及分析</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>网络配置过程卡住</td>
+<td>静态IP配置错误；NAT子网网段不一致</td>
+<td>调整静态IP设置，确保子网网段匹配NAT配置</td>
+</tr>
+<tr>
+<td>宿主机无法访问MySQL容器</td>
+<td>MySQL权限配置不正确；防火墙阻止访问</td>
+<td>修改MySQL用户权限；开放防火墙相关端口</td>
+</tr>
+<tr>
+<td>docker拉取镜像失败或速度慢</td>
+<td>镜像源不稳定或权限不足</td>
+<td>使用国内镜像加速器；选择官方或公开镜像源</td>
+</tr>
+<tr>
+<td>podman与docker命令不兼容</td>
+<td>两者实现有差异</td>
+<td>针对podman调整命令；删除podman，优先使用docker</td>
+</tr>
+<tr>
+<td>容器名称冲突（启动已有容器名时报错）</td>
+<td>容器名称重复</td>
+<td>停止并删除冲突容器，或使用新的容器名称</td>
+</tr>
+</tbody></table>
+<h1 id="使用到的一些命令"><a href="#使用到的一些命令" class="headerlink" title="使用到的一些命令"></a>使用到的一些命令</h1><h2 id="有关系统"><a href="#有关系统" class="headerlink" title="有关系统"></a>有关系统</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看网络配置、路由信息</span></span><br><span class="line">ip a</span><br><span class="line">ip route</span><br><span class="line"><span class="built_in">cat</span> /etc/sysconfig/network-scripts/ifcfg-ens33</span><br><span class="line"><span class="built_in">cat</span> /etc/resolv.conf</span><br><span class="line">ping baidu.com</span><br><span class="line">ping &lt;域名&gt;</span><br><span class="line">nslookup &lt;域名&gt;</span><br><span class="line"><span class="comment"># 查看系统信息</span></span><br><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br><span class="line"><span class="built_in">cat</span> /etc/redhat-release</span><br><span class="line"><span class="built_in">uname</span> -a</span><br><span class="line"><span class="comment"># 查看硬件信息</span></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo</span><br><span class="line">free -h</span><br><span class="line">lsblk</span><br><span class="line">fdisk -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动防火墙</span></span><br><span class="line"><span class="built_in">sudo</span> firewall-cmd --reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start firewalld</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="有关MySql"><a href="#有关MySql" class="headerlink" title="有关MySql"></a>有关MySql</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 解压 tar 包</span></span><br><span class="line">tar -xvf mysql-5.7.xx-linux-glibc2.12-x86_64.tar.gz -C /opt/mysql/</span><br><span class="line"><span class="built_in">mv</span> /opt/mysql/mysql-5.7.xx /opt/mysql/mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建数据目录和用户</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/mysql/mysql/data</span><br><span class="line">useradd -r mysql</span><br><span class="line"><span class="built_in">chown</span> -R mysql:mysql /opt/mysql/mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化数据库</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld --defaults-file=/opt/mysql/my.cnf --initialize --user=mysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 MySQL</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld_safe --defaults-file=/opt/mysql/my.cnf &amp;</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">/opt/mysql/mysql/bin/mysqld --defaults-file=/opt/mysql/my.cnf --user=mysql &amp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录 MySQL</span></span><br><span class="line">/opt/mysql/mysql/bin/mysql -u root -p --socket=/opt/mysql/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 root 密码</span></span><br><span class="line">ALTER USER <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;yourpassword&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 授权远程登录</span></span><br><span class="line">GRANT ALL PRIVILEGES ON *.* TO <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED BY <span class="string">&#x27;yourpassword&#x27;</span> WITH GRANT OPTION;</span><br><span class="line">FLUSH PRIVILEGES;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -18612,6 +18647,133 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>command</tag>
         <tag>运维</tag>
         <tag>Anolis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySql与Nginx容器化部署实现持久化存储</title>
+    <url>/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</url>
+    <content><![CDATA[<ol>
+<li>Docker部署的mysql实现持久存储</li>
+<li>Docker部署的nginx实现持久存储</li>
+</ol>
+<hr>
+<h1 id="1-情况一：还未开始进行docker部署mysql"><a href="#1-情况一：还未开始进行docker部署mysql" class="headerlink" title="1. 情况一：还未开始进行docker部署mysql"></a>1. 情况一：还未开始进行docker部署mysql</h1><hr>
+<h2 id="1-准备mysql镜像"><a href="#1-准备mysql镜像" class="headerlink" title="1. 准备mysql镜像"></a>1. 准备mysql镜像</h2><ul>
+<li>查看是否已经有了镜像</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/1.png"></p>
+<ul>
+<li>可以发现我这里已经下载好了。</li>
+<li>如果没有下载好则可以拉取</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull mysql:5.7</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-使用命令起一个容器，并且设置好持久化存储的卷路径"><a href="#2-使用命令起一个容器，并且设置好持久化存储的卷路径" class="headerlink" title="2. 使用命令起一个容器，并且设置好持久化存储的卷路径"></a>2. 使用命令起一个容器，并且设置好持久化存储的卷路径</h2><ul>
+<li>目录结构</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/10.png"></p>
+<ul>
+<li>在对应目录下准备好<code>my.cnf</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[client]</span><br><span class="line">port=3307</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line"># 基础配置</span><br><span class="line">user=mysql</span><br><span class="line">port=3306</span><br><span class="line">bind-address=0.0.0.0</span><br><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line">pid-file=/var/run/mysqld/mysqld.pid</span><br><span class="line"></span><br><span class="line"># 字符集设置</span><br><span class="line">character-set-server=utf8mb4</span><br><span class="line">collation-server=utf8mb4_unicode_ci</span><br><span class="line"></span><br><span class="line"># 错误日志</span><br><span class="line">log-error=/var/log/mysql/mysql.err</span><br><span class="line"></span><br><span class="line"># 一般日志（可选）</span><br><span class="line">general_log=1</span><br><span class="line">general_log_file=/var/log/mysql/general.log</span><br><span class="line"></span><br><span class="line"># 二进制日志（用于主从复制或 point-in-time recovery）</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">binlog-format=ROW</span><br><span class="line">server-id=1</span><br><span class="line"></span><br><span class="line"># 启用一些推荐参数</span><br><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span><br><span class="line">explicit_defaults_for_timestamp=true</span><br><span class="line">max_connections=512</span><br><span class="line"></span><br><span class="line"># 其他</span><br><span class="line">symbolic-links=0</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h2 id="使用docker命令进行持久化部署"><a href="#使用docker命令进行持久化部署" class="headerlink" title="使用docker命令进行持久化部署"></a><strong>使用docker命令进行持久化部署</strong></h2></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql-case1 \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=regen \</span><br><span class="line">  -p 3307:3306 \</span><br><span class="line">  -v /opt/persistence/case1/data:/var/lib/mysql \</span><br><span class="line">  -v /opt/persistence/case1/logs:/var/log/mysql \</span><br><span class="line">  -v /opt/persistence/case1/my.cnf:/etc/mysql/my.cnf:ro \</span><br><span class="line">  mysql:5.7</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-检查是否成功"><a href="#3-检查是否成功" class="headerlink" title="3. 检查是否成功"></a>3. 检查是否成功</h3><ul>
+<li>查看对应目录下的文件是否存在</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /opt/persistence/case1/data</span><br><span class="line">ls /opt/persistence/case1/data</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/2.png"></p>
+<p>至此持久化存储功能已结束。</p>
+<h1 id="2-情况二：容器运行中，并且已有数据"><a href="#2-情况二：容器运行中，并且已有数据" class="headerlink" title="2. 情况二：容器运行中，并且已有数据"></a>2. 情况二：容器运行中，并且已有数据</h1><ul>
+<li>情景：已经有了一个容器化的数据库，需要使它增加持久化的功能。</li>
+</ul>
+<h2 id="1-进行数据转移"><a href="#1-进行数据转移" class="headerlink" title="1. 进行数据转移"></a>1. 进行数据转移</h2><p>进入容器内并进行数据备份</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> mysql-case2 mysqldump -uroot -pregen --all-databases &gt; all-databases.sql</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/3.png"></p>
+<h2 id="2-停止旧的容器"><a href="#2-停止旧的容器" class="headerlink" title="2. 停止旧的容器"></a>2. 停止旧的容器</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker stop mysql-case2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以不用删除</li>
+</ul>
+<h2 id="3-准备持久化目录"><a href="#3-准备持久化目录" class="headerlink" title="3. 准备持久化目录"></a>3. 准备持久化目录</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir -p /opt/mysql-case2/data</span><br><span class="line">mkdir -p /opt/mysql-case2/logs</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/4.png"></p>
+<h2 id="4-启动挂载了持久化目录的新容器"><a href="#4-启动挂载了持久化目录的新容器" class="headerlink" title="4. 启动挂载了持久化目录的新容器"></a>4. 启动挂载了持久化目录的新容器</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql-case2-persistent \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=regen \</span><br><span class="line">  -p 3308:3306 \</span><br><span class="line">  -v /opt/persistence/case2/data:/var/lib/mysql \</span><br><span class="line">  -v /opt/persistence/case2/logs:/var/log/mysql \</span><br><span class="line">  -v /opt/persistence/case2/my.cnf:/etc/mysql/my.cnf:ro \</span><br><span class="line">  mysql:5.7</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5-检查挂载目录是否成功"><a href="#5-检查挂载目录是否成功" class="headerlink" title="5. 检查挂载目录是否成功"></a>5. 检查挂载目录是否成功</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /opt/persistence/case2/logs</span><br><span class="line">ls /opt/persistence/case2/data</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/5.png"></p>
+<h2 id="6-恢复数据库数据"><a href="#6-恢复数据库数据" class="headerlink" title="6. 恢复数据库数据"></a>6. 恢复数据库数据</h2><ol>
+<li>复制之前生成的sql文件到docker容器内部</li>
+<li>进入容器内部</li>
+<li>迁移数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker cp all-databases.sql mysql-case2-persistent:/all-databases.sql</span><br><span class="line">docker exec -it mysql-case2-persistent bash</span><br><span class="line">mysql -uroot -pregen &lt; /all-databases.sql</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/6.png"></p>
+<h2 id="7-检查数据"><a href="#7-检查数据" class="headerlink" title="7. 检查数据"></a>7. 检查数据</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql -h 127.0.0.1 -P3307 -uroot -p</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250626144852682.png" alt="image-20250626144852682"></p>
+<p>数据成功恢复。</p>
+<h1 id="Docker部署Nginx"><a href="#Docker部署Nginx" class="headerlink" title="Docker部署Nginx"></a>Docker部署Nginx</h1><hr>
+<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="1-创建目录结构："><a href="#1-创建目录结构：" class="headerlink" title="1. 创建目录结构："></a>1. 创建目录结构：</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/conf.d</span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/html</span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/docker-nginx/logs</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/7.png"></p>
+<h3 id="2-准备网页文件（静态内容）："><a href="#2-准备网页文件（静态内容）：" class="headerlink" title="2. 准备网页文件（静态内容）："></a>2. 准备网页文件（静态内容）：</h3><p><code>/opt/docker-nginx/html/index.html</code>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello regen<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/8.png"></p>
+<h3 id="3-准备-Nginx-配置（静态服务）："><a href="#3-准备-Nginx-配置（静态服务）：" class="headerlink" title="3. 准备 Nginx 配置（静态服务）："></a>3. 准备 Nginx 配置（静态服务）：</h3><p><code>/opt/docker-nginx/conf.d/default.conf</code>：</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">root</span> /usr/share/nginx/html;</span><br><span class="line">        <span class="attribute">index</span> index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-主配置文件nginx-conf"><a href="#4-主配置文件nginx-conf" class="headerlink" title="4. 主配置文件nginx.conf"></a>4. 主配置文件nginx.conf</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log;</span><br><span class="line">    error_log   /var/log/nginx/error.log;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="二、运行-Nginx-容器（挂载配置、网页和日志）"><a href="#二、运行-Nginx-容器（挂载配置、网页和日志）" class="headerlink" title="二、运行 Nginx 容器（挂载配置、网页和日志）"></a>二、运行 Nginx 容器（挂载配置、网页和日志）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name mynginx \</span><br><span class="line">  -p 80:80 \</span><br><span class="line">  -v /opt/docker-nginx/conf.d:/etc/nginx/conf.d:ro \</span><br><span class="line">  -v /opt/docker-nginx/html:/usr/share/nginx/html:ro \</span><br><span class="line">  -v /opt/docker-nginx/logs:/var/log/nginx \</span><br><span class="line">  -d nginx</span><br></pre></td></tr></table></figure>
+
+<p>说明：</p>
+<ul>
+<li><code>-v /opt/docker-nginx/conf.d:/etc/nginx/conf.d:ro</code> 挂载配置目录（只读）</li>
+<li><code>-v /opt/docker-nginx/html:/usr/share/nginx/html:ro</code> 挂载网页目录（只读）</li>
+<li><code>-v /opt/docker-nginx/logs:/var/log/nginx</code> 持久化日志目录（可写）</li>
+</ul>
+<h2 id="三、查看持久化效果"><a href="#三、查看持久化效果" class="headerlink" title="三、查看持久化效果"></a>三、查看持久化效果</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls /opt/docker-nginx/test2/logs</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/9.png"></h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/12.png"></h2><hr>
+<h2 id="三、测试效果"><a href="#三、测试效果" class="headerlink" title="三、测试效果"></a>三、测试效果</h2><ul>
+<li><code>http://192.168.72.128/</code></li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/11.png"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/12.png"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>docker</tag>
+        <tag>运维</tag>
+        <tag>Anolis</tag>
+        <tag>MySql</tag>
       </tags>
   </entry>
 </search>
