@@ -1,0 +1,386 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AD域控结合Self-Password-Services实现自助改密码 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="操作系统：Anolis（类似centos，使用yum，dnf包管理）   AD域控结合Self-Password-Services实现自助改密码​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AD域控结合Self-Password-Services实现自助改密码">
+<meta property="og:url" content="http://example.com/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="操作系统：Anolis（类似centos，使用yum，dnf包管理）   AD域控结合Self-Password-Services实现自助改密码​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-06-30T22:39:25.000Z">
+<meta property="article:modified_time" content="2025-07-04T06:26:45.706Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="system">
+<meta property="article:tag" content="command">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="WinServer">
+<meta property="article:tag" content="AD">
+<meta property="article:tag" content="LDAP">
+<meta property="article:tag" content="self-password-service">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AD域控结合Self-Password-Services实现自助改密码',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-04 14:26:45'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">127</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">148</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">AD域控结合Self-Password-Services实现自助改密码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-06-30T22:39:25.000Z" title="Created 2025-07-01 06:39:25">2025-07-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-04T06:26:45.706Z" title="Updated 2025-07-04 14:26:45">2025-07-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/" data-flag-title="AD域控结合Self-Password-Services实现自助改密码"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<ol>
+<li>操作系统：Anolis（类似centos，使用yum，dnf包管理）</li>
+</ol>
+</blockquote>
+<h1 id="AD域控结合Self-Password-Services实现自助改密码"><a href="#AD域控结合Self-Password-Services实现自助改密码" class="headerlink" title="AD域控结合Self-Password-Services实现自助改密码"></a>AD域控结合Self-Password-Services实现自助改密码</h1><p>​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件等功能也能自主改密码。	</p>
+<p>​	使用了两种方式部署，分别是实体机部署以及docker部署，本文部署方式为实体机部署，docker部署可能因为镜像，等等原因不及而终。最后整理部分报错信息以及解决方案供参考。	</p>
+<p>​	</p>
+<ul>
+<li>准备资料</li>
+</ul>
+<p>​	SSP项目地址：<a target="_blank" rel="noopener" href="https://github.com/ltb-project/self-service-password">ltb-project&#x2F;self-service-password: Web interface to change and reset password in an LDAP directory</a></p>
+<p>​	AD域控服务器（CS）搭建方式：<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49254484/article/details/129364336">企业AD域（域控服务器）的安装和配置详细教程_域服务器的安装与配置-CSDN博客</a></p>
+<p>​	AD CA服务器搭建方式：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_48711866/article/details/127204995">AD域控与CA证书、NPS（radius）超级详细安装_ad ca-CSDN博客</a></p>
+<ul>
+<li><p>参考部署资料</p>
+<p>  <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq461391728/article/details/115867721">Self Service Password部署-CSDN博客</a></p>
+</li>
+</ul>
+<h2 id="1-安装httpd（apache）php各项依赖"><a href="#1-安装httpd（apache）php各项依赖" class="headerlink" title="1. 安装httpd（apache）php各项依赖"></a>1. 安装httpd（apache）php各项依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Apache 和 PHP</span></span><br><span class="line">dnf install httpd php php-ldap php-mbstring -y</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102141823.png" alt="image-20250704102141823"></p>
+<h2 id="2-开始安装ssp"><a href="#2-开始安装ssp" class="headerlink" title="2. 开始安装ssp"></a>2. 开始安装ssp</h2><h3 id="1-配置源"><a href="#1-配置源" class="headerlink" title="1.配置源"></a>1.配置源</h3><ul>
+<li>可以尝试先下载</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102758477.png" alt="image-20250704102758477"></p>
+<p>我这里下载过所以显示已经安装，如果不能安装则进入下一步：</p>
+<ol>
+<li>配置源：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/ltb-project.repo</span><br></pre></td></tr></table></figure>
+
+<p>写入以下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[ltb-project-noarch]</span><br><span class="line">name=LTB project packages (noarch)</span><br><span class="line">baseurl=https://ltb-project.org/rpm/$releasever/noarch</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LTB-project</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>导入GPG私钥</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm --import https://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104057746.png" alt="image-20250704104057746"></p>
+<ol start="3">
+<li>添加php72的yum源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104232023.png" alt="image-20250704104232023"></p>
+<h2 id="3-下载安装"><a href="#3-下载安装" class="headerlink" title="3. 下载安装"></a>3. 下载安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104342086.png" alt="image-20250704104342086"></p>
+<h2 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h2><p>​	其实最麻烦的其实是这里，这个配置文件很长，有很多细节。此时你下载好了之后，启动httpd服务就可以访问到ssp的界面了，但是会报错：<strong>在使用凭据加密前，需要在 keyphrase 设置中填写一个随机字符串</strong></p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104846233.png" alt="image-20250704104846233"></p>
+<p>先实现基本功能-<strong>用户自己使用旧密码改为新密码</strong>。只要这一步能够pass，那么使用邮件就能通过。</p>
+<h3 id="1-证书设置"><a href="#1-证书设置" class="headerlink" title="1. 证书设置"></a>1. 证书设置</h3><h4 id="1-导出证书"><a href="#1-导出证书" class="headerlink" title="1. 导出证书"></a>1. 导出证书</h4><ol>
+<li>要想ssp能够<strong>正常修改</strong>AD域的用户名账号密码<strong>几乎</strong>无法逃开证书认证的部分<ol>
+<li>个人尝试过各种方式跳过加密，都是不行的，顶多能够查询信息，修改是不可能的。</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>AD域<strong>根证书导出</strong></li>
+</ul>
+<p>登录到服务器后Win+R输入cmd打开命令行输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd Desktop</span><br><span class="line">certutil -ca.cert root.cer</span><br></pre></td></tr></table></figure>
+
+<p>这样根证书就导出到桌面了，<strong>注意如果没有安装AD CS服务，这个命令是无法生效的</strong></p>
+<p>然后传到服务器即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root.cer root@192.168.72.128:/root/</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-导入证书并生效"><a href="#2-导入证书并生效" class="headerlink" title="2. 导入证书并生效"></a>2. 导入证书并生效</h4><ul>
+<li>上一步传过来的证书是二进制的，无法被Linux添加，需要先转换格式</li>
+</ul>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704110454356.png" alt="image-20250704110454356"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl x509 -in root.cer -inform DER -out root.pem -outform PEM</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704110521201.png" alt="image-20250704110521201"></p>
+<ul>
+<li><strong>根据Linux发行版的不同，导入方式有差别</strong>，基于<strong>Debian&#x2F;Ubuntu</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>基于 RHEL&#x2F;CentOS （龙蜥使也是用这种方式）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-检查是否导入成功。"><a href="#3-检查是否导入成功。" class="headerlink" title="3. 检查是否导入成功。"></a>3. 检查是否导入成功。</h4><ul>
+<li>基于<strong>Debian&#x2F;Ubuntu</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt root.pem</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>RHEL&#x2F;CentOS （龙蜥使也是用这种方式）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl verify -CAfile /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem root.pem</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704111216732.png" alt="image-20250704111216732"></p>
+<h3 id="2-config-inc-php配置文件设置"><a href="#2-config-inc-php配置文件设置" class="headerlink" title="2. config.inc.php配置文件设置"></a>2. config.inc.php配置文件设置</h3><ul>
+<li>首先保证最小功能，也就是ldap和ad的设置</li>
+<li><strong>LDAP</strong></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Debug mode</span></span><br><span class="line"><span class="comment"># true: log and display any errors or warnings (use this in configuration/testing)</span></span><br><span class="line"><span class="comment"># false: log only errors and do not display them (use this in production)</span></span><br><span class="line"><span class="variable">$debug</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LDAP</span></span><br><span class="line"><span class="variable">$ldap_url</span> = <span class="string">&quot;ldaps://192.168.72.129:636&quot;</span>;<span class="comment"># 替换成自己的AD域服务器</span></span><br><span class="line"><span class="variable">$ldap_starttls</span> = <span class="literal">false</span>; <span class="comment"># 已经使用了ldaps，所以关闭</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_binddn</span> = <span class="string">&quot;CN=Administrator,CN=Users,DC=www,DC=test,DC=com&quot;</span>;<span class="comment"># AD域DN,可以通过查看AD域服务器或者ldapsearch命令查看</span></span><br><span class="line"><span class="variable">$ldap_bindpw</span> = <span class="string">&quot;PAssword&quot;</span>; <span class="comment"># 密码</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_base</span> = <span class="string">&quot;DC=www,DC=test,DC=com&quot;</span>; <span class="comment"># 待修改的用户所在的组织结构，一般是一开始创建的林</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_login_attribute</span> = <span class="string">&quot;sAMAccountName&quot;</span>; <span class="comment"># 不改</span></span><br><span class="line"><span class="variable">$ldap_fullname_attribute</span> = <span class="string">&quot;cn&quot;</span>;         <span class="comment">#   不改</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_filter</span> = <span class="string">&quot;(&amp;(objectClass=user)(sAMAccountName=&#123;login&#125;)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))&quot;</span>;<span class="comment"># 过滤器，可以照抄</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_scope</span> = <span class="string">&quot;sub&quot;</span>; <span class="comment"># 不改，sub模式出错概率小</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_use_exop_passwd</span> = <span class="literal">false</span>; <span class="comment">#  出错可以试true</span></span><br><span class="line"><span class="variable">$ldap_use_ppolicy_control</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_network_timeout</span> = <span class="number">10</span>;</span><br><span class="line"><span class="variable">$ldap_page_size</span> = <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>AD设置</strong></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Active Directory mode</span></span><br><span class="line"><span class="comment"># true: use unicodePwd as password field</span></span><br><span class="line"><span class="comment"># false: LDAPv3 standard behavior</span></span><br><span class="line"><span class="variable">$ad_mode</span> = <span class="literal">true</span>;  <span class="comment"># 必改</span></span><br><span class="line"><span class="variable">$ad_options</span>=[];</span><br><span class="line"><span class="comment"># Force account unlock when password is changed</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;force_unlock&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line"><span class="comment"># Force user change password at next login</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;force_pwd_change&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line"><span class="comment"># Allow user with expired password to change password</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;change_expired_password&#x27;</span>] = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>还有一处重要的地方！</strong></li>
+<li>搜索 manager，一共有四处</li>
+</ul>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704131911829.png" alt="image-20250704131911829"></p>
+<p>需要将对应的设置比如<code>$who_change_password = &quot;manager&quot;;</code>复制为<code>manager</code>，否则会遇到改密码权限问题。</p>
+<h2 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h2><p>​	至此大部分配置均已结束，可以开始启动或尝试重启httpd和php-fpm进行测试了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl restart php-fpm</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-遇到的问题汇总与解决方式"><a href="#6-遇到的问题汇总与解决方式" class="headerlink" title="6. 遇到的问题汇总与解决方式"></a>6. 遇到的问题汇总与解决方式</h2><h3 id="1-安装ssp时提示有关php的版本问题"><a href="#1-安装ssp时提示有关php的版本问题" class="headerlink" title="1. 安装ssp时提示有关php的版本问题"></a>1. 安装ssp时提示有关php的版本问题</h3><p>查看已有的版本，并启用对应的版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dnf module reset php -y</span><br><span class="line">dnf module enable php:7.4 -y</span><br><span class="line"># 之后再尝试下载</span><br><span class="line">dnf install php php-cli php-common php-ldap php-mbstring php-gd php-opcache php-json php-xml -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf module list php <span class="comment"># 查看系统的php模块</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704133139411.png" alt="image-20250704133139411"></p>
+<h3 id="2-不能访问LDAP服务"><a href="#2-不能访问LDAP服务" class="headerlink" title="2. 不能访问LDAP服务"></a>2. 不能访问LDAP服务</h3><ul>
+<li>这个问题可能是由以下原因造成<ol>
+<li>网络问题（防火墙等）</li>
+</ol>
+</li>
+</ul>
+<p>对于网络问题，可以测试用telnet</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">telnet 192.168.72.129 636</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704135116699.png" alt="image-20250704135116699"></p>
+<p>对于防火墙策略：</p>
+<ul>
+<li>客户端和服务端可以关闭防火墙进行测试</li>
+</ul>
+<h3 id="3-证书问题引起的无法修改密码"><a href="#3-证书问题引起的无法修改密码" class="headerlink" title="3. 证书问题引起的无法修改密码"></a>3. 证书问题引起的无法修改密码</h3><p>证书问题也是我卡住的主要问题，比较棘手。</p>
+<ul>
+<li>引起证书问题的原因<ol>
+<li>根证书不对</li>
+<li>证书加密强度不够</li>
+<li>证书未正确加载</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p><strong>根证书不对的结局方向：</strong></p>
+</li>
+<li><p>重复重新操作证书设置，</p>
+</li>
+<li><p>从AD域服务器重装CA服务器角色</p>
+</li>
+<li><p>不使用命令行，使用图形化的方式导出方式</p>
+</li>
+<li><p><strong>证书加密强度不够</strong></p>
+</li>
+</ol>
+<ul>
+<li>这个会导致能够访问到ldap服务器，但是无法修改成功，会显示密码被拒绝，即使你用了强密码，完全符合AD域服务器的密码策略。</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li><strong>重新导出根证书：使用加密方式更为安全的算法：sha512 * 4096 bit或更好</strong></li>
+<li>放宽加密证书要求的策略，也是我测试时使用的最有效的方式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/openldap/ldap.conf</span><br></pre></td></tr></table></figure>
+
+<p>增加，或者禁用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TLS_CIPHER_SUITE NORMAL</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TLS_REQCERT allow # or TLS_REQCERT never</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>证书未正确加载</p>
+</li>
+<li><p>查看证书是否一致</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> root.crt <span class="comment"># or cat root.pem</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>查看证书是否放在正确的位置，根据发行版不同放在不同的位置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/">http://example.com/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/system/">system</a><a class="post-meta__tags" href="/tags/command/">command</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/WinServer/">WinServer</a><a class="post-meta__tags" href="/tags/AD/">AD</a><a class="post-meta__tags" href="/tags/LDAP/">LDAP</a><a class="post-meta__tags" href="/tags/self-password-service/">self-password-service</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">AD域控和LDAP</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">AD域控和LDAP</div></div></a></div><div><a href="/2023/11/28/Linux-system-Notes/" title="Linux Notes"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Notes</div></div></a></div><div><a href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-26</div><div class="title">vmWare安装龙蜥Linux-minimal</div></div></a></div><div><a href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-27</div><div class="title">MySql与Nginx容器化部署实现持久化存储</div></div></a></div><div><a href="/2023/11/28/Linux-Projects/" title="Linux Projects"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Projects</div></div></a></div><div><a href="/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/" title="MQTT服务器搭建（mosquitto）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-02-09</div><div class="title">MQTT服务器搭建（mosquitto）</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">127</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">148</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">AD域控结合Self-Password-Services实现自助改密码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85httpd%EF%BC%88apache%EF%BC%89php%E5%90%84%E9%A1%B9%E4%BE%9D%E8%B5%96"><span class="toc-number">1.1.</span> <span class="toc-text">1. 安装httpd（apache）php各项依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85ssp"><span class="toc-number">1.2.</span> <span class="toc-text">2. 开始安装ssp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%85%8D%E7%BD%AE%E6%BA%90"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.配置源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-number">1.3.</span> <span class="toc-text">3. 下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">4. 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AF%81%E4%B9%A6%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.4.1.</span> <span class="toc-text">1. 证书设置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%AF%BC%E5%87%BA%E8%AF%81%E4%B9%A6"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">1. 导出证书</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AF%BC%E5%85%A5%E8%AF%81%E4%B9%A6%E5%B9%B6%E7%94%9F%E6%95%88"><span class="toc-number">1.4.1.2.</span> <span class="toc-text">2. 导入证书并生效</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%AF%BC%E5%85%A5%E6%88%90%E5%8A%9F%E3%80%82"><span class="toc-number">1.4.1.3.</span> <span class="toc-text">3. 检查是否导入成功。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-config-inc-php%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">2. config.inc.php配置文件设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8"><span class="toc-number">1.5.</span> <span class="toc-text">5. 启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text">6. 遇到的问题汇总与解决方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85ssp%E6%97%B6%E6%8F%90%E7%A4%BA%E6%9C%89%E5%85%B3php%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.1.</span> <span class="toc-text">1. 安装ssp时提示有关php的版本问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AELDAP%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.6.2.</span> <span class="toc-text">2. 不能访问LDAP服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%AF%81%E4%B9%A6%E9%97%AE%E9%A2%98%E5%BC%95%E8%B5%B7%E7%9A%84%E6%97%A0%E6%B3%95%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">3. 证书问题引起的无法修改密码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/" title="AD域控结合Self-Password-Services实现自助改密码">AD域控结合Self-Password-Services实现自助改密码</a><time datetime="2025-06-30T22:39:25.000Z" title="Created 2025-07-01 06:39:25">2025-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP">AD域控和LDAP</a><time datetime="2025-06-29T22:31:59.000Z" title="Created 2025-06-30 06:31:59">2025-06-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/27/%E3%80%8A%E7%A6%85%E4%B8%8E%E6%91%A9%E6%89%98%E8%BD%A6%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF%E3%80%8B/" title="《禅与摩托车维修艺术》">《禅与摩托车维修艺术》</a><time datetime="2025-06-26T22:44:32.000Z" title="Created 2025-06-27 06:44:32">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储">MySql与Nginx容器化部署实现持久化存储</a><time datetime="2025-06-26T22:25:39.000Z" title="Created 2025-06-27 06:25:39">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal">vmWare安装龙蜥Linux-minimal</a><time datetime="2025-06-25T22:23:20.000Z" title="Created 2025-06-26 06:23:20">2025-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/12/Nginx-Docker-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE-Web-%E5%BA%94%E7%94%A8/" title="Nginx + Docker 实现多级域名访问 Web 应用">Nginx + Docker 实现多级域名访问 Web 应用</a><time datetime="2025-06-12T05:13:28.000Z" title="Created 2025-06-12 13:13:28">2025-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/31/%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0/" title="高级程序设计复习">高级程序设计复习</a><time datetime="2025-05-31T05:04:29.000Z" title="Created 2025-05-31 13:04:29">2025-05-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E3%80%8A%E5%85%8B%E6%8B%89%E5%85%8B%E6%A3%AE%E7%9A%84%E5%86%9C%E5%9C%BA%E3%80%8B/" title="《克拉克森的农场》">《克拉克森的农场》</a><time datetime="2025-05-26T15:16:54.000Z" title="Created 2025-05-26 23:16:54">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/26/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" title="编译原理">编译原理</a><time datetime="2025-05-26T00:46:00.000Z" title="Created 2025-05-26 08:46:00">2025-05-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/05/06/%E3%80%8A%E7%84%A6%E8%99%91%E7%9A%84%E4%BA%BA%E3%80%8B/" title="《焦虑的人》">《焦虑的人》</a><time datetime="2025-05-06T05:21:09.000Z" title="Created 2025-05-06 13:21:09">2025-05-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

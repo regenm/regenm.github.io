@@ -18831,7 +18831,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>AD域控和LDAP</title>
     <url>/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/</url>
-    <content><![CDATA[<h3 id="LDAP（Lightweight-Directory-Access-Protocol）"><a href="#LDAP（Lightweight-Directory-Access-Protocol）" class="headerlink" title="LDAP（Lightweight Directory Access Protocol）"></a>LDAP（Lightweight Directory Access Protocol）</h3><p>LDAP 是一种 <strong>目录服务协议</strong>，用于访问和管理目录信息（比如用户、组织、设备等）。它是一个跨平台的协议，可以被很多系统支持，如：</p>
+    <content><![CDATA[<h2 id="LDAP（Lightweight-Directory-Access-Protocol）"><a href="#LDAP（Lightweight-Directory-Access-Protocol）" class="headerlink" title="LDAP（Lightweight Directory Access Protocol）"></a>LDAP（Lightweight Directory Access Protocol）</h2><p>LDAP 是一种 <strong>目录服务协议</strong>，用于访问和管理目录信息（比如用户、组织、设备等）。它是一个跨平台的协议，可以被很多系统支持，如：</p>
 <ul>
 <li>OpenLDAP（Linux 中常用的开源 LDAP 实现）</li>
 <li>Active Directory（微软的目录服务就是基于 LDAP 的）</li>
@@ -18860,7 +18860,218 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>域内设备管理</li>
 <li>安全策略分发</li>
 </ul>
-<p><strong>AD 域控的核心价值是“集中管理身份与设备”</strong></p>
+<h2 id="AD-域控的核心价值是“集中管理身份与设备”"><a href="#AD-域控的核心价值是“集中管理身份与设备”" class="headerlink" title="AD 域控的核心价值是“集中管理身份与设备”"></a><strong>AD 域控的核心价值是“集中管理身份与设备”</strong></h2><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+        <tag>WinServer</tag>
+        <tag>AD</tag>
+        <tag>LDAP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AD域控结合Self-Password-Services实现自助改密码</title>
+    <url>/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/</url>
+    <content><![CDATA[<blockquote>
+<ol>
+<li>操作系统：Anolis（类似centos，使用yum，dnf包管理）</li>
+</ol>
+</blockquote>
+<h1 id="AD域控结合Self-Password-Services实现自助改密码"><a href="#AD域控结合Self-Password-Services实现自助改密码" class="headerlink" title="AD域控结合Self-Password-Services实现自助改密码"></a>AD域控结合Self-Password-Services实现自助改密码</h1><p>​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件等功能也能自主改密码。	</p>
+<p>​	使用了两种方式部署，分别是实体机部署以及docker部署，本文部署方式为实体机部署，docker部署可能因为镜像，等等原因不及而终。最后整理部分报错信息以及解决方案供参考。	</p>
+<p>​	</p>
+<ul>
+<li>准备资料</li>
+</ul>
+<p>​	SSP项目地址：<a href="https://github.com/ltb-project/self-service-password">ltb-project&#x2F;self-service-password: Web interface to change and reset password in an LDAP directory</a></p>
+<p>​	AD域控服务器（CS）搭建方式：<a href="https://blog.csdn.net/m0_49254484/article/details/129364336">企业AD域（域控服务器）的安装和配置详细教程_域服务器的安装与配置-CSDN博客</a></p>
+<p>​	AD CA服务器搭建方式：<a href="https://blog.csdn.net/weixin_48711866/article/details/127204995">AD域控与CA证书、NPS（radius）超级详细安装_ad ca-CSDN博客</a></p>
+<ul>
+<li><p>参考部署资料</p>
+<p>  <a href="https://blog.csdn.net/qq461391728/article/details/115867721">Self Service Password部署-CSDN博客</a></p>
+</li>
+</ul>
+<h2 id="1-安装httpd（apache）php各项依赖"><a href="#1-安装httpd（apache）php各项依赖" class="headerlink" title="1. 安装httpd（apache）php各项依赖"></a>1. 安装httpd（apache）php各项依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Apache 和 PHP</span></span><br><span class="line">dnf install httpd php php-ldap php-mbstring -y</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102141823.png" alt="image-20250704102141823"></p>
+<h2 id="2-开始安装ssp"><a href="#2-开始安装ssp" class="headerlink" title="2. 开始安装ssp"></a>2. 开始安装ssp</h2><h3 id="1-配置源"><a href="#1-配置源" class="headerlink" title="1.配置源"></a>1.配置源</h3><ul>
+<li>可以尝试先下载</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102758477.png" alt="image-20250704102758477"></p>
+<p>我这里下载过所以显示已经安装，如果不能安装则进入下一步：</p>
+<ol>
+<li>配置源：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/yum.repos.d/ltb-project.repo</span><br></pre></td></tr></table></figure>
+
+<p>写入以下信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[ltb-project-noarch]</span><br><span class="line">name=LTB project packages (noarch)</span><br><span class="line">baseurl=https://ltb-project.org/rpm/$releasever/noarch</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-LTB-project</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>导入GPG私钥</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm --import https://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104057746.png" alt="image-20250704104057746"></p>
+<ol start="3">
+<li>添加php72的yum源</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104232023.png" alt="image-20250704104232023"></p>
+<h2 id="3-下载安装"><a href="#3-下载安装" class="headerlink" title="3. 下载安装"></a>3. 下载安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104342086.png" alt="image-20250704104342086"></p>
+<h2 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h2><p>​	其实最麻烦的其实是这里，这个配置文件很长，有很多细节。此时你下载好了之后，启动httpd服务就可以访问到ssp的界面了，但是会报错：<strong>在使用凭据加密前，需要在 keyphrase 设置中填写一个随机字符串</strong></p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104846233.png" alt="image-20250704104846233"></p>
+<p>先实现基本功能-<strong>用户自己使用旧密码改为新密码</strong>。只要这一步能够pass，那么使用邮件就能通过。</p>
+<h3 id="1-证书设置"><a href="#1-证书设置" class="headerlink" title="1. 证书设置"></a>1. 证书设置</h3><h4 id="1-导出证书"><a href="#1-导出证书" class="headerlink" title="1. 导出证书"></a>1. 导出证书</h4><ol>
+<li>要想ssp能够<strong>正常修改</strong>AD域的用户名账号密码<strong>几乎</strong>无法逃开证书认证的部分<ol>
+<li>个人尝试过各种方式跳过加密，都是不行的，顶多能够查询信息，修改是不可能的。</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>AD域<strong>根证书导出</strong></li>
+</ul>
+<p>登录到服务器后Win+R输入cmd打开命令行输入：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd Desktop</span><br><span class="line">certutil -ca.cert root.cer</span><br></pre></td></tr></table></figure>
+
+<p>这样根证书就导出到桌面了，<strong>注意如果没有安装AD CS服务，这个命令是无法生效的</strong></p>
+<p>然后传到服务器即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp root.cer root@192.168.72.128:/root/</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-导入证书并生效"><a href="#2-导入证书并生效" class="headerlink" title="2. 导入证书并生效"></a>2. 导入证书并生效</h4><ul>
+<li>上一步传过来的证书是二进制的，无法被Linux添加，需要先转换格式</li>
+</ul>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704110454356.png" alt="image-20250704110454356"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl x509 -in root.cer -inform DER -out root.pem -outform PEM</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704110521201.png" alt="image-20250704110521201"></p>
+<ul>
+<li><strong>根据Linux发行版的不同，导入方式有差别</strong>，基于<strong>Debian&#x2F;Ubuntu</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>基于 RHEL&#x2F;CentOS （龙蜥使也是用这种方式）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-检查是否导入成功。"><a href="#3-检查是否导入成功。" class="headerlink" title="3. 检查是否导入成功。"></a>3. 检查是否导入成功。</h4><ul>
+<li>基于<strong>Debian&#x2F;Ubuntu</strong>：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl verify -CAfile /etc/ssl/certs/ca-certificates.crt root.pem</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>RHEL&#x2F;CentOS （龙蜥使也是用这种方式）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl verify -CAfile /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem root.pem</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704111216732.png" alt="image-20250704111216732"></p>
+<h3 id="2-config-inc-php配置文件设置"><a href="#2-config-inc-php配置文件设置" class="headerlink" title="2. config.inc.php配置文件设置"></a>2. config.inc.php配置文件设置</h3><ul>
+<li>首先保证最小功能，也就是ldap和ad的设置</li>
+<li><strong>LDAP</strong></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Debug mode</span></span><br><span class="line"><span class="comment"># true: log and display any errors or warnings (use this in configuration/testing)</span></span><br><span class="line"><span class="comment"># false: log only errors and do not display them (use this in production)</span></span><br><span class="line"><span class="variable">$debug</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LDAP</span></span><br><span class="line"><span class="variable">$ldap_url</span> = <span class="string">&quot;ldaps://192.168.72.129:636&quot;</span>;<span class="comment"># 替换成自己的AD域服务器</span></span><br><span class="line"><span class="variable">$ldap_starttls</span> = <span class="literal">false</span>; <span class="comment"># 已经使用了ldaps，所以关闭</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_binddn</span> = <span class="string">&quot;CN=Administrator,CN=Users,DC=www,DC=test,DC=com&quot;</span>;<span class="comment"># AD域DN,可以通过查看AD域服务器或者ldapsearch命令查看</span></span><br><span class="line"><span class="variable">$ldap_bindpw</span> = <span class="string">&quot;PAssword&quot;</span>; <span class="comment"># 密码</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_base</span> = <span class="string">&quot;DC=www,DC=test,DC=com&quot;</span>; <span class="comment"># 待修改的用户所在的组织结构，一般是一开始创建的林</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_login_attribute</span> = <span class="string">&quot;sAMAccountName&quot;</span>; <span class="comment"># 不改</span></span><br><span class="line"><span class="variable">$ldap_fullname_attribute</span> = <span class="string">&quot;cn&quot;</span>;         <span class="comment">#   不改</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_filter</span> = <span class="string">&quot;(&amp;(objectClass=user)(sAMAccountName=&#123;login&#125;)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))&quot;</span>;<span class="comment"># 过滤器，可以照抄</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_scope</span> = <span class="string">&quot;sub&quot;</span>; <span class="comment"># 不改，sub模式出错概率小</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_use_exop_passwd</span> = <span class="literal">false</span>; <span class="comment">#  出错可以试true</span></span><br><span class="line"><span class="variable">$ldap_use_ppolicy_control</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_network_timeout</span> = <span class="number">10</span>;</span><br><span class="line"><span class="variable">$ldap_page_size</span> = <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>AD设置</strong></li>
+</ul>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Active Directory mode</span></span><br><span class="line"><span class="comment"># true: use unicodePwd as password field</span></span><br><span class="line"><span class="comment"># false: LDAPv3 standard behavior</span></span><br><span class="line"><span class="variable">$ad_mode</span> = <span class="literal">true</span>;  <span class="comment"># 必改</span></span><br><span class="line"><span class="variable">$ad_options</span>=[];</span><br><span class="line"><span class="comment"># Force account unlock when password is changed</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;force_unlock&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line"><span class="comment"># Force user change password at next login</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;force_pwd_change&#x27;</span>] = <span class="literal">false</span>;</span><br><span class="line"><span class="comment"># Allow user with expired password to change password</span></span><br><span class="line"><span class="variable">$ad_options</span>[<span class="string">&#x27;change_expired_password&#x27;</span>] = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>还有一处重要的地方！</strong></li>
+<li>搜索 manager，一共有四处</li>
+</ul>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704131911829.png" alt="image-20250704131911829"></p>
+<p>需要将对应的设置比如<code>$who_change_password = &quot;manager&quot;;</code>复制为<code>manager</code>，否则会遇到改密码权限问题。</p>
+<h2 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h2><p>​	至此大部分配置均已结束，可以开始启动或尝试重启httpd和php-fpm进行测试了。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl restart php-fpm</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-遇到的问题汇总与解决方式"><a href="#6-遇到的问题汇总与解决方式" class="headerlink" title="6. 遇到的问题汇总与解决方式"></a>6. 遇到的问题汇总与解决方式</h2><h3 id="1-安装ssp时提示有关php的版本问题"><a href="#1-安装ssp时提示有关php的版本问题" class="headerlink" title="1. 安装ssp时提示有关php的版本问题"></a>1. 安装ssp时提示有关php的版本问题</h3><p>查看已有的版本，并启用对应的版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf module reset php -y</span><br><span class="line">dnf module enable php:7.4 -y</span><br><span class="line"># 之后再尝试下载</span><br><span class="line">dnf install php php-cli php-common php-ldap php-mbstring php-gd php-opcache php-json php-xml -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf module list php <span class="comment"># 查看系统的php模块</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704133139411.png" alt="image-20250704133139411"></p>
+<h3 id="2-不能访问LDAP服务"><a href="#2-不能访问LDAP服务" class="headerlink" title="2. 不能访问LDAP服务"></a>2. 不能访问LDAP服务</h3><ul>
+<li>这个问题可能是由以下原因造成<ol>
+<li>网络问题（防火墙等）</li>
+</ol>
+</li>
+</ul>
+<p>对于网络问题，可以测试用telnet</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.72.129 636</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704135116699.png" alt="image-20250704135116699"></p>
+<p>对于防火墙策略：</p>
+<ul>
+<li>客户端和服务端可以关闭防火墙进行测试</li>
+</ul>
+<h3 id="3-证书问题引起的无法修改密码"><a href="#3-证书问题引起的无法修改密码" class="headerlink" title="3. 证书问题引起的无法修改密码"></a>3. 证书问题引起的无法修改密码</h3><p>证书问题也是我卡住的主要问题，比较棘手。</p>
+<ul>
+<li>引起证书问题的原因<ol>
+<li>根证书不对</li>
+<li>证书加密强度不够</li>
+<li>证书未正确加载</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p><strong>根证书不对的结局方向：</strong></p>
+</li>
+<li><p>重复重新操作证书设置，</p>
+</li>
+<li><p>从AD域服务器重装CA服务器角色</p>
+</li>
+<li><p>不使用命令行，使用图形化的方式导出方式</p>
+</li>
+<li><p><strong>证书加密强度不够</strong></p>
+</li>
+</ol>
+<ul>
+<li>这个会导致能够访问到ldap服务器，但是无法修改成功，会显示密码被拒绝，即使你用了强密码，完全符合AD域服务器的密码策略。</li>
+</ul>
+<p>解决方法：</p>
+<ol>
+<li><strong>重新导出根证书：使用加密方式更为安全的算法：sha512 * 4096 bit或更好</strong></li>
+<li>放宽加密证书要求的策略，也是我测试时使用的最有效的方式</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/openldap/ldap.conf</span><br></pre></td></tr></table></figure>
+
+<p>增加，或者禁用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TLS_CIPHER_SUITE NORMAL</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TLS_REQCERT allow # or TLS_REQCERT never</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>证书未正确加载</p>
+</li>
+<li><p>查看证书是否一致</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> root.crt <span class="comment"># or cat root.pem</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>查看证书是否放在正确的位置，根据发行版不同放在不同的位置</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -18874,6 +19085,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>WinServer</tag>
         <tag>AD</tag>
         <tag>LDAP</tag>
+        <tag>self-password-service</tag>
       </tags>
   </entry>
 </search>
