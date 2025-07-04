@@ -18899,13 +18899,13 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 <h2 id="1-安装httpd（apache）php各项依赖"><a href="#1-安装httpd（apache）php各项依赖" class="headerlink" title="1. 安装httpd（apache）php各项依赖"></a>1. 安装httpd（apache）php各项依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 Apache 和 PHP</span></span><br><span class="line">dnf install httpd php php-ldap php-mbstring -y</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102141823.png" alt="image-20250704102141823"></p>
+<p>![image-20250704102141823]..\images\Linux\运维\ssp\image-20250704102141823.png)</p>
 <h2 id="2-开始安装ssp"><a href="#2-开始安装ssp" class="headerlink" title="2. 开始安装ssp"></a>2. 开始安装ssp</h2><h3 id="1-配置源"><a href="#1-配置源" class="headerlink" title="1.配置源"></a>1.配置源</h3><ul>
 <li>可以尝试先下载</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704102758477.png" alt="image-20250704102758477"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704102758477.png" alt="image-20250704102758477"></p>
 <p>我这里下载过所以显示已经安装，如果不能安装则进入下一步：</p>
 <ol>
 <li>配置源：</li>
@@ -18920,18 +18920,18 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rpm --import https://ltb-project.org/wiki/lib/RPM-GPG-KEY-LTB-project</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104057746.png" alt="image-20250704104057746"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704104057746.png" alt="image-20250704104057746"></p>
 <ol start="3">
 <li>添加php72的yum源</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104232023.png" alt="image-20250704104232023"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704104232023.png" alt="image-20250704104232023"></p>
 <h2 id="3-下载安装"><a href="#3-下载安装" class="headerlink" title="3. 下载安装"></a>3. 下载安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf -y install self-service-password</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104342086.png" alt="image-20250704104342086"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704104342086.png" alt="image-20250704104342086"></p>
 <h2 id="4-配置文件"><a href="#4-配置文件" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h2><p>​	其实最麻烦的其实是这里，这个配置文件很长，有很多细节。此时你下载好了之后，启动httpd服务就可以访问到ssp的界面了，但是会报错：<strong>在使用凭据加密前，需要在 keyphrase 设置中填写一个随机字符串</strong></p>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704104846233.png" alt="image-20250704104846233"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704104846233.png" alt="image-20250704104846233"></p>
 <p>先实现基本功能-<strong>用户自己使用旧密码改为新密码</strong>。只要这一步能够pass，那么使用邮件就能通过。</p>
 <h3 id="1-证书设置"><a href="#1-证书设置" class="headerlink" title="1. 证书设置"></a>1. 证书设置</h3><h4 id="1-导出证书"><a href="#1-导出证书" class="headerlink" title="1. 导出证书"></a>1. 导出证书</h4><ol>
 <li>要想ssp能够<strong>正常修改</strong>AD域的用户名账号密码<strong>几乎</strong>无法逃开证书认证的部分<ol>
@@ -18954,7 +18954,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h4 id="2-导入证书并生效"><a href="#2-导入证书并生效" class="headerlink" title="2. 导入证书并生效"></a>2. 导入证书并生效</h4><ul>
 <li>上一步传过来的证书是二进制的，无法被Linux添加，需要先转换格式</li>
 </ul>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704110454356.png" alt="image-20250704110454356"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704110454356.png" alt="image-20250704110454356"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl x509 -in root.cer -inform DER -out root.pem -outform PEM</span><br></pre></td></tr></table></figure>
 
 <p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704110521201.png" alt="image-20250704110521201"></p>
@@ -18978,7 +18978,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openssl verify -CAfile /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem root.pem</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704111216732.png" alt="image-20250704111216732"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704111216732.png" alt="image-20250704111216732"></p>
 <h3 id="2-config-inc-php配置文件设置"><a href="#2-config-inc-php配置文件设置" class="headerlink" title="2. config.inc.php配置文件设置"></a>2. config.inc.php配置文件设置</h3><ul>
 <li>首先保证最小功能，也就是ldap和ad的设置</li>
 <li><strong>LDAP</strong></li>
@@ -18992,10 +18992,12 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 <ul>
 <li><strong>还有一处重要的地方！</strong></li>
-<li>搜索 manager，一共有四处</li>
+<li>搜索 manager，一共有2处设置</li>
 </ul>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704131911829.png" alt="image-20250704131911829"></p>
-<p>需要将对应的设置比如<code>$who_change_password = &quot;manager&quot;;</code>复制为<code>manager</code>，否则会遇到改密码权限问题。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704131911829.png" alt="image-20250704131911829"></p>
+<p>需要将对应的设置比如<code>$who_change_password = &quot;manager&quot;;</code>改为<code>manager</code>，否则会遇到改密码权限问题。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704160819334.png" alt="image-20250704160819334"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704161000961.png" alt="image-20250704161000961"></p>
 <h2 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h2><p>​	至此大部分配置均已结束，可以开始启动或尝试重启httpd和php-fpm进行测试了。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl restart php-fpm</span><br></pre></td></tr></table></figure>
 
@@ -19008,7 +19010,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704133139411.png" alt="image-20250704133139411"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704133139411.png" alt="image-20250704133139411"></p>
 <h3 id="2-不能访问LDAP服务"><a href="#2-不能访问LDAP服务" class="headerlink" title="2. 不能访问LDAP服务"></a>2. 不能访问LDAP服务</h3><ul>
 <li>这个问题可能是由以下原因造成<ol>
 <li>网络问题（防火墙等）</li>
@@ -19018,7 +19020,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>对于网络问题，可以测试用telnet</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.72.129 636</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250704135116699.png" alt="image-20250704135116699"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704135116699.png" alt="image-20250704135116699"></p>
 <p>对于防火墙策略：</p>
 <ul>
 <li>客户端和服务端可以关闭防火墙进行测试</li>
@@ -19072,6 +19074,29 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
 
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+        <tag>WinServer</tag>
+        <tag>AD</tag>
+        <tag>LDAP</tag>
+        <tag>self-password-service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>AD域服务器安装CA服务</title>
+    <url>/2025/07/04/AD%E5%9F%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85CA%E6%9C%8D%E5%8A%A1/</url>
+    <content><![CDATA[<blockquote>
+<p>操作系统：WinServer 2019</p>
+</blockquote>
+<h1 id="AD域服务器安装CA服务"><a href="#AD域服务器安装CA服务" class="headerlink" title="AD域服务器安装CA服务"></a><strong>AD域服务器安装CA服务</strong></h1><h2 id="1-点击管理-添加角色和功能"><a href="#1-点击管理-添加角色和功能" class="headerlink" title="1. 点击管理-添加角色和功能"></a>1. 点击管理-添加角色和功能</h2><p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\AD-CA\image-20250704165642504.png" alt="image-20250704165642504"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
