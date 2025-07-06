@@ -13484,7 +13484,9 @@ to breathe, to sense another, and to wait.<br>
   <entry>
     <title>英语单词</title>
     <url>/2025/02/24/%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
-    <content><![CDATA[<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><blockquote>
+    <content><![CDATA[<iframe  src="http://localhost/chatbot/rJkraIM1MfOvmOQM"  style="width: 100%; height: 100%; min-height: 700px"  frameborder="0"  allow="microphone"> </iframe>
+
+<h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><blockquote>
 <p>heterogeneous[ ˌhetərəˈdʒiːniəs ]</p>
 <p>隐藏词义例句</p>
 <ul>
@@ -19134,6 +19136,54 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>AD</tag>
         <tag>LDAP</tag>
         <tag>self-password-service</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络连通性测试总结</title>
+    <url>/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="测试云端主机策略是否生效"><a href="#测试云端主机策略是否生效" class="headerlink" title="测试云端主机策略是否生效"></a>测试云端主机策略是否生效</h1><p>​		在云服务器控制台，例如阿里云等服务商设置好安全组策略，开放对应的TCP、UDP端口号，出入权限。</p>
+<h2 id="1-服务端检查"><a href="#1-服务端检查" class="headerlink" title="1. 服务端检查"></a>1. 服务端检查</h2><h3 id="1-检查已开放端口"><a href="#1-检查已开放端口" class="headerlink" title="1. 检查已开放端口"></a>1. 检查已开放端口</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><code>-a</code></th>
+<th>显示所有连接和监听端口（All）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-n</code></td>
+<td>以数字形式显示地址和端口（不解析域名）</td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>显示与每个连接关联的进程 ID（PID）</td>
+</tr>
+</tbody></table>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\public\images\Linux\运维\port_test\image-20250704180412786.png" alt="image-20250704180412786"></p>
+<h3 id="2-如果太多可以进行过滤端口，仅查看目标端口"><a href="#2-如果太多可以进行过滤端口，仅查看目标端口" class="headerlink" title="2. 如果太多可以进行过滤端口，仅查看目标端口"></a>2. 如果太多可以进行过滤端口，仅查看目标端口</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | grep 80</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704180817439.png" alt="image-20250704180817439"></p>
+<h3 id="3-如果显示为空则为空闲，可以进行部署服务。"><a href="#3-如果显示为空则为空闲，可以进行部署服务。" class="headerlink" title="3. 如果显示为空则为空闲，可以进行部署服务。"></a>3. 如果显示为空则为空闲，可以进行部署服务。</h3><h2 id="2-客户端检查"><a href="#2-客户端检查" class="headerlink" title="2. 客户端检查"></a>2. 客户端检查</h2><h3 id="1-首先测试网络连通性"><a href="#1-首先测试网络连通性" class="headerlink" title="1. 首先测试网络连通性"></a>1. 首先测试网络连通性</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping 192.168.20.87</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704181027402.png" alt="image-20250704181027402"></p>
+<p>如果不通则可测试其他已知网站排除自身网络问题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704181206638.png" alt="image-20250704181206638"></p>
+<h3 id="2-进行对应端口的测试，根据服务不通测试tcp协议、udp协议"><a href="#2-进行对应端口的测试，根据服务不通测试tcp协议、udp协议" class="headerlink" title="2. 进行对应端口的测试，根据服务不通测试tcp协议、udp协议"></a>2. 进行对应端口的测试，根据服务不通测试tcp协议、udp协议</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+        <tag>WinServer</tag>
       </tags>
   </entry>
 </search>
