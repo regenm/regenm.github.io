@@ -13484,7 +13484,7 @@ to breathe, to sense another, and to wait.<br>
   <entry>
     <title>英语单词</title>
     <url>/2025/02/24/%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
-    <content><![CDATA[<iframe  src="http://127.0.0.1/chatbot/rJkraIM1MfOvmOQM"  style="width: 100%; height: 100%; min-height: 700px"  frameborder="0"  allow="microphone"> </iframe>
+    <content><![CDATA[<iframe  src="http://127.0.0.1/chatbot/rJkraIM1MfOvmOQM"  style="width: 100%; height: 100%; min-height: 700px"  frameborder="0"> </iframe>
 
 <h1 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h1><blockquote>
 <p>heterogeneous[ ˌhetərəˈdʒiːniəs ]</p>
@@ -19076,6 +19076,55 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
 
+<h1 id="其他安装方法"><a href="#其他安装方法" class="headerlink" title="* 其他安装方法"></a>* 其他安装方法</h1><h2 id="1-使用离线RPM包安装"><a href="#1-使用离线RPM包安装" class="headerlink" title="1. 使用离线RPM包安装"></a>1. 使用离线RPM包安装</h2><blockquote>
+<p>很多运维工程师倾向于使用离线安装包而非直接通过 <code>dnf</code> 或其他包管理器在线安装，主要是为了保证软件版本的稳定和可控，避免因仓库自动更新带来的不确定性；此外，生产环境往往限制服务器访问外网，使用离线包可以绕过网络限制，确保安装顺利；同时，离线安装方便快速在多台机器间复制，满足安全合规和审计要求，也便于自定义安装和配置，从而提升部署的灵活性和可靠性。</p>
+</blockquote>
+<h3 id="1-准备离线RPM包"><a href="#1-准备离线RPM包" class="headerlink" title="1. 准备离线RPM包"></a>1. 准备离线RPM包</h3><p>这里先给出两个官方archive</p>
+<ol>
+<li><a href="https://ltb-project.org/archives/">Index of &#x2F;archives</a>这个是ssp官方资源包括rpm以及tar包</li>
+<li><a href="https://rpmfind.net/linux/rpm2html/search.php?query=php-Smarty&submit=Search+...&system=&arch=">RPM resource php-Smarty</a>这个是php依赖包库，搜索下载用</li>
+</ol>
+<p>根据系统版本来确认安装的版本为1.4.3、查看发行版的命令为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707104353311.png" alt="image-20250707104353311"></p>
+<h2 id="2-上传至服务器"><a href="#2-上传至服务器" class="headerlink" title="2. 上传至服务器"></a>2. 上传至服务器</h2><h3 id="1-ftp服务传送"><a href="#1-ftp服务传送" class="headerlink" title="1. ftp服务传送"></a>1. ftp服务传送</h3><p>使用xshell的xftp进行传送</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250707104655441.png" alt="image-20250707104655441"></p>
+<h3 id="2-或scp传送"><a href="#2-或scp传送" class="headerlink" title="2. 或scp传送"></a>2. 或scp传送</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp self-service-password-1.4.3-1.el7.noarch.rpm php-Smarty-3.1.48-2.el8.noarch.rpm root@192.168.72.128:/data/ssp/</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dnf install ./self-service-password-1.4.3-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>此时会报错：</p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707104902161.png" alt="image-20250707104902161"></p>
+<p>所以需要去给出的网站搜索这个依赖rpm包并下载传送到服务器。</p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105010595.png" alt="image-20250707105010595"></p>
+<p>找到对应版本后下载即可</p>
+<p>然后安装这个依赖</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install ./php-Smarty-3.1.48-2.el8.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105140009.png" alt="image-20250707105140009"></p>
+<p>最后安装ssp即可</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install ./self-service-password-1.4.3-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105258966.png" alt="image-20250707105258966"></p>
+<h2 id="4-配置文件简单介绍"><a href="#4-配置文件简单介绍" class="headerlink" title="4. 配置文件简单介绍"></a>4. 配置文件简单介绍</h2><blockquote>
+<table>
+<thead>
+<tr>
+<th>Web 根目录</th>
+<th><code>/usr/share/self-service-password</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>配置文件</strong></td>
+<td><strong><code>/etc/self-service-password/config.inc.php</code></strong></td>
+</tr>
+<tr>
+<td><strong>Apache 配置（可选）</strong></td>
+<td><strong><code>/etc/httpd/conf.d/self-service-password.conf</code></strong></td>
+</tr>
+</tbody></table>
+</blockquote>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -19098,7 +19147,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <content><![CDATA[<blockquote>
 <p>操作系统：WinServer 2019</p>
 </blockquote>
-<h1 id="AD域服务器安装CA服务"><a href="#AD域服务器安装CA服务" class="headerlink" title="AD域服务器安装CA服务"></a><strong>AD域服务器安装CA服务</strong></h1><h2 id="1-点击管理-添加角色和功能"><a href="#1-点击管理-添加角色和功能" class="headerlink" title="1. 点击管理-添加角色和功能"></a>1. 点击管理-添加角色和功能</h2><p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\AD-CA\image-20250704165642504.png" alt="image-20250704165642504"></p>
+<h1 id="AD域服务器安装CA服务"><a href="#AD域服务器安装CA服务" class="headerlink" title="AD域服务器安装CA服务"></a><strong>AD域服务器安装CA服务</strong></h1><h2 id="1-点击管理-添加角色和功能"><a href="#1-点击管理-添加角色和功能" class="headerlink" title="1. 点击管理-添加角色和功能"></a>1. 点击管理-添加角色和功能</h2><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/AD-CA/image-20250704165642504.png" alt="image-20250704165642504"></p>
 <h2 id="2-点击下一页"><a href="#2-点击下一页" class="headerlink" title="2. 点击下一页"></a>2. 点击下一页</h2><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/AD-CA/image-20250704170543964.png" alt="image-20250704170543964"></p>
 <h2 id="3-点击-基于角色或基于功能的安装"><a href="#3-点击-基于角色或基于功能的安装" class="headerlink" title="3. 点击  基于角色或基于功能的安装"></a>3. 点击  基于角色或基于功能的安装</h2><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/AD-CA/image-20250704170636394.png" alt="image-20250704170636394"></p>
 <h2 id="4-点击-从服务器池中选择服务器-选择要安装的主机-点击下一页"><a href="#4-点击-从服务器池中选择服务器-选择要安装的主机-点击下一页" class="headerlink" title="4. 点击 从服务器池中选择服务器-选择要安装的主机-点击下一页"></a>4. 点击 从服务器池中选择服务器-选择要安装的主机-点击下一页</h2><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/AD-CA/image-20250704170918182.png" alt="image-20250704170918182"></p>
@@ -19142,7 +19191,9 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <title>网络连通性测试总结</title>
     <url>/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h1 id="测试云端主机策略是否生效"><a href="#测试云端主机策略是否生效" class="headerlink" title="测试云端主机策略是否生效"></a>测试云端主机策略是否生效</h1><p>​		在云服务器控制台，例如阿里云等服务商设置好安全组策略，开放对应的TCP、UDP端口号，出入权限。</p>
-<h2 id="1-服务端检查"><a href="#1-服务端检查" class="headerlink" title="1. 服务端检查"></a>1. 服务端检查</h2><h3 id="1-检查已开放端口"><a href="#1-检查已开放端口" class="headerlink" title="1. 检查已开放端口"></a>1. 检查已开放端口</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
+<h2 id="1-服务端检查"><a href="#1-服务端检查" class="headerlink" title="1. 服务端检查"></a>1. 服务端检查</h2><h3 id="1-检查已开放端口"><a href="#1-检查已开放端口" class="headerlink" title="1. 检查已开放端口"></a>1. 检查已开放端口</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ss -tulnp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
 
 <table>
 <thead>
@@ -19160,19 +19211,54 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <td>显示与每个连接关联的进程 ID（PID）</td>
 </tr>
 </tbody></table>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\public\images\Linux\运维\port_test\image-20250704180412786.png" alt="image-20250704180412786"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250704180412786.png" alt="image-20250704180412786"></p>
 <h3 id="2-如果太多可以进行过滤端口，仅查看目标端口"><a href="#2-如果太多可以进行过滤端口，仅查看目标端口" class="headerlink" title="2. 如果太多可以进行过滤端口，仅查看目标端口"></a>2. 如果太多可以进行过滤端口，仅查看目标端口</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netstat -ano | grep 80</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704180817439.png" alt="image-20250704180817439"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250704180817439.png" alt="image-20250704180817439"></p>
 <h3 id="3-如果显示为空则为空闲，可以进行部署服务。"><a href="#3-如果显示为空则为空闲，可以进行部署服务。" class="headerlink" title="3. 如果显示为空则为空闲，可以进行部署服务。"></a>3. 如果显示为空则为空闲，可以进行部署服务。</h3><h2 id="2-客户端检查"><a href="#2-客户端检查" class="headerlink" title="2. 客户端检查"></a>2. 客户端检查</h2><h3 id="1-首先测试网络连通性"><a href="#1-首先测试网络连通性" class="headerlink" title="1. 首先测试网络连通性"></a>1. 首先测试网络连通性</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping 192.168.20.87</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704181027402.png" alt="image-20250704181027402"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250704181027402.png" alt="image-20250704181027402"></p>
 <p>如果不通则可测试其他已知网站排除自身网络问题</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704181206638.png" alt="image-20250704181206638"></p>
-<h3 id="2-进行对应端口的测试，根据服务不通测试tcp协议、udp协议"><a href="#2-进行对应端口的测试，根据服务不通测试tcp协议、udp协议" class="headerlink" title="2. 进行对应端口的测试，根据服务不通测试tcp协议、udp协议"></a>2. 进行对应端口的测试，根据服务不通测试tcp协议、udp协议</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.</span><br></pre></td></tr></table></figure>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250704181206638.png" alt="image-20250704181206638"></p>
+<h3 id="2-进行对应端口的测试，根据服务不同分别测试tcp协议、udp协议"><a href="#2-进行对应端口的测试，根据服务不同分别测试tcp协议、udp协议" class="headerlink" title="2. 进行对应端口的测试，根据服务不同分别测试tcp协议、udp协议"></a>2. 进行对应端口的测试，根据服务不同分别测试tcp协议、udp协议</h3><ul>
+<li>检测<strong>TCP</strong>服务端口是否开启</li>
+</ul>
+<blockquote>
+<ul>
+<li><strong>Telnet</strong></li>
+</ul>
+<p>Telnet 是一个经典的网络测试和远程连接工具，主要用于通过 <strong>TCP</strong> 协议与远程主机建立连接。它最初用于远程登录服务器的终端（默认端口为 23），但由于其不加密、不安全的特性，现在已基本被 SSH 替代。如今，Telnet 更常用于测试网络端口是否开放，例如测试某台主机的 HTTP（80）、HTTPS（443）、SMTP（25）或数据库服务端口是否可达。使用方式通常是在命令行中输入 <code>telnet [IP或域名] [端口号]</code>，如 <code>telnet www.example.com 80</code>，若连接成功则说明该端口可访问。Telnet 只能用于测试 TCP 端口，不能测试 UDP，而且在 Windows 中使用前需要手动启用该功能。虽然 Telnet 简单易用，但由于其功能较为基础和安全性低，现代系统中常用 <code>nc</code>（netcat）、<code>curl</code> 或 <code>nmap</code> 等工具来替代 Telnet 进行更复杂或更安全的网络测试。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.72.128</span><br></pre></td></tr></table></figure>
 
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250707090537361.png" alt="image-20250707090537361"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250707090735097.png" alt="image-20250707090735097"></p>
+<p>可以看到连接成功了，说明<code>192.168.72.128:80</code>和<code>192.168.72.128:22</code>有服务存在并且端口已经开放。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250707091119138.png" alt="image-20250707091119138"></p>
+<p>可以看到<code>1080</code>和<code>443</code>都无法连接，说明目标主机无服务或者防火墙拒绝了连接，但是通过上面服务器端的<code>netstat</code>命令可以知道这些端口是无服务，而不是防火墙导致。</p>
+<ul>
+<li>检测UDP端口服务是否开启</li>
+</ul>
+<blockquote>
+<p><strong>nc</strong></p>
+<p><code>nc</code>（netcat）是一款功能强大的网络工具，被称为“网络界的瑞士军刀”，常用于测试端口连通性、调试网络服务、传输文件和搭建简单的 TCP&#x2F;UDP 服务器。它支持 TCP 和 UDP 协议，可以用来检查远程主机的端口是否开放（如 <code>nc -vz IP 端口</code>），也可以监听本地端口等待连接（如 <code>nc -l 端口</code>），甚至可以通过重定向实现文件传输。相比 <code>telnet</code>，<code>nc</code> 功能更强、更灵活，适用于更多网络调试场景。多数 Linux 发行版默认已安装 <code>nc</code>，如果没有可以通过软件包管理器快速安装。</p>
+</blockquote>
+<ul>
+<li>TCP端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nc -vz 192.168.72.128 80</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250707092716137.png" alt="image-20250707092716137"></p>
+<p>可以看到连接成功了，说明<code>192.168.72.128:80</code>有tcp服务存在并且端口已经开放。</p>
+<ul>
+<li>UDP端口</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nc -vzu 192.168.72.128 45690</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/port_test/image-20250707093319671.png" alt="image-20250707093319671"></p>
+<p>可以看到连接成功了，说明<code>192.168.72.128:45690</code>有udp服务存在并且端口已经开放。</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -19184,6 +19270,18 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>command</tag>
         <tag>运维</tag>
         <tag>WinServer</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《古道》</title>
+    <url>/2025/07/07/%E3%80%8A%E5%8F%A4%E9%81%93%E3%80%8B/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
       </tags>
   </entry>
 </search>
