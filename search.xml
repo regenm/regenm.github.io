@@ -18885,7 +18885,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>操作系统：Anolis（类似centos，使用yum，dnf包管理）</li>
 </ol>
 </blockquote>
-<h1 id="AD域控结合Self-Password-Services实现自助改密码"><a href="#AD域控结合Self-Password-Services实现自助改密码" class="headerlink" title="AD域控结合Self-Password-Services实现自助改密码"></a>AD域控结合Self-Password-Services实现自助改密码</h1><p>​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件等功能也能自主改密码。	</p>
+<h1 id="AD域控结合Self-Password-Services实现自助改密码"><a href="#AD域控结合Self-Password-Services实现自助改密码" class="headerlink" title="AD域控结合Self-Password-Services实现自助改密码"></a>AD域控结合Self-Password-Services实现自助改密码</h1><h1 id="直接安装部署"><a href="#直接安装部署" class="headerlink" title="直接安装部署"></a>直接安装部署</h1><p>​	经常会有这样的场景，AD域用户忘记或遗失了自己的密码。这时候可以找管理员进行修改，但是情况多了也会有些麻烦。所以可以尝试搭建**ssp(self-password-sercive)**实现用户自助改密码。还可以通过脚本的方式实现批量改密码，结合邮件等功能也能自主改密码。	</p>
 <p>​	使用了两种方式部署，分别是实体机部署以及docker部署，本文部署方式为实体机部署，docker部署可能因为镜像，等等原因不及而终。最后整理部分报错信息以及解决方案供参考。	</p>
 <p>​	</p>
 <ul>
@@ -18959,11 +18959,11 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704110454356.png" alt="image-20250704110454356"></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">openssl x509 -in root.cer -inform DER -out root.pem -outform PEM</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250704110521201.png" alt="image-20250704110521201"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704110521201.png" alt="image-20250704110521201"></p>
 <ul>
 <li><strong>根据Linux发行版的不同，导入方式有差别</strong>，基于<strong>Debian&#x2F;Ubuntu</strong>：</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>基于 RHEL&#x2F;CentOS （龙蜥使也是用这种方式）</li>
@@ -18985,7 +18985,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>首先保证最小功能，也就是ldap和ad的设置</li>
 <li><strong>LDAP</strong></li>
 </ul>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Debug mode</span></span><br><span class="line"><span class="comment"># true: log and display any errors or warnings (use this in configuration/testing)</span></span><br><span class="line"><span class="comment"># false: log only errors and do not display them (use this in production)</span></span><br><span class="line"><span class="variable">$debug</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LDAP</span></span><br><span class="line"><span class="variable">$ldap_url</span> = <span class="string">&quot;ldaps://192.168.72.129:636&quot;</span>;<span class="comment"># 替换成自己的AD域服务器</span></span><br><span class="line"><span class="variable">$ldap_starttls</span> = <span class="literal">false</span>; <span class="comment"># 已经使用了ldaps，所以关闭</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_binddn</span> = <span class="string">&quot;CN=Administrator,CN=Users,DC=www,DC=test,DC=com&quot;</span>;<span class="comment"># AD域DN,可以通过查看AD域服务器或者ldapsearch命令查看</span></span><br><span class="line"><span class="variable">$ldap_bindpw</span> = <span class="string">&quot;PAssword&quot;</span>; <span class="comment"># 密码</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_base</span> = <span class="string">&quot;DC=www,DC=test,DC=com&quot;</span>; <span class="comment"># 待修改的用户所在的组织结构，一般是一开始创建的林</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_login_attribute</span> = <span class="string">&quot;sAMAccountName&quot;</span>; <span class="comment"># 不改</span></span><br><span class="line"><span class="variable">$ldap_fullname_attribute</span> = <span class="string">&quot;cn&quot;</span>;         <span class="comment">#   不改</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_filter</span> = <span class="string">&quot;(&amp;(objectClass=user)(sAMAccountName=&#123;login&#125;)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))&quot;</span>;<span class="comment"># 过滤器，可以照抄</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_scope</span> = <span class="string">&quot;sub&quot;</span>; <span class="comment"># 不改，sub模式出错概率小</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_use_exop_passwd</span> = <span class="literal">false</span>; <span class="comment">#  出错可以试true</span></span><br><span class="line"><span class="variable">$ldap_use_ppolicy_control</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_network_timeout</span> = <span class="number">10</span>;</span><br><span class="line"><span class="variable">$ldap_page_size</span> = <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Debug mode</span></span><br><span class="line"><span class="comment"># true: log and display any errors or warnings (use this in configuration/testing)</span></span><br><span class="line"><span class="comment"># false: log only errors and do not display them (use this in production)</span></span><br><span class="line"><span class="variable">$debug</span> = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># LDAP</span></span><br><span class="line"><span class="variable">$ldap_url</span> = <span class="string">&quot;ldaps://WIN-QAG6G63NI1O.suitbim.com:636&quot;</span>;<span class="comment"># 替换成自己的AD域服务器</span></span><br><span class="line"><span class="variable">$ldap_starttls</span> = <span class="literal">false</span>; <span class="comment"># 已经使用了ldaps，所以关闭</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_binddn</span> = <span class="string">&quot;CN=Administrator,CN=Users,DC=www,DC=test,DC=com&quot;</span>;<span class="comment"># AD域DN,可以通过查看AD域服务器或者ldapsearch命令查看</span></span><br><span class="line"><span class="variable">$ldap_bindpw</span> = <span class="string">&quot;PAssword&quot;</span>; <span class="comment"># 密码</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_base</span> = <span class="string">&quot;DC=www,DC=test,DC=com&quot;</span>; <span class="comment"># 待修改的用户所在的组织结构，一般是一开始创建的林</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_login_attribute</span> = <span class="string">&quot;sAMAccountName&quot;</span>; <span class="comment"># 不改</span></span><br><span class="line"><span class="variable">$ldap_fullname_attribute</span> = <span class="string">&quot;cn&quot;</span>;         <span class="comment">#   不改</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_filter</span> = <span class="string">&quot;(&amp;(objectClass=user)(sAMAccountName=&#123;login&#125;)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))&quot;</span>;<span class="comment"># 过滤器，可以照抄</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_scope</span> = <span class="string">&quot;sub&quot;</span>; <span class="comment"># 不改，sub模式出错概率小</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_use_exop_passwd</span> = <span class="literal">false</span>; <span class="comment">#  出错可以试true</span></span><br><span class="line"><span class="variable">$ldap_use_ppolicy_control</span> = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable">$ldap_network_timeout</span> = <span class="number">10</span>;</span><br><span class="line"><span class="variable">$ldap_page_size</span> = <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>AD设置</strong></li>
@@ -19000,12 +19000,24 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>需要将对应的设置比如<code>$who_change_password = &quot;manager&quot;;</code>改为<code>manager</code>，否则会遇到改密码权限问题。</p>
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704160819334.png" alt="image-20250704160819334"></p>
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704161000961.png" alt="image-20250704161000961"></p>
+<h3 id="3-修改本地域名解析"><a href="#3-修改本地域名解析" class="headerlink" title="3. 修改本地域名解析"></a>3. 修改本地域名解析</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<p>增加ip-域名映射。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">192.168.99.190 WIN-QAG6G63NI1O.example.com</span><br></pre></td></tr></table></figure>
+
+<p><strong>域名</strong>在AD域服务器中可查</p>
+<p>查看方法：powershell </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">([System.Net.Dns]::GetHostByName($env:COMPUTERNAME)).HostName</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709141845081.png" alt="image-20250709141845081"></p>
 <h2 id="5-启动"><a href="#5-启动" class="headerlink" title="5. 启动"></a>5. 启动</h2><p>​	至此大部分配置均已结束，可以开始启动或尝试重启httpd和php-fpm进行测试了。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart httpd</span><br><span class="line">systemctl restart php-fpm</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="6-遇到的问题汇总与解决方式"><a href="#6-遇到的问题汇总与解决方式" class="headerlink" title="6. 遇到的问题汇总与解决方式"></a>6. 遇到的问题汇总与解决方式</h2><h3 id="1-安装ssp时提示有关php的版本问题"><a href="#1-安装ssp时提示有关php的版本问题" class="headerlink" title="1. 安装ssp时提示有关php的版本问题"></a>1. 安装ssp时提示有关php的版本问题</h3><p>查看已有的版本，并启用对应的版本：</p>
+<h1 id="直接部署遇到的问题汇总与解决方式"><a href="#直接部署遇到的问题汇总与解决方式" class="headerlink" title="直接部署遇到的问题汇总与解决方式"></a>直接部署遇到的问题汇总与解决方式</h1><h3 id="1-安装ssp时提示有关php的版本问题"><a href="#1-安装ssp时提示有关php的版本问题" class="headerlink" title="1. 安装ssp时提示有关php的版本问题"></a>1. 安装ssp时提示有关php的版本问题</h3><p>查看已有的版本，并启用对应的版本：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf module reset php -y</span><br><span class="line">dnf module enable php:7.4 -y</span><br><span class="line"># 之后再尝试下载</span><br><span class="line">dnf install php php-cli php-common php-ldap php-mbstring php-gd php-opcache php-json php-xml -y</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf module list php <span class="comment"># 查看系统的php模块</span></span><br></pre></td></tr></table></figure>
@@ -19037,7 +19049,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </li>
 </ul>
 <ol>
-<li><p><strong>根证书不对的结局方向：</strong></p>
+<li><p><strong>根证书不对的解决方向：</strong></p>
 </li>
 <li><p>重复重新操作证书设置，</p>
 </li>
@@ -19076,7 +19088,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 对于基于 Debian/Ubuntu</span></span><br><span class="line">ca.crt /usr/local/share/ca-certificates/</span><br><span class="line">update-ca-certificates</span><br><span class="line"><span class="comment"># 对于基于 RHEL/CentOS</span></span><br><span class="line"><span class="built_in">cp</span> ca.crt /etc/pki/ca-trust/source/anchors/</span><br><span class="line">update-ca-trust</span><br></pre></td></tr></table></figure>
 
-<h1 id="其他安装方法"><a href="#其他安装方法" class="headerlink" title="* 其他安装方法"></a>* 其他安装方法</h1><h2 id="1-使用离线RPM包安装"><a href="#1-使用离线RPM包安装" class="headerlink" title="1. 使用离线RPM包安装"></a>1. 使用离线RPM包安装</h2><blockquote>
+<h1 id="离线RPM包安装部署"><a href="#离线RPM包安装部署" class="headerlink" title="离线RPM包安装部署"></a>离线RPM包安装部署</h1><h2 id="1-使用离线RPM包安装"><a href="#1-使用离线RPM包安装" class="headerlink" title="1. 使用离线RPM包安装"></a>1. 使用离线RPM包安装</h2><blockquote>
 <p>很多运维工程师倾向于使用离线安装包而非直接通过 <code>dnf</code> 或其他包管理器在线安装，主要是为了保证软件版本的稳定和可控，避免因仓库自动更新带来的不确定性；此外，生产环境往往限制服务器访问外网，使用离线包可以绕过网络限制，确保安装顺利；同时，离线安装方便快速在多台机器间复制，满足安全合规和审计要求，也便于自定义安装和配置，从而提升部署的灵活性和可靠性。</p>
 </blockquote>
 <h3 id="1-准备离线RPM包"><a href="#1-准备离线RPM包" class="headerlink" title="1. 准备离线RPM包"></a>1. 准备离线RPM包</h3><p>这里先给出两个官方archive</p>
@@ -19087,26 +19099,26 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>根据系统版本来确认安装的版本为1.4.3、查看发行版的命令为：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707104353311.png" alt="image-20250707104353311"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707104353311.png" alt="image-20250707104353311"></p>
 <h2 id="2-上传至服务器"><a href="#2-上传至服务器" class="headerlink" title="2. 上传至服务器"></a>2. 上传至服务器</h2><h3 id="1-ftp服务传送"><a href="#1-ftp服务传送" class="headerlink" title="1. ftp服务传送"></a>1. ftp服务传送</h3><p>使用xshell的xftp进行传送</p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250707104655441.png" alt="image-20250707104655441"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707104655441.png" alt="image-20250707104655441"></p>
 <h3 id="2-或scp传送"><a href="#2-或scp传送" class="headerlink" title="2. 或scp传送"></a>2. 或scp传送</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp self-service-password-1.4.3-1.el7.noarch.rpm php-Smarty-3.1.48-2.el8.noarch.rpm root@192.168.72.128:/data/ssp/</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3. 安装"></a>3. 安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo dnf install ./self-service-password-1.4.3-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
 
 <p>此时会报错：</p>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707104902161.png" alt="image-20250707104902161"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707104902161.png" alt="image-20250707104902161"></p>
 <p>所以需要去给出的网站搜索这个依赖rpm包并下载传送到服务器。</p>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105010595.png" alt="image-20250707105010595"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707105010595.png" alt="image-20250707105010595"></p>
 <p>找到对应版本后下载即可</p>
 <p>然后安装这个依赖</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install ./php-Smarty-3.1.48-2.el8.noarch.rpm</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105140009.png" alt="image-20250707105140009"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707105140009.png" alt="image-20250707105140009"></p>
 <p>最后安装ssp即可</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install ./self-service-password-1.4.3-1.el7.noarch.rpm</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\ssp\image-20250707105258966.png" alt="image-20250707105258966"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250707105258966.png" alt="image-20250707105258966"></p>
 <h2 id="4-配置文件简单介绍"><a href="#4-配置文件简单介绍" class="headerlink" title="4. 配置文件简单介绍"></a>4. 配置文件简单介绍</h2><blockquote>
 <table>
 <thead>
@@ -19125,6 +19137,62 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 </tbody></table>
 </blockquote>
+<p><strong>其余操作同上述直接安装部署</strong></p>
+<h1 id="Docker容器安装部署"><a href="#Docker容器安装部署" class="headerlink" title="Docker容器安装部署"></a>Docker容器安装部署</h1><h2 id="1-准备镜像"><a href="#1-准备镜像" class="headerlink" title="1. 准备镜像"></a>1. 准备镜像</h2><blockquote>
+<p>这里选择<strong>alpine-1.7.3</strong>，是个人尝试部署后较为成功的一个镜像，其余的镜像例如dev-master、latest都遇到了有关系统证书的问题。问题与系统的证书策略有关。这里给出相关信息供参考。</p>
+</blockquote>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709142709809.png" alt="image-20250709142709809"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull docker.io/ltbproject/self-service-password:alpine-1.7.3</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-准备需要的挂载文件"><a href="#2-准备需要的挂载文件" class="headerlink" title="2. 准备需要的挂载文件"></a>2. 准备需要的挂载文件</h2><ol>
+<li><strong><code>rootca.crt</code></strong> ：获取方法见上文： 直接部署安装-4.1.1</li>
+<li><strong><code>config.inc.php</code></strong> ：文件与上文文件内容相同。</li>
+</ol>
+<h2 id="3-起容器"><a href="#3-起容器" class="headerlink" title="3. 起容器"></a>3. 起容器</h2><ul>
+<li>端口、路径以及名字自主修改</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -p 18080:80 \</span><br><span class="line">--name ssp \</span><br><span class="line">-v /data/soft/ssp-docker/config.inc.php:/var/www/config.inc.php.orig \</span><br><span class="line">-d docker.io/ltbproject/self-service-password:alpine-1.7.3</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-配置文件-1"><a href="#4-配置文件-1" class="headerlink" title="4. 配置文件"></a>4. 配置文件</h2><h3 id="1-证书配置"><a href="#1-证书配置" class="headerlink" title="1. 证书配置"></a>1. 证书配置</h3><h4 id="1-拷贝证书到容器"><a href="#1-拷贝证书到容器" class="headerlink" title="1. 拷贝证书到容器"></a>1. 拷贝证书到容器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> ./rootca.crt ssp:/usr/local/share/ca-certificates/rootca.crt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709143807776.png" alt="image-20250709143807776"></p>
+<h4 id="2-更新到系统证书链"><a href="#2-更新到系统证书链" class="headerlink" title="2. 更新到系统证书链"></a>2. 更新到系统证书链</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it ssp bash <span class="comment"># 如果在容器内则不用</span></span><br><span class="line">apk update</span><br><span class="line">apk add ca-certificates</span><br><span class="line">update-ca-certificates</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709143940995.png" alt="image-20250709143940995"></p>
+<h4 id="3-测试证书是否添加"><a href="#3-测试证书是否添加" class="headerlink" title="3. 测试证书是否添加"></a>3. 测试证书是否添加</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it ssp bash <span class="comment"># 如果在容器内则不用</span></span><br><span class="line">openssl verify /usr/local/share/ca-certificates/rootca.crt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709144042528.png" alt="image-20250709144042528"></p>
+<h3 id="2-域名解析配置"><a href="#2-域名解析配置" class="headerlink" title="2. 域名解析配置"></a>2. 域名解析配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it ssp bash # 如果在容器内则不用</span><br><span class="line">vim /etc/hosts</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>添加一行 ip - 域名：来源同上</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">192.168.99.190 WIN-QAG6G63NI1O.example.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-至此配置已结束，可以开始使用。"><a href="#5-至此配置已结束，可以开始使用。" class="headerlink" title="5. 至此配置已结束，可以开始使用。"></a>5. 至此配置已结束，可以开始使用。</h2><h1 id="Docker部署遇到问题解决方式"><a href="#Docker部署遇到问题解决方式" class="headerlink" title="Docker部署遇到问题解决方式"></a>Docker部署遇到问题解决方式</h1><ul>
+<li><p>提供思路参考</p>
+</li>
+<li><p>网络问题</p>
+<ul>
+<li><p>对于网络问题，可以测试用telnet</p>
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">telnet 192.168.72.129 636</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250704135116699.png" alt="image-20250704135116699"></p>
+<p>  对于防火墙策略：</p>
+<ul>
+<li>客户端和服务端可以关闭防火墙进行测试</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>证书问题</p>
+<ul>
+<li>无法访问ldap目录大部分是ssp与服务器进行ssl握手时断开连接</li>
+<li>以下为参考测试方式。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709145027704.png" alt="image-20250709145027704"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -19275,7 +19343,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>《古道》</title>
     <url>/2025/07/07/%E3%80%8A%E5%8F%A4%E9%81%93%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="《古道》"><a href="#《古道》" class="headerlink" title="《古道》"></a>《古道》</h1>]]></content>
       <categories>
         <category>读书</category>
       </categories>
