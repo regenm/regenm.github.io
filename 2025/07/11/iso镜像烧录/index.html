@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>iso镜像烧录 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="写这篇博客的起因是在服务器实体机上装Anolis8.10minimal，试过很多不同的镜像都会卡在网络选择以及源选择上，又因为是新的服务器，交换机IP还没配没网所以卡住。之所以会出现这种问题，是因为我在刻录镜像时使用的是默认的iso模式而不是dd模式（ultraIso是raw），导致文件结构发生了改变。  iso镜像烧录  在安装操作系统（如 Windows、Linux 发行版或服务器系统）时，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iso镜像烧录">
+<meta property="og:url" content="http://example.com/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="写这篇博客的起因是在服务器实体机上装Anolis8.10minimal，试过很多不同的镜像都会卡在网络选择以及源选择上，又因为是新的服务器，交换机IP还没配没网所以卡住。之所以会出现这种问题，是因为我在刻录镜像时使用的是默认的iso模式而不是dd模式（ultraIso是raw），导致文件结构发生了改变。  iso镜像烧录  在安装操作系统（如 Windows、Linux 发行版或服务器系统）时，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-07-11T00:39:21.000Z">
+<meta property="article:modified_time" content="2025-07-11T01:03:33.943Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="镜像烧录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'iso镜像烧录',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-11 09:03:33'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">131</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">149</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">iso镜像烧录</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-07-11T00:39:21.000Z" title="Created 2025-07-11 08:39:21">2025-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-11T01:03:33.943Z" title="Updated 2025-07-11 09:03:33">2025-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/" data-flag-title="iso镜像烧录"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>写这篇博客的起因是在服务器实体机上装Anolis8.10minimal，试过很多不同的镜像都会卡在网络选择以及源选择上，又因为是新的服务器，交换机IP还没配没网所以卡住。之所以会出现这种问题，是因为我在刻录镜像时使用的是默认的<strong>iso</strong>模式而不是<strong>dd</strong>模式（ultraIso是raw），导致文件结构发生了改变。</p>
+</blockquote>
+<h1 id="iso镜像烧录"><a href="#iso镜像烧录" class="headerlink" title="iso镜像烧录"></a>iso镜像烧录</h1><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/burn_iso/image-20250711085559835.png" alt="image-20250711085559835"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/burn_iso/image-20250711085447775.png" alt="image-20250711085447775"></p>
+<p>在安装操作系统（如 Windows、Linux 发行版或服务器系统）时，选择合适的 ISO 烧录方式至关重要。不同的刻录方法会影响 <strong>引导兼容性、安装成功率</strong>，甚至导致玄学问题（如 <code>dracut emergency shell</code>）。</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>方式</strong></th>
+<th align="left"><strong>适用场景</strong></th>
+<th align="left"><strong>优点</strong></th>
+<th align="left"><strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>dd</code>&#x2F;RAW 模式</strong></td>
+<td align="left">Linux 服务器、特殊硬件</td>
+<td align="left">100% 兼容，保留原始结构</td>
+<td align="left">U 盘无法直接存取剩余空间</td>
+</tr>
+<tr>
+<td align="left"><strong>Rufus ISO 模式</strong></td>
+<td align="left">Windows&#x2F;Ubuntu 等主流系统</td>
+<td align="left">可编辑、U 盘可复用</td>
+<td align="left">可能破坏非标准 ISO 的引导</td>
+</tr>
+<tr>
+<td align="left"><strong>UltraISO USB-HDD+</strong></td>
+<td align="left">老旧 Legacy BIOS 电脑</td>
+<td align="left">兼容部分旧机器</td>
+<td align="left">不支持 UEFI，可能损坏元数据</td>
+</tr>
+<tr>
+<td align="left"><strong>直接解压到 FAT32</strong></td>
+<td align="left">几乎不推荐</td>
+<td align="left">仅适用于极少数 WinPE 工具</td>
+<td align="left">99% 无法引导</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="1-关键概念解析"><a href="#1-关键概念解析" class="headerlink" title="1. 关键概念解析"></a><strong>1. 关键概念解析</strong></h2><h3 id="（1）dd-RAW-模式：最可靠的底层写入"><a href="#（1）dd-RAW-模式：最可靠的底层写入" class="headerlink" title="（1）dd&#x2F;RAW 模式：最可靠的底层写入"></a><strong>（1）<code>dd</code>&#x2F;RAW 模式：最可靠的底层写入</strong></h3><ul>
+<li><strong>原理</strong>：逐字节复制 ISO 到 U 盘，完全保留引导扇区、分区表和文件系统。</li>
+<li><strong>适用场景</strong>：<ul>
+<li>龙蜥 (Anolis)、CentOS、RHEL 等企业级 Linux</li>
+<li>华为&#x2F;戴尔服务器等特殊硬件</li>
+<li>Arch Linux、Gentoo 等非标准引导的发行版</li>
+</ul>
+</li>
+</ul>
+<p><strong>操作方法：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=anolis.iso of=/dev/sdX bs=4M status=progress oflag=<span class="built_in">sync</span>  <span class="comment"># Linux/macOS</span></span><br></pre></td></tr></table></figure>
+
+<p>（Windows 可用 Rufus 的 <strong>DD 镜像模式</strong> 或 UltraISO 的 <strong>RAW 写入</strong>）</p>
+<hr>
+<h3 id="（2）Rufus-ISO-模式：平衡易用性与兼容性"><a href="#（2）Rufus-ISO-模式：平衡易用性与兼容性" class="headerlink" title="（2）Rufus ISO 模式：平衡易用性与兼容性"></a><strong>（2）Rufus ISO 模式：平衡易用性与兼容性</strong></h3><ul>
+<li><strong>原理</strong>：提取 ISO 内容，重新生成 FAT32&#x2F;NTFS 文件系统和引导记录。</li>
+<li><strong>适用场景</strong>：<ul>
+<li>Windows 10&#x2F;11 安装</li>
+<li>Ubuntu、Fedora 等主流 Linux 桌面版</li>
+</ul>
+</li>
+</ul>
+<p><strong>⚠️ 风险点</strong>：</p>
+<ul>
+<li>对非 Hybrid ISO（如某些定制镜像）可能破坏 <code>initramfs</code> 路径，导致安装失败。</li>
+</ul>
+<hr>
+<h3 id="（3）UltraISO-USB-HDD-：旧设备的妥协方案"><a href="#（3）UltraISO-USB-HDD-：旧设备的妥协方案" class="headerlink" title="（3）UltraISO USB-HDD+：旧设备的妥协方案"></a><strong>（3）UltraISO USB-HDD+：旧设备的妥协方案</strong></h3><ul>
+<li><strong>仅限 Legacy BIOS 机器</strong>，UEFI 电脑可能无法识别。</li>
+<li><strong>慎用</strong>：部分 Linux ISO 会因元数据损坏导致安装源丢失（如龙蜥提示“必须配置源”）。</li>
+</ul>
+<h2 id="2-其他概念解析"><a href="#2-其他概念解析" class="headerlink" title="2. 其他概念解析"></a><strong>2. 其他概念解析</strong></h2><h3 id="1-分区类型（Partition-Scheme）"><a href="#1-分区类型（Partition-Scheme）" class="headerlink" title="1. 分区类型（Partition Scheme）"></a><strong>1. 分区类型（Partition Scheme）</strong></h3><h4 id="MBR-vs-GPT"><a href="#MBR-vs-GPT" class="headerlink" title="MBR vs GPT"></a><strong>MBR vs GPT</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>特性</strong></th>
+<th align="left"><strong>MBR (Master Boot Record)</strong></th>
+<th align="left"><strong>GPT (GUID Partition Table)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>兼容性</strong></td>
+<td align="left">仅支持 Legacy BIOS（老旧电脑）</td>
+<td align="left">支持 UEFI 和现代硬件</td>
+</tr>
+<tr>
+<td align="left"><strong>磁盘容量</strong></td>
+<td align="left">最大 2TB</td>
+<td align="left">支持 2TB 以上磁盘</td>
+</tr>
+<tr>
+<td align="left"><strong>分区数量</strong></td>
+<td align="left">最多 4 个主分区</td>
+<td align="left">理论上无限分区</td>
+</tr>
+<tr>
+<td align="left"><strong>适用场景</strong></td>
+<td align="left">Windows 7 及更早系统</td>
+<td align="left">Windows 10+&#x2F;Linux 服务器&#x2F;新硬件</td>
+</tr>
+</tbody></table>
+<p><strong>烧录工具中的选择：</strong></p>
+<ul>
+<li>Rufus&#x2F;UltraISO 会提示选择 <strong>MBR</strong> 或 <strong>GPT</strong>，需匹配目标机器的启动模式（BIOS&#x2F;UEFI）。</li>
+<li><strong>错误选择后果</strong>：U盘无法被识别为启动设备，提示 “No bootable device”。</li>
+</ul>
+<hr>
+<h3 id="2-持久化分区（Persistence）"><a href="#2-持久化分区（Persistence）" class="headerlink" title="2. 持久化分区（Persistence）"></a><strong>2. 持久化分区（Persistence）</strong></h3><h4 id="什么是持久化？"><a href="#什么是持久化？" class="headerlink" title="什么是持久化？"></a><strong>什么是持久化？</strong></h4><ul>
+<li>在Live USB（如Ubuntu安装盘）中保留用户数据和设置的功能，重启后不会丢失。</li>
+<li><strong>实现方式</strong>：在U盘上划分一个独立分区存储变更数据。</li>
+</ul>
+<h4 id="分区大小设置原则"><a href="#分区大小设置原则" class="headerlink" title="分区大小设置原则"></a><strong>分区大小设置原则</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>用途</strong></th>
+<th align="left"><strong>推荐大小</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">轻度使用（终端配置）</td>
+<td align="left">2GB-4GB</td>
+<td align="left">足够保存基础软件包和配置文件</td>
+</tr>
+<tr>
+<td align="left">开发环境</td>
+<td align="left">8GB-16GB</td>
+<td align="left">需容纳开发工具和依赖库</td>
+</tr>
+<tr>
+<td align="left">完整桌面体验</td>
+<td align="left">16GB+</td>
+<td align="left">允许安装大型软件（如VS Code、Docker）</td>
+</tr>
+</tbody></table>
+<p><strong>技术实现（以Ubuntu为例）：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 使用mkusb工具创建持久化分区</span><br><span class="line">sudo mkusb -p ubuntu-22.04.iso</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>📌 注意：Windows系统无法原生支持Linux持久化分区。</p>
+</blockquote>
+<hr>
+<h3 id="3-文件系统（FAT32-vs-NTFS-vs-exFAT）"><a href="#3-文件系统（FAT32-vs-NTFS-vs-exFAT）" class="headerlink" title="3. 文件系统（FAT32 vs NTFS vs exFAT）"></a><strong>3. 文件系统（FAT32 vs NTFS vs exFAT）</strong></h3><h4 id="FAT32：兼容性之王"><a href="#FAT32：兼容性之王" class="headerlink" title="FAT32：兼容性之王"></a><strong>FAT32：兼容性之王</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>特性</strong></th>
+<th align="left"><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>最大文件大小</strong></td>
+<td align="left">4GB（无法存放超过此大小的单个文件，如Win10原版ISO）</td>
+</tr>
+<tr>
+<td align="left"><strong>优点</strong></td>
+<td align="left">所有操作系统和固件（包括树莓派、服务器BMC）都能识别</td>
+</tr>
+<tr>
+<td align="left"><strong>缺点</strong></td>
+<td align="left">不支持文件权限、日志等高级功能</td>
+</tr>
+</tbody></table>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>UEFI启动盘（强制要求FAT32）</li>
+<li>需要跨平台读写的情况（Windows&#x2F;Mac&#x2F;Linux）</li>
+</ul>
+<h4 id="NTFS-exFAT：大文件支持"><a href="#NTFS-exFAT：大文件支持" class="headerlink" title="NTFS&#x2F;exFAT：大文件支持"></a><strong>NTFS&#x2F;exFAT：大文件支持</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>文件系统</strong></th>
+<th align="left"><strong>优势</strong></th>
+<th align="left"><strong>局限性</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">NTFS</td>
+<td align="left">支持日志、大文件</td>
+<td align="left">部分Linux设备需额外驱动</td>
+</tr>
+<tr>
+<td align="left">exFAT</td>
+<td align="left">跨平台、无4GB限制</td>
+<td align="left">老旧BIOS可能无法识别</td>
+</tr>
+</tbody></table>
+<p><strong>烧录工具中的选择逻辑：</strong></p>
+<p>图表</p>
+<p>代码</p>
+<hr>
+<h3 id="4-簇大小（Cluster-Size-Allocation-Unit-Size）"><a href="#4-簇大小（Cluster-Size-Allocation-Unit-Size）" class="headerlink" title="4. 簇大小（Cluster Size&#x2F;Allocation Unit Size）"></a><strong>4. 簇大小（Cluster Size&#x2F;Allocation Unit Size）</strong></h3><h4 id="什么是簇？"><a href="#什么是簇？" class="headerlink" title="什么是簇？"></a><strong>什么是簇？</strong></h4><ul>
+<li>文件系统分配存储空间的最小单位，类似”数据块”。</li>
+<li><strong>例如</strong>：即使文件只有1KB，若簇大小为32KB，仍会占用32KB空间。</li>
+</ul>
+<h4 id="不同簇大小的影响"><a href="#不同簇大小的影响" class="headerlink" title="不同簇大小的影响"></a><strong>不同簇大小的影响</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>簇大小</strong></th>
+<th align="left"><strong>空间利用率</strong></th>
+<th align="left"><strong>读写速度</strong></th>
+<th align="left"><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">4KB</td>
+<td align="left">高</td>
+<td align="left">较慢</td>
+<td align="left">存放大量小文件（如文档）</td>
+</tr>
+<tr>
+<td align="left">32KB</td>
+<td align="left">中</td>
+<td align="left">较快</td>
+<td align="left">通用场景（平衡选择）</td>
+</tr>
+<tr>
+<td align="left">64KB+</td>
+<td align="left">低</td>
+<td align="left">最快</td>
+<td align="left">大型媒体文件&#x2F;游戏安装</td>
+</tr>
+</tbody></table>
+<p><strong>烧录工具中的设置建议：</strong></p>
+<ul>
+<li><strong>Windows安装盘</strong>：默认32KB（平衡速度与兼容性）</li>
+<li><strong>Linux LiveUSB</strong>：4KB（优化小文件读取）</li>
+<li><strong>错误选择后果</strong>：U盘性能下降或浪费存储空间。</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/">http://example.com/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/">镜像烧录</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/07/07/%E3%80%8A%E5%8F%A4%E9%81%93%E3%80%8B/" title="《古道》"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">《古道》</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/11/28/Linux-system-Notes/" title="Linux Notes"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Notes</div></div></a></div><div><a href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-26</div><div class="title">vmWare安装龙蜥Linux-minimal</div></div></a></div><div><a href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-27</div><div class="title">MySql与Nginx容器化部署实现持久化存储</div></div></a></div><div><a href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">AD域控和LDAP</div></div></a></div><div><a href="/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/" title="AD域控结合Self-Password-Services实现自助改密码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">AD域控结合Self-Password-Services实现自助改密码</div></div></a></div><div><a href="/2025/07/04/AD%E5%9F%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85CA%E6%9C%8D%E5%8A%A1/" title="AD域服务器安装CA服务"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-04</div><div class="title">AD域服务器安装CA服务</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">131</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">149</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">iso镜像烧录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">1. 关键概念解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89dd-RAW-%E6%A8%A1%E5%BC%8F%EF%BC%9A%E6%9C%80%E5%8F%AF%E9%9D%A0%E7%9A%84%E5%BA%95%E5%B1%82%E5%86%99%E5%85%A5"><span class="toc-number">1.1.1.</span> <span class="toc-text">（1）dd&#x2F;RAW 模式：最可靠的底层写入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89Rufus-ISO-%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%B9%B3%E8%A1%A1%E6%98%93%E7%94%A8%E6%80%A7%E4%B8%8E%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">（2）Rufus ISO 模式：平衡易用性与兼容性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89UltraISO-USB-HDD-%EF%BC%9A%E6%97%A7%E8%AE%BE%E5%A4%87%E7%9A%84%E5%A6%A5%E5%8D%8F%E6%96%B9%E6%A1%88"><span class="toc-number">1.1.3.</span> <span class="toc-text">（3）UltraISO USB-HDD+：旧设备的妥协方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%B6%E4%BB%96%E6%A6%82%E5%BF%B5%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">2. 其他概念解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%88%86%E5%8C%BA%E7%B1%BB%E5%9E%8B%EF%BC%88Partition-Scheme%EF%BC%89"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 分区类型（Partition Scheme）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MBR-vs-GPT"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">MBR vs GPT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8C%81%E4%B9%85%E5%8C%96%E5%88%86%E5%8C%BA%EF%BC%88Persistence%EF%BC%89"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 持久化分区（Persistence）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%9F"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">什么是持久化？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%8C%BA%E5%A4%A7%E5%B0%8F%E8%AE%BE%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">分区大小设置原则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%EF%BC%88FAT32-vs-NTFS-vs-exFAT%EF%BC%89"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. 文件系统（FAT32 vs NTFS vs exFAT）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FAT32%EF%BC%9A%E5%85%BC%E5%AE%B9%E6%80%A7%E4%B9%8B%E7%8E%8B"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">FAT32：兼容性之王</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NTFS-exFAT%EF%BC%9A%E5%A4%A7%E6%96%87%E4%BB%B6%E6%94%AF%E6%8C%81"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">NTFS&#x2F;exFAT：大文件支持</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%B0%87%E5%A4%A7%E5%B0%8F%EF%BC%88Cluster-Size-Allocation-Unit-Size%EF%BC%89"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. 簇大小（Cluster Size&#x2F;Allocation Unit Size）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%B0%87%EF%BC%9F"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">什么是簇？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E7%B0%87%E5%A4%A7%E5%B0%8F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">不同簇大小的影响</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/11/iso%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95/" title="iso镜像烧录">iso镜像烧录</a><time datetime="2025-07-11T00:39:21.000Z" title="Created 2025-07-11 08:39:21">2025-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/07/%E3%80%8A%E5%8F%A4%E9%81%93%E3%80%8B/" title="《古道》">《古道》</a><time datetime="2025-07-07T00:52:26.000Z" title="Created 2025-07-07 08:52:26">2025-07-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/" title="网络连通性测试总结">网络连通性测试总结</a><time datetime="2025-07-04T09:58:40.000Z" title="Created 2025-07-04 17:58:40">2025-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/04/AD%E5%9F%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85CA%E6%9C%8D%E5%8A%A1/" title="AD域服务器安装CA服务">AD域服务器安装CA服务</a><time datetime="2025-07-04T08:26:34.000Z" title="Created 2025-07-04 16:26:34">2025-07-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/" title="AD域控结合Self-Password-Services实现自助改密码">AD域控结合Self-Password-Services实现自助改密码</a><time datetime="2025-06-30T22:39:25.000Z" title="Created 2025-07-01 06:39:25">2025-07-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP">AD域控和LDAP</a><time datetime="2025-06-29T22:31:59.000Z" title="Created 2025-06-30 06:31:59">2025-06-30</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/27/%E3%80%8A%E7%A6%85%E4%B8%8E%E6%91%A9%E6%89%98%E8%BD%A6%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF%E3%80%8B/" title="《禅与摩托车维修艺术》">《禅与摩托车维修艺术》</a><time datetime="2025-06-26T22:44:32.000Z" title="Created 2025-06-27 06:44:32">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储">MySql与Nginx容器化部署实现持久化存储</a><time datetime="2025-06-26T22:25:39.000Z" title="Created 2025-06-27 06:25:39">2025-06-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal">vmWare安装龙蜥Linux-minimal</a><time datetime="2025-06-25T22:23:20.000Z" title="Created 2025-06-26 06:23:20">2025-06-26</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/06/12/Nginx-Docker-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE-Web-%E5%BA%94%E7%94%A8/" title="Nginx + Docker 实现多级域名访问 Web 应用">Nginx + Docker 实现多级域名访问 Web 应用</a><time datetime="2025-06-12T05:13:28.000Z" title="Created 2025-06-12 13:13:28">2025-06-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
