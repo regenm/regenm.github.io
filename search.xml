@@ -19643,4 +19643,464 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>镜像烧录</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Linux磁盘操作</title>
+    <url>/2025/07/14/Linux%E7%A3%81%E7%9B%98%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h1 id="Linux-磁盘操作总览"><a href="#Linux-磁盘操作总览" class="headerlink" title="Linux 磁盘操作总览"></a>Linux 磁盘操作总览</h1><blockquote>
+<p>常用命令：<code>lsblk</code>、<code>fdisk</code>、<code>parted</code>、<code>mkfs</code>、<code>mount</code>、<code>blkid</code>、<code>df</code>、<code>lsblk</code>、<code>vim /etc/fstab</code></p>
+</blockquote>
+<hr>
+<h2 id="查看磁盘和分区信息"><a href="#查看磁盘和分区信息" class="headerlink" title="查看磁盘和分区信息"></a>查看磁盘和分区信息</h2><h3 id="lsblk"><a href="#lsblk" class="headerlink" title="lsblk"></a><code>lsblk</code></h3><p>显示块设备（disk、part）的结构：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715092022905.png" alt="image-20250715092022905"></p>
+<hr>
+<h3 id="fdisk-l"><a href="#fdisk-l" class="headerlink" title="fdisk -l"></a><code>fdisk -l</code></h3><p>列出所有磁盘和分区的详细信息（包含分区类型、UUID 等）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fdisk -l</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715092323809.png" alt="image-20250715092323809"></p>
+<hr>
+<h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p>假设要对 <code>/dev/sdb</code> 新硬盘进行分区：</p>
+<h3 id="MBR-分区-fdisk-dev-sdb"><a href="#MBR-分区-fdisk-dev-sdb" class="headerlink" title="MBR 分区  fdisk /dev/sdb"></a>MBR 分区  <code>fdisk /dev/sdb</code></h3><p>交互式工具：</p>
+<ul>
+<li><code>n</code> → 新建分区</li>
+<li><code>p</code> → 主分区</li>
+<li><code>1</code> → 分区号</li>
+<li>回车 → 默认第一个扇区</li>
+<li>回车 → 默认最后一个扇区（或输入 +100G 指定大小）</li>
+<li><code>w</code> → 写入分区表并退出</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715092714083.png" alt="image-20250715092714083"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715092726925.png" alt="image-20250715092726925"></p>
+<p>可以发现已经创建好了sdb1</p>
+<blockquote>
+<p>⚠ 注意：GPT 分区表可以用 <code>parted</code> &#x2F; <code>gdisk</code>，大磁盘（&gt;2TB）推荐 GPT。</p>
+</blockquote>
+<h3 id="GPT-分区parted-大容量以及现代机器推荐"><a href="#GPT-分区parted-大容量以及现代机器推荐" class="headerlink" title="GPT  分区parted 大容量以及现代机器推荐"></a>GPT  分区<code>parted</code> 大容量以及现代机器推荐</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line">mklabel gpt</span><br><span class="line">mkpart primary ext4 0% 100%</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093446008.png" alt="image-20250715093446008"></p>
+<ul>
+<li>如果是大容量磁盘，例如几十T需使用xfs文件系统。</li>
+</ul>
+<h3 id="查看磁盘分区类型"><a href="#查看磁盘分区类型" class="headerlink" title="查看磁盘分区类型"></a>查看磁盘分区类型</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parted /dev/sdb <span class="built_in">print</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093327413.png" alt="image-20250715093327413"></p>
+<hr>
+<h2 id="格式化（创建文件系统）"><a href="#格式化（创建文件系统）" class="headerlink" title="格式化（创建文件系统）"></a>格式化（创建文件系统）</h2><p>假设新建的分区是 <code>/dev/sdb1</code>：</p>
+<h3 id="mkfs-工具："><a href="#mkfs-工具：" class="headerlink" title="mkfs 工具："></a><code>mkfs</code> 工具：</h3><ul>
+<li>ext4：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093626175.png" alt="image-20250715093626175"></p>
+<ul>
+<li>xfs（适合大文件&#x2F;高性能场景）：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mkfs.xfs /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看支持的文件系统：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /sbin/mkfs*</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093712405.png" alt="image-20250715093712405"></p>
+<hr>
+<h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><p>假设要挂载到 <code>/data</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /data</span><br><span class="line">mount /dev/sdb1 /data</span><br></pre></td></tr></table></figure>
+
+<p>查看当前挂载情况：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsblk</span><br><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093903586.png" alt="image-20250715093903586"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093950133.png" alt="image-20250715093950133"></p>
+<hr>
+<h2 id="开机自动挂载"><a href="#开机自动挂载" class="headerlink" title="开机自动挂载"></a>开机自动挂载</h2><p>获取分区 UUID：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">blkid /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715094012956.png" alt="image-20250715094012956"></p>
+<p><strong>复制uuid</strong></p>
+<p>编辑 <code>/etc/fstab</code>：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>添加一行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UUID=098f85d8-3753-444b-9d03-309052d9c645 /data ext4 defaults 0 0</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>UUID：分区唯一标识符</li>
+<li><code>/data</code>：挂载点</li>
+<li><code>ext4</code>：文件系统类型</li>
+<li><code>defaults</code>：默认参数（读写、自动挂载等）</li>
+<li><code>0 0</code>：是否做 dump 和 fsck 检查</li>
+</ul>
+<p>最后可以通过<code>reboot</code>测试一下是否成功挂载</p>
+<hr>
+<h2 id="文件系统查看-检查"><a href="#文件系统查看-检查" class="headerlink" title="文件系统查看 &amp; 检查"></a>文件系统查看 &amp; 检查</h2><ul>
+<li>查看磁盘使用情况：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看分区类型和 UUID：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">blkid</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看详细挂载信息：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查文件系统（例如 ext4）：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fsck /dev/sdb1</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结：Linux-磁盘完整操作流程："><a href="#总结：Linux-磁盘完整操作流程：" class="headerlink" title="总结：Linux 磁盘完整操作流程："></a><strong>总结：Linux 磁盘完整操作流程</strong>：</h2><table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看磁盘</td>
+<td>lsblk &#x2F; fdisk -l</td>
+<td>确认设备</td>
+</tr>
+<tr>
+<td>分区</td>
+<td>fdisk &#x2F;dev&#x2F;sdb</td>
+<td>创建新分区</td>
+</tr>
+<tr>
+<td></td>
+<td>parted</td>
+<td>创建新分区、查看分区类型</td>
+</tr>
+<tr>
+<td>格式化</td>
+<td>mkfs.ext4 &#x2F;dev&#x2F;sdb1</td>
+<td>创建文件系统</td>
+</tr>
+<tr>
+<td>创建挂载点</td>
+<td>mkdir &#x2F;data</td>
+<td>挂载目录</td>
+</tr>
+<tr>
+<td>挂载</td>
+<td>mount &#x2F;dev&#x2F;sdb1 &#x2F;data</td>
+<td>手动挂载</td>
+</tr>
+<tr>
+<td>自动挂载</td>
+<td>blkid 获取 UUID + 编辑 &#x2F;etc&#x2F;fstab</td>
+<td>开机自动挂载</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h4><ol>
+<li>表格 ①：<strong>MBR 内部分区结构</strong>（主分区 &#x2F; 扩展分区 &#x2F; 逻辑分区 对比）</li>
+<li>表格 ②：<strong>MBR vs GPT 分区表 对比</strong></li>
+</ol>
+<h2 id="📦-表格①：MBR-分区结构"><a href="#📦-表格①：MBR-分区结构" class="headerlink" title="📦 表格①：MBR 分区结构"></a>📦 表格①：MBR 分区结构</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>数量限制</th>
+<th>是否可直接挂载</th>
+<th>用途与特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主分区 (Primary)</td>
+<td>最多 4 个</td>
+<td>✅ 可以</td>
+<td>最简单直接，可直接格式化挂载</td>
+</tr>
+<tr>
+<td>扩展分区 (Extended)</td>
+<td>最多 1 个（必须占一个主分区的位置）</td>
+<td>❌ 不可以</td>
+<td>容器分区，用来突破最多 4 个分区的限制</td>
+</tr>
+<tr>
+<td>逻辑分区 (Logical)</td>
+<td>无限（通常 &#x2F;dev&#x2F;sda5 开始）</td>
+<td>✅ 可以</td>
+<td>建在扩展分区内部，也可直接格式化挂载</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🧰-表格②：MBR-vs-GPT-分区表"><a href="#🧰-表格②：MBR-vs-GPT-分区表" class="headerlink" title="🧰 表格②：MBR vs GPT 分区表"></a>🧰 表格②：MBR vs GPT 分区表</h2><table>
+<thead>
+<tr>
+<th>特点</th>
+<th>MBR</th>
+<th>GPT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>最大支持容量</td>
+<td>单盘最大约 2TB</td>
+<td>理论支持到 18EB（几乎无限）</td>
+</tr>
+<tr>
+<td>分区总数</td>
+<td>最多 4 个主分区；超过需用扩展+逻辑分区</td>
+<td>默认可建 128 个分区（都平等）</td>
+</tr>
+<tr>
+<td>扩展&#x2F;逻辑分区</td>
+<td>有</td>
+<td>无</td>
+</tr>
+<tr>
+<td>容错</td>
+<td>无</td>
+<td>有主备分区表，更可靠</td>
+</tr>
+<tr>
+<td>启动方式兼容性</td>
+<td>传统 BIOS 启动（只支持 MBR）</td>
+<td>推荐 UEFI 启动；也能配合 BIOS 启动</td>
+</tr>
+<tr>
+<td>使用场景</td>
+<td>小盘（≤2TB），老系统</td>
+<td>大盘、新硬件、新系统</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+        <tag>磁盘操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux网络配置</title>
+    <url>/2025/07/14/Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p>通用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>用途</th>
+<th>常用示例</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ip a</code></td>
+<td>查看网络接口和 IP 地址</td>
+<td><code>ip a</code></td>
+<td>类似 <code>ifconfig</code>，显示所有网卡状态</td>
+</tr>
+<tr>
+<td><code>ip link</code></td>
+<td>查看或管理网卡</td>
+<td><code>ip link set ens33 up</code></td>
+<td>激活或关闭网卡</td>
+</tr>
+<tr>
+<td><code>ping</code></td>
+<td>测试网络连通性</td>
+<td><code>ping www.baidu.com</code></td>
+<td>连续 ping 测试</td>
+</tr>
+<tr>
+<td><code>traceroute</code></td>
+<td>路由跟踪</td>
+<td><code>traceroute www.baidu.com</code></td>
+<td>显示到目标的跳数路径</td>
+</tr>
+<tr>
+<td><code>netstat</code></td>
+<td>查看网络连接</td>
+<td><code>netstat -tnlp</code></td>
+<td>查看监听端口与进程（需安装 <code>net-tools</code>）</td>
+</tr>
+<tr>
+<td><code>ss</code></td>
+<td>更快查看连接状态</td>
+<td><code>ss -tuln</code></td>
+<td>列出 TCP&#x2F;UDP 监听端口</td>
+</tr>
+<tr>
+<td><code>route</code></td>
+<td>查看&#x2F;配置路由</td>
+<td><code>route -n</code></td>
+<td>查看路由表（老工具，常用）</td>
+</tr>
+<tr>
+<td><code>ip route</code></td>
+<td>查看路由表</td>
+<td><code>ip route</code></td>
+<td>建议用替代 <code>route</code></td>
+</tr>
+<tr>
+<td><code>nmcli</code></td>
+<td>网络管理工具（命令行）</td>
+<td><code>nmcli dev show</code></td>
+<td>查看设备详细信息</td>
+</tr>
+<tr>
+<td><code>nmtui</code></td>
+<td>网络管理图形界面（终端）</td>
+<td><code>nmtui</code></td>
+<td>方便配置静态 IP</td>
+</tr>
+<tr>
+<td><code>ethtool</code></td>
+<td>查看&#x2F;修改网卡参数</td>
+<td><code>ethtool ens33</code></td>
+<td>查看网卡速率等信息</td>
+</tr>
+<tr>
+<td><code>dig</code></td>
+<td>DNS 查询工具</td>
+<td><code>dig www.baidu.com</code></td>
+<td>查看域名解析结果</td>
+</tr>
+<tr>
+<td><code>nslookup</code></td>
+<td>DNS 查询工具</td>
+<td><code>nslookup www.baidu.com</code></td>
+<td>类似 dig</td>
+</tr>
+</tbody></table>
+<h1 id="一、文件位置"><a href="#一、文件位置" class="headerlink" title="一、文件位置"></a><strong>一、文件位置</strong></h1><p>通常在：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/ifcfg-&lt;网卡名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>比如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="二、典型静态-IP-配置内容"><a href="#二、典型静态-IP-配置内容" class="headerlink" title="二、典型静态 IP 配置内容"></a><strong>二、典型静态 IP 配置内容</strong></h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TYPE=Ethernet             # 网卡类型（固定写 Ethernet）</span><br><span class="line">BOOTPROTO=static          # 启动时使用 static（静态 IP）</span><br><span class="line">NAME=ens33                # 连接名</span><br><span class="line">DEVICE=ens33              # 网卡名</span><br><span class="line">ONBOOT=yes                # 开机自动启用</span><br><span class="line">IPADDR=192.168.1.100      # 静态 IP 地址</span><br><span class="line">NETMASK=255.255.255.0     # 子网掩码</span><br><span class="line">GATEWAY=192.168.1.1       # 默认网关</span><br><span class="line">DNS1=8.8.8.8              # DNS 服务器</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="三、修改后如何生效"><a href="#三、修改后如何生效" class="headerlink" title="三、修改后如何生效"></a><strong>三、修改后如何生效</strong></h1><p>修改完后：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+
+<p>或：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nmcli connection reload</span><br></pre></td></tr></table></figure>
+
+<p>查看是否生效：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip a</span><br><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="四、常用字段解释"><a href="#四、常用字段解释" class="headerlink" title="四、常用字段解释"></a><strong>四、常用字段解释</strong></h1><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TYPE</td>
+<td>设备类型（通常写 Ethernet）</td>
+</tr>
+<tr>
+<td>BOOTPROTO</td>
+<td>启动时 IP 分配方式：static &#x2F; dhcp</td>
+</tr>
+<tr>
+<td>NAME</td>
+<td>连接名</td>
+</tr>
+<tr>
+<td>DEVICE</td>
+<td>网卡名（如 ens33）</td>
+</tr>
+<tr>
+<td>ONBOOT</td>
+<td>开机是否自动启动</td>
+</tr>
+<tr>
+<td>IPADDR</td>
+<td>静态 IP</td>
+</tr>
+<tr>
+<td>NETMASK</td>
+<td>子网掩码</td>
+</tr>
+<tr>
+<td>GATEWAY</td>
+<td>默认网关</td>
+</tr>
+<tr>
+<td>DNS1&#x2F;DNS2</td>
+<td>DNS 服务器</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="五、动态-IP（DHCP）配置"><a href="#五、动态-IP（DHCP）配置" class="headerlink" title="五、动态 IP（DHCP）配置"></a><strong>五、动态 IP（DHCP）配置</strong></h1><p>只需：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BOOTPROTO=dhcp</span><br><span class="line">ONBOOT=yes</span><br></pre></td></tr></table></figure>
+
+<p>删除或注释掉 IPADDR &#x2F; NETMASK &#x2F; GATEWAY 等行。</p>
+<hr>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机网络-证书理解</title>
+    <url>/2025/07/14/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%81%E4%B9%A6%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>《我与地坛》</title>
+    <url>/2025/07/15/%E3%80%8A%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《我与地坛》"><a href="#《我与地坛》" class="headerlink" title="《我与地坛》"></a>《我与地坛》</h1><h2 id="史铁生"><a href="#史铁生" class="headerlink" title="史铁生"></a>史铁生</h2><p><img src="/../images/books/%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B/image-20250715121206625.png" alt="image-20250715121206625"></p>
+<p>第一次看的时候只是浅浅的被触动，近来书荒再次拿起这本书，读第一段的时候眼睛就莫名其妙地湿润了。我一个字一个字的读，慢慢地读，地铁上的嘈杂早已消失不见，仿佛按下了禁音键。太阳在远处落下，此时读到</p>
+<blockquote>
+<p>但是太阳，它每时每刻都是夕阳也都是旭日。当它熄灭着走下山去收尽苍凉残照之际，正是它在另一面燃烧着爬上山巅布散烈烈朝辉之时。那一天，我也将沉静着走下山去，扶着我的拐杖。有一天，在某一处山洼里，势必会跑上来一个欢蹦的孩子，抱着他的玩具。</p>
+<p>当然，那不是我。</p>
+<p>但是，那不是我吗？</p>
+</blockquote>
+<p>我感受到了一种联系，与作者的联系，与世界的联系。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux包管理器</title>
+    <url>/2025/07/14/Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>system</tag>
+        <tag>command</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
 </search>
