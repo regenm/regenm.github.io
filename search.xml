@@ -19677,7 +19677,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <blockquote>
 <p>⚠ 注意：GPT 分区表可以用 <code>parted</code> &#x2F; <code>gdisk</code>，大磁盘（&gt;2TB）推荐 GPT。</p>
 </blockquote>
-<h3 id="GPT-分区parted-大容量以及现代机器推荐"><a href="#GPT-分区parted-大容量以及现代机器推荐" class="headerlink" title="GPT  分区parted 大容量以及现代机器推荐"></a>GPT  分区<code>parted</code> 大容量以及现代机器推荐</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line">mklabel gpt</span><br><span class="line">mkpart primary ext4 0% 100%</span><br></pre></td></tr></table></figure>
+<h3 id="GPT-分区parted-大容量以及现代机器推荐"><a href="#GPT-分区parted-大容量以及现代机器推荐" class="headerlink" title="GPT  分区parted 大容量以及现代机器推荐"></a>GPT  分区<code>parted</code> 大容量以及现代机器推荐</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parted /dev/sdb</span><br><span class="line">mklabel gpt</span><br><span class="line">mkpart primary xfs 0% 100%</span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/disk/image-20250715093446008.png" alt="image-20250715093446008"></p>
 <ul>
@@ -20231,6 +20231,378 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>system</tag>
         <tag>command</tag>
         <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>DIFY 新闻助手</title>
+    <url>/2025/07/17/DIFY-%E6%96%B0%E9%97%BB%E5%8A%A9%E6%89%8B/</url>
+    <content><![CDATA[<h1 id="DIFY-新闻助手"><a href="#DIFY-新闻助手" class="headerlink" title="DIFY 新闻助手"></a>DIFY 新闻助手</h1><blockquote>
+<p>老是被说跟不上互联网的各种信息节奏，被说落后、村里没通网之类的。现在利用这个简单的工具快速地了解世界在发生什么。<strong>世界不是由孤立的东西或孤立的过程构成的，而是由事物的联系和相互作用构成的</strong>。不能一心只读圣贤书。</p>
+</blockquote>
+<p>整体思路就是：模型+搜索引擎+时间API</p>
+<p><img src="/../images/AI/3.png" alt="image-20250717084040052"></p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><hr>
+<p><img src="/../images/AI/4.png" alt="image-20250717084340474"></p>
+<blockquote>
+<h3 id="新闻摘要"><a href="#新闻摘要" class="headerlink" title="新闻摘要"></a>新闻摘要</h3><h4 id="国内外要闻"><a href="#国内外要闻" class="headerlink" title="国内外要闻"></a>国内外要闻</h4><ul>
+<li><strong>乌议会批准延长国家战时状态至11月5日</strong></li>
+<li><strong>巴卫生部门称以军袭击加沙多地致70人死亡</strong></li>
+<li><strong>第十一批国家组织药品集中带量采购工作启动</strong></li>
+<li><strong>2025年黄河调水调沙流量全部入海</strong></li>
+</ul>
+<h4 id="政策与会议"><a href="#政策与会议" class="headerlink" title="政策与会议"></a>政策与会议</h4><ul>
+<li><strong>国新办就2025年上半年工业和信息化发展情况举行新闻发布会</strong></li>
+<li><strong>国新办举行“高质量完成’十四五’规划”系列主题新闻发布会（商务部）</strong></li>
+<li><strong>国新办就2025年上半年农业农村经济运行情况举行新闻发布会</strong></li>
+<li><strong>国新办举行“高质量完成’十四五’规划”系列主题新闻发布会（国家知识产权局）</strong></li>
+</ul>
+<h4 id="社会与科技"><a href="#社会与科技" class="headerlink" title="社会与科技"></a>社会与科技</h4><ul>
+<li><strong>科学家证明果茶等饮料对牙齿造成不可逆转的伤害，合理安排饮用时间可保护牙齿</strong></li>
+<li><strong>台内政部长称“风灾复原快”遭批评</strong></li>
+<li><strong>加州华人夫妇豪宅养21娃为卖往中国赚钱</strong></li>
+<li><strong>职业技能培训助力人才与产业“双向奔赴”</strong></li>
+<li><strong>国家发展改革委新增下达100亿元以工代赈中央投资，将吸纳带动31万名重点群体就业增收</strong></li>
+</ul>
+<h4 id="体育"><a href="#体育" class="headerlink" title="体育"></a>体育</h4><ul>
+<li><strong>中国女足获东亚杯亚军，更新换代太慢惹批评，舆论应给予主帅米利西奇更多耐心</strong></li>
+</ul>
+<h4 id="国际"><a href="#国际" class="headerlink" title="国际"></a>国际</h4><ul>
+<li><strong>李强同澳大利亚总理阿尔巴尼斯共同出席第八届中澳工商界首席执行官圆桌会</strong></li>
+<li><strong>李强同澳大利亚总理阿尔巴尼斯举行第十轮中澳总理年度会晤</strong></li>
+<li><strong>美国总统唐纳德·特朗普向欧盟发出警告，如果欧盟针对美国威士忌加征关税的计划如期实施，美国将对从欧洲进口的酒类加征200%报复性关税</strong></li>
+<li><strong>特朗普再次当选美国总统，习近平祝贺并希望中美关系在新任期内取得更大进展</strong></li>
+</ul>
+<h4 id="财经"><a href="#财经" class="headerlink" title="财经"></a>财经</h4><ul>
+<li><strong>商务部新闻发言人就美取消相关对华经贸限制措施情况答记者问</strong></li>
+<li><strong>中美经贸“链”仍十分密切</strong></li>
+<li><strong>全球首创！2025世界人形机器人运动会能量传递活动启幕</strong></li>
+</ul>
+<h4 id="文化与生活"><a href="#文化与生活" class="headerlink" title="文化与生活"></a>文化与生活</h4><ul>
+<li><strong>各地高校持续实施”宏志助航计划” 精准帮扶毕业生顺利就业</strong></li>
+<li><strong>信息化时代，课堂教学还需要板书吗？</strong></li>
+</ul>
+<h4 id="彩票"><a href="#彩票" class="headerlink" title="彩票"></a>彩票</h4><ul>
+<li><strong>2025080双色球开奖号码：03 07 08 10 16 19 + 05</strong></li>
+<li><strong>2025079双色球开奖号码：08 11 14 15 30 32 + 05</strong></li>
+</ul>
+<h4 id="外交"><a href="#外交" class="headerlink" title="外交"></a>外交</h4><ul>
+<li><strong>习近平祝贺特朗普再次当选美国总统，指出希望中美关系在美国总统新任期有一个好的开始</strong></li>
+<li><strong>习近平向多哥新任领导人致贺电</strong></li>
+</ul>
+<h4 id="环境与气象"><a href="#环境与气象" class="headerlink" title="环境与气象"></a>环境与气象</h4><ul>
+<li><strong>中国气象报社 版权所有</strong></li>
+<li><strong>为党和国家事业发展凝聚…进2025&#x2F;07&#x2F;01</strong></li>
+</ul>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li><strong>商务部新闻发言人就加拿大政府关闭海康威视在加业务事答记者问</strong></li>
+<li><strong>7月16日出版的第14期《求是》杂志发表习近平总书记重要文章 《坚定不移推进高水平对外开放》</strong></li>
+</ul>
+<hr>
+<h3 id="科技新闻摘要"><a href="#科技新闻摘要" class="headerlink" title="科技新闻摘要"></a>科技新闻摘要</h3><h4 id="1-我国科学家在世界上首次绘制脑科学图谱"><a href="#1-我国科学家在世界上首次绘制脑科学图谱" class="headerlink" title="1. 我国科学家在世界上首次绘制脑科学图谱"></a>1. 我国科学家在世界上首次绘制脑科学图谱</h4><ul>
+<li><strong>时间</strong>：5天前</li>
+<li><strong>内容</strong>：我国科学家在世界上首次绘制了大脑图谱，大脑由约860亿个神经元和数万亿个神经连接组成，是人体最为复杂和精密的器官，负责调控神经系统。</li>
+</ul>
+<h4 id="2-地球系统科学的发展过程与全球变化国际大科学计划"><a href="#2-地球系统科学的发展过程与全球变化国际大科学计划" class="headerlink" title="2. 地球系统科学的发展过程与全球变化国际大科学计划"></a>2. 地球系统科学的发展过程与全球变化国际大科学计划</h4><ul>
+<li><strong>作者</strong>：符淙斌</li>
+<li><strong>内容</strong>：地球系统科学是当今世界最具挑战性的前沿科学领域之一。文章总结分析了近半个世纪以来，国际科学理事会（ICSU）在地球系统科学领域的发展和国际大科学计划。</li>
+</ul>
+<h4 id="3-世界化学工程大会暨第21届亚太化工联盟大会在中国召开"><a href="#3-世界化学工程大会暨第21届亚太化工联盟大会在中国召开" class="headerlink" title="3. 世界化学工程大会暨第21届亚太化工联盟大会在中国召开"></a>3. 世界化学工程大会暨第21届亚太化工联盟大会在中国召开</h4><ul>
+<li><strong>时间</strong>：2025年7月14-18日</li>
+<li><strong>地点</strong>：中国</li>
+<li><strong>内容</strong>：这是全球化工领域历史悠久、学术领先的盛会，首次在中国召开。</li>
+</ul>
+<h4 id="4-羅佩凌博士的跨领域研究"><a href="#4-羅佩凌博士的跨领域研究" class="headerlink" title="4. 羅佩凌博士的跨领域研究"></a>4. 羅佩凌博士的跨领域研究</h4><ul>
+<li><strong>人物</strong>：羅佩凌博士</li>
+<li><strong>背景</strong>：物理背景出身，现研究跨足化学与光电，致力于通过基础物理化学研究探索大气科学的关键议题，展现了难得的跨领域深度与广度。</li>
+</ul>
+<h4 id="5-云南出土30万年前的木质工具"><a href="#5-云南出土30万年前的木质工具" class="headerlink" title="5. 云南出土30万年前的木质工具"></a>5. 云南出土30万年前的木质工具</h4><ul>
+<li><strong>时间</strong>：2025年7月9日</li>
+<li><strong>地点</strong>：云南</li>
+<li><strong>内容</strong>：出土的30万年前木质工具保存完好，为古人类研究提供了重要线索。</li>
+</ul>
+<h4 id="6-双色球开奖号码"><a href="#6-双色球开奖号码" class="headerlink" title="6. 双色球开奖号码"></a>6. 双色球开奖号码</h4><ul>
+<li><strong>日期</strong>：2025年7月10日</li>
+<li><strong>内容</strong>：红球：06, 08, 16, 22, 29, 32；蓝球：16；开奖号：03 07 08 10 16 19 + 05。</li>
+</ul>
+<h4 id="7-马斯克发布AI女友"><a href="#7-马斯克发布AI女友" class="headerlink" title="7. 马斯克发布AI女友"></a>7. 马斯克发布AI女友</h4><ul>
+<li><strong>时间</strong>：2025年7月10日</li>
+<li><strong>内容</strong>：马斯克发布了一款AI女友应用，刚上线就因内容“少儿不宜”引发争议。</li>
+</ul>
+<h4 id="8-京东向骑手卖电动自行车"><a href="#8-京东向骑手卖电动自行车" class="headerlink" title="8. 京东向骑手卖电动自行车"></a>8. 京东向骑手卖电动自行车</h4><ul>
+<li><strong>时间</strong>：2025年7月10日</li>
+<li><strong>内容</strong>：京东推出电动自行车销售计划，骑手在90天内跑够3000单可全额返款。</li>
+</ul>
+<h4 id="9-华为8-8英寸小平板本季度发布"><a href="#9-华为8-8英寸小平板本季度发布" class="headerlink" title="9. 华为8.8英寸小平板本季度发布"></a>9. 华为8.8英寸小平板本季度发布</h4><ul>
+<li><strong>时间</strong>：2025年7月10日</li>
+<li><strong>内容</strong>：华为计划在本季度发布一款8.8英寸的小平板。</li>
+</ul>
+<h4 id="10-云南出土30万年前的木质工具"><a href="#10-云南出土30万年前的木质工具" class="headerlink" title="10. 云南出土30万年前的木质工具"></a>10. 云南出土30万年前的木质工具</h4><ul>
+<li><strong>时间</strong>：2025年7月9日</li>
+<li><strong>地点</strong>：云南</li>
+<li><strong>内容</strong>：出土的30万年前木质工具保存完好，为古人类研究提供了重要线索。</li>
+</ul>
+<h4 id="11-AI通过心理实验"><a href="#11-AI通过心理实验" class="headerlink" title="11. AI通过心理实验"></a>11. AI通过心理实验</h4><ul>
+<li><strong>时间</strong>：2025年7月9日</li>
+<li><strong>内容</strong>：AI通过了心理实验，展示了人类的逻辑思维能力。</li>
+</ul>
+<h4 id="12-成人大脑暗藏“神经元再生”能力"><a href="#12-成人大脑暗藏“神经元再生”能力" class="headerlink" title="12. 成人大脑暗藏“神经元再生”能力"></a>12. 成人大脑暗藏“神经元再生”能力</h4><ul>
+<li><strong>时间</strong>：2025年7月8日</li>
+<li><strong>内容</strong>：科学研究发现，成人大脑中可能存在神经元再生的能力。</li>
+</ul>
+<h4 id="13-熬夜导致饮食变化"><a href="#13-熬夜导致饮食变化" class="headerlink" title="13. 熬夜导致饮食变化"></a>13. 熬夜导致饮食变化</h4><ul>
+<li><strong>时间</strong>：2025年7月7日</li>
+<li><strong>内容</strong>：研究发现，熬夜可能导致饮食习惯改变，增加食欲。</li>
+</ul>
+<h4 id="14-5万吨甲醇双燃料油船首制船在广州南沙命名"><a href="#14-5万吨甲醇双燃料油船首制船在广州南沙命名" class="headerlink" title="14. 5万吨甲醇双燃料油船首制船在广州南沙命名"></a>14. 5万吨甲醇双燃料油船首制船在广州南沙命名</h4><ul>
+<li><strong>时间</strong>：2025年7月15日</li>
+<li><strong>地点</strong>：广州南沙</li>
+<li><strong>内容</strong>：首制船命名，标志着中国在新能源船舶领域的又一突破。</li>
+</ul>
+<h4 id="15-2025年全国科技工作者日活动安排"><a href="#15-2025年全国科技工作者日活动安排" class="headerlink" title="15. 2025年全国科技工作者日活动安排"></a>15. 2025年全国科技工作者日活动安排</h4><ul>
+<li><strong>时间</strong>：2025年5月26日</li>
+<li><strong>内容</strong>：中国科协宣传文化部部长谭华霖介绍了2025年全国科技工作者日的整体工作安排，聚焦弘扬科学家精神等核心内容。</li>
+</ul>
+<h4 id="16-四川成都世运会火炬传递活动"><a href="#16-四川成都世运会火炬传递活动" class="headerlink" title="16. 四川成都世运会火炬传递活动"></a>16. 四川成都世运会火炬传递活动</h4><ul>
+<li><strong>时间</strong>：2025年7月26日</li>
+<li><strong>地点</strong>：四川成都</li>
+<li><strong>内容</strong>：火炬传递活动标志着世界运动会历史上首次进行火炬传递，设计上融合了古蜀文明与现代科技。</li>
+</ul>
+<h4 id="17-比特币市场控制权转移"><a href="#17-比特币市场控制权转移" class="headerlink" title="17. 比特币市场控制权转移"></a>17. 比特币市场控制权转移</h4><ul>
+<li><strong>时间</strong>：2周前</li>
+<li><strong>内容</strong>：比特币市场正在经历一场无声的控制权转移，重塑2.1万亿美元的市场格局。</li>
+</ul>
+<h4 id="18-理论攻坚推动基础研究高质量发展"><a href="#18-理论攻坚推动基础研究高质量发展" class="headerlink" title="18. 理论攻坚推动基础研究高质量发展"></a>18. 理论攻坚推动基础研究高质量发展</h4><ul>
+<li><strong>时间</strong>：近期</li>
+<li><strong>人物</strong>：周善贵</li>
+<li><strong>内容</strong>：周善贵在理论研究方面取得突破，推动了基础研究的高质量发展。</li>
+</ul>
+<h4 id="19-《科学世界》杂志创刊400期"><a href="#19-《科学世界》杂志创刊400期" class="headerlink" title="19. 《科学世界》杂志创刊400期"></a>19. 《科学世界》杂志创刊400期</h4><ul>
+<li><strong>时间</strong>：2025年</li>
+<li><strong>内容</strong>：《科学世界》杂志迎来创刊400期，读者纷纷送上祝福和分享结缘故事。</li>
+</ul>
+<h4 id="20-量子材料导电状态切换技术"><a href="#20-量子材料导电状态切换技术" class="headerlink" title="20. 量子材料导电状态切换技术"></a>20. 量子材料导电状态切换技术</h4><ul>
+<li><strong>时间</strong>：2025年7月2日</li>
+<li><strong>内容</strong>：科学家开发出“热淬火”技术，能够切换量子材料的导电状态。</li>
+</ul>
+<hr>
+<h1 id="2025年7月信息技术新闻总结"><a href="#2025年7月信息技术新闻总结" class="headerlink" title="2025年7月信息技术新闻总结"></a>2025年7月信息技术新闻总结</h1><h2 id="科技动态"><a href="#科技动态" class="headerlink" title="科技动态"></a>科技动态</h2><h3 id="1-科技曝光"><a href="#1-科技曝光" class="headerlink" title="1. 科技曝光"></a>1. 科技曝光</h3><ul>
+<li><p>双脉冲发动机曾被美国反向助攻</p>
+<p>  科技媒体曝光，美国曾对双脉冲发动机技术提供反向支持。</p>
+<ul>
+<li><em>来源</em>：Daily</li>
+<li><em>时间</em>：2025-07-07 10:05:24</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-政府采购"><a href="#2-政府采购" class="headerlink" title="2. 政府采购"></a>2. 政府采购</h3><ul>
+<li><p>2025政府采购塑料管道十大品牌等榜单在京发布</p>
+<p>  北京发布了2025年政府采购塑料管道十大品牌榜单。</p>
+<ul>
+<li><em>来源</em>：Daily</li>
+<li><em>时间</em>：2025-07-07 10:04:30</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-科技资讯AI速递"><a href="#3-科技资讯AI速递" class="headerlink" title="3. 科技资讯AI速递"></a>3. 科技资讯AI速递</h3><ul>
+<li><p>昨夜今晨科技热点一览</p>
+<p>  汇总了昨夜今晨的科技热点新闻。</p>
+<ul>
+<li><em>来源</em>：新浪AI</li>
+<li><em>时间</em>：2025-07-17 06:34</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-SpaceX与xAI"><a href="#4-SpaceX与xAI" class="headerlink" title="4. SpaceX与xAI"></a>4. SpaceX与xAI</h3><ul>
+<li><strong>SpaceX被曝拟出售内部股份，估值或达4000亿美元</strong><br>  SpaceX计划出售内部股份，估值可能达到4000亿美元。<ul>
+<li><em>来源</em>：全球科技早参</li>
+<li><em>时间</em>：2025-07-08 07:54:30</li>
+</ul>
+</li>
+<li><strong>SpaceX承诺向xAI注资20亿美元</strong><br>  SpaceX向Elon Musk的AI公司xAI注资20亿美元。<ul>
+<li><em>来源</em>：华尔街日报</li>
+<li><em>时间</em>：2025-07-13</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-苹果AI“失血”"><a href="#5-苹果AI“失血”" class="headerlink" title="5. 苹果AI“失血”"></a>5. 苹果AI“失血”</h3><ul>
+<li><p>华人科学家被扎克伯格挖走</p>
+<p>  苹果AI团队的一位华人科学家被扎克伯格以数千万美元年薪挖走。</p>
+<ul>
+<li><em>来源</em>：全球科技早参</li>
+<li><em>时间</em>：2025-07-08</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-中国-中亚合作"><a href="#6-中国-中亚合作" class="headerlink" title="6. 中国-中亚合作"></a>6. 中国-中亚合作</h3><ul>
+<li><p>国家主席习近平同中亚五国元首见证合作揭牌</p>
+<p>  习近平主席同中亚五国元首见证中国-中亚合作中心和贸易畅通合作平台揭牌。</p>
+<ul>
+<li><em>来源</em>：新华社</li>
+<li><em>时间</em>：2025-07-11</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-北京市加快人工智能赋能科学研究"><a href="#7-北京市加快人工智能赋能科学研究" class="headerlink" title="7. 北京市加快人工智能赋能科学研究"></a>7. 北京市加快人工智能赋能科学研究</h3><ul>
+<li><p>《北京市加快人工智能赋能科学研究高质量发展行动计划（2025—2027年）》发布</p>
+<p>  北京市发布未来三年发展科学智能的行动计划。</p>
+<ul>
+<li><em>来源</em>：北京市政府</li>
+<li><em>时间</em>：2025-07-11</li>
+</ul>
+</li>
+</ul>
+<h2 id="产业新闻"><a href="#产业新闻" class="headerlink" title="产业新闻"></a>产业新闻</h2><h3 id="1-2025世界人工智能大会"><a href="#1-2025世界人工智能大会" class="headerlink" title="1. 2025世界人工智能大会"></a>1. 2025世界人工智能大会</h3><ul>
+<li><p>2025世界人工智能大会暨人工智能全球治理高级别会议新闻发布会</p>
+<p>  上海市政府召开新闻发布会，介绍2025世界人工智能大会的相关情况。</p>
+<ul>
+<li><em>来源</em>：上海市政府</li>
+<li><em>时间</em>：2025-07-10</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-2025年大阪世博会"><a href="#2-2025年大阪世博会" class="headerlink" title="2. 2025年大阪世博会"></a>2. 2025年大阪世博会</h3><ul>
+<li><p>“中国馆杭州日”系列活动举行</p>
+<p>  杭州在大阪世博会中国馆举办“科技+文化”系列活动。</p>
+<ul>
+<li><em>来源</em>：杭州政府</li>
+<li><em>时间</em>：2025-07-13</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-中国信通院发布综合算力评价报告"><a href="#3-中国信通院发布综合算力评价报告" class="headerlink" title="3. 中国信通院发布综合算力评价报告"></a>3. 中国信通院发布综合算力评价报告</h3><ul>
+<li><p>《综合算力评价研究报告（2024年）》发布</p>
+<p>  中国信通院发布《综合算力评价研究报告（2024年）》，系统分析了我国各省级行政区的综合算力。</p>
+<ul>
+<li><em>来源</em>：中国信通院</li>
+<li><em>时间</em>：2025-01-02</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-芯片与未来产业"><a href="#4-芯片与未来产业" class="headerlink" title="4. 芯片与未来产业"></a>4. 芯片与未来产业</h3><ul>
+<li><p>芯片的性能指标、创新能力与迭代方向引发全球关注</p>
+<p>  随着未来产业的发展，芯片技术成为全球科技创新和产业发展的热点。</p>
+<ul>
+<li><em>来源</em>：科技媒体</li>
+<li><em>时间</em>：2025-07-16</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-电池技术"><a href="#5-电池技术" class="headerlink" title="5. 电池技术"></a>5. 电池技术</h3><ul>
+<li><p>特斯拉推出由xAI开发的人工智能助手Grok</p>
+<p>  特斯拉向符合条件的车辆推送由xAI开发的人工智能助手Grok。</p>
+<ul>
+<li><em>来源</em>：特斯拉</li>
+<li><em>时间</em>：2025-07-13</li>
+</ul>
+</li>
+</ul>
+<h2 id="其他新闻"><a href="#其他新闻" class="headerlink" title="其他新闻"></a>其他新闻</h2><h3 id="1-牙齿健康"><a href="#1-牙齿健康" class="headerlink" title="1. 牙齿健康"></a>1. 牙齿健康</h3><ul>
+<li><p>科学家证明果茶等饮料对牙齿造成不可逆转的伤害</p>
+<p>  研究发现，合理安排饮用时间可以更好地保护牙齿。</p>
+<ul>
+<li><em>来源</em>：科学杂志</li>
+<li><em>时间</em>：2025-07-16</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-脑机接口"><a href="#2-脑机接口" class="headerlink" title="2. 脑机接口"></a>2. 脑机接口</h3><ul>
+<li><p>脑机接口技术快速腾飞</p>
+<p>  脑机接口技术正在逐步实现科幻片《黑客帝国》中的奇思妙想。</p>
+<ul>
+<li><em>来源</em>：科技媒体</li>
+<li><em>时间</em>：2025-07-16</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-新冠疫情"><a href="#3-新冠疫情" class="headerlink" title="3. 新冠疫情"></a>3. 新冠疫情</h3><ul>
+<li><p>国新办就2025年上半年工业和信息化发展情况举行新闻发布会</p>
+<p>  国新办召开新闻发布会，介绍2025年上半年工业和信息化发展情况。</p>
+<ul>
+<li><em>来源</em>：国新办</li>
+<li><em>时间</em>：2025-07-18</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-特朗普关税政策"><a href="#4-特朗普关税政策" class="headerlink" title="4. 特朗普关税政策"></a>4. 特朗普关税政策</h3><ul>
+<li><p>特朗普宣布对14国关税税率，拟将”对等关税”暂缓期延至8月1日</p>
+<p>  特朗普宣布对14国的关税税率，并将“对等关税”暂缓期延长至8月1日。</p>
+<ul>
+<li><em>来源</em>：每经早参</li>
+<li><em>时间</em>：2025-07-08</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-金融新闻"><a href="#5-金融新闻" class="headerlink" title="5. 金融新闻"></a>5. 金融新闻</h3><ul>
+<li><p>央行连续8个月增持黄金</p>
+<p>  中国人民银行连续8个月增持黄金。</p>
+<ul>
+<li><em>来源</em>：每经早参</li>
+<li><em>时间</em>：2025-07-08</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-教育新闻"><a href="#6-教育新闻" class="headerlink" title="6. 教育新闻"></a>6. 教育新闻</h3><ul>
+<li><strong>阿里巴巴高德地图推出国内首个面向海外用户的多语言地图</strong><br>  阿里巴巴高德地图推出多语言地图，面向海外用户。<ul>
+<li><em>来源</em>：阿里巴巴</li>
+<li><em>时间</em>：2025-07-10</li>
+</ul>
+</li>
+<li><strong>上海交大联合阿里公益完成第16期乡村教师培训</strong><br>  上海交通大学联合阿里公益完成第16期乡村教师培训。<ul>
+<li><em>来源</em>：上海交大</li>
+<li><em>时间</em>：2025-07-10</li>
+</ul>
+</li>
+</ul>
+<h3 id="7-环保新闻"><a href="#7-环保新闻" class="headerlink" title="7. 环保新闻"></a>7. 环保新闻</h3><ul>
+<li><p>中山加快打造新时代现代产业集群“十大舰队”</p>
+<p>  中山市加快构建“4+6”现代产业集群发展格局，集中优势资源力量培育壮大新能源、生物医药与健康、新一代信息技术、高端装备等产业。</p>
+<ul>
+<li><em>来源</em>：中山市政府</li>
+<li><em>时间</em>：2025-06-30</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-互联网新闻"><a href="#8-互联网新闻" class="headerlink" title="8. 互联网新闻"></a>8. 互联网新闻</h3><ul>
+<li><p>Meta收购Play AI</p>
+<p>  Meta收购了专注于利用人工智能生成逼真语音的初创公司Play AI。</p>
+<ul>
+<li><em>来源</em>：彭博社</li>
+<li><em>时间</em>：2025-07-13</li>
+</ul>
+</li>
+</ul>
+<h3 id="9-汽车新闻"><a href="#9-汽车新闻" class="headerlink" title="9. 汽车新闻"></a>9. 汽车新闻</h3><ul>
+<li><p>蔚来、小鹏背水一战</p>
+<p>  蔚来和小鹏在2025年面临严峻挑战，需在市场中突围。</p>
+<ul>
+<li><em>来源</em>：汽车媒体</li>
+<li><em>时间</em>：2025-03-25</li>
+</ul>
+</li>
+</ul>
+<h3 id="10-科研新闻"><a href="#10-科研新闻" class="headerlink" title="10. 科研新闻"></a>10. 科研新闻</h3><ul>
+<li><p>“发现自旋超固态巨磁卡效应与极低温制冷新机制”入选2024年度“中国科学十大进展”</p>
+<p>  该研究入选2024年度“中国科学十大进展”。</p>
+<ul>
+<li><em>来源</em>：中国科学院</li>
+<li><em>时间</em>：2025-03-20</li>
+</ul>
+</li>
+</ul>
+<p>以上是2025年7月信息技术新闻的总结。希望对您有所帮助！</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>AI</tag>
+        <tag>dify</tag>
+        <tag>bge-m3</tag>
+        <tag>知识库</tag>
+        <tag>本地部署</tag>
+        <tag>客制化AI</tag>
       </tags>
   </entry>
 </search>
