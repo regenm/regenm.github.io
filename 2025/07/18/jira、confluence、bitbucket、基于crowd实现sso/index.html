@@ -1,0 +1,469 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>jira、confluence、bitbucket、基于crowd实现sso | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="jira、confluence、bitbucket、基于crowd实现sso ​	单点登录英文全称Single Sign On，简称就是SSO。它的解释是：在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。   版本信息：  jira:7.13 confluence:6.10.0 bitbucket:7.0.0 crowd:3.4.4 mysql:5.7   ​	在我使用的版本中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jira、confluence、bitbucket、基于crowd实现sso">
+<meta property="og:url" content="http://example.com/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="jira、confluence、bitbucket、基于crowd实现sso ​	单点登录英文全称Single Sign On，简称就是SSO。它的解释是：在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。   版本信息：  jira:7.13 confluence:6.10.0 bitbucket:7.0.0 crowd:3.4.4 mysql:5.7   ​	在我使用的版本中">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-07-18T00:53:10.000Z">
+<meta property="article:modified_time" content="2025-07-21T08:00:04.558Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="部署">
+<meta property="article:tag" content="jira">
+<meta property="article:tag" content="confluence">
+<meta property="article:tag" content="bitbucket">
+<meta property="article:tag" content="crowd">
+<meta property="article:tag" content="sso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'jira、confluence、bitbucket、基于crowd实现sso',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-07-21 16:00:04'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">142</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">159</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">jira、confluence、bitbucket、基于crowd实现sso</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-07-18T00:53:10.000Z" title="Created 2025-07-18 08:53:10">2025-07-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-21T08:00:04.558Z" title="Updated 2025-07-21 16:00:04">2025-07-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/" data-flag-title="jira、confluence、bitbucket、基于crowd实现sso"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="jira、confluence、bitbucket、基于crowd实现sso"><a href="#jira、confluence、bitbucket、基于crowd实现sso" class="headerlink" title="jira、confluence、bitbucket、基于crowd实现sso"></a>jira、confluence、bitbucket、基于crowd实现sso</h1><blockquote>
+<p>​	单点登录英文全称Single Sign On，简称就是SSO。它的解释是：<strong>在多个应用系统中，只需要登录一次，就可以访问其他相互信任的应用系统。</strong></p>
+</blockquote>
+<blockquote>
+<p>版本信息：</p>
+<ul>
+<li>jira:7.13</li>
+<li>confluence:6.10.0</li>
+<li>bitbucket:7.0.0</li>
+<li>crowd:3.4.4</li>
+<li>mysql:5.7</li>
+</ul>
+</blockquote>
+<p>​	在我使用的版本中，jira和confluence可以实现基于IP的单点登录，但是bitbucket不行，仅支持基于二级域名的单点登录。</p>
+<p>​	如果是基于IP可参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38621072/article/details/117622297?fromshare=blogdetail&sharetype=blogdetail&sharerId=117622297&sharerefer=PC&sharesource=weixin_47657945&sharefrom=from_link">https://blog.csdn.net/weixin_38621072/article/details/117622297?fromshare=blogdetail&amp;sharetype=blogdetail&amp;sharerId=117622297&amp;sharerefer=PC&amp;sharesource=weixin_47657945&amp;sharefrom=from_link</a></p>
+<p>​	基于域名更加规范合理，我<strong>最终也使用了域名</strong>的方式。</p>
+<p>可以使用<strong>两种</strong>域名解析，</p>
+<ol>
+<li>如果是有自己的公有域名，则可以在对应域名服务商控制台添加解析即可，例如<ol>
+<li>jira.regenglogs.fun               —&gt;192.168.99.203</li>
+<li>confluence.regenglogs.fun  —&gt;192.168.99.203</li>
+<li>bitbucket.regenglogs.fun     —&gt;192.168.99.203</li>
+<li>crowd.regenglogs.fun          —&gt;192.168.99.203</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>我的服务都在一台主机所以解析相同。</p>
+</blockquote>
+<ol start="2">
+<li>如果没有域名则可以添加本地解析，客户端修改hosts文件即可<ol>
+<li><p>windows客户端：</p>
+<ol>
+<li><p>编辑<code>C:\Windows\System32\drivers\etc\hosts</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#﻿# Added by Docker Desktop</span><br><span class="line">#172.16.30.128 host.docker.internal</span><br><span class="line">#172.16.30.128 gateway.docker.internal</span><br><span class="line"># To allow the same kube context to work on the host and the container:</span><br><span class="line">#127.0.0.1 kubernetes.docker.internal</span><br><span class="line"># End of section</span><br><span class="line">192.168.99.203 jira.regenblogs.fun</span><br><span class="line">192.168.99.114 confluence.regenblogs.fun</span><br><span class="line">192.168.99.203 bitbucket.regenblogs.fun</span><br><span class="line">192.168.99.114 crowd.regenblogs.fun</span><br><span class="line">#-------------------------------------------------------</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>Linux：</p>
+<ol>
+<li><p>编辑<code>/etc/hosts</code></p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</span><br><span class="line">::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</span><br><span class="line"></span><br><span class="line">192.168.99.203 jira.regenblogs.fun</span><br><span class="line">192.168.99.114 confluence.regenblogs.fun</span><br><span class="line">192.168.99.203 bitbucket.regenblogs.fun</span><br><span class="line">192.168.99.114 crowd.regenblogs.fun</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-实现crowd集成jira、confluence、bitbucket"><a href="#1-实现crowd集成jira、confluence、bitbucket" class="headerlink" title="1. 实现crowd集成jira、confluence、bitbucket"></a>1. 实现crowd集成jira、confluence、bitbucket</h2><blockquote>
+<p>实现SSO的前提是三个软件都连接到了crowd。</p>
+</blockquote>
+<h3 id="Crowd准备操作"><a href="#Crowd准备操作" class="headerlink" title="Crowd准备操作"></a>Crowd准备操作</h3><ol>
+<li><p>新建三个application分别为jira、confluence、bitbucket</p>
+<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718110924948.png" alt="image-20250718110924948"></p>
+</li>
+<li><p>新建一个用户目录<code>user directory</code></p>
+<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718110944039.png" alt="image-20250718110944039"></p>
+</li>
+<li><p>新建一个用户组用于测试<code>user group</code></p>
+<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111007686.png" alt="image-20250718111007686"></p>
+</li>
+<li><p>新建两个用户用于测试。</p>
+<blockquote>
+<p>一个提前作为所有平台的管理员，否则实现好了sso以后会禁用原管理员账户</p>
+<p>一个作为普通用户进行测试</p>
+</blockquote>
+<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111113367.png" alt="image-20250718111113367"></p>
+</li>
+<li><p>在各个应用内设置好允许访问的IP和域名</p>
+<p> 这里只放jira的配置</p>
+<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111839304.png" alt="image-20250718111839304"></p>
+</li>
+</ol>
+<h3 id="jira-集成crowd"><a href="#jira-集成crowd" class="headerlink" title="jira 集成crowd"></a>jira 集成crowd</h3><p>在用户管理中添加crowd</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111704738.png" alt="image-20250718111704738"></p>
+<ul>
+<li>测试：</li>
+</ul>
+<ol>
+<li>测试服务器连接</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112040564.png" alt="image-20250718112040564"></p>
+<ol start="2">
+<li>测试用户</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112135649.png" alt="image-20250718112135649"></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112208967.png" alt="image-20250718112208967"></p>
+<h3 id="confluence集成crowd"><a href="#confluence集成crowd" class="headerlink" title="confluence集成crowd"></a>confluence集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
+<h3 id="bitbucket集成crowd"><a href="#bitbucket集成crowd" class="headerlink" title="bitbucket集成crowd"></a>bitbucket集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
+<h3 id="Crowd的SSO设置"><a href="#Crowd的SSO设置" class="headerlink" title="Crowd的SSO设置"></a>Crowd的SSO设置</h3><blockquote>
+<p>这一步设置了能够通过SSO登录的二级域名，子域名通过该域名来实现SSO</p>
+</blockquote>
+<ol>
+<li>进入crowd general 设置</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145301659.png" alt="image-20250721145301659"></p>
+<ol start="2">
+<li>设置子域名、cookie名字以及base url，确保都是域名而不是IP。</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145619726.png" alt="image-20250721145619726"></p>
+<h2 id="2-实现SSO"><a href="#2-实现SSO" class="headerlink" title="2. 实现SSO"></a>2. 实现SSO</h2><blockquote>
+<p>在我使用的版本中，如果允许sso登录，则会停用jira、confluence、bitbucket的管理员账户，因此在实现SSO之前建议给Crowd中的某个用户增加所有的权限便于管理。否则将失去管理员账号。如果忘记添加可以看文末解决方式</p>
+<p>配置方法有两种，一种是直接在各个平台为该用户增加最大权限，一种是在各个平台增加一个最大权限用户组，并将该用户添加到该组。</p>
+<ul>
+<li><p>第一种方式（直接在各个平台为该用户增加最大权限）实现方式：</p>
+<p>  这里仅以jira为例，其余过程基本一致。</p>
+</li>
+</ul>
+<ol>
+<li>打开用户管理</li>
+<li>搜索crowd用户并且添加到对应权限组</li>
+</ol>
+<ul>
+<li>第二种方式（最大权限用户组，添加该用户）实现方式：</li>
+</ul>
+</blockquote>
+<h3 id="jira实现SSO的配置过程"><a href="#jira实现SSO的配置过程" class="headerlink" title="jira实现SSO的配置过程"></a>jira实现SSO的配置过程</h3><h4 id="1-修改认证配置文件seraph-config-xml"><a href="#1-修改认证配置文件seraph-config-xml" class="headerlink" title="1. 修改认证配置文件seraph-config.xml"></a>1. 修改认证配置文件<code>seraph-config.xml</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/seraph-config.xml</span><br></pre></td></tr></table></figure>
+
+<p>找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- CROWD:START - If enabling Crowd SSO integration uncomment the following SSOSeraphAuthenticator and comment out the JiraSeraphAuthenticator below --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    &lt;authenticator class=&quot;com.atlassian.jira.security.login.SSOSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- CROWD:START - The authenticator below here will need to be commented out for Crowd SSO integration --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.jira.security.login.JiraSeraphAuthenticator&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将以下内容取消注释</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.jira.security.login.SSOSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.jira.security.login.SSOSeraphAuthenticator&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>并注释</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.jira.security.login.JiraSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改或者增加crowd-properties文件"><a href="#2-修改或者增加crowd-properties文件" class="headerlink" title="2. 修改或者增加crowd.properties文件"></a>2. 修改或者增加<code>crowd.properties</code>文件</h4><p>在路径<code>/opt/atlassian/jira/atlassian-jira/WEB-INF/classes</code>下创建<code>crowd.properties</code>，写入，内容根据实际情况改写，主要是域名、IP之类的需要修改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">application.name                        jira</span><br><span class="line">application.password                    Regen123</span><br><span class="line">application.login.url                   http://localhost:8080</span><br><span class="line"></span><br><span class="line">crowd.server.url                        http://localhost:8095/crowd/services/</span><br><span class="line">crowd.base.url                          http://localhost:8095/crowd/</span><br><span class="line"></span><br><span class="line">session.isauthenticated                 session.isauthenticated</span><br><span class="line">session.tokenkey                        session.tokenkey</span><br><span class="line">session.validationinterval              200</span><br><span class="line">session.lastvalidation                  session.lastvalidation</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-重启jira"><a href="#3-重启jira" class="headerlink" title="3. 重启jira"></a>3. 重启jira</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用jira安装脚本安装的</span></span><br><span class="line">service jira stop</span><br><span class="line">service jira start</span><br><span class="line"><span class="comment"># 自己解压的或者文件迁移过来的</span></span><br><span class="line"><span class="built_in">cd</span> /opt/atlassian/jira/bin</span><br><span class="line">./stop-jira.sh</span><br><span class="line">./start-jira.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="confluence实现SSO的配置过程、与jira类似"><a href="#confluence实现SSO的配置过程、与jira类似" class="headerlink" title="confluence实现SSO的配置过程、与jira类似"></a>confluence实现SSO的配置过程、与jira类似</h3><h4 id="1-修改认证配置文件seraph-config-xml-1"><a href="#1-修改认证配置文件seraph-config-xml-1" class="headerlink" title="1. 修改认证配置文件seraph-config.xml"></a>1. 修改认证配置文件<code>seraph-config.xml</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/atlassian/confluence/confluence/WEB-INF/classes/seraph-config.xml</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里已经修改好。</p>
+</blockquote>
+<p>找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Default Confluence authenticator, which uses the configured user management for authentication. --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--    </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.confluence.user.ConfluenceAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Custom authenticators appear below. To enable one of them, comment out the default authenticator above and uncomment the one below. --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Authenticator with support for Crowd single-sign on (SSO). --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.confluence.user.ConfluenceCrowdSSOAuthenticator&quot;</span>/&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>将以下内容取消注释</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment"> &lt;authenticator class=&quot;com.atlassian.confluence.user.ConfluenceCrowdSSOAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.confluence.user.ConfluenceCrowdSSOAuthenticator&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>并注释</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.confluence.user.ConfluenceAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改或者增加crowd-properties文件-1"><a href="#2-修改或者增加crowd-properties文件-1" class="headerlink" title="2. 修改或者增加crowd.properties文件"></a>2. 修改或者增加<code>crowd.properties</code>文件</h4><p>在路径<code>/opt/atlassian/confluence/atlassian-jira/WEB-INF/classes</code>下创建<code>crowd.properties</code>，写入，内容根据实际情况改写，主要是域名、IP之类的需要修改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">application.name                        confluence</span><br><span class="line">application.password                    Regen123</span><br><span class="line">application.login.url                   http://localhost:8080</span><br><span class="line"></span><br><span class="line">crowd.server.url                        http://localhost:8095/crowd/services/</span><br><span class="line">crowd.base.url                          http://localhost:8095/crowd/</span><br><span class="line"></span><br><span class="line">session.isauthenticated                 session.isauthenticated</span><br><span class="line">session.tokenkey                        session.tokenkey</span><br><span class="line">session.validationinterval              200</span><br><span class="line">session.lastvalidation                  session.lastvalidation</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-重启confluence"><a href="#3-重启confluence" class="headerlink" title="3. 重启confluence"></a>3. 重启confluence</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用confluence安装脚本安装的</span></span><br><span class="line">service jira stop</span><br><span class="line">service jira start</span><br><span class="line"><span class="comment"># 自己解压的或者文件迁移过来的</span></span><br><span class="line"><span class="built_in">cd</span> /opt/atlassian/confluence/bin</span><br><span class="line">./stop-confluence.sh</span><br><span class="line">./start-confluence.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="Bitbucket实现SSO的配置过程"><a href="#Bitbucket实现SSO的配置过程" class="headerlink" title="Bitbucket实现SSO的配置过程"></a>Bitbucket实现SSO的配置过程</h3><h4 id="1-修改bitbucket-properties"><a href="#1-修改bitbucket-properties" class="headerlink" title="1. 修改bitbucket.properties"></a>1. 修改<code>bitbucket.properties</code></h4><p>在数据目录中找到<code>bitbucket.properties</code>，一般在<code>/var</code>下，也可能被移动或修改，可通过find查找</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim  /var/atlassian/application-data/bitbucket/shared/bitbucket.properties</span><br></pre></td></tr></table></figure>
+
+<p>增加一行<code>plugin.auth-crowd.sso.enabled=true</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#&gt;*******************************************************</span></span><br><span class="line"><span class="comment">#&gt; Migrated to database at jdbc:mysql://192.168.99.114:3306/bitbucket?characterEncoding=utf8&amp;useUnicode=true</span></span><br><span class="line"><span class="comment">#&gt; Updated on 2025-07-10T14:31:05.562+08:00</span></span><br><span class="line"><span class="comment">#&gt;*******************************************************</span></span><br><span class="line">jdbc.driver=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://192.168.99.114:3306/bitbucket?characterEncoding=utf8&amp;useUnicode=<span class="literal">true</span></span><br><span class="line">jdbc.user=bitbucket</span><br><span class="line">jdbc.password=bitbucket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 增加以下项目</span></span><br><span class="line">plugin.auth-crowd.sso.enabled=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-重启"><a href="#2-重启" class="headerlink" title="2. 重启"></a>2. 重启</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用bitbucket安装脚本安装的</span></span><br><span class="line">service jira stop</span><br><span class="line">service jira start</span><br><span class="line"><span class="comment"># 自己解压的或者文件迁移过来的</span></span><br><span class="line"><span class="built_in">cd</span> /opt/atlassian/bitbucket/7.0.0/bin</span><br><span class="line">./stop-bitbucket.sh  </span><br><span class="line">./start-bitbucket.sh  </span><br></pre></td></tr></table></figure>
+
+
+
+<p>如果流程顺利并且项目干净的话至此应该已经实现了基于Crowd的SSO登录。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><h3 id="1-jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站"><a href="#1-jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站" class="headerlink" title="1. jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站"></a>1. jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站</h3><ul>
+<li>解决方式其实就是逆向的sso配置</li>
+</ul>
+<h4 id="1-修改认证配置文件seraph-config-xml-2"><a href="#1-修改认证配置文件seraph-config-xml-2" class="headerlink" title="1. 修改认证配置文件seraph-config.xml"></a>1. 修改认证配置文件<code>seraph-config.xml</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /opt/atlassian/jira/atlassian-jira/WEB-INF/classes/seraph-config.xml</span><br></pre></td></tr></table></figure>
+
+<p>找到</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- CROWD:START - If enabling Crowd SSO integration uncomment the following SSOSeraphAuthenticator and comment out the JiraSeraphAuthenticator below --&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.jira.security.login.SSOSeraphAuthenticator&quot;</span>/&gt;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- CROWD:START - The authenticator below here will need to be commented out for Crowd SSO integration --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;authenticator class=&quot;com.atlassian.jira.security.login.JiraSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- CROWD:START - If enabling Crowd SSO integration uncomment the following SSOSeraphAuthenticator and comment out the JiraSeraphAuthenticator below --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">    &lt;authenticator class=&quot;com.atlassian.jira.security.login.SSOSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- CROWD:START - The authenticator below here will need to be commented out for Crowd SSO integration --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">authenticator</span> <span class="attr">class</span>=<span class="string">&quot;com.atlassian.jira.security.login.JiraSeraphAuthenticator&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- CROWD:END --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-修改数据库中的表"><a href="#2-修改数据库中的表" class="headerlink" title="2. 修改数据库中的表"></a>2. 修改数据库中的表</h4><blockquote>
+<p>这里是为了激活jira&#x2F;confluence的internal 账户，同时禁用crowd用户，用初始的管理员登录。</p>
+<p>通过数据库连接软件例如navicat等等进行连接，或者直接进数据库修改也可以。</p>
+</blockquote>
+<ol>
+<li>找到对应数据库的<code>cwd_directory</code>表并修改</li>
+</ol>
+<blockquote>
+<p>一般情况下会有两条项目，<code>active</code>字段用于控制用户目录是否生效，将internal目录改为T，crowd改为F即可。</p>
+<p>有些版本是0或1，原理相同。</p>
+</blockquote>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721153048044.png" alt="image-20250721153048044"></p>
+<h3 id="2-忘记jira、confluence、bitbucket管理员密码"><a href="#2-忘记jira、confluence、bitbucket管理员密码" class="headerlink" title="2. 忘记jira、confluence、bitbucket管理员密码"></a>2. 忘记jira、confluence、bitbucket管理员密码</h3><blockquote>
+<p>数据库中的加密方式都是{PKCS5S2}，如果是别的则用对应的。老版本可能会使sha1</p>
+<p>这里统一改为<code>&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF</code></p>
+<p>对应密码是<strong>Ab123456</strong></p>
+<p>如果你想客制化的自己改为admin或者123456。可以用PKCS5S2加密一下这些字符串，但我并不推荐这么做，太过简单<strong>可能</strong>会过不了密码策略，并导致就算你改成功了也登录不上。</p>
+</blockquote>
+<ol>
+<li>先去实现上面第一点<strong>1. jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站</strong>的步骤</li>
+<li>找到<code>cwd_user</code>表，找到管理员账户，一般是第一个。</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721153503807.png" alt="image-20250721153503807"></p>
+<ol start="3">
+<li>找到<code>credntial</code>字段</li>
+</ol>
+<p>修改为<code>&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF</code>并保存生效即可。</p>
+<ol start="4">
+<li>这里也给出数据库的操作方式（可选）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql57 bash  <span class="comment"># 可选</span></span><br><span class="line">mysql -uroot -p <span class="comment"># 或者 对应的数据库角色例如：mysql -ujira -p</span></span><br><span class="line"><span class="comment"># 输入对应用户密码</span></span><br><span class="line">USE jiradb;  <span class="comment"># 使用对应平台的数据库</span></span><br><span class="line">UPDATE cwd_user</span><br><span class="line">SET credential=<span class="string">&#x27;&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF&#x27;</span></span><br><span class="line">WHERE user_name=<span class="string">&#x27;admin&#x27;</span> AND directory_id=1;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重启即可。</li>
+</ol>
+<h3 id="3-忘记crowd管理员密码"><a href="#3-忘记crowd管理员密码" class="headerlink" title="3. 忘记crowd管理员密码"></a>3. 忘记crowd管理员密码</h3><blockquote>
+<p>简化版的<strong>忘记jira、confluence、bitbucket管理员密码</strong>，只需修改数据库对应字段即可。</p>
+</blockquote>
+<ol>
+<li>找到<code>cwd_user</code>表，找到管理员账户，一般是第一个。</li>
+</ol>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721154511694.png" alt="image-20250721154511694"></p>
+<ol start="3">
+<li>找到<code>credntial</code>字段</li>
+</ol>
+<p>修改为<code>&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF</code>并保存生效即可。</p>
+<ol start="4">
+<li>这里也给出数据库的操作方式（可选）</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mysql57 bash  <span class="comment"># 可选</span></span><br><span class="line">mysql -uroot -p <span class="comment"># 或者 对应的数据库角色例如：mysql -ucrowd -p</span></span><br><span class="line"><span class="comment"># 输入对应用户密码</span></span><br><span class="line">USE crowd;  <span class="comment"># 使用对应平台的数据库</span></span><br><span class="line">UPDATE cwd_user</span><br><span class="line">SET credential=<span class="string">&#x27;&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF&#x27;</span></span><br><span class="line">WHERE user_name=<span class="string">&#x27;admin&#x27;</span> AND directory_id=1;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>重启即可。</li>
+</ol>
+<h3 id="4-能够连接上crowd但是配置好SSO后仍然无法实现SSO，但是可以正常登录crowd。"><a href="#4-能够连接上crowd但是配置好SSO后仍然无法实现SSO，但是可以正常登录crowd。" class="headerlink" title="4. 能够连接上crowd但是配置好SSO后仍然无法实现SSO，但是可以正常登录crowd。"></a>4. 能够连接上crowd但是配置好SSO后仍然无法实现SSO，但是可以正常登录crowd。</h3><blockquote>
+<p>如果是测试环境，没有真正的DNS服务器，使用的是本地解析则可能会出现。</p>
+</blockquote>
+<blockquote>
+<p>简单解释下这SSO流程。以登录jira后自动登录confluence为案例。</p>
+<ol>
+<li><h3 id="用户登录-JIRA"><a href="#用户登录-JIRA" class="headerlink" title="用户登录 JIRA"></a><strong>用户登录 JIRA</strong></h3><ul>
+<li>浏览器提交用户名密码到 JIRA</li>
+<li>JIRA 调用 Crowd API 校验用户</li>
+</ul>
+<hr>
+<h3 id="2-Crowd-返回校验结果"><a href="#2-Crowd-返回校验结果" class="headerlink" title="2. Crowd 返回校验结果"></a><strong>2. Crowd 返回校验结果</strong></h3><ul>
+<li>校验通过后，Crowd 返回用户信息</li>
+<li>同时向浏览器发送 Crowd SSO Cookie（如：crowd.token_key）</li>
+</ul>
+<hr>
+<h3 id="3-用户访问-Confluence"><a href="#3-用户访问-Confluence" class="headerlink" title="3. 用户访问 Confluence"></a><strong>3. 用户访问 Confluence</strong></h3><ul>
+<li>浏览器带着同一个 Crowd SSO Cookie 请求 Confluence</li>
+<li>Confluence 收到请求后，通过 Crowd API 验证 cookie 有效性</li>
+</ul>
+<hr>
+<h3 id="4-验证通过"><a href="#4-验证通过" class="headerlink" title="4. 验证通过"></a><strong>4. 验证通过</strong></h3><ul>
+<li>Confluence 根据返回的用户信息在本地创建会话</li>
+<li>用户免登录直接访问成功</li>
+</ul>
+<hr>
+<h3 id="核心原理："><a href="#核心原理：" class="headerlink" title="核心原理："></a><strong>核心原理：</strong></h3><ul>
+<li>所有系统都通过 Crowd Server 做用户统一认证</li>
+<li>Crowd 签发的 SSO Cookie 设置在主域名（如 .suitbim.com）</li>
+<li>浏览器自动携带 cookie 实现跨系统免登录</li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<p>这其中每一步出现错误都无法实现SSO。</p>
+<ol>
+<li><p>第1、2步骤不太可能出现问题。</p>
+</li>
+<li><p>第3步中，confluence服务器收到请求后需要向crowd服务器发送验证，这是服务器到服务器的对话，这其中的网络连接可能会出现问题。</p>
+<blockquote>
+<p>在开始的时候我们在客户端配置好了客户端的本地域名解析，例如Win10的C:\Windows\System32\drivers\etc\hosts文件，这意味着每次从客户端向服务器的请求能正常解析到服务器，然而服务器中配置的<code>/etc/hosts</code>文件可能没有这个域名到IP的解析，导致第3步骤出现错误，进而导致sso失败。</p>
+</blockquote>
+</li>
+</ol>
+<p>解决方式就是在<code>/etc/hosts</code>中添加一个 本地crowd域名解析</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.99.114 crowd.regenblogs.fun</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/">http://example.com/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/%E9%83%A8%E7%BD%B2/">部署</a><a class="post-meta__tags" href="/tags/jira/">jira</a><a class="post-meta__tags" href="/tags/confluence/">confluence</a><a class="post-meta__tags" href="/tags/bitbucket/">bitbucket</a><a class="post-meta__tags" href="/tags/crowd/">crowd</a><a class="post-meta__tags" href="/tags/sso/">sso</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="jira、confluence、bitbucket、crowd数据迁移"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">jira、confluence、bitbucket、crowd数据迁移</div></div></a></div><div class="next-post pull-right"><a href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E9%83%A8%E7%BD%B2/" title="jira、confluence、bitbucket、crowd部署"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">jira、confluence、bitbucket、crowd部署</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="jira、confluence、bitbucket、crowd数据迁移"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-18</div><div class="title">jira、confluence、bitbucket、crowd数据迁移</div></div></a></div><div><a href="/2025/07/21/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso%E7%9A%84%E6%A1%88%E4%BE%8B/" title="jira、confluence、bitbucket、基于crowd实现sso的案例"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-21</div><div class="title">jira、confluence、bitbucket、基于crowd实现sso的案例</div></div></a></div><div><a href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E9%83%A8%E7%BD%B2/" title="jira、confluence、bitbucket、crowd部署"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-18</div><div class="title">jira、confluence、bitbucket、crowd部署</div></div></a></div><div><a href="/2023/11/28/Linux-system-Notes/" title="Linux Notes"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">Linux Notes</div></div></a></div><div><a href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-26</div><div class="title">vmWare安装龙蜥Linux-minimal</div></div></a></div><div><a href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-27</div><div class="title">MySql与Nginx容器化部署实现持久化存储</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">142</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">159</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso"><span class="toc-number">1.</span> <span class="toc-text">jira、confluence、bitbucket、基于crowd实现sso</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9E%E7%8E%B0crowd%E9%9B%86%E6%88%90jira%E3%80%81confluence%E3%80%81bitbucket"><span class="toc-number">1.1.</span> <span class="toc-text">1. 实现crowd集成jira、confluence、bitbucket</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Crowd%E5%87%86%E5%A4%87%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.1.</span> <span class="toc-text">Crowd准备操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jira-%E9%9B%86%E6%88%90crowd"><span class="toc-number">1.1.2.</span> <span class="toc-text">jira 集成crowd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#confluence%E9%9B%86%E6%88%90crowd"><span class="toc-number">1.1.3.</span> <span class="toc-text">confluence集成crowd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bitbucket%E9%9B%86%E6%88%90crowd"><span class="toc-number">1.1.4.</span> <span class="toc-text">bitbucket集成crowd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Crowd%E7%9A%84SSO%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.1.5.</span> <span class="toc-text">Crowd的SSO设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0SSO"><span class="toc-number">1.2.</span> <span class="toc-text">2. 实现SSO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#jira%E5%AE%9E%E7%8E%B0SSO%E7%9A%84%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">jira实现SSO的配置过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6seraph-config-xml"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1. 修改认证配置文件seraph-config.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9%E6%88%96%E8%80%85%E5%A2%9E%E5%8A%A0crowd-properties%E6%96%87%E4%BB%B6"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">2. 修改或者增加crowd.properties文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E5%90%AFjira"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">3. 重启jira</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#confluence%E5%AE%9E%E7%8E%B0SSO%E7%9A%84%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E3%80%81%E4%B8%8Ejira%E7%B1%BB%E4%BC%BC"><span class="toc-number">1.2.2.</span> <span class="toc-text">confluence实现SSO的配置过程、与jira类似</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6seraph-config-xml-1"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1. 修改认证配置文件seraph-config.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9%E6%88%96%E8%80%85%E5%A2%9E%E5%8A%A0crowd-properties%E6%96%87%E4%BB%B6-1"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2. 修改或者增加crowd.properties文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%87%8D%E5%90%AFconfluence"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">3. 重启confluence</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bitbucket%E5%AE%9E%E7%8E%B0SSO%E7%9A%84%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">Bitbucket实现SSO的配置过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9bitbucket-properties"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">1. 修改bitbucket.properties</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%87%8D%E5%90%AF"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2. 重启</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3"><span class="toc-number">1.3.</span> <span class="toc-text">问题解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-jira%E3%80%81confluence%E3%80%81bitbucket%E5%BF%98%E8%AE%B0%E6%B7%BB%E5%8A%A0crowd%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%AA%E7%94%A8%E6%88%B7%E4%BD%9C%E4%B8%BA%E7%AE%A1%E7%90%86%E5%91%98%E3%80%82%E6%88%96%E8%80%85%E6%83%B3%E8%A6%81%E9%80%9A%E8%BF%87%E5%88%9D%E5%A7%8B%E7%AE%A1%E7%90%86%E5%91%98%E8%B4%A6%E6%88%B7%E7%99%BB%E5%BD%95%E5%AF%B9%E5%BA%94%E7%BD%91%E7%AB%99"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BF%AE%E6%94%B9%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6seraph-config-xml-2"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">1. 修改认证配置文件seraph-config.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E8%A1%A8"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">2. 修改数据库中的表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BF%98%E8%AE%B0jira%E3%80%81confluence%E3%80%81bitbucket%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. 忘记jira、confluence、bitbucket管理员密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%BF%98%E8%AE%B0crowd%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. 忘记crowd管理员密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%83%BD%E5%A4%9F%E8%BF%9E%E6%8E%A5%E4%B8%8Acrowd%E4%BD%86%E6%98%AF%E9%85%8D%E7%BD%AE%E5%A5%BDSSO%E5%90%8E%E4%BB%8D%E7%84%B6%E6%97%A0%E6%B3%95%E5%AE%9E%E7%8E%B0SSO%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E7%99%BB%E5%BD%95crowd%E3%80%82"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 能够连接上crowd但是配置好SSO后仍然无法实现SSO，但是可以正常登录crowd。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95-JIRA"><span class="toc-number">1.3.5.</span> <span class="toc-text">用户登录 JIRA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Crowd-%E8%BF%94%E5%9B%9E%E6%A0%A1%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">1.3.6.</span> <span class="toc-text">2. Crowd 返回校验结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE-Confluence"><span class="toc-number">1.3.7.</span> <span class="toc-text">3. 用户访问 Confluence</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%AA%8C%E8%AF%81%E9%80%9A%E8%BF%87"><span class="toc-number">1.3.8.</span> <span class="toc-text">4. 验证通过</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">1.3.9.</span> <span class="toc-text">核心原理：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/21/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso%E7%9A%84%E6%A1%88%E4%BE%8B/" title="jira、confluence、bitbucket、基于crowd实现sso的案例">jira、confluence、bitbucket、基于crowd实现sso的案例</a><time datetime="2025-07-21T08:05:56.000Z" title="Created 2025-07-21 16:05:56">2025-07-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/" title="jira、confluence、bitbucket、crowd数据迁移">jira、confluence、bitbucket、crowd数据迁移</a><time datetime="2025-07-18T00:53:32.000Z" title="Created 2025-07-18 08:53:32">2025-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/" title="jira、confluence、bitbucket、基于crowd实现sso">jira、confluence、bitbucket、基于crowd实现sso</a><time datetime="2025-07-18T00:53:10.000Z" title="Created 2025-07-18 08:53:10">2025-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E9%83%A8%E7%BD%B2/" title="jira、confluence、bitbucket、crowd部署">jira、confluence、bitbucket、crowd部署</a><time datetime="2025-07-18T00:51:51.000Z" title="Created 2025-07-18 08:51:51">2025-07-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/17/Arch-Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85/" title="vmWare安装Arch Linux">vmWare安装Arch Linux</a><time datetime="2025-07-17T09:22:57.000Z" title="Created 2025-07-17 17:22:57">2025-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E8%AF%81%E4%B9%A6%E7%90%86%E8%A7%A3/" title="计算机网络-证书理解">计算机网络-证书理解</a><time datetime="2025-07-17T01:21:41.000Z" title="Created 2025-07-17 09:21:41">2025-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/17/DIFY-%E6%96%B0%E9%97%BB%E5%8A%A9%E6%89%8B/" title="DIFY 新闻助手">DIFY 新闻助手</a><time datetime="2025-07-17T00:36:34.000Z" title="Created 2025-07-17 08:36:34">2025-07-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/15/%E3%80%8A%E6%88%91%E4%B8%8E%E5%9C%B0%E5%9D%9B%E3%80%8B/" title="《我与地坛》">《我与地坛》</a><time datetime="2025-07-15T04:09:16.000Z" title="Created 2025-07-15 12:09:16">2025-07-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/14/Linux%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/" title="Linux包管理器">Linux包管理器</a><time datetime="2025-07-14T09:52:01.000Z" title="Created 2025-07-14 17:52:01">2025-07-14</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/14/Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" title="Linux网络配置">Linux网络配置</a><time datetime="2025-07-14T09:50:49.000Z" title="Created 2025-07-14 17:50:49">2025-07-14</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
