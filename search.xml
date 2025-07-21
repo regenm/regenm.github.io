@@ -21370,6 +21370,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>crowd和confluence位于<strong>同一台服务器</strong><code>192.168.99.252</code>它们的数据库也在此服务器，crowd端口为8095，confluence端口为8090</li>
 <li>bitbucket位于一台服务9器<code>192.168.99.251</code>数据库也在此服务器，端口为7990</li>
 </ol>
+<p>整个项目是旧的项目迁移而来。</p>
 </blockquote>
 <p>案例图：</p>
 <p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721161435380.png" alt="image-20250721161435380"></p>
@@ -21377,7 +21378,9 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>操作目标</li>
 <li>实现三平台（jira、confluence、bitbucket）的单点登录。</li>
 </ul>
-]]></content>
+<hr>
+<h2 id="1-准备工作："><a href="#1-准备工作：" class="headerlink" title="1. 准备工作："></a>1. 准备工作：</h2><h3 id="1-找到各个软件的安装目录和数据目录"><a href="#1-找到各个软件的安装目录和数据目录" class="headerlink" title="1. 找到各个软件的安装目录和数据目录"></a>1. 找到各个软件的安装目录和数据目录</h3><h3 id="2-停掉还在运行的服务"><a href="#2-停掉还在运行的服务" class="headerlink" title="2. 停掉还在运行的服务"></a>2. 停掉还在运行的服务</h3><hr>
+<h3 id="3-修改各个软件的数据库root密码"><a href="#3-修改各个软件的数据库root密码" class="headerlink" title="3. 修改各个软件的数据库root密码"></a>3. 修改各个软件的数据库root密码</h3>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
