@@ -21993,7 +21993,292 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>固态硬盘捡漏笔记</title>
     <url>/2025/07/23/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8D%A1%E6%BC%8F%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="固态硬盘捡漏笔记"><a href="#固态硬盘捡漏笔记" class="headerlink" title="固态硬盘捡漏笔记"></a>固态硬盘捡漏笔记</h1><blockquote>
+<p>学习并且总结。</p>
+</blockquote>
+<p>以最近的捡的垃圾为例，价格为110。</p>
+<p><img src="/../images/hadWare/nvme/image-20250723110002916.png" alt="image-20250723110002916"></p>
+<p>?????????截个图就降了1%健康度可还行</p>
+<p><img src="/../images/hadware/nvme/image-20250723122104357.png" alt="image-20250723122104357"></p>
+<p><img src="/../images/hadware/nvme/image-20250723111311991.png" alt="image-20250723111311991"></p>
+<h2 id="固态硬盘架构"><a href="#固态硬盘架构" class="headerlink" title="固态硬盘架构"></a>固态硬盘架构</h2><h3 id="slc、mlc、tlc、qlc"><a href="#slc、mlc、tlc、qlc" class="headerlink" title="slc、mlc、tlc、qlc"></a>slc、mlc、tlc、qlc</h3><h3 id="1-固态硬盘架构（NAND闪存类型）"><a href="#1-固态硬盘架构（NAND闪存类型）" class="headerlink" title="1. 固态硬盘架构（NAND闪存类型）"></a><strong>1. 固态硬盘架构（NAND闪存类型）</strong></h3><p>不同类型的NAND闪存直接影响SSD的<strong>寿命、速度和价格</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>类型</strong></th>
+<th align="left"><strong>每Cell存储位数</strong></th>
+<th align="left"><strong>寿命（P&#x2F;E cycles）</strong></th>
+<th align="left"><strong>速度</strong></th>
+<th align="left"><strong>价格</strong></th>
+<th align="left"><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>SLC</strong></td>
+<td align="left">1 bit</td>
+<td align="left">50,000~100,000</td>
+<td align="left">最高</td>
+<td align="left">最贵</td>
+<td align="left">企业级、极端负载</td>
+</tr>
+<tr>
+<td align="left"><strong>MLC</strong></td>
+<td align="left">2 bits</td>
+<td align="left">3,000~10,000</td>
+<td align="left">高</td>
+<td align="left">较贵</td>
+<td align="left">高端消费级、工作站</td>
+</tr>
+<tr>
+<td align="left"><strong>TLC</strong></td>
+<td align="left">3 bits</td>
+<td align="left">500~3,000</td>
+<td align="left">中等</td>
+<td align="left">主流</td>
+<td align="left">普通用户、游戏</td>
+</tr>
+<tr>
+<td align="left"><strong>QLC</strong></td>
+<td align="left">4 bits</td>
+<td align="left">100~1,000</td>
+<td align="left">较低</td>
+<td align="left">最便宜</td>
+<td align="left">轻度使用、存储盘</td>
+</tr>
+</tbody></table>
+<p><strong>关键点</strong>：</p>
+<ul>
+<li><strong>SLC&#x2F;MLC</strong>：适合高负载（数据库、视频编辑），但价格高。</li>
+<li><strong>TLC</strong>：性价比最高，主流选择（如三星980 PRO、西数SN850）。</li>
+<li><strong>QLC</strong>：适合低预算、大容量存储（如Intel 660p），但寿命短。</li>
+</ul>
+<h2 id="固态硬盘性能指标"><a href="#固态硬盘性能指标" class="headerlink" title="固态硬盘性能指标"></a>固态硬盘性能指标</h2><table>
+<thead>
+<tr>
+<th align="left"><strong>参数</strong></th>
+<th align="left"><strong>单位</strong></th>
+<th align="left"><strong>高端NVMe SSD（PCIe 4.0）</strong></th>
+<th align="left"><strong>主流NVMe SSD（PCIe 3.0）</strong></th>
+<th align="left"><strong>SATA SSD</strong></th>
+<th align="left"><strong>适用场景</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>SEQ读&#x2F;写</strong></td>
+<td align="left">MB&#x2F;s</td>
+<td align="left">7,000 &#x2F; 6,500</td>
+<td align="left">3,500 &#x2F; 3,000</td>
+<td align="left">550 &#x2F; 500</td>
+<td align="left">大文件传输（视频&#x2F;游戏安装）</td>
+</tr>
+<tr>
+<td align="left"><strong>4K随机读&#x2F;写</strong></td>
+<td align="left">MB&#x2F;s</td>
+<td align="left">60 &#x2F; 180</td>
+<td align="left">40 &#x2F; 120</td>
+<td align="left">30 &#x2F; 80</td>
+<td align="left">系统响应、软件启动、游戏加载</td>
+</tr>
+<tr>
+<td align="left"><strong>4K-64Thrd读&#x2F;写</strong></td>
+<td align="left">MB&#x2F;s</td>
+<td align="left">1,400 &#x2F; 1,550</td>
+<td align="left">800 &#x2F; 900</td>
+<td align="left">100 &#x2F; 150</td>
+<td align="left">多任务&#x2F;虚拟机&#x2F;数据库高并发</td>
+</tr>
+<tr>
+<td align="left"><strong>AccTime（延迟）</strong></td>
+<td align="left">µs</td>
+<td align="left">读: ~10 &#x2F; 写: ~20</td>
+<td align="left">读: ~15 &#x2F; 写: ~25</td>
+<td align="left">读: ~50 &#x2F; 写: ~80</td>
+<td align="left">操作跟手度（游戏&#x2F;实时编辑）</td>
+</tr>
+</tbody></table>
+<h3 id="典型PCIE4-0固态性能测试"><a href="#典型PCIE4-0固态性能测试" class="headerlink" title="典型PCIE4.0固态性能测试"></a>典型PCIE4.0固态性能测试</h3><ul>
+<li>三星980pro 1T</li>
+</ul>
+<p><img src="/../images/hadware/nvme/image-20250723112932061.png" alt="image-20250723112932061"></p>
+<ul>
+<li>SN570 1T</li>
+</ul>
+<p><img src="/../images/hadware/nvme/image-20250723112942287.png" alt="image-20250723112942287"></p>
+<h2 id="固态硬盘参数指标"><a href="#固态硬盘参数指标" class="headerlink" title="固态硬盘参数指标"></a>固态硬盘参数指标</h2><blockquote>
+<p>NVMe 协议在控制器里专门定义了一个 <strong>Log Page 0x02</strong>（称为“SMART &#x2F; Health Information Log”），固定长度 512 字节，用于报告设备健康状况。<br> 这个 log page 通过 NVMe 命令 <code>Get Log Page</code> 获取。</p>
+</blockquote>
+<p>以上面的硬盘为案例：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>名称</th>
+<th>原始值</th>
+<th>十进制</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>严重警告标志</td>
+<td><code>000000000000</code></td>
+<td>0</td>
+<td>没有警告，bit 0~4 都是0</td>
+</tr>
+<tr>
+<td>02</td>
+<td>综合温度</td>
+<td><code>000000000136</code></td>
+<td>0x136&#x3D;310</td>
+<td>按 NVMe 标准单位是 K，310-273&#x3D;<strong>37°C</strong>（CrystalDiskInfo也显示37°C）</td>
+</tr>
+<tr>
+<td>03</td>
+<td>可用备用空间</td>
+<td><code>000000000064</code></td>
+<td>100</td>
+<td>剩余可用备用空间 100%，非常健康</td>
+</tr>
+<tr>
+<td>04</td>
+<td>可用备用空间阈值</td>
+<td><code>00000000000A</code></td>
+<td>10</td>
+<td>阈值 10%，低于就会触发告警</td>
+</tr>
+<tr>
+<td>05</td>
+<td>已用寿命百分比</td>
+<td><code>000000000048</code></td>
+<td>72</td>
+<td>表示 NAND 写入或擦写循环寿命已用 72%，还剩28%</td>
+</tr>
+<tr>
+<td>06</td>
+<td>读数据单位计数</td>
+<td><code>00000001A1E30A</code></td>
+<td>27466442</td>
+<td>每单位&#x3D;512,000字节，总读≈ 27466442×512,000&#x3D;14,065,870,400,000字节≈<strong>≈12.77TB</strong></td>
+</tr>
+<tr>
+<td>07</td>
+<td>写数据单位计数</td>
+<td><code>000000195BE26</code></td>
+<td>26586950</td>
+<td>≈26586950×512,000&#x3D;≈13,613,222,400,000字节≈<strong>≈12.36TB</strong></td>
+</tr>
+<tr>
+<td>08</td>
+<td>主机读命令计数</td>
+<td><code>000000139310F3</code></td>
+<td>205795443</td>
+<td>主机向 SSD 发出的读命令次数</td>
+</tr>
+<tr>
+<td>09</td>
+<td>主机写命令计数</td>
+<td><code>0000015369EAC</code></td>
+<td>223971756</td>
+<td>主机向 SSD 发出的写命令次数</td>
+</tr>
+<tr>
+<td>0A</td>
+<td>控制器忙碌时间</td>
+<td><code>0000000009AC</code></td>
+<td>2476 分钟</td>
+<td>≈41小时（SSD实际处于繁忙状态的总时长）</td>
+</tr>
+<tr>
+<td>0B</td>
+<td>启动&#x2F;关闭循环计数</td>
+<td><code>0000000017C36</code></td>
+<td>97334</td>
+<td>上电+关机次数</td>
+</tr>
+<tr>
+<td>0C</td>
+<td>通电时间（小时）</td>
+<td><code>000000001E7F</code></td>
+<td>7807小时</td>
+<td>≈325天</td>
+</tr>
+<tr>
+<td>0D</td>
+<td>不安全关机计数</td>
+<td><code>000000015612</code></td>
+<td>87442</td>
+<td>⚠ 极高：代表87442次掉电或非正常关机（不一定坏，但风险大）</td>
+</tr>
+<tr>
+<td>0E</td>
+<td>媒体与数据完整性错误计数</td>
+<td><code>00000000000</code></td>
+<td>0</td>
+<td>没有检测到硬件级坏块或丢失</td>
+</tr>
+<tr>
+<td>0F</td>
+<td>错误日志条目数</td>
+<td><code>000000000B83</code></td>
+<td>2947</td>
+<td>SSD控制器内部记录的错误信息次数</td>
+</tr>
+</tbody></table>
+<h2 id="固态硬盘挑选技巧总结"><a href="#固态硬盘挑选技巧总结" class="headerlink" title="固态硬盘挑选技巧总结"></a>固态硬盘挑选技巧总结</h2><blockquote>
+<p>偏个人向</p>
+</blockquote>
+<ol>
+<li>全新盘(参数几乎都是0)默认垃圾，直接pass。</li>
+<li>看0E:媒体与数据完整性错误计数，爆了也直接pass。</li>
+<li>看03，太低直接pass，低于20直接pass。</li>
+<li>判断架构slc、mlc、tlc、qlc</li>
+</ol>
+<h4 id="不同NAND类型的P-E-Cycle对比"><a href="#不同NAND类型的P-E-Cycle对比" class="headerlink" title="不同NAND类型的P&#x2F;E Cycle对比"></a><strong>不同NAND类型的P&#x2F;E Cycle对比</strong></h4><table>
+<thead>
+<tr>
+<th align="left"><strong>NAND类型</strong></th>
+<th align="left"><strong>P&#x2F;E Cycles（典型值）</strong></th>
+<th align="left"><strong>理论寿命举例（512GB SSD）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>SLC</strong></td>
+<td align="left">50,000~100,000</td>
+<td align="left">可写入25,000~50,000TB</td>
+</tr>
+<tr>
+<td align="left"><strong>MLC</strong></td>
+<td align="left">3,000~10,000</td>
+<td align="left">1,500~5,000TB</td>
+</tr>
+<tr>
+<td align="left"><strong>TLC</strong></td>
+<td align="left">500~3,000</td>
+<td align="left">250~1,500TB</td>
+</tr>
+<tr>
+<td align="left"><strong>QLC</strong></td>
+<td align="left">100~1,000</td>
+<td align="left">50~500TB</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>📌 <strong>注</strong>：实际寿命还受<strong>写入放大（WA）</strong>、<strong>温度</strong>、<strong>主控算法</strong>影响。</p>
+</blockquote>
+<h4 id="计算SSD总寿命（TBW）？"><a href="#计算SSD总寿命（TBW）？" class="headerlink" title="计算SSD总寿命（TBW）？"></a><strong>计算SSD总寿命（TBW）？</strong></h4><ul>
+<li><p><strong>公式</strong>：</p>
+<p>  TBW&#x3D;SSD容量×P&#x2F;E Cycles×写入放大系数（WA）1024TBW&#x3D;SSD容量×P&#x2F;E Cycles×1024写入放大系数（WA）</p>
+<ul>
+<li><strong>写入放大（WA）</strong>：通常1.2~3.0（随机写入越多，WA越高）。</li>
+<li><strong>示例</strong>：<br>  1TB TLC SSD（P&#x2F;E&#x3D;1,000，WA&#x3D;1.5）的TBW &#x3D; 1024×1000×1.51024&#x3D;1,500TB1024×1000×10241.5​&#x3D;1,500<em>TB</em>。</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li>对比写入量判断</li>
+</ol>
+<p>我的架构是tlc，是不是都无所谓了，写入量比较少，虽然不安全关机多，但是个人感觉无所谓，可能是当移动硬盘用的多。看着心烦的话不看就行了qwq</p>
+]]></content>
       <tags>
         <tag>笔记</tag>
         <tag>nvme</tag>
