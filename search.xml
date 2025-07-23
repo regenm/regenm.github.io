@@ -21135,40 +21135,40 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <h3 id="Crowd准备操作"><a href="#Crowd准备操作" class="headerlink" title="Crowd准备操作"></a>Crowd准备操作</h3><ol>
 <li><p>新建三个application分别为jira、confluence、bitbucket</p>
-<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718110924948.png" alt="image-20250718110924948"></p>
+<p> <img src="/../images/Linux/sso/image-20250718110924948.png" alt="image-20250718110924948"></p>
 </li>
 <li><p>新建一个用户目录<code>user directory</code></p>
-<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718110944039.png" alt="image-20250718110944039"></p>
+<p> <img src="/../images/Linux/sso/image-20250718110944039.png" alt="image-20250718110944039"></p>
 </li>
 <li><p>新建一个用户组用于测试<code>user group</code></p>
-<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111007686.png" alt="image-20250718111007686"></p>
+<p> <img src="/../images/Linux/sso/image-20250718111007686.png" alt="image-20250718111007686"></p>
 </li>
 <li><p>新建两个用户用于测试。</p>
 <blockquote>
 <p>一个提前作为所有平台的管理员，否则实现好了sso以后会禁用原管理员账户</p>
 <p>一个作为普通用户进行测试</p>
 </blockquote>
-<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111113367.png" alt="image-20250718111113367"></p>
+<p> <img src="/../images/Linux/sso/image-20250718111113367.png" alt="image-20250718111113367"></p>
 </li>
 <li><p>在各个应用内设置好允许访问的IP和域名</p>
 <p> 这里只放jira的配置</p>
-<p> <img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111839304.png" alt="image-20250718111839304"></p>
+<p> <img src="/../images/Linux/sso/image-20250718111839304.png" alt="image-20250718111839304"></p>
 </li>
 </ol>
 <h3 id="jira-集成crowd"><a href="#jira-集成crowd" class="headerlink" title="jira 集成crowd"></a>jira 集成crowd</h3><p>在用户管理中添加crowd</p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718111704738.png" alt="image-20250718111704738"></p>
+<p><img src="/../images/Linux/sso/image-20250718111704738.png" alt="image-20250718111704738"></p>
 <ul>
 <li>测试：</li>
 </ul>
 <ol>
 <li>测试服务器连接</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112040564.png" alt="image-20250718112040564"></p>
+<p><img src="/../images/Linux/sso/image-20250718112040564.png" alt="image-20250718112040564"></p>
 <ol start="2">
 <li>测试用户</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112135649.png" alt="image-20250718112135649"></p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718112208967.png" alt="image-20250718112208967"></p>
+<p><img src="/../images/Linux/sso/image-20250718112135649.png" alt="image-20250718112135649"></p>
+<p><img src="/../images/Linux/sso/image-20250718112208967.png" alt="image-20250718112208967"></p>
 <h3 id="confluence集成crowd"><a href="#confluence集成crowd" class="headerlink" title="confluence集成crowd"></a>confluence集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
 <h3 id="bitbucket集成crowd"><a href="#bitbucket集成crowd" class="headerlink" title="bitbucket集成crowd"></a>bitbucket集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
 <h3 id="Crowd的SSO设置"><a href="#Crowd的SSO设置" class="headerlink" title="Crowd的SSO设置"></a>Crowd的SSO设置</h3><blockquote>
@@ -21177,11 +21177,11 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <ol>
 <li>进入crowd general 设置</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145301659.png" alt="image-20250721145301659"></p>
+<p><img src="/../images/Linux/sso/image-20250721145301659.png" alt="image-20250721145301659"></p>
 <ol start="2">
 <li>设置子域名、cookie名字以及base url，确保都是域名而不是IP。</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145619726.png" alt="image-20250721145619726"></p>
+<p><img src="/../images/Linux/sso/image-20250721145619726.png" alt="image-20250721145619726"></p>
 <h2 id="2-实现SSO"><a href="#2-实现SSO" class="headerlink" title="2. 实现SSO"></a>2. 实现SSO</h2><blockquote>
 <p>在我使用的版本中，如果允许sso登录，则会停用jira、confluence、bitbucket的管理员账户，因此在实现SSO之前建议给Crowd中的某个用户增加所有的权限便于管理。否则将失去管理员账号。如果忘记添加可以看文末解决方式</p>
 <p>配置方法有两种，一种是直接在各个平台为该用户增加最大权限，一种是在各个平台增加一个最大权限用户组，并将该用户添加到该组。</p>
@@ -21272,7 +21272,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>一般情况下会有两条项目，<code>active</code>字段用于控制用户目录是否生效，将internal目录改为T，crowd改为F即可。</p>
 <p>有些版本是0或1，原理相同。</p>
 </blockquote>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721153048044.png" alt="image-20250721153048044"></p>
+<p><img src="/../images/Linux/sso/image-20250721153048044.png" alt="image-20250721153048044"></p>
 <h3 id="2-忘记jira、confluence、bitbucket管理员密码"><a href="#2-忘记jira、confluence、bitbucket管理员密码" class="headerlink" title="2. 忘记jira、confluence、bitbucket管理员密码"></a>2. 忘记jira、confluence、bitbucket管理员密码</h3><blockquote>
 <p>数据库中的加密方式都是{PKCS5S2}，如果是别的则用对应的。老版本可能会使sha1</p>
 <p>这里统一改为<code>&#123;PKCS5S2&#125;ltrb9LlmZ0QDCJvktxd45WgYLOgPt2XTV8X7av2p0mhPvIwofs9bHYVz2OXQ6/kF</code></p>
@@ -21283,7 +21283,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>先去实现上面第一点<strong>1. jira、confluence、bitbucket忘记添加crowd中的某个用户作为管理员。或者想要通过初始管理员账户登录对应网站</strong>的步骤</li>
 <li>找到<code>cwd_user</code>表，找到管理员账户，一般是第一个。</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721153503807.png" alt="image-20250721153503807"></p>
+<p><img src="/../images/Linux/sso/image-20250721153503807.png" alt="image-20250721153503807"></p>
 <ol start="3">
 <li>找到<code>credntial</code>字段</li>
 </ol>
@@ -21302,7 +21302,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <ol>
 <li>找到<code>cwd_user</code>表，找到管理员账户，一般是第一个。</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721154511694.png" alt="image-20250721154511694"></p>
+<p><img src="/../images/Linux/sso/image-20250721154511694.png" alt="image-20250721154511694"></p>
 <ol start="3">
 <li>找到<code>credntial</code>字段</li>
 </ol>
@@ -21417,9 +21417,15 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 <p>整个项目是旧的项目迁移而来。</p>
 <p>参考文章<a href="https://regenm.github.io/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/">jira、confluence、bitbucket、基于crowd实现sso | Regen</a></p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a><strong>思路</strong></h3><p>因为是新的环境，而且基础信息也已经全部丢失，例如各种账号密码，所以思路是：</p>
+<ol>
+<li>先满足每个软件能够正常使用内部账户登录使用</li>
+<li>再连接crowd进行测试</li>
+<li>最后实现SSO</li>
+</ol>
 </blockquote>
-<p>案例图：</p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721161435380.png" alt="image-20250721161435380"></p>
+<p>图：</p>
+<p><img src="/../images/Linux/sso/image-20250721161435380.png" alt="image-20250721161435380"></p>
 <ul>
 <li>操作目标</li>
 <li>实现三平台（jira、confluence、bitbucket）的单点登录。</li>
@@ -21428,46 +21434,137 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h2 id="1-准备工作："><a href="#1-准备工作：" class="headerlink" title="1. 准备工作："></a>1. 准备工作：</h2><h3 id="1-找到各个软件的安装目录和数据目录"><a href="#1-找到各个软件的安装目录和数据目录" class="headerlink" title="1. 找到各个软件的安装目录和数据目录"></a>1. 找到各个软件的安装目录和数据目录</h3><h4 id="jira"><a href="#jira" class="headerlink" title="jira"></a>jira</h4><ol>
 <li>安装目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165424260.png" alt="image-20250721165424260"></p>
+<p><img src="/../images/Linux/sso/image-20250721165424260.png" alt="image-20250721165424260"></p>
 <ol start="2">
 <li>数据目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165441962.png" alt="image-20250721165441962"></p>
+<p><img src="/../images/Linux/sso/image-20250721165441962.png" alt="image-20250721165441962"></p>
 <h4 id="confluence"><a href="#confluence" class="headerlink" title="confluence"></a>confluence</h4><ol>
 <li>安装目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165844897.png" alt="image-20250721165844897"></p>
+<p><img src="/../images/Linux/sso/image-20250721165844897.png" alt="image-20250721165844897"></p>
 <ol start="2">
 <li>数据目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165954165.png" alt="image-20250721165954165"></p>
+<p><img src="/../images/Linux/sso/image-20250721165954165.png" alt="image-20250721165954165"></p>
 <h4 id="bibucket"><a href="#bibucket" class="headerlink" title="bibucket"></a>bibucket</h4><ol>
 <li>安装目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721170035979.png" alt="image-20250721170035979"></p>
+<p><img src="/../images/Linux/sso/image-20250721170035979.png" alt="image-20250721170035979"></p>
 <ol start="2">
 <li>数据目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721170015797.png" alt="image-20250721170015797"></p>
+<p><img src="/../images/Linux/sso/image-20250721170015797.png" alt="image-20250721170015797"></p>
 <h4 id="crowd"><a href="#crowd" class="headerlink" title="crowd"></a>crowd</h4><ol>
 <li>安装目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165757293.png" alt="image-20250721165757293"></p>
+<p><img src="/../images/Linux/sso/image-20250721165757293.png" alt="image-20250721165757293"></p>
 <ol start="2">
 <li>数据目录</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721165811334.png" alt="image-20250721165811334"></p>
+<p><img src="/../images/Linux/sso/image-20250721165811334.png" alt="image-20250721165811334"></p>
 <h3 id="2-停掉还在运行的服务"><a href="#2-停掉还在运行的服务" class="headerlink" title="2. 停掉还在运行的服务"></a>2. 停掉还在运行的服务</h3><p>到对应的bin目录下运行对应脚本即可。</p>
 <hr>
-<h2 id="2-配置为内部用户正常登录并取消crowd登录"><a href="#2-配置为内部用户正常登录并取消crowd登录" class="headerlink" title="2. 配置为内部用户正常登录并取消crowd登录"></a>2. 配置为内部用户正常登录并取消crowd登录</h2><blockquote>
-<p>因为是新的环境，而且基础信息也已经全部丢失，例如各种账号密码，所以思路是：</p>
-<ol>
-<li>先满足每个软件能够正常使用内部账户登录使用</li>
-<li>再连接crowd进行测试</li>
-<li>最后实现SSO</li>
+<h2 id="2-使用内网DNS解析"><a href="#2-使用内网DNS解析" class="headerlink" title="2. 使用内网DNS解析"></a>2. 使用内网DNS解析</h2><p>服务器为Winserver2016，安装DNS服务。</p>
+<h3 id="1-搭建与配置DNS服务器"><a href="#1-搭建与配置DNS服务器" class="headerlink" title="1. 搭建与配置DNS服务器"></a>1. 搭建与配置DNS服务器</h3><h4 id="1-搭建DNS服务器"><a href="#1-搭建DNS服务器" class="headerlink" title="1. 搭建DNS服务器"></a>1. 搭建DNS服务器</h4><ol>
+<li>打开服务器管理器</li>
 </ol>
-</blockquote>
-<h3 id="1-修改各个软件的数据库root密码"><a href="#1-修改各个软件的数据库root密码" class="headerlink" title="1. 修改各个软件的数据库root密码"></a>1. 修改各个软件的数据库root密码</h3><blockquote>
+<p><img src="/../images/Linux/sso/image-20250722161735278.png" alt="image-20250722161735278"></p>
+<ol start="2">
+<li>点击<strong>添加角色和功能</strong></li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162042742.png" alt="image-20250722162042742"></p>
+<ol start="3">
+<li>点击下一步-基于角色或基于功能的安装-下一步，选择主机，选择DNS服务器</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162253226.png" alt="image-20250722162253226"></p>
+<ol start="4">
+<li>一路下一步最后安装</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162326485.png" alt="image-20250722162326485"></p>
+<p>​	可能会重启几次</p>
+<h4 id="2-配置DNS解析"><a href="#2-配置DNS解析" class="headerlink" title="2. 配置DNS解析"></a>2. 配置DNS解析</h4><ol>
+<li>进入DNS管理器</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162527041.png" alt="image-20250722162527041"></p>
+<ol start="2">
+<li>选择正向查找区域，新建区域</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162647154.png" alt="image-20250722162647154"></p>
+<ol start="3">
+<li>选择主要区域并下一步</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162728785.png" alt="image-20250722162728785"></p>
+<ol start="4">
+<li>输入域名，下一步</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162809338.png" alt="image-20250722162809338"></p>
+<ol start="5">
+<li>一路下一步，右键新建的域名选择新建主机(A或AAAA)</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722162937500.png" alt="image-20250722162937500"></p>
+<ol start="6">
+<li>输入二级域名以及主机名，重复操作即可。</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722163102969.png" alt="image-20250722163102969"></p>
+<ol start="7">
+<li>最后显示</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722163210119.png" alt="image-20250722163210119"></p>
+<ol start="8">
+<li>至此已添加所有需要使用到的解析</li>
+</ol>
+<h3 id="2-客户端配置DNS服务器"><a href="#2-客户端配置DNS服务器" class="headerlink" title="2. 客户端配置DNS服务器"></a>2. 客户端配置DNS服务器</h3><h4 id="1-windows客户端"><a href="#1-windows客户端" class="headerlink" title="1. windows客户端"></a>1. windows客户端</h4><ol>
+<li>控制面板-网络和共享中心-选择联网的以太网连接</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722163419857.png" alt="image-20250722163419857"></p>
+<ol start="2">
+<li>点击属性后双击IPv4</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722163445352.png" alt="image-20250722163445352"></p>
+<ol start="3">
+<li>选择DNS服务器并输入</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722163610973.png" alt="image-20250722163610973"></p>
+<ol start="4">
+<li>至此已添加好DNS解析服务器，。</li>
+<li>测试一下是否是正确的IP。</li>
+</ol>
+<p>​	第一次是未添加解析之前的结果，后面的为添加解析后的结果。至于为什么两次结果不一样，与DNS解析过程有关，最终结果是我们内网的解析结果即可。</p>
+<p><img src="/../images/Linux/sso/image-20250722163732245.png" alt="image-20250722163732245"></p>
+<h3 id="2-Linux客户端或服务端"><a href="#2-Linux客户端或服务端" class="headerlink" title="2. Linux客户端或服务端"></a>2. Linux客户端或服务端</h3><h4 id="1-临时修改"><a href="#1-临时修改" class="headerlink" title="1. 临时修改"></a>1. 临时修改</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> bash -c <span class="string">&#x27;echo &quot;nameserver 192.168.99.250&quot; &gt; /etc/resolv.conf&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-永久修改"><a href="#2-永久修改" class="headerlink" title="2. 永久修改"></a>2. 永久修改</h4><ol>
+<li>首先查看上网用的网卡</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ip a</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/sso/image-20250722164112282.png" alt="image-20250722164112282"></p>
+<ol start="2">
+<li>这里可以发现我的是ens33，然后去网卡的修改配置文件。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<p>增加DNS服务器IP地址即可</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DNS1 192.168.99.205</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/sso/image-20250722164255588.png" alt="image-20250722164255588"></p>
+<ol start="3">
+<li>重启网卡即可</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">systemctl restart NetworkManager</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>测试解析</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping jira.suitbim.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/sso/image-20250722164633137.png" alt="image-20250722164633137"></p>
+<p>没有问题</p>
+<ol start="4">
+<li>至此已配置好DNS服务器</li>
+</ol>
+<h2 id="3-配置为内部用户正常登录并取消crowd登录"><a href="#3-配置为内部用户正常登录并取消crowd登录" class="headerlink" title="3. 配置为内部用户正常登录并取消crowd登录"></a>3. 配置为内部用户正常登录并取消crowd登录</h2><h3 id="1-修改各个软件的数据库root密码"><a href="#1-修改各个软件的数据库root密码" class="headerlink" title="1. 修改各个软件的数据库root密码"></a>1. 修改各个软件的数据库root密码</h3><blockquote>
 <p>因为后续需要改各个数据库中的管理员密码，所以这里改掉root便于后续查询修改。</p>
 <p>通过各类手段确定数据库信息：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql --version</span><br></pre></td></tr></table></figure>
@@ -21524,20 +21621,20 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 <h3 id="2-查看以及确认各个软件配置的数据库信息"><a href="#2-查看以及确认各个软件配置的数据库信息" class="headerlink" title="2. 查看以及确认各个软件配置的数据库信息"></a>2. 查看以及确认各个软件配置的数据库信息</h3><h4 id="jira-1"><a href="#jira-1" class="headerlink" title="jira"></a>jira</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /home/atlassian/application-data/jira/dbconfig.xml</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721171451445.png" alt="image-20250721171451445"></p>
+<p><img src="/../images/Linux/sso/image-20250721171451445.png" alt="image-20250721171451445"></p>
 <p><strong>经数据库连接测试后无问题</strong></p>
 <h4 id="confluence-1"><a href="#confluence-1" class="headerlink" title="confluence"></a>confluence</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /home/confluence_data/confluence.cfg.xml</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721171323721.png" alt="image-20250721171323721"></p>
+<p><img src="/../images/Linux/sso/image-20250721171323721.png" alt="image-20250721171323721"></p>
 <p><strong>经数据库连接测试后无问题</strong></p>
 <h4 id="bitbucket"><a href="#bitbucket" class="headerlink" title="bitbucket"></a>bitbucket</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /data/atlassian/application-data/bitbucket/shared/bitbucket.properties</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721171616776.png" alt="image-20250721171616776"></p>
+<p><img src="/../images/Linux/sso/image-20250721171616776.png" alt="image-20250721171616776"></p>
 <p><strong>经数据库连接测试后无问题</strong></p>
 <p>这里的<code>plugin.auth-crowd.sso.enabled=true</code>无影响	</p>
 <h4 id="crowd-1"><a href="#crowd-1" class="headerlink" title="crowd"></a>crowd</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /var/crowd-home/shared/crowd.cfg.xml</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721170204578.png" alt="image-20250721170204578"></p>
+<p><img src="/../images/Linux/sso/image-20250721170204578.png" alt="image-20250721170204578"></p>
 <p><strong>经数据库连接测试后无问题</strong></p>
 <h3 id="3-查看以及修改各个软件的SSO配置"><a href="#3-查看以及修改各个软件的SSO配置" class="headerlink" title="3. 查看以及修改各个软件的SSO配置"></a>3. 查看以及修改各个软件的SSO配置</h3><h4 id="jira-2"><a href="#jira-2" class="headerlink" title="jira"></a>jira</h4><h5 id="1-修改认证配置文件seraph-config-xml"><a href="#1-修改认证配置文件seraph-config-xml" class="headerlink" title="1. 修改认证配置文件seraph-config.xml"></a>1. 修改认证配置文件<code>seraph-config.xml</code></h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /home/atlassian/jira/atlassian-jira/WEB-INF/classes/seraph-config.xml</span><br></pre></td></tr></table></figure>
 
@@ -21576,25 +21673,35 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 <h3 id="4-使用初始管理员登录"><a href="#4-使用初始管理员登录" class="headerlink" title="4. 使用初始管理员登录"></a>4. 使用初始管理员登录</h3><p>改密码方式在另一篇中有介绍<a href="https://regenm.github.io/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/">jira、confluence、bitbucket、基于crowd实现sso | Regen</a></p>
 <p>登录成功则可进行下一步配置。</p>
-<h2 id="3-crowd配置SSO"><a href="#3-crowd配置SSO" class="headerlink" title="3. crowd配置SSO"></a>3. crowd配置SSO</h2><blockquote>
-<p>这里全部基于域名，客户端配置好本地解析，<strong>服务端的hosts文件也配置好（主要是crowd服务器）</strong>。</p>
-<p>需要添加：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">192.168.99.252 crowd.suitbim.com</span><br></pre></td></tr></table></figure>
-
-
-</blockquote>
+<h2 id="4-各个web平台配置SSO"><a href="#4-各个web平台配置SSO" class="headerlink" title="4. 各个web平台配置SSO"></a>4. 各个web平台配置SSO</h2><ol>
+<li><p>在各个应用内设置好允许访问的IP和域名</p>
+<p> 这里只放jira的配置</p>
+<p> <img src="/../images/Linux/sso/image-20250718111839304.png" alt="image-20250718111839304"></p>
+</li>
+</ol>
+<h3 id="jira-集成crowd"><a href="#jira-集成crowd" class="headerlink" title="jira 集成crowd"></a>jira 集成crowd</h3><ol>
+<li>测试服务器连接</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250718112040564.png" alt="image-20250718112040564"></p>
+<ol start="2">
+<li>测试用户</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250718112135649.png" alt="image-20250718112135649"></p>
+<p><img src="/../images/Linux/sso/image-20250718112208967.png" alt="image-20250718112208967"></p>
+<h3 id="confluence集成crowd"><a href="#confluence集成crowd" class="headerlink" title="confluence集成crowd"></a>confluence集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
+<h3 id="bitbucket集成crowd"><a href="#bitbucket集成crowd" class="headerlink" title="bitbucket集成crowd"></a>bitbucket集成crowd</h3><p>​	与jira集成crowd操作基本一致</p>
 <h3 id="Crowd的SSO设置"><a href="#Crowd的SSO设置" class="headerlink" title="Crowd的SSO设置"></a>Crowd的SSO设置</h3><blockquote>
 <p>这一步设置了能够通过SSO登录的二级域名，子域名通过该域名来实现SSO</p>
 </blockquote>
 <ol>
 <li>进入crowd general 设置</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145301659.png" alt="image-20250721145301659"></p>
+<p><img src="/../images/Linux/sso/image-20250721145301659.png" alt="image-20250721145301659"></p>
 <ol start="2">
 <li>设置子域名、cookie名字以及base url，确保都是域名而不是IP。</li>
 </ol>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250721145619726.png" alt="image-20250721145619726"></p>
-<h2 id="2-实现SSO"><a href="#2-实现SSO" class="headerlink" title="2. 实现SSO"></a>2. 实现SSO</h2><blockquote>
+<p><img src="/../images/Linux/sso/image-20250721145619726.png" alt="image-20250721145619726"></p>
+<h2 id="5-实现SSO"><a href="#5-实现SSO" class="headerlink" title="5. 实现SSO"></a>5. 实现SSO</h2><blockquote>
 <p>在我使用的版本中，如果允许sso登录，则会停用jira、confluence、bitbucket的管理员账户，因此在实现SSO之前建议给Crowd中的某个用户增加所有的权限便于管理。否则将失去管理员账号。如果忘记添加可以看文末解决方式</p>
 <p>配置方法有两种，一种是直接在各个平台为该用户增加最大权限，一种是在各个平台增加一个最大权限用户组，并将该用户添加到该组。</p>
 <ul>
@@ -21624,10 +21731,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>并注释</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.jira.security.login.JiraSeraphAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-修改或者增加crowd-properties文件"><a href="#2-修改或者增加crowd-properties文件" class="headerlink" title="2. 修改或者增加crowd.properties文件"></a>2. 修改或者增加<code>crowd.properties</code>文件</h4><p>在路径<code>/home/atlassian/jira/atlassian-jira/WEB-INF/classes</code>下创建<code>crowd.properties</code>，写入，内容根据实际情况改写，主要是域名、IP之类的需要修改。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">application.name                        jira</span><br><span class="line">application.password                    Regen123</span><br><span class="line">application.login.url                   http://localhost:8080</span><br><span class="line"></span><br><span class="line">crowd.server.url                        http://localhost:8095/crowd/services/</span><br><span class="line">crowd.base.url                          http://localhost:8095/crowd/</span><br><span class="line"></span><br><span class="line">session.isauthenticated                 session.isauthenticated</span><br><span class="line">session.tokenkey                        session.tokenkey</span><br><span class="line">session.validationinterval              200</span><br><span class="line">session.lastvalidation                  session.lastvalidation</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-重启jira-1"><a href="#3-重启jira-1" class="headerlink" title="3. 重启jira"></a>3. 重启jira</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/atlassian/jira/bin</span><br><span class="line">./stop-jira.sh</span><br><span class="line">./start-jira.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-重启jira"><a href="#2-重启jira" class="headerlink" title="2. 重启jira"></a>2. 重启jira</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home/atlassian/jira/bin</span><br><span class="line">./stop-jira.sh</span><br><span class="line">./start-jira.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="confluence实现SSO的配置过程、与jira类似"><a href="#confluence实现SSO的配置过程、与jira类似" class="headerlink" title="confluence实现SSO的配置过程、与jira类似"></a>confluence实现SSO的配置过程、与jira类似</h3><h4 id="1-修改认证配置文件seraph-config-xml-3"><a href="#1-修改认证配置文件seraph-config-xml-3" class="headerlink" title="1. 修改认证配置文件seraph-config.xml"></a>1. 修改认证配置文件<code>seraph-config.xml</code></h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /opt/atlassian/confluence/confluence/WEB-INF/classes/seraph-config.xml</span><br></pre></td></tr></table></figure>
 
@@ -21646,10 +21750,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>并注释</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">     <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">&lt;authenticator class=&quot;com.atlassian.confluence.user.ConfluenceAuthenticator&quot;/&gt;</span></span><br><span class="line"><span class="comment">     --&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="2-修改或者增加crowd-properties文件-1"><a href="#2-修改或者增加crowd-properties文件-1" class="headerlink" title="2. 修改或者增加crowd.properties文件"></a>2. 修改或者增加<code>crowd.properties</code>文件</h4><p>在路径<code>/opt/atlassian/confluence/confluence/WEB-INF/classes</code>下创建<code>crowd.properties</code>，写入，内容根据实际情况改写，主要是域名、IP之类的需要修改。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">application.name                        confluence</span><br><span class="line">application.password                    Regen123</span><br><span class="line">application.login.url                   http://localhost:8080</span><br><span class="line"></span><br><span class="line">crowd.server.url                        http://localhost:8095/crowd/services/</span><br><span class="line">crowd.base.url                          http://localhost:8095/crowd/</span><br><span class="line"></span><br><span class="line">session.isauthenticated                 session.isauthenticated</span><br><span class="line">session.tokenkey                        session.tokenkey</span><br><span class="line">session.validationinterval              200</span><br><span class="line">session.lastvalidation                  session.lastvalidation</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-重启confluence-1"><a href="#3-重启confluence-1" class="headerlink" title="3. 重启confluence"></a>3. 重启confluence</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/atlassian/confluence/bin</span><br><span class="line">./stop-confluence.sh</span><br><span class="line">./start-confluence.sh</span><br></pre></td></tr></table></figure>
+<h4 id="2-重启confluence"><a href="#2-重启confluence" class="headerlink" title="2. 重启confluence"></a>2. 重启confluence</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/atlassian/confluence/bin</span><br><span class="line">./stop-confluence.sh</span><br><span class="line">./start-confluence.sh</span><br></pre></td></tr></table></figure>
 
 <h3 id="Bitbucket实现SSO的配置过程"><a href="#Bitbucket实现SSO的配置过程" class="headerlink" title="Bitbucket实现SSO的配置过程"></a>Bitbucket实现SSO的配置过程</h3><h4 id="1-修改bitbucket-properties-1"><a href="#1-修改bitbucket-properties-1" class="headerlink" title="1. 修改bitbucket.properties"></a>1. 修改<code>bitbucket.properties</code></h4><p>在数据目录中找到<code>bitbucket.properties</code>，一般在<code>/var</code>下，也可能被移动或修改，可通过find查找</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim  /data/atlassian/application-data/bitbucket/shared/bitbucket.properties</span><br></pre></td></tr></table></figure>
@@ -21659,9 +21760,23 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 <h4 id="2-重启-1"><a href="#2-重启-1" class="headerlink" title="2. 重启"></a>2. 重启</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/atlassian/bitbucket/7.0.0/bin</span><br><span class="line">./stop-bitbucket.sh  </span><br><span class="line">./start-bitbucket.sh  </span><br></pre></td></tr></table></figure>
 
-
-
-<p>如果流程顺利并且项目干净的话至此应该已经实现了基于Crowd的SSO登录。</p>
+<h2 id="6-验证SSO"><a href="#6-验证SSO" class="headerlink" title="6. 验证SSO"></a>6. 验证SSO</h2><ul>
+<li>分别使用具有admin权限的用户和普通用户登录</li>
+</ul>
+<h3 id="1-测试具有admin权限的用户"><a href="#1-测试具有admin权限的用户" class="headerlink" title="1. 测试具有admin权限的用户"></a>1. 测试具有admin权限的用户</h3><ol>
+<li>退出已经登录的所有账号</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722134654584.png" alt="image-20250722134654584"></p>
+<ol start="2">
+<li>登录具有admin权限的用户</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722134734142.png" alt="image-20250722134734142"></p>
+<ol start="3">
+<li>测试confluence、bitbucket</li>
+</ol>
+<p><img src="/../images/Linux/sso/image-20250722134814486.png" alt="image-20250722134814486"><img src="/../images/Linux/sso/image-20250722135011804.png" alt="image-20250722135011804"></p>
+<p>至此已实现了基于Crowd的jira、confluence、bitbucket三平台SSO。</p>
+<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>见<a href="https://regenm.github.io/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/">jira、confluence、bitbucket、基于crowd实现sso | Regen</a></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -21709,7 +21824,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 <h2 id="2-起数据库"><a href="#2-起数据库" class="headerlink" title="2. 起数据库"></a>2. 起数据库</h2><h3 id="docker起数据库"><a href="#docker起数据库" class="headerlink" title="docker起数据库"></a>docker起数据库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mysql57 \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -e MYSQL_ROOT_PASSWORD=regen \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -v /data/soft/mysql57/mysql-data:/var/lib/mysql \</span><br><span class="line">  -v /data/soft/mysql57/mysql-conf:/etc/mysql/conf.d \</span><br><span class="line">  -v /data/soft/mysql57/log/mysql-logs:/var/log/mysql \</span><br><span class="line">  -p 3306:3306 \</span><br><span class="line">  mysql:5.7</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250718093831149.png" alt="image-20250718093831149"></p>
+<p><img src="/../images/Linux/sso/image-20250718093831149.png" alt="image-20250718093831149"></p>
 <h3 id="建库"><a href="#建库" class="headerlink" title="建库"></a>建库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">-- 创建jira库</span><br><span class="line">CREATE DATABASE jira CHARACTER SET utf8 COLLATE utf8_bin;</span><br><span class="line">-- 创建confluence库</span><br><span class="line">CREATE DATABASE confluence CHARACTER SET utf8 COLLATE utf8_bin;</span><br><span class="line">-- 创建bitbucket库</span><br><span class="line">CREATE DATABASE bitbucket CHARACTER SET utf8 COLLATE utf8_bin;</span><br><span class="line">-- 创建crowd库</span><br><span class="line">CREATE DATABASE crowd CHARACTER SET utf8 COLLATE utf8_bin;</span><br><span class="line"></span><br><span class="line">-- 这里mysql和jira是在同一个服务器，所以使用了localhost，如果不在同一个服务器，可以使用 % 来代替localhost</span><br><span class="line"></span><br><span class="line">CREATE USER <span class="string">&#x27;jira&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Regen123&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;confluence&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Regen123&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;bitbucket&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Regen123&#x27;</span>;</span><br><span class="line">CREATE USER <span class="string">&#x27;crowd&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span> IDENTIFIED BY <span class="string">&#x27;Regen123&#x27;</span>;</span><br><span class="line"></span><br><span class="line">-- 给权限</span><br><span class="line">GRANT ALL PRIVILEGES ON jira.* TO <span class="string">&#x27;jira&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"></span><br><span class="line">GRANT  ALL PRIVILEGES ON confluence.* TO <span class="string">&#x27;confluence&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON bitbucket.* TO <span class="string">&#x27;bitbucket&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"></span><br><span class="line">GRANT ALL PRIVILEGES ON crowd.* TO <span class="string">&#x27;crowd&#x27;</span>@<span class="string">&#x27;localhost&#x27;</span>;</span><br><span class="line"></span><br><span class="line">-- 刷新</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
 
 
@@ -21873,6 +21988,17 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>confluence</tag>
         <tag>bitbucket</tag>
         <tag>crowd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>固态硬盘捡漏笔记</title>
+    <url>/2025/07/23/%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98%E6%8D%A1%E6%BC%8F%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>nvme</tag>
+        <tag>固态硬盘</tag>
+        <tag>捡漏</tag>
       </tags>
   </entry>
 </search>
