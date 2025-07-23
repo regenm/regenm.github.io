@@ -21997,10 +21997,10 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>学习并且总结。</p>
 </blockquote>
 <p>以最近的捡的垃圾为例，价格为110。</p>
-<p><img src="/../images/hadWare/nvme/image-20250723110002916.png" alt="image-20250723110002916"></p>
+<p><img src="/../images/hardWare/nvme/image-20250723110002916.png" alt="image-20250723110002916"></p>
 <p>?????????截个图就降了1%健康度可还行</p>
-<p><img src="/../images/hadware/nvme/image-20250723122104357.png" alt="image-20250723122104357"></p>
-<p><img src="/../images/hadware/nvme/image-20250723111311991.png" alt="image-20250723111311991"></p>
+<p><img src="/../images/hardware/nvme/image-20250723122104357.png" alt="image-20250723122104357"></p>
+<p><img src="/../images/hardware/nvme/image-20250723111311991.png" alt="image-20250723111311991"></p>
 <h2 id="固态硬盘架构"><a href="#固态硬盘架构" class="headerlink" title="固态硬盘架构"></a>固态硬盘架构</h2><h3 id="slc、mlc、tlc、qlc"><a href="#slc、mlc、tlc、qlc" class="headerlink" title="slc、mlc、tlc、qlc"></a>slc、mlc、tlc、qlc</h3><h3 id="1-固态硬盘架构（NAND闪存类型）"><a href="#1-固态硬盘架构（NAND闪存类型）" class="headerlink" title="1. 固态硬盘架构（NAND闪存类型）"></a><strong>1. 固态硬盘架构（NAND闪存类型）</strong></h3><p>不同类型的NAND闪存直接影响SSD的<strong>寿命、速度和价格</strong>：</p>
 <table>
 <thead>
@@ -22103,7 +22103,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <ul>
 <li>SN570 1T</li>
 </ul>
-<p><img src="/../images/hadware/nvme/image-20250723112942287.png" alt="image-20250723112942287"></p>
+<p><img src="/../images/hadWare/nvme/image-20250723112942287.png" alt="image-20250723112942287"></p>
 <h2 id="固态硬盘参数指标"><a href="#固态硬盘参数指标" class="headerlink" title="固态硬盘参数指标"></a>固态硬盘参数指标</h2><blockquote>
 <p>NVMe 协议在控制器里专门定义了一个 <strong>Log Page 0x02</strong>（称为“SMART &#x2F; Health Information Log”），固定长度 512 字节，用于报告设备健康状况。<br> 这个 log page 通过 NVMe 命令 <code>Get Log Page</code> 获取。</p>
 </blockquote>
