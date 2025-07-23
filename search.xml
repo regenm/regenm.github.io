@@ -22078,11 +22078,11 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h3 id="典型PCIE4-0固态性能测试"><a href="#典型PCIE4-0固态性能测试" class="headerlink" title="典型PCIE4.0固态性能测试"></a>典型PCIE4.0固态性能测试</h3><ul>
 <li>三星980pro 1T</li>
 </ul>
-<p><img src="/../images/hadware/nvme/image-20250723112932061.png" alt="image-20250723112932061"></p>
+<p><img src="/../images/hardware/nvme/image-20250723112932061.png" alt="image-20250723112932061"></p>
 <ul>
 <li>SN570 1T</li>
 </ul>
-<p><img src="/../images/hadWare/nvme/image-20250723112942287.png" alt="image-20250723112942287"></p>
+<p><img src="/../images/hardWare/nvme/image-20250723112942287.png" alt="image-20250723112942287"></p>
 <h2 id="固态硬盘参数指标"><a href="#固态硬盘参数指标" class="headerlink" title="固态硬盘参数指标"></a>固态硬盘参数指标</h2><blockquote>
 <p>NVMe 协议在控制器里专门定义了一个 <strong>Log Page 0x02</strong>（称为“SMART &#x2F; Health Information Log”），固定长度 512 字节，用于报告设备健康状况。<br> 这个 log page 通过 NVMe 命令 <code>Get Log Page</code> 获取。</p>
 </blockquote>
@@ -22242,7 +22242,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 </tbody></table>
 <blockquote>
-<p>📌 <strong>注</strong>：实际寿命还受<strong>写入放大（WA）</strong>、<strong>温度</strong>、<strong>主控算法</strong>影响。</p>
+<p> <strong>注</strong>：实际寿命还受<strong>写入放大（WA）</strong>、<strong>温度</strong>、<strong>主控算法</strong>影响。</p>
 </blockquote>
 <h4 id="计算SSD总寿命（TBW）？"><a href="#计算SSD总寿命（TBW）？" class="headerlink" title="计算SSD总寿命（TBW）？"></a><strong>计算SSD总寿命（TBW）？</strong></h4><ul>
 <li><p><strong>公式</strong>：</p>
