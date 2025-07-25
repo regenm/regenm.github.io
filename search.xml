@@ -6218,9 +6218,7 @@
   <entry>
     <title>docker容器技术</title>
     <url>/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/</url>
-    <content><![CDATA[<p>constructing</p>
-<p>toBeContinued</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+    <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
 <p>​				docker是一个用Go语言实现的开源项目，可以让我们方便的创建和使用容器，docker将程序以及程序所有的依赖都打包到docker container，这样你的程序可以在任何环境都会有一致的表现，这里程序运行的依赖也就是容器就好比集装箱，容器所处的操作系统环境就好比货船或港口，<strong>程序的表现只和集装箱有关系(容器)，和集装箱放在哪个货船或者哪个港口(操作系统)没有关系</strong>。</p>
 <p>​				因此我们可以看到docker可以屏蔽环境差异，也就是说，只要你的程序打包到了docker中，那么无论运行在什么环境下程序的行为都是一致的，程序员再也无法施展表演才华了，<strong>不会再有“在我的环境上可以运行”</strong>，真正实现“build once, run everywhere”。</p>
 </blockquote>
@@ -6235,8 +6233,7 @@
 <h2 id="dockerfile"><a href="#dockerfile" class="headerlink" title="dockerfile"></a>dockerfile</h2><p>​	<code>Dockerfile</code> 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。感觉就像<code>makefile</code>一样。</p>
 <h2 id="image"><a href="#image" class="headerlink" title="image"></a>image</h2><p>​	Docker镜像（Docker Image）就是一个只读的模板。比如，一个镜像可以包含一个完整的<a href="https://so.csdn.net/so/search?q=Ubuntu&spm=1001.2101.3001.7020">Ubuntu</a>操作系统环境。镜像可以用来创建Docker容器。</p>
 <h2 id="container"><a href="#container" class="headerlink" title="container"></a>container</h2><p>​	容器是镜像的运行时实例，容器是独立运行的一个或一组应用，以及它们的运行态环境。</p>
-<p>​	</p>
-]]></content>
+<h1 id="安装方式："><a href="#安装方式：" class="headerlink" title="安装方式："></a>安装方式：</h1><h2 id="包管理器安装"><a href="#包管理器安装" class="headerlink" title="包管理器安装"></a>包管理器安装</h2><h2 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h2>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -13356,111 +13353,6 @@ to breathe, to sense another, and to wait.<br>
       </tags>
   </entry>
   <entry>
-    <title>英语口语生词</title>
-    <url>/2025/04/08/%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD%E7%94%9F%E8%AF%8D/</url>
-    <content><![CDATA[<h3 id="2025-4-8"><a href="#2025-4-8" class="headerlink" title="2025.4.8"></a>2025.4.8</h3><blockquote>
-<p>以下是这些词汇的中英文对照、<strong>音标（美式发音）</strong>及简要解释：  </p>
-<hr>
-<h3 id="1-Domestic"><a href="#1-Domestic" class="headerlink" title="1. Domestic"></a><strong>1. Domestic</strong></h3><ul>
-<li><strong>中文</strong>：国内的；家用的；驯养的  </li>
-<li><strong>音标</strong>：&#x2F;dəˈmɛstɪk&#x2F;  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>Domestic flights</em>（国内航班）  </li>
-<li><em>Domestic animals</em>（家养动物，如猫、狗）</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="2-Moor"><a href="#2-Moor" class="headerlink" title="2. Moor"></a><strong>2. Moor</strong></h3><ul>
-<li><strong>中文</strong>：  <ul>
-<li>（动词）<strong>停泊、系泊</strong>（船只）  </li>
-<li>（名词）<strong>荒野、沼泽地</strong>（尤指英国的高地沼泽）</li>
-</ul>
-</li>
-<li><strong>音标</strong>：  <ul>
-<li>动词：&#x2F;mʊr&#x2F;  </li>
-<li>名词：&#x2F;mɔr&#x2F;</li>
-</ul>
-</li>
-<li><strong>例句</strong>：  <ul>
-<li>*The ship was moored at the harbor.*（船停泊在港口。）  </li>
-<li><em>The Yorkshire Moors</em>（约克郡荒原）</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="3-Arugula（🇺🇸美式）-Rocket（🇬🇧英式）"><a href="#3-Arugula（🇺🇸美式）-Rocket（🇬🇧英式）" class="headerlink" title="3. Arugula（🇺🇸美式） &#x2F; Rocket（🇬🇧英式）"></a><strong>3. Arugula</strong>（🇺🇸美式） &#x2F; <strong>Rocket</strong>（🇬🇧英式）</h3><ul>
-<li><strong>中文</strong>：<strong>芝麻菜</strong>  </li>
-<li><strong>音标</strong>：&#x2F;əˈruːɡələ&#x2F;（美式）  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>The salad has arugula, tomatoes, and feta cheese.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="4-Hummus"><a href="#4-Hummus" class="headerlink" title="4. Hummus"></a><strong>4. Hummus</strong></h3><ul>
-<li><strong>中文</strong>：<strong>鹰嘴豆泥</strong>  </li>
-<li><strong>音标</strong>：&#x2F;ˈhʊməs&#x2F;（或 &#x2F;ˈhʌməs&#x2F;）  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>We ate hummus with pita bread.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="5-Spinach"><a href="#5-Spinach" class="headerlink" title="5. Spinach"></a><strong>5. Spinach</strong></h3><ul>
-<li><strong>中文</strong>：<strong>菠菜</strong>  </li>
-<li><strong>音标</strong>：&#x2F;ˈspɪnɪtʃ&#x2F;  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>Spinach is rich in iron.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="6-Artichoke"><a href="#6-Artichoke" class="headerlink" title="6. Artichoke"></a><strong>6. Artichoke</strong></h3><ul>
-<li><strong>中文</strong>：<strong>洋蓟</strong>  </li>
-<li><strong>音标</strong>：&#x2F;ˈɑːrtɪtʃoʊk&#x2F;  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>Steamed artichoke with garlic butter.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="7-Appetizer（🇺🇸）-Starter（🇬🇧）"><a href="#7-Appetizer（🇺🇸）-Starter（🇬🇧）" class="headerlink" title="7. Appetizer（🇺🇸） &#x2F; Starter（🇬🇧）"></a><strong>7. Appetizer</strong>（🇺🇸） &#x2F; <strong>Starter</strong>（🇬🇧）</h3><ul>
-<li><strong>中文</strong>：<strong>开胃菜</strong>  </li>
-<li><strong>音标</strong>：&#x2F;ˈæpɪtaɪzər&#x2F;  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>We ordered hummus as an appetizer.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="8-Feta"><a href="#8-Feta" class="headerlink" title="8. Feta"></a><strong>8. Feta</strong></h3><ul>
-<li><strong>中文</strong>：<strong>菲达奶酪</strong>  </li>
-<li><strong>音标</strong>：&#x2F;ˈfɛtə&#x2F;  </li>
-<li><strong>例句</strong>：  <ul>
-<li><em>Greek salad with feta and olives.</em></li>
-</ul>
-</li>
-</ul>
-<hr>
-<h3 id="发音小贴士"><a href="#发音小贴士" class="headerlink" title="发音小贴士"></a><strong>发音小贴士</strong></h3><ul>
-<li><strong>Arugula</strong>：注意重音在第二个音节（ə-<strong>ROO</strong>-gə-lə）。  </li>
-<li><strong>Hummus</strong>：读音接近“<strong>胡姆斯</strong>”，而非“hum-us”。  </li>
-<li><strong>Artichoke</strong>：结尾的“choke”发音类似“choke”（&#x2F;tʃoʊk&#x2F;）。</li>
-</ul>
-<p> 😊</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>英语学习</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>英文</tag>
-        <tag>单词</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>英语单词</title>
     <url>/2025/02/24/%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D/</url>
     <content><![CDATA[<iframe  src="http://127.0.0.1/chatbot/rJkraIM1MfOvmOQM"  style="width: 100%; height: 100%; min-height: 700px"  frameborder="0"> </iframe>
@@ -17069,6 +16961,17 @@ to breathe, to sense another, and to wait.<br>
 <p>• plush：谐音“扑噜嘘”→ 摸毛绒玩具的声音。</p>
 <p>• opulent：拆解 <em>op（财富） + ulent（充满）</em> → 充满财富的。</p>
 </blockquote>
+<hr>
+<h1 id="坚持不下去了…-吗？"><a href="#坚持不下去了…-吗？" class="headerlink" title="坚持不下去了….吗？"></a>坚持不下去了….吗？</h1><blockquote>
+<p>还是不够自律</p>
+<p>所以我选择他律。</p>
+</blockquote>
+<h2 id="第一版-英语陪练机器人"><a href="#第一版-英语陪练机器人" class="headerlink" title="第一版 英语陪练机器人"></a>第一版 英语陪练机器人</h2><blockquote>
+<p>搭建思路：python脚本+smtp+大模型API+crontab</p>
+</blockquote>
+<p>写了一些脚本，放到了我的服务器，实现每天早上六点发给我学习邮件。</p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\English\image-20250724103445830.png" alt="image-20250724103445830"></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250724103656188.png" alt="image-20250724103656188"></p>
 ]]></content>
       <categories>
         <category>英语学习</category>
@@ -22263,6 +22166,119 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>nvme</tag>
         <tag>固态硬盘</tag>
         <tag>捡漏</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows环境下使用pigz进行压缩和解压缩</title>
+    <url>/2025/07/25/windows%E7%8E%AF%E5%A2%83%E4%B8%8B%E4%BD%BF%E7%94%A8pigz%E8%BF%9B%E8%A1%8C%E5%8E%8B%E7%BC%A9%E5%92%8C%E8%A7%A3%E5%8E%8B%E7%BC%A9/</url>
+    <content><![CDATA[<h1 id="windows环境下使用pigz进行压缩和解压缩"><a href="#windows环境下使用pigz进行压缩和解压缩" class="headerlink" title="windows环境下使用pigz进行压缩和解压缩"></a>windows环境下使用pigz进行压缩和解压缩</h1><blockquote>
+<p>​	pigz，全称 Parallel Implementation of GZip，是 gzip 的多线程替代工具，由 zlib 作者之一 Mark Adler 开发。它通过将数据分块并用多个 CPU 核心并行压缩，大幅提高大文件或大量文件的压缩与解压速度，适合 Linux、macOS 和 WSL 等环境。pigz 只支持 gzip 格式，通常与 tar 搭配使用生成 .tar.gz 压缩包。相比 gzip，pigz 的压缩率基本相同但速度更快，缺点是只能用于 gzip 格式，没有图形界面，更适合服务器或需要高性能压缩的场景。</p>
+<p>​	在跨平台迁移数据的场景中，会遇到文件很大（几百g），并且还从Linux跨平台到Windows，例如数据库文件。这个时候数据的压缩和解压缩对于整个过程消耗的时间有巨大影响。</p>
+<p>​	场景：windows下有一个data.tar.gz大文件，使用pigz的多线程解压到tar，然后再使用tar或者7zip解压出最后结果。</p>
+</blockquote>
+<h1 id="安装pigz"><a href="#安装pigz" class="headerlink" title="安装pigz"></a>安装pigz</h1><blockquote>
+<p>可以用wsl安装或者cygwin安装。这里仅介绍cygwin。</p>
+</blockquote>
+<h2 id="安装cygwin"><a href="#安装cygwin" class="headerlink" title="安装cygwin"></a>安装cygwin</h2><blockquote>
+<p>Cygwin 是一个在 Windows 上提供类似 Unix 环境的工具集和运行时库，由 Red Hat 维护开发。它通过实现一个兼容层，将大部分 GNU 和开源工具移植到 Windows，使用户能够在 Windows 中使用熟悉的 Bash shell、GNU 工具链和常用命令行程序。Cygwin 适合需要在 Windows 上执行脚本、编译 Linux 程序或进行类 Unix 开发的用户，优点是工具丰富、兼容性好；缺点是相较于原生 Linux 性能略低，占用空间较大，不适合作为正式生产环境，仅适合开发和学习使用。</p>
+</blockquote>
+<blockquote>
+<p>Cygwin官网以及下载链接：<a href="https://www.cygwin.com/">Cygwin</a></p>
+</blockquote>
+<h3 id="1-下载setup-x86-64-exe"><a href="#1-下载setup-x86-64-exe" class="headerlink" title="1. 下载setup-x86_64.exe"></a>1. 下载<code>setup-x86_64.exe</code></h3><blockquote>
+<p>这个文件可以不用删除，后续增加别的功能也可以用到。</p>
+</blockquote>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141440951.png" alt="image-20250725141440951"></p>
+<h3 id="2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装"><a href="#2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装" class="headerlink" title="2. 打开setup-x86_64.exe，点击下一页，选择 从互联网安装"></a>2. 打开<code>setup-x86_64.exe</code>，点击下一页，选择 <strong>从互联网安装</strong></h3><p>​	<img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141603845.png" alt="image-20250725141603845"></p>
+<h3 id="3-选择目录"><a href="#3-选择目录" class="headerlink" title="3. 选择目录"></a>3. 选择目录</h3><blockquote>
+<p>这里需要准备好两个目录，一个用于放cygwin本体，以用于放cygwin的包，比如我们待会要安装的pigz</p>
+</blockquote>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141755149.png" alt="image-20250725141755149"></p>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141812822.png" alt="image-20250725141812822"></p>
+<h3 id="4-选择连接方式-直接连接"><a href="#4-选择连接方式-直接连接" class="headerlink" title="4. 选择连接方式 -直接连接"></a>4. 选择连接方式 -直接连接</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141938929.png" alt="image-20250725141938929"></p>
+<h3 id="5-选择下载站点-这里可以选择腾讯的站点。"><a href="#5-选择下载站点-这里可以选择腾讯的站点。" class="headerlink" title="5. 选择下载站点-这里可以选择腾讯的站点。"></a>5. 选择下载站点-这里可以选择腾讯的站点。</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142059073.png" alt="image-20250725142059073"></p>
+<h3 id="6-此时会弹出一个下载界面，里面有很多Linux工具"><a href="#6-此时会弹出一个下载界面，里面有很多Linux工具" class="headerlink" title="6. 此时会弹出一个下载界面，里面有很多Linux工具"></a>6. 此时会弹出一个下载界面，里面有很多Linux工具</h3><p>进入下一步安装pigz</p>
+<h2 id="安装pigz-1"><a href="#安装pigz-1" class="headerlink" title="安装pigz"></a>安装pigz</h2><h3 id="1-搜索pigz"><a href="#1-搜索pigz" class="headerlink" title="1. 搜索pigz"></a>1. 搜索pigz</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142340074.png" alt="image-20250725142340074"></p>
+<h3 id="2-选择版本，然后下载"><a href="#2-选择版本，然后下载" class="headerlink" title="2. 选择版本，然后下载"></a>2. 选择版本，然后下载</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142422049.png" alt="image-20250725142422049"></p>
+<h3 id="3-等待下载即可"><a href="#3-等待下载即可" class="headerlink" title="3. 等待下载即可"></a>3. 等待下载即可</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142501210.png" alt="image-20250725142501210"></p>
+<h3 id="4-下载完成后打开"><a href="#4-下载完成后打开" class="headerlink" title="4. 下载完成后打开"></a>4. 下载完成后打开</h3><p>界面：</p>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142706463.png" alt="image-20250725142706463"></p>
+<h2 id="使用pigz"><a href="#使用pigz" class="headerlink" title="使用pigz"></a>使用pigz</h2><h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><ul>
+<li>切换到对应的目录</li>
+</ul>
+<blockquote>
+<p>切换方式，cd &#x2F;cygdrive&#x2F; + 文件所在目录</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /cygdrive/g/pigzTest/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143153095.png" alt="image-20250725143153095"></p>
+<ul>
+<li>开始压缩</li>
+</ul>
+<blockquote>
+<p>默认 pigz 会使用所有可用核心，也可以用 <code>-p N</code> 指定线程数</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz &gt; ssh-images.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143502286.png" alt="image-20250725143502286"></p>
+<ul>
+<li>指定线程数压缩</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz -p 4 &gt; ssh-images.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143632683.png" alt="image-20250725143632683"></p>
+<ul>
+<li>也可以超线程压缩，需要cpu支持</li>
+</ul>
+<blockquote>
+<p>超线程性能不一定好。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz -p 16 &gt; ssh-images-16-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 32 &gt; ssh-images-32-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 64 &gt; ssh-images-64-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 128 &gt; ssh-images-128-thread.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144208927.png" alt="image-20250725144208927"></p>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h4 id="解压到tar"><a href="#解压到tar" class="headerlink" title="解压到tar"></a>解压到tar</h4><ul>
+<li>解压到tar，并保留源文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -dc ssh-images.tar.gz &gt; pigzTar1.tar</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144623659.png" alt="image-20250725144623659"></p>
+<ul>
+<li>指定线程解压</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -d -p 4 -c ssh-images.tar.gz &gt; pigzTarThread4.tar</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144814483.png" alt="image-20250725144814483"></p>
+<ul>
+<li>超线程解压</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -d -p 32 -c ssh-images.tar.gz &gt; pigzTarThread32.tar</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144931193.png" alt="image-20250725144931193"></p>
+<h4 id="解压出原始文件"><a href="#解压出原始文件" class="headerlink" title="解压出原始文件"></a>解压出原始文件</h4><ul>
+<li>默认模式解压</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -dc yourfile.tar.gz | tar xf -</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150026148.png" alt="image-20250725150026148"></p>
+<ul>
+<li>指定线程数解压</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pigz -dc -p 8 ssh-images-out.tar.gz | tar xf -</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150208510.png" alt="image-20250725150208510"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>运维</tag>
+        <tag>部署</tag>
+        <tag>数据迁移</tag>
+        <tag>pigz</tag>
+        <tag>tar</tag>
       </tags>
   </entry>
 </search>
