@@ -20771,6 +20771,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>安装Arch</li>
 <li>安装kde</li>
 </ol>
+<p>…实体机装了好几次arch还是失败，对这个grub、引导还有efi以及双系统等概念还是不够清楚，后续在深入看下吧。先用上manjaro了，还挺好用。</p>
 </blockquote>
 <h1 id="VMware-安装-Arch-Linux-步骤"><a href="#VMware-安装-Arch-Linux-步骤" class="headerlink" title="VMware 安装 Arch Linux 步骤"></a>VMware 安装 Arch Linux 步骤</h1><hr>
 <h2 id="一、新建虚拟机"><a href="#一、新建虚拟机" class="headerlink" title="一、新建虚拟机"></a>一、新建虚拟机</h2><ol>
@@ -22881,6 +22882,220 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>日志</tag>
         <tag>centos</tag>
         <tag>anolis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8s pods service deployment初体验</title>
+    <url>/2025/08/04/K8s-pods-service-deployment%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
+    <content><![CDATA[<blockquote>
+<p>部署过程：</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>docker</tag>
+        <tag>系统运维</tag>
+        <tag>运维</tag>
+        <tag>k8s</tag>
+        <tag>containerd</tag>
+        <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>K8s 三节点环境搭建</title>
+    <url>/2025/08/04/K8s-%E4%B8%89%E8%8A%82%E7%82%B9%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<blockquote>
+<h1 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h1><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804151509151.png" alt="image-20250804151509151"></p>
+<p>效果：</p>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804153715569.png" alt="image-20250804153715569"></p>
+<h1 id="虚拟机环境："><a href="#虚拟机环境：" class="headerlink" title="虚拟机环境："></a>虚拟机环境：</h1><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804151541771.png" alt="image-20250804151541771"></p>
+<p><strong>Master节点：K8s-1	192.168.72.8</strong></p>
+<p><strong>node2 		   K8s-2    192.168.72.9</strong></p>
+<p><strong>node2 		   K8s-3    192.168.72.9</strong></p>
+<h1 id="搭建过程（思路）："><a href="#搭建过程（思路）：" class="headerlink" title="搭建过程（思路）："></a>搭建过程（思路）：</h1><ol>
+<li><h2 id="先完成一台基础主机：具备以下服务"><a href="#先完成一台基础主机：具备以下服务" class="headerlink" title="先完成一台基础主机：具备以下服务"></a>先完成一台基础主机：具备以下服务</h2><ol>
+<li>docker</li>
+<li>containerd</li>
+<li>kubelet kubeadm kubectl</li>
+</ol>
+</li>
+<li><h2 id="编辑好containerd"><a href="#编辑好containerd" class="headerlink" title="编辑好containerd"></a>编辑好containerd</h2><ol>
+<li>sandbox镜像源</li>
+<li>systemd 服务文件</li>
+</ol>
+</li>
+<li><h2 id="克隆两份"><a href="#克隆两份" class="headerlink" title="克隆两份"></a>克隆两份</h2><ol>
+<li>配置Hostname</li>
+<li>配置 IP</li>
+<li>配置hosts</li>
+</ol>
+</li>
+<li><h2 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h2><ol>
+<li>关闭 swap</li>
+<li>加载内核参数</li>
+<li>kubeadm init</li>
+<li>安装网络插件Flannel</li>
+</ol>
+</li>
+<li><h2 id="nodes配置"><a href="#nodes配置" class="headerlink" title="nodes配置"></a>nodes配置</h2><ol>
+<li>关闭 swap</li>
+<li>加载内核参数</li>
+<li>加入集群</li>
+</ol>
+</li>
+</ol>
+</blockquote>
+<hr>
+<p>​	k8s配置过程现在看起来还是挺简单的。其实<strong>卡主的点大部分都是什么镜像源配置</strong>，但也不能怪国内环境，至少sandbox那个源还能用，其他的镜像可以通过离线导入倒也不是那么痛苦。主要就是那些初始化的时候要用的镜像，后续再看看这类镜像能不能离线导入，或者尝试直接离线安装二进制文件吧。</p>
+<p>​	后续需要了解的点</p>
+<blockquote>
+<ol>
+<li>k8s init时的容器是否可以离线导入</li>
+<li>k8s 是否有离线安装的方式（RPA、tgz、二进制文件）</li>
+<li>containerd 镜像源加速</li>
+<li>containerd、docker 镜像源私有搭建</li>
+</ol>
+</blockquote>
+<h1 id="1-基础主机搭建"><a href="#1-基础主机搭建" class="headerlink" title="1. 基础主机搭建"></a>1. 基础主机搭建</h1><blockquote>
+<ol>
+<li>docker</li>
+<li>containerd</li>
+<li>kubelet kubeadm kubectl</li>
+</ol>
+</blockquote>
+<h2 id="1-1-Docker安装"><a href="#1-1-Docker安装" class="headerlink" title="1.1 Docker安装"></a>1.1 Docker安装</h2><p>参考<a href="https://regenm.github.io/2024/02/09/docker%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/?highlight=docker">docker容器技术 | Regen</a></p>
+<h2 id="1-2-containerd安装"><a href="#1-2-containerd安装" class="headerlink" title="1.2 containerd安装"></a>1.2 containerd安装</h2><blockquote>
+<p>Containerd 是一个行业标准的容器运行时，专注于简单性、健壮性和可移植性。它是 Docker 的核心组件之一，也可以独立使用。</p>
+</blockquote>
+<h3 id="包管理器安装"><a href="#包管理器安装" class="headerlink" title="包管理器安装"></a>包管理器安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install containerd</span><br></pre></td></tr></table></figure>
+
+<h3 id="二进制包安装"><a href="#二进制包安装" class="headerlink" title="二进制包安装"></a>二进制包安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载最新版本</span></span><br><span class="line">wget https://github.com/containerd/containerd/releases/download/v&lt;版本号&gt;/containerd-&lt;版本号&gt;-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line"><span class="built_in">sudo</span> tar Cxzvf /usr/local containerd-&lt;版本号&gt;-linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成systemd服务文件</span></span><br><span class="line"><span class="built_in">sudo</span> containerd config default &gt; /etc/containerd/config.toml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now containerd</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-k8s基础组件安装"><a href="#1-3-k8s基础组件安装" class="headerlink" title="1.3 k8s基础组件安装"></a>1.3 k8s基础组件安装</h2><h3 id="包管理器安装-1"><a href="#包管理器安装-1" class="headerlink" title="包管理器安装"></a>包管理器安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加 Kubernetes 仓库</span></span><br><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">EOF &gt; /etc/yum.repos.d/kubernetes.repo</span></span><br><span class="line"><span class="string">[kubernetes]</span></span><br><span class="line"><span class="string">name=Kubernetes</span></span><br><span class="line"><span class="string">baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/</span></span><br><span class="line"><span class="string">enabled=1</span></span><br><span class="line"><span class="string">gpgcheck=0</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line"><span class="built_in">sudo</span> yum install -y kubelet kubeadm kubectl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开机自启 kubelet</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> --now kubelet</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="2-编辑基础主机"><a href="#2-编辑基础主机" class="headerlink" title="2. 编辑基础主机"></a>2. 编辑基础主机</h1><blockquote>
+<pre><code> 1. systemd 服务文件
+ 2. sandbox镜像源
+ 3. 加载内核参数
+ 4. 关闭swap
+</code></pre>
+</blockquote>
+<h2 id="2-1-systemd-服务文件"><a href="#2-1-systemd-服务文件" class="headerlink" title="2.1 systemd 服务文件"></a>2.1 systemd 服务文件</h2><p>​	主要解决containerd没有systemd单元的问题。如果有则不需要。通过<code>systemctl status containerd</code>检查</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/systemd/system/containerd.service &gt; /dev/null &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[Unit]</span></span><br><span class="line"><span class="string">Description=containerd container runtime</span></span><br><span class="line"><span class="string">Documentation=https://containerd.io</span></span><br><span class="line"><span class="string">After=network.target</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Service]</span></span><br><span class="line"><span class="string">ExecStart=/usr/bin/containerd</span></span><br><span class="line"><span class="string">Restart=always</span></span><br><span class="line"><span class="string">RestartSec=5</span></span><br><span class="line"><span class="string">Delegate=yes</span></span><br><span class="line"><span class="string">KillMode=process</span></span><br><span class="line"><span class="string">OOMScoreAdjust=-999</span></span><br><span class="line"><span class="string">LimitNOFILE=1048576</span></span><br><span class="line"><span class="string">LimitNPROC=infinity</span></span><br><span class="line"><span class="string">LimitCORE=infinity</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[Install]</span></span><br><span class="line"><span class="string">WantedBy=multi-user.target</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重新加载 systemd：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable --now containerd</span><br></pre></td></tr></table></figure>
+
+<p>查看状态</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl status containerd</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-2-sandbox镜像源"><a href="#2-2-sandbox镜像源" class="headerlink" title="2.2 sandbox镜像源"></a>2.2 sandbox镜像源</h2><p>​	参考文章：<a href="https://www.cnblogs.com/wod-Y/p/17043985.html">搭建k8s集群初始化master节点 kubeadm init 遇到问题解决 - 杨海星 - 博客园</a></p>
+<p>解决方式：修改containerd的镜像源文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/containerd/config.toml  </span><br></pre></td></tr></table></figure>
+
+<p>修改完重启服务<code>systemctl daemon-reload &amp;&amp; systemctl restart containerd</code></p>
+<figure class="highlight toml"><table><tr><td class="code"><pre><span class="line"><span class="attr">disabled_plugins</span> = []</span><br><span class="line"><span class="attr">imports</span> = []</span><br><span class="line"><span class="attr">oom_score</span> = <span class="number">0</span></span><br><span class="line"><span class="attr">plugin_dir</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="attr">required_plugins</span> = []</span><br><span class="line"><span class="attr">root</span> = <span class="string">&quot;/var/lib/containerd&quot;</span></span><br><span class="line"><span class="attr">state</span> = <span class="string">&quot;/run/containerd&quot;</span></span><br><span class="line"><span class="attr">temp</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="section">[cgroup]</span></span><br><span class="line">  <span class="attr">path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[debug]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">format</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">gid</span> = <span class="number">0</span></span><br><span class="line">  <span class="attr">level</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">uid</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="section">[grpc]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;/run/containerd/containerd.sock&quot;</span></span><br><span class="line">  <span class="attr">gid</span> = <span class="number">0</span></span><br><span class="line">  <span class="attr">max_recv_message_size</span> = <span class="number">16777216</span></span><br><span class="line">  <span class="attr">max_send_message_size</span> = <span class="number">16777216</span></span><br><span class="line">  <span class="attr">tcp_address</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">tcp_tls_ca</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">tcp_tls_cert</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">tcp_tls_key</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">uid</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="section">[metrics]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">grpc_histogram</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="section">[plugins]</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.gc.v1.scheduler&quot;]</span></span><br><span class="line">    <span class="attr">deletion_threshold</span> = <span class="number">0</span></span><br><span class="line">    <span class="attr">mutation_threshold</span> = <span class="number">100</span></span><br><span class="line">    <span class="attr">pause_threshold</span> = <span class="number">0.02</span></span><br><span class="line">    <span class="attr">schedule_delay</span> = <span class="string">&quot;0s&quot;</span></span><br><span class="line">    <span class="attr">startup_delay</span> = <span class="string">&quot;100ms&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;]</span></span><br><span class="line">    <span class="attr">device_ownership_from_security_context</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">disable_apparmor</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">disable_cgroup</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">disable_hugetlb_controller</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">disable_proc_mount</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">disable_tcp_service</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">enable_selinux</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">enable_tls_streaming</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">enable_unprivileged_icmp</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">enable_unprivileged_ports</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">ignore_image_defined_volumes</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">max_concurrent_downloads</span> = <span class="number">3</span></span><br><span class="line">    <span class="attr">max_container_log_line_size</span> = <span class="number">16384</span></span><br><span class="line">    <span class="attr">netns_mounts_under_state_dir</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">restrict_oom_score_adj</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">sandbox_image</span> = <span class="string">&quot;registry.aliyuncs.com/google_containers/pause:3.9&quot;</span></span><br><span class="line">    <span class="attr">selinux_category_range</span> = <span class="number">1024</span></span><br><span class="line">    <span class="attr">stats_collect_period</span> = <span class="number">10</span></span><br><span class="line">    <span class="attr">stream_idle_timeout</span> = <span class="string">&quot;4h0m0s&quot;</span></span><br><span class="line">    <span class="attr">stream_server_address</span> = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">    <span class="attr">stream_server_port</span> = <span class="string">&quot;0&quot;</span></span><br><span class="line">    <span class="attr">systemd_cgroup</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">tolerate_missing_hugetlb_controller</span> = <span class="literal">true</span></span><br><span class="line">    <span class="attr">unset_seccomp_profile</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.cni]</span></span><br><span class="line">      <span class="attr">bin_dir</span> = <span class="string">&quot;/opt/cni/bin&quot;</span></span><br><span class="line">      <span class="attr">conf_dir</span> = <span class="string">&quot;/etc/cni/net.d&quot;</span></span><br><span class="line">      <span class="attr">conf_template</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="attr">ip_pref</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="attr">max_conf_num</span> = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd]</span></span><br><span class="line">      <span class="attr">default_runtime_name</span> = <span class="string">&quot;runc&quot;</span></span><br><span class="line">      <span class="attr">disable_snapshot_annotations</span> = <span class="literal">true</span></span><br><span class="line">      <span class="attr">discard_unpacked_layers</span> = <span class="literal">false</span></span><br><span class="line">      <span class="attr">ignore_rdt_not_enabled_errors</span> = <span class="literal">false</span></span><br><span class="line">      <span class="attr">no_pivot</span> = <span class="literal">false</span></span><br><span class="line">      <span class="attr">snapshotter</span> = <span class="string">&quot;overlayfs&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.default_runtime]</span></span><br><span class="line">        <span class="attr">base_runtime_spec</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">cni_conf_dir</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">cni_max_conf_num</span> = <span class="number">0</span></span><br><span class="line">        <span class="attr">container_annotations</span> = []</span><br><span class="line">        <span class="attr">pod_annotations</span> = []</span><br><span class="line">        <span class="attr">privileged_without_host_devices</span> = <span class="literal">false</span></span><br><span class="line">        <span class="attr">runtime_engine</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_root</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_type</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.default_runtime.options]</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.runtimes]</span></span><br><span class="line"></span><br><span class="line">        <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.runtimes.runc]</span></span><br><span class="line">          <span class="attr">base_runtime_spec</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">cni_conf_dir</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">cni_max_conf_num</span> = <span class="number">0</span></span><br><span class="line">          <span class="attr">container_annotations</span> = []</span><br><span class="line">          <span class="attr">pod_annotations</span> = []</span><br><span class="line">          <span class="attr">privileged_without_host_devices</span> = <span class="literal">false</span></span><br><span class="line">          <span class="attr">runtime_engine</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">runtime_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">runtime_root</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">          <span class="attr">runtime_type</span> = <span class="string">&quot;io.containerd.runc.v2&quot;</span></span><br><span class="line"></span><br><span class="line">          <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.runtimes.runc.options]</span></span><br><span class="line">            <span class="attr">BinaryName</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">CriuImagePath</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">CriuPath</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">CriuWorkPath</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">IoGid</span> = <span class="number">0</span></span><br><span class="line">            <span class="attr">IoUid</span> = <span class="number">0</span></span><br><span class="line">            <span class="attr">NoNewKeyring</span> = <span class="literal">false</span></span><br><span class="line">            <span class="attr">NoPivotRoot</span> = <span class="literal">false</span></span><br><span class="line">            <span class="attr">Root</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">ShimCgroup</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">            <span class="attr">SystemdCgroup</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.untrusted_workload_runtime]</span></span><br><span class="line">        <span class="attr">base_runtime_spec</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">cni_conf_dir</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">cni_max_conf_num</span> = <span class="number">0</span></span><br><span class="line">        <span class="attr">container_annotations</span> = []</span><br><span class="line">        <span class="attr">pod_annotations</span> = []</span><br><span class="line">        <span class="attr">privileged_without_host_devices</span> = <span class="literal">false</span></span><br><span class="line">        <span class="attr">runtime_engine</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_root</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">        <span class="attr">runtime_type</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.containerd.untrusted_workload_runtime.options]</span></span><br><span class="line"></span><br><span class="line">    <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.image_decryption]</span></span><br><span class="line">      <span class="attr">key_model</span> = <span class="string">&quot;node&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry]</span></span><br><span class="line">      <span class="attr">config_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.auths]</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.configs]</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.headers]</span></span><br><span class="line"></span><br><span class="line">      <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.registry.mirrors]</span></span><br><span class="line"></span><br><span class="line">    <span class="section">[plugins.&quot;io.containerd.grpc.v1.cri&quot;.x509_key_pair_streaming]</span></span><br><span class="line">      <span class="attr">tls_cert_file</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">      <span class="attr">tls_key_file</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.internal.v1.opt&quot;]</span></span><br><span class="line">    <span class="attr">path</span> = <span class="string">&quot;/opt/containerd&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.internal.v1.restart&quot;]</span></span><br><span class="line">    <span class="attr">interval</span> = <span class="string">&quot;10s&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.internal.v1.tracing&quot;]</span></span><br><span class="line">    <span class="attr">sampling_ratio</span> = <span class="number">1.0</span></span><br><span class="line">    <span class="attr">service_name</span> = <span class="string">&quot;containerd&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.metadata.v1.bolt&quot;]</span></span><br><span class="line">    <span class="attr">content_sharing_policy</span> = <span class="string">&quot;shared&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.monitor.v1.cgroups&quot;]</span></span><br><span class="line">    <span class="attr">no_prometheus</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.runtime.v1.linux&quot;]</span></span><br><span class="line">    <span class="attr">no_shim</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">runtime</span> = <span class="string">&quot;runc&quot;</span></span><br><span class="line">    <span class="attr">runtime_root</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">shim</span> = <span class="string">&quot;containerd-shim&quot;</span></span><br><span class="line">    <span class="attr">shim_debug</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.runtime.v2.task&quot;]</span></span><br><span class="line">    <span class="attr">platforms</span> = [<span class="string">&quot;linux/amd64&quot;</span>]</span><br><span class="line">    <span class="attr">sched_core</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.service.v1.diff-service&quot;]</span></span><br><span class="line">    <span class="attr">default</span> = [<span class="string">&quot;walking&quot;</span>]</span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.service.v1.tasks-service&quot;]</span></span><br><span class="line">    <span class="attr">rdt_config_file</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.aufs&quot;]</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.btrfs&quot;]</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.devmapper&quot;]</span></span><br><span class="line">    <span class="attr">async_remove</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">base_image_size</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">discard_blocks</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">fs_options</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">fs_type</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">pool_name</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.native&quot;]</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.overlayfs&quot;]</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">upperdir_label</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.snapshotter.v1.zfs&quot;]</span></span><br><span class="line">    <span class="attr">root_path</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[plugins.&quot;io.containerd.tracing.processor.v1.otlp&quot;]</span></span><br><span class="line">    <span class="attr">endpoint</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="attr">insecure</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">protocol</span> = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[proxy_plugins]</span></span><br><span class="line"></span><br><span class="line"><span class="section">[stream_processors]</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[stream_processors.&quot;io.containerd.ocicrypt.decoder.v1.tar&quot;]</span></span><br><span class="line">    <span class="attr">accepts</span> = [<span class="string">&quot;application/vnd.oci.image.layer.v1.tar+encrypted&quot;</span>]</span><br><span class="line">    <span class="attr">args</span> = [<span class="string">&quot;--decryption-keys-path&quot;</span>, <span class="string">&quot;/etc/containerd/ocicrypt/keys&quot;</span>]</span><br><span class="line">    <span class="attr">env</span> = [<span class="string">&quot;OCICRYPT_KEYPROVIDER_CONFIG=/etc/containerd/ocicrypt/ocicrypt_keyprovider.conf&quot;</span>]</span><br><span class="line">    <span class="attr">path</span> = <span class="string">&quot;ctd-decoder&quot;</span></span><br><span class="line">    <span class="attr">returns</span> = <span class="string">&quot;application/vnd.oci.image.layer.v1.tar&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="section">[stream_processors.&quot;io.containerd.ocicrypt.decoder.v1.tar.gzip&quot;]</span></span><br><span class="line">    <span class="attr">accepts</span> = [<span class="string">&quot;application/vnd.oci.image.layer.v1.tar+gzip+encrypted&quot;</span>]</span><br><span class="line">    <span class="attr">args</span> = [<span class="string">&quot;--decryption-keys-path&quot;</span>, <span class="string">&quot;/etc/containerd/ocicrypt/keys&quot;</span>]</span><br><span class="line">    <span class="attr">env</span> = [<span class="string">&quot;OCICRYPT_KEYPROVIDER_CONFIG=/etc/containerd/ocicrypt/ocicrypt_keyprovider.conf&quot;</span>]</span><br><span class="line">    <span class="attr">path</span> = <span class="string">&quot;ctd-decoder&quot;</span></span><br><span class="line">    <span class="attr">returns</span> = <span class="string">&quot;application/vnd.oci.image.layer.v1.tar+gzip&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[timeouts]</span></span><br><span class="line">  <span class="attr">&quot;io.containerd.timeout.bolt.open&quot;</span> = <span class="string">&quot;0s&quot;</span></span><br><span class="line">  <span class="attr">&quot;io.containerd.timeout.shim.cleanup&quot;</span> = <span class="string">&quot;5s&quot;</span></span><br><span class="line">  <span class="attr">&quot;io.containerd.timeout.shim.load&quot;</span> = <span class="string">&quot;5s&quot;</span></span><br><span class="line">  <span class="attr">&quot;io.containerd.timeout.shim.shutdown&quot;</span> = <span class="string">&quot;3s&quot;</span></span><br><span class="line">  <span class="attr">&quot;io.containerd.timeout.task.state&quot;</span> = <span class="string">&quot;2s&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ttrpc]</span></span><br><span class="line">  <span class="attr">address</span> = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">gid</span> = <span class="number">0</span></span><br><span class="line">  <span class="attr">uid</span> = <span class="number">0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="2-3-加载内核参数"><a href="#2-3-加载内核参数" class="headerlink" title="2.3 加载内核参数"></a>2.3 加载内核参数</h2><p>​	加载的内核参数主要和网络有关系，如果没配置好的话后续加入master节点以及起<code>kube-flannean</code>会出问题。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> modprobe br_netfilter</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf</span><br><span class="line">net.bridge.bridge-nf-call-iptables = 1</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.ipv4.ip_forward = 1</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo sysctl --system</span><br></pre></td></tr></table></figure>
+
+<p>检查</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsmod | grep br_netfilter</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.bridge.bridge-nf-call-iptables = 1&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="2-4-关闭swap"><a href="#2-4-关闭swap" class="headerlink" title="2.4 关闭swap"></a>2.4 关闭swap</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">swapoff -a</span><br><span class="line"><span class="comment"># 永久关闭：</span></span><br><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&#x27;/ swap / s/^/#/&#x27;</span> /etc/fstab</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-修改Hostname-可选"><a href="#2-5-修改Hostname-可选" class="headerlink" title="2.5 修改Hostname(可选)"></a>2.5 修改Hostname(可选)</h2><p>可选，这台主机最终是作为master节点，可以自己随便改个名字。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hostnamectl set-hostname mastername</span><br></pre></td></tr></table></figure>
+
+<p>如果修改了主机名一定要增加本地域名解析</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1 mastername</span><br></pre></td></tr></table></figure>
+
+<p>没改成功可以去<code>/etc/hostname</code>改</p>
+<h1 id="3-克隆出两个节点"><a href="#3-克隆出两个节点" class="headerlink" title="3. 克隆出两个节点"></a>3. 克隆出两个节点</h1><blockquote>
+<ol>
+<li>配置Hostname</li>
+<li>配置 IP</li>
+<li>配置hosts</li>
+</ol>
+</blockquote>
+<p>克隆机器后进行</p>
+<h2 id="3-1-配置Hostname"><a href="#3-1-配置Hostname" class="headerlink" title="3.1 配置Hostname"></a>3.1 配置Hostname</h2><p>​	克隆出来的主机作为普通的节点，<strong>必须</strong>修改名字，否则无法接入集群</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hostnamectl set-hostname node2</span><br></pre></td></tr></table></figure>
+
+<p>一定要增加本地域名解析</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">127.0.0.1 ndoe2</span><br></pre></td></tr></table></figure>
+
+<p>没改成功可以去<code>/etc/hostname</code>改</p>
+<h2 id="3-1-配置-IP"><a href="#3-1-配置-IP" class="headerlink" title="3.1 配置 IP"></a>3.1 配置 IP</h2><p>根据上网的网卡改</p>
+<p>可参考<a href="https://regenm.github.io/2025/07/14/Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">Linux网络配置 | Regen</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="3-1-配置hosts"><a href="#3-1-配置hosts" class="headerlink" title="3.1 配置hosts"></a>3.1 配置hosts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/hosts</span><br><span class="line"># add</span><br><span class="line">127.0.0.1 node2 # 对应的hostanme</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-master配置"><a href="#4-master配置" class="headerlink" title="4. master配置"></a>4. master配置</h1><blockquote>
+<ol>
+<li>kubeadm init</li>
+<li>安装网络插件Flannel</li>
+</ol>
+</blockquote>
+<h2 id="4-1-kubeadm-init"><a href="#4-1-kubeadm-init" class="headerlink" title="4.1 kubeadm init"></a>4.1 kubeadm init</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm init \</span><br><span class="line">  --apiserver-advertise-address=192.168.72.8 \</span><br><span class="line">  --pod-network-cidr=10.244.0.0/16 \</span><br><span class="line">  --image-repository=registry.aliyuncs.com/google_containers</span><br></pre></td></tr></table></figure>
+
+<p>此时会输出介入集群的命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 192.168.72.8:6443 --token gisx9m.q8kqbw0zndrm8i5b --discovery-token-ca-cert-hash </span><br></pre></td></tr></table></figure>
+
+<p>如果忘记可以重新生成：</p>
+<p>在 <strong>master 节点</strong> 上执行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm token create --print-join-command</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-1-安装网络插件Flannel"><a href="#4-1-安装网络插件Flannel" class="headerlink" title="4.1 安装网络插件Flannel"></a>4.1 安装网络插件Flannel</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="5-nodes配置"><a href="#5-nodes配置" class="headerlink" title="5. nodes配置"></a>5. nodes配置</h1><ol>
+<li>加入集群</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 192.168.72.8:6443 --token gisx9m.q8kqbw0zndrm8i5b --discovery-token-ca-cert-hash </span><br></pre></td></tr></table></figure>
+
+<p>等待kube-flannel起来即可，过程可能有点久取决于网速和配置。</p>
+<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804170231277.png" alt="image-20250804170231277"></p>
+<h1 id="6-问题总结"><a href="#6-问题总结" class="headerlink" title="6. 问题总结"></a>6. 问题总结</h1><p>​	以上流程已经避免了很多坑，以下是几个容易卡主的问题。</p>
+<h2 id="解决contairnerd镜像源问题"><a href="#解决contairnerd镜像源问题" class="headerlink" title="解决contairnerd镜像源问题"></a>解决contairnerd镜像源问题</h2><p>可参考：</p>
+<p><a href="https://www.cnblogs.com/wod-Y/p/17043985.html">搭建k8s集群初始化master节点 kubeadm init 遇到问题解决 - 杨海星 - 博客园</a></p>
+<h2 id="解决kube-flannean安装的问题"><a href="#解决kube-flannean安装的问题" class="headerlink" title="解决kube-flannean安装的问题"></a>解决kube-flannean安装的问题</h2><p>可参考：</p>
+<p>kubectl apply -f <a href="https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml">https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</a></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>docker</tag>
+        <tag>系统运维</tag>
+        <tag>运维</tag>
+        <tag>k8s</tag>
+        <tag>containerd</tag>
+        <tag>nginx</tag>
       </tags>
   </entry>
 </search>
