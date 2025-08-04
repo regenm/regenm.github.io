@@ -22263,21 +22263,21 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h3 id="1-下载setup-x86-64-exe"><a href="#1-下载setup-x86-64-exe" class="headerlink" title="1. 下载setup-x86_64.exe"></a>1. 下载<code>setup-x86_64.exe</code></h3><blockquote>
 <p>这个文件可以不用删除，后续增加别的功能也可以用到。</p>
 </blockquote>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141440951.png" alt="image-20250725141440951"></p>
-<h3 id="2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装"><a href="#2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装" class="headerlink" title="2. 打开setup-x86_64.exe，点击下一页，选择 从互联网安装"></a>2. 打开<code>setup-x86_64.exe</code>，点击下一页，选择 <strong>从互联网安装</strong></h3><p>​	<img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141603845.png" alt="image-20250725141603845"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141440951.png" alt="image-20250725141440951"></p>
+<h3 id="2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装"><a href="#2-打开setup-x86-64-exe，点击下一页，选择-从互联网安装" class="headerlink" title="2. 打开setup-x86_64.exe，点击下一页，选择 从互联网安装"></a>2. 打开<code>setup-x86_64.exe</code>，点击下一页，选择 <strong>从互联网安装</strong></h3><p>​	<img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141603845.png" alt="image-20250725141603845"></p>
 <h3 id="3-选择目录"><a href="#3-选择目录" class="headerlink" title="3. 选择目录"></a>3. 选择目录</h3><blockquote>
 <p>这里需要准备好两个目录，一个用于放cygwin本体，以用于放cygwin的包，比如我们待会要安装的pigz</p>
 </blockquote>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141755149.png" alt="image-20250725141755149"></p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141812822.png" alt="image-20250725141812822"></p>
-<h3 id="4-选择连接方式-直接连接"><a href="#4-选择连接方式-直接连接" class="headerlink" title="4. 选择连接方式 -直接连接"></a>4. 选择连接方式 -直接连接</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141938929.png" alt="image-20250725141938929"></p>
-<h3 id="5-选择下载站点-这里可以选择腾讯的站点。"><a href="#5-选择下载站点-这里可以选择腾讯的站点。" class="headerlink" title="5. 选择下载站点-这里可以选择腾讯的站点。"></a>5. 选择下载站点-这里可以选择腾讯的站点。</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142059073.png" alt="image-20250725142059073"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141755149.png" alt="image-20250725141755149"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141812822.png" alt="image-20250725141812822"></p>
+<h3 id="4-选择连接方式-直接连接"><a href="#4-选择连接方式-直接连接" class="headerlink" title="4. 选择连接方式 -直接连接"></a>4. 选择连接方式 -直接连接</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725141938929.png" alt="image-20250725141938929"></p>
+<h3 id="5-选择下载站点-这里可以选择腾讯的站点。"><a href="#5-选择下载站点-这里可以选择腾讯的站点。" class="headerlink" title="5. 选择下载站点-这里可以选择腾讯的站点。"></a>5. 选择下载站点-这里可以选择腾讯的站点。</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142059073.png" alt="image-20250725142059073"></p>
 <h3 id="6-此时会弹出一个下载界面，里面有很多Linux工具"><a href="#6-此时会弹出一个下载界面，里面有很多Linux工具" class="headerlink" title="6. 此时会弹出一个下载界面，里面有很多Linux工具"></a>6. 此时会弹出一个下载界面，里面有很多Linux工具</h3><p>进入下一步安装pigz</p>
-<h2 id="安装pigz-1"><a href="#安装pigz-1" class="headerlink" title="安装pigz"></a>安装pigz</h2><h3 id="1-搜索pigz"><a href="#1-搜索pigz" class="headerlink" title="1. 搜索pigz"></a>1. 搜索pigz</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142340074.png" alt="image-20250725142340074"></p>
-<h3 id="2-选择版本，然后下载"><a href="#2-选择版本，然后下载" class="headerlink" title="2. 选择版本，然后下载"></a>2. 选择版本，然后下载</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142422049.png" alt="image-20250725142422049"></p>
-<h3 id="3-等待下载即可"><a href="#3-等待下载即可" class="headerlink" title="3. 等待下载即可"></a>3. 等待下载即可</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142501210.png" alt="image-20250725142501210"></p>
+<h2 id="安装pigz-1"><a href="#安装pigz-1" class="headerlink" title="安装pigz"></a>安装pigz</h2><h3 id="1-搜索pigz"><a href="#1-搜索pigz" class="headerlink" title="1. 搜索pigz"></a>1. 搜索pigz</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142340074.png" alt="image-20250725142340074"></p>
+<h3 id="2-选择版本，然后下载"><a href="#2-选择版本，然后下载" class="headerlink" title="2. 选择版本，然后下载"></a>2. 选择版本，然后下载</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142422049.png" alt="image-20250725142422049"></p>
+<h3 id="3-等待下载即可"><a href="#3-等待下载即可" class="headerlink" title="3. 等待下载即可"></a>3. 等待下载即可</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142501210.png" alt="image-20250725142501210"></p>
 <h3 id="4-下载完成后打开"><a href="#4-下载完成后打开" class="headerlink" title="4. 下载完成后打开"></a>4. 下载完成后打开</h3><p>界面：</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142706463.png" alt="image-20250725142706463"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725142706463.png" alt="image-20250725142706463"></p>
 <h2 id="使用pigz"><a href="#使用pigz" class="headerlink" title="使用pigz"></a>使用pigz</h2><h3 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h3><ul>
 <li>切换到对应的目录</li>
 </ul>
@@ -22286,7 +22286,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /cygdrive/g/pigzTest/</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143153095.png" alt="image-20250725143153095"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143153095.png" alt="image-20250725143153095"></p>
 <ul>
 <li>开始压缩</li>
 </ul>
@@ -22295,13 +22295,13 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz &gt; ssh-images.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143502286.png" alt="image-20250725143502286"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143502286.png" alt="image-20250725143502286"></p>
 <ul>
 <li>指定线程数压缩</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz -p 4 &gt; ssh-images.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143632683.png" alt="image-20250725143632683"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725143632683.png" alt="image-20250725143632683"></p>
 <ul>
 <li>也可以超线程压缩，需要cpu支持</li>
 </ul>
@@ -22310,19 +22310,19 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar cf - ssh-images | pigz -p 16 &gt; ssh-images-16-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 32 &gt; ssh-images-32-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 64 &gt; ssh-images-64-thread.tar.gz</span><br><span class="line">tar cf - ssh-images | pigz -p 128 &gt; ssh-images-128-thread.tar.gz</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144208927.png" alt="image-20250725144208927"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144208927.png" alt="image-20250725144208927"></p>
 <h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h4 id="解压到tar"><a href="#解压到tar" class="headerlink" title="解压到tar"></a>解压到tar</h4><ul>
 <li>解压到tar，并保留源文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -dc ssh-images.tar.gz &gt; pigzTar1.tar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144623659.png" alt="image-20250725144623659"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144623659.png" alt="image-20250725144623659"></p>
 <ul>
 <li>指定线程解压</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -d -p 4 -c ssh-images.tar.gz &gt; pigzTarThread4.tar</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144814483.png" alt="image-20250725144814483"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144814483.png" alt="image-20250725144814483"></p>
 <ul>
 <li>超线程解压</li>
 </ul>
@@ -22330,19 +22330,19 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144931193.png" alt="image-20250725144931193"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725144931193.png" alt="image-20250725144931193"></p>
 <h4 id="解压出原始文件"><a href="#解压出原始文件" class="headerlink" title="解压出原始文件"></a>解压出原始文件</h4><ul>
 <li>默认模式解压</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pigz -dc yourfile.tar.gz | tar xf -</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150026148.png" alt="image-20250725150026148"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150026148.png" alt="image-20250725150026148"></p>
 <ul>
 <li>指定线程数解压</li>
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pigz -dc -p 8 ssh-images-out.tar.gz | tar xf -</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150208510.png" alt="image-20250725150208510"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150208510.png" alt="image-20250725150208510"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -22371,10 +22371,10 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <h3 id="查看WSL版本"><a href="#查看WSL版本" class="headerlink" title="查看WSL版本"></a>查看WSL版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">wsl --status</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730112938722.png" alt="image-20250730112938722"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730112938722.png" alt="image-20250730112938722"></p>
 <p>这里已经安装好了所以显示了版本2和ubuntu</p>
 <p>如果没有安装好则需要去下载wsl最新稳定版release进行安装，下载链接：<a href="https://github.com/microsoft/WSL/releases">Releases · microsoft&#x2F;WSL</a></p>
-<h3 id="安装WSL-1"><a href="#安装WSL-1" class="headerlink" title="安装WSL"></a>安装WSL</h3><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730113425196.png" alt="image-20250730113425196"></p>
+<h3 id="安装WSL-1"><a href="#安装WSL-1" class="headerlink" title="安装WSL"></a>安装WSL</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730113425196.png" alt="image-20250730113425196"></p>
 <p>双击安装即可</p>
 <h2 id="安装子系统"><a href="#安装子系统" class="headerlink" title="安装子系统"></a>安装子系统</h2><blockquote>
 <p>这里采用下载安装的方法便于管理。</p>
@@ -22382,12 +22382,12 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <h3 id="下载解压appx文件"><a href="#下载解压appx文件" class="headerlink" title="下载解压appx文件"></a>下载解压appx文件</h3><p>下载链接：<a href="https://learn.microsoft.com/en-us/windows/wsl/install-manual#downloading-distributions">Manual installation steps for older versions of WSL | Microsoft Learn</a></p>
 <p>放到想要安装的路径<code>D:\wsl</code>并且解压</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132350039.png" alt="image-20250730132350039"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132350039.png" alt="image-20250730132350039"></p>
 <h3 id="打开wsl"><a href="#打开wsl" class="headerlink" title="打开wsl"></a>打开wsl</h3><p>解压后进去打开应用程序即可开启wsl，之后会提示设置用户名密码。</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132439756.png" alt="image-20250730132439756"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132439756.png" alt="image-20250730132439756"></p>
 <h2 id="安装pigz-1"><a href="#安装pigz-1" class="headerlink" title="安装pigz"></a>安装pigz</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install pigz</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132805942.png" alt="image-20250730132805942"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730132805942.png" alt="image-20250730132805942"></p>
 <h1 id="测试pigz并总结"><a href="#测试pigz并总结" class="headerlink" title="测试pigz并总结"></a>测试pigz并总结</h1><p>目标文件：13.tar.gz</p>
 <blockquote>
 <p>pigz仅能负责gz部分的解压，剩余部分需要使用tar或者7zip进行解tar，后文还测试了多进程解tar、拆tar的过程。</p>
@@ -22398,9 +22398,9 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">要解压的文件</span></span><br><span class="line">INPUT_FILE=&quot;../../13.tar.gz&quot;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出的 tar 文件名</span></span><br><span class="line">OUTPUT_FILE=&quot;13.tar&quot;</span><br><span class="line"></span><br><span class="line">echo &quot;[*] 开始使用 pigz 解压：$INPUT_FILE -&gt; $OUTPUT_FILE&quot;</span><br><span class="line">echo &quot;[*] 使用 8 核&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">测量用时</span></span><br><span class="line">START=$(date +%s)</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用 pigz 解压到 tar</span></span><br><span class="line">pigz -d -p 8 -c &quot;$INPUT_FILE&quot; &gt; &quot;$OUTPUT_FILE&quot;</span><br><span class="line"></span><br><span class="line">END=$(date +%s)</span><br><span class="line">DURATION=$((END - START))</span><br><span class="line"></span><br><span class="line">echo &quot;[*] 解压完成，用时: $&#123;DURATION&#125; 秒&quot;</span><br></pre></td></tr></table></figure>
 
 <h3 id="测试结果："><a href="#测试结果：" class="headerlink" title="测试结果："></a>测试结果：</h3><p>用时： 802 秒 13mins</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730133904246.png" alt="image-20250730133904246"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730133904246.png" alt="image-20250730133904246"></p>
 <p>看任务管理器可以发现8核确实在使用：</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730134129445.png" alt="image-20250730134129445"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250730134129445.png" alt="image-20250730134129445"></p>
 <h2 id="tar部分测试"><a href="#tar部分测试" class="headerlink" title="tar部分测试"></a>tar部分测试</h2><h3 id="tar单进程解压"><a href="#tar单进程解压" class="headerlink" title="tar单进程解压"></a>tar单进程解压</h3><p>shell脚本如下：将pigz的结果直接给tar进行单进程解压</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">设定文件夹路径（你可以根据自己的需要修改）</span></span><br><span class="line">DIR=&quot;/mnt/d/share&quot;              # 目标文件夹路径</span><br><span class="line">FOLDER=&quot;13&quot;                     # 要压缩的文件夹名（在 $DIR 下）</span><br><span class="line">FILE=&quot;$DIR/$FOLDER&quot;             # 要压缩的文件夹路径</span><br><span class="line">OUTPUT_COMPRESSED=&quot;$DIR/$FOLDER.tar.gz&quot;  # 压缩后的文件路径</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">压缩函数</span></span><br><span class="line">function compress &#123;</span><br><span class="line">    echo &quot;[*] 开始压缩：$FILE&quot;</span><br><span class="line">    # 使用 tar 打包并通过 pigz 压缩，-p 8 表示使用 8 个核心</span><br><span class="line">    time tar -cf - &quot;$FILE&quot; | pigz -p 8 &gt; &quot;$OUTPUT_COMPRESSED&quot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">检查文件夹是否存在</span></span><br><span class="line">if [ ! -d &quot;$FILE&quot; ]; then</span><br><span class="line">    echo &quot;[*] 错误：文件夹 $FILE 不存在！&quot;</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">运行压缩函数</span></span><br><span class="line">time compress</span><br><span class="line"></span><br><span class="line">echo &quot;[+] 压缩完成！结果保存在：$OUTPUT_COMPRESSED&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -22443,7 +22443,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <url>/2025/07/29/ansible%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<blockquote>
 <p>环境：Anolis 8.10</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
 </blockquote>
 <h1 id="ansible部署学习"><a href="#ansible部署学习" class="headerlink" title="ansible部署学习"></a>ansible部署学习</h1><blockquote>
 </blockquote>
@@ -22509,7 +22509,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ol>
 </li>
 </ol>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
 </blockquote>
 <h2 id="docker部署server端"><a href="#docker部署server端" class="headerlink" title="docker部署server端"></a>docker部署server端</h2><h3 id="1-准备操作"><a href="#1-准备操作" class="headerlink" title="1. 准备操作"></a>1. 准备操作</h3><p>​	导入提前下载好的镜像</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 扫描当前目录所有 tar 文件</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> *.tar; <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">if</span> [ -f <span class="string">&quot;<span class="variable">$img</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;========================================&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;[*] 正在导入镜像: <span class="variable">$img</span>&quot;</span></span><br><span class="line">    docker load -i <span class="string">&quot;<span class="variable">$img</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;[✔] 导入完成: <span class="variable">$img</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;========================================&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[*] 当前所有镜像：&quot;</span></span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -22531,7 +22531,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --name zabbix-java-gateway -t \</span><br><span class="line">   --restart=unless-stopped \</span><br><span class="line">   -d zabbix/zabbix-java-gateway:alpine-6.2-latest</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-docker部署zabbix-server"><a href="#4-docker部署zabbix-server" class="headerlink" title="4. docker部署zabbix-server"></a>4. docker部署zabbix-server</h3><p>准备好挂载配置文件的目录和配置文件。</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730092559134.png" alt="image-20250730092559134"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730092559134.png" alt="image-20250730092559134"></p>
 <ul>
 <li>参考配置文件，使用docker的话不需要修改，其实也可以不用挂载出来。</li>
 </ul>
@@ -22606,7 +22606,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>仅仅适用于Anolis8.10环境下。</p>
 </blockquote>
 <blockquote>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143332854.png" alt="image-20250730143332854"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143332854.png" alt="image-20250730143332854"></p>
 </blockquote>
 <h4 id="2-安装"><a href="#2-安装" class="headerlink" title="2. 安装"></a>2. 安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum localinstall *.rpm</span><br></pre></td></tr></table></figure>
 
@@ -22615,25 +22615,25 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h4 id="3-配置agent并启用"><a href="#3-配置agent并启用" class="headerlink" title="3. 配置agent并启用"></a>3. 配置agent并启用</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/zabbix/zabbix_agentd.conf</span><br></pre></td></tr></table></figure>
 
 <p>两处地方修改为zabbix-server的IP，Hostname改为合适的名字</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111245757.png" alt="image-20250730111245757"></p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111256706.png" alt="image-20250730111256706"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111245757.png" alt="image-20250730111245757"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111256706.png" alt="image-20250730111256706"></p>
 <p>保存退出后重启服务</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl restart zabbix-agent.service</span><br></pre></td></tr></table></figure>
 
 <p>确认正常运行中</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111426747.png" alt="image-20250730111426747"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111426747.png" alt="image-20250730111426747"></p>
 <h4 id="4-server端连接agent"><a href="#4-server端连接agent" class="headerlink" title="4. server端连接agent"></a>4. server端连接agent</h4><p>登录server端后点击：</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730110022568.png" alt="image-20250730110022568"></p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730110158704.png" alt="image-20250730110158704"></p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111457525.png" alt="image-20250730111457525"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730110022568.png" alt="image-20250730110022568"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730110158704.png" alt="image-20250730110158704"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111457525.png" alt="image-20250730111457525"></p>
 <p>等待连接变为绿色即可</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111517028.png" alt="image-20250730111517028"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730111517028.png" alt="image-20250730111517028"></p>
 <h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><h3 id="离线包下载方法"><a href="#离线包下载方法" class="headerlink" title="离线包下载方法"></a>离线包下载方法</h3><h4 id="导入-Zabbix-官方仓库"><a href="#导入-Zabbix-官方仓库" class="headerlink" title="导入 Zabbix 官方仓库"></a>导入 Zabbix 官方仓库</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf install -y https://repo.zabbix.com/zabbix/7.0/rhel/8/x86_64/zabbix-release-7.0-1.el8.noarch.rpm</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143949900.png" alt="image-20250730143949900"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143949900.png" alt="image-20250730143949900"></p>
 <h4 id="下载到本地"><a href="#下载到本地" class="headerlink" title="下载到本地"></a>下载到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf download --resolve --destdir=./ zabbix-agent</span><br></pre></td></tr></table></figure>
 
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143934759.png" alt="image-20250730143934759"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143934759.png" alt="image-20250730143934759"></p>
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -22963,7 +22963,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <content><![CDATA[<blockquote>
 <h1 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h1><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804151509151.png" alt="image-20250804151509151"></p>
 <p>效果：</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804153715569.png" alt="image-20250804153715569"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804153715569.png" alt="image-20250804153715569"></p>
 <h1 id="虚拟机环境："><a href="#虚拟机环境：" class="headerlink" title="虚拟机环境："></a>虚拟机环境：</h1><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804151541771.png" alt="image-20250804151541771"></p>
 <p><strong>Master节点：K8s-1	192.168.72.8</strong></p>
 <p><strong>node2 		   K8s-2    192.168.72.9</strong></p>
@@ -23129,7 +23129,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubeadm <span class="built_in">join</span> 192.168.72.8:6443 --token gisx9m.q8kqbw0zndrm8i5b --discovery-token-ca-cert-hash </span><br></pre></td></tr></table></figure>
 
 <p>等待kube-flannel起来即可，过程可能有点久取决于网速和配置。</p>
-<p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804170231277.png" alt="image-20250804170231277"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804170231277.png" alt="image-20250804170231277"></p>
 <h1 id="6-问题总结"><a href="#6-问题总结" class="headerlink" title="6. 问题总结"></a>6. 问题总结</h1><p>​	以上流程已经避免了很多坑，以下是几个容易卡主的问题。</p>
 <h2 id="解决contairnerd镜像源问题"><a href="#解决contairnerd镜像源问题" class="headerlink" title="解决contairnerd镜像源问题"></a>解决contairnerd镜像源问题</h2><p>可参考：</p>
 <p><a href="https://www.cnblogs.com/wod-Y/p/17043985.html">搭建k8s集群初始化master节点 kubeadm init 遇到问题解决 - 杨海星 - 博客园</a></p>
