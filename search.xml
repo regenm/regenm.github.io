@@ -22888,9 +22888,61 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <title>K8s pods service deployment初体验</title>
     <url>/2025/08/04/K8s-pods-service-deployment%E5%88%9D%E4%BD%93%E9%AA%8C/</url>
     <content><![CDATA[<blockquote>
-<p>部署过程：</p>
+<p>部署过程：<a href="http://regenm.github.io/2025/08/04/K8s-%E4%B8%89%E8%8A%82%E7%82%B9%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">K8s 三节点环境搭建 | Regen</a></p>
 </blockquote>
-]]></content>
+<p>​	初次体验k8s，起了几个简单的pods、service、deployment</p>
+<h1 id="K8s-pods-service-deployment初体验"><a href="#K8s-pods-service-deployment初体验" class="headerlink" title="K8s pods service deployment初体验"></a>K8s pods service deployment初体验</h1><h2 id="pods"><a href="#pods" class="headerlink" title="pods"></a>pods</h2><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804171629285.png" alt="image-20250804171629285"></p>
+<h3 id="busybox-pod"><a href="#busybox-pod" class="headerlink" title="busybox-pod"></a>busybox-pod</h3><p>yaml文件：</p>
+<ol>
+<li>busybox-pod.yaml</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">Pod</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">busybox</span></span><br><span class="line"><span class="attr">spec:</span></span><br><span class="line">  <span class="attr">containers:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">busybox</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">registry.aliyuncs.com/google_containers/busybox:latest</span></span><br><span class="line">    <span class="attr">command:</span> [<span class="string">&quot;sleep&quot;</span>, <span class="string">&quot;3600&quot;</span>]  <span class="comment"># 防止容器立即退出</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+<h3 id="nginx-pod"><a href="#nginx-pod" class="headerlink" title="nginx-pod"></a>nginx-pod</h3><ol start="2">
+<li>nginx-pod.yaml</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Pod</span><br><span class="line">metadata:</span><br><span class="line">  name: my-nginx</span><br><span class="line">spec:</span><br><span class="line">  containers:</span><br><span class="line">  - name: nginx</span><br><span class="line">    image: nginx:latest</span><br><span class="line">    imagePullPolicy: IfNotPresent</span><br></pre></td></tr></table></figure>
+
+<p>起容器的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-pod.yaml</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804171629285.png" alt="image-20250804171629285"></p>
+<h2 id="service"><a href="#service" class="headerlink" title="service"></a>service</h2><h3 id="nginx-service"><a href="#nginx-service" class="headerlink" title="nginx-service"></a>nginx-service</h3><p>​	上面起来了一个nginx pods，但是要怎么访问呢？—通过service</p>
+<p>nginx-service.yaml ：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: my-nginx-service</span><br><span class="line">spec:</span><br><span class="line">  <span class="built_in">type</span>: NodePort</span><br><span class="line">  selector:</span><br><span class="line">    run: my-nginx</span><br><span class="line">  ports:</span><br><span class="line">    - protocol: TCP</span><br><span class="line">      port: 80         <span class="comment"># Service 端口</span></span><br><span class="line">      targetPort: 80   <span class="comment"># Pod 容器端口</span></span><br><span class="line">      nodePort: 30080  <span class="comment"># 你访问的节点端口(30000-32767 之间)</span></span><br></pre></td></tr></table></figure>
+
+<p>部署service的命令：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">kubectl apply -f nginx-service.yaml</span><br></pre></td></tr></table></figure>
+
+<p>再次之前需要先给之前的pod打上标签</p>
+<p><strong>查看标签</strong>的命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get pods --show-labels</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804172606336.png" alt="image-20250804172606336"></p>
+<p><strong>打标签</strong>的命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl label pod my-nginx run=my-nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<p>如何查看service呢？</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl get svc</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804172402282.png" alt="image-20250804172402282"></p>
+<p>然后就可以通过所有的机器的IP:30080访问同一个nginx容器了！</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804173011788.png" alt="image-20250804173011788"></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804173054782.png" alt="image-20250804173054782"></p>
+<h2 id="deployment"><a href="#deployment" class="headerlink" title="deployment"></a>deployment</h2><h3 id="Nginx集群（service-扩缩容）"><a href="#Nginx集群（service-扩缩容）" class="headerlink" title="Nginx集群（service+扩缩容）"></a>Nginx集群（service+扩缩容）</h3><p>nginx-deployment.yaml </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: apps/v1</span><br><span class="line">kind: Deployment</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment       # Deployment 的名字</span><br><span class="line">spec:</span><br><span class="line">  replicas: 3                  # 希望运行的 Pod 副本数</span><br><span class="line">  selector:</span><br><span class="line">    matchLabels:</span><br><span class="line">      app: nginx               # 选择哪些 Pod 属于这个 Deployment（必须和 template 中 labels 一致）</span><br><span class="line">  template:                   # Pod 模板，Deployment 会根据这个模板创建 Pod</span><br><span class="line">    metadata:</span><br><span class="line">      labels:</span><br><span class="line">        app: nginx             # 这个标签用于上面 selector 匹配</span><br><span class="line">    spec:</span><br><span class="line">      containers:</span><br><span class="line"></span><br><span class="line">   - name: nginx            # 容器名字</span><br><span class="line">     image: nginx:latest    # 使用的镜像</span><br><span class="line">     imagePullPolicy: Never</span><br><span class="line">     ports:</span><br><span class="line">     - containerPort: 80    # 容器暴露的端口</span><br></pre></td></tr></table></figure>
+
+<p>service.yaml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apiVersion: v1</span><br><span class="line">kind: Service</span><br><span class="line">metadata:</span><br><span class="line">  name: nginx-deployment-service</span><br><span class="line">spec:</span><br><span class="line">  type: NodePort</span><br><span class="line">  selector:</span><br><span class="line">    app: nginx</span><br><span class="line">  ports:</span><br><span class="line">    - protocol: TCP</span><br><span class="line">      port: 80</span><br><span class="line">      targetPort: 80</span><br><span class="line">      nodePort: 30081</span><br></pre></td></tr></table></figure>
+
+<h4 id="扩缩容："><a href="#扩缩容：" class="headerlink" title="扩缩容："></a>扩缩容：</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">kubectl scale deployment/nginx-deployment --replicas=5</span><br></pre></td></tr></table></figure>
+
+<p>好快的扩缩容</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804173743514.png" alt="image-20250804173743514"></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h2>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -22909,7 +22961,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <title>K8s 三节点环境搭建</title>
     <url>/2025/08/04/K8s-%E4%B8%89%E8%8A%82%E7%82%B9%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<blockquote>
-<h1 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h1><p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804151509151.png" alt="image-20250804151509151"></p>
+<h1 id="环境："><a href="#环境：" class="headerlink" title="环境："></a>环境：</h1><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804151509151.png" alt="image-20250804151509151"></p>
 <p>效果：</p>
 <p><img src="/../images/linux/%E8%BF%90%E7%BB%B4/k8s/image-20250804153715569.png" alt="image-20250804153715569"></p>
 <h1 id="虚拟机环境："><a href="#虚拟机环境：" class="headerlink" title="虚拟机环境："></a>虚拟机环境：</h1><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250804151541771.png" alt="image-20250804151541771"></p>
