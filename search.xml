@@ -7122,6 +7122,288 @@
 <p>​	</p>
 <p><strong>vim学习网站</strong></p>
 <p>​	<a href="https://vim-adventures.com/">VIM GAME</a></p>
+<hr>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="🔍-查找与跳转类"><a href="#🔍-查找与跳转类" class="headerlink" title="🔍 查找与跳转类"></a>🔍 查找与跳转类</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>向下查找</td>
+<td><code>/关键词</code></td>
+<td>向下搜索</td>
+</tr>
+<tr>
+<td>向上查找</td>
+<td><code>?关键词</code></td>
+<td>向上搜索</td>
+</tr>
+<tr>
+<td>查找下一个</td>
+<td><code>n</code></td>
+<td>重复上一次查找方向</td>
+</tr>
+<tr>
+<td>查找上一个</td>
+<td><code>N</code></td>
+<td>与 <code>n</code> 相反方向查找</td>
+</tr>
+<tr>
+<td>精准跳行</td>
+<td><code>:数字</code></td>
+<td>跳转到某行（如 <code>:25</code> 到第25行）</td>
+</tr>
+<tr>
+<td>跳转当前函数开始</td>
+<td><code>[[</code></td>
+<td>到上一个函数定义</td>
+</tr>
+<tr>
+<td>跳转当前函数结束</td>
+<td><code>]]</code></td>
+<td>到下一个函数定义</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✂️-复制-粘贴-删除"><a href="#✂️-复制-粘贴-删除" class="headerlink" title="✂️ 复制&#x2F;粘贴&#x2F;删除"></a>✂️ 复制&#x2F;粘贴&#x2F;删除</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>复制整行</td>
+<td><code>yy</code></td>
+<td>Yank（复制）一整行</td>
+</tr>
+<tr>
+<td>复制多行</td>
+<td><code>3yy</code></td>
+<td>复制 3 行</td>
+</tr>
+<tr>
+<td>粘贴</td>
+<td><code>p</code></td>
+<td>粘贴到当前行&#x2F;位置后</td>
+</tr>
+<tr>
+<td>粘贴到前面</td>
+<td><code>P</code></td>
+<td>粘贴到当前行&#x2F;位置前</td>
+</tr>
+<tr>
+<td>删除当前行</td>
+<td><code>dd</code></td>
+<td>删除整行（并放入剪贴板）</td>
+</tr>
+<tr>
+<td>删除多行</td>
+<td><code>3dd</code></td>
+<td>删除 3 行</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🖊-编辑文本"><a href="#🖊-编辑文本" class="headerlink" title="🖊 编辑文本"></a>🖊 编辑文本</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>进入插入模式</td>
+<td><code>i</code></td>
+<td>当前光标前插入</td>
+</tr>
+<tr>
+<td>行首插入</td>
+<td><code>I</code></td>
+<td>当前行行首插入</td>
+</tr>
+<tr>
+<td>行末插入</td>
+<td><code>A</code></td>
+<td>当前行行末插入</td>
+</tr>
+<tr>
+<td>开新行</td>
+<td><code>o</code></td>
+<td>下一行插入新行</td>
+</tr>
+<tr>
+<td>上一行插入</td>
+<td><code>O</code></td>
+<td>上一行插入新行</td>
+</tr>
+<tr>
+<td>撤销操作</td>
+<td><code>u</code></td>
+<td>撤销</td>
+</tr>
+<tr>
+<td>重做操作</td>
+<td><code>Ctrl + r</code></td>
+<td>重做</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="⏬-移动光标（导航）"><a href="#⏬-移动光标（导航）" class="headerlink" title="⏬ 移动光标（导航）"></a>⏬ 移动光标（导航）</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>移动到行首</td>
+<td><code>0</code></td>
+<td>数字零，跳转行首</td>
+</tr>
+<tr>
+<td>移动到行尾</td>
+<td><code>$</code></td>
+<td>跳转行尾</td>
+</tr>
+<tr>
+<td>下一个单词</td>
+<td><code>w</code></td>
+<td>移动到下一个词首</td>
+</tr>
+<tr>
+<td>上一个单词</td>
+<td><code>b</code></td>
+<td>移动到上一个词首</td>
+</tr>
+<tr>
+<td>向后跳一个词尾</td>
+<td><code>e</code></td>
+<td>跳到词尾</td>
+</tr>
+<tr>
+<td>跳转匹配括号</td>
+<td><code>%</code></td>
+<td>例如从 <code>(</code> 跳到 <code>)</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🔄-替换与格式"><a href="#🔄-替换与格式" class="headerlink" title="🔄 替换与格式"></a>🔄 替换与格式</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>替换字符</td>
+<td><code>r&lt;字符&gt;</code></td>
+<td>替换当前字符为新字符</td>
+</tr>
+<tr>
+<td>替换整行</td>
+<td><code>cc</code></td>
+<td>删除本行并进入插入模式</td>
+</tr>
+<tr>
+<td>修改当前单词</td>
+<td><code>cw</code></td>
+<td>删除单词并插入新内容</td>
+</tr>
+<tr>
+<td>缩进</td>
+<td><code>&gt;&gt;</code> &#x2F; <code>&lt;&lt;</code></td>
+<td>增加 &#x2F; 减少缩进</td>
+</tr>
+<tr>
+<td>自动缩进格式化</td>
+<td><code>gg=G</code></td>
+<td>整个文件格式化缩进</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🗂-多文件-多窗口"><a href="#🗂-多文件-多窗口" class="headerlink" title="🗂 多文件 &#x2F; 多窗口"></a>🗂 多文件 &#x2F; 多窗口</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>打开文件</td>
+<td><code>:e 文件名</code></td>
+<td>打开另一个文件</td>
+</tr>
+<tr>
+<td>保存文件</td>
+<td><code>:w</code></td>
+<td>写入文件</td>
+</tr>
+<tr>
+<td>保存退出</td>
+<td><code>:wq</code> 或 <code>ZZ</code></td>
+<td>保存并退出</td>
+</tr>
+<tr>
+<td>不保存退出</td>
+<td><code>:q!</code></td>
+<td>强制退出</td>
+</tr>
+<tr>
+<td>分屏</td>
+<td><code>:vsp 文件名</code></td>
+<td>垂直分屏打开文件</td>
+</tr>
+<tr>
+<td>窗口切换</td>
+<td><code>Ctrl + w + h/j/k/l</code></td>
+<td>切换到左&#x2F;下&#x2F;上&#x2F;右窗口</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="🧠-Bonus-技巧"><a href="#🧠-Bonus-技巧" class="headerlink" title="🧠 Bonus 技巧"></a>🧠 Bonus 技巧</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查看文件编码</td>
+<td><code>:set fileencoding?</code></td>
+<td></td>
+</tr>
+<tr>
+<td>设置行号</td>
+<td><code>:set number</code></td>
+<td></td>
+</tr>
+<tr>
+<td>取消行号</td>
+<td><code>:set nonumber</code></td>
+<td></td>
+</tr>
+<tr>
+<td>语法高亮</td>
+<td><code>:syntax on</code></td>
+<td></td>
+</tr>
+<tr>
+<td>显示不可见字符</td>
+<td><code>:set list</code></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<p>是否要我给你一张快捷键总结图？或者针对某类操作（比如查找替换、代码缩进）出个练习小册？</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -7565,9 +7847,9 @@
 <li>部署需要对多个节点和服务进行管理，更新和回滚复杂，尤其是在微服务架构中。</li>
 <li>持续集成、持续交付（CI&#x2F;CD）流程的复杂度增加，需要额外的工具和策略来确保部署的稳定性。</li>
 </ul>
-<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="分布式mqtt服务器"><a href="#分布式mqtt服务器" class="headerlink" title="分布式mqtt服务器"></a>分布式mqtt服务器</h2><p>分布式 MQTT 服务器架构设计是为了实现 MQTT 消息的高可用性、高扩展性和高并发处理。分布式 MQTT 服务器可以承载大量物联网设备的连接，同时能够保证消息的快速分发和数据的一致性。在设计和实现分布式 MQTT 服务器时，通常会使用负载均衡、集群、数据分片、消息持久化等技术。</p>
-<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><p>Spring Cloud、Kubernetes、Docker、Istio。将应用拆分为多个独立的服务，每个服务独立开发、部署和扩展，适合大型企业系统的开发。分布式服务独立运作，降低单个服务出错影响，全栈服务自主扩展，可快速响应不同功能模块的需求。</p>
-<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>Bitcoin、Ethereum、Hyperledger Fabric、Polkadot。构建去中心化系统，支持加密货币交易、智能合约、数据安全和隐私保护。采用分布式账本、共识算法、加密技术，数据公开透明且难以篡改，适用于去中心化应用（DApp）和数据溯源等。</p>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="分布式mqtt服务器"><a href="#分布式mqtt服务器" class="headerlink" title="分布式mqtt服务器"></a>分布式mqtt服务器</h2><p>​	分布式 MQTT 服务器架构设计是为了实现 MQTT 消息的高可用性、高扩展性和高并发处理。分布式 MQTT 服务器可以承载大量物联网设备的连接，同时能够保证消息的快速分发和数据的一致性。在设计和实现分布式 MQTT 服务器时，通常会使用负载均衡、集群、数据分片、消息持久化等技术。</p>
+<h2 id="微服务架构"><a href="#微服务架构" class="headerlink" title="微服务架构"></a>微服务架构</h2><p>​	Spring Cloud、Kubernetes、Docker、Istio。将应用拆分为多个独立的服务，每个服务独立开发、部署和扩展，适合大型企业系统的开发。分布式服务独立运作，降低单个服务出错影响，全栈服务自主扩展，可快速响应不同功能模块的需求。</p>
+<h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>​	Bitcoin、Ethereum、Hyperledger Fabric、Polkadot。构建去中心化系统，支持加密货币交易、智能合约、数据安全和隐私保护。采用分布式账本、共识算法、加密技术，数据公开透明且难以篡改，适用于去中心化应用（DApp）和数据溯源等。</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -9262,7 +9544,7 @@
     <title>计算机网络基础</title>
     <url>/2024/10/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80/</url>
     <content><![CDATA[<p>本部分计算机网络笔记用于学习和应用。</p>
-<h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><table>
+<h1 id="计算机网络基础"><a href="#计算机网络基础" class="headerlink" title="计算机网络基础"></a>计算机网络基础</h1><h2 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h2><table>
 <thead>
 <tr>
 <th>特性</th>
@@ -9335,7 +9617,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="TCP的三次握手和四次挥手机制"><a href="#TCP的三次握手和四次挥手机制" class="headerlink" title="TCP的三次握手和四次挥手机制"></a>TCP的三次握手和四次挥手机制</h3><h4 id="一、TCP-三次握手（连接建立）"><a href="#一、TCP-三次握手（连接建立）" class="headerlink" title="一、TCP 三次握手（连接建立）"></a>一、TCP 三次握手（连接建立）</h4><p>三次握手的目的是为了保证客户端和服务器双方都确认对方收到了自己的请求，成功建立可靠的连接。过程如下：</p>
+<h2 id="TCP的三次握手和四次挥手机制"><a href="#TCP的三次握手和四次挥手机制" class="headerlink" title="TCP的三次握手和四次挥手机制"></a>TCP的三次握手和四次挥手机制</h2><h4 id="一、TCP-三次握手（连接建立）"><a href="#一、TCP-三次握手（连接建立）" class="headerlink" title="一、TCP 三次握手（连接建立）"></a>一、TCP 三次握手（连接建立）</h4><p>三次握手的目的是为了保证客户端和服务器双方都确认对方收到了自己的请求，成功建立可靠的连接。过程如下：</p>
 <ol>
 <li><p>第一次握手</p>
 <p> ：</p>
@@ -9385,24 +9667,132 @@
 </li>
 </ol>
 <p>服务器收到 ACK 后，也进入 <strong>CLOSED</strong> 状态，至此连接完全关闭。</p>
-<h3 id="使用TCP-IP协议进行通信（基于python）"><a href="#使用TCP-IP协议进行通信（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行通信（基于python）"></a>使用TCP&#x2F;IP协议进行通信（基于python）</h3><h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP服务器的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定IP地址和端口号</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始监听</span></span><br><span class="line">server_socket.listen(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TCP服务器启动，等待客户端连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待客户端连接</span></span><br><span class="line">client_socket, addr = server_socket.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;连接建立，客户端地址: <span class="subst">&#123;addr&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收数据</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;收到的数据: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送响应</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，客户端！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line">server_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="使用TCP-IP协议进行通信（基于python）"><a href="#使用TCP-IP协议进行通信（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行通信（基于python）"></a>使用TCP&#x2F;IP协议进行通信（基于python）</h2><h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP服务器的socket对象</span></span><br><span class="line">server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绑定IP地址和端口号</span></span><br><span class="line">server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始监听</span></span><br><span class="line">server_socket.listen(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;TCP服务器启动，等待客户端连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等待客户端连接</span></span><br><span class="line">client_socket, addr = server_socket.accept()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;连接建立，客户端地址: <span class="subst">&#123;addr&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收数据</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;收到的数据: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送响应</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，客户端！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line">server_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="TCP客户端："><a href="#TCP客户端：" class="headerlink" title="TCP客户端："></a>TCP客户端：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建TCP客户端的socket对象</span></span><br><span class="line">client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接服务器</span></span><br><span class="line">client_socket.connect((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送数据</span></span><br><span class="line">client_socket.send(<span class="string">&quot;你好，服务器！&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 接收服务器的响应</span></span><br><span class="line">data = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;从服务器收到的响应: <span class="subst">&#123;data.decode()&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭连接</span></span><br><span class="line">client_socket.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="使用TCP-IP协议进行网络聊天（基于python）"><a href="#使用TCP-IP协议进行网络聊天（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行网络聊天（基于python）"></a>使用TCP&#x2F;IP协议进行网络聊天（基于python）</h3><h4 id="服务器-1"><a href="#服务器-1" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line">clients = []</span><br><span class="line">usernames = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handle_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 接收客户端发送的数据</span></span><br><span class="line">            message = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> message:</span><br><span class="line">                broadcast(message, client_socket)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                remove_client(client_socket)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">broadcast</span>(<span class="params">message, client_socket</span>):</span><br><span class="line">    <span class="keyword">for</span> client <span class="keyword">in</span> clients:</span><br><span class="line">        <span class="keyword">if</span> client != client_socket:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                client.send(message)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                remove_client(client)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    index = clients.index(client_socket)</span><br><span class="line">    clients.remove(client_socket)</span><br><span class="line">    username = usernames[index]</span><br><span class="line">    usernames.remove(username)</span><br><span class="line">    broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 退出了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_server</span>():</span><br><span class="line">    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line">    server_socket.listen(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;聊天服务器启动，等待连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        client_socket, addr = server_socket.accept()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;客户端 <span class="subst">&#123;addr&#125;</span> 连接。&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 让客户端输入用户名</span></span><br><span class="line">        client_socket.send(<span class="string">&quot;请输入用户名：&quot;</span>.encode())</span><br><span class="line">        username = client_socket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">        usernames.append(username)</span><br><span class="line">        clients.append(client_socket)</span><br><span class="line">        broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 加入了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line">        thread = threading.Thread(target=handle_client, args=(client_socket,))</span><br><span class="line">        thread.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start_server()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="使用TCP-IP协议进行网络聊天（基于python）"><a href="#使用TCP-IP协议进行网络聊天（基于python）" class="headerlink" title="使用TCP&#x2F;IP协议进行网络聊天（基于python）"></a>使用TCP&#x2F;IP协议进行网络聊天（基于python）</h2><h4 id="服务器-1"><a href="#服务器-1" class="headerlink" title="服务器"></a>服务器</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line">clients = []</span><br><span class="line">usernames = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">handle_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment"># 接收客户端发送的数据</span></span><br><span class="line">            message = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> message:</span><br><span class="line">                broadcast(message, client_socket)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                remove_client(client_socket)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">broadcast</span>(<span class="params">message, client_socket</span>):</span><br><span class="line">    <span class="keyword">for</span> client <span class="keyword">in</span> clients:</span><br><span class="line">        <span class="keyword">if</span> client != client_socket:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                client.send(message)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                remove_client(client)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">remove_client</span>(<span class="params">client_socket</span>):</span><br><span class="line">    index = clients.index(client_socket)</span><br><span class="line">    clients.remove(client_socket)</span><br><span class="line">    username = usernames[index]</span><br><span class="line">    usernames.remove(username)</span><br><span class="line">    broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 退出了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_server</span>():</span><br><span class="line">    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    server_socket.bind((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line">    server_socket.listen(<span class="number">5</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;聊天服务器启动，等待连接...&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        client_socket, addr = server_socket.accept()</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;客户端 <span class="subst">&#123;addr&#125;</span> 连接。&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 让客户端输入用户名</span></span><br><span class="line">        client_socket.send(<span class="string">&quot;请输入用户名：&quot;</span>.encode())</span><br><span class="line">        username = client_socket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">        usernames.append(username)</span><br><span class="line">        clients.append(client_socket)</span><br><span class="line">        broadcast(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span> 加入了聊天！&quot;</span>.encode(), client_socket)  <span class="comment"># 传递 client_socket</span></span><br><span class="line"></span><br><span class="line">        thread = threading.Thread(target=handle_client, args=(client_socket,))</span><br><span class="line">        thread.start()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start_server()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="TCP客户端：-1"><a href="#TCP客户端：-1" class="headerlink" title="TCP客户端："></a>TCP客户端：</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">receive_messages</span>(<span class="params">client_socket</span>):</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            message = client_socket.recv(<span class="number">1024</span>)</span><br><span class="line">            <span class="keyword">if</span> message:</span><br><span class="line">                <span class="built_in">print</span>(message.decode())</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;连接到服务器失败。&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">start_client</span>():</span><br><span class="line">    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">    client_socket.connect((<span class="string">&#x27;localhost&#x27;</span>, <span class="number">12345</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 输入用户名</span></span><br><span class="line">    username = <span class="built_in">input</span>(<span class="string">&quot;请输入用户名：&quot;</span>)</span><br><span class="line">    client_socket.send(username.encode())</span><br><span class="line"></span><br><span class="line">    thread = threading.Thread(target=receive_messages, args=(client_socket,))</span><br><span class="line">    thread.start()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        message = <span class="built_in">input</span>()</span><br><span class="line">        <span class="keyword">if</span> message.lower() == <span class="string">&#x27;exit&#x27;</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        client_socket.send(<span class="string">f&quot;<span class="subst">&#123;username&#125;</span>: <span class="subst">&#123;message&#125;</span>&quot;</span>.encode())</span><br><span class="line"></span><br><span class="line">    client_socket.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    start_client()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
-
-
-
+<h2 id="Vlan"><a href="#Vlan" class="headerlink" title="Vlan"></a>Vlan</h2><h3 id="1-什么是-VLAN？"><a href="#1-什么是-VLAN？" class="headerlink" title="1. 什么是 VLAN？"></a>1. 什么是 VLAN？</h3><ul>
+<li>VLAN（虚拟局域网）是通过交换机对物理网络进行逻辑划分的技术。</li>
+<li>它将一个物理局域网分割成多个广播域，实现不同部门或业务之间的隔离。</li>
+<li>目的：减少广播风暴、增强安全性和简化管理。</li>
+</ul>
+<hr>
+<h3 id="2-什么是-VXLAN？"><a href="#2-什么是-VXLAN？" class="headerlink" title="2. 什么是 VXLAN？"></a>2. 什么是 VXLAN？</h3><ul>
+<li>VXLAN（虚拟扩展局域网）是一种覆盖网络技术，用于跨数据中心或大规模云环境扩展 VLAN。</li>
+<li>通过在 UDP 封装中传输二层帧，实现不同物理网络间的二层连接。</li>
+<li>解决传统 VLAN 数量限制（4096）的问题，支持更大规模虚拟网络。</li>
+</ul>
+<hr>
+<h3 id="3-学-VLAN-前需要了解的基本概念"><a href="#3-学-VLAN-前需要了解的基本概念" class="headerlink" title="3. 学 VLAN 前需要了解的基本概念"></a>3. 学 VLAN 前需要了解的基本概念</h3><ul>
+<li>交换机工作在 OSI 模型的第二层（数据链路层），通过 MAC 地址转发数据。</li>
+<li>VLAN 是通过交换机划分逻辑网络，基于端口或标签（802.1Q）区分。</li>
+<li>了解广播域、MAC 表、三层设备和路由概念。</li>
+</ul>
+<hr>
+<h3 id="4-Ping-用的是-ICMP-协议吗？"><a href="#4-Ping-用的是-ICMP-协议吗？" class="headerlink" title="4. Ping 用的是 ICMP 协议吗？"></a>4. Ping 用的是 ICMP 协议吗？</h3><ul>
+<li>是的，ping 使用的是 ICMP 协议，用于网络连通性测试。</li>
+</ul>
+<hr>
+<h3 id="5-是否可以通过修改自己的-VLAN-ID-访问其他-VLAN？"><a href="#5-是否可以通过修改自己的-VLAN-ID-访问其他-VLAN？" class="headerlink" title="5. 是否可以通过修改自己的 VLAN ID 访问其他 VLAN？"></a>5. 是否可以通过修改自己的 VLAN ID 访问其他 VLAN？</h3><ul>
+<li>不能随意修改 VLAN ID 来访问其他 VLAN。</li>
+<li>不同 VLAN 之间通信需要三层设备（路由器或三层交换机）进行路由转发。</li>
+</ul>
+<hr>
+<h3 id="6-为什么不同-VLAN-之间通信需要三层设备？"><a href="#6-为什么不同-VLAN-之间通信需要三层设备？" class="headerlink" title="6. 为什么不同 VLAN 之间通信需要三层设备？"></a>6. 为什么不同 VLAN 之间通信需要三层设备？</h3><ul>
+<li>VLAN 在二层（数据链路层）形成隔离的广播域，数据包无法跨 VLAN 直接传递。</li>
+<li>三层设备（路由器或三层交换机）根据 IP 层地址做路由，转发不同 VLAN 之间的数据。</li>
+</ul>
+<hr>
+<h3 id="7-数据链路层和其它层的复习"><a href="#7-数据链路层和其它层的复习" class="headerlink" title="7. 数据链路层和其它层的复习"></a>7. 数据链路层和其它层的复习</h3><ul>
+<li>OSI 模型包括七层：物理层、数据链路层、网络层、传输层、会话层、表示层、应用层。</li>
+<li>交换机工作在数据链路层，通过 MAC 地址转发。</li>
+<li>路由器工作在网络层，通过 IP 地址转发。</li>
+<li>VLAN 隔离广播域属于数据链路层行为。</li>
+</ul>
+<hr>
+<h3 id="8-VLAN-发包和收包的示例"><a href="#8-VLAN-发包和收包的示例" class="headerlink" title="8. VLAN 发包和收包的示例"></a>8. VLAN 发包和收包的示例</h3><ul>
+<li>主机 A 在 VLAN 10 发送数据包给同 VLAN 的主机 B，数据包直接通过交换机转发。</li>
+<li>主机 A 在 VLAN 10 发送数据包给 VLAN 20 的主机 C，必须经过三层设备路由转发。</li>
+</ul>
+<hr>
+<h3 id="9-三层交换机的概念和其他层3"><a href="#9-三层交换机的概念和其他层3" class="headerlink" title="9. 三层交换机的概念和其他层3"></a>9. 三层交换机的概念和其他层3</h3><ul>
+<li>三层交换机结合了交换机（二层）和路由器（三层）的功能。</li>
+<li>支持在交换机上做 VLAN 间路由，提高转发效率。</li>
+<li>OSI 层中还有物理层、传输层等，但三层交换机主要关注二层和三层。</li>
+</ul>
+<hr>
+<h3 id="10-三层交换机的出现是否为了解决-VLAN-互访？"><a href="#10-三层交换机的出现是否为了解决-VLAN-互访？" class="headerlink" title="10. 三层交换机的出现是否为了解决 VLAN 互访？"></a>10. 三层交换机的出现是否为了解决 VLAN 互访？</h3><ul>
+<li>是的，三层交换机让 VLAN 之间能够高效通信，解决了 VLAN 隔离带来的互访问题。</li>
+</ul>
+<hr>
+<h3 id="11-为什么还要划分-VLAN，而不是把所有设备放一块？"><a href="#11-为什么还要划分-VLAN，而不是把所有设备放一块？" class="headerlink" title="11. 为什么还要划分 VLAN，而不是把所有设备放一块？"></a>11. 为什么还要划分 VLAN，而不是把所有设备放一块？</h3><ul>
+<li>VLAN 划分基于实际业务和管理需求：<ul>
+<li>减少广播域大小，提高性能；</li>
+<li>提高网络安全，防止未经授权访问；</li>
+<li>简化网络管理和故障定位；</li>
+<li>满足合规要求和数据隔离需求。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="12-三层交换机是否有权限划分？研发部访问财务部怎么办？"><a href="#12-三层交换机是否有权限划分？研发部访问财务部怎么办？" class="headerlink" title="12. 三层交换机是否有权限划分？研发部访问财务部怎么办？"></a>12. 三层交换机是否有权限划分？研发部访问财务部怎么办？</h3><ul>
+<li>三层交换机支持通过 ACL（访问控制列表）实现细粒度访问控制。</li>
+<li>可以配置允许研发 VLAN 访问财务 VLAN 的特定资源，限制其他访问。</li>
+<li>三层交换机同时保证 VLAN 隔离和灵活访问。</li>
+</ul>
+<hr>
+<p>关于 VMware 的 NAT 网络实现，以及它是否基于 VLAN，给你做个简洁的解释：</p>
+<hr>
+<h3 id="13-VMware-NAT-网络是如何实现的？"><a href="#13-VMware-NAT-网络是如何实现的？" class="headerlink" title="13. VMware NAT 网络是如何实现的？"></a>13. VMware NAT 网络是如何实现的？</h3><ul>
+<li><strong>VMware NAT（网络地址转换）网络</strong>，是指虚拟机通过 VMware 提供的 NAT 服务，使用主机（宿主机）的 IP 地址对外通信。</li>
+<li>VMware 在宿主机上创建一个虚拟的 <strong>NAT 网关</strong>（通常是虚拟的网络适配器 + NAT 服务进程），充当虚拟机和外部网络（如互联网）之间的路由器和地址转换器。</li>
+<li>虚拟机配置在一个私有子网中（通常是 192.168.x.x），它们的流量先发给这个 NAT 网关，网关用宿主机的 IP 和端口进行地址转换，实现虚拟机访问外网。</li>
+</ul>
+<h4 id="VMware-NAT-网络和-VLAN-关系？"><a href="#VMware-NAT-网络和-VLAN-关系？" class="headerlink" title="VMware NAT 网络和 VLAN 关系？"></a>VMware NAT 网络和 VLAN 关系？</h4><ul>
+<li>VMware 的 NAT 网络本质是 <strong>基于虚拟子网和虚拟路由的实现</strong>，而不是直接基于 VLAN 技术。</li>
+<li>虚拟机之间通过 VMware 虚拟交换机（VMware Virtual Switch）连接，这些虚拟交换机有不同模式：桥接（Bridged）、NAT、仅主机（Host-only）。</li>
+<li>NAT 模式下虚拟机都在同一个虚拟私有网络中，虚拟交换机本身不会使用 VLAN 标签来隔离流量。</li>
+<li><strong>如果需要划分 VLAN，可以在虚拟交换机或物理交换机层面进行 VLAN 配置，但 VMware NAT 模式默认不涉及 VLAN 标签。</strong></li>
+</ul>
+<hr>
+<h4 id="简单总结"><a href="#简单总结" class="headerlink" title="简单总结"></a>简单总结</h4><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>VMware NAT 网络</th>
+<th>VLAN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实现方式</td>
+<td>私有虚拟子网 + NAT 网关</td>
+<td>二层网络虚拟化，基于交换机端口或标签隔离</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>让虚拟机共享宿主机公网 IP 访问外网</td>
+<td>网络隔离，安全和广播域划分</td>
+</tr>
+<tr>
+<td>是否必须使用 VLAN</td>
+<td>否</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="如果你想用-VLAN-在-VMware-环境里做更细粒度的网络隔离："><a href="#如果你想用-VLAN-在-VMware-环境里做更细粒度的网络隔离：" class="headerlink" title="如果你想用 VLAN 在 VMware 环境里做更细粒度的网络隔离："></a>如果你想用 VLAN 在 VMware 环境里做更细粒度的网络隔离：</h4><ul>
+<li>可以在 <strong>虚拟交换机（vSwitch）上配置 VLAN ID</strong>，然后给虚拟机的网卡指定 VLAN 标签。</li>
+<li>物理交换机要支持并配置相应 VLAN。</li>
+<li>这样虚拟机之间流量就可以基于 VLAN 隔离，和物理网络 VLAN 互通或隔离。</li>
+</ul>
 ]]></content>
       <categories>
         <category>软硬件技术</category>
@@ -10261,7 +10651,7 @@
 </li>
 </ul>
 <h2 id="划分子网和构造超网"><a href="#划分子网和构造超网" class="headerlink" title="划分子网和构造超网"></a>划分子网和构造超网</h2><ul>
-<li><p>划分子网纯属一个单位内部的事情，对外部网络透明，对外仍然表现为没有划分子网的一个网络。</p>
+<li><p>划分子网纯属一个单位内部的事情，对内部网络透明，对外仍然表现为没有划分子网的一个网络。</p>
 </li>
 <li><p>优点</p>
 <ol>
@@ -10413,19 +10803,6 @@
       <tags>
         <tag>笔记</tag>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>读书是一件有温度的事</title>
-    <url>/2024/07/09/%E8%AF%BB%E4%B9%A6%E6%98%AF%E4%B8%80%E4%BB%B6%E6%9C%89%E6%B8%A9%E5%BA%A6%E7%9A%84%E4%BA%8B/</url>
-    <content><![CDATA[<p>​	突然发现很多书，在读的时候不写写画画，读完以后很容易就忘记了。还是得有点输出才行啊。</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
       </tags>
   </entry>
   <entry>
@@ -17222,9 +17599,7 @@ to breathe, to sense another, and to wait.<br>
   <entry>
     <title>从零到一：记一次Vue+Flask项目在内网PC的部署历险记</title>
     <url>/2025/04/23/%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%EF%BC%9A%E8%AE%B0%E4%B8%80%E6%AC%A1Vue-Flask%E9%A1%B9%E7%9B%AE%E5%9C%A8%E5%86%85%E7%BD%91PC%E7%9A%84%E9%83%A8%E7%BD%B2%E5%8E%86%E9%99%A9%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="从零到一：记一次Vue-Flask项目在内网PC的部署历险记"><a href="#从零到一：记一次Vue-Flask项目在内网PC的部署历险记" class="headerlink" title="从零到一：记一次Vue+Flask项目在内网PC的部署历险记"></a><strong>从零到一：记一次Vue+Flask项目在内网PC的部署历险记</strong></h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>​	最近在公司内网环境部署了一个基于 <strong>Vue + Flask + MySQL</strong> 的Web应用，本以为只是简单的“代码打包→复制→运行”，结果却遭遇了连环坑。本文将复盘整个部署过程，总结遇到的问题、解决方案，并最终探索出更成熟的部署方式。  </p>
-<hr>
-<h2 id="标题："><a href="#标题：" class="headerlink" title="标题："></a><strong>标题：</strong></h2><p><strong>《从单机开发到内网共享：一个Vue+Flask+mysql项目的部署踩坑与进阶实践》</strong>  </p>
+    <content><![CDATA[<h1 id="从零到一：记一次Vue-Flask项目在内网PC的部署历险记"><a href="#从零到一：记一次Vue-Flask项目在内网PC的部署历险记" class="headerlink" title="从零到一：记一次Vue+Flask项目在内网PC的部署历险记"></a><strong>从零到一：记一次Vue+Flask项目在内网PC的部署历险记</strong></h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><strong>引言</strong></h2><p>​	最近在公司内网环境部署了一个基于 <strong>Vue + Flask + MySQL</strong> 的Web应用，本以为只是简单的“代码打包→复制→运行”，结果却遭遇了连环坑。本文将复盘整个部署过程，总结遇到的问题、解决方案，并最终探索出更成熟的部署方式。   </p>
 <hr>
 <h2 id="一、初版部署：天真的“源码大挪移”"><a href="#一、初版部署：天真的“源码大挪移”" class="headerlink" title="一、初版部署：天真的“源码大挪移”"></a><strong>一、初版部署：天真的“源码大挪移”</strong></h2><h3 id="1-操作步骤"><a href="#1-操作步骤" class="headerlink" title="1. 操作步骤"></a><strong>1. 操作步骤</strong></h3><ol>
 <li>将本地开发好的源码打包（Vue前端 + Flask后端 + 数据库脚本）。  </li>
@@ -17295,8 +17670,6 @@ to breathe, to sense another, and to wait.<br>
 <hr>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h2><p>​	这次部署经历让我深刻理解了“开发”与“运维”的鸿沟。下一次，我会直接上Docker + Kubernetes（笑）。如果你也在内网部署过项目，欢迎分享你的踩坑故事！  </p>
 <hr>
-<p><strong>（完）</strong>  </p>
-<hr>
 <h3 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a><strong>后续计划</strong></h3><ul>
 <li>尝试用Docker容器化部署。  </li>
 <li>研究内网HTTPS证书配置。  </li>
@@ -17318,24 +17691,6 @@ to breathe, to sense another, and to wait.<br>
         <tag>vue3</tag>
         <tag>内网部署</tag>
         <tag>web开发</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>当时只道是寻常</title>
-    <url>/2025/04/28/%E5%BD%93%E6%97%B6%E5%8F%AA%E9%81%93%E6%98%AF%E5%AF%BB%E5%B8%B8/</url>
-    <content><![CDATA[<p>​	开始进入新的人生阶段了。原来觉得荒谬的事情逐渐变得正常。</p>
-<p>​	现阶段应该是梦想开始破碎并且开始变成小时候无法理解的大人的时期。提醒自己一下勿忘本心，继续保持运动读书和学习，独立思考，脚步快慢无所谓，在走就行。</p>
-<p><img src="/../images/photo/rainyLake.jpg" alt="keep going Regen!"></p>
-<p>​	</p>
-<p>​	</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>摄影</tag>
-        <tag>photo</tag>
       </tags>
   </entry>
   <entry>
@@ -22439,55 +22794,6 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
       </tags>
   </entry>
   <entry>
-    <title>ansible部署学习</title>
-    <url>/2025/07/29/ansible%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<blockquote>
-<p>环境：Anolis 8.10</p>
-<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
-</blockquote>
-<h1 id="ansible部署学习"><a href="#ansible部署学习" class="headerlink" title="ansible部署学习"></a>ansible部署学习</h1><blockquote>
-</blockquote>
-<h1 id="Ansible-使用方式对比总结"><a href="#Ansible-使用方式对比总结" class="headerlink" title="Ansible 使用方式对比总结"></a>Ansible 使用方式对比总结</h1><table>
-<thead>
-<tr>
-<th>方式</th>
-<th>优点</th>
-<th>缺点</th>
-<th>适用场景</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Python 虚拟环境安装</td>
-<td>- 不影响系统全局Python环境 - 可同时维护多个不同版本的Ansible - 便于隔离依赖包</td>
-<td>- 需要先安装Python和virtualenv - 环境激活后才能使用，不方便全局调用</td>
-<td>需要多版本共存，或对环境隔离要求高的开发和测试环境</td>
-</tr>
-<tr>
-<td>系统全局安装（pip&#x2F;yum&#x2F;apt）</td>
-<td>- 安装方便，使用直接 - 系统命令行全局可用</td>
-<td>- 依赖系统Python版本 - 升级或卸载影响所有项目 - 可能和系统自带包冲突</td>
-<td>单机或者单环境长期稳定使用，简单快速搭建场景</td>
-</tr>
-<tr>
-<td>Docker 容器运行</td>
-<td>- 环境完全隔离，无需安装依赖 - 可快速切换不同Ansible版本 - 方便集成CI&#x2F;CD流水线</td>
-<td>- 需要了解Docker使用 - 调试不如本地方便 - 性能上有少许开销</td>
-<td>持续集成&#x2F;持续交付环境，临时执行或者多人协作场景</td>
-</tr>
-</tbody></table>
-<h2 id="直接安装"><a href="#直接安装" class="headerlink" title="直接安装"></a>直接安装</h2><h2 id="使用虚拟环境安装"><a href="#使用虚拟环境安装" class="headerlink" title="使用虚拟环境安装"></a>使用虚拟环境安装</h2><h2 id="使用docker安装"><a href="#使用docker安装" class="headerlink" title="使用docker安装"></a>使用docker安装</h2>]]></content>
-      <categories>
-        <category>软件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>python</tag>
-        <tag>运维</tag>
-        <tag>部署</tag>
-        <tag>Ansibe</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>zabbix部署server和agent</title>
     <url>/2025/07/29/zabbix%E9%83%A8%E7%BD%B2server%E5%92%8Cagent/</url>
     <content><![CDATA[<h1 id="zabbix部署server和agent"><a href="#zabbix部署server和agent" class="headerlink" title="zabbix部署server和agent"></a>zabbix部署server和agent</h1><blockquote>
@@ -22720,7 +23026,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <td>无</td>
 <td>&#x3D;&#x3D;不常用，取决于安装包&#x3D;&#x3D;</td>
 <td>lastlog、faillog 等</td>
-<td>无</td>
+<td>无，但可通过lastlog，faillock查看</td>
 </tr>
 <tr>
 <td>服务日志</td>
@@ -22755,40 +23061,124 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <td>journalctl -u sssd</td>
 </tr>
 </tbody></table>
-<h1 id="重点关注对象"><a href="#重点关注对象" class="headerlink" title="重点关注对象"></a>重点关注对象</h1><h2 id="一、系统层面"><a href="#一、系统层面" class="headerlink" title="一、系统层面"></a><strong>一、系统层面</strong></h2><table>
+<h1 id="Anolis-OS-8-x日志系统大量采用journalctl的原因"><a href="#Anolis-OS-8-x日志系统大量采用journalctl的原因" class="headerlink" title="Anolis OS 8.x日志系统大量采用journalctl的原因"></a>Anolis OS 8.x日志系统大量采用<code>journalctl</code>的原因</h1><h3 id="1-Systemd-全面接管-init-系统"><a href="#1-Systemd-全面接管-init-系统" class="headerlink" title="1. Systemd 全面接管 init 系统"></a>1. Systemd 全面接管 init 系统</h3><ul>
+<li>从 RHEL&#x2F;CentOS 7 开始，Systemd 引入，但仍兼容传统日志路径。</li>
+<li>到 RHEL 8 &#x2F; Anolis 8，Systemd 日志系统（<code>journald</code>）成为核心组件。</li>
+<li>journald 接管了：<ul>
+<li>系统引导日志</li>
+<li>服务日志（sshd、crond 等）</li>
+<li>内核日志（dmesg）</li>
+<li>安全认证日志（替代 <code>/var/log/secure</code>）</li>
+</ul>
+</li>
+</ul>
+<p>日志由 Systemd 统一管理，更标准、可控、支持结构化输出。</p>
+<h3 id="2-结构化日志支持更强大的检索与分析"><a href="#2-结构化日志支持更强大的检索与分析" class="headerlink" title="2. 结构化日志支持更强大的检索与分析"></a>2. 结构化日志支持更强大的检索与分析</h3><ul>
+<li><code>journalctl</code> 不是纯文本文件，而是结构化二进制日志文件（默认保存在 <code>/run/log/journal/</code> 或 <code>/var/log/journal/</code>）。</li>
+<li>优势：<ul>
+<li>按服务（<code>-u</code>）过滤日志；</li>
+<li>按时间范围、级别、PID 过滤；</li>
+<li>支持 JSON、short、cat 等多种输出格式；</li>
+<li>性能更高，便于集中式日志采集（如 Fluentd、rsyslog、systemd-remote）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-减少对传统日志文件的依赖"><a href="#3-减少对传统日志文件的依赖" class="headerlink" title="3. 减少对传统日志文件的依赖"></a>3. 减少对传统日志文件的依赖</h3><ul>
+<li>传统的 <code>/var/log/messages</code>、<code>/var/log/secure</code>、<code>/var/log/cron</code> 等文件：<ul>
+<li>在 Anolis 8.x 默认不再生成；</li>
+<li>可通过配置 <code>rsyslog</code> 或 <code>systemd-journald</code> 启用文本日志备份；</li>
+<li>推荐直接使用 <code>journalctl</code> 进行分析。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-统一日志管理模型便于容器与云环境适配"><a href="#4-统一日志管理模型便于容器与云环境适配" class="headerlink" title="4. 统一日志管理模型便于容器与云环境适配"></a>4. 统一日志管理模型便于容器与云环境适配</h3><ul>
+<li>Anolis OS 面向云原生、企业级场景，采用 systemd + journalctl 便于与容器、Kubernetes 集成：<ul>
+<li>容器服务（Docker、Podman）默认将日志写入 journald；</li>
+<li>统一日志接口便于集中采集；</li>
+<li>安全性和访问控制更好（可限制非 root 用户读取）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="仍需传统日志时的解决方案"><a href="#仍需传统日志时的解决方案" class="headerlink" title="仍需传统日志时的解决方案"></a>仍需传统日志时的解决方案</h2><ul>
+<li><p>启用 rsyslog：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> rsyslog --now</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 <code>/etc/systemd/journald.conf</code> 配置：</p>
+  <figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[Journal]</span></span><br><span class="line"><span class="attr">Storage</span>=persistent</span><br><span class="line"><span class="attr">ForwardToSyslog</span>=<span class="literal">yes</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启 systemd-journald：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl restart systemd-journald</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
 <thead>
 <tr>
-<th>日志</th>
+<th>原因</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Systemd 接管服务管理</td>
+<td>journald 成为日志核心组件</td>
+</tr>
+<tr>
+<td>支持结构化日志</td>
+<td>更强查询能力，利于云环境</td>
+</tr>
+<tr>
+<td>减少传统日志冗余</td>
+<td>降低文本日志写盘压力</td>
+</tr>
+<tr>
+<td>容器&#x2F;K8s 日志集成更好</td>
+<td>统一日志采集标准接口</td>
+</tr>
+<tr>
+<td>可配置兼容传统日志</td>
+<td>可开启 rsyslog 保留旧方式</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="日志收集方案"><a href="#日志收集方案" class="headerlink" title="日志收集方案"></a>日志收集方案</h1><ul>
+<li>Fluentd 的插件 <code>in_systemd</code> 插件可以直接读取 journald 产生的二进制日志，解析成结构化文本日志。</li>
+<li>省去先用 <code>journalctl</code> 导出再处理的步骤，实现实时高效日志采集。</li>
+</ul>
+<hr>
+<h2 id="重点关注对象"><a href="#重点关注对象" class="headerlink" title="重点关注对象"></a>重点关注对象</h2><h3 id="一、系统层面"><a href="#一、系统层面" class="headerlink" title="一、系统层面"></a>一、系统层面</h3><table>
+<thead>
+<tr>
+<th>日志路径&#x2F;命令</th>
 <th>说明</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
-<td><code>/var/log/messages</code>（或 <code>journalctl -xe</code>）</td>
-<td>系统核心消息、服务异常、内核警告等</td>
+<td><code>/var/log/messages</code> 或 <code>journalctl -xe</code></td>
+<td>系统核心消息、服务异常、内核警告</td>
 <td>系统健康、故障排查第一入口</td>
 </tr>
 <tr>
-<td><code>/var/log/secure</code>（或 <code>journalctl -u sshd</code>）</td>
-<td>SSH 登录、sudo、认证失败等</td>
+<td><code>/var/log/secure</code> 或 <code>journalctl -u sshd</code></td>
+<td>SSH 登录、sudo、认证失败</td>
 <td>审计安全事件、防止暴力破解</td>
 </tr>
 <tr>
-<td><code>/var/log/boot.log</code> &#x2F; <code>journalctl -b</code></td>
+<td><code>/var/log/boot.log</code> 或 <code>journalctl -b</code></td>
 <td>系统启动过程</td>
 <td>排查开机慢、硬件驱动问题</td>
 </tr>
 <tr>
 <td><code>dmesg</code> 或 <code>journalctl -k</code></td>
-<td>内核级硬件信息</td>
+<td>内核硬件信息</td>
 <td>硬件异常、驱动问题排查</td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="二、服务层面"><a href="#二、服务层面" class="headerlink" title="二、服务层面"></a><strong>二、服务层面</strong></h2><table>
+<h3 id="二、服务层面"><a href="#二、服务层面" class="headerlink" title="二、服务层面"></a>二、服务层面</h3><table>
 <thead>
 <tr>
-<th>日志</th>
+<th>日志路径&#x2F;命令</th>
 <th>说明</th>
 </tr>
 </thead>
@@ -22798,7 +23188,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 <tr>
 <td><code>/var/log/httpd/</code>、<code>/var/log/nginx/</code></td>
-<td>Web 服务访问日志、错误日志</td>
+<td>Web 访问和错误日志</td>
 </tr>
 <tr>
 <td><code>/var/log/php-fpm/</code></td>
@@ -22810,7 +23200,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 <tr>
 <td><code>/var/log/sssd/</code> 或 <code>journalctl -u sssd</code></td>
-<td>域认证&#x2F;集中身份管理</td>
+<td>域认证&#x2F;身份管理日志</td>
 </tr>
 <tr>
 <td><code>/var/log/samba/</code>、<code>/var/log/zabbix/</code></td>
@@ -22818,59 +23208,60 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 </tbody></table>
 <hr>
-<h2 id="三、安全-审计"><a href="#三、安全-审计" class="headerlink" title="三、安全 &amp; 审计"></a><strong>三、安全 &amp; 审计</strong></h2><table>
+<h3 id="三、安全与审计"><a href="#三、安全与审计" class="headerlink" title="三、安全与审计"></a>三、安全与审计</h3><table>
 <thead>
 <tr>
-<th>日志</th>
+<th>日志文件</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>/var/log/secure</code></td>
-<td>登录、sudo 等认证信息</td>
+<td>登录和认证信息</td>
 </tr>
 <tr>
-<td><code>/var/log/btmp</code> （<code>lastb</code>）</td>
+<td><code>/var/log/btmp</code> （<code>lastb</code> 查看）</td>
 <td>登录失败历史</td>
 </tr>
 <tr>
-<td><code>/var/log/wtmp</code> （<code>last</code>）</td>
+<td><code>/var/log/wtmp</code> （<code>last</code> 查看）</td>
 <td>登录登出历史</td>
 </tr>
 <tr>
 <td><code>/var/log/audit/audit.log</code></td>
-<td>SELinux &#x2F; 安全审计信息</td>
+<td>SELinux&#x2F;安全审计</td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="四、软件包和系统变更"><a href="#四、软件包和系统变更" class="headerlink" title="四、软件包和系统变更"></a><strong>四、软件包和系统变更</strong></h2><table>
+<h3 id="四、软件包和系统变更"><a href="#四、软件包和系统变更" class="headerlink" title="四、软件包和系统变更"></a>四、软件包和系统变更</h3><table>
 <thead>
 <tr>
-<th>日志</th>
+<th>日志路径</th>
 <th>用途</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>/var/log/yum.log</code> 或 <code>/var/log/dnf.log</code></td>
-<td>软件安装升级记录</td>
+<td>软件安装和升级记录</td>
 </tr>
 <tr>
 <td><code>/var/log/rhsm/</code></td>
-<td>红帽订阅管理（如适用）</td>
+<td>红帽订阅管理日志</td>
 </tr>
 <tr>
 <td><code>/var/log/anaconda/</code></td>
-<td>安装系统时的日志（排查安装问题）</td>
+<td>系统安装日志</td>
 </tr>
 </tbody></table>
-<h2 id="五、按实际业务重点"><a href="#五、按实际业务重点" class="headerlink" title="五、按实际业务重点"></a><strong>五、按实际业务重点</strong></h2><ul>
-<li>有哪些业务服务，就要重点关注它们的日志目录<ul>
-<li>Web： <code>/var/log/nginx/</code>、<code>/var/log/httpd/</code></li>
-<li>DB： <code>/var/log/mysql/</code>、<code>/var/log/mariadb/</code></li>
-<li>应用： <code>/var/log/your_app/</code></li>
+<hr>
+<h3 id="五、业务重点关注日志"><a href="#五、业务重点关注日志" class="headerlink" title="五、业务重点关注日志"></a>五、业务重点关注日志</h3><ul>
+<li>根据具体业务关注对应日志目录，如：<ul>
+<li>Web 服务：<code>/var/log/nginx/</code>、<code>/var/log/httpd/</code></li>
+<li>数据库：<code>/var/log/mysql/</code>、<code>/var/log/mariadb/</code></li>
+<li>应用日志：<code>/var/log/your_app/</code></li>
 </ul>
 </li>
-<li>定期巡检 + 建议接入<strong>日志平台</strong>（ELK、Loki、Zabbix、Prometheus 等）</li>
+<li>建议结合日志平台（ELK、Loki、Zabbix、Prometheus 等）进行统一管理。</li>
 </ul>
 ]]></content>
       <categories>
@@ -23148,6 +23539,63 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>k8s</tag>
         <tag>containerd</tag>
         <tag>nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ansible部署学习</title>
+    <url>/2025/07/29/Ansible%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>环境：Anolis 8.10</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250729163727520.png" alt="image-20250729163727520"></p>
+</blockquote>
+<h1 id="ansible部署学习"><a href="#ansible部署学习" class="headerlink" title="ansible部署学习"></a>ansible部署学习</h1><blockquote>
+</blockquote>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="Ansible-使用方式对比总结"><a href="#Ansible-使用方式对比总结" class="headerlink" title="Ansible 使用方式对比总结"></a>Ansible 使用方式对比总结</h2><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>优点</th>
+<th>缺点</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Python 虚拟环境安装</td>
+<td>- 不影响系统全局Python环境 - 可同时维护多个不同版本的Ansible - 便于隔离依赖包</td>
+<td>- 需要先安装Python和virtualenv - 环境激活后才能使用，不方便全局调用</td>
+<td>需要多版本共存，或对环境隔离要求高的开发和测试环境</td>
+</tr>
+<tr>
+<td>系统全局安装（pip&#x2F;yum&#x2F;apt）</td>
+<td>- 安装方便，使用直接 - 系统命令行全局可用</td>
+<td>- 依赖系统Python版本 - 升级或卸载影响所有项目 - 可能和系统自带包冲突</td>
+<td>单机或者单环境长期稳定使用，简单快速搭建场景</td>
+</tr>
+<tr>
+<td>Docker 容器运行</td>
+<td>- 环境完全隔离，无需安装依赖 - 可快速切换不同Ansible版本 - 方便集成CI&#x2F;CD流水线</td>
+<td>- 需要了解Docker使用 - 调试不如本地方便 - 性能上有少许开销</td>
+<td>持续集成&#x2F;持续交付环境，临时执行或者多人协作场景</td>
+</tr>
+</tbody></table>
+<h3 id="直接安装"><a href="#直接安装" class="headerlink" title="直接安装"></a>直接安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf update</span><br><span class="line">dnf install ansible</span><br></pre></td></tr></table></figure>
+
+<p>​	直接安装可能会遇到版本问题，ansible要求python3.12，还是推荐虚拟环境安装。</p>
+<h3 id="使用虚拟环境安装"><a href="#使用虚拟环境安装" class="headerlink" title="使用虚拟环境安装"></a>使用虚拟环境安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m venv venv</span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br><span class="line">pip install --upgrade pip</span><br><span class="line">pip install ansible</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此方法保证至少能用，直接安装可能会遇到版本问题，ansible要求python3.12</p>
+</blockquote>
+<h3 id="使用docker安装"><a href="#使用docker安装" class="headerlink" title="使用docker安装"></a>使用docker安装</h3>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>python</tag>
+        <tag>运维</tag>
+        <tag>部署</tag>
+        <tag>Ansibe</tag>
       </tags>
   </entry>
 </search>
