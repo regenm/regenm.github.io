@@ -1203,7 +1203,107 @@
 <p>此方法保证至少能用，直接安装可能会遇到版本问题，ansible要求python3.12</p>
 </blockquote>
 <h3 id="使用docker安装"><a href="#使用docker安装" class="headerlink" title="使用docker安装"></a>使用docker安装</h3><p>​	待补充</p>
-<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><h2 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h2>]]></content>
+<h1 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h1><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><blockquote>
+<h2 id="🧰-Ansible-的主要用途（按功能分类）"><a href="#🧰-Ansible-的主要用途（按功能分类）" class="headerlink" title="🧰 Ansible 的主要用途（按功能分类）"></a>🧰 Ansible 的主要用途（按功能分类）</h2><hr>
+<h3 id="🔧-一、配置管理（Configuration-Management）"><a href="#🔧-一、配置管理（Configuration-Management）" class="headerlink" title="🔧 一、配置管理（Configuration Management）"></a>🔧 一、配置管理（Configuration Management）</h3><p>自动化配置系统环境、服务、文件内容等。</p>
+<h4 id="示例用途："><a href="#示例用途：" class="headerlink" title="示例用途："></a>示例用途：</h4><ul>
+<li>安装并配置 Nginx、MySQL、Redis 等服务</li>
+<li>设置系统参数（如 <code>sysctl</code>、<code>limit</code>）</li>
+<li>管理配置文件内容（如 <code>.conf</code>、<code>.ini</code>）</li>
+<li>修改环境变量、开机启动项</li>
+</ul>
+<h4 id="模块示例："><a href="#模块示例：" class="headerlink" title="模块示例："></a>模块示例：</h4><ul>
+<li><code>apt</code>, <code>yum</code>, <code>dnf</code>：包管理</li>
+<li><code>lineinfile</code>, <code>copy</code>, <code>template</code>：配置文件操作</li>
+</ul>
+<hr>
+<h3 id="🚀-二、应用部署（Application-Deployment）"><a href="#🚀-二、应用部署（Application-Deployment）" class="headerlink" title="🚀 二、应用部署（Application Deployment）"></a>🚀 二、应用部署（Application Deployment）</h3><p>自动化部署自研应用或第三方服务，持续交付。</p>
+<h4 id="示例用途：-1"><a href="#示例用途：-1" class="headerlink" title="示例用途："></a>示例用途：</h4><ul>
+<li>一键部署 Django、Node.js、Java 项目</li>
+<li>同步代码、配置、数据库迁移</li>
+<li>滚动重启服务，零停机更新</li>
+</ul>
+<h4 id="模块示例：-1"><a href="#模块示例：-1" class="headerlink" title="模块示例："></a>模块示例：</h4><ul>
+<li><code>git</code>：拉取代码</li>
+<li><code>shell</code>, <code>command</code>, <code>systemd</code>：构建和启动服务</li>
+<li><code>docker_container</code>：容器化部署</li>
+</ul>
+<hr>
+<h3 id="📋-三、批量任务执行（Ad-hoc-Tasks-运维自动化）"><a href="#📋-三、批量任务执行（Ad-hoc-Tasks-运维自动化）" class="headerlink" title="📋 三、批量任务执行（Ad-hoc Tasks &#x2F; 运维自动化）"></a>📋 三、批量任务执行（Ad-hoc Tasks &#x2F; 运维自动化）</h3><p>批量在多个主机上执行命令或修改状态。</p>
+<h4 id="示例用途：-2"><a href="#示例用途：-2" class="headerlink" title="示例用途："></a>示例用途：</h4><ul>
+<li>一键重启服务器服务</li>
+<li>批量创建用户、更改密码、同步文件</li>
+<li>查询内存、磁盘、负载等信息</li>
+</ul>
+<h4 id="模块示例：-2"><a href="#模块示例：-2" class="headerlink" title="模块示例："></a>模块示例：</h4><ul>
+<li><code>user</code>, <code>service</code>, <code>cron</code>, <code>hostname</code>, <code>setup</code></li>
+<li>ad-hoc：<code>ansible all -m shell -a &quot;uptime&quot;</code></li>
+</ul>
+<hr>
+<h3 id="🔗-四、IT-编排（Orchestration）"><a href="#🔗-四、IT-编排（Orchestration）" class="headerlink" title="🔗 四、IT 编排（Orchestration）"></a>🔗 四、IT 编排（Orchestration）</h3><p>协调多个服务、组件之间的依赖关系，实现流程控制。</p>
+<h4 id="示例用途：-3"><a href="#示例用途：-3" class="headerlink" title="示例用途："></a>示例用途：</h4><ul>
+<li>部署流程控制（如先部署数据库再部署 Web）</li>
+<li>多角色交互部署（Web + Cache + DB）</li>
+<li>灾备切换、主备同步、流程通知等</li>
+</ul>
+<h4 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h4><ul>
+<li>多角色（roles）</li>
+<li>条件判断、循环、依赖控制</li>
+<li>结合 <code>tags</code>、<code>handlers</code>、<code>include_tasks</code></li>
+</ul>
+<hr>
+<h3 id="📦-五、容器与云资源管理（Containers-Cloud）"><a href="#📦-五、容器与云资源管理（Containers-Cloud）" class="headerlink" title="📦 五、容器与云资源管理（Containers &amp; Cloud）"></a>📦 五、容器与云资源管理（Containers &amp; Cloud）</h3><p>集成支持 Docker、Kubernetes、AWS、GCP、Azure 等平台。</p>
+<h4 id="示例用途：-4"><a href="#示例用途：-4" class="headerlink" title="示例用途："></a>示例用途：</h4><ul>
+<li>创建&#x2F;启动&#x2F;停止容器</li>
+<li>批量部署 Kubernetes Pod</li>
+<li>创建 AWS EC2、配置安全组、绑定域名</li>
+</ul>
+<h4 id="模块示例：-3"><a href="#模块示例：-3" class="headerlink" title="模块示例："></a>模块示例：</h4><ul>
+<li><code>community.docker.*</code></li>
+<li><code>k8s</code>, <code>helm</code>, <code>eks_cluster</code></li>
+<li><code>amazon.aws.*</code>, <code>google.cloud.*</code></li>
+</ul>
+<hr>
+<h2 id="🧠-分类总结表"><a href="#🧠-分类总结表" class="headerlink" title="🧠 分类总结表"></a>🧠 分类总结表</h2><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>主要作用</th>
+<th>常见模块</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>配置管理</td>
+<td>安装软件、配置服务、编辑文件</td>
+<td><code>lineinfile</code>, <code>copy</code>, <code>template</code>, <code>yum</code></td>
+</tr>
+<tr>
+<td>应用部署</td>
+<td>拉代码、构建、运行、更新应用</td>
+<td><code>git</code>, <code>shell</code>, <code>docker_container</code></td>
+</tr>
+<tr>
+<td>批量任务执行</td>
+<td>系统操作、批量指令执行</td>
+<td><code>shell</code>, <code>setup</code>, <code>user</code></td>
+</tr>
+<tr>
+<td>IT 编排</td>
+<td>跨系统协调自动化流程</td>
+<td><code>include_tasks</code>, <code>handlers</code>, <code>roles</code></td>
+</tr>
+<tr>
+<td>云平台和容器管理</td>
+<td>管理云资源和容器</td>
+<td><code>docker_*</code>, <code>k8s</code>, <code>amazon.aws.*</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✅-总结一句话"><a href="#✅-总结一句话" class="headerlink" title="✅ 总结一句话"></a>✅ 总结一句话</h2><blockquote>
+<p>**Ansible 是一个简单、强大、无代理的自动化工具，可用于管理基础设施、部署应用、编排流程和简化运维任务。</p>
+</blockquote>
+</blockquote>
+]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -9411,6 +9511,91 @@
 
 <p>应该显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Docker Root Dir: /data/docker</span><br></pre></td></tr></table></figure>
+
+<h1 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h1><p>Docker 容器的实现基于 <strong>Linux 内核的核心技术</strong>，通过资源隔离和虚拟化技术模拟独立的运行环境。以下是其核心实现原理：</p>
+<h3 id="1-核心技术（Linux-内核支持）"><a href="#1-核心技术（Linux-内核支持）" class="headerlink" title="1. 核心技术（Linux 内核支持）"></a><strong>1. 核心技术（Linux 内核支持）</strong></h3><p>Docker 容器本质上是 <strong>隔离的进程</strong>，依赖以下 Linux 特性实现：</p>
+<ul>
+<li><p><strong>Namespaces（命名空间）</strong>  </p>
+<ul>
+<li><strong>PID Namespace</strong>：隔离进程树，容器内只能看到自己的进程（如 <code>ps aux</code>）。  </li>
+<li><strong>Network Namespace</strong>：独立网络栈（IP、端口、路由表等）。  </li>
+<li><strong>Mount Namespace</strong>：隔离文件系统挂载点（容器内目录独立）。  </li>
+<li><strong>UTS Namespace</strong>：隔离主机名和域名。  </li>
+<li><strong>IPC Namespace</strong>：隔离进程间通信（如信号量、消息队列）。  </li>
+<li><strong>User Namespace</strong>：隔离用户和用户组（可映射宿主机UID&#x2F;GID）。</li>
+</ul>
+</li>
+<li><p><strong>Cgroups（控制组）</strong>  </p>
+<ul>
+<li>限制资源使用（CPU、内存、磁盘I&#x2F;O等），避免单个容器耗尽宿主机资源。</li>
+</ul>
+</li>
+<li><p><strong>Union File System（联合文件系统）</strong>  </p>
+<ul>
+<li>如 <code>OverlayFS</code>、<code>AUFS</code>，实现镜像分层存储和容器读写层的高效复用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-容器运行流程"><a href="#2-容器运行流程" class="headerlink" title="2. 容器运行流程"></a><strong>2. 容器运行流程</strong></h3><ol>
+<li><strong>镜像加载</strong>：  <ul>
+<li>基于镜像（只读层）创建容器时，添加一个可写层（Copy-on-Write）。</li>
+</ul>
+</li>
+<li><strong>资源隔离</strong>：  <ul>
+<li>通过 <code>Namespaces</code> 创建隔离的进程、网络、文件系统等环境。</li>
+</ul>
+</li>
+<li><strong>资源限制</strong>：  <ul>
+<li>通过 <code>Cgroups</code> 分配 CPU、内存等配额。</li>
+</ul>
+</li>
+<li><strong>网络配置</strong>：  <ul>
+<li>默认使用 <code>bridge</code> 模式，创建 <code>veth pair</code> 虚拟网卡对连接容器与宿主机。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="3-与虚拟机的区别"><a href="#3-与虚拟机的区别" class="headerlink" title="3. 与虚拟机的区别"></a><strong>3. 与虚拟机的区别</strong></h3><table>
+<thead>
+<tr>
+<th><strong>特性</strong></th>
+<th><strong>Docker 容器</strong></th>
+<th><strong>虚拟机</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>隔离级别</strong></td>
+<td>进程级（共享宿主机内核）</td>
+<td>硬件级（完整操作系统）</td>
+</tr>
+<tr>
+<td><strong>启动速度</strong></td>
+<td>秒级（直接调用宿主机内核）</td>
+<td>分钟级（需启动Guest OS）</td>
+</tr>
+<tr>
+<td><strong>性能损耗</strong></td>
+<td>&lt;5%（接近原生进程）</td>
+<td>15%~30%（虚拟化开销）</td>
+</tr>
+<tr>
+<td><strong>镜像大小</strong></td>
+<td>MB 级（仅应用层）</td>
+<td>GB 级（含完整OS）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="4-关键组件"><a href="#4-关键组件" class="headerlink" title="4. 关键组件"></a><strong>4. 关键组件</strong></h3><ul>
+<li><strong>containerd</strong>：负责容器生命周期管理（创建&#x2F;启动&#x2F;停止）。  </li>
+<li><strong>runc</strong>：底层运行时工具，根据 OCI 标准调用内核功能创建容器。  </li>
+<li><strong>Docker Engine</strong>：封装上层 API 和工具链（如 <code>docker build</code>&#x2F;<code>docker run</code>）。</li>
+</ul>
+<hr>
+<h3 id="5-简单示例：容器如何启动？"><a href="#5-简单示例：容器如何启动？" class="headerlink" title="5. 简单示例：容器如何启动？"></a><strong>5. 简单示例：容器如何启动？</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当执行 `docker run -it ubuntu bash` 时：</span></span><br><span class="line">1. 检查本地是否存在 `ubuntu` 镜像，若无则从仓库拉取。</span><br><span class="line">2. 创建可写层（容器层）叠加到镜像的只读层上。</span><br><span class="line">3. 调用 `runc` 创建 Namespaces 和 Cgroups。</span><br><span class="line">4. 在隔离环境中启动 `/bin/bash` 进程。</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>Docker 容器本质是 <strong>通过 Linux 内核的 Namespaces 和 Cgroups 实现的隔离进程</strong>，配合联合文件系统提供轻量级、高性能的虚拟化环境。其效率远高于传统虚拟机，但隔离性较弱（共享内核）。</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -23597,6 +23782,144 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>笔记</tag>
         <tag>复习</tag>
         <tag>高级程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>How-To-Ask-Questions-The-Smart-Way</title>
+    <url>/2025/08/09/How-To-Ask-Questions-The-Smart-Way/</url>
+    <content><![CDATA[<blockquote>
+<p>来自<a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way</a></p>
+<p>github：<a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">How-To-Ask-Questions-The-Smart-Way&#x2F;README-zh_CN.md at main · ryanhanwu&#x2F;How-To-Ask-Questions-The-Smart-Way</a></p>
+</blockquote>
+<p>​	自然语言AI技术的让我这种喜欢问题的人得到了很大的满足，但是如何问问题，如何准确的问题是提高学习以及工作效率的关键。这个项目就介绍了如何问问题的方法以及做法。记录笔记一边学习复习。文章写得还挺有意思还挺幽默。</p>
+<h3 id="Be-precise-and-informative-about-your-problem"><a href="#Be-precise-and-informative-about-your-problem" class="headerlink" title="Be precise and informative about your problem"></a>Be precise and informative about your problem</h3><ul>
+<li>Describe the symptoms of your problem or bug carefully and clearly.</li>
+<li>Describe the environment in which it occurs (machine, OS, application, whatever). Provide your vendor’s distribution and release level (e.g.: “Fedora Core 7”, “Slackware 9.1”, etc.).</li>
+<li>Describe the research you did to try and understand the problem before you asked the question.</li>
+<li>Describe the diagnostic steps you took to try and pin down the problem yourself before you asked the question.</li>
+<li>Describe any possibly relevant recent changes in your computer or software configuration.</li>
+<li>If at all possible, provide a way to <em>reproduce the problem in a controlled environment</em>.</li>
+</ul>
+<p>Do the best you can to anticipate the questions a hacker will ask, and answer them in advance in your request for help.</p>
+<p>Giving hackers the ability to reproduce the problem in a controlled environment is especially important if you are reporting something you think is a bug in code. When you do this, your odds of getting a useful answer and the speed with which you are likely to get that answer both improve tremendously.</p>
+<p>Simon Tatham has written an excellent essay entitled <a href="http://www.chiark.greenend.org.uk/~sgtatham/bugs.html">How to Report Bugs Effectively</a>. I strongly recommend that you read it.</p>
+<h3 id="Describe-your-problem’s-symptoms-in-chronological-order"><a href="#Describe-your-problem’s-symptoms-in-chronological-order" class="headerlink" title="Describe your problem’s symptoms in chronological order"></a>Describe your problem’s symptoms in chronological order</h3><p>The clues most useful in figuring out something that went wrong often lie in the events immediately prior. So, your account should describe precisely what you did, and what the machine and software did, leading up to the blowup. In the case of command-line processes, having a session log (e.g., using the script utility) and quoting the relevant twenty or so lines is very useful.</p>
+<p>If the program that blew up on you has diagnostic options (such as -v for verbose), try to select options that will add useful debugging information to the transcript. Remember that more is not necessarily better; try to choose a debug level that will inform rather than drowning the reader in junk.</p>
+<p>If your account ends up being long (more than about four paragraphs), it might be useful to succinctly state the problem up top, then follow with the chronological tale. That way, hackers will know what to watch for in reading your account.</p>
+<h3 id="Describe-the-goal-not-the-step"><a href="#Describe-the-goal-not-the-step" class="headerlink" title="Describe the goal, not the step"></a>Describe the goal, not the step</h3><p>If you are trying to find out how to do something (as opposed to reporting a bug), begin by describing the goal. Only then describe the particular step towards it that you are blocked on.</p>
+<p>Often, people who need technical help have a high-level goal in mind and get stuck on what they think is one particular path towards the goal. They come for help with the step, but don’t realize that the path is wrong. It can take substantial effort to get past this.</p>
+<ul>
+<li><p><strong>Stupid:</strong></p>
+<p>  How do I get the color-picker on the FooDraw program to take a hexadecimal RGB value?</p>
+</li>
+<li><p><strong>Smart:</strong></p>
+<p>  I’m trying to replace the color table on an image with values of my choosing. Right now the only way I can see to do this is by editing each table slot, but I can’t get FooDraw’s color picker to take a hexadecimal RGB value.</p>
+</li>
+</ul>
+<p>The second version of the question is smart. It allows an answer that suggests a tool better suited to the task.</p>
+<hr>
+<p>以上是这个项目我觉得有价值的部分片段。以下是一些其他的方法。(AI生成~)</p>
+<p>学会提出高质量的问题是一项可以通过训练提升的关键能力，它能显著提高学习效率和问题解决能力。以下从认知科学和教育学角度提供系统建议，并附学术支撑：</p>
+<h3 id="一、问题提出的认知机制（理论支撑）"><a href="#一、问题提出的认知机制（理论支撑）" class="headerlink" title="一、问题提出的认知机制（理论支撑）"></a>一、问题提出的认知机制（理论支撑）</h3><ol>
+<li><strong>元认知理论</strong>（Flavell, 1979）表明，优秀提问者具备：</li>
+</ol>
+<ul>
+<li>对自身知识局限的清晰认知</li>
+<li>对信息缺口的敏感度</li>
+<li>问题分类能力（《学会提问》尼尔·布朗，2021）</li>
+</ul>
+<ol start="2">
+<li><strong>问题空间理论</strong>（Newell &amp; Simon, 1972）指出：<br>有效问题应明确初始状态与目标状态的差距<br>建议使用”现状-目标-障碍”框架：<br>“我现在知道__，需要达到__，但不确定__”</li>
+</ol>
+<h3 id="二、技术问题提问法则（实证研究）"><a href="#二、技术问题提问法则（实证研究）" class="headerlink" title="二、技术问题提问法则（实证研究）"></a>二、技术问题提问法则（实证研究）</h3><ol>
+<li><strong>SMART提问模型</strong>（基于IEEE Transactions on Education研究）：</li>
+</ol>
+<ul>
+<li>Specific：避免”我的代码不工作”这类表述</li>
+<li>Measurable：包含可量化的错误信息</li>
+<li>Actionable：说明已尝试的解决步骤</li>
+<li>Relevant：关联具体技术栈版本</li>
+<li>Time-bound：注明问题持续时间</li>
+</ul>
+<ol start="2">
+<li><strong>调试提问模板</strong>（参考《有效软件调试》第3章）：<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">环境：Python 3.8 + TensorFlow 2.4</span><br><span class="line">现象：训练时出现NaN loss（第5epoch后）</span><br><span class="line">已尝试：1. 检查输入数据无NaN 2. 降低学习率至0.001</span><br><span class="line">疑问：梯度裁剪是否可能引起此问题？</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="三、生活问题提问技术（心理学应用）"><a href="#三、生活问题提问技术（心理学应用）" class="headerlink" title="三、生活问题提问技术（心理学应用）"></a>三、生活问题提问技术（心理学应用）</h3><ol>
+<li><strong>GROW模型</strong>（Whitmore, 1992教练技术）：</li>
+</ol>
+<ul>
+<li>Goal：你想通过提问获得什么？</li>
+<li>Reality：当前具体情况如何？</li>
+<li>Options：已考虑哪些可能性？</li>
+<li>Will：你准备采取什么行动？</li>
+</ul>
+<ol start="2">
+<li><strong>批判性质问清单</strong>（改编自《批判性思维工具》Paul &amp; Elder）：<br>□ 这个问题涉及哪些利益相关方？<br>□ 我的预设前提是否可能错误？<br>□ 相反立场可能如何提问？</li>
+</ol>
+<h3 id="四、提问训练方法（教育学研究）"><a href="#四、提问训练方法（教育学研究）" class="headerlink" title="四、提问训练方法（教育学研究）"></a>四、提问训练方法（教育学研究）</h3><ol>
+<li><p><strong>问题风暴法</strong>（基于MIT媒体实验室技术）：<br>针对同一主题连续提出20个问题<br>研究发现前5个问题通常表面化，后15个会触及本质（《Make Just Asking》2018）</p>
+</li>
+<li><p><strong>问题日志工具</strong>（参考《认知写作学》建议）：<br>记录每日关键问题，标注：</p>
+</li>
+</ol>
+<ul>
+<li>问题类型（事实性&#x2F;解释性&#x2F;评价性）</li>
+<li>提问动机</li>
+<li>获得的回答质量</li>
+</ul>
+<h3 id="五、高阶技巧"><a href="#五、高阶技巧" class="headerlink" title="五、高阶技巧"></a>五、高阶技巧</h3><ol>
+<li><p><strong>苏格拉底诘问法</strong>（Paul, 1990）：<br>连续5层”为什么”追问本质原因<br>例：技术问题→设计决策→需求分析→业务目标→价值观</p>
+</li>
+<li><p><strong>反事实提问</strong>（Kahneman, 2011）：<br>“如果__条件改变，这个问题会如何变化？”<br>“假如这是最后一次提问机会，我会问什么？”</p>
+</li>
+</ol>
+<p><strong>实践建议</strong>：从明天起建立”问题价值评估表”，从信息增量（0-5分）和解决潜力（0-5分）两个维度评估每个问题，持续两周可显著改善提问质量（基于Harvard Business Review 2020年实验数据）</p>
+<p>需要针对某类具体问题（技术调试&#x2F;人际沟通&#x2F;决策分析）进一步展开时，可以随时提出细化需求。</p>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>github</tag>
+        <tag>projects</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jenkins部署与学习</title>
+    <url>/2025/08/08/Jenkins%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<blockquote>
+<p>Jenkins:</p>
+<p>开源的自动化构建和持续集成&#x2F;持续交付（CI&#x2F;CD）平台，广泛用于 DevOps 实践中。开发者将代码提交到 GitHub、GitLab 等代码仓库后，Jenkins 可以自动拉取代码，执行编译、测试、构建镜像、部署到测试环境等流程。例如，在一个微服务项目中，Jenkins 可监控每个服务的代码库变化，一旦发现提交，就触发自动化流水线，构建 Docker 镜像并推送到 Harbor，再通过 Ansible 或 Kubernetes 实现自动部署。Jenkins 拥有上千个插件，可集成 Maven、Gradle、Docker、Kubernetes、Slack 等工具，适用于从小型项目到企业级的 CI&#x2F;CD 自动化需求。</p>
+<p>资源：</p>
+<p>Jenkins源：</p>
+<p>以下是一些常用的国内 Jenkins 插件更新源地址：<a href="https://www.cnblogs.com/guangdelw/p/18763336">jenkins配置国内源 - 厚礼蝎 - 博客园</a></p>
+<ul>
+<li>清华大学：<a href="https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json">https://mirrors.tuna.tsinghua.edu.cn/jenkins/updates/update-center.json</a></li>
+<li>华为开源镜像站：<a href="https://mirrors.huaweicloud.com/jenkins/updates/update-center.json">https://mirrors.huaweicloud.com/jenkins/updates/update-center.json</a></li>
+<li>腾讯云：<a href="https://mirrors.cloud.tencent.com/jenkins/updates/update-center.json">https://mirrors.cloud.tencent.com/jenkins/updates/update-center.json</a></li>
+<li>中国科学技术大学：<a href="https://mirrors.ustc.edu.cn/jenkins/updates/update-center.json">https://mirrors.ustc.edu.cn/jenkins/updates/update-center.json</a></li>
+<li>北京理工大学：<a href="https://mirror.bit.edu.cn/jenkins/updates/update-center.json">https://mirror.bit.edu.cn/jenkins/updates/update-center.json</a></li>
+</ul>
+<p>插件下载：<a href="https://plugins.jenkins.io/">Jenkins Plugins</a></p>
+</blockquote>
+<h1 id="Jenkins部署与学习"><a href="#Jenkins部署与学习" class="headerlink" title="Jenkins部署与学习"></a>Jenkins部署与学习</h1><h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="Docker安装本体"><a href="#Docker安装本体" class="headerlink" title="Docker安装本体"></a>Docker安装本体</h3><p>使用docker进行部署使用。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull jenkins/jenkins:lts</span><br><span class="line"><span class="comment"># 宿主机运行 Jenkins 时挂载 Docker socket</span></span><br><span class="line">docker run -d   --name jenkins   -p 8080:8080 -p 50000:50000   -v /data/soft/jenkins/home:/var/jenkins_home   jenkins/jenkins:lts</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>记录一下初始密码：<code>docker logs jenkins</code>或者<code>docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword</code>或者在持久化目录看<code>cat /data/soft/jenkins/home/secrets/initialAdminPassword</code></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><h4 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /data/soft/jenkins/home/hudson.model.UpdateCenter.xml</span><br></pre></td></tr></table></figure>
+
+<p>替换源即可。</p>
+<h4 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h4><p>离线下载git等插件到<code>/data/soft/jenkins/home/plugins</code></p>
+<p>然后<code>docker restart jenkins</code>即可。</p>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>Jenkins</tag>
+        <tag>CI/CD</tag>
       </tags>
   </entry>
 </search>
