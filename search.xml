@@ -12409,7 +12409,21 @@
 <h4 id="下载到本地"><a href="#下载到本地" class="headerlink" title="下载到本地"></a>下载到本地</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf download --resolve --destdir=./ zabbix-agent</span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250730143934759.png" alt="image-20250730143934759"></p>
+<h3 id="开放agent端口"><a href="#开放agent端口" class="headerlink" title="开放agent端口"></a>开放agent端口</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 添加规则（在 Agent 所在机器上）</span></span><br><span class="line"><span class="built_in">sudo</span> firewall-cmd --permanent --add-port=10050/tcp</span><br><span class="line"><span class="built_in">sudo</span> firewall-cmd --reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="监控宿主机"><a href="#监控宿主机" class="headerlink" title="监控宿主机"></a>监控宿主机</h3><p>因为server端是容器起的，在宿主机安装好了agent之后的server IP需要填容器IP</p>
+<blockquote>
+<ul>
+<li>宿主机 IP（如 <code>192.168.1.100</code>）默认不直接路由到容器。</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Server=172.17.0.4</span><br><span class="line">ServerActive=172.17.0.4</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810131350190.png" alt="image-20250810131350190"></p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -23791,7 +23805,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>来自<a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way</a></p>
 <p>github：<a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md">How-To-Ask-Questions-The-Smart-Way&#x2F;README-zh_CN.md at main · ryanhanwu&#x2F;How-To-Ask-Questions-The-Smart-Way</a></p>
 </blockquote>
-<p>​	自然语言AI技术的让我这种喜欢问题的人得到了很大的满足，但是如何问问题，如何准确的问题是提高学习以及工作效率的关键。这个项目就介绍了如何问问题的方法以及做法。记录笔记一边学习复习。文章写得还挺有意思还挺幽默。</p>
+<p>​	自然语言AI技术的让喜欢问题的人得到了很大的满足，但是如何问问题，如何准确的问题是提高学习以及工作效率的关键。这个项目就介绍了如何问问题的方法以及做法。记录笔记一边学习复习。文章写得还挺有意思还挺幽默。</p>
 <h3 id="Be-precise-and-informative-about-your-problem"><a href="#Be-precise-and-informative-about-your-problem" class="headerlink" title="Be precise and informative about your problem"></a>Be precise and informative about your problem</h3><ul>
 <li>Describe the symptoms of your problem or bug carefully and clearly.</li>
 <li>Describe the environment in which it occurs (machine, OS, application, whatever). Provide your vendor’s distribution and release level (e.g.: “Fedora Core 7”, “Slackware 9.1”, etc.).</li>
@@ -23920,6 +23934,50 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>docker</tag>
         <tag>Jenkins</tag>
         <tag>CI/CD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zabbix进阶学习</title>
+    <url>/2025/08/10/zabbix%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="zabbix进阶学习"><a href="#zabbix进阶学习" class="headerlink" title="zabbix进阶学习"></a>zabbix进阶学习</h1><h2 id="配置邮件"><a href="#配置邮件" class="headerlink" title="配置邮件"></a>配置邮件</h2><p>尝试过qq和163的smtp，qq的配置好了会出现login denied报错，最后使用了163。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155035294.png" alt="image-20250810155035294"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155247864.png" alt="image-20250810155247864"></p>
+<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><h3 id="监控基础数据"><a href="#监控基础数据" class="headerlink" title="监控基础数据"></a>监控基础数据</h3><h4 id="CPU、memory、DIsk"><a href="#CPU、memory、DIsk" class="headerlink" title="CPU、memory、DIsk"></a>CPU、memory、DIsk</h4><p>可以通过创建新的仪表板，选择监控项后展示即可。还是很方便的。</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>监控对象</strong></th>
+<th align="left"><strong>关键 Key</strong></th>
+<th align="left"><strong>模板</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">CPU</td>
+<td align="left"><code>system.cpu.util[,all]</code></td>
+<td align="left"><code>Template OS Linux</code></td>
+</tr>
+<tr>
+<td align="left">内存</td>
+<td align="left"><code>vm.memory.size[available]</code></td>
+<td align="left"><code>Template OS Linux</code></td>
+</tr>
+<tr>
+<td align="left">磁盘</td>
+<td align="left">&#96;vfs.fs.size[</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>zabbix</tag>
+        <tag>硬件检测</tag>
       </tags>
   </entry>
 </search>
