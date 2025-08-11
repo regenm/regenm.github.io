@@ -4185,11 +4185,64 @@
   文件系统介绍：
 
   - 与 `ext3` 相比，`ext4` 文件系统可支持最高 1EB 的分区与最大 16TB 的文件；
+  
   - 拓展了子目录的数量，理论上可以无限个；
+  
   - 与 `ext3` 相比，引入了块组的概念，提高了存取的效率；
+  
   - 预留空间、延迟获取空间，减少了文件的分散；
+  
   - 更详细的 `inodes`，提高了系统的性能；
+  
+      &gt; ### 1. **inode 是什么**
+      &gt;
+      &gt; - 在 Linux/Unix 系统里，磁盘有两种资源：
+      &gt;     1. **存储空间**（blocks）
+      &gt;     2. **inode 表**（每个文件/目录对应一个 inode 记录）
+      &gt; - **inode** 存储了文件的元数据（权限、大小、时间戳、指向的数据块等）。
+      &gt; - **每个文件都占用 1 个 inode**，即使文件是空的。
+      &gt;
+      &gt; ------
+      &gt;
+      &gt; ### 2. **为什么要监控 free inodes**
+      &gt;
+      &gt; - 磁盘空间可能还很大，但 **inode 用完了** 也无法新建文件。
+      &gt; - 典型场景：
+      &gt;     - 生成大量小文件（日志切割、缓存文件、临时文件）。
+      &gt;     - 某个目录被写满小文件，导致整个分区不可写。
+      &gt; - 如果 `free inodes` 数值接近 0%，就必须清理无用文件。
+      &gt;
+      &gt; ---
+      &gt;
+      &gt; ## 1. **inode 和文件系统绑定**
+      &gt;
+      &gt; - 在 **ext2/ext3/ext4、XFS 等传统文件系统** 里，inode 数量是**格式化时固定**的，和文件系统的元数据结构绑定在一起。
+      &gt; - 一旦 inode 用完，就算磁盘还有空间，也不能再创建新文件，必须重新格式化才能改变 inode 数量。
+      &gt;
+      &gt; ------
+      &gt;
+      &gt; ## 2. **ZFS、btrfs 等新型文件系统的区别**
+      &gt;
+      &gt; - **ZFS**、**btrfs** 采用的是 **动态分配元数据** 的机制，没有传统意义上的“固定 inode 表”。
+      &gt; - 它们的 inode（或称为对象 ID、dnode）是在需要时从可用空间中分配的，只要磁盘有剩余空间，就可以创建新文件。
+      &gt; - 所以在 ZFS 上，你**几乎不可能**遇到 “free inodes = 0” 的问题。
+      &gt; - 这类文件系统的限制变成了：
+      &gt;     - 剩余空间不足（物理限制）
+      &gt;     - 元数据开销过大（性能限制）
+      &gt;
+      &gt; ------
+      &gt;
+      &gt; ## 3. **总结对比**
+      &gt;
+      &gt; | 文件系统 | inode 分配方式         | 会不会 inode 用完    | 适用场景              |
+      &gt; | -------- | ---------------------- | -------------------- | --------------------- |
+      &gt; | ext4     | 格式化时固定           | 会                   | 常规 Linux 部署       |
+      &gt; | XFS      | 动态分配，但有内部限制 | 较少遇到，但仍有可能 | 大文件系统            |
+      &gt; | ZFS      | 完全动态               | 基本不会             | 高可靠存储、NAS       |
+      &gt; | btrfs    | 完全动态               | 基本不会             | 新一代 Linux 文件系统 |
+  
   - 可以实现快速的文件系统检查；
+  
   - 提供日志校验和，提高了可靠性；
 </code></pre>
 </li>
@@ -23939,10 +23992,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>zabbix进阶学习</title>
     <url>/2025/08/10/zabbix%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="zabbix进阶学习"><a href="#zabbix进阶学习" class="headerlink" title="zabbix进阶学习"></a>zabbix进阶学习</h1><h2 id="配置邮件"><a href="#配置邮件" class="headerlink" title="配置邮件"></a>配置邮件</h2><p>尝试过qq和163的smtp，qq的配置好了会出现login denied报错，最后使用了163。</p>
-<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155035294.png" alt="image-20250810155035294"></p>
-<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155247864.png" alt="image-20250810155247864"></p>
-<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><h3 id="监控基础数据"><a href="#监控基础数据" class="headerlink" title="监控基础数据"></a>监控基础数据</h3><h4 id="CPU、memory、DIsk"><a href="#CPU、memory、DIsk" class="headerlink" title="CPU、memory、DIsk"></a>CPU、memory、DIsk</h4><p>可以通过创建新的仪表板，选择监控项后展示即可。还是很方便的。</p>
+    <content><![CDATA[<h1 id="zabbix进阶学习"><a href="#zabbix进阶学习" class="headerlink" title="zabbix进阶学习"></a>zabbix进阶学习</h1><h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><h3 id="监控基础数据"><a href="#监控基础数据" class="headerlink" title="监控基础数据"></a>监控基础数据</h3><h4 id="CPU、memory、DIsk"><a href="#CPU、memory、DIsk" class="headerlink" title="CPU、memory、DIsk"></a>CPU、memory、DIsk</h4><p>可以通过创建新的仪表板，选择监控项后展示即可。还是很方便的。</p>
 <table>
 <thead>
 <tr>
