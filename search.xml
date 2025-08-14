@@ -5664,7 +5664,7 @@
 
 <p>如果没直接显示则可能docker容器中运行的。</p>
 </blockquote>
-<h4 id="修改数据库流程"><a href="#修改数据库流程" class="headerlink" title="修改数据库流程"></a>修改数据库流程</h4><ol>
+<ol>
 <li>停止数据库服务</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl stop mysql</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl stop mariadb</span><br></pre></td></tr></table></figure>
@@ -5706,7 +5706,107 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-查看"><a href="#2-查看" class="headerlink" title="2. 查看"></a>2. 查看</h3>]]></content>
+<h3 id="2-数据迁移"><a href="#2-数据迁移" class="headerlink" title="2. 数据迁移"></a>2. 数据迁移</h3><p>数据的导入导出：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysqldump -uroot -p --all-databases &gt; /tmp/all_databases_backup.sql</span><br><span class="line"></span><br><span class="line">mysql -u root -p &lt; /tmp/all_databases_backup.sql</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置文件分析"><a href="#4-配置文件分析" class="headerlink" title="4. 配置文件分析"></a>4. 配置文件分析</h3><blockquote>
+<p>有时候会遇到一些奇怪的需求例如修改大小写敏感等。这类参数是初始化级别的，只能通过重新起容器或者重装实现。</p>
+</blockquote>
+<p>除了 <code>lower_case_table_names</code>，常见的系统级参数有：</p>
+<hr>
+<h4 id="1-字符集和排序规则（部分情况）"><a href="#1-字符集和排序规则（部分情况）" class="headerlink" title="1. 字符集和排序规则（部分情况）"></a>1. <strong>字符集和排序规则（部分情况）</strong></h4><ul>
+<li><code>character_set_server</code></li>
+<li><code>collation_server</code></li>
+</ul>
+<p>如果是 MySQL 初始化数据目录时设置的，之后只能通过重新初始化才能完全替换已有数据的默认字符集。<br> （已存在的数据库、表、列不会自动改变字符集。）</p>
+<hr>
+<h4 id="2-数据目录位置"><a href="#2-数据目录位置" class="headerlink" title="2. 数据目录位置"></a>2. <strong>数据目录位置</strong></h4><ul>
+<li><code>datadir</code><br>   数据目录路径是初始化时就绑定的，如果换路径，需要复制数据并修改权限，或者重新 <code>mysqld --initialize</code> 初始化。</li>
+</ul>
+<hr>
+<h4 id="3-事务日志大小"><a href="#3-事务日志大小" class="headerlink" title="3. 事务日志大小"></a>3. <strong>事务日志大小</strong></h4><ul>
+<li><code>innodb_log_file_size</code><br>   更改这个值需要先关闭 MySQL，删除旧的 InnoDB 日志文件（<code>ib_logfile0</code>、<code>ib_logfile1</code>），再重启让 MySQL 重新生成。</li>
+</ul>
+<hr>
+<h4 id="4-系统表空间大小"><a href="#4-系统表空间大小" class="headerlink" title="4. 系统表空间大小"></a>4. <strong>系统表空间大小</strong></h4><ul>
+<li><code>innodb_system_tablespace</code>（旧版用 <code>ibdata1</code>）<br>   这个大小一旦初始化生成就不能缩小，只能重建实例或导出导入数据。</li>
+</ul>
+<hr>
+<h4 id="5-GTID-模式"><a href="#5-GTID-模式" class="headerlink" title="5. GTID 模式"></a>5. <strong>GTID 模式</strong></h4><ul>
+<li><code>gtid_mode</code>（从关闭到开启）<br>   在部分情况下从 OFF → ON 需要清理或重建数据才能确保 GTID 一致性。</li>
+</ul>
+<hr>
+<h4 id="6-binlog-格式启用状态"><a href="#6-binlog-格式启用状态" class="headerlink" title="6. binlog 格式启用状态"></a>6. <strong>binlog 格式启用状态</strong></h4><ul>
+<li><code>log_bin</code>（是否启用二进制日志）<br>   关闭 → 开启需要 MySQL 重启；某些场景下修改会影响数据同步，需要新建数据目录才能确保一致。</li>
+</ul>
+<h3 id="3-日志分析"><a href="#3-日志分析" class="headerlink" title="3. 日志分析"></a>3. 日志分析</h3><p>​	MySQL 自带的日志类型主要是这些</p>
+<hr>
+<h4 id="1-MySQL-日志分类"><a href="#1-MySQL-日志分类" class="headerlink" title="1. MySQL 日志分类"></a>1. MySQL 日志分类</h4><table>
+<thead>
+<tr>
+<th>日志类型</th>
+<th>作用</th>
+<th>默认状态</th>
+<th>典型文件位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>错误日志</strong> (<code>log_error</code>)</td>
+<td>记录 MySQL 启动、关闭、运行错误等</td>
+<td>开启</td>
+<td><code>/var/lib/mysql/hostname.err</code></td>
+</tr>
+<tr>
+<td><strong>通用查询日志</strong> (<code>general_log</code>)</td>
+<td>记录所有客户端的连接和执行的 SQL 语句（类似“访问日志”）</td>
+<td>关闭</td>
+<td><code>/var/log/mysql/general.log</code></td>
+</tr>
+<tr>
+<td><strong>慢查询日志</strong> (<code>slow_query_log</code>)</td>
+<td>记录执行时间超过阈值的 SQL</td>
+<td>关闭</td>
+<td><code>/var/log/mysql/slow.log</code></td>
+</tr>
+<tr>
+<td><strong>二进制日志</strong> (<code>log_bin</code>)</td>
+<td>记录所有数据变更（用于主从同步和恢复）</td>
+<td>关闭</td>
+<td><code>/var/lib/mysql/mysql-bin.000001</code> 等</td>
+</tr>
+<tr>
+<td><strong>中继日志</strong> (<code>relay_log</code>)</td>
+<td>用于从库复制</td>
+<td>关闭</td>
+<td><code>/var/lib/mysql/relay-log.000001</code> 等</td>
+</tr>
+<tr>
+<td><strong>审计日志</strong>（需插件）</td>
+<td>记录详细的安全访问情况</td>
+<td>关闭</td>
+<td>自定义</td>
+</tr>
+</tbody></table>
+<hr>
+<h4 id="2-你说的“访问日志”"><a href="#2-你说的“访问日志”" class="headerlink" title="2. 你说的“访问日志”"></a>2. 你说的“访问日志”</h4><p>在 MySQL 里，一般用 <strong>通用查询日志 (general_log)</strong> 来当“访问日志”，它会记录：</p>
+<ul>
+<li>连接&#x2F;断开时间</li>
+<li>用户名</li>
+<li>客户端 IP</li>
+<li>每条执行的 SQL</li>
+</ul>
+<p>但是<strong>性能开销很大</strong>，不建议长期开启。</p>
+<hr>
+<h4 id="3-如何开启“访问日志”"><a href="#3-如何开启“访问日志”" class="headerlink" title="3. 如何开启“访问日志”"></a>3. 如何开启“访问日志”</h4><p>在你挂载的配置目录 <code>/data/soft/mysql8-20280812/mysql-conf</code> 里新建：</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqld]</span></span><br><span class="line"><span class="attr">general_log</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">general_log_file</span> = /var/log/mysql/general.log</span><br></pre></td></tr></table></figure>
+
+<p>重启 MySQL：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker restart mysql8-2</span><br></pre></td></tr></table></figure>
+
+<p>然后挂载的 <code>/data/soft/mysql8-20280812/log/mysql-logs/general.log</code> 就能看到访问记录了，例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">2025-08-12T06:45:01.234567Z     10 Connect	root@192.168.1.5 on test</span><br><span class="line">2025-08-12T06:45:01.234567Z     10 Query	SELECT * FROM users;</span><br><span class="line">2025-08-12T06:45:02.234567Z     10 Quit</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -7481,7 +7581,7 @@
     <title>MySql与Nginx容器化部署实现持久化存储</title>
     <url>/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/</url>
     <content><![CDATA[<ol>
-<li>Docker部署的mysql实现持久存储</li>
+<li>Docker部署的mysql5.7实现持久存储</li>
 <li>Docker部署的nginx实现持久存储</li>
 </ol>
 <hr>
@@ -24018,6 +24118,134 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 </tbody></table>
 ]]></content>
+  </entry>
+  <entry>
+    <title>redis集群搭建</title>
+    <url>/2025/08/12/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="redis部署"><a href="#redis部署" class="headerlink" title="redis部署"></a>redis部署</h1><h2 id="直接安装"><a href="#直接安装" class="headerlink" title="直接安装"></a>直接安装</h2><h3 id="包管理器安装"><a href="#包管理器安装" class="headerlink" title="包管理器安装"></a>包管理器安装</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf instal redis</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814083618308.png" alt="image-20250814083618308"></p>
+<h4 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start redis</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> redis</span><br><span class="line"><span class="built_in">sudo</span> systemctl status redis</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814083718570.png" alt="image-20250814083718570"></p>
+<h4 id="测试连接-1"><a href="#测试连接-1" class="headerlink" title="测试连接-1"></a>测试连接-1</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">ping</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814083907972.png" alt="image-20250814083907972"></p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>​	修改访问地址、增加密码、持久化存储</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/redis.conf</span><br><span class="line"><span class="comment"># 修改访问地址：69行左右</span></span><br><span class="line"><span class="built_in">bind</span> 0.0.0.0</span><br><span class="line"><span class="comment"># 增加密码：507行左右</span></span><br><span class="line">requirepass regen</span><br><span class="line"><span class="comment"># 持久化存储</span></span><br><span class="line"><span class="comment"># RDB持久化（默认会开启）：218行左右</span></span><br><span class="line">save 900 1</span><br><span class="line">save 300 10</span><br><span class="line">save 60 10000</span><br><span class="line"></span><br><span class="line"><span class="comment"># AOF持久化：700行左右</span></span><br><span class="line">appendonly <span class="built_in">yes</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h1 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h1><p>在指定的间隔时间自动将内存中的数据快照保存到磁盘。</p>
+<h1 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h1><p>记录所有写操作，以便在 Redis 重启时重新执行。</p>
+<h3 id="1-RDB-持久化"><a href="#1-RDB-持久化" class="headerlink" title="1. RDB 持久化"></a>1. <strong>RDB 持久化</strong></h3><p><strong>RDB</strong>（Redis 数据库快照）会在指定的时间间隔内自动保存内存中的数据到磁盘。它是通过保存数据快照的方式进行持久化，适用于那些对实时性要求不高的场景。</p>
+<h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li><strong>性能好</strong>：因为快照是定期的，不会对每次写操作都产生额外开销。</li>
+<li><strong>恢复速度快</strong>：RDB 文件较小，加载快。</li>
+<li><strong>适合备份</strong>：可以定期进行 RDB 快照备份，方便恢复。</li>
+</ul>
+<h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li><strong>丢失数据</strong>：如果 Redis 崩溃，在最近一次快照保存之前的数据会丢失（即不适合实时性要求极高的应用）。</li>
+<li><strong>不适合高频写操作</strong>：快照是周期性的，如果写入频繁，生成快照可能会导致性能下降。</li>
+</ul>
+<h4 id="适用场景："><a href="#适用场景：" class="headerlink" title="适用场景："></a>适用场景：</h4><ul>
+<li>适用于数据可以丢失一部分的应用场景，例如缓存系统、会话存储等。</li>
+<li>适用于数据量较大且更新不频繁的系统。</li>
+</ul>
+<h3 id="2-AOF-持久化"><a href="#2-AOF-持久化" class="headerlink" title="2. AOF 持久化"></a>2. <strong>AOF 持久化</strong></h3><p><strong>AOF</strong>（Append Only File）会记录 Redis 的每一个写操作，并将它们追加到磁盘上的文件中。Redis 重启时会通过执行 AOF 文件中的操作来恢复数据。</p>
+<h4 id="优点：-1"><a href="#优点：-1" class="headerlink" title="优点："></a>优点：</h4><ul>
+<li><strong>数据安全</strong>：AOF 可以提供较高的数据持久性，即使 Redis 崩溃，丢失的数据量较少。可以通过设置同步频率控制丢失的数据量。</li>
+<li><strong>适合高可靠性需求</strong>：如果数据丢失不可接受，AOF 是一个不错的选择。</li>
+</ul>
+<h4 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h4><ul>
+<li><strong>性能开销大</strong>：每次写操作都会追加到 AOF 文件，频繁写操作会增加磁盘 I&#x2F;O，影响性能。</li>
+<li><strong>AOF 文件较大</strong>：随着时间的推移，AOF 文件会不断增大，可能需要定期进行压缩（重写操作）。</li>
+</ul>
+<h4 id="适用场景：-1"><a href="#适用场景：-1" class="headerlink" title="适用场景："></a>适用场景：</h4><ul>
+<li>适用于对数据丢失容忍度低的场景，如金融系统、订单系统、聊天记录等。</li>
+<li>适合对数据一致性和持久性有较高要求的应用。</li>
+</ul>
+<h3 id="3-RDB-AOF（同时启用）"><a href="#3-RDB-AOF（同时启用）" class="headerlink" title="3. RDB + AOF（同时启用）"></a>3. <strong>RDB + AOF（同时启用）</strong></h3><p>在一些场景下，为了提高数据的持久性和恢复速度，生产环境中会同时启用 RDB 和 AOF。这种方式结合了 RDB 的性能优势和 AOF 的数据可靠性优势。</p>
+<h4 id="适用场景：-2"><a href="#适用场景：-2" class="headerlink" title="适用场景："></a>适用场景：</h4><ul>
+<li><strong>高可用性</strong>：同时启用 RDB 和 AOF 可以在 Redis 崩溃时既能快速恢复数据，又能减少数据丢失。</li>
+<li>适合对数据安全性和恢复速度都有较高要求的生产环境。</li>
+</ul>
+<h4 id="配置："><a href="#配置：" class="headerlink" title="配置："></a>配置：</h4><ul>
+<li>可以启用 RDB 和 AOF，同时配置 RDB 的快照频率和 AOF 的同步策略，以权衡性能和数据安全性。</li>
+</ul>
+<h3 id="4-持久化选项选择（生产环境常见方案）"><a href="#4-持久化选项选择（生产环境常见方案）" class="headerlink" title="4. 持久化选项选择（生产环境常见方案）"></a>4. <strong>持久化选项选择（生产环境常见方案）</strong></h3><h4 id="生产环境中，通常会选择以下几种持久化配置方案："><a href="#生产环境中，通常会选择以下几种持久化配置方案：" class="headerlink" title="生产环境中，通常会选择以下几种持久化配置方案："></a>生产环境中，通常会选择以下几种持久化配置方案：</h4><ol>
+<li><strong>只启用 AOF（推荐）</strong>：<ul>
+<li>大多数生产环境使用 AOF 持久化，因为它能提供更好的数据可靠性。</li>
+<li>设置为 <strong>每秒同步</strong>（<code>appendfsync everysec</code>）是常见的做法，既能提供足够的数据持久性，又不会对性能产生过大影响。</li>
+</ul>
+</li>
+<li><strong>只启用 RDB</strong>：<ul>
+<li>如果应用的可容忍数据丢失时间较长，并且需要高性能，可以选择只启用 RDB。</li>
+<li>配置较长的 <code>save</code> 间隔，比如每 5 分钟保存一次快照（<code>save 300 10</code>）。</li>
+</ul>
+</li>
+<li><strong>同时启用 RDB 和 AOF</strong>：<ul>
+<li>为了在保证数据可靠性的同时兼顾性能，很多生产环境会选择同时启用 RDB 和 AOF。</li>
+<li>通过合理配置 <strong>AOF 重写策略</strong>（<code>auto-aof-rewrite-percentage</code> 和 <code>auto-aof-rewrite-min-size</code>）来避免 AOF 文件无限增大。</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-持久化配置建议"><a href="#5-持久化配置建议" class="headerlink" title="5. 持久化配置建议"></a>5. <strong>持久化配置建议</strong></h3><p>在生产环境中，推荐的做法通常是：</p>
+<ul>
+<li><strong>启用 AOF</strong> 持久化，使用 <code>appendfsync everysec</code> 来平衡性能和持久化。</li>
+<li>如果可以容忍少量数据丢失并且对性能有较高需求，可以只启用 <strong>RDB</strong>。</li>
+<li><strong>同时启用 RDB 和 AOF</strong>，通过定期压缩 AOF 文件和适当的 RDB 快照间隔来优化性能。</li>
+</ul>
+</blockquote>
+<h4 id="测试连接-2"><a href="#测试连接-2" class="headerlink" title="测试连接-2"></a>测试连接-2</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@localhost ~]# redis-cli</span><br><span class="line">127.0.0.1:6379&gt; auth regen</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+
+<p>python连接测试：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># 连接 Redis，注意如果设置了密码请加 password 参数</span></span><br><span class="line">    r = redis.Redis(host=<span class="string">&#x27;192.168.72.11&#x27;</span>, port=<span class="number">6379</span>, password=<span class="string">&#x27;regen&#x27;</span>, decode_responses=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 写入键值对</span></span><br><span class="line">    r.<span class="built_in">set</span>(<span class="string">&#x27;session&#x27;</span>, <span class="string">&#x27;1234567890&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 设置过期时间为 10 秒</span></span><br><span class="line">    r.expire(<span class="string">&#x27;session&#x27;</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取键值</span></span><br><span class="line">    value = r.get(<span class="string">&#x27;session&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Got value for &#x27;session&#x27;: <span class="subst">&#123;value&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 查看剩余过期时间</span></span><br><span class="line">    ttl = r.ttl(<span class="string">&#x27;session&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;TTL for &#x27;session&#x27;: <span class="subst">&#123;ttl&#125;</span> seconds&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 等几秒再查一次 TTL</span></span><br><span class="line">    time.sleep(<span class="number">5</span>)</span><br><span class="line">    ttl = r.ttl(<span class="string">&#x27;session&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;TTL for &#x27;session&#x27; after 5 seconds: <span class="subst">&#123;ttl&#125;</span> seconds&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814085735227.png" alt="image-20250814085735227"></p>
+<h3 id="离线包安装"><a href="#离线包安装" class="headerlink" title="离线包安装"></a>离线包安装</h3><p>准备离线包：<a href="https://rhel.pkgs.org/8/raven-modular-x86_64/redis-7.0.5-1.el8.x86_64.rpm.html">rhelpkg | redis</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf install redis-7.0.5-1.el8.x86_64.rpm </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814090538494.png" alt="image-20250814090538494"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814090602832.png" alt="image-20250814090602832"></p>
+<h2 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h2><p>​	一般不用docker部署，redis使用的是内存来增加访问速度。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name redis-server \</span><br><span class="line">  -p 6379:6379 \</span><br><span class="line">  -v /root/redis/redis-home/data:/data \</span><br><span class="line">  -v /root/redis/redis-home/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest \</span><br><span class="line">  redis-server /usr/local/etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="redsi集群部署"><a href="#redsi集群部署" class="headerlink" title="redsi集群部署"></a>redsi集群部署</h1><p>​	资源有限，采用docker的方式进行集群。网络模式采用host。</p>
+<blockquote>
+<p>每台虚拟机起三个redis容器进行集群。</p>
+<p>192.168.72.5</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814091019410.png" alt="image-20250814091019410"></p>
+<p>192.168.72.5</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814091032933.png" alt="image-20250814091032933"></p>
+</blockquote>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>​	准备六个容器的data目录以及挂载的配置文件。</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>​	两个虚拟机的目录结构一样。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814091217132.png" alt="image-20250814091217132"></p>
+<h3 id="配置文件-1"><a href="#配置文件-1" class="headerlink" title="配置文件"></a>配置文件</h3><p>​	配置文件需要修改相当一部分，主要是允许集群模式、端口。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">bind</span> 0.0.0.0</span><br><span class="line">requirepass regen</span><br><span class="line">port 7001</span><br><span class="line"><span class="comment"># 以下是集群的配置</span></span><br><span class="line">cluster-announce-ip 192.168.72.5</span><br><span class="line">cluster-announce-port 7001</span><br><span class="line"><span class="comment"># * cluster-announce-tls-port</span></span><br><span class="line">cluster-announce-bus-port 17001  <span class="comment"># cluster-announce-port+10000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="起容器"><a href="#起容器" class="headerlink" title="起容器"></a>起容器</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 192.168.72.6 节点</span></span><br><span class="line">docker run -d --name redis7001 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node1/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node1/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line">docker run -d --name redis7002 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node2/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node2/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line">docker run -d --name redis7003 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node3/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node3/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 192.168.72.5 节点</span></span><br><span class="line">docker run -d --name redis7004 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node1/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node1/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line">docker run -d --name redis7005 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node2/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node2/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br><span class="line">docker run -d --name redis7006 --network host \</span><br><span class="line">  -v /root/redis/redis-cluster/node3/data:/data \</span><br><span class="line">  -v /root/redis/redis-cluster/node3/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">  redis:latest redis-server /usr/local/etc/redis/redis.conf</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建集群"><a href="#创建集群" class="headerlink" title="创建集群"></a>创建集群</h2><h3 id="创建集群-1"><a href="#创建集群-1" class="headerlink" title="创建集群"></a>创建集群</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">redis-cli --cluster create \</span><br><span class="line">  192.168.72.6:7001 192.168.72.6:7002 192.168.72.6:7003 \</span><br><span class="line">  192.168.72.5:7001 192.168.72.5:7002 192.168.72.5:7003 \</span><br><span class="line">  --cluster-replicas 1 \</span><br><span class="line">  -a redis \</span><br><span class="line">  --cluster-yes</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看集群"><a href="#查看集群" class="headerlink" title="查看集群"></a>查看集群</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-cli -c -p 7001  -a redis cluster nodes</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814130336862.png" alt="image-20250814130336862"></p>
+<h2 id="测试集群"><a href="#测试集群" class="headerlink" title="测试集群"></a>测试集群</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> redis.cluster <span class="keyword">import</span> RedisCluster, ClusterNode</span><br><span class="line"><span class="keyword">from</span> redis.exceptions <span class="keyword">import</span> RedisError</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="comment"># 配置日志</span></span><br><span class="line">    logging.basicConfig(</span><br><span class="line">        level=logging.INFO,</span><br><span class="line">        <span class="built_in">format</span>=<span class="string">&#x27;%(asctime)s - %(levelname)s - %(message)s&#x27;</span></span><br><span class="line">    )</span><br><span class="line">    logger = logging.getLogger(__name__)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        logger.info(<span class="string">&quot;Connecting to Redis Cluster...&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 1. 节点配置（根据您实际的集群节点）</span></span><br><span class="line">        startup_nodes = [</span><br><span class="line">            ClusterNode(host=<span class="string">&quot;192.168.72.6&quot;</span>, port=<span class="number">7001</span>),</span><br><span class="line">            ClusterNode(host=<span class="string">&quot;192.168.72.5&quot;</span>, port=<span class="number">7001</span>),</span><br><span class="line">            ClusterNode(host=<span class="string">&quot;192.168.72.6&quot;</span>, port=<span class="number">7002</span>)</span><br><span class="line">        ]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 2. 集群连接配置</span></span><br><span class="line">        rc = RedisCluster(</span><br><span class="line">            startup_nodes=startup_nodes,</span><br><span class="line">            password=<span class="string">&quot;redis&quot;</span>,</span><br><span class="line">            decode_responses=<span class="literal">True</span>,</span><br><span class="line">            socket_connect_timeout=<span class="number">5</span>,</span><br><span class="line">            socket_timeout=<span class="number">5</span>,</span><br><span class="line">            read_from_replicas=<span class="literal">False</span>,</span><br><span class="line">            max_connections_per_node=<span class="number">10</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 3. 获取集群信息的完美方法</span></span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">print_cluster_info</span>():</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="comment"># 方法1：使用原生命令获取最原始信息</span></span><br><span class="line">                nodes_info = rc.execute_command(<span class="string">&quot;CLUSTER NODES&quot;</span>)</span><br><span class="line">                cluster_info = rc.execute_command(<span class="string">&quot;CLUSTER INFO&quot;</span>)</span><br><span class="line">                </span><br><span class="line">                logger.info(<span class="string">&quot;\n=== Cluster Nodes ===&quot;</span>)</span><br><span class="line">                <span class="keyword">for</span> line <span class="keyword">in</span> <span class="built_in">str</span>(nodes_info).split(<span class="string">&#x27;\n&#x27;</span>):</span><br><span class="line">                    <span class="keyword">if</span> line.strip():</span><br><span class="line">                        logger.info(line.strip())</span><br><span class="line">                </span><br><span class="line">                logger.info(<span class="string">&quot;\n=== Cluster Status ===&quot;</span>)</span><br><span class="line">                <span class="keyword">for</span> line <span class="keyword">in</span> <span class="built_in">str</span>(cluster_info).split(<span class="string">&#x27;\n&#x27;</span>):</span><br><span class="line">                    <span class="keyword">if</span> line.strip():</span><br><span class="line">                        logger.info(line.strip())</span><br><span class="line"></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                logger.warning(<span class="string">f&quot;Info partial: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        print_cluster_info()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4. 测试数据操作</span></span><br><span class="line">        test_data = &#123;</span><br><span class="line">            <span class="string">&quot;user:1001&quot;</span>: <span class="string">&quot;Alice&quot;</span>,</span><br><span class="line">            <span class="string">&quot;product:2002&quot;</span>: <span class="string">&quot;Phone&quot;</span>,</span><br><span class="line">            <span class="string">&quot;order:3003&quot;</span>: <span class="string">&quot;Completed&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 写入测试数据</span></span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> test_data.items():</span><br><span class="line">            rc.<span class="built_in">set</span>(key, value, ex=<span class="number">60</span>)  <span class="comment"># 60秒过期</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 验证数据分布</span></span><br><span class="line">        logger.info(<span class="string">&quot;\n=== Data Distribution ===&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> test_data:</span><br><span class="line">            node = rc.get_node_from_key(key)</span><br><span class="line">            logger.info(<span class="string">f&quot;<span class="subst">&#123;key.ljust(<span class="number">12</span>)&#125;</span> = <span class="subst">&#123;rc.get(key).ljust(<span class="number">10</span>)&#125;</span> (served by <span class="subst">&#123;node.host&#125;</span>:<span class="subst">&#123;node.port&#125;</span>)&quot;</span>)</span><br><span class="line"></span><br><span class="line">        logger.info(<span class="string">&quot;\nRedis Cluster test fully successful!&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">except</span> RedisError <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f&quot;Redis Error: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logger.error(<span class="string">f&quot;Unexpected Error: <span class="subst">&#123;<span class="built_in">str</span>(e)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/redis/image-20250814130550824.png" alt="image-20250814130550824"></p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>一个容器掉了，重新起来无法加入。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">redis-cli --cluster fix 192.168.72.6:7001 -a redis</span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -24026,8 +24254,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>linux</tag>
         <tag>运维</tag>
         <tag>docker</tag>
-        <tag>zabbix</tag>
-        <tag>硬件检测</tag>
+        <tag>redis</tag>
+        <tag>redis-cluster</tag>
       </tags>
   </entry>
 </search>
