@@ -24495,4 +24495,326 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>运维</tag>
       </tags>
   </entry>
+  <entry>
+    <title>mongo数据库</title>
+    <url>/2025/08/15/mongo%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<hr>
+<h1 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h1><p>MongoDB 是一个 <strong>开源的 NoSQL 数据库</strong>，用 <strong>JSON 风格的文档</strong>来存储数据，而不是传统关系型数据库的表和行。</p>
+<hr>
+<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a><strong>主要特点</strong></h3><ol>
+<li><p><strong>文档型存储</strong></p>
+<ul>
+<li><p>数据以 <strong>BSON</strong>（二进制 JSON）格式保存，类似：</p>
+  <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Alice&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;age&quot;</span><span class="punctuation">:</span> <span class="number">25</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;skills&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;Python&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Vue&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>无固定模式（Schema-less）</strong></p>
+<ul>
+<li>同一个集合（collection）里的文档结构可以不同，方便灵活扩展。</li>
+</ul>
+</li>
+<li><p><strong>高扩展性</strong></p>
+<ul>
+<li>支持 <strong>分片（Sharding）</strong> 和 <strong>副本集（Replica Set）</strong>，可以水平扩展和高可用。</li>
+</ul>
+</li>
+<li><p><strong>查询功能强大</strong></p>
+<ul>
+<li>支持丰富的查询语法、聚合管道（Aggregation Pipeline）、地理位置查询等。</li>
+</ul>
+</li>
+<li><p><strong>适合大数据和快速开发</strong></p>
+<ul>
+<li>常用于日志存储、实时分析、内容管理、物联网等场景。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="基本概念对比（与-MySQL-类比）"><a href="#基本概念对比（与-MySQL-类比）" class="headerlink" title="基本概念对比（与 MySQL 类比）"></a><strong>基本概念对比（与 MySQL 类比）</strong></h3><table>
+<thead>
+<tr>
+<th>MySQL</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据库 (Database)</td>
+<td>数据库 (Database)</td>
+</tr>
+<tr>
+<td>表 (Table)</td>
+<td>集合 (Collection)</td>
+</tr>
+<tr>
+<td>行 (Row)</td>
+<td>文档 (Document)</td>
+</tr>
+<tr>
+<td>列 (Column)</td>
+<td>字段 (Field)</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="简单操作示例"><a href="#简单操作示例" class="headerlink" title="简单操作示例"></a><strong>简单操作示例</strong></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 连接 MongoDB</span></span><br><span class="line">mongo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换/创建数据库</span></span><br><span class="line">use mydb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入数据</span></span><br><span class="line">db.users.insert(&#123;name: <span class="string">&quot;Alice&quot;</span>, age: 25&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询数据</span></span><br><span class="line">db.users.find(&#123;age: &#123;<span class="variable">$gt</span>: 20&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新数据</span></span><br><span class="line">db.users.update(&#123;name: <span class="string">&quot;Alice&quot;</span>&#125;, &#123;<span class="variable">$set</span>: &#123;age: 26&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除数据</span></span><br><span class="line">db.users.remove(&#123;name: <span class="string">&quot;Alice&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>我给你按清单的方式整理一下 MongoDB 的 <strong>优缺点</strong> 和 <strong>应用场景</strong>，方便快速理解。</p>
+<hr>
+<h1 id="MongoDB-的-优缺点-和-应用场景"><a href="#MongoDB-的-优缺点-和-应用场景" class="headerlink" title="MongoDB 的 优缺点 和 应用场景"></a>MongoDB 的 <strong>优缺点</strong> 和 <strong>应用场景</strong></h1><h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li><strong>灵活的数据结构</strong><ul>
+<li>无需预先定义字段结构，适应需求变化快的项目。</li>
+</ul>
+</li>
+<li><strong>文档型存储，直观易读</strong><ul>
+<li>数据以 JSON&#x2F;BSON 格式保存，前后端交互方便。</li>
+</ul>
+</li>
+<li><strong>高可扩展性</strong><ul>
+<li>分片（Sharding）支持水平扩展，适合海量数据。</li>
+</ul>
+</li>
+<li><strong>高可用性</strong><ul>
+<li>副本集（Replica Set）保证数据冗余和自动故障切换。</li>
+</ul>
+</li>
+<li><strong>查询和聚合功能强</strong><ul>
+<li>内置复杂查询、索引、聚合管道，数据处理灵活。</li>
+</ul>
+</li>
+<li><strong>开发效率高</strong><ul>
+<li>无需繁琐的表设计，数据结构变动无需迁移表结构。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ol>
+<li><strong>事务支持不如关系型数据库</strong><ul>
+<li>虽然 4.0 以后支持多文档事务，但性能不如 MySQL。</li>
+</ul>
+</li>
+<li><strong>数据占用空间较大</strong><ul>
+<li>BSON 比 JSON 更占空间，存储成本可能增加。</li>
+</ul>
+</li>
+<li><strong>过度灵活可能导致数据不规范</strong><ul>
+<li>如果不做好约束，容易出现字段不统一、数据混乱。</li>
+</ul>
+</li>
+<li><strong>复杂关联查询性能差</strong><ul>
+<li>不擅长多表（多集合）复杂 JOIN。</li>
+</ul>
+</li>
+<li><strong>内存占用高</strong><ul>
+<li>需要较多内存来保证索引和性能。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="典型应用场景"><a href="#典型应用场景" class="headerlink" title="典型应用场景"></a>典型应用场景</h2><ol>
+<li><strong>内容管理系统（CMS）</strong><ul>
+<li>博客、新闻、产品展示网站等，数据结构灵活多变。</li>
+</ul>
+</li>
+<li><strong>大数据实时分析</strong><ul>
+<li>日志系统、行为数据分析（如 ELK 替代方案）。</li>
+</ul>
+</li>
+<li><strong>物联网（IoT）数据存储</strong><ul>
+<li>设备上传的数据格式不统一，适合文档型存储。</li>
+</ul>
+</li>
+<li><strong>地理位置应用</strong><ul>
+<li>位置检索（附近的人、附近的店）。</li>
+</ul>
+</li>
+<li><strong>电商平台</strong><ul>
+<li>商品信息多样、字段不固定（不同商品有不同属性）。</li>
+</ul>
+</li>
+<li><strong>游戏后台</strong><ul>
+<li>玩家数据、装备、日志等非结构化数据。</li>
+</ul>
+</li>
+<li><strong>社交平台</strong><ul>
+<li>用户动态、评论、消息等。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>我建议如果你要存储 <strong>结构多变、读写频繁、数据量大</strong> 的内容，MongoDB 很合适；<br> 如果你要 <strong>事务性强、结构固定、数据关系复杂</strong>，MySQL 会更好。</p>
+<hr>
+<p>如果你需要，我可以帮你做一份 <strong>MongoDB vs MySQL 应用场景对比表</strong>，这样你一眼就能判断该用哪个。</p>
+<h1 id="docker部署"><a href="#docker部署" class="headerlink" title="docker部署"></a>docker部署</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="准备配置文件与目录结构"><a href="#准备配置文件与目录结构" class="headerlink" title="准备配置文件与目录结构"></a>准备配置文件与目录结构</h3><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250815162323252.png" alt="image-20250815162323252"></p>
+<p><code>./conf/mongod.conf </code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">storage:</span><br><span class="line">  dbPath: /data/db</span><br><span class="line"></span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: true</span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 0.0.0.0</span><br><span class="line"></span><br><span class="line">processManagement:</span><br><span class="line">  fork: false</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line">security:</span><br><span class="line">  authorization: enabled</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="运行-MongoDB-容器"><a href="#运行-MongoDB-容器" class="headerlink" title="运行 MongoDB 容器"></a><strong>运行 MongoDB 容器</strong></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name mongodb \</span><br><span class="line">  -p 27017:27017 \</span><br><span class="line">  -v /data/soft/mongo/mongo-1/data:/data/db \</span><br><span class="line">  -v /data/soft/mongo/mongo-1/conf/mongod.conf:/etc/mongod.conf \</span><br><span class="line">  -v /data/soft/mongo/mongo-1/logs:/var/log/mongodb \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=admin \</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=123456 \</span><br><span class="line">  -e TZ=Asia/Shanghai</span><br><span class="line">  mongo:latest \</span><br><span class="line">  --config /etc/mongod.conf</span><br></pre></td></tr></table></figure>
+
+<p>参数说明：</p>
+<ul>
+<li><code>--name mongodb</code>：容器名称</li>
+<li><code>-p 27017:27017</code>：映射端口</li>
+<li><code>-v /root/mongo/data:/data/db</code>：持久化数据到宿主机</li>
+<li><code>-e MONGO_INITDB_ROOT_USERNAME</code>：管理员用户名</li>
+<li><code>-e MONGO_INITDB_ROOT_PASSWORD</code>：管理员密码</li>
+<li><code>mongo:latest</code>：镜像名</li>
+</ul>
+<hr>
+<h2 id="验证容器运行"><a href="#验证容器运行" class="headerlink" title="验证容器运行"></a>验证容器运行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250815162957335.png" alt="image-20250815162957335"></p>
+<hr>
+<h2 id="连接-MongoDB"><a href="#连接-MongoDB" class="headerlink" title="连接 MongoDB"></a>连接 MongoDB</h2><p>进入容器：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it mongodb mongosh -u admin -p 123456</span><br></pre></td></tr></table></figure>
+
+<p>或者在宿主机直接用客户端连接：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mongodb://admin:123456@&lt;宿主机IP&gt;:27017</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="使用python测试"><a href="#使用python测试" class="headerlink" title="使用python测试"></a>使用python测试</h3><p>需要安装 pymongo库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造连接字符串</span></span><br><span class="line">uri = <span class="string">&quot;mongodb://admin:123456@192.168.72.11:27017/mydb?authSource=admin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建客户端</span></span><br><span class="line">client = MongoClient(uri)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择数据库</span></span><br><span class="line">db = client[<span class="string">&quot;regendb&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择集合</span></span><br><span class="line"><span class="built_in">users</span> = db[<span class="string">&quot;users&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询全部</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users.find():</span><br><span class="line">    <span class="built_in">print</span>(user)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入一条数据</span></span><br><span class="line">users.insert_one(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;regen&quot;</span>, <span class="string">&quot;age&quot;</span>: 25&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询一条数据</span></span><br><span class="line"><span class="built_in">print</span>(users.find_one(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;Alice&quot;</span>&#125;))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250815164942223.png" alt="image-20250815164942223"></p>
+<h2 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># MongoDB Docker 离线安装脚本</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 脚本功能：</span></span><br><span class="line"><span class="comment">#   1. 离线加载 MongoDB 镜像（mongo.tar）</span></span><br><span class="line"><span class="comment">#   2. 创建数据、配置、日志目录，并设置权限</span></span><br><span class="line"><span class="comment">#   3. 生成默认配置文件 mongod.conf</span></span><br><span class="line"><span class="comment">#   4. 删除已存在的同名容器</span></span><br><span class="line"><span class="comment">#   5. 启动 MongoDB 容器，并设置管理员账号密码、端口、时区</span></span><br><span class="line"><span class="comment">#   6. 检查容器是否成功启动</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 适用场景：</span></span><br><span class="line"><span class="comment">#   - 无网络环境下使用 Docker 安装 MongoDB</span></span><br><span class="line"><span class="comment">#   - 需要快速部署 MongoDB 容器，并支持外部访问</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 可配置变量：</span></span><br><span class="line"><span class="comment">#   IMAGE_FILE      MongoDB 镜像 tar 包路径</span></span><br><span class="line"><span class="comment">#   IMAGE_NAME      Docker 镜像名称</span></span><br><span class="line"><span class="comment">#   CONTAINER_NAME  容器名称</span></span><br><span class="line"><span class="comment">#   MONGO_PORT      MongoDB 端口</span></span><br><span class="line"><span class="comment">#   MONGO_USER      管理员用户名</span></span><br><span class="line"><span class="comment">#   MONGO_PASSWORD  管理员密码</span></span><br><span class="line"><span class="comment">#   TZ              容器时区</span></span><br><span class="line"><span class="comment">#   BASE_DIR        数据、配置、日志基础目录</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line"><span class="comment">#   1. 确保 /resources/mongo.tar 文件存在</span></span><br><span class="line"><span class="comment">#   2. 执行脚本：sudo bash /scripts/local-docker-mongo.sh</span></span><br><span class="line"><span class="comment">#   3. 查看容器状态：docker ps</span></span><br><span class="line"><span class="comment">#   4. 查看日志：docker logs $CONTAINER_NAME</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 可配置参数</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">IMAGE_FILE=<span class="string">&quot;/resources/mongo.tar&quot;</span></span><br><span class="line">IMAGE_NAME=<span class="string">&quot;mongo:latest&quot;</span></span><br><span class="line">CONTAINER_NAME=<span class="string">&quot;mongodb&quot;</span></span><br><span class="line">MONGO_PORT=27017</span><br><span class="line">MONGO_USER=<span class="string">&quot;admin&quot;</span></span><br><span class="line">MONGO_PASSWORD=<span class="string">&quot;123456&quot;</span></span><br><span class="line">TZ=<span class="string">&quot;Asia/Shanghai&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据、配置、日志目录</span></span><br><span class="line">BASE_DIR=<span class="string">&quot;/data/soft/mongo&quot;</span></span><br><span class="line">DATA_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/data&quot;</span></span><br><span class="line">CONF_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/conf&quot;</span></span><br><span class="line">LOGS_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/logs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建目录结构</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建目录...&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$CONF_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"><span class="comment"># 设置日志目录权限，保证容器可写</span></span><br><span class="line"><span class="built_in">chown</span> -R 999:999 <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 导入镜像</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> docker image inspect <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像 <span class="variable">$IMAGE_NAME</span> 已存在，跳过导入&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;导入镜像 <span class="variable">$IMAGE_FILE</span> ...&quot;</span></span><br><span class="line">    LOADED_IMAGE=$(docker load -i <span class="string">&quot;<span class="variable">$IMAGE_FILE</span>&quot;</span> | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;/Loaded image:/ &#123;print $2&#125;&#x27;</span>)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;加载完成，原始镜像: <span class="variable">$LOADED_IMAGE</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    docker tag <span class="string">&quot;<span class="variable">$LOADED_IMAGE</span>&quot;</span> <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像已重命名为 <span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建默认配置文件</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">CONF_FILE=<span class="string">&quot;<span class="variable">$CONF_DIR</span>/mongod.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建默认配置文件 <span class="variable">$CONF_FILE</span> ...&quot;</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">storage:</span></span><br><span class="line"><span class="string">  dbPath: /data/db</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">systemLog:</span></span><br><span class="line"><span class="string">  destination: file</span></span><br><span class="line"><span class="string">  logAppend: true</span></span><br><span class="line"><span class="string">  path: /var/log/mongodb/mongod.log</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">net:</span></span><br><span class="line"><span class="string">  port: $MONGO_PORT</span></span><br><span class="line"><span class="string">  bindIp: 0.0.0.0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">processManagement:</span></span><br><span class="line"><span class="string">  fork: false</span></span><br><span class="line"><span class="string">  timeZoneInfo: /usr/share/zoneinfo</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">security:</span></span><br><span class="line"><span class="string">  authorization: enabled</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 删除已存在容器</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(docker ps -aq -f name=$CONTAINER_NAME)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;删除已存在的容器 <span class="variable">$CONTAINER_NAME</span> ...&quot;</span></span><br><span class="line">    docker <span class="built_in">rm</span> -f <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 启动容器</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;启动 MongoDB 容器...&quot;</span></span><br><span class="line">CONTAINER_ID=$(docker run -d \</span><br><span class="line">  --name <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span> \</span><br><span class="line">  -p <span class="variable">$MONGO_PORT</span>:27017 \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span>:/data/db \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span>:/etc/mongod.conf \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span>:/var/log/mongodb \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=<span class="string">&quot;<span class="variable">$MONGO_USER</span>&quot;</span> \</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=<span class="string">&quot;<span class="variable">$MONGO_PASSWORD</span>&quot;</span> \</span><br><span class="line">  -e TZ=<span class="string">&quot;<span class="variable">$TZ</span>&quot;</span> \</span><br><span class="line">  <span class="variable">$IMAGE_NAME</span> \</span><br><span class="line">  --config /etc/mongod.conf) || &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;容器启动失败！请检查配置或镜像&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 检查容器状态</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(docker ps -q -f id=$CONTAINER_ID)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器已启动，容器名：<span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    docker ps --filter <span class="string">&quot;id=<span class="variable">$CONTAINER_ID</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器启动失败，请查看日志：docker logs <span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="宿主机安装"><a href="#宿主机安装" class="headerlink" title="宿主机安装"></a>宿主机安装</h1><h2 id="包管理器安装"><a href="#包管理器安装" class="headerlink" title="包管理器安装"></a>包管理器安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install -y mongodb-org</span><br></pre></td></tr></table></figure>
+
+<h2 id="离线包安装"><a href="#离线包安装" class="headerlink" title="离线包安装"></a>离线包安装</h2><p>准备好离线包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在有网的机器下载</span></span><br><span class="line">dnf download --resolve mongodb-org</span><br></pre></td></tr></table></figure>
+
+<p>scp或者xftp复制到某个文件夹后</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf install -y ./*.rpm</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置文件-可选"><a href="#配置文件-可选" class="headerlink" title="配置文件(可选)"></a>配置文件(可选)</h2><p>修改端口绑定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mongod.conf</span><br><span class="line"></span><br><span class="line"># for documentation of all options, see:</span><br><span class="line">#   http://docs.mongodb.org/manual/reference/configuration-options/</span><br><span class="line"></span><br><span class="line"># where to write logging data.</span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: true</span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line"># Where and how to store data.</span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongo</span><br><span class="line">  journal:</span><br><span class="line">    enabled: true</span><br><span class="line">#  engine:</span><br><span class="line">#  wiredTiger:</span><br><span class="line"></span><br><span class="line"># how the process runs</span><br><span class="line">processManagement:</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line"># network interfaces</span><br><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 0.0.0.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#security:</span><br><span class="line"></span><br><span class="line">#operationProfiling:</span><br><span class="line"></span><br><span class="line">#replication:</span><br><span class="line"></span><br><span class="line">#sharding:</span><br><span class="line"></span><br><span class="line">## Enterprise-Only Options</span><br><span class="line"></span><br><span class="line">#auditLog:</span><br><span class="line"></span><br><span class="line">#snmp:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start mongod</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> mongod</span><br><span class="line"><span class="built_in">sudo</span> systemctl status mongod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongosh</span><br><span class="line">use admin</span><br><span class="line">db.createUser(&#123;</span><br><span class="line">  user: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">  <span class="built_in">pwd</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">  roles: [ &#123; role: <span class="string">&quot;root&quot;</span>, db: <span class="string">&quot;admin&quot;</span> &#125; ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="一键安装脚本-1"><a href="#一键安装脚本-1" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h2><p>需要提前准备好安装包到对应的目录。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">============================</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">MongoDB 离线安装脚本</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">============================</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 脚本功能：</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  1. 离线安装 MongoDB RPM 包</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  2. 自动生成或修改默认配置文件</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  3. 修改 bindIp 为 0.0.0.0，使外部可访问</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  4. 创建数据目录和日志目录，并设置权限</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  5. 启动 MongoDB 服务并启用开机自启</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  6. 创建管理员账号及密码</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 适用场景：</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 无网络环境下，需要离线安装 MongoDB</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - Linux 系统使用 DNF/YUM 包管理的环境（如 CentOS 8 / RHEL 8 / Fedora）</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 前置条件：</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 已将 MongoDB RPM 包放在 /data/resources/mongo 目录</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 有 <span class="built_in">sudo</span> 权限</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"></span><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">注意事项：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 如果管理员账号已存在，会报错</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 数据目录默认 /var/lib/mongo，日志目录默认 /var/log/mongodb</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  - 可根据需要修改端口和管理员账号密码变量</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"></span></span><br><span class="line"><span class="language-bash"><span class="comment"># 使用方法：</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  1. 将脚本放在任意目录，例如 /scripts/local-install-mongo.sh</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  2. 修改顶部变量 MONGO_RPM_DIR、ADMIN_USER、ADMIN_PASS、PORT</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">  3. 执行：<span class="built_in">sudo</span> bash /scripts/local-install-mongo.sh</span></span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">配置变量</span></span><br><span class="line">MONGO_RPM_DIR=&quot;/data/resources/mongo&quot;</span><br><span class="line">CONF_FILE=&quot;/etc/mongod.conf&quot;</span><br><span class="line">ADMIN_USER=&quot;admin&quot;</span><br><span class="line">ADMIN_PASS=&quot;123456&quot;</span><br><span class="line">PORT=27017</span><br><span class="line"></span><br><span class="line">echo &quot;===========================&quot;</span><br><span class="line">echo &quot;MongoDB 离线安装脚本-开始&quot;</span><br><span class="line">echo &quot;===========================&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1️⃣ 安装 RPM 包</span></span><br><span class="line">echo &quot;安装 MongoDB RPM 包...&quot;</span><br><span class="line">sudo dnf install -y $MONGO_RPM_DIR/*.rpm</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2️⃣ 修改配置文件</span></span><br><span class="line">echo &quot;配置 mongod.conf...&quot;</span><br><span class="line">if [ ! -f &quot;$CONF_FILE&quot; ]; then</span><br><span class="line">    echo &quot;mongod.conf 不存在，创建默认配置...&quot;</span><br><span class="line">    cat &gt; &quot;$CONF_FILE&quot; &lt;&lt;EOF</span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongo</span><br><span class="line"></span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: true</span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line">net:</span><br><span class="line">  port: $PORT</span><br><span class="line">  bindIp: 127.0.0.1</span><br><span class="line"></span><br><span class="line">processManagement:</span><br><span class="line">  fork: true</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line">security:</span><br><span class="line">  authorization: enabled</span><br><span class="line">EOF</span><br><span class="line">fi</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改 bindIp 为 0.0.0.0</span></span><br><span class="line">sed -i &quot;s/bindIp:.*/bindIp: 0.0.0.0/&quot; &quot;$CONF_FILE&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3️⃣ 确保数据目录和日志目录存在且权限正确</span></span><br><span class="line">DATA_DIR=$(grep &#x27;dbPath&#x27; $CONF_FILE | awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line">LOG_FILE=$(grep &#x27;path:&#x27; $CONF_FILE | grep mongodb | awk &#x27;&#123;print $2&#125;&#x27;)</span><br><span class="line">LOG_DIR=$(dirname &quot;$LOG_FILE&quot;)</span><br><span class="line"></span><br><span class="line">mkdir -p &quot;$DATA_DIR&quot; &quot;$LOG_DIR&quot;</span><br><span class="line">chown -R mongod:mongod &quot;$DATA_DIR&quot; &quot;$LOG_DIR&quot;</span><br><span class="line">chmod 700 &quot;$DATA_DIR&quot;</span><br><span class="line">chmod 755 &quot;$LOG_DIR&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4️⃣ 启动 MongoDB 服务</span></span><br><span class="line">echo &quot;启动 MongoDB...&quot;</span><br><span class="line">sudo systemctl enable mongod</span><br><span class="line">sudo systemctl start mongod</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">等待服务启动</span></span><br><span class="line">sleep 5</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">5️⃣ 创建管理员账号</span></span><br><span class="line">echo &quot;创建管理员账号 $ADMIN_USER...&quot;</span><br><span class="line">mongo --eval &quot;db.getSiblingDB(&#x27;admin&#x27;).createUser(&#123;user: &#x27;$ADMIN_USER&#x27;, pwd: &#x27;$ADMIN_PASS&#x27;, roles:[&#123;role:&#x27;root&#x27;, db:&#x27;admin&#x27;&#125;]&#125;);&quot;</span><br><span class="line"></span><br><span class="line">echo &quot;MongoDB 安装完成，管理员账号: $ADMIN_USER 密码: $ADMIN_PASS&quot;</span><br><span class="line">echo &quot;默认端口: $PORT, 监听所有 IP: 0.0.0.0&quot;</span><br><span class="line">echo &quot;可以使用: sudo systemctl status mongod 查看服务状态&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250815164416267.png" alt="image-20250815164416267"></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250815164358826.png" alt="image-20250815164358826"></p>
+<h1 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h1><h2 id="容器内部备份示例"><a href="#容器内部备份示例" class="headerlink" title="容器内部备份示例"></a>容器内部备份示例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建备份目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出所有数据库</span></span><br><span class="line">mongodump -u admin --password 123456 --authenticationDatabase admin --out /tmp/backup</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>默认会连接本地 27017</li>
+<li>所有数据库会导出到 <code>/tmp/backup</code>，每个数据库生成一个文件夹，每个集合生成 <code>.bson</code> 和 <code>.metadata.json</code> 文件。</li>
+</ul>
+<hr>
+<h2 id="容器外备份（宿主机访问容器-MongoDB）"><a href="#容器外备份（宿主机访问容器-MongoDB）" class="headerlink" title="容器外备份（宿主机访问容器 MongoDB）"></a>容器外备份（宿主机访问容器 MongoDB）</h2><p>如果你在宿主机操作，假设容器映射端口 27017：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /root/mongo_backup</span><br><span class="line"></span><br><span class="line">mongodump -h 127.0.0.1 -p 27017 -u admin --password 123456 --authenticationDatabase admin --out /tmp/backup</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>/tmp/backup</code> → 宿主机存储路径</li>
+<li>会生成类似：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/root/mongo_backup/</span><br><span class="line">├── admin/</span><br><span class="line">├── config/</span><br><span class="line">├── local/</span><br><span class="line">├── mydb/</span><br><span class="line">└── otherdb/</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="还原所有数据库"><a href="#还原所有数据库" class="headerlink" title="还原所有数据库"></a>还原所有数据库</h2><p>如果要恢复全部数据库：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongorestore -u admin --password 123456 --authenticationDatabase admin /root/backup</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以加 <code>--drop</code> 选项覆盖已有数据库：</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongorestore --drop -u admin --password 123456 --authenticationDatabase admin /root/backup</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>导出单个数据库</strong> → <code>--db mydb</code></li>
+<li><strong>导出全部数据库</strong> → 不加 <code>--db</code></li>
+<li>容器内操作简单，容器外操作需要指定 host&#x2F;port</li>
+<li>挂载宿主机目录可以持久化备份</li>
+</ul>
+<hr>
+<p>mongosh -u admin -p 123456 –authenticationDatabase admin</p>
+<h1 id="mongo基础"><a href="#mongo基础" class="headerlink" title="mongo基础"></a>mongo基础</h1><hr>
+<h2 id="1-数据库相关"><a href="#1-数据库相关" class="headerlink" title="1. 数据库相关"></a><strong>1. 数据库相关</strong></h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显示所有数据库</td>
+<td><code>show dbs</code></td>
+</tr>
+<tr>
+<td>切换数据库（不存在会自动创建）</td>
+<td><code>use mydb</code></td>
+</tr>
+<tr>
+<td>查看当前数据库</td>
+<td><code>db</code></td>
+</tr>
+<tr>
+<td>删除当前数据库</td>
+<td><code>db.dropDatabase()</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-集合（表）相关"><a href="#2-集合（表）相关" class="headerlink" title="2. 集合（表）相关"></a><strong>2. 集合（表）相关</strong></h2><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显示所有集合</td>
+<td><code>show collections</code></td>
+</tr>
+<tr>
+<td>创建集合</td>
+<td><code>db.createCollection(&quot;users&quot;)</code></td>
+</tr>
+<tr>
+<td>删除集合</td>
+<td><code>db.users.drop()</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="3-数据（文档）操作"><a href="#3-数据（文档）操作" class="headerlink" title="3. 数据（文档）操作"></a><strong>3. 数据（文档）操作</strong></h2><h3 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.<span class="property">users</span>.<span class="title function_">insertOne</span>(&#123;<span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>, <span class="attr">age</span>: <span class="number">25</span>&#125;)</span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">insertMany</span>([</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&quot;Bob&quot;</span>, <span class="attr">age</span>: <span class="number">30</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&quot;Charlie&quot;</span>, <span class="attr">age</span>: <span class="number">28</span>&#125;</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.<span class="property">users</span>.<span class="title function_">find</span>()                          <span class="comment">// 查询全部</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">find</span>().<span class="title function_">pretty</span>()                 <span class="comment">// 格式化输出</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">find</span>(&#123;<span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>&#125;)           <span class="comment">// 条件查询</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">find</span>(&#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">25</span>&#125;&#125;)          <span class="comment">// 年龄大于25</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">find</span>(&#123;&#125;, &#123;<span class="attr">name</span>: <span class="number">1</span>, <span class="attr">_id</span>: <span class="number">0</span>&#125;)     <span class="comment">// 只返回 name 字段</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.<span class="property">users</span>.<span class="title function_">updateOne</span>(</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">&quot;Alice&quot;</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">$set</span>: &#123;<span class="attr">age</span>: <span class="number">26</span>&#125;&#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">updateMany</span>(</span><br><span class="line">    &#123;<span class="attr">age</span>: &#123;<span class="attr">$gt</span>: <span class="number">25</span>&#125;&#125;,</span><br><span class="line">    &#123;<span class="attr">$set</span>: &#123;<span class="attr">status</span>: <span class="string">&quot;active&quot;</span>&#125;&#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.<span class="property">users</span>.<span class="title function_">deleteOne</span>(&#123;<span class="attr">name</span>: <span class="string">&quot;Bob&quot;</span>&#125;)</span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">deleteMany</span>(&#123;<span class="attr">age</span>: &#123;<span class="attr">$lt</span>: <span class="number">20</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-索引"><a href="#4-索引" class="headerlink" title="4. 索引"></a><strong>4. 索引</strong></h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">db.<span class="property">users</span>.<span class="title function_">createIndex</span>(&#123;<span class="attr">name</span>: <span class="number">1</span>&#125;)        <span class="comment">// 升序索引</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">getIndexes</span>()                  <span class="comment">// 查看索引</span></span><br><span class="line">db.<span class="property">users</span>.<span class="title function_">dropIndex</span>(<span class="string">&quot;name_1&quot;</span>)            <span class="comment">// 删除索引</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5-用户与权限"><a href="#5-用户与权限" class="headerlink" title="5. 用户与权限"></a><strong>5. 用户与权限</strong></h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在 admin 数据库创建超级用户</span></span><br><span class="line">use admin</span><br><span class="line">db.<span class="title function_">createUser</span>(&#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">    <span class="attr">pwd</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">    <span class="attr">roles</span>: [&#123;<span class="attr">role</span>: <span class="string">&quot;root&quot;</span>, <span class="attr">db</span>: <span class="string">&quot;admin&quot;</span>&#125;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看当前数据库用户</span></span><br><span class="line">show users</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p>配置文件里的时区项不能随意修改</p>
+<p>如果是docker部署需要使用 <code>-e TZ=Asia/Shanghai</code>，如果是宿主机则会（还不清楚）…</p>
+<p>不管是docker还是宿主机，这项配置改动了都可能起不来。</p>
+<blockquote>
+<p>Docker 容器中推荐用 <strong><code>-e TZ</code></strong> 方式设置时区，而不是修改 <code>mongod.conf</code>。</p>
+<p>配置文件修改 <code>timeZoneInfo</code> 只在特殊场景下使用，并且容易出错。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>Anolis</tag>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
 </search>
