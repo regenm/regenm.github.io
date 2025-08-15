@@ -24113,10 +24113,65 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tr>
 <tr>
 <td align="left">磁盘</td>
-<td align="left">&#96;vfs.fs.size[</td>
-<td align="left"></td>
+<td align="left"><code>vfs.fs.size[free]</code></td>
+<td align="left"><code>Template OS Linux by Zabbix agent</code></td>
 </tr>
 </tbody></table>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810160237282.png" alt="image-20250810160237282"></p>
+<h2 id="触发器配置"><a href="#触发器配置" class="headerlink" title="触发器配置"></a>触发器配置</h2><p>​	触发器是一个单独的层。用于结合触发器动作使用。例如某个触发器出发之后发送邮件、短信等等。</p>
+<h3 id="触发器配置-1"><a href="#触发器配置-1" class="headerlink" title="触发器配置"></a>触发器配置</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811111833236.png" alt="image-20250811111833236"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811111929096.png" alt="image-20250811111929096"></p>
+<h3 id="触发器动作配置"><a href="#触发器动作配置" class="headerlink" title="触发器动作配置"></a>触发器动作配置</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112140641.png" alt="image-20250811112140641"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112223743.png" alt="image-20250811112223743"></p>
+<p>选择触发器</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112440873.png" alt="image-20250811112440873"></p>
+<p>配置操作</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112502571.png" alt="image-20250811112502571"></p>
+<p>配置媒介</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112602417.png" alt="image-20250811112602417"></p>
+<h3 id="配置邮件"><a href="#配置邮件" class="headerlink" title="配置邮件"></a>配置邮件</h3><h4 id="配置发信邮件服务器"><a href="#配置发信邮件服务器" class="headerlink" title="配置发信邮件服务器"></a>配置发信邮件服务器</h4><p>尝试过qq和163的smtp，qq的配置好了会出现login denied报错，最后使用了163。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155035294.png" alt="image-20250810155035294"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810155247864.png" alt="image-20250810155247864"></p>
+<h4 id="配置邮件个人以及媒介"><a href="#配置邮件个人以及媒介" class="headerlink" title="配置邮件个人以及媒介"></a>配置邮件个人以及媒介</h4><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112757228.png" alt="image-20250811112757228"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250811112828344.png" alt="image-20250811112828344"></p>
+<h2 id="媒介概念"><a href="#媒介概念" class="headerlink" title="媒介概念"></a>媒介概念</h2><p>在配置触发器进行邮件推送的过程中遇到了有关邮件媒介的问题。疑问为什么用户需要配置媒介，感觉多此一举。</p>
+<h3 id="在-Zabbix-的设计中，媒介分成两个层面："><a href="#在-Zabbix-的设计中，媒介分成两个层面：" class="headerlink" title="在 Zabbix 的设计中，媒介分成两个层面："></a>在 Zabbix 的设计中，媒介分成两个层面：</h3><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>作用</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>媒介类型</strong></td>
+<td>定义“发送方式和规则”，全局唯一</td>
+<td>SMTP服务器配置、短信API配置</td>
+</tr>
+<tr>
+<td><strong>用户媒介</strong></td>
+<td>定义“用户具体的联系方式和可用媒介”</td>
+<td>用户的邮箱地址、手机号，指定用邮件发还是短信发</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="用户配置媒介的目的"><a href="#用户配置媒介的目的" class="headerlink" title="用户配置媒介的目的"></a>用户配置媒介的目的</h3><ul>
+<li><strong>告诉系统用户可以通过哪些渠道接收通知</strong></li>
+<li><strong>绑定具体的联系信息</strong>（邮箱地址、手机号等）</li>
+<li><strong>可以给一个用户配置多个媒介，支持多渠道通知</strong></li>
+<li><strong>方便动作（Action）在通知时根据需要选择具体媒介发给用户</strong></li>
+</ul>
+<hr>
+<h3 id="为什么动作里还要选择媒介？"><a href="#为什么动作里还要选择媒介？" class="headerlink" title="为什么动作里还要选择媒介？"></a>为什么动作里还要选择媒介？</h3><ul>
+<li>动作可以灵活控制同一个用户的不同媒介，比如只通过邮件发，或者邮件+短信同时发。</li>
+<li>支持复杂的通知策略和路由，比如不同告警级别走不同渠道。</li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>媒介类型</strong>是“怎么发”</li>
+<li><strong>用户媒介</strong>是“给谁发，用哪个渠道和具体联系方式”</li>
+<li><strong>动作</strong>是“什么情况下给谁发，选用哪些渠道”</li>
+</ul>
 ]]></content>
   </entry>
   <entry>
