@@ -24173,6 +24173,17 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li><strong>动作</strong>是“什么情况下给谁发，选用哪些渠道”</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>zabbix</tag>
+        <tag>硬件检测</tag>
+      </tags>
   </entry>
   <entry>
     <title>redis集群搭建</title>
@@ -24417,7 +24428,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 </li>
 </ol>
-<h2 id="1️⃣-Linux-中的“用户”和“服务用户”是什么"><a href="#1️⃣-Linux-中的“用户”和“服务用户”是什么" class="headerlink" title="1️⃣ Linux 中的“用户”和“服务用户”是什么"></a>1️⃣ Linux 中的“用户”和“服务用户”是什么</h2><ul>
+<h2 id="Linux-中的“用户”和“服务用户”是什么"><a href="#Linux-中的“用户”和“服务用户”是什么" class="headerlink" title="Linux 中的“用户”和“服务用户”是什么"></a>Linux 中的“用户”和“服务用户”是什么</h2><ul>
 <li><p>在 Linux 中，<strong>用户</strong>（user）不仅仅是人登录时用的账号，比如 <code>root</code>、<code>alice</code>。</p>
 </li>
 <li><p><strong>服务</strong>（nginx、mysql、docker 等）通常也会以<strong>独立的系统用户</strong>运行（即“服务用户”）。</p>
@@ -24433,9 +24444,9 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 </li>
 </ul>
-<p>✅ 所以服务也是“用户”，只不过是<strong>系统用户</strong>（一般没有登录权限），也可以叫“角色”或“账号”。</p>
+<p>所以服务也是“用户”，只不过是<strong>系统用户</strong>（一般没有登录权限），也可以叫“角色”或“账号”。</p>
 <hr>
-<h2 id="2️⃣-找到谁在使用目录-文件"><a href="#2️⃣-找到谁在使用目录-文件" class="headerlink" title="2️⃣ 找到谁在使用目录&#x2F;文件"></a>2️⃣ 找到谁在使用目录&#x2F;文件</h2><h3 id="方法-1：用-ls-l-看文件属主"><a href="#方法-1：用-ls-l-看文件属主" class="headerlink" title="方法 1：用 ls -l 看文件属主"></a>方法 1：用 <code>ls -l</code> 看文件属主</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -ld /path/to/dir_or_file</span><br></pre></td></tr></table></figure>
+<h2 id="找到谁在使用目录-文件"><a href="#找到谁在使用目录-文件" class="headerlink" title="找到谁在使用目录&#x2F;文件"></a>找到谁在使用目录&#x2F;文件</h2><h3 id="方法-1：用-ls-l-看文件属主"><a href="#方法-1：用-ls-l-看文件属主" class="headerlink" title="方法 1：用 ls -l 看文件属主"></a>方法 1：用 <code>ls -l</code> 看文件属主</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ls -ld /path/to/dir_or_file</span><br></pre></td></tr></table></figure>
 
 <p>例子：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">drwxr-x---  2 mysql mysql 4096 Aug 15 08:00 /var/lib/mysql</span><br></pre></td></tr></table></figure>
@@ -24472,7 +24483,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl cat nginx | grep -i user</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="3️⃣-一般处理流程"><a href="#3️⃣-一般处理流程" class="headerlink" title="3️⃣ 一般处理流程"></a>3️⃣ 一般处理流程</h2><ol>
+<h2 id="一般处理流程"><a href="#一般处理流程" class="headerlink" title="一般处理流程"></a>一般处理流程</h2><ol>
 <li><strong>ls -l</strong> 确认文件或目录的属主和权限</li>
 <li>如果是进程占用导致的权限冲突，用 <strong>lsof &#x2F; fuser</strong> 找进程 → 确认运行用户</li>
 <li>结合服务配置（systemctl &#x2F; 配置文件），确认它是以哪个系统用户运行的</li>
@@ -24815,6 +24826,38 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>docker</tag>
         <tag>Anolis</tag>
         <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>命令行三剑客笔记</title>
+    <url>/2025/08/18/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%89%E5%89%91%E5%AE%A2%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h1><p>好的，我帮你整理一个简洁版的 <strong>命令行三剑客介绍</strong>，每个命令都带上总结性的小标签：</p>
+<hr>
+<h2 id="命令行三剑客"><a href="#命令行三剑客" class="headerlink" title="命令行三剑客"></a>命令行三剑客</h2><h3 id="1-grep-→-找行（筛选）"><a href="#1-grep-→-找行（筛选）" class="headerlink" title="1. grep → 找行（筛选）"></a>1. grep → 找行（筛选）</h3><p><strong>作用</strong>：在文本中查找匹配的内容，过滤出符合条件的行。</p>
+<p><strong>示例</strong>：查找日志中包含 <code>ERROR</code> 的行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">grep <span class="string">&quot;ERROR&quot;</span> app.log</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-sed-→-改行（编辑）"><a href="#2-sed-→-改行（编辑）" class="headerlink" title="2. sed → 改行（编辑）"></a>2. sed → 改行（编辑）</h3><p><strong>作用</strong>：按规则批量修改文本，可以做替换、删除、插入。</p>
+<p><strong>示例</strong>：把日志中的 <code>500</code> 替换成 <code>503</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/500/503/g&#x27;</span> access.log</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-awk-→-拆行（按列处理、计算）"><a href="#3-awk-→-拆行（按列处理、计算）" class="headerlink" title="3. awk → 拆行（按列处理、计算）"></a>3. awk → 拆行（按列处理、计算）</h3><p><strong>作用</strong>：按列来处理数据，适合做提取、格式化、统计。</p>
+<p><strong>示例</strong>：统计访问日志里不同状态码的出现次数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk <span class="string">&#x27;&#123;print $9&#125;&#x27;</span> access.log | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>grep</tag>
+        <tag>sed</tag>
+        <tag>awk</tag>
       </tags>
   </entry>
 </search>
