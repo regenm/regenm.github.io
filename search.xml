@@ -24860,4 +24860,81 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>awk</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Github Actions实现CICD</title>
+    <url>/2025/08/18/Github-Actions%E5%AE%9E%E7%8E%B0CICD/</url>
+    <content><![CDATA[<blockquote>
+<p>​	有个闲暇之余放松写写的VUE项目。目前还在纯静态设计阶段，刚好可以拿来借助github actions和github pages学习CI&#x2F;CD。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/githubactions/image-20250818155459341.png" alt="image-20250818155459341"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/githubactions/image-20250818155516597.png" alt="image-20250818155516597"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/githubactions/image-20250818155535379.png" alt="image-20250818155535379"></p>
+</blockquote>
+<h1 id="CI-CD简介"><a href="#CI-CD简介" class="headerlink" title="CI&#x2F;CD简介"></a>CI&#x2F;CD简介</h1><blockquote>
+<h3 id="CI-CD-概念"><a href="#CI-CD-概念" class="headerlink" title="CI&#x2F;CD 概念"></a><strong>CI&#x2F;CD 概念</strong></h3><ol>
+<li><strong>CI（Continuous Integration，持续集成）</strong><ul>
+<li><strong>目的</strong>：让开发者频繁地把代码合并到主分支，并自动验证代码质量。</li>
+<li><strong>流程</strong>：<ol>
+<li>开发者提交代码到版本控制（Git）。</li>
+<li>自动触发构建、编译、测试。</li>
+<li>发现问题及时反馈，避免集成冲突。</li>
+</ol>
+</li>
+<li><strong>优势</strong>：<ul>
+<li>提高代码质量</li>
+<li>及时发现问题</li>
+<li>保持主分支始终可用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>CD（Continuous Delivery&#x2F;Deployment，持续交付&#x2F;部署）</strong><ul>
+<li><strong>持续交付（Continuous Delivery）</strong>：<ul>
+<li>在 CI 基础上，把构建产物自动部署到测试或预生产环境。</li>
+<li>人工确认后可发布到生产环境。</li>
+</ul>
+</li>
+<li><strong>持续部署（Continuous Deployment）</strong>：<ul>
+<li>自动将构建产物直接部署到生产环境，无需人工干预。</li>
+</ul>
+</li>
+<li><strong>优势</strong>：<ul>
+<li>加快产品迭代速度</li>
+<li>降低手动部署出错风险</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>CI&#x2F;CD 就是“提交就自动构建、测试、部署”，让开发流程自动化、可靠、快速。</strong></p>
+</blockquote>
+<p>我这里主要是目前还主要是前端的设计阶段，所以没有测试这一步骤，但是总体还是满足<strong>提交 → 构建 → 部署</strong> 的闭环，算作一个完整 CI&#x2F;CD。</p>
+<h1 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h1><h2 id="个人设置中配置personal-access-token"><a href="#个人设置中配置personal-access-token" class="headerlink" title="个人设置中配置personal access token"></a>个人设置中配置personal access token</h2><p><strong>个人设置</strong></p>
+<p>位置：<strong>Settings&#x2F;Developer Settings&#x2F;Personal access tokens (classic)</strong></p>
+<p>创建一个新的token即可，需要包含仓库的访问权限以及workflow权限。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/githubactions/image-20250818160556027.png" alt="image-20250818160556027"></p>
+<h2 id="仓库设置中配置secrets-and-variables"><a href="#仓库设置中配置secrets-and-variables" class="headerlink" title="仓库设置中配置secrets and variables"></a>仓库设置中配置secrets and variables</h2><p><strong>仓库设置（仓库里面的）</strong></p>
+<p>位置：<strong>Settings&#x2F;Secrets and vriables &#x2F; Actions&#x2F; Repository secrets</strong></p>
+<p>添加一个token，内容是刚刚在个人设置中创建的access token。</p>
+<h2 id="编写自动化yaml"><a href="#编写自动化yaml" class="headerlink" title="编写自动化yaml"></a>编写自动化yaml</h2><p>在Actions栏new一个workflow。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">name: Vue CI/CD</span><br><span class="line"></span><br><span class="line">on:</span><br><span class="line">  push:</span><br><span class="line">    branches:</span><br><span class="line">      - main   <span class="comment"># 当推送到 main 分支时触发</span></span><br><span class="line">  pull_request:</span><br><span class="line"></span><br><span class="line"><span class="built_in">jobs</span>:</span><br><span class="line">  build:</span><br><span class="line">    runs-on: ubuntu-latest </span><br><span class="line"></span><br><span class="line">    steps: </span><br><span class="line">      - name: Checkout code</span><br><span class="line">        uses: actions/checkout@v4</span><br><span class="line"></span><br><span class="line">      - name: Use Node.js</span><br><span class="line">        uses: actions/setup-node@v4</span><br><span class="line">        with:</span><br><span class="line">          node-version: <span class="string">&#x27;18&#x27;</span></span><br><span class="line"></span><br><span class="line">      - name: Install dependencies</span><br><span class="line">        run: npm install</span><br><span class="line"></span><br><span class="line">      - name: Run build</span><br><span class="line">        run: npm run build</span><br><span class="line"></span><br><span class="line">      - name: Upload production-ready build files</span><br><span class="line">        uses: actions/upload-artifact@v4</span><br><span class="line">        with:</span><br><span class="line">          name: dist</span><br><span class="line">          path: dist</span><br><span class="line"></span><br><span class="line">  deploy:</span><br><span class="line">    runs-on: ubuntu-latest</span><br><span class="line">    needs: build</span><br><span class="line">    steps:</span><br><span class="line">      - name: Download build files</span><br><span class="line">        uses: actions/download-artifact@v4</span><br><span class="line">        with:</span><br><span class="line">          name: dist</span><br><span class="line">          path: dist</span><br><span class="line"></span><br><span class="line">      - name: Deploy to GitHub Pages</span><br><span class="line">        uses: peaceiris/actions-gh-pages@v3</span><br><span class="line">        with:</span><br><span class="line">          github_token: <span class="variable">$&#123;&#123; secrets.PERSONAL_TOKEN &#125;</span>&#125;</span><br><span class="line">          publish_dir: ./dist</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="test-run"><a href="#test-run" class="headerlink" title="test run !"></a>test run !</h2><p>​	保存好这个文件之后就会自动进行一次action，因为这个文件也在main分支，触发方式也是main分支检测。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/githubactions/image-20250818161149348.png" alt="image-20250818161149348"></p>
+<p>然后就可以通过自己的github域名+仓库访问了<a href="https://regenm.github.io/Vuefarm">regenm.github.io&#x2F;Vuefarm</a>。（大小写敏感），如果之前用过githubpages可能会有冲突，例如博客等等。因为域名只有一个，url路径相同的话就会有冲突，这里暂时还没遇到。</p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>vue</tag>
+        <tag>github</tag>
+        <tag>CI/CD</tag>
+        <tag>github actions</tag>
+      </tags>
+  </entry>
 </search>
