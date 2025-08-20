@@ -1,0 +1,414 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>influx数据库 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="influxdb简介influxDB 简介InfluxDB 是一个 **开源的时序数据库 (Time-Series Database, TSDB)**，专门用于存储、查询和分析 带时间戳的数据。 基本特点 高效写入：能处理大量实时数据流（如传感器、日志、监控数据）。 时间序列查询：支持按时间范围快速查询和聚合。 内置函数：提供统计、聚合（平均值、最大值、最小值等）。 轻量易用：安装简单，常与 Te">
+<meta property="og:type" content="article">
+<meta property="og:title" content="influx数据库">
+<meta property="og:url" content="http://example.com/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="influxdb简介influxDB 简介InfluxDB 是一个 **开源的时序数据库 (Time-Series Database, TSDB)**，专门用于存储、查询和分析 带时间戳的数据。 基本特点 高效写入：能处理大量实时数据流（如传感器、日志、监控数据）。 时间序列查询：支持按时间范围快速查询和聚合。 内置函数：提供统计、聚合（平均值、最大值、最小值等）。 轻量易用：安装简单，常与 Te">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-08-20T08:25:59.000Z">
+<meta property="article:modified_time" content="2025-08-20T08:56:43.807Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="Anolis">
+<meta property="article:tag" content="influxdb">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'influx数据库',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-08-20 16:56:43'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">153</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">181</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">influx数据库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-08-20T08:25:59.000Z" title="Created 2025-08-20 16:25:59">2025-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-08-20T08:56:43.807Z" title="Updated 2025-08-20 16:56:43">2025-08-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/" data-flag-title="influx数据库"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="influxdb简介"><a href="#influxdb简介" class="headerlink" title="influxdb简介"></a>influxdb简介</h1><h3 id="influxDB-简介"><a href="#influxDB-简介" class="headerlink" title="influxDB 简介"></a>influxDB 简介</h3><p>InfluxDB 是一个 **开源的时序数据库 (Time-Series Database, TSDB)**，专门用于存储、查询和分析 <strong>带时间戳的数据</strong>。</p>
+<h3 id="基本特点"><a href="#基本特点" class="headerlink" title="基本特点"></a>基本特点</h3><ul>
+<li><strong>高效写入</strong>：能处理大量实时数据流（如传感器、日志、监控数据）。</li>
+<li><strong>时间序列查询</strong>：支持按时间范围快速查询和聚合。</li>
+<li><strong>内置函数</strong>：提供统计、聚合（平均值、最大值、最小值等）。</li>
+<li><strong>轻量易用</strong>：安装简单，常与 Telegraf、Grafana 搭配使用。</li>
+</ul>
+<h3 id="常见应用"><a href="#常见应用" class="headerlink" title="常见应用"></a>常见应用</h3><ol>
+<li><strong>系统和应用监控</strong>（CPU、内存、接口性能）</li>
+<li><strong>物联网数据</strong>（温度、湿度、传感器信息）</li>
+<li><strong>金融行情数据</strong>（股票、加密货币价格）</li>
+<li><strong>日志和事件记录</strong></li>
+</ol>
+<h1 id="influxdb-1-8-部署"><a href="#influxdb-1-8-部署" class="headerlink" title="influxdb 1.8 部署"></a>influxdb 1.8 部署</h1><h2 id="docker-持久化部署"><a href="#docker-持久化部署" class="headerlink" title="docker 持久化部署"></a>docker 持久化部署</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备目录结构和配置文件</p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820163421374.png" alt="image-20250820163421374"></p>
+<p>案例配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">reporting-disabled = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[meta]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/meta&quot;</span></span><br><span class="line"></span><br><span class="line">[data]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/data&quot;</span></span><br><span class="line">  wal-dir = <span class="string">&quot;/var/lib/influxdb/wal&quot;</span></span><br><span class="line"></span><br><span class="line">[http]</span><br><span class="line">  enabled = <span class="literal">true</span></span><br><span class="line">  bind-address = <span class="string">&quot;:8086&quot;</span></span><br><span class="line">  auth-enabled = <span class="literal">false</span> <span class="comment"># 先创建admin再 true</span></span><br><span class="line">  access-log-path = <span class="string">&quot;/var/log/influxdb/access.log&quot;</span></span><br><span class="line"></span><br><span class="line">[logging]</span><br><span class="line">  file = <span class="string">&quot;/var/log/influxdb/influxdb.json&quot;</span></span><br><span class="line">  level = <span class="string">&quot;info&quot;</span></span><br><span class="line">  format = <span class="string">&quot;json&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name influxdb \</span><br><span class="line">  -p 8086:8086 \</span><br><span class="line">  -v /data/soft/influxdb1.8/data:/var/lib/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8/config/influxdb.conf:/etc/influxdb/influxdb.conf \</span><br><span class="line">  -v /data/soft/influxdb1.8/log:/var/log/influxdb \</span><br><span class="line">  influxdb:1.8 -config /etc/influxdb/influxdb.conf </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="实体机部署"><a href="#实体机部署" class="headerlink" title="实体机部署"></a>实体机部署</h2><h3 id="添加仓库"><a href="#添加仓库" class="headerlink" title="添加仓库"></a>添加仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/yum.repos.d/influxdb.repo &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[influxdb]</span></span><br><span class="line"><span class="string">name = InfluxDB Repository - RHEL/CentOS \$releasever</span></span><br><span class="line"><span class="string">baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable</span></span><br><span class="line"><span class="string">enabled = 1</span></span><br><span class="line"><span class="string">gpgcheck = 1</span></span><br><span class="line"><span class="string">gpgkey = https://repos.influxdata.com/influxdb.key</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf list influxdb</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dnf install -y influxdb-1.8.10-1</span><br><span class="line"><span class="comment"># GPG 签名校验失败可以使用</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install -y --nogpgcheck influxdb-1.8.10-1</span><br></pre></td></tr></table></figure>
+
+<h1 id="influxdb数据备份"><a href="#influxdb数据备份" class="headerlink" title="influxdb数据备份"></a>influxdb数据备份</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it influxdb influxd backup -portable /var/lib/influxdb/backup</span><br><span class="line">docker <span class="built_in">cp</span> influxdb:/var/lib/influxdb/backup ./backup20250819</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820164400019.png" alt="image-20250820164400019"></p>
+<h1 id="influxdb数据恢复"><a href="#influxdb数据恢复" class="headerlink" title="influxdb数据恢复"></a>influxdb数据恢复</h1><blockquote>
+<p>版本原因只能恢复业务数据。</p>
+<p>用户则需要单独导入。</p>
+</blockquote>
+<h2 id="全量恢复"><a href="#全量恢复" class="headerlink" title="全量恢复"></a>全量恢复</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name influxdb_new \</span><br><span class="line">  -p 8087:8086 \</span><br><span class="line">  -v /data/soft/influxdb1.8new/data:/var/lib/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8new/config/influxdb.conf:/etc/influxdb/influxdb.conf \</span><br><span class="line">  -v /data/soft/influxdb1.8new/log:/var/log/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8new/backup:/var/lib/influxdb/backup \</span><br><span class="line">  influxdb:1.8 -config /etc/influxdb/influxdb.conf \</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it influxdb_new influxd restore -portable /var/lib/influxdb/backup</span><br></pre></td></tr></table></figure>
+
+<h2 id="增量恢复"><a href="#增量恢复" class="headerlink" title="增量恢复"></a>增量恢复</h2><p>通过挂载或者cp备份文件到容器里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it influxdb_new influxd restore -portable -db mydb1 -newdb mydb1 /var/lib/influxdb/backup</span><br><span class="line">docker exec -it influxdb_new influxd restore -portable -db mydb2 -newdb mydb2 /var/lib/influxdb/backup</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="influxdb版本分析"><a href="#influxdb版本分析" class="headerlink" title="influxdb版本分析"></a>influxdb版本分析</h1><p>InfluxDB 的版本线主要分为 <strong>1.x 系列</strong>和 <strong>2.x 系列</strong>，其中 1.x 又有不同小版本（如 1.8、1.11）</p>
+<h2 id="1-1-x-系列"><a href="#1-1-x-系列" class="headerlink" title="1. 1.x 系列"></a>1. 1.x 系列</h2><h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><ul>
+<li><strong>单独数据库、测量、点的概念</strong>。</li>
+<li>使用 <strong>InfluxQL</strong> 作为主要查询语言（类似 SQL）。</li>
+<li>数据库管理简单，部署轻量。</li>
+<li>适合 <strong>传统 TSDB 用法</strong>：监控、IoT、日志。</li>
+</ul>
+<h3 id="版本区别"><a href="#版本区别" class="headerlink" title="版本区别"></a>版本区别</h3><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>主要变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.8</td>
+<td>- 最后一版 1.x 的长期支持 (LTS)- 支持 Flux 查询语言（实验性）- 企业版可用 Clustering（集群）- 兼容 1.x 所有 API</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>- 提供更好的兼容 2.x 的 Flux- 减少一些已弃用功能- 企业版增加一些新特性</td>
+</tr>
+<tr>
+<td>1.10&#x2F;1.11</td>
+<td>- 主要是性能优化和 bug 修复- Flux 功能更完整- 为平滑迁移到 2.x 做准备</td>
+</tr>
+</tbody></table>
+<p><strong>总结</strong>：1.x 系列以 <strong>InfluxQL</strong> 为主，Flux 为辅，适合长期使用和稳定项目。1.8 是 LTS，1.11 则是稳定性和性能的增强版。</p>
+<hr>
+<h2 id="2-2-x-系列"><a href="#2-2-x-系列" class="headerlink" title="2. 2.x 系列"></a>2. 2.x 系列</h2><h3 id="主要特点-1"><a href="#主要特点-1" class="headerlink" title="主要特点"></a>主要特点</h3><ul>
+<li><strong>融合数据库、任务管理、告警、可视化于一体</strong>（InfluxDB UI、任务调度、Alerts）。</li>
+<li><strong>默认使用 Flux 语言</strong>，InfluxQL 可兼容但不推荐。</li>
+<li><strong>多租户、多组织支持</strong>：组织（Org）、桶（Bucket）替代 1.x 的 database + retention policy。</li>
+<li><strong>安全与认证</strong>：2.x 默认启用 token-based 认证。</li>
+<li><strong>API 和数据模型变化</strong>：<ul>
+<li>Database → Bucket</li>
+<li>Retention Policy → Bucket 的保留策略</li>
+<li>Measurement、Tag、Field 基本概念保留，但 API 有变化</li>
+</ul>
+</li>
+<li>适合 <strong>现代云原生监控、大规模 IoT 和多组织场景</strong>。</li>
+</ul>
+<h3 id="主要区别对比-1-x"><a href="#主要区别对比-1-x" class="headerlink" title="主要区别对比 1.x"></a>主要区别对比 1.x</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>1.x</th>
+<th>2.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查询语言</td>
+<td>InfluxQL 为主，Flux 可选</td>
+<td>Flux 为主，InfluxQL 可兼容</td>
+</tr>
+<tr>
+<td>数据库概念</td>
+<td>Database + Measurement + RP</td>
+<td>Organization + Bucket + Measurement</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>简单 Web UI</td>
+<td>完整 UI + Task + Alert + Explore</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>可选</td>
+<td>Token-based 强制认证</td>
+</tr>
+<tr>
+<td>集群</td>
+<td>企业版支持</td>
+<td>企业版支持，集群管理更现代化</td>
+</tr>
+<tr>
+<td>开箱体验</td>
+<td>轻量</td>
+<td>功能丰富，但稍重</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>1.x 系列</strong>：轻量、稳定、InfluxQL 主导，适合老项目或简单部署。1.8 是长期支持版，1.11 是功能和性能优化版。</li>
+<li><strong>2.x 系列</strong>：功能完整、现代化、多租户，Flux 主导，适合新项目和云原生场景。</li>
+</ul>
+<h1 id="nfluxQL和-Flux"><a href="#nfluxQL和-Flux" class="headerlink" title="nfluxQL和 Flux"></a>nfluxQL和 Flux</h1><h2 id="1-InfluxQL"><a href="#1-InfluxQL" class="headerlink" title="1. InfluxQL"></a>1. InfluxQL</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><strong>InfluxQL</strong> 是 <strong>InfluxDB 1.x 系列的主查询语言</strong>。</li>
+<li>类似 SQL，但专门针对 <strong>时序数据（Time Series Data）</strong> 优化。</li>
+<li>支持数据查询、聚合、分组、时间范围选择。</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p><strong>类 SQL 语法</strong>，容易上手：</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> mean(&quot;value&quot;) </span><br><span class="line"><span class="keyword">FROM</span> &quot;temperature&quot; </span><br><span class="line"><span class="keyword">WHERE</span> &quot;device&quot;<span class="operator">=</span><span class="string">&#x27;esp32&#x27;</span> <span class="keyword">AND</span> <span class="type">time</span> <span class="operator">&gt;</span> now() <span class="operator">-</span> <span class="number">1</span>h </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="type">time</span>(<span class="number">5</span>m)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>功能有限</strong>：</p>
+<ul>
+<li>聚合函数、分组、时间条件</li>
+<li>不能方便地做复杂的数据管道和跨数据库分析</li>
+</ul>
+</li>
+<li><p><strong>只支持 InfluxDB</strong>，不能做跨数据源处理</p>
+</li>
+</ul>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>1.x 系列项目</li>
+<li>简单时序查询、告警阈值计算、监控指标聚合</li>
+</ul>
+<hr>
+<h2 id="2-Flux"><a href="#2-Flux" class="headerlink" title="2. Flux"></a>2. Flux</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><strong>Flux</strong> 是 InfluxData 推出的 <strong>通用数据脚本语言</strong>，兼容 1.x，但 2.x 系列默认使用。</li>
+<li>不仅可以查询 InfluxDB，也支持其他数据源（CSV、Prometheus、HTTP API 等）。</li>
+</ul>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p><strong>函数式语言</strong>，支持数据管道：</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">from</span>(<span class="attr">bucket</span>:<span class="string">&quot;temperature_bucket&quot;</span>)</span><br><span class="line">  |&gt; <span class="title function_">range</span>(<span class="attr">start</span>: -1h)</span><br><span class="line">  |&gt; <span class="title function_">filter</span>(<span class="attr">fn</span>: <span class="function">(<span class="params">r</span>) =&gt;</span> r.<span class="property">_measurement</span> == <span class="string">&quot;temperature&quot;</span> and r.<span class="property">device</span> == <span class="string">&quot;esp32&quot;</span>)</span><br><span class="line">  |&gt; <span class="title function_">aggregateWindow</span>(<span class="attr">every</span>: 5m, <span class="attr">fn</span>: mean)</span><br><span class="line">  |&gt; <span class="title function_">yield</span>(<span class="attr">name</span>: <span class="string">&quot;mean&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更强大</strong>：</p>
+<ul>
+<li>数据清洗、转换、聚合、窗口计算</li>
+<li>可跨桶、跨组织查询</li>
+<li>支持复杂告警逻辑</li>
+</ul>
+</li>
+<li><p><strong>学习曲线稍陡</strong>：不再是 SQL 风格，而是函数式链式操作</p>
+</li>
+</ul>
+<h3 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>2.x 系列项目</li>
+<li>高级数据分析、跨数据源整合、复杂告警</li>
+</ul>
+<hr>
+<h2 id="3-对比总结"><a href="#3-对比总结" class="headerlink" title="3. 对比总结"></a>3. 对比总结</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>InfluxQL</th>
+<th>Flux</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语法风格</td>
+<td>类 SQL</td>
+<td>函数式管道</td>
+</tr>
+<tr>
+<td>支持数据源</td>
+<td>仅 InfluxDB</td>
+<td>InfluxDB + CSV + Prometheus + HTTP 等</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>查询 + 聚合 + 分组</td>
+<td>查询 + 聚合 + 转换 + 跨桶分析 + 复杂逻辑</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>容易上手</td>
+<td>功能强大但学习成本高</td>
+</tr>
+<tr>
+<td>默认版本</td>
+<td>1.x</td>
+<td>2.x</td>
+</tr>
+</tbody></table>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="日志文件无法挂载"><a href="#日志文件无法挂载" class="headerlink" title="日志文件无法挂载"></a>日志文件无法挂载</h2><p>access.log可以正常挂载出俩，配置文件设置好了日志输出也还是没有。不管是docker还是宿主机直接部署都没有。不太清除怎么解决，不太清楚怎么解决，发了issue。</p>
+<blockquote>
+<p>issue : <a target="_blank" rel="noopener" href="https://github.com/influxdata/influxdata-docker/issues/822">Unable to output influxd.log. · Issue #822 · influxdata&#x2F;influxdata-docker</a></p>
+</blockquote>
+<p>补救方式，可以输出日志到挂载的文件里。格式与配置文件有关（json或者其他）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it influxdb bash</span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">influxd &gt; /var/log/influxdb/influxdb.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户数据无法迁移"><a href="#用户数据无法迁移" class="headerlink" title="用户数据无法迁移"></a>用户数据无法迁移</h2><p>备份出来的数据确实包含meta元数据，但是恢复的时候尝试了很多方法无法都不行。只能用sql一个个插入了。</p>
+<p>备份时用的是 -portable ，导入备份时只能-portable，而不能用-metadir。两者是不同方式备份出来的文件。</p>
+<ol>
+<li>如果使用 -portable导出，导入时必没有用户数据，业务数据正常导入</li>
+<li>不支持其他方式：<strong>普通 OSS 容器只能做 portable backup</strong>：</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/">http://example.com/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/docker/">docker</a><a class="post-meta__tags" href="/tags/Anolis/">Anolis</a><a class="post-meta__tags" href="/tags/influxdb/">influxdb</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/08/18/Github-Actions%E5%AE%9E%E7%8E%B0CICD/" title="Github Actions实现CICD"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Github Actions实现CICD</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/06/27/MySql%E5%AE%B9%E5%99%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E5%AE%9E%E7%8E%B0%E6%8C%81%E4%B9%85%E5%8C%96%E5%AD%98%E5%82%A8/" title="MySql与Nginx容器化部署实现持久化存储"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-27</div><div class="title">MySql与Nginx容器化部署实现持久化存储</div></div></a></div><div><a href="/2025/08/15/mongo%E6%95%B0%E6%8D%AE%E5%BA%93/" title="mongo数据库"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-15</div><div class="title">mongo数据库</div></div></a></div><div><a href="/2025/08/04/K8s-pods-service-deployment%E5%88%9D%E4%BD%93%E9%AA%8C/" title="K8s pods service deployment初体验"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">K8s pods service deployment初体验</div></div></a></div><div><a href="/2025/08/04/K8s-%E4%B8%89%E8%8A%82%E7%82%B9%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="K8s 三节点环境搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-04</div><div class="title">K8s 三节点环境搭建</div></div></a></div><div><a href="/2025/06/26/vmWare%E5%AE%89%E8%A3%85%E9%BE%99%E8%9C%A5Linux-minimal/" title="vmWare安装龙蜥Linux-minimal"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-26</div><div class="title">vmWare安装龙蜥Linux-minimal</div></div></a></div><div><a href="/2025/07/29/zabbix%E9%83%A8%E7%BD%B2server%E5%92%8Cagent/" title="zabbix部署server和agent"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-29</div><div class="title">zabbix部署server和agent</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">153</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">181</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#influxdb%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">influxdb简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#influxDB-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.0.1.</span> <span class="toc-text">influxDB 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%89%B9%E7%82%B9"><span class="toc-number">1.0.2.</span> <span class="toc-text">基本特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%BA%94%E7%94%A8"><span class="toc-number">1.0.3.</span> <span class="toc-text">常见应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#influxdb-1-8-%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">influxdb 1.8 部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-%E6%8C%81%E4%B9%85%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">2.1.</span> <span class="toc-text">docker 持久化部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87"><span class="toc-number">2.1.1.</span> <span class="toc-text">准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#run"><span class="toc-number">2.1.2.</span> <span class="toc-text">run</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E4%BD%93%E6%9C%BA%E9%83%A8%E7%BD%B2"><span class="toc-number">2.2.</span> <span class="toc-text">实体机部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.1.</span> <span class="toc-text">添加仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%89%88%E6%9C%AC"><span class="toc-number">2.2.2.</span> <span class="toc-text">查看版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.3.</span> <span class="toc-text">安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#influxdb%E6%95%B0%E6%8D%AE%E5%A4%87%E4%BB%BD"><span class="toc-number">3.</span> <span class="toc-text">influxdb数据备份</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#influxdb%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D"><span class="toc-number">4.</span> <span class="toc-text">influxdb数据恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%A8%E9%87%8F%E6%81%A2%E5%A4%8D"><span class="toc-number">4.1.</span> <span class="toc-text">全量恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E%E9%87%8F%E6%81%A2%E5%A4%8D"><span class="toc-number">4.2.</span> <span class="toc-text">增量恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#influxdb%E7%89%88%E6%9C%AC%E5%88%86%E6%9E%90"><span class="toc-number">5.</span> <span class="toc-text">influxdb版本分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-x-%E7%B3%BB%E5%88%97"><span class="toc-number">5.1.</span> <span class="toc-text">1. 1.x 系列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9"><span class="toc-number">5.1.1.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8C%BA%E5%88%AB"><span class="toc-number">5.1.2.</span> <span class="toc-text">版本区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-x-%E7%B3%BB%E5%88%97"><span class="toc-number">5.2.</span> <span class="toc-text">2. 2.x 系列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%89%B9%E7%82%B9-1"><span class="toc-number">5.2.1.</span> <span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB%E5%AF%B9%E6%AF%94-1-x"><span class="toc-number">5.2.2.</span> <span class="toc-text">主要区别对比 1.x</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.2.3.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nfluxQL%E5%92%8C-Flux"><span class="toc-number">6.</span> <span class="toc-text">nfluxQL和 Flux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-InfluxQL"><span class="toc-number">6.1.</span> <span class="toc-text">1. InfluxQL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">6.1.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">6.1.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Flux"><span class="toc-number">6.2.</span> <span class="toc-text">2. Flux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0-1"><span class="toc-number">6.2.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-1"><span class="toc-number">6.2.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF-1"><span class="toc-number">6.2.3.</span> <span class="toc-text">适用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="toc-number">6.3.</span> <span class="toc-text">3. 对比总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">遇到的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E6%8C%82%E8%BD%BD"><span class="toc-number">7.1.</span> <span class="toc-text">日志文件无法挂载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E8%BF%81%E7%A7%BB"><span class="toc-number">7.2.</span> <span class="toc-text">用户数据无法迁移</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/" title="influx数据库">influx数据库</a><time datetime="2025-08-20T08:25:59.000Z" title="Created 2025-08-20 16:25:59">2025-08-20</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/18/Github-Actions%E5%AE%9E%E7%8E%B0CICD/" title="Github Actions实现CICD">Github Actions实现CICD</a><time datetime="2025-08-18T07:51:18.000Z" title="Created 2025-08-18 15:51:18">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/18/%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%89%E5%89%91%E5%AE%A2%E7%AC%94%E8%AE%B0/" title="命令行三剑客笔记">命令行三剑客笔记</a><time datetime="2025-08-18T00:39:51.000Z" title="Created 2025-08-18 08:39:51">2025-08-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/mongo%E6%95%B0%E6%8D%AE%E5%BA%93/" title="mongo数据库">mongo数据库</a><time datetime="2025-08-15T08:33:25.000Z" title="Created 2025-08-15 16:33:25">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/15/Linux%E4%B8%8B%E7%9A%84%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6/" title="Linux下的权限控制">Linux下的权限控制</a><time datetime="2025-08-15T01:01:48.000Z" title="Created 2025-08-15 09:01:48">2025-08-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/12/redis%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/" title="redis集群搭建">redis集群搭建</a><time datetime="2025-08-12T08:57:05.000Z" title="Created 2025-08-12 16:57:05">2025-08-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/10/zabbix%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/" title="zabbix进阶学习">zabbix进阶学习</a><time datetime="2025-08-10T07:39:43.000Z" title="Created 2025-08-10 15:39:43">2025-08-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/09/How-To-Ask-Questions-The-Smart-Way/" title="How-To-Ask-Questions-The-Smart-Way">How-To-Ask-Questions-The-Smart-Way</a><time datetime="2025-08-09T13:23:14.000Z" title="Created 2025-08-09 21:23:14">2025-08-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/08/Jenkins%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%AD%A6%E4%B9%A0/" title="Jenkins部署与学习">Jenkins部署与学习</a><time datetime="2025-08-08T05:42:35.000Z" title="Created 2025-08-08 13:42:35">2025-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/08/04/K8s-pods-service-deployment%E5%88%9D%E4%BD%93%E9%AA%8C/" title="K8s pods service deployment初体验">K8s pods service deployment初体验</a><time datetime="2025-08-04T07:13:19.000Z" title="Created 2025-08-04 15:13:19">2025-08-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

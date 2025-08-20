@@ -24690,7 +24690,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造连接字符串</span></span><br><span class="line">uri = <span class="string">&quot;mongodb://admin:123456@192.168.72.11:27017/mydb?authSource=admin&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建客户端</span></span><br><span class="line">client = MongoClient(uri)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择数据库</span></span><br><span class="line">db = client[<span class="string">&quot;regendb&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择集合</span></span><br><span class="line"><span class="built_in">users</span> = db[<span class="string">&quot;users&quot;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询全部</span></span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users.find():</span><br><span class="line">    <span class="built_in">print</span>(user)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入一条数据</span></span><br><span class="line">users.insert_one(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;regen&quot;</span>, <span class="string">&quot;age&quot;</span>: 25&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询一条数据</span></span><br><span class="line"><span class="built_in">print</span>(users.find_one(&#123;<span class="string">&quot;name&quot;</span>: <span class="string">&quot;Alice&quot;</span>&#125;))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/mongo/image-20250815164942223.png" alt="image-20250815164942223"></p>
-<h2 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># MongoDB Docker 离线安装脚本</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 脚本功能：</span></span><br><span class="line"><span class="comment">#   1. 离线加载 MongoDB 镜像（mongo.tar）</span></span><br><span class="line"><span class="comment">#   2. 创建数据、配置、日志目录，并设置权限</span></span><br><span class="line"><span class="comment">#   3. 生成默认配置文件 mongod.conf</span></span><br><span class="line"><span class="comment">#   4. 删除已存在的同名容器</span></span><br><span class="line"><span class="comment">#   5. 启动 MongoDB 容器，并设置管理员账号密码、端口、时区</span></span><br><span class="line"><span class="comment">#   6. 检查容器是否成功启动</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 适用场景：</span></span><br><span class="line"><span class="comment">#   - 无网络环境下使用 Docker 安装 MongoDB</span></span><br><span class="line"><span class="comment">#   - 需要快速部署 MongoDB 容器，并支持外部访问</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 可配置变量：</span></span><br><span class="line"><span class="comment">#   IMAGE_FILE      MongoDB 镜像 tar 包路径</span></span><br><span class="line"><span class="comment">#   IMAGE_NAME      Docker 镜像名称</span></span><br><span class="line"><span class="comment">#   CONTAINER_NAME  容器名称</span></span><br><span class="line"><span class="comment">#   MONGO_PORT      MongoDB 端口</span></span><br><span class="line"><span class="comment">#   MONGO_USER      管理员用户名</span></span><br><span class="line"><span class="comment">#   MONGO_PASSWORD  管理员密码</span></span><br><span class="line"><span class="comment">#   TZ              容器时区</span></span><br><span class="line"><span class="comment">#   BASE_DIR        数据、配置、日志基础目录</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line"><span class="comment">#   1. 确保 /resources/mongo.tar 文件存在</span></span><br><span class="line"><span class="comment">#   2. 执行脚本：sudo bash /scripts/local-docker-mongo.sh</span></span><br><span class="line"><span class="comment">#   3. 查看容器状态：docker ps</span></span><br><span class="line"><span class="comment">#   4. 查看日志：docker logs $CONTAINER_NAME</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 可配置参数</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">IMAGE_FILE=<span class="string">&quot;/resources/mongo.tar&quot;</span></span><br><span class="line">IMAGE_NAME=<span class="string">&quot;mongo:latest&quot;</span></span><br><span class="line">CONTAINER_NAME=<span class="string">&quot;mongodb&quot;</span></span><br><span class="line">MONGO_PORT=27017</span><br><span class="line">MONGO_USER=<span class="string">&quot;admin&quot;</span></span><br><span class="line">MONGO_PASSWORD=<span class="string">&quot;123456&quot;</span></span><br><span class="line">TZ=<span class="string">&quot;Asia/Shanghai&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据、配置、日志目录</span></span><br><span class="line">BASE_DIR=<span class="string">&quot;/data/soft/mongo&quot;</span></span><br><span class="line">DATA_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/data&quot;</span></span><br><span class="line">CONF_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/conf&quot;</span></span><br><span class="line">LOGS_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/logs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建目录结构</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建目录...&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$CONF_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"><span class="comment"># 设置日志目录权限，保证容器可写</span></span><br><span class="line"><span class="built_in">chown</span> -R 999:999 <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 导入镜像</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> docker image inspect <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像 <span class="variable">$IMAGE_NAME</span> 已存在，跳过导入&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;导入镜像 <span class="variable">$IMAGE_FILE</span> ...&quot;</span></span><br><span class="line">    LOADED_IMAGE=$(docker load -i <span class="string">&quot;<span class="variable">$IMAGE_FILE</span>&quot;</span> | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;/Loaded image:/ &#123;print $2&#125;&#x27;</span>)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;加载完成，原始镜像: <span class="variable">$LOADED_IMAGE</span>&quot;</span></span><br><span class="line"></span><br><span class="line">    docker tag <span class="string">&quot;<span class="variable">$LOADED_IMAGE</span>&quot;</span> <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像已重命名为 <span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建默认配置文件</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">CONF_FILE=<span class="string">&quot;<span class="variable">$CONF_DIR</span>/mongod.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建默认配置文件 <span class="variable">$CONF_FILE</span> ...&quot;</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">storage:</span></span><br><span class="line"><span class="string">  dbPath: /data/db</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">systemLog:</span></span><br><span class="line"><span class="string">  destination: file</span></span><br><span class="line"><span class="string">  logAppend: true</span></span><br><span class="line"><span class="string">  path: /var/log/mongodb/mongod.log</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">net:</span></span><br><span class="line"><span class="string">  port: $MONGO_PORT</span></span><br><span class="line"><span class="string">  bindIp: 0.0.0.0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">processManagement:</span></span><br><span class="line"><span class="string">  fork: false</span></span><br><span class="line"><span class="string">  timeZoneInfo: /usr/share/zoneinfo</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">security:</span></span><br><span class="line"><span class="string">  authorization: enabled</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 删除已存在容器</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(docker ps -aq -f name=$CONTAINER_NAME)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;删除已存在的容器 <span class="variable">$CONTAINER_NAME</span> ...&quot;</span></span><br><span class="line">    docker <span class="built_in">rm</span> -f <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 启动容器</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;启动 MongoDB 容器...&quot;</span></span><br><span class="line">CONTAINER_ID=$(docker run -d \</span><br><span class="line">  --name <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span> \</span><br><span class="line">  -p <span class="variable">$MONGO_PORT</span>:27017 \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span>:/data/db \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span>:/etc/mongod.conf \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span>:/var/log/mongodb \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=<span class="string">&quot;<span class="variable">$MONGO_USER</span>&quot;</span> \</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=<span class="string">&quot;<span class="variable">$MONGO_PASSWORD</span>&quot;</span> \</span><br><span class="line">  -e TZ=<span class="string">&quot;<span class="variable">$TZ</span>&quot;</span> \</span><br><span class="line">  <span class="variable">$IMAGE_NAME</span> \</span><br><span class="line">  --config /etc/mongod.conf) || &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;容器启动失败！请检查配置或镜像&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 检查容器状态</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(docker ps -q -f id=$CONTAINER_ID)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器已启动，容器名：<span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    docker ps --filter <span class="string">&quot;id=<span class="variable">$CONTAINER_ID</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器启动失败，请查看日志：docker logs <span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># Docker 安装 MongoDB 7.0.6  脚本</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 脚本功能：</span></span><br><span class="line"><span class="comment">#   1. 尝试 Docker 拉取 MongoDB 7.0.6 镜像</span></span><br><span class="line"><span class="comment">#   2. 尝试导入本地镜像（mongo7.0.6.tar）</span></span><br><span class="line"><span class="comment">#   3. 创建数据、配置、日志目录，并设置权限</span></span><br><span class="line"><span class="comment">#   4. 生成默认配置文件 mongod.conf</span></span><br><span class="line"><span class="comment">#   5. 启动 MongoDB  容器，并设置管理员账号密码、端口、时区  </span></span><br><span class="line"><span class="comment">#   6. 检查容器是否成功启动</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 适用场景：</span></span><br><span class="line"><span class="comment">#   - 无网络环境下使用 Docker 安装 MongoDB 7.0.6</span></span><br><span class="line"><span class="comment">#   - 需要快速部署 MongoDB 7.0.6 容器，并支持外部访问</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 可配置变量：</span></span><br><span class="line"><span class="comment">#   IMAGE_FILE      MongoDB 镜像 tar 包路径</span></span><br><span class="line"><span class="comment">#   IMAGE_NAME      Docker 镜像名称</span></span><br><span class="line"><span class="comment">#   CONTAINER_NAME  容器名称</span></span><br><span class="line"><span class="comment">#   MONGO_PORT      MongoDB 端口</span></span><br><span class="line"><span class="comment">#   MONGO_USER      管理员用户名</span></span><br><span class="line"><span class="comment">#   MONGO_PASSWORD  管理员密码</span></span><br><span class="line"><span class="comment">#   TZ              容器时区</span></span><br><span class="line"><span class="comment">#   BASE_DIR        数据、配置、日志基础目录</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 使用方法：</span></span><br><span class="line"><span class="comment">#   1. 确保 /resources/mongo7.0.6.tar 文件存在</span></span><br><span class="line"><span class="comment">#   2. 执行脚本：sudo bash /scripts/local-docker-mongo.sh</span></span><br><span class="line"><span class="comment">#   3. 查看容器状态：docker ps</span></span><br><span class="line"><span class="comment">#   4. 查看日志：docker logs $CONTAINER_NAME</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 可配置参数</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">IMAGE_FILE=<span class="string">&quot;/resources/mongo7.0.6.tar&quot;</span></span><br><span class="line">IMAGE_NAME=<span class="string">&quot;mongo:7.0.6&quot;</span></span><br><span class="line">CONTAINER_NAME=<span class="string">&quot;mongodb&quot;</span></span><br><span class="line">MONGO_PORT=27017</span><br><span class="line">MONGO_USER=<span class="string">&quot;admin&quot;</span></span><br><span class="line">MONGO_PASSWORD=<span class="string">&quot;Z3ACxCMS&quot;</span></span><br><span class="line">TZ=<span class="string">&quot;Asia/Shanghai&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据、配置、日志目录</span></span><br><span class="line">BASE_DIR=<span class="string">&quot;/data/soft/mongo&quot;</span></span><br><span class="line">DATA_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/data&quot;</span></span><br><span class="line">CONF_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/conf&quot;</span></span><br><span class="line">LOGS_DIR=<span class="string">&quot;<span class="variable">$BASE_DIR</span>/logs&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建目录结构</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建目录...&quot;</span></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$CONF_DIR</span>&quot;</span> <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"><span class="comment"># 设置日志目录权限，保证容器可写</span></span><br><span class="line"><span class="built_in">chown</span> -R 999:999 <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> docker pull <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span>; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像 <span class="variable">$IMAGE_NAME</span> 拉取成功，跳过导入&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;镜像 <span class="variable">$IMAGE_NAME</span> 拉取失败，尝试导入本地镜像 <span class="variable">$IMAGE_FILE</span> ...&quot;</span></span><br><span class="line">    <span class="keyword">if</span> docker image inspect <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;镜像 <span class="variable">$IMAGE_NAME</span> 已存在，跳过导入&quot;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        LOADED_IMAGE=$(docker load -i <span class="string">&quot;<span class="variable">$IMAGE_FILE</span>&quot;</span> | awk -F<span class="string">&#x27;: &#x27;</span> <span class="string">&#x27;/Loaded image:/ &#123;print $2&#125;&#x27;</span>)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;加载完成，原始镜像: <span class="variable">$LOADED_IMAGE</span>&quot;</span></span><br><span class="line"></span><br><span class="line">        docker tag <span class="string">&quot;<span class="variable">$LOADED_IMAGE</span>&quot;</span> <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;镜像已重命名为 <span class="variable">$IMAGE_NAME</span>&quot;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 创建默认配置文件</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line">CONF_FILE=<span class="string">&quot;<span class="variable">$CONF_DIR</span>/mongod.conf&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;创建默认配置文件 <span class="variable">$CONF_FILE</span> ...&quot;</span></span><br><span class="line"><span class="built_in">cat</span> &gt; <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span> &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">storage:</span></span><br><span class="line"><span class="string">  dbPath: /data/db</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">systemLog:</span></span><br><span class="line"><span class="string">  destination: file</span></span><br><span class="line"><span class="string">  logAppend: true</span></span><br><span class="line"><span class="string">  path: /var/log/mongodb/mongod.log</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">net:</span></span><br><span class="line"><span class="string">  port: $MONGO_PORT</span></span><br><span class="line"><span class="string">  bindIp: 0.0.0.0</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">processManagement:</span></span><br><span class="line"><span class="string">  fork: false</span></span><br><span class="line"><span class="string">  timeZoneInfo: /usr/share/zoneinfo</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">security:</span></span><br><span class="line"><span class="string">  authorization: enabled</span></span><br><span class="line"><span class="string">EOF</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 启动容器</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;启动 MongoDB 容器...&quot;</span></span><br><span class="line">CONTAINER_ID=$(docker run -d \</span><br><span class="line">  --name <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span> \</span><br><span class="line">  --restart=unless-stopped \</span><br><span class="line">  -p <span class="variable">$MONGO_PORT</span>:27017 \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$DATA_DIR</span>&quot;</span>:/data/db \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span>:/etc/mongod.conf \</span><br><span class="line">  -v <span class="string">&quot;<span class="variable">$LOGS_DIR</span>&quot;</span>:/var/log/mongodb \</span><br><span class="line">  -e MONGO_INITDB_ROOT_USERNAME=<span class="string">&quot;<span class="variable">$MONGO_USER</span>&quot;</span> \</span><br><span class="line">  -e MONGO_INITDB_ROOT_PASSWORD=<span class="string">&quot;<span class="variable">$MONGO_PASSWORD</span>&quot;</span> \</span><br><span class="line">  -e TZ=<span class="string">&quot;<span class="variable">$TZ</span>&quot;</span> \</span><br><span class="line">  <span class="variable">$IMAGE_NAME</span> \</span><br><span class="line">  --config /etc/mongod.conf) || &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;容器启动失败！请检查配置或镜像&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="comment"># 检查容器状态</span></span><br><span class="line"><span class="comment"># =========================</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="subst">$(docker ps -q -f id=$CONTAINER_ID)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器已启动，容器名：<span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    docker ps --filter <span class="string">&quot;id=<span class="variable">$CONTAINER_ID</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;MongoDB 容器启动失败，请查看日志：docker logs <span class="variable">$CONTAINER_NAME</span>&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -24703,7 +24703,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf install -y ./*.rpm</span><br></pre></td></tr></table></figure>
 
 <h2 id="配置文件-可选"><a href="#配置文件-可选" class="headerlink" title="配置文件(可选)"></a>配置文件(可选)</h2><p>修改端口绑定</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># mongod.conf</span><br><span class="line"></span><br><span class="line"># for documentation of all options, see:</span><br><span class="line">#   http://docs.mongodb.org/manual/reference/configuration-options/</span><br><span class="line"></span><br><span class="line"># where to write logging data.</span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: true</span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line"># Where and how to store data.</span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongo</span><br><span class="line">  journal:</span><br><span class="line">    enabled: true</span><br><span class="line">#  engine:</span><br><span class="line">#  wiredTiger:</span><br><span class="line"></span><br><span class="line"># how the process runs</span><br><span class="line">processManagement:</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line"># network interfaces</span><br><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 0.0.0.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#security:</span><br><span class="line"></span><br><span class="line">#operationProfiling:</span><br><span class="line"></span><br><span class="line">#replication:</span><br><span class="line"></span><br><span class="line">#sharding:</span><br><span class="line"></span><br><span class="line">## Enterprise-Only Options</span><br><span class="line"></span><br><span class="line">#auditLog:</span><br><span class="line"></span><br><span class="line">#snmp:</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># mongod.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># for documentation of all options, see:</span></span><br><span class="line"><span class="comment">#   http://docs.mongodb.org/manual/reference/configuration-options/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># where to write logging data.</span></span><br><span class="line">systemLog:</span><br><span class="line">  destination: file</span><br><span class="line">  logAppend: <span class="literal">true</span></span><br><span class="line">  path: /var/log/mongodb/mongod.log</span><br><span class="line"></span><br><span class="line"><span class="comment"># Where and how to store data.</span></span><br><span class="line">storage:</span><br><span class="line">  dbPath: /var/lib/mongo</span><br><span class="line">  journal:</span><br><span class="line">    enabled: <span class="literal">true</span></span><br><span class="line"><span class="comment">#  engine:</span></span><br><span class="line"><span class="comment">#  wiredTiger:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># how the process runs</span></span><br><span class="line">processManagement:</span><br><span class="line">  timeZoneInfo: /usr/share/zoneinfo</span><br><span class="line"></span><br><span class="line"><span class="comment"># network interfaces</span></span><br><span class="line">net:</span><br><span class="line">  port: 27017</span><br><span class="line">  bindIp: 0.0.0.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#security:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#operationProfiling:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#replication:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sharding:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## Enterprise-Only Options</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#auditLog:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#snmp:</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl start mongod</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> mongod</span><br><span class="line"><span class="built_in">sudo</span> systemctl status mongod</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -24714,13 +24714,45 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/mongo/image-20250815164416267.png" alt="image-20250815164416267"></p>
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/mongo/image-20250815164358826.png" alt="image-20250815164358826"></p>
-<h1 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h1><h2 id="容器内部备份示例"><a href="#容器内部备份示例" class="headerlink" title="容器内部备份示例"></a>容器内部备份示例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建备份目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出所有数据库</span></span><br><span class="line">mongodump -u admin --password 123456 --authenticationDatabase admin --out /tmp/backup</span><br></pre></td></tr></table></figure>
+<h1 id="数据备份与恢复"><a href="#数据备份与恢复" class="headerlink" title="数据备份与恢复"></a>数据备份与恢复</h1><h2 id="mongo数据库备份分析"><a href="#mongo数据库备份分析" class="headerlink" title="mongo数据库备份分析"></a>mongo数据库备份分析</h2><blockquote>
+<h3 id="1-早期版本-MongoDB-2-x-3-6"><a href="#1-早期版本-MongoDB-2-x-3-6" class="headerlink" title="1. 早期版本 (MongoDB 2.x~3.6)"></a>1. 早期版本 (MongoDB 2.x~3.6)</h3><ul>
+<li>用户信息可以存储在<strong>每个数据库内部</strong>，也就是 <code>db.system.users</code>。</li>
+<li>用户只对所在数据库有权限。</li>
+<li>认证数据库默认就是用户所在数据库。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">use test</span><br><span class="line">db.createUser(&#123;user: &quot;alice&quot;, pwd: &quot;123&quot;, roles: [&quot;readWrite&quot;]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这时用户 <code>alice</code> 存储在 <code>test.system.users</code>。</p>
+<hr>
+<h3 id="2-现代版本-MongoDB-4-x-7-x"><a href="#2-现代版本-MongoDB-4-x-7-x" class="headerlink" title="2. 现代版本 (MongoDB 4.x~7.x)"></a>2. 现代版本 (MongoDB 4.x~7.x)</h3><ul>
+<li><strong>用户统一存储在 <code>admin</code> 数据库中</strong>（默认）。</li>
+<li>MongoDB 使用 <strong>“全局用户认证机制”</strong>，所有用户和角色信息集中存储在 <code>admin.system.users</code>。</li>
+<li>这样管理更集中、权限更统一，也便于跨数据库授权。</li>
+</ul>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">use admin</span><br><span class="line">db.createUser(&#123;user: &quot;admin&quot;, pwd: &quot;123&quot;, roles: [&quot;root&quot;]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>然后可以给其他数据库授予权限，不必在每个数据库中单独创建用户。</p>
+<hr>
+<p>早期版本备份用户：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongodump --db <span class="built_in">test</span> --collection system.users --out /tmp/backup</span><br></pre></td></tr></table></figure>
+
+<p>恢复：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongorestore --db <span class="built_in">test</span> --collection system.users /tmp/backup/test/system.users.bson</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h2 id="全备份示例"><a href="#全备份示例" class="headerlink" title="全备份示例"></a>全备份示例</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建备份目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /tmp/backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出所有数据库</span></span><br><span class="line">mongodump -u admin --password 123456 --authenticationDatabase admin --out /tmp/backup</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>默认会连接本地 27017</li>
 <li>所有数据库会导出到 <code>/tmp/backup</code>，每个数据库生成一个文件夹，每个集合生成 <code>.bson</code> 和 <code>.metadata.json</code> 文件。</li>
 </ul>
-<hr>
+<h2 id="备份单个数据库"><a href="#备份单个数据库" class="headerlink" title="备份单个数据库"></a>备份单个数据库</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 导出所有数据库</span></span><br><span class="line">mongodump -u admin -p 123456 --authenticationDatabase admin -d regen --out /tmp/backup</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="容器外备份（宿主机访问容器-MongoDB）"><a href="#容器外备份（宿主机访问容器-MongoDB）" class="headerlink" title="容器外备份（宿主机访问容器 MongoDB）"></a>容器外备份（宿主机访问容器 MongoDB）</h2><p>如果你在宿主机操作，假设容器映射端口 27017：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /root/mongo_backup</span><br><span class="line"></span><br><span class="line">mongodump -h 127.0.0.1 -p 27017 -u admin --password 123456 --authenticationDatabase admin --out /tmp/backup</span><br></pre></td></tr></table></figure>
 
@@ -24731,7 +24763,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/root/mongo_backup/</span><br><span class="line">├── admin/</span><br><span class="line">├── config/</span><br><span class="line">├── local/</span><br><span class="line">├── mydb/</span><br><span class="line">└── otherdb/</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="还原所有数据库"><a href="#还原所有数据库" class="headerlink" title="还原所有数据库"></a>还原所有数据库</h2><p>如果要恢复全部数据库：</p>
+<h2 id="还原所有数据库"><a href="#还原所有数据库" class="headerlink" title="还原所有数据库"></a>还原所有数据库</h2><p>也包括之前的用户认证信息。</p>
+<p>如果要恢复全部数据库：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mongorestore -u admin --password 123456 --authenticationDatabase admin /root/backup</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -24745,8 +24778,6 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>容器内操作简单，容器外操作需要指定 host&#x2F;port</li>
 <li>挂载宿主机目录可以持久化备份</li>
 </ul>
-<hr>
-<p>mongosh -u admin -p 123456 –authenticationDatabase admin</p>
 <h1 id="mongo基础"><a href="#mongo基础" class="headerlink" title="mongo基础"></a>mongo基础</h1><hr>
 <h2 id="1-数据库相关"><a href="#1-数据库相关" class="headerlink" title="1. 数据库相关"></a><strong>1. 数据库相关</strong></h2><table>
 <thead>
@@ -24808,8 +24839,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <hr>
 <h2 id="5-用户与权限"><a href="#5-用户与权限" class="headerlink" title="5. 用户与权限"></a><strong>5. 用户与权限</strong></h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在 admin 数据库创建超级用户</span></span><br><span class="line">use admin</span><br><span class="line">db.<span class="title function_">createUser</span>(&#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">    <span class="attr">pwd</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line">    <span class="attr">roles</span>: [&#123;<span class="attr">role</span>: <span class="string">&quot;root&quot;</span>, <span class="attr">db</span>: <span class="string">&quot;admin&quot;</span>&#125;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看当前数据库用户</span></span><br><span class="line">show users</span><br></pre></td></tr></table></figure>
 
-<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p>配置文件里的时区项不能随意修改</p>
-<p>如果是docker部署需要使用 <code>-e TZ=Asia/Shanghai</code>，如果是宿主机则会（还不清楚）…</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p>配置文件里的时区项不能随意修改<code>timeZoneInfo: /usr/share/zoneinfo</code></p>
+<p>如果是docker部署需要在run的时候使用 <code>-e TZ=Asia/Shanghai</code>，如果是宿主机则会（还不清楚）…</p>
 <p>不管是docker还是宿主机，这项配置改动了都可能起不来。</p>
 <blockquote>
 <p>Docker 容器中推荐用 <strong><code>-e TZ</code></strong> 方式设置时区，而不是修改 <code>mongod.conf</code>。</p>
@@ -24935,6 +24966,247 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>github</tag>
         <tag>CI/CD</tag>
         <tag>github actions</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>influx数据库</title>
+    <url>/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+    <content><![CDATA[<h1 id="influxdb简介"><a href="#influxdb简介" class="headerlink" title="influxdb简介"></a>influxdb简介</h1><h3 id="influxDB-简介"><a href="#influxDB-简介" class="headerlink" title="influxDB 简介"></a>influxDB 简介</h3><p>InfluxDB 是一个 **开源的时序数据库 (Time-Series Database, TSDB)**，专门用于存储、查询和分析 <strong>带时间戳的数据</strong>。</p>
+<h3 id="基本特点"><a href="#基本特点" class="headerlink" title="基本特点"></a>基本特点</h3><ul>
+<li><strong>高效写入</strong>：能处理大量实时数据流（如传感器、日志、监控数据）。</li>
+<li><strong>时间序列查询</strong>：支持按时间范围快速查询和聚合。</li>
+<li><strong>内置函数</strong>：提供统计、聚合（平均值、最大值、最小值等）。</li>
+<li><strong>轻量易用</strong>：安装简单，常与 Telegraf、Grafana 搭配使用。</li>
+</ul>
+<h3 id="常见应用"><a href="#常见应用" class="headerlink" title="常见应用"></a>常见应用</h3><ol>
+<li><strong>系统和应用监控</strong>（CPU、内存、接口性能）</li>
+<li><strong>物联网数据</strong>（温度、湿度、传感器信息）</li>
+<li><strong>金融行情数据</strong>（股票、加密货币价格）</li>
+<li><strong>日志和事件记录</strong></li>
+</ol>
+<h1 id="influxdb-1-8-部署"><a href="#influxdb-1-8-部署" class="headerlink" title="influxdb 1.8 部署"></a>influxdb 1.8 部署</h1><h2 id="docker-持久化部署"><a href="#docker-持久化部署" class="headerlink" title="docker 持久化部署"></a>docker 持久化部署</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备目录结构和配置文件</p>
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820163421374.png" alt="image-20250820163421374"></p>
+<p>案例配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">reporting-disabled = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[meta]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/meta&quot;</span></span><br><span class="line"></span><br><span class="line">[data]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/data&quot;</span></span><br><span class="line">  wal-dir = <span class="string">&quot;/var/lib/influxdb/wal&quot;</span></span><br><span class="line"></span><br><span class="line">[http]</span><br><span class="line">  enabled = <span class="literal">true</span></span><br><span class="line">  bind-address = <span class="string">&quot;:8086&quot;</span></span><br><span class="line">  auth-enabled = <span class="literal">false</span> <span class="comment"># 先创建admin再 true</span></span><br><span class="line">  access-log-path = <span class="string">&quot;/var/log/influxdb/access.log&quot;</span></span><br><span class="line"></span><br><span class="line">[logging]</span><br><span class="line">  file = <span class="string">&quot;/var/log/influxdb/influxdb.json&quot;</span></span><br><span class="line">  level = <span class="string">&quot;info&quot;</span></span><br><span class="line">  format = <span class="string">&quot;json&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name influxdb \</span><br><span class="line">  -p 8086:8086 \</span><br><span class="line">  -v /data/soft/influxdb1.8/data:/var/lib/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8/config/influxdb.conf:/etc/influxdb/influxdb.conf \</span><br><span class="line">  -v /data/soft/influxdb1.8/log:/var/log/influxdb \</span><br><span class="line">  influxdb:1.8 -config /etc/influxdb/influxdb.conf </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="实体机部署"><a href="#实体机部署" class="headerlink" title="实体机部署"></a>实体机部署</h2><h3 id="添加仓库"><a href="#添加仓库" class="headerlink" title="添加仓库"></a>添加仓库</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/yum.repos.d/influxdb.repo &lt;&lt;<span class="string">EOF</span></span><br><span class="line"><span class="string">[influxdb]</span></span><br><span class="line"><span class="string">name = InfluxDB Repository - RHEL/CentOS \$releasever</span></span><br><span class="line"><span class="string">baseurl = https://repos.influxdata.com/rhel/\$releasever/\$basearch/stable</span></span><br><span class="line"><span class="string">enabled = 1</span></span><br><span class="line"><span class="string">gpgcheck = 1</span></span><br><span class="line"><span class="string">gpgkey = https://repos.influxdata.com/influxdb.key</span></span><br><span class="line"><span class="string">EOF</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看版本"><a href="#查看版本" class="headerlink" title="查看版本"></a>查看版本</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dnf list influxdb</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dnf install -y influxdb-1.8.10-1</span><br><span class="line"><span class="comment"># GPG 签名校验失败可以使用</span></span><br><span class="line"><span class="built_in">sudo</span> dnf install -y --nogpgcheck influxdb-1.8.10-1</span><br></pre></td></tr></table></figure>
+
+<h1 id="influxdb数据备份"><a href="#influxdb数据备份" class="headerlink" title="influxdb数据备份"></a>influxdb数据备份</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it influxdb influxd backup -portable /var/lib/influxdb/backup</span><br><span class="line">docker <span class="built_in">cp</span> influxdb:/var/lib/influxdb/backup ./backup20250819</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820164400019.png" alt="image-20250820164400019"></p>
+<h1 id="influxdb数据恢复"><a href="#influxdb数据恢复" class="headerlink" title="influxdb数据恢复"></a>influxdb数据恢复</h1><blockquote>
+<p>版本原因只能恢复业务数据。</p>
+<p>用户则需要单独导入。</p>
+</blockquote>
+<h2 id="全量恢复"><a href="#全量恢复" class="headerlink" title="全量恢复"></a>全量恢复</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name influxdb_new \</span><br><span class="line">  -p 8087:8086 \</span><br><span class="line">  -v /data/soft/influxdb1.8new/data:/var/lib/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8new/config/influxdb.conf:/etc/influxdb/influxdb.conf \</span><br><span class="line">  -v /data/soft/influxdb1.8new/log:/var/log/influxdb \</span><br><span class="line">  -v /data/soft/influxdb1.8new/backup:/var/lib/influxdb/backup \</span><br><span class="line">  influxdb:1.8 -config /etc/influxdb/influxdb.conf \</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it influxdb_new influxd restore -portable /var/lib/influxdb/backup</span><br></pre></td></tr></table></figure>
+
+<h2 id="增量恢复"><a href="#增量恢复" class="headerlink" title="增量恢复"></a>增量恢复</h2><p>通过挂载或者cp备份文件到容器里</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it influxdb_new influxd restore -portable -db mydb1 -newdb mydb1 /var/lib/influxdb/backup</span><br><span class="line">docker exec -it influxdb_new influxd restore -portable -db mydb2 -newdb mydb2 /var/lib/influxdb/backup</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="influxdb版本分析"><a href="#influxdb版本分析" class="headerlink" title="influxdb版本分析"></a>influxdb版本分析</h1><p>InfluxDB 的版本线主要分为 <strong>1.x 系列</strong>和 <strong>2.x 系列</strong>，其中 1.x 又有不同小版本（如 1.8、1.11）</p>
+<h2 id="1-1-x-系列"><a href="#1-1-x-系列" class="headerlink" title="1. 1.x 系列"></a>1. 1.x 系列</h2><h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><ul>
+<li><strong>单独数据库、测量、点的概念</strong>。</li>
+<li>使用 <strong>InfluxQL</strong> 作为主要查询语言（类似 SQL）。</li>
+<li>数据库管理简单，部署轻量。</li>
+<li>适合 <strong>传统 TSDB 用法</strong>：监控、IoT、日志。</li>
+</ul>
+<h3 id="版本区别"><a href="#版本区别" class="headerlink" title="版本区别"></a>版本区别</h3><table>
+<thead>
+<tr>
+<th>版本</th>
+<th>主要变化</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1.8</td>
+<td>- 最后一版 1.x 的长期支持 (LTS)- 支持 Flux 查询语言（实验性）- 企业版可用 Clustering（集群）- 兼容 1.x 所有 API</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>- 提供更好的兼容 2.x 的 Flux- 减少一些已弃用功能- 企业版增加一些新特性</td>
+</tr>
+<tr>
+<td>1.10&#x2F;1.11</td>
+<td>- 主要是性能优化和 bug 修复- Flux 功能更完整- 为平滑迁移到 2.x 做准备</td>
+</tr>
+</tbody></table>
+<p><strong>总结</strong>：1.x 系列以 <strong>InfluxQL</strong> 为主，Flux 为辅，适合长期使用和稳定项目。1.8 是 LTS，1.11 则是稳定性和性能的增强版。</p>
+<hr>
+<h2 id="2-2-x-系列"><a href="#2-2-x-系列" class="headerlink" title="2. 2.x 系列"></a>2. 2.x 系列</h2><h3 id="主要特点-1"><a href="#主要特点-1" class="headerlink" title="主要特点"></a>主要特点</h3><ul>
+<li><strong>融合数据库、任务管理、告警、可视化于一体</strong>（InfluxDB UI、任务调度、Alerts）。</li>
+<li><strong>默认使用 Flux 语言</strong>，InfluxQL 可兼容但不推荐。</li>
+<li><strong>多租户、多组织支持</strong>：组织（Org）、桶（Bucket）替代 1.x 的 database + retention policy。</li>
+<li><strong>安全与认证</strong>：2.x 默认启用 token-based 认证。</li>
+<li><strong>API 和数据模型变化</strong>：<ul>
+<li>Database → Bucket</li>
+<li>Retention Policy → Bucket 的保留策略</li>
+<li>Measurement、Tag、Field 基本概念保留，但 API 有变化</li>
+</ul>
+</li>
+<li>适合 <strong>现代云原生监控、大规模 IoT 和多组织场景</strong>。</li>
+</ul>
+<h3 id="主要区别对比-1-x"><a href="#主要区别对比-1-x" class="headerlink" title="主要区别对比 1.x"></a>主要区别对比 1.x</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>1.x</th>
+<th>2.x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>查询语言</td>
+<td>InfluxQL 为主，Flux 可选</td>
+<td>Flux 为主，InfluxQL 可兼容</td>
+</tr>
+<tr>
+<td>数据库概念</td>
+<td>Database + Measurement + RP</td>
+<td>Organization + Bucket + Measurement</td>
+</tr>
+<tr>
+<td>UI</td>
+<td>简单 Web UI</td>
+<td>完整 UI + Task + Alert + Explore</td>
+</tr>
+<tr>
+<td>认证</td>
+<td>可选</td>
+<td>Token-based 强制认证</td>
+</tr>
+<tr>
+<td>集群</td>
+<td>企业版支持</td>
+<td>企业版支持，集群管理更现代化</td>
+</tr>
+<tr>
+<td>开箱体验</td>
+<td>轻量</td>
+<td>功能丰富，但稍重</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><strong>1.x 系列</strong>：轻量、稳定、InfluxQL 主导，适合老项目或简单部署。1.8 是长期支持版，1.11 是功能和性能优化版。</li>
+<li><strong>2.x 系列</strong>：功能完整、现代化、多租户，Flux 主导，适合新项目和云原生场景。</li>
+</ul>
+<h1 id="nfluxQL和-Flux"><a href="#nfluxQL和-Flux" class="headerlink" title="nfluxQL和 Flux"></a>nfluxQL和 Flux</h1><h2 id="1-InfluxQL"><a href="#1-InfluxQL" class="headerlink" title="1. InfluxQL"></a>1. InfluxQL</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><strong>InfluxQL</strong> 是 <strong>InfluxDB 1.x 系列的主查询语言</strong>。</li>
+<li>类似 SQL，但专门针对 <strong>时序数据（Time Series Data）</strong> 优化。</li>
+<li>支持数据查询、聚合、分组、时间范围选择。</li>
+</ul>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p><strong>类 SQL 语法</strong>，容易上手：</p>
+  <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> mean(&quot;value&quot;) </span><br><span class="line"><span class="keyword">FROM</span> &quot;temperature&quot; </span><br><span class="line"><span class="keyword">WHERE</span> &quot;device&quot;<span class="operator">=</span><span class="string">&#x27;esp32&#x27;</span> <span class="keyword">AND</span> <span class="type">time</span> <span class="operator">&gt;</span> now() <span class="operator">-</span> <span class="number">1</span>h </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> <span class="type">time</span>(<span class="number">5</span>m)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>功能有限</strong>：</p>
+<ul>
+<li>聚合函数、分组、时间条件</li>
+<li>不能方便地做复杂的数据管道和跨数据库分析</li>
+</ul>
+</li>
+<li><p><strong>只支持 InfluxDB</strong>，不能做跨数据源处理</p>
+</li>
+</ul>
+<h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>1.x 系列项目</li>
+<li>简单时序查询、告警阈值计算、监控指标聚合</li>
+</ul>
+<hr>
+<h2 id="2-Flux"><a href="#2-Flux" class="headerlink" title="2. Flux"></a>2. Flux</h2><h3 id="概述-1"><a href="#概述-1" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><strong>Flux</strong> 是 InfluxData 推出的 <strong>通用数据脚本语言</strong>，兼容 1.x，但 2.x 系列默认使用。</li>
+<li>不仅可以查询 InfluxDB，也支持其他数据源（CSV、Prometheus、HTTP API 等）。</li>
+</ul>
+<h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><p><strong>函数式语言</strong>，支持数据管道：</p>
+  <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="title function_">from</span>(<span class="attr">bucket</span>:<span class="string">&quot;temperature_bucket&quot;</span>)</span><br><span class="line">  |&gt; <span class="title function_">range</span>(<span class="attr">start</span>: -1h)</span><br><span class="line">  |&gt; <span class="title function_">filter</span>(<span class="attr">fn</span>: <span class="function">(<span class="params">r</span>) =&gt;</span> r.<span class="property">_measurement</span> == <span class="string">&quot;temperature&quot;</span> and r.<span class="property">device</span> == <span class="string">&quot;esp32&quot;</span>)</span><br><span class="line">  |&gt; <span class="title function_">aggregateWindow</span>(<span class="attr">every</span>: 5m, <span class="attr">fn</span>: mean)</span><br><span class="line">  |&gt; <span class="title function_">yield</span>(<span class="attr">name</span>: <span class="string">&quot;mean&quot;</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>更强大</strong>：</p>
+<ul>
+<li>数据清洗、转换、聚合、窗口计算</li>
+<li>可跨桶、跨组织查询</li>
+<li>支持复杂告警逻辑</li>
+</ul>
+</li>
+<li><p><strong>学习曲线稍陡</strong>：不再是 SQL 风格，而是函数式链式操作</p>
+</li>
+</ul>
+<h3 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>2.x 系列项目</li>
+<li>高级数据分析、跨数据源整合、复杂告警</li>
+</ul>
+<hr>
+<h2 id="3-对比总结"><a href="#3-对比总结" class="headerlink" title="3. 对比总结"></a>3. 对比总结</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>InfluxQL</th>
+<th>Flux</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>语法风格</td>
+<td>类 SQL</td>
+<td>函数式管道</td>
+</tr>
+<tr>
+<td>支持数据源</td>
+<td>仅 InfluxDB</td>
+<td>InfluxDB + CSV + Prometheus + HTTP 等</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>查询 + 聚合 + 分组</td>
+<td>查询 + 聚合 + 转换 + 跨桶分析 + 复杂逻辑</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>容易上手</td>
+<td>功能强大但学习成本高</td>
+</tr>
+<tr>
+<td>默认版本</td>
+<td>1.x</td>
+<td>2.x</td>
+</tr>
+</tbody></table>
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><h2 id="日志文件无法挂载"><a href="#日志文件无法挂载" class="headerlink" title="日志文件无法挂载"></a>日志文件无法挂载</h2><p>access.log可以正常挂载出俩，配置文件设置好了日志输出也还是没有。不管是docker还是宿主机直接部署都没有。不太清除怎么解决，不太清楚怎么解决，发了issue。</p>
+<blockquote>
+<p>issue : <a href="https://github.com/influxdata/influxdata-docker/issues/822">Unable to output influxd.log. · Issue #822 · influxdata&#x2F;influxdata-docker</a></p>
+</blockquote>
+<p>补救方式，可以输出日志到挂载的文件里。格式与配置文件有关（json或者其他）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 进入容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it influxdb bash</span><br><span class="line"><span class="comment"># 执行</span></span><br><span class="line">influxd &gt; /var/log/influxdb/influxdb.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户数据无法迁移"><a href="#用户数据无法迁移" class="headerlink" title="用户数据无法迁移"></a>用户数据无法迁移</h2><p>备份出来的数据确实包含meta元数据，但是恢复的时候尝试了很多方法无法都不行。只能用sql一个个插入了。</p>
+<p>备份时用的是 -portable ，导入备份时只能-portable，而不能用-metadir。两者是不同方式备份出来的文件。</p>
+<ol>
+<li>如果使用 -portable导出，导入时必没有用户数据，业务数据正常导入</li>
+<li>不支持其他方式：<strong>普通 OSS 容器只能做 portable backup</strong>：</li>
+</ol>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>Anolis</tag>
+        <tag>influxdb</tag>
       </tags>
   </entry>
 </search>
