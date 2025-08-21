@@ -25282,8 +25282,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <content><![CDATA[<h1 id="cowsay-dont-be-so-serious"><a href="#cowsay-dont-be-so-serious" class="headerlink" title="cowsay dont be so serious~"></a>cowsay dont be so serious~</h1><p>​	命令行神器cowsay。用过的都说绝。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y cowsay</span><br></pre></td></tr></table></figure>
 
-<p>​	<img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250821151635370.png" alt="image-20250821151635370"></p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250821151757753.png" alt="image-20250821151757753"></p>
+<p>​	<img src="/../images/Linux/interesting/image-20250821151635370.png" alt="image-20250821151635370"></p>
+<p><img src="/../images/Linux/interesting/image-20250821151757753.png" alt="image-20250821151757753"></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
