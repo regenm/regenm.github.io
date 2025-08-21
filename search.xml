@@ -9665,6 +9665,12 @@
 <p>应该显示：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Docker Root Dir: /data/docker</span><br></pre></td></tr></table></figure>
 
+<h2 id="docker-compose安装"><a href="#docker-compose安装" class="headerlink" title="docker-compose安装"></a>docker-compose安装</h2><h3 id="下载docker-compose-linux-x86-64"><a href="#下载docker-compose-linux-x86-64" class="headerlink" title="下载docker-compose-linux-x86_64"></a>下载docker-compose-linux-x86_64</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">docker_compose_version=2.27.1</span><br><span class="line">wget -O docker-compose <span class="string">&quot;https://github.com/docker/compose/releases/download/v<span class="variable">$&#123;docker_compose_version&#125;</span>/docker-compose-linux-x86_64</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mv</span> docker-compose-Linux-x86_64 /usr/local/bin/docker-compose</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+
 <h1 id="技术分析"><a href="#技术分析" class="headerlink" title="技术分析"></a>技术分析</h1><p>Docker 容器的实现基于 <strong>Linux 内核的核心技术</strong>，通过资源隔离和虚拟化技术模拟独立的运行环境。以下是其核心实现原理：</p>
 <h3 id="1-核心技术（Linux-内核支持）"><a href="#1-核心技术（Linux-内核支持）" class="headerlink" title="1. 核心技术（Linux 内核支持）"></a><strong>1. 核心技术（Linux 内核支持）</strong></h3><p>Docker 容器本质上是 <strong>隔离的进程</strong>，依赖以下 Linux 特性实现：</p>
 <ul>
@@ -11149,7 +11155,7 @@
     <title>jira、confluence、bitbucket、基于crowd实现sso的案例</title>
     <url>/2025/07/21/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso%E7%9A%84%E6%A1%88%E4%BE%8B/</url>
     <content><![CDATA[<h1 id="jira、confluence、bitbucket、基于crowd实现sso的案例"><a href="#jira、confluence、bitbucket、基于crowd实现sso的案例" class="headerlink" title="jira、confluence、bitbucket、基于crowd实现sso的案例"></a>jira、confluence、bitbucket、基于crowd实现sso的案例</h1><h2 id="案例简介"><a href="#案例简介" class="headerlink" title="案例简介"></a>案例简介</h2><blockquote>
-<p>这是公司的旧生产环境备份案例：</p>
+<p>这是旧生产环境备份案例：</p>
 <p><strong>版本信息</strong></p>
 <ul>
 <li>jira:7.13</li>
@@ -11685,7 +11691,7 @@
     <url>/2023/09/16/vim-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="VIM普通模式"><a href="#VIM普通模式" class="headerlink" title="* VIM普通模式"></a>* VIM普通模式</h1><p>​	① 移动光标 ② 复制 粘贴 ③ 剪切 粘贴 删除 ④ 撤销与恢复</p>
 <h2 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h2><p><strong>光标上下左右移动</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">h       #左移</span><br><span class="line">j      #下移</span><br><span class="line">k      #上移</span><br><span class="line">l      #右移</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">h       #左移</span><br><span class="line">j      #下移</span><br><span class="line">k      #上移</span><br><span class="line">l      #右移</span><br></pre></td></tr></table></figure>
 
 <p><strong>移动多行</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">4h       #左移4格</span><br><span class="line">4j      #上移4行</span><br><span class="line">4k      #下移4行</span><br><span class="line">4l      #右移4格</span><br></pre></td></tr></table></figure>
@@ -12053,7 +12059,68 @@
 </tr>
 </tbody></table>
 <hr>
-<p>是否要我给你一张快捷键总结图？或者针对某类操作（比如查找替换、代码缩进）出个练习小册？</p>
+<h1 id="场景技巧"><a href="#场景技巧" class="headerlink" title="场景技巧"></a>场景技巧</h1><h2 id="查找替换"><a href="#查找替换" class="headerlink" title="查找替换"></a>查找替换</h2><p>在 <strong>Vim</strong> 中，查找和替换主要用 <code>:s</code> 命令完成。常见用法如下：</p>
+<hr>
+<h3 id="1-替换当前行"><a href="#1-替换当前行" class="headerlink" title="1. 替换当前行"></a>1. 替换当前行</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:s/old/<span class="keyword">new</span>/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只替换当前行第一个匹配的 <code>old</code> 为 <code>new</code>。</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:s/old/<span class="keyword">new</span>/g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>替换当前行所有的 <code>old</code> 为 <code>new</code>。</li>
+</ul>
+<hr>
+<h3 id="2-替换整个文件"><a href="#2-替换整个文件" class="headerlink" title="2. 替换整个文件"></a>2. 替换整个文件</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/old/<span class="keyword">new</span>/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在整个文件中，替换第一个匹配的 <code>old</code>。</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/old/<span class="keyword">new</span>/g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在整个文件中，替换所有 <code>old</code> 为 <code>new</code>。</li>
+</ul>
+<hr>
+<h3 id="3-替换指定范围"><a href="#3-替换指定范围" class="headerlink" title="3. 替换指定范围"></a>3. 替换指定范围</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:<span class="number">10</span>,<span class="number">20</span>s/old/<span class="keyword">new</span>/g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在第 10 行到第 20 行之间替换所有 <code>old</code> 为 <code>new</code>。</li>
+</ul>
+<hr>
+<h3 id="4-每次替换时确认"><a href="#4-每次替换时确认" class="headerlink" title="4. 每次替换时确认"></a>4. 每次替换时确认</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/old/<span class="keyword">new</span>/gc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>替换整个文件所有 <code>old</code> 为 <code>new</code>，**每次替换都会提示 (y&#x2F;n&#x2F;a&#x2F;q&#x2F;l)**。<ul>
+<li><code>y</code> &#x3D; 替换</li>
+<li><code>n</code> &#x3D; 跳过</li>
+<li><code>a</code> &#x3D; 替换所有</li>
+<li><code>q</code> &#x3D; 退出</li>
+<li><code>l</code> &#x3D; 替换当前并退出</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="5-使用正则表达式"><a href="#5-使用正则表达式" class="headerlink" title="5. 使用正则表达式"></a>5. 使用正则表达式</h3><p>Vim 的替换支持正则：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/foo[<span class="number">0</span>-<span class="number">9</span>]\+/bar/g</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>把所有 <code>foo</code> 加数字的字符串换成 <code>bar</code>。</li>
+</ul>
+<hr>
+<h3 id="6-忽略大小写"><a href="#6-忽略大小写" class="headerlink" title="6. 忽略大小写"></a>6. 忽略大小写</h3><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/old/<span class="keyword">new</span>/gi</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>i</code> 表示忽略大小写。</li>
+</ul>
+<hr>
+<h3 id="7-使用寄存器或变量替换"><a href="#7-使用寄存器或变量替换" class="headerlink" title="7. 使用寄存器或变量替换"></a>7. 使用寄存器或变量替换</h3><p>比如用寄存器内容：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">:%s/old/\=@<span class="comment">&quot;/g</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用系统寄存器里的内容替换 <code>old</code>。</li>
+</ul>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -25207,6 +25274,23 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>docker</tag>
         <tag>Anolis</tag>
         <tag>influxdb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>命令行神器cowsay</title>
+    <url>/2025/08/21/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A5%9E%E5%99%A8cowsay/</url>
+    <content><![CDATA[<h1 id="cowsay-dont-be-so-serious"><a href="#cowsay-dont-be-so-serious" class="headerlink" title="cowsay dont be so serious~"></a>cowsay dont be so serious~</h1><p>​	命令行神器cowsay。用过的都说绝。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y cowsay</span><br></pre></td></tr></table></figure>
+
+<p>​	<img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250821151635370.png" alt="image-20250821151635370"></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250821151757753.png" alt="image-20250821151757753"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
 </search>
