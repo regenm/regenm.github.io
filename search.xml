@@ -25384,4 +25384,109 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>mongodb</tag>
       </tags>
   </entry>
+  <entry>
+    <title>skywalking学习使用</title>
+    <url>/2025/08/29/skywalking%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="skywalking简介"><a href="#skywalking简介" class="headerlink" title="skywalking简介"></a>skywalking简介</h1><blockquote>
+<p>SkyWalking 是一款开源的分布式应用性能监控（APM）系统，它通过 Agent 收集应用的调用链和性能指标（如 CPU、内存、数据库和 HTTP），将数据发送到 OAP（核心分析平台）进行处理和存储（支持 Elasticsearch、MySQL 等），并在 UI 前端可视化展示服务拓扑、指标和告警信息，帮助开发和运维快速定位微服务、容器化或云原生应用中的性能瓶颈和异常问题。</p>
+<p><strong>SkyWalking vs Zabbix 的对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>SkyWalking</th>
+<th>Zabbix</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>分布式应用性能监控（APM）</td>
+<td>基础设施监控和告警系统</td>
+</tr>
+<tr>
+<td>主要监控对象</td>
+<td>微服务应用、容器、云原生环境</td>
+<td>服务器、网络设备、应用服务</td>
+</tr>
+<tr>
+<td>核心功能</td>
+<td>分布式追踪、指标监控、服务拓扑、告警</td>
+<td>主机监控、网络监控、服务可用性、告警</td>
+</tr>
+<tr>
+<td>数据采集方式</td>
+<td>Agent 嵌入应用、自动采集调用链和指标</td>
+<td>SNMP、Agent、IPMI、JMX 等协议采集</td>
+</tr>
+<tr>
+<td>数据存储</td>
+<td>Elasticsearch、MySQL、H2、TiDB 等</td>
+<td>内置数据库（MySQL、PostgreSQL）、可扩展</td>
+</tr>
+<tr>
+<td>可视化</td>
+<td>Web UI 展示调用拓扑图、指标趋势、Trace</td>
+<td>Web UI 展示主机&#x2F;服务状态、图表、报表</td>
+</tr>
+<tr>
+<td>告警能力</td>
+<td>基于指标和异常事件，可定制策略</td>
+<td>支持阈值、事件触发告警，可邮件、短信、Webhook</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>微服务性能分析、调用链追踪、容器化应用监控</td>
+<td>基础设施监控、网络设备监控、服务器健康检查</td>
+</tr>
+<tr>
+<td>部署复杂度</td>
+<td>中等，需要 Agent + OAP + 存储</td>
+<td>中等偏低，安装 Zabbix Server + Agent</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>全链路追踪，定位服务性能瓶颈</td>
+<td>监控范围广，覆盖 IT 基础设施，成熟稳定</td>
+</tr>
+</tbody></table>
+<p><strong>github地址：</strong><a href="https://github.com/apache/skywalking">apache&#x2F;skywalking: APM, Application Performance Monitoring System</a></p>
+<p><strong>官网：</strong><a href="https://skywalking.apache.org/">Apache SkyWalking</a></p>
+</blockquote>
+<h1 id="skywalking部署"><a href="#skywalking部署" class="headerlink" title="skywalking部署"></a>skywalking部署</h1><h2 id="1-准备镜像"><a href="#1-准备镜像" class="headerlink" title="1. 准备镜像"></a>1. 准备镜像</h2><p>​	需要有<code>docker</code>和<code>docker-compose</code>环境</p>
+<p>​	需要准备<code>docker-compose.yml</code>。如果是离线环境还需要准备三个镜像文件。分别是</p>
+<blockquote>
+<p>apache&#x2F;skywalking-ui：9.5.0<br>apache&#x2F;skywalking-oap-server：9.5.0<br>docker.elastic.co&#x2F;elasticsearch&#x2F;elasticsearch：7.17.10</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250829104438779.png" alt="image-20250829104438779"></p>
+</blockquote>
+<p>离线环境切到资源文件夹下执行导入镜像。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /data/resources</span><br><span class="line">docker load -i skywalking-ui9.5.0.tar</span><br><span class="line">docker load -i sskywalking-oap-server9.5.0.tar</span><br><span class="line">docker load -i elasticsearch7.17.10.tar</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-docker-compose起容器"><a href="#2-docker-compose起容器" class="headerlink" title="2. docker-compose起容器"></a>2. docker-compose起容器</h2><p>在<code>docker-compose.yml</code>目录下运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250829105013603.png" alt="image-20250829105013603"></p>
+<p>至此skywalking部署完毕，<strong>暂未进行</strong>数据卷的<strong>持久化挂载</strong>。</p>
+<p><code>docker-compose.yml</code>源码：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">elasticsearch:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">docker.elastic.co/elasticsearch/elasticsearch:7.17.10</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">skywalking-es</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">discovery.type=single-node</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ES_JAVA_OPTS=-Xms1g</span> <span class="string">-Xmx1g</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ELASTIC_USERNAME=elastic</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">ELASTIC_PASSWORD=123456</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">xpack.security.enabled=false</span> </span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;9200:9200&quot;</span></span><br><span class="line">    <span class="attr">ulimits:</span></span><br><span class="line">      <span class="attr">memlock:</span></span><br><span class="line">        <span class="attr">soft:</span> <span class="number">-1</span></span><br><span class="line">        <span class="attr">hard:</span> <span class="number">-1</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">skywalking-net</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">oap:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apache/skywalking-oap-server:9.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">skywalking-oap</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">elasticsearch</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_STORAGE=elasticsearch</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_STORAGE_ES_CLUSTER_NODES=elasticsearch:9200</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_ES_USER=elastic</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_ES_PASSWORD=&quot;123456&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_ES_SSL_VERIFY_CERTIFICATE=false</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;11800:11800&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;12800:12800&quot;</span></span><br><span class="line">    <span class="attr">healthcheck:</span></span><br><span class="line">      <span class="attr">test:</span> [<span class="string">&quot;CMD-SHELL&quot;</span>, <span class="string">&quot;curl -s -X POST http://localhost:12800/graphql -H &#x27;Content-Type: application/json&#x27; -d &#x27;&#123;\&quot;query\&quot;: \&quot;query &#123; version &#125;\&quot;&#125;&#x27; | grep -q &#x27;\&quot;data\&quot;&#x27;&quot;</span>]</span><br><span class="line">      <span class="attr">interval:</span> <span class="string">30s</span></span><br><span class="line">      <span class="attr">timeout:</span> <span class="string">120s</span></span><br><span class="line">      <span class="attr">retries:</span> <span class="number">3</span></span><br><span class="line">      <span class="attr">start_period:</span> <span class="string">90s</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">skywalking-net</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ui:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">apache/skywalking-ui:9.5.0</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">skywalking-ui</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="attr">oap:</span></span><br><span class="line">        <span class="attr">condition:</span> <span class="string">service_healthy</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">TZ=Asia/Shanghai</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SW_OAP_ADDRESS=http://oap:12800</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8080:8080&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">skywalking-net</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">skywalking-net:</span></span><br><span class="line">    <span class="attr">driver:</span> <span class="string">bridge</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-检查skywalking-ui"><a href="#3-检查skywalking-ui" class="headerlink" title="3. 检查skywalking-ui"></a>3. 检查skywalking-ui</h2><p>通过IP地址+端口访问skywalking-ui：<code>http://192.168.72.128:8080/general</code>。</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250829105313821.png" alt="image-20250829105313821"></p>
+<h2 id="4-检查skywalking-oap"><a href="#4-检查skywalking-oap" class="headerlink" title="4. 检查skywalking-oap"></a>4. 检查skywalking-oap</h2><p>可以通过编写Python脚本模拟发送数据。可以看到数据正常显示，说明三个组件都工作正常了。至此部署成功。</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250829110339226.png" alt="image-20250829110339226"></p>
+<p>python脚本：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;SW_AGENT_NAME&quot;</span>] = <span class="string">&quot;python-test-service-2&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;SW_AGENT_COLLECTOR_BACKEND_SERVICES&quot;</span>] = <span class="string">&quot;127.0.0.1:11800&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skywalking <span class="keyword">import</span> agent, config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Agent</span></span><br><span class="line">agent.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 Trace 的业务函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">do_work</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># requests 会被 Agent 自动 patch，生成 Span</span></span><br><span class="line">        r = requests.get(<span class="string">&quot;http://httpbin.org/get&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[Trace] Request status: <span class="subst">&#123;r.status_code&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[Trace] Request failed:&quot;</span>, e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;SkyWalking Python agent test started&quot;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        do_work()</span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>skywalking</tag>
+        <tag>docker-compose</tag>
+      </tags>
+  </entry>
 </search>
