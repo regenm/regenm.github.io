@@ -25273,7 +25273,10 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>旅游足迹前端小项目</title>
     <url>/2025/08/31/%E6%97%85%E6%B8%B8%E8%B6%B3%E8%BF%B9%E5%89%8D%E7%AB%AF%E5%B0%8F%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="🌍-Travel-Footprints-Map-足迹地图"><a href="#🌍-Travel-Footprints-Map-足迹地图" class="headerlink" title="🌍 Travel Footprints Map 足迹地图"></a>🌍 Travel Footprints Map 足迹地图</h1><p>中文说明 | <a href="./README.en.md">English</a></p>
+    <content><![CDATA[<blockquote>
+<p><a href="https://github.com/regenm/vueTravelFootprints">regenm&#x2F;vueTravelFootprints: A vue3 project using mapApi and flask to to show your travel footprints</a></p>
+</blockquote>
+<h1 id="🌍-Travel-Footprints-Map-足迹地图"><a href="#🌍-Travel-Footprints-Map-足迹地图" class="headerlink" title="🌍 Travel Footprints Map 足迹地图"></a>🌍 Travel Footprints Map 足迹地图</h1><p>中文说明 | <a href="./README.en.md">English</a></p>
 <p>一个基于 <strong>Vue 3 + Flask + 本地 JSON 文件</strong> 的旅行足迹记录应用，使用 <strong>高德地图 API (AMap)</strong> 进行地图渲染。</p>
 <p>Images are stored via <strong>URL links</strong> (e.g. OSS, Cloudflare, GitHub Pages + jsDelivr).<br> Since the dataset is small (text + URLs), a <strong>local JSON file</strong> is used as a lightweight database.</p>
 <hr>
@@ -25313,6 +25316,32 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>Flask</tag>
         <tag>vue3</tag>
         <tag>amap</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《庆祝无意义》</title>
+    <url>/2025/09/01/%E3%80%8A%E5%BA%86%E7%A5%9D%E6%97%A0%E6%84%8F%E4%B9%89%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="《庆祝无意义》"><a href="#《庆祝无意义》" class="headerlink" title="《庆祝无意义》"></a>《庆祝无意义》</h1><h2 id="米兰·昆德拉"><a href="#米兰·昆德拉" class="headerlink" title="米兰·昆德拉"></a>米兰·昆德拉</h2><p>​	一开始以为庆祝无意义中的庆祝是动词，无意义是名词。看了法语原名才知道“庆祝”其实是名词化的用法。但是其实我个人还更感觉作动词更有意思点。有种幽默的感觉，还挺“轻盈”的。</p>
+<p>​	这本小说很短，一次通勤就不知不觉地看完了。可能是上一本书是《大卫·科波尔菲》的原因，总觉得这本书也可以慢慢看上一两周，没想到一下就看完了。看完了再去回忆一下《不能承受的生命之轻》和看看书评才了解了个大概。</p>
+<blockquote>
+<p>故弄玄虚寻开心可以保护你们。然而这曾经是我们大家的战略战术。我们很久以来就明白世界是不可能推翻的，不可能改造的，也是不可能阻挡其不幸的进展的。只有一种可能的抵挡：不必认真对待。</p>
+</blockquote>
+<blockquote>
+<p>长得丑，这也属于人权的一部分吗？一辈子长个丑相你知道意味着什么吗？没有片刻的安宁！你的性别也不是你自己选择的。还有你眼睛的颜色。你所处的世纪。你的国家。你的母亲。重要的一切都不是你自己选择的。一个人只对无关紧要的事拥有权利，为它们那就实在没有理由斗争或者写那些什么宣言了！ </p>
+</blockquote>
+<blockquote>
+<p>……达德洛见到自己的俏皮话引起了反响很得意，继续卖弄嘴上功夫。稍后他注意到美人已经不在。因为他一点不知道有个卡格里克存在，他无法向自己解释她的失踪。他一点都不明白，直到今天他还是一点都不明白无意义的价值。这就是我对达德洛的愚蠢属于哪一类的回答。” “高明就是无用，是的，我懂。” “比无用更差。不老练。当一个高明的人试图勾引女人，这个女人就觉得在进行竞争。她觉得自己也必须高明。不能不作抵抗就投降。而无意义解放了她。让她摆脱提防之心。不要求动任何脑筋。让她无忧无虑，从而更容易俘获。</p>
+</blockquote>
+<blockquote>
+<p>时间过得飞快。幸亏有了时间，我们首先是活着，也就是说：被人控诉、被人审判。然后我们走向死亡，我们跟那些认识我们的人还可以待上几年，但是很快产生另一个变化：死的人变成了死了很久的死人，没有人再记得他们，他们消失在虚无中；只有几个人，极少数极少数几个人，还让他们的名字留在记忆中，但是由于失去了真正的见证人、真实的回忆，他们也变成了木偶…… 无意义，我的朋友，这是生存的本质。它到处、永远跟我们形影不离。甚至出现在无人可以看见它的地方：在恐怖时，在血腥斗争时，在大苦大难时。这经常需要勇气在惨烈的条件下把它认出来，直呼其名。然而不但要把它认出来，还应该爱它——这个无意义，应该学习去爱它。 </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
       </tags>
   </entry>
 </search>
