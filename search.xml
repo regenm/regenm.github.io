@@ -10313,7 +10313,7 @@
 <li><strong>日志和事件记录</strong></li>
 </ol>
 <h1 id="influxdb-1-8-部署"><a href="#influxdb-1-8-部署" class="headerlink" title="influxdb 1.8 部署"></a>influxdb 1.8 部署</h1><h2 id="docker-持久化部署"><a href="#docker-持久化部署" class="headerlink" title="docker 持久化部署"></a>docker 持久化部署</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>准备目录结构和配置文件</p>
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820163421374.png" alt="image-20250820163421374"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/influxdb/image-20250820163421374.png" alt="image-20250820163421374"></p>
 <p>案例配置文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">reporting-disabled = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[meta]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/meta&quot;</span></span><br><span class="line"></span><br><span class="line">[data]</span><br><span class="line">  <span class="built_in">dir</span> = <span class="string">&quot;/var/lib/influxdb/data&quot;</span></span><br><span class="line">  wal-dir = <span class="string">&quot;/var/lib/influxdb/wal&quot;</span></span><br><span class="line"></span><br><span class="line">[http]</span><br><span class="line">  enabled = <span class="literal">true</span></span><br><span class="line">  bind-address = <span class="string">&quot;:8086&quot;</span></span><br><span class="line">  auth-enabled = <span class="literal">false</span> <span class="comment"># 先创建admin再 true,如果是用了-e创建则可选true</span></span><br><span class="line">  access-log-path = <span class="string">&quot;/var/log/influxdb/access.log&quot;</span></span><br><span class="line"></span><br><span class="line">[logging]</span><br><span class="line">  file = <span class="string">&quot;/var/log/influxdb/influxdb.json&quot;</span></span><br><span class="line">  level = <span class="string">&quot;info&quot;</span></span><br><span class="line">  format = <span class="string">&quot;json&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -10334,7 +10334,7 @@
 
 <h1 id="influxdb数据备份"><a href="#influxdb数据备份" class="headerlink" title="influxdb数据备份"></a>influxdb数据备份</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it influxdb influxd backup -portable /var/lib/influxdb/backup</span><br><span class="line">docker <span class="built_in">cp</span> influxdb:/var/lib/influxdb/backup ./backup20250819</span><br></pre></td></tr></table></figure>
 
-<p><img src="H:\git_project\RegenBlogs\hexo\blog\source\images\Linux\运维\influxdb\image-20250820164400019.png" alt="image-20250820164400019"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/influxdb/image-20250820164400019.png" alt="image-20250820164400019"></p>
 <h1 id="influxdb数据恢复"><a href="#influxdb数据恢复" class="headerlink" title="influxdb数据恢复"></a>influxdb数据恢复</h1><blockquote>
 <p>版本原因只能恢复业务数据。</p>
 <p>用户则需要单独导入。</p>
@@ -25503,6 +25503,49 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>vue</tag>
         <tag>前端</tag>
         <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>influxdb1.8增量备份实现方案</title>
+    <url>/2025/09/03/influxdb1-8%E5%A2%9E%E9%87%8F%E5%A4%87%E4%BB%BD%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="influxdb1-8增量备份实现方案"><a href="#influxdb1-8增量备份实现方案" class="headerlink" title="influxdb1.8增量备份实现方案"></a>influxdb1.8增量备份实现方案</h1><p>在<a href="https://docs.influxdb.org.cn/influxdb/v1/administration/backup_and_restore/#configure-backup-and-restore-services">官方手册| InfluxDB OSS v1 文档 - InfluxDB 文档</a>中有写到influxdb1.11不支持增量备份，不止1.11,1.8等版本也不支持增量备份。但是我们可以通过定制rsync的方式实现增量备份。</p>
+<p>例如：每天凌晨两点拉取同步一次data目录。</p>
+<blockquote>
+<p>经测试，直接挂载此rsync过来的目录可以直接被influxdb容器挂载。如果需要复原则直接挂在此目录即可，如果容器起来之后恢复好了数据，增量数据来了只需重启即可。</p>
+</blockquote>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903170342350.png" alt="image-20250903170342350"></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="1-起一个待备份容器"><a href="#1-起一个待备份容器" class="headerlink" title="1. 起一个待备份容器"></a>1. 起一个待备份容器</h3><p>可参考<a href="https://regenm.github.io/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/">influx数据库 | Regen</a></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172502877.png" alt="image-20250903172502877"></p>
+<h3 id="2-rsync推送到备份机"><a href="#2-rsync推送到备份机" class="headerlink" title="2. rsync推送到备份机"></a>2. rsync推送到备份机</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rsync -avz --delete /data/soft/influxdb/data/ root@192.168.99.203:/data/soft/influxdb/data/</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172527875.png" alt="image-20250903172527875"></p>
+<h3 id="3-起一个还原容器并检查数据"><a href="#3-起一个还原容器并检查数据" class="headerlink" title="3. 起一个还原容器并检查数据"></a>3. 起一个还原容器并检查数据</h3><p>可参考<a href="https://regenm.github.io/2025/08/20/influx%E6%95%B0%E6%8D%AE%E5%BA%93/">influx数据库 | Regen</a></p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172559041.png" alt="image-20250903172559041"></p>
+<p>可以发现数据已还原</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172657959.png" alt="image-20250903172657959"></p>
+<h3 id="4-在待备份容器插入新数据"><a href="#4-在待备份容器插入新数据" class="headerlink" title="4. 在待备份容器插入新数据"></a>4. 在待备份容器插入新数据</h3><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172740848.png" alt="image-20250903172740848"></p>
+<h3 id="5-再次rsync推送到备份机"><a href="#5-再次rsync推送到备份机" class="headerlink" title="5.  再次rsync推送到备份机"></a>5.  再次rsync推送到备份机</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rsync -avz --delete /data/soft/influxdb/data/ root@192.168.99.203:/data/soft/influxdb/data/</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-重启还原重启并测试数据完整性"><a href="#6-重启还原重启并测试数据完整性" class="headerlink" title="6. 重启还原重启并测试数据完整性"></a>6. 重启还原重启并测试数据完整性</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker restart influxdb </span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903172947300.png" alt="image-20250903172947300"></p>
+<h2 id="自动化脚本"><a href="#自动化脚本" class="headerlink" title="自动化脚本"></a>自动化脚本</h2><p>自动拉取远程机器的data目录到本机</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># ================================================================</span></span><br><span class="line"><span class="comment"># 脚本名称：influxdb-sync.sh</span></span><br><span class="line"><span class="comment"># 功能：远程拉取 InfluxDB 容器的数据目录到本地，并保持一致（增删同步）</span></span><br><span class="line"><span class="comment"># ================================================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 配置区 ====</span></span><br><span class="line">REMOTE_USER=<span class="string">&quot;root&quot;</span>                     <span class="comment"># 远程用户名</span></span><br><span class="line">REMOTE_PASS=<span class="string">&quot;123&quot;</span>            <span class="comment"># 远程密码（明文）</span></span><br><span class="line">REMOTE_HOST=<span class="string">&quot;192.168.321.123&quot;</span>            <span class="comment"># 远程主机 IP</span></span><br><span class="line">REMOTE_DIR=<span class="string">&quot;/data/soft/influxdb/data&quot;</span>    <span class="comment"># 远程 InfluxDB 数据目录</span></span><br><span class="line"></span><br><span class="line">LOCAL_DIR=<span class="string">&quot;/data/backup/influxdb/data&quot;</span>        <span class="comment"># 本地保存路径</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="variable">$LOCAL_DIR</span></span><br><span class="line"><span class="comment"># ==== 定时任务配置 ====</span></span><br><span class="line">SCRIPT_PATH=<span class="string">&quot;/data/scripts/influxdb-rsync-direct-backup.sh&quot;</span>  <span class="comment"># 脚本绝对路径</span></span><br><span class="line">LOG_FILE=<span class="string">&quot;/var/log/influxdb-sync.log&quot;</span></span><br><span class="line">CRON_EXP=<span class="string">&quot;0 2 * * *&quot;</span>   <span class="comment"># 每天凌晨 2 点执行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 执行 rsync 同步 ====</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;&gt;&gt;&gt; 开始同步：<span class="variable">$REMOTE_HOST</span>:<span class="variable">$REMOTE_DIR</span> -&gt; <span class="variable">$LOCAL_DIR</span>&quot;</span></span><br><span class="line">sshpass -p <span class="string">&quot;<span class="variable">$REMOTE_PASS</span>&quot;</span> rsync -avz --delete <span class="string">&quot;<span class="variable">$REMOTE_USER</span>@<span class="variable">$REMOTE_HOST</span>:<span class="variable">$REMOTE_DIR</span>/&quot;</span> <span class="string">&quot;<span class="variable">$LOCAL_DIR</span>/&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;✅ 同步完成 <span class="subst">$(date)</span>&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$LOG_FILE</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;❌ 同步失败 <span class="subst">$(date)</span>&quot;</span> | <span class="built_in">tee</span> -a <span class="string">&quot;<span class="variable">$LOG_FILE</span>&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ==== 自动写入 crontab ====</span></span><br><span class="line">(crontab -l 2&gt;/dev/null | grep -F <span class="string">&quot;<span class="variable">$SCRIPT_PATH</span>&quot;</span>) &gt;/dev/null</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]; <span class="keyword">then</span></span><br><span class="line">    (crontab -l 2&gt;/dev/null; <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$CRON_EXP</span> bash <span class="variable">$SCRIPT_PATH</span> &gt;&gt; <span class="variable">$LOG_FILE</span> 2&gt;&amp;1&quot;</span>) | crontab -</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;✅ 已添加定时任务：每天凌晨 2 点执行 <span class="variable">$SCRIPT_PATH</span>&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;ℹ️ 定时任务已存在，无需重复添加&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>anolis</tag>
+        <tag>docker</tag>
+        <tag>influxdb</tag>
+        <tag>备份</tag>
       </tags>
   </entry>
 </search>
