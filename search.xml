@@ -25633,6 +25633,82 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dhcp-option DNS 192.168.99.205</span><br></pre></td></tr></table></figure>
 
 <p>从新连接后 VPN 后无需手动修改网卡、内网域名解析正常，服务可访问。OpenVPN 自动修改虚拟网卡的 DNS 设置并注册到系统、保证内网域名解析请求优先通过 VPN 虚拟网卡。dhcp-option DNS 使 VPN 成为系统 DNS 的首选。</p>
+<hr>
+<h1 id="dns问题分析工具"><a href="#dns问题分析工具" class="headerlink" title="dns问题分析工具"></a>dns问题分析工具</h1><h2 id="1️⃣-查看当前-DNS-设置"><a href="#1️⃣-查看当前-DNS-设置" class="headerlink" title="1️⃣ 查看当前 DNS 设置"></a>1️⃣ 查看当前 DNS 设置</h2><h3 id="查看所有网卡-DNS-服务器地址"><a href="#查看所有网卡-DNS-服务器地址" class="headerlink" title="查看所有网卡 DNS 服务器地址"></a>查看所有网卡 DNS 服务器地址</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClientServerAddress</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看指定网卡-DNS-地址"><a href="#查看指定网卡-DNS-地址" class="headerlink" title="查看指定网卡 DNS 地址"></a>查看指定网卡 DNS 地址</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClientServerAddress</span> <span class="literal">-InterfaceAlias</span> <span class="string">&quot;以太网 8&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看-DNS-后缀（ConnectionSpecificSuffix）"><a href="#查看-DNS-后缀（ConnectionSpecificSuffix）" class="headerlink" title="查看 DNS 后缀（ConnectionSpecificSuffix）"></a>查看 DNS 后缀（ConnectionSpecificSuffix）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClient</span> | <span class="built_in">Select-Object</span> InterfaceAlias,ConnectionSpecificSuffix</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看接口-Metric（优先级）"><a href="#查看接口-Metric（优先级）" class="headerlink" title="查看接口 Metric（优先级）"></a>查看接口 Metric（优先级）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-NetIPInterface</span> | <span class="built_in">Sort-Object</span> InterfaceMetric</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2️⃣-设置-修改-DNS"><a href="#2️⃣-设置-修改-DNS" class="headerlink" title="2️⃣ 设置&#x2F;修改 DNS"></a>2️⃣ 设置&#x2F;修改 DNS</h2><h3 id="修改网卡-DNS-服务器"><a href="#修改网卡-DNS-服务器" class="headerlink" title="修改网卡 DNS 服务器"></a>修改网卡 DNS 服务器</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-DnsClientServerAddress</span> <span class="literal">-InterfaceAlias</span> <span class="string">&quot;以太网 8&quot;</span> <span class="literal">-ServerAddresses</span> <span class="number">192.168</span>.<span class="number">99.205</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置-DNS-搜索后缀（ConnectionSpecificSuffix）"><a href="#设置-DNS-搜索后缀（ConnectionSpecificSuffix）" class="headerlink" title="设置 DNS 搜索后缀（ConnectionSpecificSuffix）"></a>设置 DNS 搜索后缀（ConnectionSpecificSuffix）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-DnsClient</span> <span class="literal">-InterfaceAlias</span> <span class="string">&quot;以太网 8&quot;</span> <span class="literal">-ConnectionSpecificSuffix</span> <span class="string">&quot;test.regen&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="添加多个-DNS-服务器（按优先顺序）"><a href="#添加多个-DNS-服务器（按优先顺序）" class="headerlink" title="添加多个 DNS 服务器（按优先顺序）"></a>添加多个 DNS 服务器（按优先顺序）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Set-DnsClientServerAddress</span> <span class="literal">-InterfaceAlias</span> <span class="string">&quot;以太网 8&quot;</span> <span class="literal">-ServerAddresses</span> (<span class="string">&quot;192.168.99.205&quot;</span>,<span class="string">&quot;202.96.209.5&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3️⃣-刷新和测试-DNS"><a href="#3️⃣-刷新和测试-DNS" class="headerlink" title="3️⃣ 刷新和测试 DNS"></a>3️⃣ 刷新和测试 DNS</h2><h3 id="刷新-DNS-缓存"><a href="#刷新-DNS-缓存" class="headerlink" title="刷新 DNS 缓存"></a>刷新 DNS 缓存</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ipconfig /flushdns</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试-DNS-解析"><a href="#测试-DNS-解析" class="headerlink" title="测试 DNS 解析"></a>测试 DNS 解析</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">nslookup jira.test.regen <span class="number">192.168</span>.<span class="number">99.205</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="测试网络可达性（IP）"><a href="#测试网络可达性（IP）" class="headerlink" title="测试网络可达性（IP）"></a>测试网络可达性（IP）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ping <span class="number">192.168</span>.<span class="number">99.205</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="测试端口（例如-DNS-UDP-53）"><a href="#测试端口（例如-DNS-UDP-53）" class="headerlink" title="测试端口（例如 DNS UDP 53）"></a>测试端口（例如 DNS UDP 53）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Test-NetConnection</span> <span class="number">192.168</span>.<span class="number">99.205</span> <span class="literal">-Port</span> <span class="number">53</span> <span class="literal">-Udp</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4️⃣-路由相关命令（确保-DNS-请求走-VPN-网卡）"><a href="#4️⃣-路由相关命令（确保-DNS-请求走-VPN-网卡）" class="headerlink" title="4️⃣ 路由相关命令（确保 DNS 请求走 VPN 网卡）"></a>4️⃣ 路由相关命令（确保 DNS 请求走 VPN 网卡）</h2><h3 id="查看路由表"><a href="#查看路由表" class="headerlink" title="查看路由表"></a>查看路由表</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">route print</span><br></pre></td></tr></table></figure>
+
+<h3 id="手动添加到-VPN-网卡的静态路由（示例）"><a href="#手动添加到-VPN-网卡的静态路由（示例）" class="headerlink" title="手动添加到 VPN 网卡的静态路由（示例）"></a>手动添加到 VPN 网卡的静态路由（示例）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">route add <span class="number">192.168</span>.<span class="number">99.205</span> mask <span class="number">255.255</span>.<span class="number">255.255</span> &lt;VPN_TAP_IP&gt;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="5️⃣-调试和抓包"><a href="#5️⃣-调试和抓包" class="headerlink" title="5️⃣ 调试和抓包"></a>5️⃣ 调试和抓包</h2><ul>
+<li><strong>抓包工具</strong>：Wireshark &#x2F; Microsoft Network Monitor</li>
+<li><strong>观察 DNS 请求是否发到 VPN 网卡</strong></li>
+<li><strong>查看 response 是否缺失（DNS response missing）</strong></li>
+</ul>
+<hr>
+<h2 id="6️⃣-OpenVPN-客户端相关配置"><a href="#6️⃣-OpenVPN-客户端相关配置" class="headerlink" title="6️⃣ OpenVPN 客户端相关配置"></a>6️⃣ OpenVPN 客户端相关配置</h2><p>在 OpenVPN 配置文件（.ovpn）中：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 下发 VPN 内网 DNS</span><br><span class="line">dhcp-option DNS 192.168.99.205</span><br><span class="line"></span><br><span class="line"># 下发 DNS 搜索后缀</span><br><span class="line">dhcp-option DOMAIN test.regen</span><br><span class="line"></span><br><span class="line"># 阻止系统走外部 DNS（Windows 专用）</span><br><span class="line">block-outside-dns</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="一般情况下详细的DNS解析流程"><a href="#一般情况下详细的DNS解析流程" class="headerlink" title="一般情况下详细的DNS解析流程"></a>一般情况下详细的DNS解析流程</h1><p>假设你在浏览器中输入 <code>www.example.com</code> 并按下回车。</p>
+<h4 id="第1步：检查浏览器缓存"><a href="#第1步：检查浏览器缓存" class="headerlink" title="第1步：检查浏览器缓存"></a>第1步：检查浏览器缓存</h4><ul>
+<li>浏览器会首先检查自己的缓存中是否曾经解析过这个域名并有有效的IP地址。如果有，直接使用，解析结束。缓存时间由DNS记录中的TTL值决定。</li>
+</ul>
+<h4 id="第2步：检查操作系统缓存与Hosts文件"><a href="#第2步：检查操作系统缓存与Hosts文件" class="headerlink" title="第2步：检查操作系统缓存与Hosts文件"></a>第2步：检查操作系统缓存与Hosts文件</h4><ul>
+<li>如果浏览器缓存没有，浏览器会调用操作系统的DNS解析器（如Windows中的 <code>gethostbyname</code> 函数）。</li>
+<li>操作系统会先检查自己的<strong>本地DNS缓存</strong>。如果缓存中有，直接返回结果。</li>
+<li>操作系统还会检查本地的 <strong><code>hosts</code>文件</strong>（在Windows系统位于 <code>C:\Windows\System32\drivers\etc\hosts</code>，在Linux&#x2F;macOS位于 <code>/etc/hosts</code>）。如果文件中有对应的映射关系，则会直接使用该IP地址。</li>
+</ul>
+<h4 id="第3步：请求递归DNS服务器-ISP或公共DNS"><a href="#第3步：请求递归DNS服务器-ISP或公共DNS" class="headerlink" title="第3步：请求递归DNS服务器 (ISP或公共DNS)"></a>第3步：请求递归DNS服务器 (ISP或公共DNS)</h4><ul>
+<li>如果前两步都没有找到记录，操作系统会将查询请求发送到<strong>配置好的递归DNS服务器</strong>（通常在路由器或ISP那里自动获取，也可能是你手动设置的如 <code>8.8.8.8</code>）。</li>
+<li><strong>至此，递归DNS服务器接过了“跑腿”的任务，后续的复杂查询过程都由它来完成，你的电脑只需等待它的最终回复。</strong></li>
+</ul>
+<h4 id="第4步：递归服务器查询根域名服务器"><a href="#第4步：递归服务器查询根域名服务器" class="headerlink" title="第4步：递归服务器查询根域名服务器"></a>第4步：递归服务器查询根域名服务器</h4><ul>
+<li>递归服务器首先也不知道 <code>www.example.com</code> 的IP。于是，它从“根”开始问起。</li>
+<li>它询问任意一个<strong>根域名服务器</strong>：“<code>www.example.com</code> 的IP是多少？”</li>
+<li>根域名服务器回复说：“我不知道 <code>.com</code> 之下的具体地址，但我可以告诉你负责 <code>.com</code> 这个顶级域的TLD服务器的地址列表。” 于是，它返回一个包含 <code>.com</code> TLD服务器的地址列表。</li>
+</ul>
+<h4 id="第5步：递归服务器查询TLD服务器"><a href="#第5步：递归服务器查询TLD服务器" class="headerlink" title="第5步：递归服务器查询TLD服务器"></a>第5步：递归服务器查询TLD服务器</h4><ul>
+<li>递归服务器拿到 <code>.com</code> TLD服务器的地址后，就去找其中一个询问：“<code>www.example.com</code> 的IP是多少？”</li>
+<li><code>.com</code> TLD服务器查看自己的记录，然后回复：“我不知道 <code>example.com</code> 域的具体地址，但我可以告诉你负责 <code>example.com</code> 这个域的<strong>权威域名服务器</strong>的地址列表。”</li>
+</ul>
+<h4 id="第6步：递归服务器查询权威域名服务器"><a href="#第6步：递归服务器查询权威域名服务器" class="headerlink" title="第6步：递归服务器查询权威域名服务器"></a>第6步：递归服务器查询权威域名服务器</h4><ul>
+<li>递归服务器又拿着权威服务器的地址，去找其中一个询问：“<code>www.example.com</code> 的IP是多少？”</li>
+<li>这次，<strong>权威域名服务器</strong>终于知道答案了！它查看自己的区域文件，找到与 <code>www.example.com</code> 对应的A记录（或CNAME记录），然后将最终的IP地址返回给递归服务器。</li>
+</ul>
+<h4 id="第7步：递归服务器将结果返回给客户端并缓存"><a href="#第7步：递归服务器将结果返回给客户端并缓存" class="headerlink" title="第7步：递归服务器将结果返回给客户端并缓存"></a>第7步：递归服务器将结果返回给客户端并缓存</h4><ul>
+<li>递归服务器终于拿到了IP地址！它非常高兴，首先将这个结果在自己的缓存中保存一段时间（由权威服务器返回的TTL值决定），以便下次有其他用户请求相同域名时能快速回复。</li>
+<li>然后，它将这个IP地址返回给你的操作系统。</li>
+</ul>
+<h4 id="第8步：客户端建立连接"><a href="#第8步：客户端建立连接" class="headerlink" title="第8步：客户端建立连接"></a>第8步：客户端建立连接</h4><ul>
+<li>操作系统收到IP后，自己也缓存一下这个结果。</li>
+<li>然后将IP地址交给浏览器。</li>
+<li><strong>最终</strong>，浏览器拿到了 <code>www.example.com</code> 的IP地址，它就可以通过这个IP地址与目标服务器建立TCP连接，发起HTTP请求，获取并渲染网页内容。</li>
+</ul>
 ]]></content>
       <categories>
         <category>软件技术</category>
