@@ -25624,10 +25624,10 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h3 id="初次尝试在-WLAN-网卡上手动设置-DNS"><a href="#初次尝试在-WLAN-网卡上手动设置-DNS" class="headerlink" title="初次尝试在 WLAN 网卡上手动设置 DNS"></a>初次尝试在 WLAN 网卡上手动设置 DNS</h3><p>​	WLAN 网卡 DNS 设置为 <code>192.168.99.205</code>。<code>nslookup</code>显示</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DNS request timed out</span><br><span class="line">timeout was 2 seconds</span><br><span class="line">服务器 UnKnown</span><br><span class="line">Address 10.8.0.1</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250908112555239.png" alt="image-20250908112555239"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250908112555239.png" alt="image-20250908112555239"></p>
 <p>​	说明没走wlan的配置的dns服务器。本来也应该如此，因为访问内网资源的流量必须走虚拟网卡。WLAN 设置的 DNS 没有被使用</p>
 <h3 id="尝试在-VPN-虚拟网卡上手动设置-DNS"><a href="#尝试在-VPN-虚拟网卡上手动设置-DNS" class="headerlink" title="尝试在 VPN 虚拟网卡上手动设置 DNS*"></a>尝试在 VPN 虚拟网卡上手动设置 DNS*</h3><p>​	将虚拟网卡 DNS 设置为 192.168.99.205。nslookup 内网域名成功解析但是ping 内网域名失败，服务无法访问</p>
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250908112816052.png" alt="image-20250908112816052"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250908112816052.png" alt="image-20250908112816052"></p>
 <p>虚拟网卡手动配置可能没有正确注册到系统 DNS或者路由表、接口优先级不完全匹配、内网流量无法通过虚拟网卡正确路由。接下来尝试使用 OpenVPN 的 dhcp-option 在客户端配置文件或服务器推送 DNS。</p>
 <h3 id="通过-OpenVPN-配置文件下发-DNS"><a href="#通过-OpenVPN-配置文件下发-DNS" class="headerlink" title="通过 OpenVPN 配置文件下发 DNS"></a>通过 OpenVPN 配置文件下发 DNS</h3><p>​	在客户端配置文件中增加</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dhcp-option DNS 192.168.99.205</span><br></pre></td></tr></table></figure>
@@ -25636,10 +25636,13 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <hr>
 <h1 id="dns问题分析工具"><a href="#dns问题分析工具" class="headerlink" title="dns问题分析工具"></a>dns问题分析工具</h1><h2 id="1️⃣-查看当前-DNS-设置"><a href="#1️⃣-查看当前-DNS-设置" class="headerlink" title="1️⃣ 查看当前 DNS 设置"></a>1️⃣ 查看当前 DNS 设置</h2><h3 id="查看所有网卡-DNS-服务器地址"><a href="#查看所有网卡-DNS-服务器地址" class="headerlink" title="查看所有网卡 DNS 服务器地址"></a>查看所有网卡 DNS 服务器地址</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClientServerAddress</span></span><br></pre></td></tr></table></figure>
 
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250908164244299.png" alt="image-20250908164244299"></p>
 <h3 id="查看指定网卡-DNS-地址"><a href="#查看指定网卡-DNS-地址" class="headerlink" title="查看指定网卡 DNS 地址"></a>查看指定网卡 DNS 地址</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClientServerAddress</span> <span class="literal">-InterfaceAlias</span> <span class="string">&quot;以太网 8&quot;</span></span><br></pre></td></tr></table></figure>
 
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250908164304911.png" alt="image-20250908164304911"></p>
 <h3 id="查看-DNS-后缀（ConnectionSpecificSuffix）"><a href="#查看-DNS-后缀（ConnectionSpecificSuffix）" class="headerlink" title="查看 DNS 后缀（ConnectionSpecificSuffix）"></a>查看 DNS 后缀（ConnectionSpecificSuffix）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-DnsClient</span> | <span class="built_in">Select-Object</span> InterfaceAlias,ConnectionSpecificSuffix</span><br></pre></td></tr></table></figure>
 
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250908164332110.png" alt="image-20250908164332110"></p>
 <h3 id="查看接口-Metric（优先级）"><a href="#查看接口-Metric（优先级）" class="headerlink" title="查看接口 Metric（优先级）"></a>查看接口 Metric（优先级）</h3><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Get-NetIPInterface</span> | <span class="built_in">Sort-Object</span> InterfaceMetric</span><br></pre></td></tr></table></figure>
 
 <hr>
