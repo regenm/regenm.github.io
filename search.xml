@@ -3986,6 +3986,9 @@
 <p><strong>实践建议</strong>：从明天起建立”问题价值评估表”，从信息增量（0-5分）和解决潜力（0-5分）两个维度评估每个问题，持续两周可显著改善提问质量（基于Harvard Business Review 2020年实验数据）</p>
 <p>需要针对某类具体问题（技术调试&#x2F;人际沟通&#x2F;决策分析）进一步展开时，可以随时提出细化需求。</p>
 ]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>github</tag>
@@ -25989,6 +25992,160 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>运维</tag>
         <tag>部署</tag>
         <tag>dns</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>minio部署学习</title>
+    <url>/2025/09/16/minio%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="minio部署学习"><a href="#minio部署学习" class="headerlink" title="minio部署学习"></a>minio部署学习</h1><blockquote>
+<p>​	MinIO 是一个高性能、开源的对象存储系统，兼容 Amazon S3 API，常用于存储非结构化数据，如图片、视频、日志、备份和容器镜像等。它采用 Go 语言开发，部署简单，支持单机模式和分布式集群模式，能够在通用硬件或云环境中运行。MinIO 具有轻量化、高扩展、高可靠的特点，可通过水平扩展节点来提升存储容量和性能。它同时提供命令行工具 <code>mc</code> 和 Web 管理控制台，方便用户进行 Bucket 管理、文件上传下载、访问权限配置和数据同步。凭借其 S3 兼容性，MinIO 常作为私有云或混合云对象存储的核心组件，适合企业构建云原生应用和大数据平台。</p>
+</blockquote>
+<h2 id="docker-持久化部署"><a href="#docker-持久化部署" class="headerlink" title="docker-持久化部署"></a>docker-持久化部署</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name minio \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9090:9090 \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=admin&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=admin123&quot;</span> \</span><br><span class="line">  -v /data/regen/minio/minio_home:/data \</span><br><span class="line">  minio/minio server /data --console-address <span class="string">&quot;:9090&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250916164537101.png" alt="image-20250916164537101"></p>
+<h1 id="mc"><a href="#mc" class="headerlink" title="mc"></a>mc</h1><h2 id="mc的使用"><a href="#mc的使用" class="headerlink" title="mc的使用"></a>mc的使用</h2><blockquote>
+<p><code>mc</code>（MinIO Client）是 MinIO 官方提供的命令行工具，用来管理 MinIO 或兼容 S3 的对象存储服务。它的作用类似于 <code>aws cli</code>，可以方便地创建存储桶（Bucket）、上传&#x2F;下载文件、同步目录、设置访问权限等。</p>
+</blockquote>
+<h2 id="mc-的安装"><a href="#mc-的安装" class="headerlink" title="mc 的安装"></a>mc 的安装</h2><p>Linux 安装示例：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://dl.min.io/client/mc/release/linux-amd64/mc</span><br><span class="line"><span class="built_in">chmod</span> +x mc</span><br><span class="line"><span class="built_in">mv</span> mc /usr/local/bin/</span><br></pre></td></tr></table></figure>
+
+<p>检查是否安装成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc --version</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="mc-的基本使用方法"><a href="#mc-的基本使用方法" class="headerlink" title="mc 的基本使用方法"></a>mc 的基本使用方法</h2><h3 id="1-添加存储服务（alias）"><a href="#1-添加存储服务（alias）" class="headerlink" title="1. 添加存储服务（alias）"></a>1. 添加存储服务（alias）</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">alias</span> <span class="built_in">set</span> myminio http://127.0.0.1:9000 admin 12345678</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>myminio</code> → 自定义的别名</li>
+<li><code>http://127.0.0.1:9000</code> → MinIO 服务地址</li>
+<li><code>admin 12345678</code> → 账号和密码</li>
+</ul>
+<p>之后所有操作都通过 <code>myminio</code> 来执行。</p>
+<hr>
+<h3 id="2-Bucket（存储桶）操作"><a href="#2-Bucket（存储桶）操作" class="headerlink" title="2. Bucket（存储桶）操作"></a>2. Bucket（存储桶）操作</h3><p>创建存储桶：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc mb myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<p>查看存储桶：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">ls</span> myminio</span><br></pre></td></tr></table></figure>
+
+<p>删除存储桶：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc rb myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-文件操作"><a href="#3-文件操作" class="headerlink" title="3. 文件操作"></a>3. 文件操作</h3><p>上传文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">cp</span> ./file.txt myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<p>下载文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">cp</span> myminio/mybucket/file.txt ./local.txt</span><br></pre></td></tr></table></figure>
+
+<p>列出文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">ls</span> myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<p>删除文件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">rm</span> myminio/mybucket/file.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="4-查看信息"><a href="#4-查看信息" class="headerlink" title="4. 查看信息"></a>4. 查看信息</h3><p>查看文件或 Bucket 信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">stat</span> myminio/mybucket/file.txt</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-权限管理"><a href="#5-权限管理" class="headerlink" title="5. 权限管理"></a>5. 权限管理</h3><p>将存储桶设为公开可读：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc anonymous <span class="built_in">set</span> download myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<p>取消公开访问：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc anonymous <span class="built_in">set</span> none myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-数据同步（备份）"><a href="#6-数据同步（备份）" class="headerlink" title="6. 数据同步（备份）"></a>6. 数据同步（备份）</h3><p>将本地目录同步到 MinIO：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc mirror ./data myminio/mybucket</span><br></pre></td></tr></table></figure>
+
+<p>从 MinIO 同步到本地：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc mirror myminio/mybucket ./data</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="7-高级用法"><a href="#7-高级用法" class="headerlink" title="7. 高级用法"></a>7. 高级用法</h3><ul>
+<li><p>列出所有别名：</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc <span class="built_in">alias</span> list</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>测试存储性能：（需要官方账号）</p>
+  <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mc support perf myminio</span><br></pre></td></tr></table></figure></li>
+</ul>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li><code>mc alias set</code> → 配置服务别名</li>
+<li><code>mc mb / ls / rb</code> → 管理 Bucket</li>
+<li><code>mc cp / ls / rm</code> → 文件上传、下载、删除</li>
+<li><code>mc stat</code> → 查看信息</li>
+<li><code>mc anonymous set</code> → 设置权限</li>
+<li><code>mc mirror</code> → 数据同步</li>
+</ul>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>anolis</tag>
+        <tag>docker</tag>
+        <tag>minio</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>grafana-prometheus-mysql监控可视化解决方案</title>
+    <url>/2025/09/16/grafana-promethus-mysql%E7%9B%91%E6%8E%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="grafana-prometheus-mysql部署"><a href="#grafana-prometheus-mysql部署" class="headerlink" title="grafana-prometheus-mysql部署"></a>grafana-prometheus-mysql部署</h1><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><h3 id="准备镜像"><a href="#准备镜像" class="headerlink" title="准备镜像"></a>准备镜像</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull grafana/grafana:10.4.1</span><br><span class="line">docker pull prom/prometheus:v2.52.0</span><br><span class="line">docker pull mysql:8.0.43</span><br></pre></td></tr></table></figure>
+
+<h3 id="准备prometheus-yml"><a href="#准备prometheus-yml" class="headerlink" title="准备prometheus.yml"></a>准备prometheus.yml</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="attr">scrape_interval:</span>     <span class="string">15s</span>  <span class="comment"># 默认每 15 秒抓取一次数据</span></span><br><span class="line">  <span class="attr">evaluation_interval:</span> <span class="string">15s</span>  <span class="comment"># 默认每 15 秒计算一次规则</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Alertmanager 配置（默认注释掉）</span></span><br><span class="line"><span class="comment"># alerting:</span></span><br><span class="line"><span class="comment">#   alertmanagers:</span></span><br><span class="line"><span class="comment">#   - static_configs:</span></span><br><span class="line"><span class="comment">#     - targets:</span></span><br><span class="line"><span class="comment">#       # - alertmanager:9093</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载规则文件（默认没有）</span></span><br><span class="line"><span class="comment"># rule_files:</span></span><br><span class="line"><span class="comment">#   - &quot;first_rules.yml&quot;</span></span><br><span class="line"><span class="comment">#   - &quot;second_rules.yml&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="comment"># Prometheus 自己也当成一个监控目标</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">job_name:</span> <span class="string">&#x27;prometheus&#x27;</span></span><br><span class="line">    <span class="attr">static_configs:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">targets:</span> [<span class="string">&#x27;localhost:9090&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="docker-compose部署"><a href="#docker-compose部署" class="headerlink" title="docker-compose部署"></a>docker-compose部署</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">version: &quot;3.8&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  mysql:</span><br><span class="line">    image: mysql:8.0.43      </span><br><span class="line">    container_name: grafana-mysql</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    environment:</span><br><span class="line">      MYSQL_ROOT_PASSWORD: rootpass</span><br><span class="line">      MYSQL_DATABASE: grafana</span><br><span class="line">      MYSQL_USER: grafana</span><br><span class="line">      MYSQL_PASSWORD: grafana_pass</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3306:3306&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - mysql-data:/var/lib/mysql</span><br><span class="line"></span><br><span class="line">  prometheus:</span><br><span class="line">    image: prom/prometheus:v2.52.0   </span><br><span class="line">    container_name: prometheus</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;9090:9090&quot;</span><br><span class="line">    volumes:</span><br><span class="line">      - ./prometheus.yml:/etc/prometheus/prometheus.yml</span><br><span class="line"></span><br><span class="line">  grafana:</span><br><span class="line">    image: grafana/grafana:10.4.1  </span><br><span class="line">    container_name: grafana</span><br><span class="line">    restart: unless-stopped</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3000:3000&quot;</span><br><span class="line">    environment:</span><br><span class="line">      - GF_DATABASE_TYPE=mysql</span><br><span class="line">      - GF_DATABASE_HOST=mysql:3306</span><br><span class="line">      - GF_DATABASE_NAME=grafana</span><br><span class="line">      - GF_DATABASE_USER=grafana</span><br><span class="line">      - GF_DATABASE_PASSWORD=grafana_pass</span><br><span class="line">      - GF_SECURITY_ADMIN_USER=admin</span><br><span class="line">      - GF_SECURITY_ADMIN_PASSWORD=admin</span><br><span class="line">    depends_on:</span><br><span class="line">      - mysql</span><br><span class="line">      - prometheus</span><br><span class="line"></span><br><span class="line">volumes:</span><br><span class="line">  mysql-data:</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916173019539.png" alt="image-20250916173019539"></p>
+<h2 id="检查"><a href="#检查" class="headerlink" title="检查"></a>检查</h2><p>检查 <strong>grafana、prometheus</strong>服务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.72.128:3000</span><br><span class="line">http://192.168.72.128:9090</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916173052139.png" alt="image-20250916173052139"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916173121496.png" alt="image-20250916173121496"></p>
+<p>检查数据库连接是否成功，初始化是否成功，库存在说明正常。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916173226211.png" alt="image-20250916173226211"></p>
+<h1 id="案例学习"><a href="#案例学习" class="headerlink" title="案例学习"></a>案例学习</h1><h2 id="1-node-exporter"><a href="#1-node-exporter" class="headerlink" title="1. node_exporter"></a>1. node_exporter</h2><p>​	充当 <strong>主机监控 Agent</strong> 的角色。运行在 Linux 主机上，负责收集操作系统和硬件层面的性能指标。默认通过 HTTP <code>:9100/metrics</code> 暴露数据，Prometheus 会定期抓取这些指标。</p>
+<h3 id="1-1-部署node-exporter"><a href="#1-1-部署node-exporter" class="headerlink" title="1.1 部署node_exporter"></a>1.1 部署node_exporter</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载 node_exporter 最新版</span></span><br><span class="line">wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -xvf node_exporter-1.8.2.linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">cd</span> node_exporter-1.8.2.linux-amd64</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">./node_exporter &amp;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250917095802522.png" alt="image-20250917095802522"></p>
+<h3 id="1-2-prometheus连接"><a href="#1-2-prometheus连接" class="headerlink" title="1.2 prometheus连接"></a>1.2 prometheus连接</h3><p>​	编辑Prometheus 配置文件 <code>prometheus.yml</code>，增加一个 <strong>scrape job</strong>：</p>
+ <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scrape_configs:</span><br><span class="line">  - job_name: <span class="string">&#x27;node_exporter&#x27;</span></span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [<span class="string">&#x27;192.168.72.128:9100&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>最后的配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">global:</span><br><span class="line">  scrape_interval: 15s</span><br><span class="line"></span><br><span class="line">scrape_configs:</span><br><span class="line">  - job_name: &#x27;node_exporter&#x27;</span><br><span class="line">    static_configs:</span><br><span class="line">      - targets: [&#x27;192.168.72.128:9100&#x27;]</span><br></pre></td></tr></table></figure>
+
+<p>重启后检查Prometheus，node_exporter添加成功</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250917100329818.png" alt="image-20250917100329818"></p>
+<p>数据获取正常</p>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250916172302767.png" alt="image-20250916172302767"></p>
+<h3 id="1-3-grafana创建可视化模版"><a href="#1-3-grafana创建可视化模版" class="headerlink" title="1.3 grafana创建可视化模版"></a>1.3 grafana创建可视化模版</h3><p>​	在 Grafana 添加 Prometheus 数据源：</p>
+<ol>
+<li>打开 Grafana → <code>Configuration</code> → <code>Data Sources</code> → 添加 Prometheus。</li>
+<li>URL 填写 <code>http://&lt;Prometheus服务器IP&gt;:9090</code>。</li>
+<li>导入官方的 <strong>Node Exporter Dashboard</strong>（ID: <strong>1860</strong>）<ul>
+<li>在 Grafana → <code>Dashboard</code> → <code>Import</code> → 输入 <code>1860</code> → 选择数据源。</li>
+</ul>
+</li>
+</ol>
+<p>就能得到一个漂亮的主机监控大盘：</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916172251985.png" alt="image-20250916172251985"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>mysql</tag>
+        <tag>docker</tag>
+        <tag>grafana</tag>
+        <tag>prometheus</tag>
       </tags>
   </entry>
 </search>
