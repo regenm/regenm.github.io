@@ -5926,7 +5926,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim regenMosquittoScriptSendRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_pub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;test&quot;</span> -m <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x regenMosquittoScriptSendRemote.sh</span><br></pre></td></tr></table></figure>
 
 <p>​	运行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh hello!</span><br></pre></td></tr></table></figure>
@@ -5937,7 +5937,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim regenMosquittoScriptSubRemote.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">mosquitto_sub -h <span class="string">&quot;IP address&quot;</span> -p 1883 -u username -P regen -t <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>​	赋权</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 777 regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x regenMosquittoScriptSubRemote.sh</span><br></pre></td></tr></table></figure>
 
 <p>​	运行</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./regenMosquittoScriptSendRemote.sh topic</span><br></pre></td></tr></table></figure>
@@ -5945,7 +5945,7 @@
 <ul>
 <li>连接esp32或8266</li>
 </ul>
-<p>看看这个esp8266连接mqtt服务器的项目吗？(<a href="https://regenm.gitee.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (gitee.io)</a></p>
+<p>看看这个esp8266连接mqtt服务器的项目吗？(<a href="https://regenm.github.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (github.io)</a></p>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -16264,7 +16264,7 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 </li>
 </ul>
-<h2 id="220v–-12v"><a href="#220v–-12v" class="headerlink" title="220v–&gt;12v"></a>220v–&gt;12v</h2><h1 id="DC-DC"><a href="#DC-DC" class="headerlink" title="DC-DC"></a>DC-DC</h1><h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2>]]></content>
+<h2 id="220v–-12v"><a href="#220v–-12v" class="headerlink" title="220v–&gt;12v"></a>220v–&gt;12v</h2><h1 id="DC-DC"><a href="#DC-DC" class="headerlink" title="DC-DC"></a>DC-DC</h1>]]></content>
       <categories>
         <category>硬件技术</category>
       </categories>
@@ -22106,7 +22106,7 @@ to breathe, to sense another, and to wait.<br>
 </li>
 </ul>
 <hr>
-<h2 id="✅-三、总结表格（以-int-x-5-为例）"><a href="#✅-三、总结表格（以-int-x-5-为例）" class="headerlink" title="✅ 三、总结表格（以 int x = 5; 为例）"></a>✅ 三、总结表格（以 <code>int x = 5;</code> 为例）</h2><table>
+<h2 id="三、总结表格（以-int-x-5-为例）"><a href="#三、总结表格（以-int-x-5-为例）" class="headerlink" title="三、总结表格（以 int x = 5; 为例）"></a>三、总结表格（以 <code>int x = 5;</code> 为例）</h2><table>
 <thead>
 <tr>
 <th>阶段</th>
@@ -22164,9 +22164,6 @@ to breathe, to sense another, and to wait.<br>
 <td>错误恢复、错误提示</td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="✅-四、结语"><a href="#✅-四、结语" class="headerlink" title="✅ 四、结语"></a>✅ 四、结语</h2><p>通过以上对 <code>int x = 5;</code> 编译过程的逐阶段分析，可以看出编译器是一个高度模块化的系统，各阶段协同工作，最终将高级语言转化为高效的机器代码。理解这些阶段及其关键技术，有助于深入掌握《编译原理》课程的核心内容。</p>
-<p>如果你需要我为你整理成 <strong>思维导图</strong> 或 <strong>PPT提纲</strong>，也可以告诉我，我可以帮你进一步整理用于复习或汇报。</p>
 <h1 id="第二章-1"><a href="#第二章-1" class="headerlink" title="第二章"></a>第二章</h1><blockquote>
 <p>1、词法分析器常用的构造方法有哪几种？</p>
 <p>2、判断如下图所示的有限自动机是NFA还是DFA，并判断它能识别何种字符串，给出它对应的状态转换表。</p>
@@ -22246,7 +22243,6 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 </li>
 </ul>
-<hr>
 <h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><blockquote>
 <p>\1. 什么是上下文无关文法，上下文无关文法由哪几部分组成。</p>
 <p>\2.  什么是LL（1）文法。</p>
@@ -26002,7 +25998,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </blockquote>
 <h2 id="docker-持久化部署"><a href="#docker-持久化部署" class="headerlink" title="docker-持久化部署"></a>docker-持久化部署</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name minio \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -p 9000:9000 \</span><br><span class="line">  -p 9090:9090 \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_USER=admin&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ROOT_PASSWORD=admin123&quot;</span> \</span><br><span class="line">  -v /data/regen/minio/minio_home:/data \</span><br><span class="line">  minio/minio server /data --console-address <span class="string">&quot;:9090&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250916164537101.png" alt="image-20250916164537101"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/oss/image-20250916164537101.png" alt="image-20250916164537101"></p>
 <h1 id="mc"><a href="#mc" class="headerlink" title="mc"></a>mc</h1><h2 id="mc的使用"><a href="#mc的使用" class="headerlink" title="mc的使用"></a>mc的使用</h2><blockquote>
 <p><code>mc</code>（MinIO Client）是 MinIO 官方提供的命令行工具，用来管理 MinIO 或兼容 S3 的对象存储服务。它的作用类似于 <code>aws cli</code>，可以方便地创建存储桶（Bucket）、上传&#x2F;下载文件、同步目录、设置访问权限等。</p>
 </blockquote>
@@ -26146,6 +26142,92 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>docker</tag>
         <tag>grafana</tag>
         <tag>prometheus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>telegraf部署学习</title>
+    <url>/2025/09/17/telegraf%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="telegraf部署学习"><a href="#telegraf部署学习" class="headerlink" title="telegraf部署学习"></a>telegraf部署学习</h1><blockquote>
+<p><strong>Telegraf</strong> 是一款由开源公司 InfluxData 开发的代理程序，它是现代监控系统“TICK Stack”或“Telegraf Stack”的核心数据收集组件。它的主要功能是从各种来源（如操作系统、数据库、硬件传感器、消息队列等）<strong>采集指标和数据</strong>，然后将其汇聚并写入到多种目的地（最常用的是时序数据库 InfluxDB）。Telegraf 以其<strong>插件化的架构、低资源消耗和强大的集成能力</strong>而闻名，是 DevOps 和系统管理员进行指标监控和性能分析的首选工具之一。</p>
+</blockquote>
+<h2 id="telegraf部署监控本机信息并持久化到influxdb"><a href="#telegraf部署监控本机信息并持久化到influxdb" class="headerlink" title="telegraf部署监控本机信息并持久化到influxdb"></a>telegraf部署监控本机信息并持久化到influxdb</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull telegraf</span><br></pre></td></tr></table></figure>
+
+<h3 id="准备-telegraf-conf"><a href="#准备-telegraf-conf" class="headerlink" title="准备 telegraf.conf"></a>准备 telegraf.conf</h3><p>docker run –rm telegraf telegraf config &gt; telegraf.conf</p>
+<h3 id="修改-telegraf-conf"><a href="#修改-telegraf-conf" class="headerlink" title="修改 telegraf.conf"></a>修改 telegraf.conf</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[[outputs.influxdb]]</span><br><span class="line">  urls = [&quot;http://192.168.72.128:8086&quot;]</span><br><span class="line">  database = &quot;telegraf&quot;</span><br><span class="line">  username = &quot;admin&quot;</span><br><span class="line">  password = &quot;pass&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="起容器"><a href="#起容器" class="headerlink" title="起容器"></a>起容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name=telegraf \</span><br><span class="line">  --hostname=telegraf \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/telegraf.conf:/etc/telegraf/telegraf.conf:ro \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock:ro \</span><br><span class="line">  -e HOST_PROC=/host/proc \</span><br><span class="line">  -e HOST_SYS=/host/sys \</span><br><span class="line">  -e HOST_ETC=/host/etc \</span><br><span class="line">  -v /proc:/host/proc:ro \</span><br><span class="line">  -v /sys:/host/sys:ro \</span><br><span class="line">  -v /etc:/host/etc:ro \</span><br><span class="line">  telegraf</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查influxdb"><a href="#检查influxdb" class="headerlink" title="检查influxdb"></a>检查influxdb</h3><p>我这里部署的influxdb在同一台主机，方式也是容器化部署</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker exec -it inflxudb bash</span><br><span class="line">influx -username admin -password pass</span><br><span class="line">USE telegraf;</span><br><span class="line">SELECT * FROM mqtt_consumer LIMIT 10;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/telegraf/image-20250917163754851.png" alt="image-20250917163754851"></p>
+<h2 id="telegraf部署监控mqtt主题并持久化到influxdb"><a href="#telegraf部署监控mqtt主题并持久化到influxdb" class="headerlink" title="telegraf部署监控mqtt主题并持久化到influxdb"></a>telegraf部署监控mqtt主题并持久化到influxdb</h2><h3 id="修改之前的-telegraf-conf"><a href="#修改之前的-telegraf-conf" class="headerlink" title="修改之前的 telegraf.conf"></a>修改之前的 telegraf.conf</h3><p>里面有很多设置（默认是被注释的），只需修改以下内容即可。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[[inputs.mqtt_consumer]]</span><br><span class="line">servers = [<span class="string">&quot;tcp://192.168.72.128:1883&quot;</span>]</span><br><span class="line">topics = [<span class="string">&quot;telegraf/test&quot;</span>]</span><br><span class="line">qos = 0</span><br><span class="line">client_id = <span class="string">&quot;telegraf&quot;</span></span><br><span class="line">username = <span class="string">&quot;admin&quot;</span></span><br><span class="line">password = <span class="string">&quot;admin&quot;</span></span><br><span class="line">data_format = <span class="string">&quot;json&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="重启容器后进行测试"><a href="#重启容器后进行测试" class="headerlink" title="重启容器后进行测试"></a>重启容器后进行测试</h3><p>登录之前的mqtt容器</p>
+<p>使用<code>docker exec -it mosquitto sh</code>进入容器内命令行工具。之后执行以下命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -p 1883 -u admin -P admin -t telegraf/test -m &#x27;&#123;&quot;temperature&quot;:25,&quot;humidity&quot;:60&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>然后检查telegraf的日志以及influxdb数据库。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker logs telegraf</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/telegraf/image-20250917165357738.png" alt="image-20250917165357738"></p>
+<p>这些报错是我之前的输入的json不合法的原因。后来发了几条不再出现新的信息说明没什么问题了。</p>
+<p>我这里部署的influxdb在同一台主机，方式也是容器化部署</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it inflxudb bash</span><br><span class="line">influx -username admin -password pass</span><br><span class="line">USE telegraf;</span><br><span class="line">SHOW DATABASES;</span><br><span class="line">SHOW MEASUREMENTS;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/telegraf/image-20250917165612333.png" alt="image-20250917165612333"></p>
+<p>可以发现多出来了一个mqtt_sonsumer ，进去看看数据情况。数据正常写入。至此结束。</p>
+<p>可以基于此实现更多自己的想法了。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/telegraf/image-20250917165809620.png" alt="image-20250917165809620"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>telegraf</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker-mosquitto部署学习</title>
+    <url>/2025/09/17/docker-mosquitto%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>​	之前有写实体机<a href="https://regenm.github.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">MQTT服务器搭建（mosquitto） | Regen</a>的流程，容器化部署是大趋势，也不能落下。</p>
+<p>​	如果你对mqtt的数据存储有兴趣的话不妨看看。</p>
+<p>​	看了dockerhub的镜像，选择了<code>eclipse-mosquitto:2.0.22-openssl</code></p>
+<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull eclipse-mosquitto:2.0.22-openssl</span><br></pre></td></tr></table></figure>
+
+<h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><p>准备<code>mosquitto.conf</code>  <code>passwordfile</code></p>
+<p><code>mosquitto.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 监听端口</span></span><br><span class="line">listener 1883</span><br><span class="line"><span class="comment"># 禁止匿名登录</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 指定密码文件</span></span><br><span class="line">password_file /mosquitto/config/passwordfile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 可选：持久化和日志</span></span><br><span class="line">persistence <span class="literal">true</span></span><br><span class="line">persistence_location /mosquitto/data/</span><br><span class="line">log_dest file /mosquitto/log/mosquitto.log</span><br></pre></td></tr></table></figure>
+
+
+
+<p> <code>passwordfile</code>用于使用账号密码登录，用以下命令进行创建该文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -it -v $(<span class="built_in">pwd</span>):/mosquitto/config eclipse-mosquitto:2.0.22-openssl mosquitto_passwd -c /mosquitto/config/passwordfile admin</span><br></pre></td></tr></table></figure>
+
+<p>创建好了会出现在当前目录</p>
+<h3 id="docker-compose-持久化部署"><a href="#docker-compose-持久化部署" class="headerlink" title="docker-compose 持久化部署"></a>docker-compose 持久化部署</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.8&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mosquitto:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">eclipse-mosquitto:2.0.22-openssl</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mosquitto</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;1883:1883&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8883:8883&quot;</span>   <span class="comment"># 如果启用了 TLS</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/mosquitto/config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/mosquitto/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./log:/mosquitto/log</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="测试案例"><a href="#测试案例" class="headerlink" title="测试案例"></a>测试案例</h3><p>使用<code>docker exec -it mosquitto sh</code>进入容器内命令行工具。之后才能执行以下命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -p 1883 -t test -m &quot;hello&quot;</span><br><span class="line">mosquitto_sub -h 127.0.0.1 -p 1883 -t test</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>docker</tag>
+        <tag>mosquitto</tag>
       </tags>
   </entry>
 </search>
