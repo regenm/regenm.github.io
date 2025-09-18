@@ -1,0 +1,371 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>dns服务器测试 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="测试​	windows配置好dns后进行测试。 1. 基础功能测试 正向解析 测试公司内网域名（如 app.internal.local）是否能正确解析到内网 IP。 使用 dig 或 nslookup 验证返回的记录是否符合预期。    1nslookup tech.dev.local    反向解析 配置了 PTR 记录的话，检查内网 IP 能否正确反查到域名。    1nslookup 19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="dns服务器测试">
+<meta property="og:url" content="http://example.com/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="测试​	windows配置好dns后进行测试。 1. 基础功能测试 正向解析 测试公司内网域名（如 app.internal.local）是否能正确解析到内网 IP。 使用 dig 或 nslookup 验证返回的记录是否符合预期。    1nslookup tech.dev.local    反向解析 配置了 PTR 记录的话，检查内网 IP 能否正确反查到域名。    1nslookup 19">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2025-09-18T07:41:18.000Z">
+<meta property="article:modified_time" content="2025-09-18T09:00:37.401Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="运维">
+<meta property="article:tag" content="winserver">
+<meta property="article:tag" content="部署">
+<meta property="article:tag" content="dns">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'dns服务器测试',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-18 17:00:37'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">166</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">184</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">dns服务器测试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-09-18T07:41:18.000Z" title="Created 2025-09-18 15:41:18">2025-09-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-09-18T09:00:37.401Z" title="Updated 2025-09-18 17:00:37">2025-09-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%BD%AF%E4%BB%B6%E6%8A%80%E6%9C%AF/">软件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/" data-flag-title="dns服务器测试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>​	windows配置好dns后进行测试。</p>
+<h2 id="1-基础功能测试"><a href="#1-基础功能测试" class="headerlink" title="1. 基础功能测试"></a>1. 基础功能测试</h2><ul>
+<li><strong>正向解析</strong><ul>
+<li>测试公司内网域名（如 <code>app.internal.local</code>）是否能正确解析到内网 IP。</li>
+<li>使用 <code>dig</code> 或 <code>nslookup</code> 验证返回的记录是否符合预期。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup tech.dev.local</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094726252.png" alt="image-20250918094726252"></p>
+<ul>
+<li><strong>反向解析</strong><ul>
+<li>配置了 PTR 记录的话，检查内网 IP 能否正确反查到域名。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nslookup 192.168.99.37</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094745371.png" alt="image-20250918094745371"></p>
+<ul>
+<li><strong>缓存机制</strong><ul>
+<li>验证 DNS 缓存是否生效，TTL 是否符合配置。</li>
+<li>避免 TTL 设置过长导致更新不及时，或过短导致负载过大。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Resolve-DnsName tech.dev.local</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094800167.png" alt="image-20250918094800167"></p>
+<hr>
+<h2 id="2-协议合规性测试"><a href="#2-协议合规性测试" class="headerlink" title="2. 协议合规性测试"></a>2. 协议合规性测试</h2><ul>
+<li><strong>递归与转发</strong></li>
+</ul>
+<blockquote>
+<p><strong>1.权威DNS：</strong></p>
+<p>权威DNS是经过上一级授权对域名进行解析的服务器，同时它可以把解析授权转授给其他人，如COM顶级服务器可以授权<a href="https://link.zhihu.com/?target=http://dns.com">http://dns.com</a>这个域名的的权威服务器为<a href="https://link.zhihu.com/?target=http://NS.ABC.COM">http://NS.ABC.COM</a>，同时<a href="https://link.zhihu.com/?target=http://NS.ABC.COM">http://NS.ABC.COM</a>还可以把授权转授给<a href="https://link.zhihu.com/?target=http://NS.DDD.COM">http://NS.DDD.COM</a>，这样<a href="https://link.zhihu.com/?target=http://NS.DDD.COM">http://NS.DDD.COM</a>就成了<a href="https://link.zhihu.com/?target=http://ABC.COM">http://ABC.COM</a>实际上的权威服务器了。平时我们解析域名的结果都源自权威DNS。比如<a href="https://link.zhihu.com/?target=http://dns.com">http://dns.com</a>的权威DNS服务器就是帝恩思的<a href="https://link.zhihu.com/?target=http://ns1.dns.com">http://ns1.dns.com</a> <a href="https://link.zhihu.com/?target=http://ns2.dns.com">http://ns2.dns.com</a></p>
+<p><strong>2.递归DNS:</strong></p>
+<p>负责接受用户对任意域名查询，并返回结果给用户。递归DNS可以缓存结果以避免重复向上查询。我们平时使用最多的就是这类DNS，他对公众开放服务，一般由网络运营商提供，大家都自己可以架递归DNS提供服务。递归DNS一定要有可靠的互联网连接方可使用。比如<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=232115626&content_type=Article&match_order=1&q=%E8%B0%B7%E6%AD%8C&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTgzNTQ5NjgsInEiOiLosLfmrYwiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzIxMTU2MjYsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.SzXqb2VHQ8r6WXZ7TBcbzhS0cYIedtmE5ThxhGCBrp4&zhida_source=entity">谷歌</a>的<a target="_blank" rel="noopener" href="https://zhida.zhihu.com/search?content_id=232115626&content_type=Article&match_order=1&q=8.8.8.8&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTgzNTQ5NjgsInEiOiI4LjguOC44IiwiemhpZGFfc291cmNlIjoiZW50aXR5IiwiY29udGVudF9pZCI6MjMyMTE1NjI2LCJjb250ZW50X3R5cGUiOiJBcnRpY2xlIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.IO1M9WndX-RAhsWaHkKSi2amkdE0BLxnYjR06M2GkrM&zhida_source=entity">8.8.8.8</a>和8.8.4.4以及114的114.114.114.114和114.114.115.115都属于这一类DNS。你本地电脑上设置的DNS就是这类DNS。</p>
+<p><strong>3.转发DNS:</strong></p>
+<p>负责接受用户查询，并返回结果给用户。但这个结果不是按标准的域名解析过程得到的，而是直接把递归DNS的结果转发给用户。它也具备缓存功能。他主要使用在没有直接的互联网连接，但可以连接到一个递归DNS那里，这时使用转发DNS就比较合适。其缺陷是：直接受递归DNS的影响，服务品质较差。比如我们用的路由器里面的DNS就是这一类，用路由器的朋友可以看下本地电脑的DNS一般都是192.168.1.1。</p>
+</blockquote>
+<ul>
+<li>检查内网 DNS 递归服务。</li>
+</ul>
+<p>​	配置好dns后，进行一次查询，在dns服务器上抓包。最先回复的<strong>根</strong>域名<strong>服务器</strong>是h.root-servers.net (<strong>198.97.190.53</strong>)，返回13台.com顶级域名服务器的域名和地址，继续向这些.com顶级域名服务器请求查询stackexchange.com二级域名服务器地址。说明递归没有问题</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918163654833.png" alt="image-20250918163654833"></p>
+<ul>
+<li>如果使用转发模式，确认外部请求会正确转发到上游（如运营商 DNS &#x2F; 公共 DNS）。</li>
+</ul>
+<p>配置一个转发器<code>114.114.114.114</code>可以发现第一时间转发到了114dns。转发成功。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918164056540.png" alt="image-20250918164056540"></p>
+<ul>
+<li><strong>EDNS 与大包支持</strong><ul>
+<li>测试是否支持 EDNS(0)，否则部分新型解析（如 DNSSEC、大型 TXT 记录）会失败。</li>
+<li>检查 UDP 包是否支持超过 512 字节，否则需要回退 TCP。</li>
+</ul>
+</li>
+<li><strong>DNSSEC</strong>（如果公司要求高安全）<ul>
+<li>确认支持 DNSSEC 验证，测试是否能正确解析签名域名（如 <code>dnssec-failed.org</code> 应该失败，<code>verisignlabs.com</code> 应该成功）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-安全性测试"><a href="#3-安全性测试" class="headerlink" title="3. 安全性测试"></a>3. 安全性测试</h2><ul>
+<li><p><strong>域名泄露检查</strong></p>
+<ul>
+<li><p>确保内网域名（如 <code>*.internal.local</code>）不会被递归到公网 DNS。</p>
+</li>
+<li><p>可以用 Wireshark&#x2F;tcpdump 抓包，确认请求是否都停留在内网。</p>
+</li>
+<li><pre><code>  udp.port == 53 || tcp.port == 53
+  Resolve-DnsName tech.dev.local
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    ![image-20250918095119711](../images/Linux/运维/dns/image-20250918095119711.png)</span><br><span class="line"></span><br><span class="line">- **开放递归测试**</span><br><span class="line"></span><br><span class="line">    - 使用外网主机尝试递归查询，看是否能解析（应当拒绝）。</span><br><span class="line"></span><br><span class="line">- **抗攻击能力**</span><br><span class="line"></span><br><span class="line">    - 模拟高并发查询，观察 DNS 服务器是否稳定。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>dnsperf -s 192.168.99.254 -d domain.txt -l 30</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Statistics:</p>
+<p>  Queries sent:         119152<br>  Queries completed:    119068 (99.93%)<br>  Queries lost:         0 (0.00%)<br>  Queries interrupted:  84 (0.07%)</p>
+<p>  Response codes:       NOERROR 119068 (100.00%)<br>  Average packet size:  request 32, response 48<br>  Run time (s):         8.941996<br>  Queries per second:   13315.595310</p>
+<p>  Average Latency (s):  0.003618 (min 0.000328, max 0.018649)<br>  Latency StdDev (s):   0.001931</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">![image-20250918094924746](../images/Linux/运维/dns/image-20250918094924746.png)</span><br><span class="line"></span><br><span class="line">- 测试是否能防御基本的缓存投毒攻击（比如 `dig +dnssec` 验证返回的 AD 标志）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">## 4. 性能与高可用测试</span><br><span class="line"></span><br><span class="line">- **延迟与吞吐**</span><br><span class="line">    - 测试解析延迟（平均 &lt;20ms 较合理）。</span><br><span class="line">    - 使用 `dnsperf` / `queryperf` 模拟大量请求，检查 QPS 能力。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>dnsperf -s 192.168.99.254 -d domains.txt -l 60</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Statistics:</p>
+<p>  Queries sent:         750898<br>  Queries completed:    750879 (100.00%)<br>  Queries lost:         19 (0.00%)</p>
+<p>  Response codes:       NOERROR 750879 (100.00%)<br>  Average packet size:  request 32, response 48<br>  Run time (s):         60.002362<br>  Queries per second:   12514.157359</p>
+<p>  Average Latency (s):  0.003380 (min 0.000318, max 0.036856)<br>  Latency StdDev (s):   0.001927</p>
+<p>[root@localhost dnstest]# </p>
+<pre><code>
+![image-20250918094911639](../images/Linux/运维/dns/image-20250918094911639.png)
+
+- **负载均衡与冗余**
+    - 多台 DNS 服务器是否能正常分担压力。
+    - 模拟宕机，检查客户端能否自动切换到备用 DNS。
+
+
+
+# 命令总结
+
+👌 我帮你把文档里的命令 **提炼、扩展并分类总结**，方便查阅和作为运维笔记。
+
+------
+
+# DNS 服务器测试命令总结
+
+## 一、基础解析与调试
+
+| 命令                       | 作用                                        | 示例                             |
+| -------------------------- | ------------------------------------------- | -------------------------------- |
+| `nslookup &lt;domain&gt;`        | 查询域名对应的 IP（正向解析）               | `nslookup tech.dev.local`        |
+| `nslookup &lt;ip&gt;`            | 反查 IP 对应的域名（反向解析，需 PTR 记录） | `nslookup 192.168.99.37`         |
+| `dig &lt;domain&gt;`             | 查询 DNS 记录详情（Linux 常用）             | `dig app.internal.local`         |
+| `Resolve-DnsName &lt;domain&gt;` | Windows PowerShell 查询记录，带 TTL 等信息  | `Resolve-DnsName tech.dev.local` |
+
+扩展：
+
+- `dig +trace &lt;domain&gt;` → 跟踪解析过程，验证递归链路。
+- `dig -x &lt;ip&gt;` → IP 反向解析。
+- `dig &lt;domain&gt; ANY` → 查看所有类型记录。
+
+------
+
+## 二、递归与转发测试
+
+| 命令                         | 作用                                         | 示例                                        |
+| ---------------------------- | -------------------------------------------- | ------------------------------------------- |
+| `dig +trace &lt;domain&gt;`        | 验证递归是否正常（应从根服务器开始逐级解析） | `dig +trace regenm.github.io`               |
+| `tcpdump -i any port 53`     | 抓包 DNS 查询过程                            | `tcpdump -i ens192 port 53 -nn`             |
+| `nslookup &lt;domain&gt; &lt;server&gt;` | 指定 DNS 服务器进行查询                      | `nslookup stackexchange.com 192.168.99.205` |
+
+扩展：
+
+- 使用转发器（如 114.114.114.114），检查请求是否直接转发。
+- `dig @114.114.114.114 baidu.com` → 指定外部 DNS 查询。
+
+------
+
+## 三、安全性测试
+
+| 命令                                  | 作用                                   | 示例                            |
+| ------------------------------------- | -------------------------------------- | ------------------------------- |
+| `tcpdump -i ens192 udp port 53`       | 确认内网域名是否泄露到公网             | `tcpdump -i ens192 udp port 53` |
+| `wireshark filter: udp.port==53`      | 通过 Wireshark 分析 DNS 包             | `udp.port==53`                  |
+| `dig +dnssec &lt;domain&gt;`                | 检查 DNSSEC 是否支持，验证签名域名解析 | `dig +dnssec verisignlabs.com`  |
+| 外网机器 `nslookup &lt;domain&gt; &lt;server&gt;` | 检查是否开放递归（应拒绝外网请求）     | `nslookup baidu.com &lt;公网IP&gt;`   |
+
+扩展：
+
+- `rndc querylog on`（BIND 专用） → 打开查询日志排查异常请求。
+- `unbound-host -C /etc/unbound/unbound.conf -v -d &lt;domain&gt;` → 验证安全配置。
+
+------
+
+## 四、性能与高可用测试
+
+| 命令                                           | 作用                                              | 示例                                             |
+| ---------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
+| `dnsperf -s &lt;server&gt; -d domains.txt -l &lt;time&gt;` | 压力测试，QPS 和延迟分析                          | `dnsperf -s 192.168.99.254 -d domains.txt -l 60` |
+| `queryperf -d domains.txt -s &lt;server&gt;`         | 同类工具，测试 DNS 性能                           | `queryperf -d domains.txt -s 192.168.99.254`     |
+| `ab -n 1000 -c 50 dig ...`                     | ApacheBench 模拟并发请求（可用于 dig 脚本化测试） | `ab -n 1000 -c 50 dig baidu.com`                 |
+
+扩展：
+
+- `watch -n1 &quot;dig tech.dev.local @192.168.99.205&quot;` → 实时观测 DNS 响应。
+- 配合 `systemctl stop named` / `systemctl stop coredns` 模拟宕机，看客户端是否切换到备用 DNS。
+
+------
+
+## 五、命令分类汇总
+
+- **查询与解析类**：`nslookup` / `dig` / `Resolve-DnsName`
+- **递归与转发验证类**：`dig +trace` / `tcpdump` / `wireshark`
+- **安全性检查类**：`dig +dnssec` / `tcpdump` / `nslookup`（外网测试）
+- **性能与稳定性类**：`dnsperf` / `queryperf` / `ab`
+
+
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/">http://example.com/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/linux/">linux</a><a class="post-meta__tags" href="/tags/%E8%BF%90%E7%BB%B4/">运维</a><a class="post-meta__tags" href="/tags/winserver/">winserver</a><a class="post-meta__tags" href="/tags/%E9%83%A8%E7%BD%B2/">部署</a><a class="post-meta__tags" href="/tags/dns/">dns</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/09/17/docker-mosquitto%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/" title="docker-mosquitto部署学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">docker-mosquitto部署学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/09/15/winserver-Dns%E6%90%AD%E5%BB%BA/" title="winserver-Dns搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-15</div><div class="title">winserver-Dns搭建</div></div></a></div><div><a href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">AD域控和LDAP</div></div></a></div><div><a href="/2025/07/04/AD%E5%9F%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%89%E8%A3%85CA%E6%9C%8D%E5%8A%A1/" title="AD域服务器安装CA服务"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-04</div><div class="title">AD域服务器安装CA服务</div></div></a></div><div><a href="/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/" title="网络连通性测试总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-04</div><div class="title">网络连通性测试总结</div></div></a></div><div><a href="/2025/09/15/Linux-CoreDNS%E6%90%AD%E5%BB%BA/" title="Linux-CoreDNS搭建"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-15</div><div class="title">Linux-CoreDNS搭建</div></div></a></div><div><a href="/2025/07/30/Ansible%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/" title="Ansible部署学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-30</div><div class="title">Ansible部署学习</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">166</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">184</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">1.</span> <span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="toc-number">1.1.</span> <span class="toc-text">1. 基础功能测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%8D%8F%E8%AE%AE%E5%90%88%E8%A7%84%E6%80%A7%E6%B5%8B%E8%AF%95"><span class="toc-number">1.2.</span> <span class="toc-text">2. 协议合规性测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E5%85%A8%E6%80%A7%E6%B5%8B%E8%AF%95"><span class="toc-number">1.3.</span> <span class="toc-text">3. 安全性测试</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/" title="dns服务器测试">dns服务器测试</a><time datetime="2025-09-18T07:41:18.000Z" title="Created 2025-09-18 15:41:18">2025-09-18</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/17/docker-mosquitto%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/" title="docker-mosquitto部署学习">docker-mosquitto部署学习</a><time datetime="2025-09-17T08:07:39.000Z" title="Created 2025-09-17 16:07:39">2025-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/17/telegraf%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/" title="telegraf部署学习">telegraf部署学习</a><time datetime="2025-09-17T08:07:23.000Z" title="Created 2025-09-17 16:07:23">2025-09-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/16/grafana-promethus-mysql%E7%9B%91%E6%8E%A7%E5%8F%AF%E8%A7%86%E5%8C%96%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" title="grafana-prometheus-mysql监控可视化解决方案">grafana-prometheus-mysql监控可视化解决方案</a><time datetime="2025-09-16T09:20:45.000Z" title="Created 2025-09-16 17:20:45">2025-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/16/minio%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/" title="minio部署学习">minio部署学习</a><time datetime="2025-09-16T08:41:04.000Z" title="Created 2025-09-16 16:41:04">2025-09-16</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/15/Linux-CoreDNS%E6%90%AD%E5%BB%BA/" title="Linux-CoreDNS搭建">Linux-CoreDNS搭建</a><time datetime="2025-09-15T09:16:38.000Z" title="Created 2025-09-15 17:16:38">2025-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/15/winserver-Dns%E6%90%AD%E5%BB%BA/" title="winserver-Dns搭建">winserver-Dns搭建</a><time datetime="2025-09-15T09:14:59.000Z" title="Created 2025-09-15 17:14:59">2025-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-%E5%AF%86%E9%92%A5%E7%90%86%E8%A7%A3/" title="计算机网络-密钥理解">计算机网络-密钥理解</a><time datetime="2025-09-15T02:53:47.000Z" title="Created 2025-09-15 10:53:47">2025-09-15</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/08/OpenVPN-%E5%86%85%E7%BD%91%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90/" title="OpenVPN 内网域名访问问题分析">OpenVPN 内网域名访问问题分析</a><time datetime="2025-09-08T06:21:35.000Z" title="Created 2025-09-08 14:21:35">2025-09-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/09/05/%E7%8E%B0%E4%BB%A3%E7%AC%94%E8%AE%B0%E7%A5%9E%E5%99%A8-obsidian/" title="现代笔记神器-obsidian">现代笔记神器-obsidian</a><time datetime="2025-09-05T07:28:50.000Z" title="Created 2025-09-05 15:28:50">2025-09-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2025 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>

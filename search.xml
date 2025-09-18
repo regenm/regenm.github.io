@@ -93,7 +93,7 @@
 <li>应用统一认证（SSO）</li>
 </ul>
 <p>LDAP 中的典型结构是类似于树状目录的，如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash复制编辑dc=example,dc=com</span><br><span class="line"> ├── ou=users</span><br><span class="line"> │    ├── cn=alice</span><br><span class="line"> │    └── cn=bob</span><br><span class="line"> └── ou=groups</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">dc=example,dc=com</span><br><span class="line"> ├── ou=users</span><br><span class="line"> │    ├── cn=alice</span><br><span class="line"> │    └── cn=bob</span><br><span class="line"> └── ou=groups</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h3 id="什么是-AD-域控（Active-Directory-Domain-Controller）"><a href="#什么是-AD-域控（Active-Directory-Domain-Controller）" class="headerlink" title="什么是 AD 域控（Active Directory Domain Controller）"></a>什么是 AD 域控（Active Directory Domain Controller）</h3><p>Active Directory（简称 AD）是微软开发的一套 <strong>基于 LDAP 的目录服务系统</strong>，它不仅实现了 LDAP 协议，还扩展了许多功能：</p>
@@ -109,7 +109,7 @@
 <li>域内设备管理</li>
 <li>安全策略分发</li>
 </ul>
-<h2 id="AD-域控的核心价值是“集中管理身份与设备”"><a href="#AD-域控的核心价值是“集中管理身份与设备”" class="headerlink" title="AD 域控的核心价值是“集中管理身份与设备”"></a><strong>AD 域控的核心价值是“集中管理身份与设备”</strong></h2><h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+<h2 id="AD-域控的核心价值是“集中管理身份与设备”"><a href="#AD-域控的核心价值是“集中管理身份与设备”" class="headerlink" title="AD 域控的核心价值是“集中管理身份与设备”"></a><strong>AD 域控的核心价值是“集中管理身份与设备”</strong></h2>]]></content>
       <categories>
         <category>软件技术</category>
       </categories>
@@ -15868,10 +15868,12 @@ to breathe, to sense another, and to wait.<br>
   <entry>
     <title>命令行神器cowsay</title>
     <url>/2025/08/21/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%A5%9E%E5%99%A8cowsay/</url>
-    <content><![CDATA[<h1 id="cowsay-dont-be-so-serious"><a href="#cowsay-dont-be-so-serious" class="headerlink" title="cowsay dont be so serious~"></a>cowsay dont be so serious~</h1><p>​	命令行神器cowsay。用过的都说绝。</p>
+    <content><![CDATA[<h1 id="cowsay-dont-be-so-serious"><a href="#cowsay-dont-be-so-serious" class="headerlink" title="cowsay dont be so serious~"></a>cowsay dont be so serious~</h1><pre><code>命令行神器cowsay。用过的都说绝。
+</code></pre>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y cowsay</span><br></pre></td></tr></table></figure>
 
-<p>​	<img src="/../images/Linux/interesting/image-20250821151635370.png" alt="image-20250821151635370"></p>
+<pre><code>![image-20250821151635370](../images/Linux/interesting/image-20250821151635370.png)
+</code></pre>
 <p><img src="/../images/Linux/interesting/image-20250821151757753.png" alt="image-20250821151757753"></p>
 ]]></content>
       <categories>
@@ -25986,6 +25988,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
       <tags>
         <tag>笔记</tag>
         <tag>运维</tag>
+        <tag>winserver</tag>
         <tag>部署</tag>
         <tag>dns</tag>
       </tags>
@@ -26198,7 +26201,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <title>docker-mosquitto部署学习</title>
     <url>/2025/09/17/docker-mosquitto%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<p>​	之前有写实体机<a href="https://regenm.github.io/2024/02/09/MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88mosquitto%EF%BC%89/">MQTT服务器搭建（mosquitto） | Regen</a>的流程，容器化部署是大趋势，也不能落下。</p>
-<p>​	如果你对mqtt的数据存储有兴趣的话不妨看看。</p>
+<p>​	如果你对mqtt的数据存储有兴趣的话不妨看看<a href="https://regenm.github.io/2025/09/17/telegraf%E9%83%A8%E7%BD%B2%E5%AD%A6%E4%B9%A0/">telegraf部署学习 | Regen</a>。</p>
 <p>​	看了dockerhub的镜像，选择了<code>eclipse-mosquitto:2.0.22-openssl</code></p>
 <h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull eclipse-mosquitto:2.0.22-openssl</span><br></pre></td></tr></table></figure>
 
@@ -26214,10 +26217,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>创建好了会出现在当前目录</p>
 <h3 id="docker-compose-持久化部署"><a href="#docker-compose-持久化部署" class="headerlink" title="docker-compose 持久化部署"></a>docker-compose 持久化部署</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&quot;3.8&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mosquitto:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">eclipse-mosquitto:2.0.22-openssl</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mosquitto</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;1883:1883&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;8883:8883&quot;</span>   <span class="comment"># 如果启用了 TLS</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./config:/mosquitto/config</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/mosquitto/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./log:/mosquitto/log</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="测试案例"><a href="#测试案例" class="headerlink" title="测试案例"></a>测试案例</h3><p>使用<code>docker exec -it mosquitto sh</code>进入容器内命令行工具。之后才能执行以下命令。</p>
+<h3 id="测试案例"><a href="#测试案例" class="headerlink" title="测试案例"></a>测试案例</h3><p>使用<code>docker exec -it mosquitto sh</code>进入容器内命令行工具。之后才能执行以下命令，本质上和宿主机的命令一样，都是二进制工具命令。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mosquitto_pub -h 127.0.0.1 -p 1883 -t test -m &quot;hello&quot;</span><br><span class="line">mosquitto_sub -h 127.0.0.1 -p 1883 -t test</span><br></pre></td></tr></table></figure>
-
-
 
 ]]></content>
       <categories>
@@ -26228,6 +26229,204 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>linux</tag>
         <tag>docker</tag>
         <tag>mosquitto</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>dns服务器测试</title>
+    <url>/2025/09/18/dns%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%B5%8B%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>​	windows配置好dns后进行测试。</p>
+<h2 id="1-基础功能测试"><a href="#1-基础功能测试" class="headerlink" title="1. 基础功能测试"></a>1. 基础功能测试</h2><ul>
+<li><strong>正向解析</strong><ul>
+<li>测试公司内网域名（如 <code>app.internal.local</code>）是否能正确解析到内网 IP。</li>
+<li>使用 <code>dig</code> 或 <code>nslookup</code> 验证返回的记录是否符合预期。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nslookup tech.dev.local</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094726252.png" alt="image-20250918094726252"></p>
+<ul>
+<li><strong>反向解析</strong><ul>
+<li>配置了 PTR 记录的话，检查内网 IP 能否正确反查到域名。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nslookup 192.168.99.37</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094745371.png" alt="image-20250918094745371"></p>
+<ul>
+<li><strong>缓存机制</strong><ul>
+<li>验证 DNS 缓存是否生效，TTL 是否符合配置。</li>
+<li>避免 TTL 设置过长导致更新不及时，或过短导致负载过大。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Resolve-DnsName tech.dev.local</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918094800167.png" alt="image-20250918094800167"></p>
+<hr>
+<h2 id="2-协议合规性测试"><a href="#2-协议合规性测试" class="headerlink" title="2. 协议合规性测试"></a>2. 协议合规性测试</h2><ul>
+<li><strong>递归与转发</strong></li>
+</ul>
+<blockquote>
+<p><strong>1.权威DNS：</strong></p>
+<p>权威DNS是经过上一级授权对域名进行解析的服务器，同时它可以把解析授权转授给其他人，如COM顶级服务器可以授权<a href="https://link.zhihu.com/?target=http://dns.com">http://dns.com</a>这个域名的的权威服务器为<a href="https://link.zhihu.com/?target=http://NS.ABC.COM">http://NS.ABC.COM</a>，同时<a href="https://link.zhihu.com/?target=http://NS.ABC.COM">http://NS.ABC.COM</a>还可以把授权转授给<a href="https://link.zhihu.com/?target=http://NS.DDD.COM">http://NS.DDD.COM</a>，这样<a href="https://link.zhihu.com/?target=http://NS.DDD.COM">http://NS.DDD.COM</a>就成了<a href="https://link.zhihu.com/?target=http://ABC.COM">http://ABC.COM</a>实际上的权威服务器了。平时我们解析域名的结果都源自权威DNS。比如<a href="https://link.zhihu.com/?target=http://dns.com">http://dns.com</a>的权威DNS服务器就是帝恩思的<a href="https://link.zhihu.com/?target=http://ns1.dns.com">http://ns1.dns.com</a> <a href="https://link.zhihu.com/?target=http://ns2.dns.com">http://ns2.dns.com</a></p>
+<p><strong>2.递归DNS:</strong></p>
+<p>负责接受用户对任意域名查询，并返回结果给用户。递归DNS可以缓存结果以避免重复向上查询。我们平时使用最多的就是这类DNS，他对公众开放服务，一般由网络运营商提供，大家都自己可以架递归DNS提供服务。递归DNS一定要有可靠的互联网连接方可使用。比如<a href="https://zhida.zhihu.com/search?content_id=232115626&content_type=Article&match_order=1&q=%E8%B0%B7%E6%AD%8C&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTgzNTQ5NjgsInEiOiLosLfmrYwiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyMzIxMTU2MjYsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.SzXqb2VHQ8r6WXZ7TBcbzhS0cYIedtmE5ThxhGCBrp4&zhida_source=entity">谷歌</a>的<a href="https://zhida.zhihu.com/search?content_id=232115626&content_type=Article&match_order=1&q=8.8.8.8&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NTgzNTQ5NjgsInEiOiI4LjguOC44IiwiemhpZGFfc291cmNlIjoiZW50aXR5IiwiY29udGVudF9pZCI6MjMyMTE1NjI2LCJjb250ZW50X3R5cGUiOiJBcnRpY2xlIiwibWF0Y2hfb3JkZXIiOjEsInpkX3Rva2VuIjpudWxsfQ.IO1M9WndX-RAhsWaHkKSi2amkdE0BLxnYjR06M2GkrM&zhida_source=entity">8.8.8.8</a>和8.8.4.4以及114的114.114.114.114和114.114.115.115都属于这一类DNS。你本地电脑上设置的DNS就是这类DNS。</p>
+<p><strong>3.转发DNS:</strong></p>
+<p>负责接受用户查询，并返回结果给用户。但这个结果不是按标准的域名解析过程得到的，而是直接把递归DNS的结果转发给用户。它也具备缓存功能。他主要使用在没有直接的互联网连接，但可以连接到一个递归DNS那里，这时使用转发DNS就比较合适。其缺陷是：直接受递归DNS的影响，服务品质较差。比如我们用的路由器里面的DNS就是这一类，用路由器的朋友可以看下本地电脑的DNS一般都是192.168.1.1。</p>
+</blockquote>
+<ul>
+<li>检查内网 DNS 递归服务。</li>
+</ul>
+<p>​	配置好dns后，进行一次查询，在dns服务器上抓包。最先回复的<strong>根</strong>域名<strong>服务器</strong>是h.root-servers.net (<strong>198.97.190.53</strong>)，返回13台.com顶级域名服务器的域名和地址，继续向这些.com顶级域名服务器请求查询stackexchange.com二级域名服务器地址。说明递归没有问题</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918163654833.png" alt="image-20250918163654833"></p>
+<ul>
+<li>如果使用转发模式，确认外部请求会正确转发到上游（如运营商 DNS &#x2F; 公共 DNS）。</li>
+</ul>
+<p>配置一个转发器<code>114.114.114.114</code>可以发现第一时间转发到了114dns。转发成功。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250918164056540.png" alt="image-20250918164056540"></p>
+<ul>
+<li><strong>EDNS 与大包支持</strong><ul>
+<li>测试是否支持 EDNS(0)，否则部分新型解析（如 DNSSEC、大型 TXT 记录）会失败。</li>
+<li>检查 UDP 包是否支持超过 512 字节，否则需要回退 TCP。</li>
+</ul>
+</li>
+<li><strong>DNSSEC</strong>（如果公司要求高安全）<ul>
+<li>确认支持 DNSSEC 验证，测试是否能正确解析签名域名（如 <code>dnssec-failed.org</code> 应该失败，<code>verisignlabs.com</code> 应该成功）。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-安全性测试"><a href="#3-安全性测试" class="headerlink" title="3. 安全性测试"></a>3. 安全性测试</h2><ul>
+<li><p><strong>域名泄露检查</strong></p>
+<ul>
+<li><p>确保内网域名（如 <code>*.internal.local</code>）不会被递归到公网 DNS。</p>
+</li>
+<li><p>可以用 Wireshark&#x2F;tcpdump 抓包，确认请求是否都停留在内网。</p>
+</li>
+<li><pre><code>  udp.port == 53 || tcp.port == 53
+  Resolve-DnsName tech.dev.local
+  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">    ![image-20250918095119711](../images/Linux/运维/dns/image-20250918095119711.png)</span><br><span class="line"></span><br><span class="line">- **开放递归测试**</span><br><span class="line"></span><br><span class="line">    - 使用外网主机尝试递归查询，看是否能解析（应当拒绝）。</span><br><span class="line"></span><br><span class="line">- **抗攻击能力**</span><br><span class="line"></span><br><span class="line">    - 模拟高并发查询，观察 DNS 服务器是否稳定。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>dnsperf -s 192.168.99.254 -d domain.txt -l 30</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Statistics:</p>
+<p>  Queries sent:         119152<br>  Queries completed:    119068 (99.93%)<br>  Queries lost:         0 (0.00%)<br>  Queries interrupted:  84 (0.07%)</p>
+<p>  Response codes:       NOERROR 119068 (100.00%)<br>  Average packet size:  request 32, response 48<br>  Run time (s):         8.941996<br>  Queries per second:   13315.595310</p>
+<p>  Average Latency (s):  0.003618 (min 0.000328, max 0.018649)<br>  Latency StdDev (s):   0.001931</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">![image-20250918094924746](../images/Linux/运维/dns/image-20250918094924746.png)</span><br><span class="line"></span><br><span class="line">- 测试是否能防御基本的缓存投毒攻击（比如 `dig +dnssec` 验证返回的 AD 标志）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">------</span><br><span class="line"></span><br><span class="line">## 4. 性能与高可用测试</span><br><span class="line"></span><br><span class="line">- **延迟与吞吐**</span><br><span class="line">    - 测试解析延迟（平均 &lt;20ms 较合理）。</span><br><span class="line">    - 使用 `dnsperf` / `queryperf` 模拟大量请求，检查 QPS 能力。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>dnsperf -s 192.168.99.254 -d domains.txt -l 60</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Statistics:</p>
+<p>  Queries sent:         750898<br>  Queries completed:    750879 (100.00%)<br>  Queries lost:         19 (0.00%)</p>
+<p>  Response codes:       NOERROR 750879 (100.00%)<br>  Average packet size:  request 32, response 48<br>  Run time (s):         60.002362<br>  Queries per second:   12514.157359</p>
+<p>  Average Latency (s):  0.003380 (min 0.000318, max 0.036856)<br>  Latency StdDev (s):   0.001927</p>
+<p>[root@localhost dnstest]# </p>
+<pre><code>
+![image-20250918094911639](../images/Linux/运维/dns/image-20250918094911639.png)
+
+- **负载均衡与冗余**
+    - 多台 DNS 服务器是否能正常分担压力。
+    - 模拟宕机，检查客户端能否自动切换到备用 DNS。
+
+
+
+# 命令总结
+
+👌 我帮你把文档里的命令 **提炼、扩展并分类总结**，方便查阅和作为运维笔记。
+
+------
+
+# DNS 服务器测试命令总结
+
+## 一、基础解析与调试
+
+| 命令                       | 作用                                        | 示例                             |
+| -------------------------- | ------------------------------------------- | -------------------------------- |
+| `nslookup &lt;domain&gt;`        | 查询域名对应的 IP（正向解析）               | `nslookup tech.dev.local`        |
+| `nslookup &lt;ip&gt;`            | 反查 IP 对应的域名（反向解析，需 PTR 记录） | `nslookup 192.168.99.37`         |
+| `dig &lt;domain&gt;`             | 查询 DNS 记录详情（Linux 常用）             | `dig app.internal.local`         |
+| `Resolve-DnsName &lt;domain&gt;` | Windows PowerShell 查询记录，带 TTL 等信息  | `Resolve-DnsName tech.dev.local` |
+
+扩展：
+
+- `dig +trace &lt;domain&gt;` → 跟踪解析过程，验证递归链路。
+- `dig -x &lt;ip&gt;` → IP 反向解析。
+- `dig &lt;domain&gt; ANY` → 查看所有类型记录。
+
+------
+
+## 二、递归与转发测试
+
+| 命令                         | 作用                                         | 示例                                        |
+| ---------------------------- | -------------------------------------------- | ------------------------------------------- |
+| `dig +trace &lt;domain&gt;`        | 验证递归是否正常（应从根服务器开始逐级解析） | `dig +trace regenm.github.io`               |
+| `tcpdump -i any port 53`     | 抓包 DNS 查询过程                            | `tcpdump -i ens192 port 53 -nn`             |
+| `nslookup &lt;domain&gt; &lt;server&gt;` | 指定 DNS 服务器进行查询                      | `nslookup stackexchange.com 192.168.99.205` |
+
+扩展：
+
+- 使用转发器（如 114.114.114.114），检查请求是否直接转发。
+- `dig @114.114.114.114 baidu.com` → 指定外部 DNS 查询。
+
+------
+
+## 三、安全性测试
+
+| 命令                                  | 作用                                   | 示例                            |
+| ------------------------------------- | -------------------------------------- | ------------------------------- |
+| `tcpdump -i ens192 udp port 53`       | 确认内网域名是否泄露到公网             | `tcpdump -i ens192 udp port 53` |
+| `wireshark filter: udp.port==53`      | 通过 Wireshark 分析 DNS 包             | `udp.port==53`                  |
+| `dig +dnssec &lt;domain&gt;`                | 检查 DNSSEC 是否支持，验证签名域名解析 | `dig +dnssec verisignlabs.com`  |
+| 外网机器 `nslookup &lt;domain&gt; &lt;server&gt;` | 检查是否开放递归（应拒绝外网请求）     | `nslookup baidu.com &lt;公网IP&gt;`   |
+
+扩展：
+
+- `rndc querylog on`（BIND 专用） → 打开查询日志排查异常请求。
+- `unbound-host -C /etc/unbound/unbound.conf -v -d &lt;domain&gt;` → 验证安全配置。
+
+------
+
+## 四、性能与高可用测试
+
+| 命令                                           | 作用                                              | 示例                                             |
+| ---------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ |
+| `dnsperf -s &lt;server&gt; -d domains.txt -l &lt;time&gt;` | 压力测试，QPS 和延迟分析                          | `dnsperf -s 192.168.99.254 -d domains.txt -l 60` |
+| `queryperf -d domains.txt -s &lt;server&gt;`         | 同类工具，测试 DNS 性能                           | `queryperf -d domains.txt -s 192.168.99.254`     |
+| `ab -n 1000 -c 50 dig ...`                     | ApacheBench 模拟并发请求（可用于 dig 脚本化测试） | `ab -n 1000 -c 50 dig baidu.com`                 |
+
+扩展：
+
+- `watch -n1 &quot;dig tech.dev.local @192.168.99.205&quot;` → 实时观测 DNS 响应。
+- 配合 `systemctl stop named` / `systemctl stop coredns` 模拟宕机，看客户端是否切换到备用 DNS。
+
+------
+
+## 五、命令分类汇总
+
+- **查询与解析类**：`nslookup` / `dig` / `Resolve-DnsName`
+- **递归与转发验证类**：`dig +trace` / `tcpdump` / `wireshark`
+- **安全性检查类**：`dig +dnssec` / `tcpdump` / `nslookup`（外网测试）
+- **性能与稳定性类**：`dnsperf` / `queryperf` / `ab`
+
+
+</code></pre>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>winserver</tag>
+        <tag>部署</tag>
+        <tag>dns</tag>
       </tags>
   </entry>
 </search>
