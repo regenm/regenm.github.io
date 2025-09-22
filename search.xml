@@ -26338,10 +26338,6 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 # 命令总结
 
-👌 我帮你把文档里的命令 **提炼、扩展并分类总结**，方便查阅和作为运维笔记。
-
-------
-
 # DNS 服务器测试命令总结
 
 ## 一、基础解析与调试
@@ -26427,6 +26423,32 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>winserver</tag>
         <tag>部署</tag>
         <tag>dns</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>windows tips</title>
+    <url>/2025/09/22/windows-tips/</url>
+    <content><![CDATA[<h1 id="创建本地账户"><a href="#创建本地账户" class="headerlink" title="创建本地账户"></a>创建本地账户</h1><p>​	win11安装系统的时候按下 <code>shift+F10</code> 。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">oobe\bypassnro</span><br></pre></td></tr></table></figure>
+
+<h1 id="快速删除"><a href="#快速删除" class="headerlink" title="快速删除"></a>快速删除</h1><p>​	单线程</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rd /s /q &quot;E:\test&quot;</span><br></pre></td></tr></table></figure>
+
+<p>​	利用robocopy</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> D:\empty</span><br><span class="line">robocopy D:\empty <span class="string">&quot;E:\target&quot;</span> /MIR /MT:32</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="快速复制"><a href="#快速复制" class="headerlink" title="快速复制"></a>快速复制</h1><p>​	多线程+出错重试+输出显示+写入日志</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">robocopy &quot;D:\&quot; &quot;E:\test&quot; /E /MT:8 /R:3 /W:5 /COPY:DAT /DCOPY:T /ZB /NP /TEE /LOG:E:\copy_log.txt</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>运维</tag>
+        <tag>部署</tag>
+        <tag>数据迁移</tag>
       </tags>
   </entry>
 </search>
