@@ -26771,4 +26771,49 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>读书</tag>
       </tags>
   </entry>
+  <entry>
+    <title>es还原手册</title>
+    <url>/2025/10/14/es%E8%BF%98%E5%8E%9F%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<h1 id="es备份镜像配套恢复手册"><a href="#es备份镜像配套恢复手册" class="headerlink" title="es备份镜像配套恢复手册"></a>es备份镜像配套恢复手册</h1><h2 id="1-复制文件"><a href="#1-复制文件" class="headerlink" title="1.复制文件"></a>1.复制文件</h2><p>​	将对应日期对应数据库的文件复制到目标机器。可通过ftp或xftp。</p>
+<h2 id="2-解压文件"><a href="#2-解压文件" class="headerlink" title="2. 解压文件"></a>2. 解压文件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tar -zxvf snapshot_2025_10_11-153637.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-还原"><a href="#3-还原" class="headerlink" title="3. 还原"></a>3. 还原</h2><p>​	将解压出来的文件放到es容器的snapshots文件夹中，一般会挂载出来。</p>
+<h3 id="3-1-注册快照"><a href="#3-1-注册快照" class="headerlink" title="3.1 注册快照"></a>3.1 注册快照</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -u elastic:Admin@123 -X PUT &quot;http://localhost:9200/_snapshot/my_backup&quot; \</span><br><span class="line">-H &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">-d &#x27;&#123;</span><br><span class="line">  &quot;type&quot;: &quot;fs&quot;,</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;location&quot;: &quot;/usr/share/elasticsearch/snapshots&quot;,</span><br><span class="line">    &quot;compress&quot;: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>返回类似：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="attr">&quot;acknowledged&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>表示快照仓库注册成功。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/es/image-20251014104021348.png" alt="image-20251014104021348"></p>
+<h3 id="3-2-查看快照信息"><a href="#3-2-查看快照信息" class="headerlink" title="3.2 查看快照信息"></a>3.2 查看快照信息</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -u elastic:Admin@123 -X GET <span class="string">&quot;http://localhost:9200/_snapshot/my_backup/_all?pretty&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>会显示：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;snapshots&quot;</span> <span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;snapshot&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;snapshot_2025_10_11-153637&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;uuid&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;P2khR1BFThWAmdaXzHdriA&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;state&quot;</span> <span class="punctuation">:</span> <span class="string">&quot;SUCCESS&quot;</span><span class="punctuation">,</span></span><br><span class="line">      ...</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的 <code>&quot;snapshot&quot;</code> 名称（如 <code>snapshot_2025_10_11-153637</code>）就是接下来要恢复的目标。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/es/image-20251014104057126.png" alt="image-20251014104057126"></p>
+<h3 id="3-3-执行快照恢复（restore）"><a href="#3-3-执行快照恢复（restore）" class="headerlink" title="3.3 执行快照恢复（restore）"></a>3.3 执行快照恢复（restore）</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -u elastic:Admin@123 -X POST &quot;http://localhost:9200/_snapshot/my_backup/snapshot_2025_10_11-153637/_restore?wait_for_completion=true&amp;pretty&quot; \</span><br><span class="line">-H &#x27;Content-Type: application/json&#x27; \</span><br><span class="line">-d &#x27;&#123;</span><br><span class="line">  &quot;rename_pattern&quot;: &quot;^(.*)$&quot;,</span><br><span class="line">  &quot;rename_replacement&quot;: &quot;restored_$1&quot;</span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果返回：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;state&quot;</span><span class="punctuation">:</span> <span class="string">&quot;SUCCESS&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>就说明数据恢复成功！</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/es/image-20251014105107331.png" alt="image-20251014105107331"></p>
+<h2 id="4-验证恢复的索引"><a href="#4-验证恢复的索引" class="headerlink" title="4. 验证恢复的索引"></a>4. 验证恢复的索引</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -u elastic:Admin@123 -X GET <span class="string">&quot;http://localhost:9200/_cat/indices?v&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/es/image-20251014105159136.png" alt="image-20251014105159136"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>备份</tag>
+        <tag>还原</tag>
+        <tag>elasticsearch</tag>
+      </tags>
+  </entry>
 </search>
