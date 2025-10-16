@@ -26816,4 +26816,48 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>elasticsearch</tag>
       </tags>
   </entry>
+  <entry>
+    <title>nexus部署</title>
+    <url>/2025/10/16/nexus%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p>​	Nexus 是 Sonatype 开发的一款仓库管理系统，用于集中存储、管理和分发各种软件包与构建产物，如 Maven 依赖、npm 包、Python 包、Docker 镜像等。它可作为企业内部的私有仓库，加速构建、控制版本与权限，并支持代理公网仓库以实现统一依赖管理。相比 MinIO 这类通用对象存储，Nexus 专注于开发流程中的包与镜像管理，是 DevOps 环境中常用的制品仓库解决方案。</p>
+<h1 id="nexus部署"><a href="#nexus部署" class="headerlink" title="nexus部署"></a>nexus部署</h1><h2 id="赋权"><a href="#赋权" class="headerlink" title="赋权"></a>赋权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown -R 200:200 /opt/sonatype/sonatype-work</span><br></pre></td></tr></table></figure>
+
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name nexus \</span><br><span class="line">  -p 8081:8081 \</span><br><span class="line">  -p 5000:5000 \</span><br><span class="line">  -v /data/soft/nexus:/nexus-data \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  sonatype/nexus3:3.85.0</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="私服docker-Images-mirror搭建"><a href="#私服docker-Images-mirror搭建" class="headerlink" title="私服docker Images mirror搭建"></a>私服docker Images mirror搭建</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>Settings-&gt;Repository-&gt;Repositories-&gt;Create repository</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016162915883.png" alt="image-20251016162915883"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163530739.png" alt="image-20251016163530739"></p>
+<h3 id="创建角色"><a href="#创建角色" class="headerlink" title="创建角色"></a>创建角色</h3><p>Settings-&gt;Security-&gt;Roles</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163340131.png" alt="image-20251016163340131"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163409185.png" alt="image-20251016163409185"></p>
+<h3 id="创建用户"><a href="#创建用户" class="headerlink" title="创建用户"></a>创建用户</h3><p>Settings-&gt;Security-&gt;Users</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163000302.png" alt="image-20251016163000302"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163438378.png" alt="image-20251016163438378"></p>
+<h3 id="赋权匿名用户拉取用户"><a href="#赋权匿名用户拉取用户" class="headerlink" title="赋权匿名用户拉取用户"></a>赋权匿名用户拉取用户</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163550461.png" alt="image-20251016163550461"></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="修改daemon-json"><a href="#修改daemon-json" class="headerlink" title="修改daemon.json"></a>修改daemon.json</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">&quot;insecure-registries&quot;: [&quot;192.168.99.203:5000&quot;]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="推送"><a href="#推送" class="headerlink" title="推送"></a>推送</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker login 192.168.99.203:5000</span><br><span class="line">docker tag nginx:latest 192.168.99.203:5000/nginx:latest</span><br><span class="line">docker push 192.168.99.203:5000/nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016164004161.png" alt="image-20251016164004161"></p>
+<h4 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull 192.168.99.203:5000/nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016164057094.png" alt="image-20251016164057094"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>nexus</tag>
+      </tags>
+  </entry>
 </search>
