@@ -5473,7 +5473,10 @@
   <entry>
     <title>Linux网络配置</title>
     <url>/2025/07/14/Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>通用命令：</p>
+    <content><![CDATA[<blockquote>
+<p><a href="https://regenm.github.io/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/?highlight=%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93">网络连通性测试总结 | Regen</a></p>
+</blockquote>
+<p>通用命令：</p>
 <table>
 <thead>
 <tr>
@@ -5632,6 +5635,20 @@
 
 <p>删除或注释掉 IPADDR &#x2F; NETMASK &#x2F; GATEWAY 等行。</p>
 <hr>
+<h1 id="六、问题解决"><a href="#六、问题解决" class="headerlink" title="六、问题解决"></a><strong>六、问题解决</strong></h1><h2 id="ping不通IP"><a href="#ping不通IP" class="headerlink" title="ping不通IP"></a>ping不通IP</h2><p>可能是网络配置，路由配置的问题。</p>
+<p>解决步骤：</p>
+<ol>
+<li>ping 网关<ul>
+<li>ping不通则为网关配置没配好</li>
+</ul>
+</li>
+<li>看路由</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ip route</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">route -n</span><br></pre></td></tr></table></figure>
+
+<p>如果没有<code>default via</code>则增加：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip route add default via 192.168.1.1</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -21993,7 +22010,10 @@ to breathe, to sense another, and to wait.<br>
   <entry>
     <title>网络连通性测试总结</title>
     <url>/2025/07/04/%E7%BD%91%E7%BB%9C%E8%BF%9E%E9%80%9A%E6%80%A7%E6%B5%8B%E8%AF%95%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<h1 id="测试云端主机策略是否生效"><a href="#测试云端主机策略是否生效" class="headerlink" title="测试云端主机策略是否生效"></a>测试云端主机策略是否生效</h1><p>​		在云服务器控制台，例如阿里云等服务商设置好安全组策略，开放对应的TCP、UDP端口号，出入权限。</p>
+    <content><![CDATA[<blockquote>
+<p><a href="https://regenm.github.io/2025/07/14/Linux%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/?highlight=%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE">Linux网络配置 | Regen</a></p>
+</blockquote>
+<h1 id="测试云端主机端口策略是否生效"><a href="#测试云端主机端口策略是否生效" class="headerlink" title="测试云端主机端口策略是否生效"></a>测试云端主机端口策略是否生效</h1><p>​		在云服务器控制台，例如阿里云等服务商设置好安全组策略，开放对应的TCP、UDP端口号，出入权限。</p>
 <h2 id="1-服务端检查"><a href="#1-服务端检查" class="headerlink" title="1. 服务端检查"></a>1. 服务端检查</h2><h3 id="1-检查已开放端口"><a href="#1-检查已开放端口" class="headerlink" title="1. 检查已开放端口"></a>1. 检查已开放端口</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ss -tulnp</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -ano</span><br></pre></td></tr></table></figure>
@@ -26820,12 +26840,11 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
     <title>nexus部署</title>
     <url>/2025/10/16/nexus%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p>​	Nexus 是 Sonatype 开发的一款仓库管理系统，用于集中存储、管理和分发各种软件包与构建产物，如 Maven 依赖、npm 包、Python 包、Docker 镜像等。它可作为企业内部的私有仓库，加速构建、控制版本与权限，并支持代理公网仓库以实现统一依赖管理。相比 MinIO 这类通用对象存储，Nexus 专注于开发流程中的包与镜像管理，是 DevOps 环境中常用的制品仓库解决方案。</p>
-<h1 id="nexus部署"><a href="#nexus部署" class="headerlink" title="nexus部署"></a>nexus部署</h1><h2 id="赋权"><a href="#赋权" class="headerlink" title="赋权"></a>赋权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown -R 200:200 /opt/sonatype/sonatype-work</span><br></pre></td></tr></table></figure>
+<h1 id="nexus部署"><a href="#nexus部署" class="headerlink" title="nexus部署"></a>nexus部署</h1><h2 id="赋权"><a href="#赋权" class="headerlink" title="赋权"></a>赋权</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown -R 200:200 /data/soft/nexus</span><br></pre></td></tr></table></figure>
 
 <h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name nexus \</span><br><span class="line">  -p 8081:8081 \</span><br><span class="line">  -p 5000:5000 \</span><br><span class="line">  -v /data/soft/nexus:/nexus-data \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  sonatype/nexus3:3.85.0</span><br></pre></td></tr></table></figure>
 
-
-
+<p> java -Xmx4G -Xms4G -XX:+UseG1GC -XX:MaxDirectMemorySize&#x3D;28672M -jar nexus-db-migrator-3.70.4-02.jar –migration_type&#x3D;h2 <br>  –orient.directory&#x3D;&#x2F;nexus-data&#x2F;db <br>  –h2.directory&#x3D;&#x2F;nexus-data&#x2F;db-h2 <br>  –content.migration&#x3D;true</p>
 <h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><h2 id="私服docker-Images-mirror搭建"><a href="#私服docker-Images-mirror搭建" class="headerlink" title="私服docker Images mirror搭建"></a>私服docker Images mirror搭建</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>Settings-&gt;Repository-&gt;Repositories-&gt;Create repository</p>
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016162915883.png" alt="image-20251016162915883"></p>
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016163530739.png" alt="image-20251016163530739"></p>
@@ -26848,6 +26867,89 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h4 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker pull 192.168.99.203:5000/nginx:latest</span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016164057094.png" alt="image-20251016164057094"></p>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>运维</tag>
+        <tag>docker</tag>
+        <tag>nexus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nexus升级与迁移</title>
+    <url>/2025/10/17/nexus%E5%8D%87%E7%BA%A7%E4%B8%8E%E8%BF%81%E7%A7%BB/</url>
+    <content><![CDATA[<h1 id="nexus升级与迁移"><a href="#nexus升级与迁移" class="headerlink" title="nexus升级与迁移"></a>nexus升级与迁移</h1><blockquote>
+<p>参考：<a href="https://blog.ysicing.net/docker-nexus-upgrade-370">Nexus3 容器部署3.70.x升级实践-非成功案例 | Solitudes</a></p>
+<p>官网：<a href="https://help.sonatype.com/en/upgrading-to-nexus-repository-3-71-0-and-beyond.html">Upgrading to Nexus Repository 3.71.0 and Beyond</a></p>
+<p>迁移工具下载地址：<a href="https://help.sonatype.com/en/orientdb-downloads.html">Nexus Repository 3.70.x Downloads with OrientDB</a></p>
+</blockquote>
+<p>​	场景：从宿主机部署的nexus较低版本比如3.16升级到docker部署的最新版例如3.85。</p>
+<p>​	方案：</p>
+<ol>
+<li>nexus3.16升级为3.70.4。</li>
+<li>nexus3.70.4导出备份</li>
+<li>nexus迁移工具导出新的数据库文件</li>
+<li>nexus编辑配置文件</li>
+<li>部署nexus3.85.0</li>
+</ol>
+<h2 id="nexus3-16升级为3-70-4"><a href="#nexus3-16升级为3-70-4" class="headerlink" title="nexus3.16升级为3.70.4"></a>nexus3.16升级为3.70.4</h2><p>​	不管是宿主机还是容器部署，都只需要<code>nexus-data</code>目录中的数据。目录结构类似：</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017151959029.png" alt="image-20251017151959029"></p>
+<p>​	将数据目录转移到新的机器或者路径后进行部署新的nexus容器。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo chown -R 200:200 /data/soft/nexus</span><br><span class="line"></span><br><span class="line">docker run -d \</span><br><span class="line">  --name nexus \</span><br><span class="line">  -p 8081:8081 \</span><br><span class="line">  -p 5000:5000 \</span><br><span class="line">  -v /data/soft/nexus:/nexus-data \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  sonatype/nexus3:3.70.4</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="nexus3-70-4更换root密码"><a href="#nexus3-70-4更换root密码" class="headerlink" title="nexus3.70.4更换root密码"></a>nexus3.70.4更换root密码</h2><p>​	直接挂载数据目录如果忘记密码则需要修改root密码。</p>
+<p>​	思路为删除<code>nexus-daba/db/security</code>之后重启即可。</p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017153145194.png" alt="image-20251017153145194"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017153331866.png" alt="image-20251017153331866"></p>
+<h2 id="nexus3-70-4导出备份"><a href="#nexus3-70-4导出备份" class="headerlink" title="nexus3.70.4导出备份"></a>nexus3.70.4导出备份</h2><p>登录admin后进行到处备份。</p>
+<ul>
+<li>设置-系统-任务-创建任务</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/02.png" alt="img"></p>
+<ul>
+<li>搜索 Backup，选择它</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/03=1.png" alt="img"></p>
+<ul>
+<li>创建一下手动触发的任务，备份路径 <code>/nexus-data/backup</code> 就行</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/04.png" alt="img"></p>
+<ul>
+<li>创建完任务后，点击 <code>backup</code> 任务运行</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/05.png" alt="img"></p>
+<ul>
+<li>触发备份</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/06.png" alt="img"></p>
+<ul>
+<li>等待备份完成</li>
+</ul>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/07.png" alt="img"></p>
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017153704812.png" alt="image-20251017153704812"></p>
+<h2 id="nexus迁移工具导出新的数据库文件"><a href="#nexus迁移工具导出新的数据库文件" class="headerlink" title="nexus迁移工具导出新的数据库文件"></a>nexus迁移工具导出新的数据库文件</h2><p>​	将迁移工具<code> nexus-db-migrator-3.70.4-02.jar</code>复制到<code>/data/soft/nexus/backup</code>，然后执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">java -Xmx4G -Xms4G -XX:+UseG1GC -XX:MaxDirectMemorySize=28672M -jar nexus-db-migrator-3.70.4-02.jar --migration_type=h2 --force=true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017154251458.png" alt="image-20251017154251458"></p>
+<h2 id="nexus编辑配置"><a href="#nexus编辑配置" class="headerlink" title="nexus编辑配置"></a>nexus编辑配置</h2><p>​	将刚刚的目录下的<code>nexus.mv.db</code>复制到<code>/data/soft/nexus/db/</code></p>
+<p>​	编辑<code> /data/soft/nexus/nexus.properties</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /data/soft/nexus/nexus.properties</span><br></pre></td></tr></table></figure>
+
+<p>增加最后一条</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root@nat3:/data/k8s/local/nexus3/etc# <span class="built_in">cat</span> nexus.properties</span><br><span class="line"><span class="comment"># Jetty section</span></span><br><span class="line"><span class="comment"># application-port=8081</span></span><br><span class="line"><span class="comment"># application-host=0.0.0.0</span></span><br><span class="line"><span class="comment"># nexus-args=$&#123;jetty.etc&#125;/jetty.xml,$&#123;jetty.etc&#125;/jetty-http.xml,$&#123;jetty.etc&#125;/jetty-requestlog.xml</span></span><br><span class="line"><span class="comment"># nexus-context-path=/$&#123;NEXUS_CONTEXT&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Nexus section</span></span><br><span class="line"><span class="comment"># nexus-edition=nexus-pro-edition</span></span><br><span class="line"><span class="comment"># nexus-features=\</span></span><br><span class="line"><span class="comment">#  nexus-pro-feature</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># nexus.hazelcast.discovery.isEnabled=true</span></span><br><span class="line">nexus.datastore.enabled=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="部署nexus3-85-0"><a href="#部署nexus3-85-0" class="headerlink" title="部署nexus3.85.0"></a>部署nexus3.85.0</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --name nexus \</span><br><span class="line">  -p 8081:8081 \</span><br><span class="line">  -p 5000:5000 \</span><br><span class="line">  -v /data/soft/nexus:/nexus-data \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  sonatype/nexus3:3.85.0</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251017155704021.png" alt="image-20251017155704021"></p>
+<p>至此已完成迁移</p>
 ]]></content>
       <categories>
         <category>软件技术</category>
