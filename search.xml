@@ -26975,4 +26975,751 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>读书</tag>
       </tags>
   </entry>
+  <entry>
+    <title>dante扫盲</title>
+    <url>/2025/10/31/dante%E6%89%AB%E7%9B%B2/</url>
+    <content><![CDATA[<h1 id="dante扫盲"><a href="#dante扫盲" class="headerlink" title="dante扫盲"></a>dante扫盲</h1><p>非常好 👍<br> 在你已经理解了 <strong>H.265（视频压缩传输）</strong> 和 <strong>NDI（内网视频实时传输）</strong> 之后，<br> 我们接下来讲 <strong>Dante</strong> —— 它与 NDI 的思路非常相似，只不过专注于 <strong>音频领域</strong>。</p>
+<p>我会像前两次一样，用结构化的方式讲解：<br> 👉 从采集、编码、传输、解码到输出全流程分析，最后对比 NDI 与 H.265。</p>
+<hr>
+<h2 id="一、Dante-是什么"><a href="#一、Dante-是什么" class="headerlink" title="一、Dante 是什么"></a>一、Dante 是什么</h2><p><strong>Dante（Digital Audio Network Through Ethernet）</strong><br> 是由 <strong>Audinate 公司</strong> 开发的一种 <strong>基于 IP 网络的数字音频传输协议</strong>。</p>
+<p>一句话总结：</p>
+<blockquote>
+<p>🎧 <strong>Dante 就是“音频领域的 NDI”</strong> —— 它让音频信号可以通过普通网线在局域网内实时、高保真、低延迟地传输。</p>
+</blockquote>
+<p>Dante 被广泛用于：</p>
+<ul>
+<li>专业会议系统</li>
+<li>舞台扩声与广播系统</li>
+<li>录音棚与演播室</li>
+<li>校园、酒店、指挥中心等多音频节点环境</li>
+</ul>
+<hr>
+<h2 id="二、Dante-的完整工作流程"><a href="#二、Dante-的完整工作流程" class="headerlink" title="二、Dante 的完整工作流程"></a>二、Dante 的完整工作流程</h2><p>下面我们用你熟悉的逻辑结构分析：</p>
+<blockquote>
+<p><strong>音频采集 → 编码 → 网络传输 → 解码 → 播放输出</strong></p>
+</blockquote>
+<hr>
+<h3 id="①-音频采集阶段"><a href="#①-音频采集阶段" class="headerlink" title="① 音频采集阶段"></a>① 音频采集阶段</h3><ul>
+<li>麦克风、调音台、音频接口等设备采集到模拟音频信号；</li>
+<li>模拟信号经过 <strong>ADC（模数转换）</strong>，变为数字音频流；</li>
+<li>支持常见采样率（44.1kHz ~ 192kHz）和位深（16~32bit）。</li>
+</ul>
+<p>在传统系统中，这些音频要用一根根模拟线缆连接；<br> 而在 Dante 系统中，这些音频直接走网线。</p>
+<hr>
+<h3 id="②-编码阶段"><a href="#②-编码阶段" class="headerlink" title="② 编码阶段"></a>② 编码阶段</h3><ul>
+<li>与 H.265 不同，<strong>Dante 不进行压缩编码</strong>；</li>
+<li>它传输的是 <strong>线性 PCM 数字音频（无压缩）</strong>；</li>
+<li>这意味着：<ul>
+<li>保留了全部音质；</li>
+<li>延迟极低（典型 1ms 以下）；</li>
+<li>对带宽要求略高（但音频远小于视频）。</li>
+</ul>
+</li>
+</ul>
+<p>💡 例：48kHz、24bit、2声道的 Dante 音频流 ≈ 2.3 Mbps。<br> 所以在千兆局域网内，即使传上百路音频也完全没压力。</p>
+<hr>
+<h3 id="③-传输阶段"><a href="#③-传输阶段" class="headerlink" title="③ 传输阶段"></a>③ 传输阶段</h3><ul>
+<li>Dante 使用标准以太网进行传输（无需专用线路），底层走 <strong>UDP&#x2F;IP</strong>；</li>
+<li>拥有严格的<strong>时钟同步机制</strong>（IEEE 1588 PTP 精密时间协议），确保所有设备毫秒级同步；</li>
+<li>通过 <strong>组播或单播</strong> 将音频流分发给多台设备；</li>
+<li>网络要求：千兆以太网即可，低延迟、无抖动。</li>
+</ul>
+<p>🧠 因为是 UDP 传输，Dante 的“稳定性”依靠：</p>
+<ul>
+<li>高质量局域网；</li>
+<li>QoS 优先级控制；</li>
+<li>PTP 时间同步；</li>
+<li>自适应缓冲机制。</li>
+</ul>
+<hr>
+<h3 id="④-解码阶段"><a href="#④-解码阶段" class="headerlink" title="④ 解码阶段"></a>④ 解码阶段</h3><ul>
+<li>接收端设备（如音箱、调音台、电脑）从网络中接收 Dante 流；</li>
+<li>通过 <strong>DAC（数模转换）</strong> 恢复为模拟信号，送入功放或扬声器；</li>
+<li>整个过程延迟极低、相位同步。</li>
+</ul>
+<p>🎛️ 例如：</p>
+<ul>
+<li>一台麦克风 → Dante 网络 → 多个功放&#x2F;音响；</li>
+<li>全部音频同步，无回音、无漂移。</li>
+</ul>
+<hr>
+<h3 id="⑤-控制与管理"><a href="#⑤-控制与管理" class="headerlink" title="⑤ 控制与管理"></a>⑤ 控制与管理</h3><ul>
+<li>Dante 配套软件：<strong>Dante Controller</strong><ul>
+<li>自动发现网络内所有 Dante 设备；</li>
+<li>像“路由表”一样配置每路音频的输入输出；</li>
+<li>实现一对多、多对多音频传输；</li>
+<li>支持虚拟声卡（Dante Virtual Soundcard）让普通电脑也能接入 Dante 网络。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<h2 id="三、Dante-的优势"><a href="#三、Dante-的优势" class="headerlink" title="三、Dante 的优势"></a>三、Dante 的优势</h2><table>
+<thead>
+<tr>
+<th>优势点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>低延迟</strong></td>
+<td>小于 1ms，几乎实时</td>
+</tr>
+<tr>
+<td><strong>高音质</strong></td>
+<td>无压缩 PCM 传输</td>
+</tr>
+<tr>
+<td><strong>基于 IP 网络</strong></td>
+<td>使用标准以太网，无需专线</td>
+</tr>
+<tr>
+<td><strong>高同步性</strong></td>
+<td>使用 PTP 时间同步</td>
+</tr>
+<tr>
+<td><strong>灵活路由</strong></td>
+<td>一对多、多对多连接</td>
+</tr>
+<tr>
+<td><strong>可扩展性强</strong></td>
+<td>上百通道音频可共存</td>
+</tr>
+<tr>
+<td><strong>软件化控制</strong></td>
+<td>用 Dante Controller 管理信号流</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、在视频会议系统中的应用"><a href="#四、在视频会议系统中的应用" class="headerlink" title="四、在视频会议系统中的应用"></a>四、在视频会议系统中的应用</h2><p>在现代视频会议系统中，Dante 通常与 NDI &#x2F; H.265 配合使用：</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>协议</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>摄像头视频流</td>
+<td>NDI &#x2F; H.265</td>
+<td>高质量视频传输</td>
+</tr>
+<tr>
+<td>麦克风音频流</td>
+<td>Dante</td>
+<td>高保真音频传输</td>
+</tr>
+<tr>
+<td>会议控制</td>
+<td>IP 网络</td>
+<td>统一管理信号路由</td>
+</tr>
+</tbody></table>
+<p>📍 举个例子：</p>
+<ul>
+<li>会议主讲人的麦克风通过 Dante 网络传到所有会议终端；</li>
+<li>摄像头的视频通过 NDI 传给控制台；</li>
+<li>控制台再将视频与音频混合，经 H.265 推流至互联网；</li>
+<li>所有音视频严格同步，延迟极低。</li>
+</ul>
+<hr>
+<h2 id="五、NDI、Dante、H-265-的总体对比"><a href="#五、NDI、Dante、H-265-的总体对比" class="headerlink" title="五、NDI、Dante、H.265 的总体对比"></a>五、NDI、Dante、H.265 的总体对比</h2><table>
+<thead>
+<tr>
+<th>特性</th>
+<th><strong>H.265</strong></th>
+<th><strong>NDI</strong></th>
+<th><strong>Dante</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类型</td>
+<td>视频压缩编码标准</td>
+<td>视频网络传输协议</td>
+<td>音频网络传输协议</td>
+</tr>
+<tr>
+<td>应用范围</td>
+<td>公网 &#x2F; 云传输</td>
+<td>局域网视频实时传输</td>
+<td>局域网音频实时传输</td>
+</tr>
+<tr>
+<td>压缩情况</td>
+<td>高压缩（节省带宽）</td>
+<td>轻压缩（低延迟）</td>
+<td>无压缩（高音质）</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>50–200 ms</td>
+<td>&lt;16 ms</td>
+<td>&lt;1 ms</td>
+</tr>
+<tr>
+<td>传输协议</td>
+<td>RTP &#x2F; RTMP &#x2F; HLS</td>
+<td>UDP &#x2F; TCP</td>
+<td>UDP &#x2F; IP</td>
+</tr>
+<tr>
+<td>网络需求</td>
+<td>中等</td>
+<td>高带宽（千兆）</td>
+<td>中高（千兆）</td>
+</tr>
+<tr>
+<td>典型场景</td>
+<td>直播、点播</td>
+<td>会议、演播室</td>
+<td>会议音频、录音、广播</td>
+</tr>
+<tr>
+<td>硬件需求</td>
+<td>编解码芯片</td>
+<td>CPU&#x2F;GPU 解码</td>
+<td>专用音频接口或网卡</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="六、一句话总结"><a href="#六、一句话总结" class="headerlink" title="六、一句话总结"></a>六、一句话总结</h2><blockquote>
+<p>🎧 <strong>Dante 是专为音频设计的 IP 网络传输协议，</strong><br> 以无压缩、高同步、低延迟为核心，让多路音频能在局域网中自由路由、实时播放。<br> 它是现代视频会议和演播室系统中“声音部分的 NDI”，与 H.265 和 NDI 共同构成完整的音视频链路</p>
+</blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>音视频</tag>
+        <tag>dante</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ndi扫盲</title>
+    <url>/2025/10/31/ndi%E6%89%AB%E7%9B%B2/</url>
+    <content><![CDATA[<h1 id="ndi扫盲"><a href="#ndi扫盲" class="headerlink" title="ndi扫盲"></a>ndi扫盲</h1><p><strong>NDI（Network Device Interface）</strong> 是由 <strong>NewTek</strong> 开发的一种<strong>基于 IP 的实时音视频传输协议</strong>，主要用于 <strong>局域网（LAN）</strong> 内的高质量、低延迟视频传输。</p>
+<p>非常好 👍<br> 既然你已经理解了 <strong>H.265 在视频会议中的完整流程</strong>，我们现在来讲 <strong>NDI（Network Device Interface）</strong>。<br> 我会沿用你喜欢的那种结构化讲解方式 —— 从“采集 → 编码 → 传输 → 解码 → 显示”全流程分析，帮你理解 <strong>NDI 与 H.265 的区别与应用逻辑</strong>。</p>
+<hr>
+<h2 id="一、NDI-是什么"><a href="#一、NDI-是什么" class="headerlink" title="一、NDI 是什么"></a>一、NDI 是什么</h2><p><strong>NDI（Network Device Interface）</strong> 是由 <strong>NewTek</strong> 开发的一种<strong>基于 IP 的实时音视频传输协议</strong>，主要用于 <strong>局域网（LAN）</strong> 内的高质量、低延迟视频传输。</p>
+<p>一句话总结：</p>
+<blockquote>
+<p>🧠 NDI 就像是“视频领域的局域网 HDMI”，让视频设备可以通过网络互相传输无压缩或轻压缩的高质量视频信号，而不需要采集卡或视频线。</p>
+</blockquote>
+<hr>
+<h2 id="二、NDI-在视频会议中的完整流程"><a href="#二、NDI-在视频会议中的完整流程" class="headerlink" title="二、NDI 在视频会议中的完整流程"></a>二、NDI 在视频会议中的完整流程</h2><p>下面我们用同样的逻辑，分析 NDI 在视频会议或演播室系统中的工作过程。</p>
+<hr>
+<h3 id="①-视频采集阶段"><a href="#①-视频采集阶段" class="headerlink" title="① 视频采集阶段"></a>① 视频采集阶段</h3><ul>
+<li>摄像机、采集卡、OBS 推流端等设备采集原始视频；</li>
+<li>视频流由 NDI 源设备（NDI Source）生成，例如：<ul>
+<li>物理摄像头 → NDI 摄像机；</li>
+<li>软件源 → OBS、vMix、Teams NDI 输出。</li>
+</ul>
+</li>
+</ul>
+<p> NDI 的独特之处是：<strong>采集端直接在设备或软件中生成可通过网络发送的 NDI 视频流</strong>，不需要额外转码步骤。</p>
+<hr>
+<h3 id="②-编码阶段（NDI-的轻压缩）"><a href="#②-编码阶段（NDI-的轻压缩）" class="headerlink" title="② 编码阶段（NDI 的轻压缩）"></a>② 编码阶段（NDI 的轻压缩）</h3><ul>
+<li>NDI 并非完全“无压缩”，而是一种<strong>轻压缩、低延迟编码</strong>。</li>
+<li>编码算法基于 DCT（类似视频压缩），但压缩比远低于 H.265。</li>
+<li>延迟可低至 <strong>1 帧（&lt; 16ms）</strong>，适合多机位、实时预览、会议等对同步性极高的场景。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>H.265</th>
+<th>NDI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>压缩比</td>
+<td>高（可达 100:1）</td>
+<td>低（约 8:1）</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>50–200ms</td>
+<td>&lt; 16ms</td>
+</tr>
+<tr>
+<td>目标</td>
+<td>网络传输节省带宽</td>
+<td>实时制作、局域网高质量传输</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="③-传输阶段（基于网络）"><a href="#③-传输阶段（基于网络）" class="headerlink" title="③ 传输阶段（基于网络）"></a>③ 传输阶段（基于网络）</h3><ul>
+<li>NDI 视频流通过 <strong>局域网 UDP&#x2F;TCP 传输</strong>；</li>
+<li>通常走 <strong>UDP 组播 &#x2F; 单播</strong>；</li>
+<li>带宽需求较高（例如 1080p60 需要 100–150 Mbps，4K 可能超 300 Mbps）；</li>
+<li>因此一般用于 <strong>内网</strong>（演播室、会议室、校园网），而非公网。</li>
+</ul>
+<p> 稳定性的关键：<br> NDI 使用高带宽低延迟网络（千兆或万兆网），同时内置 <strong>时钟同步、流量控制、重发补偿</strong> 等机制。<br> 虽然走 UDP，但比传统 UDP 稳定得多。</p>
+<hr>
+<h3 id="④-解码阶段"><a href="#④-解码阶段" class="headerlink" title="④ 解码阶段"></a>④ 解码阶段</h3><ul>
+<li>网络另一端的设备（NDI Receiver）会接收流并解码；</li>
+<li>解码方式：<ul>
+<li><strong>硬件解码</strong>：NDI 显示器、转换盒；</li>
+<li><strong>软件解码</strong>：NDI Tools、OBS、vMix、Teams、Zoom 会议输入等；</li>
+<li><strong>GPU 加速解码</strong>：用显卡进行实时处理，减轻 CPU 压力。</li>
+</ul>
+</li>
+</ul>
+<p>关键特性：<br> NDI 允许任意设备同时访问同一个源（多播），因此多个终端可以同时订阅同一个视频信号，比如：</p>
+<ul>
+<li>一个摄像机画面同时被 OBS、监控屏、会议主机接收。</li>
+</ul>
+<hr>
+<h3 id="⑤-显示与混流"><a href="#⑤-显示与混流" class="headerlink" title="⑤ 显示与混流"></a>⑤ 显示与混流</h3><ul>
+<li>解码后的视频可以：<ul>
+<li>直接显示在大屏；</li>
+<li>被 OBS、vMix、Teams 等混流；</li>
+<li>再通过 H.265&#x2F;RTMP 推送到互联网。</li>
+</ul>
+</li>
+<li>在视频会议系统中，NDI 常用来：<ul>
+<li>把会议摄像头画面共享给多个会控系统；</li>
+<li>或把远程会议源输入到现场大屏、录制系统。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<h2 id="三、NDI-的核心优势"><a href="#三、NDI-的核心优势" class="headerlink" title="三、NDI 的核心优势"></a>三、NDI 的核心优势</h2><table>
+<thead>
+<tr>
+<th>优势点</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>低延迟</strong></td>
+<td>延迟低至 1 帧，几乎实时</td>
+</tr>
+<tr>
+<td><strong>高画质</strong></td>
+<td>接近无损画质（YUV 4:2:2）</td>
+</tr>
+<tr>
+<td><strong>基于 IP 网络</strong></td>
+<td>使用普通局域网即可，无需专线</td>
+</tr>
+<tr>
+<td><strong>即插即用发现机制</strong></td>
+<td>自动发现同一局域网内的 NDI 设备</td>
+</tr>
+<tr>
+<td><strong>多路并行</strong></td>
+<td>一个源可被多个接收端同时访问</td>
+</tr>
+<tr>
+<td><strong>广泛生态</strong></td>
+<td>OBS、vMix、Teams、Zoom、Unreal Engine 均支持 NDI 输入输出</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、NDI-的典型应用场景"><a href="#四、NDI-的典型应用场景" class="headerlink" title="四、NDI 的典型应用场景"></a>四、NDI 的典型应用场景</h2><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>应用说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>演播室制作</td>
+<td>多机位信号实时切换，无需 SDI 线缆</td>
+</tr>
+<tr>
+<td>视频会议</td>
+<td>高质量画面在会议终端间传输</td>
+</tr>
+<tr>
+<td>教育直播</td>
+<td>教室摄像头画面实时传到录制或直播端</td>
+</tr>
+<tr>
+<td>游戏直播</td>
+<td>OBS → NDI → 另一台推流电脑，减轻主机负载</td>
+</tr>
+<tr>
+<td>企业会议系统</td>
+<td>多会议室视频信号互通共享</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="💡-五、NDI-与-H-265-的区别总结"><a href="#💡-五、NDI-与-H-265-的区别总结" class="headerlink" title="💡 五、NDI 与 H.265 的区别总结"></a>💡 五、NDI 与 H.265 的区别总结</h2><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th><strong>NDI</strong></th>
+<th><strong>H.265（HEVC）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>压缩效率</td>
+<td>低（近无损）</td>
+<td>高（节省带宽）</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>极低（&lt;16ms）</td>
+<td>较高（50–200ms）</td>
+</tr>
+<tr>
+<td>典型应用</td>
+<td>内网、演播室、会议室</td>
+<td>公网传输、视频点播、直播</td>
+</tr>
+<tr>
+<td>带宽需求</td>
+<td>高（100–300 Mbps）</td>
+<td>低（5–15 Mbps）</td>
+</tr>
+<tr>
+<td>传输协议</td>
+<td>UDP &#x2F; TCP（组播）</td>
+<td>RTP &#x2F; RTMP &#x2F; HLS &#x2F; QUIC</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>依赖内网质量</td>
+<td>有自适应控制机制</td>
+</tr>
+<tr>
+<td>硬件依赖</td>
+<td>软件为主（CPU&#x2F;GPU）</td>
+<td>强依赖硬件加速</td>
+</tr>
+<tr>
+<td>适用范围</td>
+<td>内网实时制作</td>
+<td>公网大规模分发</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✅-六、一句话总结"><a href="#✅-六、一句话总结" class="headerlink" title="✅ 六、一句话总结"></a>✅ 六、一句话总结</h2><blockquote>
+<p>NDI 是为 <strong>局域网内实时视频传输</strong> 设计的轻压缩协议，像一根“网络版 HDMI”，以低延迟和高画质为核心；<br> 它不追求节省带宽，而追求即时性和多端同步，因此非常适合会议、演播室、监控等内网高质量场景。</p>
+</blockquote>
+</blockquote>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>音视频</tag>
+        <tag>h.265</tag>
+        <tag>ndi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>h.265扫盲</title>
+    <url>/2025/10/31/h-265%E6%89%AB%E7%9B%B2/</url>
+    <content><![CDATA[<h1 id="h-265扫盲"><a href="#h-265扫盲" class="headerlink" title="h.265扫盲"></a>h.265扫盲</h1><blockquote>
+<p><strong>高效率视频编码</strong>（<strong>High Efficiency Video Coding</strong>，简称<strong>HEVC</strong>），又称为<strong>H.265</strong>和**<a href="https://zh.wikipedia.org/wiki/MPEG-H">MPEG-H</a>第2部分**，是一种<a href="https://zh.wikipedia.org/wiki/%E8%A6%96%E8%A8%8A%E5%A3%93%E7%B8%AE">视频压缩</a><a href="https://zh.wikipedia.org/wiki/%E6%A0%87%E5%87%86">标准</a>，获视为是<a href="https://zh.wikipedia.org/wiki/H.264/MPEG-4_AVC">ITU-T H.264&#x2F;MPEG-4 AVC</a>标准的继任者。2004年开始由<a href="https://zh.wikipedia.org/wiki/ISO">ISO</a>&#x2F;<a href="https://zh.wikipedia.org/wiki/IEC">IEC</a> <a href="https://zh.wikipedia.org/wiki/MPEG">Moving Picture Experts Group</a>（MPEG）和<a href="https://zh.wikipedia.org/wiki/%E5%9C%8B%E9%9A%9B%E9%9B%BB%E4%BF%A1%E8%81%AF%E7%9B%9F%E9%9B%BB%E4%BF%A1%E6%A8%99%E6%BA%96%E5%8C%96%E9%83%A8%E9%96%80">ITU-T</a> <a href="https://zh.wikipedia.org/wiki/%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81%E4%B8%93%E5%AE%B6%E7%BB%84">Video Coding Experts Group</a>（VCEG）作为ISO&#x2F;IEC 23008-2 <em>MPEG-H Part 2</em>或称作ITU-T <em>H.265</em>开始制定[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-OverviewHEVCIEEE2012-1">1]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-JCTVCOfficialWebsite-2">2]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-MPEGHomePage-3">3]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-MPEGWorkingDocuments-4">4]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-ITUWorkWebsite-5">5]</a>。第一版的HEVC&#x2F;H.265视频压缩标准在2013年4月13日获接受为国际电信联盟（ITU-T）的正式标准[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-OverviewHEVCIEEE2012-1">1]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-JCTVCOfficialWebsite-2">2]</a>[<a href="https://zh.wikipedia.org/wiki/%E9%AB%98%E6%95%88%E7%8E%87%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81#cite_note-ZMS40-6">6]</a>。HEVC获认为不仅提升影像质量，同时也能达到H.264&#x2F;MPEG-4 AVC两倍之<a href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E5%A3%93%E7%B8%AE%E6%AF%94">压缩率</a>（等同于同样画面质量下<a href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83%E7%8E%87">比特率</a>减少到了50%），可支持<a href="https://zh.wikipedia.org/wiki/4K%E8%A7%A3%E6%9E%90%E5%BA%A6">4K清晰度</a>甚至到<a href="https://zh.wikipedia.org/wiki/%E8%B6%85%E9%AB%98%E7%95%AB%E8%B3%AA%E9%9B%BB%E8%A6%96">超高清电视</a>（UHDTV），最高<a href="https://zh.wikipedia.org/wiki/%E8%A7%A3%E6%9E%90%E5%BA%A6">清晰度</a>可达到8192×4320（<a href="https://zh.wikipedia.org/wiki/8K%E8%A7%A3%E6%9E%90%E5%BA%A6">8K清晰度</a>）。</p>
+</blockquote>
+<h1 id="场景"><a href="#场景" class="headerlink" title="场景"></a>场景</h1><h2 id="一、视频会议系统"><a href="#一、视频会议系统" class="headerlink" title="一、视频会议系统"></a>一、视频会议系统</h2><ul>
+<li><strong>案例</strong>：Zoom、华为云会议、腾讯会议、Cisco Webex</li>
+<li><strong>原因</strong>：在有限带宽下保持清晰画质。<br>   例如在 1Mbps 带宽下，H.265 可实现与 H.264 2Mbps 相同的画质。</li>
+<li><strong>好处</strong>：更流畅、更清晰的视频会议体验，尤其适合多方会议或弱网环境。</li>
+</ul>
+<hr>
+<h2 id="二、4K-8K-视频播放与流媒体"><a href="#二、4K-8K-视频播放与流媒体" class="headerlink" title="二、4K &#x2F; 8K 视频播放与流媒体"></a>二、4K &#x2F; 8K 视频播放与流媒体</h2><ul>
+<li><strong>案例</strong>：Netflix、Apple TV+、Disney+、Bilibili 4K专区</li>
+<li><strong>原因</strong>：H.265 是超高清视频的核心压缩标准。</li>
+<li><strong>好处</strong>：比 H.264 节省约 50% 流量，让 4K&#x2F;8K 视频能在普通网络环境下播放。</li>
+</ul>
+<hr>
+<h2 id="三、监控与安防系统"><a href="#三、监控与安防系统" class="headerlink" title="三、监控与安防系统"></a>三、监控与安防系统</h2><ul>
+<li><strong>案例</strong>：海康威视、大华、宇视 的新一代摄像机与 NVR</li>
+<li><strong>原因</strong>：监控视频全天录制、存储量巨大。</li>
+<li><strong>好处</strong>：在不损失画质的情况下，硬盘存储时长几乎翻倍，带宽占用降低。</li>
+</ul>
+<hr>
+<h2 id="四、车载与无人机影像传输"><a href="#四、车载与无人机影像传输" class="headerlink" title="四、车载与无人机影像传输"></a>四、车载与无人机影像传输</h2><ul>
+<li><strong>案例</strong>：DJI 大疆无人机、特斯拉车载摄像头</li>
+<li><strong>原因</strong>：无线传输链路带宽有限。</li>
+<li><strong>好处</strong>：H.265 可在低带宽下传输高分辨率视频，减少延迟。</li>
+</ul>
+<hr>
+<h2 id="五、广播电视与OTT传输"><a href="#五、广播电视与OTT传输" class="headerlink" title="五、广播电视与OTT传输"></a>五、广播电视与OTT传输</h2><ul>
+<li><strong>案例</strong>：央视 4K 频道、5G 高清直播系统</li>
+<li><strong>原因</strong>：电视台要在有限频谱中传输更多频道。</li>
+<li><strong>好处</strong>：H.265 允许同样带宽传输更多高清或超高清信号。</li>
+</ul>
+<hr>
+<h2 id="六、远程桌面与云游戏"><a href="#六、远程桌面与云游戏" class="headerlink" title="六、远程桌面与云游戏"></a>六、远程桌面与云游戏</h2><ul>
+<li><strong>案例</strong>：NVIDIA GeForce NOW、Microsoft Xbox Cloud Gaming</li>
+<li><strong>原因</strong>：云端渲染游戏画面后要实时压缩传给玩家。</li>
+<li><strong>好处</strong>：H.265 低码率高画质，让云游戏延迟更低、体验更顺滑。</li>
+</ul>
+<hr>
+<h2 id="七、视频创作与存档"><a href="#七、视频创作与存档" class="headerlink" title="七、视频创作与存档"></a>七、视频创作与存档</h2><ul>
+<li><strong>案例</strong>：Adobe Premiere、DaVinci Resolve、Final Cut Pro</li>
+<li><strong>原因</strong>：高分辨率素材（4K&#x2F;6K&#x2F;8K）文件过大。</li>
+<li><strong>好处</strong>：H.265 让输出文件体积更小，上传更快，存储更省。</li>
+</ul>
+<hr>
+<h1 id="案例场景理解"><a href="#案例场景理解" class="headerlink" title="案例场景理解"></a>案例场景理解</h1><h2 id="4K-8K-视频播放与流媒体"><a href="#4K-8K-视频播放与流媒体" class="headerlink" title="4K &#x2F; 8K 视频播放与流媒体"></a>4K &#x2F; 8K 视频播放与流媒体</h2><h3 id="一、场景假设"><a href="#一、场景假设" class="headerlink" title="一、场景假设"></a>一、场景假设</h3><p>假设我们要做一个 4K 直播（或者远程会议、超高清视频点播），目标是让终端用户在手机、电脑或电视上流畅观看。整个过程大致分为：</p>
+<blockquote>
+<p><strong>视频采集 → 编码压缩 → 传输分发 → 解码播放</strong></p>
+</blockquote>
+<hr>
+<h3 id="二、视频采集与编码"><a href="#二、视频采集与编码" class="headerlink" title="二、视频采集与编码"></a>二、视频采集与编码</h3><ol>
+<li><strong>视频采集</strong><ul>
+<li>摄像机拍摄到的是原始视频信号（RAW），数据量极大，例如 4K@60fps 原始视频每秒可达数百 MB。</li>
+<li>这种原始流根本无法直接上传或传输，需要“压缩编码”。</li>
+</ul>
+</li>
+<li><strong>编码设备</strong><ul>
+<li><strong>专业方案（实时编码）</strong>：<br>   使用专用的 <strong>H.265 硬件编码器</strong>（如 Blackmagic、海思、安霸芯片，或服务器中带 GPU 的转码卡）。<br>   它能实时地把 RAW 视频压缩成 H.265 码流，极大减少带宽占用。</li>
+<li><strong>服务器方案（离线编码）</strong>：<br>   对于点播视频（例如视频网站），拍完视频后上传到服务器，服务器用软件或 GPU 进行 H.265 转码，然后存成 <code>.mp4</code>、<code>.mkv</code> 等文件。</li>
+<li><strong>摄像机自带方案（嵌入式编码）</strong>：<br>   现在很多 4K 摄像机、监控头、甚至手机摄像头内部都有 H.265 编码芯片，能直接输出 H.265 视频流。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="三、视频传输与分发"><a href="#三、视频传输与分发" class="headerlink" title="三、视频传输与分发"></a>三、视频传输与分发</h3><ul>
+<li>编码完成后的视频可以：<ol>
+<li><strong>推送到流媒体服务器</strong>（如 Nginx-RTMP、SRS、Wowza、FFmpeg 推流等）；</li>
+<li>服务器再通过 <strong>RTMP、HLS、DASH、WebRTC</strong> 等协议分发；</li>
+<li>或者将编码后的文件直接存储在 CDN（内容分发网络）上，供用户点播下载。</li>
+</ol>
+</li>
+</ul>
+<p>H.265 相比 H.264 能在相同画质下节省约 50% 带宽，特别适合 4K&#x2F;8K 或网络环境不稳定的传输场景。</p>
+<hr>
+<h3 id="四、终端解码与播放"><a href="#四、终端解码与播放" class="headerlink" title="四、终端解码与播放"></a>四、终端解码与播放</h3><p>当用户在客户端打开视频（例如网站、APP、会议软件）时，会触发 <strong>解码过程</strong>：</p>
+<ol>
+<li><strong>硬件解码</strong>（推荐方式）<ul>
+<li>现代设备（如手机、智能电视、独显显卡）大多内置 HEVC 解码单元（例如 Intel QuickSync、NVIDIA NVDEC、Apple VideoToolbox）。</li>
+<li>播放器或浏览器会自动调用这些硬件资源。</li>
+<li>优点：速度快、功耗低、几乎不占用 CPU。</li>
+</ul>
+</li>
+<li><strong>软件解码</strong>（通用但效率低）<ul>
+<li>如果设备或浏览器不支持 H.265，就需要用软件（例如 FFmpeg、VLC、浏览器内置的 WASM 解码器）进行纯 CPU 解码。</li>
+<li>缺点：CPU 负载高、发热大，低端设备可能卡顿。</li>
+</ul>
+</li>
+<li><strong>浏览器与应用调用机制</strong><ul>
+<li>现代浏览器（Safari、Edge、Chrome 部分版本）在支持 H.265 的系统（如 macOS、Windows 10 以上）上，会调用系统硬件解码器。</li>
+<li>如果浏览器不支持 H.265（例如部分 Chrome&#x2F;Linux），则需要用专用播放器或插件播放。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="五、为什么终端还没全面配备专用芯片？"><a href="#五、为什么终端还没全面配备专用芯片？" class="headerlink" title="五、为什么终端还没全面配备专用芯片？"></a>五、为什么终端还没全面配备专用芯片？</h3><ul>
+<li><strong>成本与授权问题</strong>：H.265 涉及多家专利持有方，授权费用高。</li>
+<li><strong>芯片更新滞后</strong>：嵌入式设备、老电脑等更新周期长。</li>
+<li><strong>H.266&#x2F;VVC 等新标准在路上</strong>：厂商会观望投资方向。</li>
+<li><strong>兼容性与开放性考虑</strong>：部分浏览器（特别是开源的 Chrome&#x2F;Linux）因专利问题不原生支持 H.265。</li>
+</ul>
+<hr>
+<h3 id="六、完整流程总结"><a href="#六、完整流程总结" class="headerlink" title="六、完整流程总结"></a>六、完整流程总结</h3><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>处理内容</th>
+<th>设备&#x2F;软件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>视频采集</td>
+<td>摄像头采集原始视频</td>
+<td>摄像机&#x2F;采集卡</td>
+<td>RAW 数据量巨大</td>
+</tr>
+<tr>
+<td>编码压缩</td>
+<td>H.265 编码</td>
+<td>硬件编码器 &#x2F; GPU 服务器 &#x2F; 摄像机内置芯片</td>
+<td>降低带宽占用</td>
+</tr>
+<tr>
+<td>传输分发</td>
+<td>RTMP &#x2F; HLS &#x2F; WebRTC</td>
+<td>流媒体服务器 &#x2F; CDN</td>
+<td>网络传输优化</td>
+</tr>
+<tr>
+<td>解码播放</td>
+<td>H.265 解码</td>
+<td>客户端硬件或软件</td>
+<td>硬件效率高，软件通用</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="一句话总结"><a href="#一句话总结" class="headerlink" title="一句话总结"></a>一句话总结</h3><blockquote>
+<p>在 4K&#x2F;8K 视频传输中，H.265 通过高效编码极大降低了带宽压力；编码多由摄像机或服务器完成，解码则由终端硬件或浏览器调用系统解码器完成，整个过程在保证清晰度的同时实现了高压缩率与流畅播放。</p>
+</blockquote>
+<hr>
+<p>非常好 👍<br>视频会议是 <strong>H.265（HEVC）应用最典型、技术链条最完整</strong> 的场景之一。下面我们从 <strong>端到端角度</strong>（采集 → 编码 → 传输 → 解码 → 显示）结合你的前面问题（专用芯片、UDP 稳定性、服务器与客户端分工等），来讲解一个完整的 <strong>基于 H.265 的视频会议系统工作流程</strong>。  </p>
+<hr>
+<h2 id="H-265-在视频会议中的完整流程"><a href="#H-265-在视频会议中的完整流程" class="headerlink" title="H.265 在视频会议中的完整流程"></a>H.265 在视频会议中的完整流程</h2><p>我们以“公司内部多方 4K 视频会议”为例说明整个过程。  </p>
+<hr>
+<h3 id="①-视频采集阶段（从摄像头到原始流）"><a href="#①-视频采集阶段（从摄像头到原始流）" class="headerlink" title="① 视频采集阶段（从摄像头到原始流）"></a>① 视频采集阶段（从摄像头到原始流）</h3><ul>
+<li>每个会议终端（如会议摄像头、笔记本摄像头、视频终端盒子）负责采集视频和音频信号。  </li>
+<li>摄像头输出的是未压缩的 <strong>RAW 视频数据</strong>（非常大，每秒几百 MB），不能直接传输。</li>
+</ul>
+<hr>
+<h3 id="②-编码阶段（压缩视频流）"><a href="#②-编码阶段（压缩视频流）" class="headerlink" title="② 编码阶段（压缩视频流）"></a>② 编码阶段（压缩视频流）</h3><ul>
+<li>在采集端（即用户的会议终端），视频数据会送入 <strong>H.265 编码器</strong>。  </li>
+<li>编码器可以有三种形式：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位置</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>专用硬件编码器</strong></td>
+<td>视频会议摄像头、终端盒子、NVIDIA GPU、Intel QuickSync 等</td>
+<td>延迟极低，能实时压缩成 H.265</td>
+</tr>
+<tr>
+<td><strong>服务器编码器</strong></td>
+<td>云会议系统的转码服务器</td>
+<td>通常负责多方混流（如 Zoom、腾讯会议）</td>
+</tr>
+<tr>
+<td><strong>软件编码器</strong></td>
+<td>纯软件（FFmpeg、WebRTC 编码模块）</td>
+<td>通用但占用 CPU，适合中低分辨率场景</td>
+</tr>
+</tbody></table>
+<ul>
+<li>编码器的工作：将每一帧视频划分为更小的块（CTU），分析相邻帧的变化，通过运动预测与熵编码压缩掉冗余信息，只保留关键变化部分，从而大幅减少数据量。</li>
+</ul>
+<blockquote>
+<p>举例：4K 30fps 原始流可达 1Gbps，H.265 编码后可能只需 8~12Mbps。  </p>
+</blockquote>
+<hr>
+<h3 id="③-传输阶段（网络发送）"><a href="#③-传输阶段（网络发送）" class="headerlink" title="③ 传输阶段（网络发送）"></a>③ 传输阶段（网络发送）</h3><ul>
+<li>编码后的视频流通过网络传输给其他与会者。  </li>
+<li><strong>传输协议通常为 UDP + 自适应控制（如 RTP&#x2F;RTCP 或 QUIC）</strong>：<ul>
+<li>UDP 没有握手、无延迟确认，适合实时传输；</li>
+<li>稳定性通过上层协议（如 RTCP 或 FEC 前向纠错）保障；</li>
+<li>丢包可通过预测补偿，不会像 TCP 那样卡顿。</li>
+</ul>
+</li>
+</ul>
+<p>💡 <strong>因此即使走 UDP，画面也能稳定清晰</strong> —— 视频会议系统会自动调整码率、帧率、分辨率以应对网络波动。</p>
+<hr>
+<h3 id="④-解码阶段（还原画面）"><a href="#④-解码阶段（还原画面）" class="headerlink" title="④ 解码阶段（还原画面）"></a>④ 解码阶段（还原画面）</h3><ul>
+<li>收到 H.265 码流的终端设备（PC、手机、会议一体机）负责解码。</li>
+<li>解码可以走：<ul>
+<li><strong>硬件解码</strong>：如 Intel&#x2F;NVIDIA&#x2F;Apple 芯片、手机 SoC 内置解码器；</li>
+<li><strong>软件解码</strong>：由应用（如 Zoom、Teams）调用 CPU 解码；</li>
+<li><strong>浏览器解码</strong>：WebRTC 中通过浏览器内核调用系统的 HEVC 解码模块。</li>
+</ul>
+</li>
+</ul>
+<p>📍一般会议系统（如华为云会议、Zoom、腾讯会议等）都会检测终端能力：  </p>
+<ul>
+<li>支持硬件解码 → 调用硬件；  </li>
+<li>不支持 → 降级为 H.264 或 VP8。</li>
+</ul>
+<hr>
+<h3 id="⑤-显示与音视频同步"><a href="#⑤-显示与音视频同步" class="headerlink" title="⑤ 显示与音视频同步"></a>⑤ 显示与音视频同步</h3><ul>
+<li>解码后的视频帧送入 GPU 渲染管线，显示在会议窗口；</li>
+<li>音频流（通常走 AAC&#x2F;Opus 编码）同步播放；</li>
+<li>系统通过时间戳（PTS&#x2F;DTS）保证音视频同步。</li>
+</ul>
+<hr>
+<blockquote>
+<h3 id="H-265-在视频会议中的优势"><a href="#H-265-在视频会议中的优势" class="headerlink" title="H.265 在视频会议中的优势"></a>H.265 在视频会议中的优势</h3><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>H.264</th>
+<th>H.265</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>带宽需求</td>
+<td>高</td>
+<td>降低约 50%</td>
+</tr>
+<tr>
+<td>清晰度</td>
+<td>中</td>
+<td>高（支持 4K&#x2F;8K）</td>
+</tr>
+<tr>
+<td>延迟</td>
+<td>稍高</td>
+<td>更低（高压缩效率）</td>
+</tr>
+<tr>
+<td>CPU 负载</td>
+<td>较低</td>
+<td>编解码更复杂（需硬件支持）</td>
+</tr>
+<tr>
+<td>网络抗性</td>
+<td>一般</td>
+<td>可结合 FEC&#x2F;自适应码率优化</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="为什么终端需要专用解码器"><a href="#为什么终端需要专用解码器" class="headerlink" title="为什么终端需要专用解码器"></a>为什么终端需要专用解码器</h3><ul>
+<li>H.265 解码计算量巨大（比 H.264 多 5～10 倍）；  </li>
+<li>若纯用 CPU 解码，4K 视频会议会导致延迟和卡顿；</li>
+<li>专用硬件（GPU&#x2F;SoC 解码模块）可在几毫秒内完成解码；</li>
+<li>所以高端会议终端、摄像机、甚至笔记本 GPU 都内置 HEVC 加速。</li>
+</ul>
+<hr>
+<h3 id="端到端结构总结"><a href="#端到端结构总结" class="headerlink" title="端到端结构总结"></a>端到端结构总结</h3><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>主要任务</th>
+<th>常见硬件&#x2F;软件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>摄像端</td>
+<td>采集图像</td>
+<td>摄像头、采集卡</td>
+</tr>
+<tr>
+<td>编码端</td>
+<td>H.265 压缩</td>
+<td>GPU&#x2F;会议终端&#x2F;摄像机</td>
+</tr>
+<tr>
+<td>网络传输</td>
+<td>UDP + RTP&#x2F;RTCP</td>
+<td>QoS、带宽自适应</td>
+</tr>
+<tr>
+<td>解码端</td>
+<td>HEVC 解码</td>
+<td>GPU&#x2F;SoC&#x2F;浏览器内核</td>
+</tr>
+<tr>
+<td>显示端</td>
+<td>渲染画面</td>
+<td>GPU 硬件渲染</td>
+</tr>
+</tbody></table>
+</blockquote>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>音视频</tag>
+        <tag>h.265</tag>
+      </tags>
+  </entry>
 </search>
