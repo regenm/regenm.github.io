@@ -28494,8 +28494,14 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <hr>
 <h4 id="磁路形式"><a href="#磁路形式" class="headerlink" title="磁路形式"></a>磁路形式</h4><p>外磁、内磁、双磁、屏蔽</p>
 <h4 id="磁路性质"><a href="#磁路性质" class="headerlink" title="磁路性质"></a>磁路性质</h4><p>铁氧体、铷硼磁、铝镍钴</p>
+<ul>
+<li>铁氧体：廉价多媒体音箱、大尺寸的专业低音炮</li>
+<li>铷硼磁：<strong>高端Hi-Fi&#x2F;监听音箱</strong>、<strong>汽车音响</strong>、<strong>专业演出音箱</strong>、<strong>蓝牙便携音箱&#x2F;耳机</strong></li>
+<li>铝镍钴：较少</li>
+</ul>
 <h4 id="振膜材料"><a href="#振膜材料" class="headerlink" title="振膜材料"></a>振膜材料</h4><p>纸质、非纸盆</p>
-<h3 id="箱体"><a href="#箱体" class="headerlink" title="箱体"></a>箱体</h3><p>外形结构分类</p>
+<h3 id="箱体"><a href="#箱体" class="headerlink" title="箱体"></a>箱体</h3><p>外形结构</p>
+<p>分类</p>
 <p>书架、落地、立式、卧式</p>
 <p>内部结构分类</p>
 <p>密闭式、倒相式、带通式、空纸盆式、迷宫式、对称驱动式、号筒式</p>
@@ -28504,15 +28510,40 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>主放音音箱、监听音箱、返听音箱</p>
 <h3 id="按箱体结构"><a href="#按箱体结构" class="headerlink" title="按箱体结构"></a>按箱体结构</h3><p>密封式音箱、倒相式音箱、迷宫式音箱、声波管式音箱、多腔谐振式音箱</p>
 <hr>
-<p>功放类产品的研究</p>
-<p>一般的功放功率都比较足，大小都比较大。</p>
-<hr>
+<h2 id="功放"><a href="#功放" class="headerlink" title="功放"></a>功放</h2><ol>
+<li><strong>阻尼系数: ≥300:1</strong><ul>
+<li><strong>解读</strong>：功放对音箱单元（特别是低音单元）在信号停止后多余振动的<strong>控制能力</strong>的数值化指标。数值越高，控制力越强。</li>
+<li><strong>含义</strong>：<strong>≥300:1 是极高的阻尼系数</strong>。表明这台功放对低音的控制力非常强悍，能让鼓点、贝斯等低频声音收放自如、干净利落、不拖泥带水，低音扎实有劲。</li>
+</ul>
+</li>
+</ol>
+<p><strong>压缩比: 20:1</strong></p>
+<ol>
+<li><strong>输入灵敏度（额定功率8Ω）: 0.775V or 1.0V 1.5V</strong><ul>
+<li><strong>解读</strong>：为了让功放在8欧姆负载下达到<strong>额定输出功率（300W）</strong>，所需的<strong>输入电压大小</strong>。通常有开关可选。</li>
+<li><strong>含义</strong>：<strong>提供了灵活的匹配选择</strong>。<ul>
+<li><strong>0.775V</strong>：对应<strong>专业标准+4dBu</strong>电平，用于连接调音台、处理器等专业设备。</li>
+<li><strong>1.0V&#x2F;1.5V</strong>：对应<strong>民用或半专业-10dBV</strong>电平或更高驱动需求，方便连接各种前级。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="调音台"><a href="#调音台" class="headerlink" title="调音台"></a>调音台</h2><p><strong>接收、处理、混合并分配多路音频信号</strong>。</p>
+<h1 id="小型商业场景功放的研究"><a href="#小型商业场景功放的研究" class="headerlink" title="小型商业场景功放的研究"></a>小型商业场景功放的研究</h1><p>一般的功放功率都比较足，大小都比较大。</p>
 <p>小型功放的以应用场景一般是普通商业扩声、展览展示、以背景音乐、人声讲话为主。</p>
 <p>喇叭的特点都是小并且以高阻为主</p>
 <p>yamaha<a href="https://www.yamaha.com.cn/products/show/1833">MA&#x2F;PA 系列</a>系列功放</p>
 <p>这种小型的多功能的功放独成一体，足见其商业价值</p>
-<p>dcps：通过网口控制</p>
-<p>ma与pa的区别：输入数量、有无<strong>优先闪避器，电平控制器<strong><strong>反馈抑制器，HPF</strong></strong>反馈抑制器，HPF压限器，Reverb&#x2F;Echo****内置立体声声源EQ</strong></p>
+<p>dcps：一个小控制面板，通过网口控制，</p>
+<p>ma与pa的区别：输入数量、有无<strong>优先闪避器，电平控制器</strong>反馈抑制器，HPF反馈抑制器，HPF压限器，Reverb&#x2F;Echo内置立体声声源EQ</p>
+<p>接线柱与凤凰插的特性：</p>
+<ol>
+<li>接线柱：<strong>安装后永久或极少改动</strong></li>
+<li>凤凰插：<strong>接口密度高、通道数多</strong></li>
+</ol>
+<p><a href="https://www.crownaudio.com/zh/products/cdi-1000">CDi 1000 | Crown Audio - Professional Power Amplifiers | 中文 (Chinese)</a></p>
+<p>旋钮的敏感度太大</p>
 ]]></content>
       <tags>
         <tag>音频</tag>
