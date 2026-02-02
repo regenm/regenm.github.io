@@ -28551,4 +28551,322 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>功放</tag>
       </tags>
   </entry>
+  <entry>
+    <title>2026-2-2</title>
+    <url>/2026/02/02/2026-2-2/</url>
+    <content><![CDATA[<h1 id="音箱扩声系统入门"><a href="#音箱扩声系统入门" class="headerlink" title="音箱扩声系统入门"></a>音箱扩声系统入门</h1><p>音源-控制设备-处理设备-功放-音箱</p>
+<p><strong>处理设备：均衡器、效果器、压限器、分频器、激励器、反馈抑制器</strong>（这一部分较为陌生）</p>
+<h2 id="扩声系统的分类"><a href="#扩声系统的分类" class="headerlink" title="扩声系统的分类"></a>扩声系统的分类</h2><p>按用途可分类为：</p>
+<ol>
+<li>室外扩声系统</li>
+<li>室内扩声系统</li>
+<li>流动演出系统</li>
+<li>公共广播系统</li>
+<li>会议系统</li>
+</ol>
+<hr>
+<p>一些需要关注的品牌（待补充）：</p>
+<ol>
+<li>音箱厂家：美亚桑、jbl、ev、 bose、百威、eaw、comnunity、R&amp;h</li>
+<li>周边设备厂家：</li>
+<li>功放厂家：</li>
+<li>话筒以及会议系统：</li>
+</ol>
+<h2 id="话筒基础"><a href="#话筒基础" class="headerlink" title="话筒基础"></a>话筒基础</h2><p>按转换能量方式分类：</p>
+<ol>
+<li><p>动圈话筒</p>
+<blockquote>
+<p>利用电磁感应原理，振膜带动线圈在磁场中运动产生电流。结构简单，牢固耐用，能承受高声压级（如大鼓、音箱）。</p>
+<ul>
+<li><strong>动圈：</strong><ul>
+<li><strong>现场演出：</strong> 舞台演唱、乐器扩音。</li>
+<li><strong>嘈杂环境：</strong> 播客、直播（环境不静时）、采访。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>电容话筒</p>
+<blockquote>
+<p>基于电容器充电原理，振膜与背板间的距离变化导致电容改变，进而产生电信号。需要外部电源（通常是 48V 幻象电源）。 </p>
+<ul>
+<li><strong>电容：</strong><ul>
+<li><strong>录音室：</strong> 专业人声录音、配音。</li>
+<li><strong>精细录音：</strong> 乐器精准拾音（如吉他、管弦乐）、环境声采录。</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>按用途分类：</p>
+<ol>
+<li>专业</li>
+<li>无线</li>
+<li>数字会议</li>
+<li>模拟会议</li>
+</ol>
+<p>除了<strong>动圈</strong>和<strong>电容话筒</strong>还有一些比较重要：</p>
+<ol>
+<li><p><strong>铝带话筒</strong></p>
+<ul>
+<li><strong>原理</strong>：也属于电磁感应，但振膜是一条极薄的金属箔带（通常是铝），悬挂在强磁场中。声波直接驱动铝带运动切割磁感线产生电流。</li>
+<li><strong>特点</strong>：<strong>音色温暖、平滑自然</strong>，高频柔和（自然衰减）。极其<strong>脆弱</strong>（怕风吹、怕摔），输出电平很低。传统铝带话筒是<strong>双向（8字形）指向</strong>。</li>
+<li><strong>用途</strong>：<strong>经典的“复古之选”</strong>，尤其适合录制铜管乐器、吉他音箱、弦乐，为人声增加复古质感。现代铝带话筒已做得很耐用。</li>
+</ul>
+</li>
+<li><p><strong>驻极体电容话筒</strong></p>
+<ul>
+<li><strong>原理</strong>：<strong>电容话筒的一个子类</strong>。区别在于：它的振膜或背板采用了一种永久带电的材料（驻极体），因此<strong>不需要外部极化电压</strong>，供电仅用于给内置的放大器工作。电路可以做得非常微型化。</li>
+<li><strong>特点</strong>：体积可以极小、成本低、性能良好。</li>
+<li><strong>用途</strong>：<strong>这才是真正最普及的话筒</strong>！广泛应用于手机、蓝牙耳机、运动相机、笔记本电脑、小蜜蜂领夹麦克风等几乎所有消费电子设备中。可以把它理解为“微型化、大众化的电容麦”。</li>
+</ul>
+</li>
+<li><p><strong>压电（晶体&#x2F;陶瓷）话筒</strong></p>
+<ul>
+<li><strong>原理</strong>：利用压电效应。某些材料（如晶体、陶瓷）在受到压力时会产生电压。</li>
+<li><strong>特点</strong>：高输出阻抗、音质通常较差（频响不平）、但对湿度不敏感。</li>
+<li><strong>用途</strong>：现在已很少用于高质量音频拾音，多见于一些<strong>廉价玩具、对讲机</strong>，或作为<strong>乐器拾音器</strong>（如原声吉他下的贴片）。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><strong>MEMS麦克风</strong>：本质上是一种<strong>微机电系统</strong>的驻极体电容麦。它将振膜、集成电路全部蚀刻在微型芯片上。体积更小、一致性极高、抗干扰强。是当今<strong>智能手机、TWS耳机、智能家居设备</strong>的绝对主力。</li>
+</ul>
+<p>经典话筒与其分类</p>
+<table>
+<thead>
+<tr>
+<th align="left">型号</th>
+<th align="left">分类</th>
+<th align="left">核心特点</th>
+<th align="left">经典用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Shure SM58</strong></td>
+<td align="left">动圈</td>
+<td align="left">坚固、抗反馈、人声突出</td>
+<td align="left">现场人声</td>
+</tr>
+<tr>
+<td align="left"><strong>Shure SM57</strong></td>
+<td align="left">动圈</td>
+<td align="left">全能、瞬态响应好</td>
+<td align="left">小军鼓、吉他音箱</td>
+</tr>
+<tr>
+<td align="left"><strong>Sennheiser MD 421</strong></td>
+<td align="left">动圈</td>
+<td align="left">饱满、清晰、多功能开关</td>
+<td align="left">底鼓、嗵鼓、播客</td>
+</tr>
+<tr>
+<td align="left"><strong>Neumann U87</strong></td>
+<td align="left">大振膜电容</td>
+<td align="left">中性、准确、行业基准</td>
+<td align="left">录音棚全能（人声&#x2F;乐器）</td>
+</tr>
+<tr>
+<td align="left"><strong>AKG C414</strong></td>
+<td align="left">大振膜电容</td>
+<td align="left">明亮、多功能、性价比高</td>
+<td align="left">录音棚全能（人声&#x2F;Overhead）</td>
+</tr>
+<tr>
+<td align="left"><strong>U47&#x2F;ELA M 251</strong></td>
+<td align="left">电子管电容</td>
+<td align="left">温暖、华丽、复古“圣杯”</td>
+<td align="left">顶级人声录制</td>
+</tr>
+<tr>
+<td align="left"><strong>Royer R-121</strong></td>
+<td align="left">铝带</td>
+<td align="left">温暖平滑、坚固耐用的现代铝带</td>
+<td align="left">电吉他音箱、弦乐</td>
+</tr>
+<tr>
+<td align="left"><strong>Sennheiser MKH 416</strong></td>
+<td align="left">枪式电容</td>
+<td align="left">超强指向、可靠、穿透力强</td>
+<td align="left">影视同期声、旁白</td>
+</tr>
+<tr>
+<td align="left"><strong>Schoeps MK系列</strong></td>
+<td align="left">小振膜电容</td>
+<td align="left">精准、透明、自然</td>
+<td align="left">古典音乐、原声乐器</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="音箱基础"><a href="#音箱基础" class="headerlink" title="音箱基础"></a>音箱基础</h2><p>音箱的构成：扬声器、箱体、分频器</p>
+<h3 id="扬声器"><a href="#扬声器" class="headerlink" title="扬声器"></a>扬声器</h3><h4 id="换能方式分类"><a href="#换能方式分类" class="headerlink" title="换能方式分类"></a>换能方式分类</h4><p>电动式、电磁式、压电式、数字式</p>
+<p><strong>电动式（动圈式）</strong>占据99%	</p>
+<blockquote>
+<p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20260129221108880.png" alt="image-20260129221108880"></p>
+</blockquote>
+<h4 id="振膜结构分类"><a href="#振膜结构分类" class="headerlink" title="振膜结构分类"></a>振膜结构分类</h4><p>单纸盆、复合纸盆、复合号筒、同轴</p>
+<ul>
+<li><p>复合纸盆：<strong>中高端Hi-Fi音箱</strong>到<strong>顶级专业监听音箱</strong>的单元广泛采用。</p>
+</li>
+<li><p>单纸盆：<strong>全频音箱、公共广播音箱</strong>，或作为<strong>中音单元</strong></p>
+</li>
+</ul>
+<h4 id="振膜开头分类"><a href="#振膜开头分类" class="headerlink" title="振膜开头分类"></a>振膜开头分类</h4><p>锥盆、球顶、平板、带式</p>
+<ul>
+<li><p>锥盆式：<strong>中低音单元和全频单元的主力</strong>。几乎所有的低音炮、书架箱的中低音部分，都是锥盆单元</p>
+</li>
+<li><p>球顶式：<strong>高音单元最主流</strong>的形态，<strong>主要用途</strong>：<strong>绝大多数Hi-Fi音箱、监听音箱、汽车音响的高音单元</strong>。</p>
+</li>
+</ul>
+<p>平板、带式一般见不到</p>
+<h4 id="重放频"><a href="#重放频" class="headerlink" title="重放频"></a>重放频</h4><p>高频、中频、低频、全频</p>
+<hr>
+<h3 id="扬声器按重放频段分类表"><a href="#扬声器按重放频段分类表" class="headerlink" title="扬声器按重放频段分类表"></a><strong>扬声器按重放频段分类表</strong></h3><table>
+<thead>
+<tr>
+<th align="left">分类</th>
+<th align="left">频段范围（近似）</th>
+<th align="left">核心职责</th>
+<th align="left">单元特点与常见设计</th>
+<th align="left">典型尺寸</th>
+<th align="left">应用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>低频扬声器</strong><br>(低音单元 &#x2F; Woofer)</td>
+<td align="left"><strong>20Hz - 300Hz</strong><br>（超低音可下潜至20Hz以下）</td>
+<td align="left">还原音乐的<strong>根基与力量</strong>：<br>低频节奏、鼓点、贝斯、爆炸声、雷声等。</td>
+<td align="left">- <strong>大尺寸锥盆</strong>为主，长冲程设计。<br>- 振膜需推动大量空气，磁路与盘架极其坚固。<br>- 在超低音音箱中常单独使用。</td>
+<td align="left">常见：8”, 10”, 12”, 15”, 18”</td>
+<td align="left">- <strong>低音炮</strong>（家庭影院、演出）<br>- 主音箱的<strong>低音部分</strong>（2.0音箱、落地箱）<br>- 汽车低音炮</td>
+</tr>
+<tr>
+<td align="left"><strong>中频扬声器</strong><br>(中音单元 &#x2F; Mid-range)</td>
+<td align="left"><strong>300Hz - 3000Hz</strong><br>（人耳最敏感区）</td>
+<td align="left">还原音乐的<strong>主体与灵魂</strong>：<br><strong>人声</strong>、大部分乐器的<strong>基音与核心音色</strong>（钢琴、吉他、铜管等）。</td>
+<td align="left">- <strong>中小尺寸锥盆</strong>或<strong>球顶中音</strong>。<br>- 对<strong>失真度、瞬态、音色自然度</strong>要求最高。<br>- 振膜材料与阻尼处理是关键。</td>
+<td align="left">常见：4”, 5”, 6.5”, 8”<br>（球顶中音直径较大）</td>
+<td align="left">- <strong>三分频音箱</strong>的<strong>核心中音部分</strong><br>- 部分高端二分频音箱的<strong>中低音单元</strong>也兼顾此频段</td>
+</tr>
+<tr>
+<td align="left"><strong>高频扬声器</strong><br>(高音单元 &#x2F; Tweeter)</td>
+<td align="left"><strong>3000Hz - 20000Hz+</strong><br>（人耳听阈上限）</td>
+<td align="left">还原音乐的<strong>细节与色彩</strong>：<br>乐器<strong>泛音、空间感、空气感</strong>、镲片、齿音、弦乐光泽。</td>
+<td align="left">- <strong>球顶式</strong>（软&#x2F;硬）为绝对主流。<br>- <strong>带式、静电式</strong>用于顶级产品。<br>- 振膜<strong>极轻、极小</strong>，瞬态响应要求极高。</td>
+<td align="left">常见：1” (25mm) 球顶<br>带式&#x2F;静电尺寸各异</td>
+<td align="left">- <strong>所有分频音箱的高音部分</strong><br>- 汽车音响高音头<br>- 专业号角高音（压缩驱动器+号角）</td>
+</tr>
+<tr>
+<td align="left"><strong>全频扬声器</strong><br>(全频单元 &#x2F; Full-range)</td>
+<td align="left"><strong>宽范围，但有限</strong><br>（如 80Hz - 18000Hz）</td>
+<td align="left"><strong>用一个单元覆盖全频段</strong>：<br>追求<strong>相位一致性和点声源</strong>的理想状态。</td>
+<td align="left">- <strong>特殊设计的锥盆</strong>（宽折环、轻质材料、加相位锥）。<br>- 物理上必须在<strong>低频下潜</strong>和<strong>高频延伸</strong>间妥协。<br>- <strong>无分频器</strong>，结构简单。</td>
+<td align="left">常见：3” - 6.5”<br>（过大或过小都难全频）</td>
+<td align="left">- <strong>复古&#x2F;简约Hi-Fi音箱</strong><br>- <strong>背景音乐&#x2F;公共广播音箱</strong><br>- <strong>高端入耳式&#x2F;头戴式耳机</strong><br>- 电脑多媒体音箱（低成本方案）</td>
+</tr>
+</tbody></table>
+<p><strong>2026-1-29日到此。</strong></p>
+<hr>
+<h4 id="磁路形式"><a href="#磁路形式" class="headerlink" title="磁路形式"></a>磁路形式</h4><p>外磁、内磁、双磁、屏蔽</p>
+<h4 id="磁路性质"><a href="#磁路性质" class="headerlink" title="磁路性质"></a>磁路性质</h4><p>铁氧体、铷硼磁、铝镍钴</p>
+<ul>
+<li>铁氧体：廉价多媒体音箱、大尺寸的专业低音炮</li>
+<li>铷硼磁：<strong>高端Hi-Fi&#x2F;监听音箱</strong>、<strong>汽车音响</strong>、<strong>专业演出音箱</strong>、<strong>蓝牙便携音箱&#x2F;耳机</strong></li>
+<li>铝镍钴：较少</li>
+</ul>
+<h4 id="振膜材料"><a href="#振膜材料" class="headerlink" title="振膜材料"></a>振膜材料</h4><p>纸质、非纸盆</p>
+<h3 id="箱体"><a href="#箱体" class="headerlink" title="箱体"></a>箱体</h3><p>外形结构</p>
+<p>分类</p>
+<p>书架、落地、立式、卧式</p>
+<p>内部结构分类</p>
+<p>密闭式、倒相式、带通式、空纸盆式、迷宫式、对称驱动式、号筒式</p>
+<h3 id="分频器"><a href="#分频器" class="headerlink" title="分频器"></a>分频器</h3><h2 id="音箱分类"><a href="#音箱分类" class="headerlink" title="音箱分类"></a>音箱分类</h2><h3 id="按照场合分类"><a href="#按照场合分类" class="headerlink" title="按照场合分类"></a>按照场合分类</h3><p>民用音箱、专业音箱</p>
+<h3 id="按照频率"><a href="#按照频率" class="headerlink" title="按照频率"></a>按照频率</h3><p>全频音箱、超低音音箱</p>
+<h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>主放音音箱、监听音箱、返听音箱</p>
+<h3 id="按箱体结构"><a href="#按箱体结构" class="headerlink" title="按箱体结构"></a>按箱体结构</h3><p>密封式音箱、倒相式音箱、迷宫式音箱、声波管式音箱、多腔谐振式音箱</p>
+<ul>
+<li>密封式音箱</li>
+</ul>
+<p>常规结构、无声短路、低频不行（除非增加多孔海绵以及高品质橡皮边）</p>
+<ul>
+<li>倒相式音箱</li>
+</ul>
+<p>低音丰富</p>
+<ul>
+<li>迷宫式音箱</li>
+<li>声波管式音箱</li>
+<li>多腔谐振式音箱</li>
+</ul>
+<hr>
+<h2 id="功放"><a href="#功放" class="headerlink" title="功放"></a>功放</h2><ol>
+<li><strong>阻尼系数: ≥300:1</strong><ul>
+<li><strong>解读</strong>：功放对音箱单元（特别是低音单元）在信号停止后多余振动的<strong>控制能力</strong>的数值化指标。数值越高，控制力越强。</li>
+<li><strong>含义</strong>：<strong>≥300:1 是极高的阻尼系数</strong>。表明这台功放对低音的控制力非常强悍，能让鼓点、贝斯等低频声音收放自如、干净利落、不拖泥带水，低音扎实有劲。</li>
+</ul>
+</li>
+</ol>
+<p><strong>压缩比: 20:1</strong></p>
+<ol>
+<li><strong>输入灵敏度（额定功率8Ω）: 0.775V or 1.0V 1.5V</strong><ul>
+<li><strong>解读</strong>：为了让功放在8欧姆负载下达到<strong>额定输出功率（300W）</strong>，所需的<strong>输入电压大小</strong>。通常有开关可选。</li>
+<li><strong>含义</strong>：<strong>提供了灵活的匹配选择</strong>。<ul>
+<li><strong>0.775V</strong>：对应<strong>专业标准+4dBu</strong>电平，用于连接调音台、处理器等专业设备。</li>
+<li><strong>1.0V&#x2F;1.5V</strong>：对应<strong>民用或半专业-10dBV</strong>电平或更高驱动需求，方便连接各种前级。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>通道串扰</p>
+<p>通道的分离度，越大分离度越高越干净</p>
+<h3 id="定压与定阻"><a href="#定压与定阻" class="headerlink" title="定压与定阻"></a>定压与定阻</h3><p>定压功放传输距离远</p>
+<p>定阻功放最好不超过100米</p>
+<h2 id="调音台"><a href="#调音台" class="headerlink" title="调音台"></a>调音台</h2><p><strong>接收、处理、混合并分配多路音频信号</strong>。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>失真度：</p>
+<ul>
+<li>谐波失真</li>
+</ul>
+<p>多了高次谐波成分</p>
+<ul>
+<li>互调失真</li>
+</ul>
+<p>产生新的频率</p>
+<ul>
+<li>瞬态失真</li>
+</ul>
+<p>纸盆震动更不上瞬间变化的电压信号</p>
+<h3 id="一般音箱面板英文标识"><a href="#一般音箱面板英文标识" class="headerlink" title="一般音箱面板英文标识"></a>一般音箱面板英文标识</h3><ul>
+<li>equalizer 均衡器</li>
+<li>tone shift 音色转换</li>
+<li>overdrive 过载</li>
+<li>gain 增益</li>
+<li>overdrive contour 过载等高线</li>
+<li>level 电平</li>
+<li>reverb 混响</li>
+<li>phone 耳机连接</li>
+</ul>
+<hr>
+<h2 id="扩声设备的安装"><a href="#扩声设备的安装" class="headerlink" title="扩声设备的安装"></a>扩声设备的安装</h2><p>布置方式可分为：集中式、分散式、混合布置</p>
+<h1 id="小型商业场景功放的研究"><a href="#小型商业场景功放的研究" class="headerlink" title="小型商业场景功放的研究"></a>小型商业场景功放的研究</h1><p>一般的功放功率都比较足，大小都比较大。</p>
+<p>小型功放的以应用场景一般是普通商业扩声、展览展示、以背景音乐、人声讲话为主。</p>
+<p>喇叭的特点都是小并且以高阻为主</p>
+<p>yamaha<a href="https://www.yamaha.com.cn/products/show/1833">MA&#x2F;PA 系列</a>系列功放</p>
+<p>这种小型的多功能的功放独成一体，足见其商业价值</p>
+<p>dcps：一个小控制面板，通过网口控制，</p>
+<p>ma与pa的区别：输入数量、有无<strong>优先闪避器，电平控制器</strong>反馈抑制器，HPF反馈抑制器，HPF压限器，Reverb&#x2F;Echo内置立体声声源EQ</p>
+<p>接线柱与凤凰插的特性：</p>
+<ol>
+<li>接线柱：<strong>安装后永久或极少改动</strong></li>
+<li>凤凰插：<strong>接口密度高、通道数多</strong></li>
+</ol>
+<p><a href="https://www.crownaudio.com/zh/products/cdi-1000">CDi 1000 | Crown Audio - Professional Power Amplifiers | 中文 (Chinese)</a></p>
+<p>旋钮的敏感度太大</p>
+]]></content>
+      <tags>
+        <tag>音频</tag>
+        <tag>音响</tag>
+        <tag>功放</tag>
+      </tags>
+  </entry>
 </search>
