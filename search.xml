@@ -28848,6 +28848,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 <hr>
 <h2 id="扩声设备的安装"><a href="#扩声设备的安装" class="headerlink" title="扩声设备的安装"></a>扩声设备的安装</h2><p>布置方式可分为：集中式、分散式、混合布置</p>
+<hr>
 <h1 id="小型商业场景功放的研究"><a href="#小型商业场景功放的研究" class="headerlink" title="小型商业场景功放的研究"></a>小型商业场景功放的研究</h1><p>一般的功放功率都比较足，大小都比较大。</p>
 <p>小型功放的以应用场景一般是普通商业扩声、展览展示、以背景音乐、人声讲话为主。</p>
 <p>喇叭的特点都是小并且以高阻为主</p>
@@ -28860,13 +28861,58 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <li>接线柱：<strong>安装后永久或极少改动</strong></li>
 <li>凤凰插：<strong>接口密度高、通道数多</strong></li>
 </ol>
-<p><a href="https://www.crownaudio.com/zh/products/cdi-1000">CDi 1000 | Crown Audio - Professional Power Amplifiers | 中文 (Chinese)</a></p>
 <p>旋钮的敏感度太大</p>
 ]]></content>
       <tags>
         <tag>音频</tag>
         <tag>音响</tag>
         <tag>功放</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android 调试</title>
+    <url>/2026/03/20/Android-%E8%B0%83%E8%AF%95/</url>
+    <content><![CDATA[<h1 id="wsl下进行安卓设备的adb调试"><a href="#wsl下进行安卓设备的adb调试" class="headerlink" title="wsl下进行安卓设备的adb调试"></a>wsl下进行安卓设备的adb调试</h1><h2 id="1-安装adb"><a href="#1-安装adb" class="headerlink" title="1. 安装adb"></a>1. 安装adb</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install adb -y</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看adb设备"><a href="#2-查看adb设备" class="headerlink" title="2. 查看adb设备"></a>2. 查看adb设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看adb设备"><a href="#3-查看adb设备" class="headerlink" title="3. 查看adb设备"></a>3. 查看adb设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect IP:5555</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-连接设备"><a href="#4-连接设备" class="headerlink" title="4. 连接设备"></a>4. 连接设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 192.168.110.17:5555g</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../images/android/image-20260320121527920.png" alt="image-20260320121527920"></p>
+<h2 id="5-进入shell"><a href="#5-进入shell" class="headerlink" title="5. 进入shell"></a>5. 进入shell</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-常用工具"><a href="#6-常用工具" class="headerlink" title="6. 常用工具"></a>6. 常用工具</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">busybox</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-装软件"><a href="#7-装软件" class="headerlink" title="7. 装软件"></a>7. 装软件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb install ***.apk</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>adb</tag>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux udev</title>
+    <url>/2026/03/20/linux-udev/</url>
+    <content><![CDATA[<h1 id="固定串口名称"><a href="#固定串口名称" class="headerlink" title="固定串口名称"></a>固定串口名称</h1><p>arnbian上CH344编译好驱动之后可正常识别到设备。但是受各种影响会导致名字后的序号发生改变。可通过udev来固定名字便于管理以及代码编写。</p>
+<h2 id="信息查看"><a href="#信息查看" class="headerlink" title="信息查看"></a>信息查看</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">udevadm info -a -n /dev/ttyUSB0</span><br></pre></td></tr></table></figure>
+
+<h2 id="规则映射"><a href="#规则映射" class="headerlink" title="规则映射"></a>规则映射</h2><p>规则文件路径：<code>/etc/udev/rules.d/</code></p>
+<p>创建&#x2F;etc&#x2F;udev&#x2F;rules.d&#x2F;99-ch344.rules文件</p>
+<p>开头（99-）含义：**<code>99-</code> 表示最后执行**：通常自定义规则用<code>99-</code>，确保覆盖系统默认规则</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SUBSYSTEM==&quot;tty&quot;, KERNELS==&quot;1-1.2:1.0&quot;, SYMLINK+=&quot;ttyCH344_P0&quot;</span><br><span class="line">SUBSYSTEM==&quot;tty&quot;, KERNELS==&quot;1-1.2:1.2&quot;, SYMLINK+=&quot;ttyCH344_P1&quot;</span><br><span class="line">SUBSYSTEM==&quot;tty&quot;, KERNELS==&quot;1-1.2:1.4&quot;, SYMLINK+=&quot;ttyCH344_P2&quot;</span><br><span class="line">SUBSYSTEM==&quot;tty&quot;, KERNELS==&quot;1-1.2:1.6&quot;, SYMLINK+=&quot;ttyCH344_P3&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="生效规则"><a href="#生效规则" class="headerlink" title="生效规则"></a>生效规则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">udevadm control --reload-rules</span><br><span class="line">udevadm trigger</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>udev</tag>
+        <tag>串口</tag>
       </tags>
   </entry>
 </search>
