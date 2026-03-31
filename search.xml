@@ -28953,4 +28953,20 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>apk打包</tag>
       </tags>
   </entry>
+  <entry>
+    <title>吉他谱</title>
+    <url>/2026/03/29/%E5%90%89%E4%BB%96%E8%B0%B1/</url>
+    <content><![CDATA[<p>记录一些吉他谱便于查看。侵权必删。</p>
+<p><img src="/../images/guitar/32.png" alt="1"></p>
+<p><img src="/../images/guitar/33.png" alt="2"></p>
+<p><img src="/../images/guitar/34.png" alt="3"></p>
+<p><img src="/../images/guitar/35.png" alt="4"></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>吉他</tag>
+      </tags>
+  </entry>
 </search>
