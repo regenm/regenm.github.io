@@ -8984,6 +8984,20 @@
   <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">bash复制代码sudo apt autoremove      # 移除不再使用的依赖</span><br><span class="line">sudo apt clean           # 清理软件包缓存</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>这些命令和工具在 Bullseye 上都能流畅使用，适合从硬件到网络的各种管理需求。如果有具体需求，还可以深入某个方面进行详细配置。</p>
+<h3 id="11-修改静态IP"><a href="#11-修改静态IP" class="headerlink" title="11 修改静态IP"></a><strong>11 修改静态IP</strong></h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/dhcpcd.conf</span><br></pre></td></tr></table></figure>
+
+<p>增加或修改</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface eth0</span><br><span class="line">static ip_address=192.168.1.100/24</span><br><span class="line">static routers=192.168.1.1</span><br><span class="line">static domain_name_servers=114.114.114.114 8.8.8.8</span><br></pre></td></tr></table></figure>
+
+<p>如果是无线网卡则是：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.1.100/24</span><br><span class="line">static routers=192.168.1.1</span><br><span class="line">static domain_name_servers=114.114.114.114 8.8.8.8</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h1 id="作为硬件加速器"><a href="#作为硬件加速器" class="headerlink" title="作为硬件加速器"></a>作为硬件加速器</h1><ul>
 <li>硬件加速器</li>
 </ul>
