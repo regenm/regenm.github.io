@@ -28983,4 +28983,41 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>吉他</tag>
       </tags>
   </entry>
+  <entry>
+    <title>系统学</title>
+    <url>/2026/04/11/%E3%80%8A%E7%B3%BB%E7%BB%9F%E5%AD%A6%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="title-《系统之美》"><a href="#title-《系统之美》" class="headerlink" title="title: 《系统之美》"></a>title: 《系统之美》</h1><h2 id="系统的四元素"><a href="#系统的四元素" class="headerlink" title="系统的四元素"></a>系统的四元素</h2><ol>
+<li>组分（Constituents）</li>
+<li>结构（Structure）</li>
+<li>环境（Environment）</li>
+<li><strong>系统功能是系统组分、结构、环境的函数，从而系统的四元素可约减为三个</strong></li>
+</ol>
+<p><strong>整体大于部分之和</strong></p>
+<p><strong>反馈循环</strong>：系统内部存在相互影响。</p>
+<p><strong>存量与流量</strong>：</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《软件设计的哲学》</title>
+    <url>/2026/04/11/%E3%80%8A%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%93%B2%E5%AD%A6%E3%80%8B/</url>
+    <content><![CDATA[<h1 id="title-《软件设计的哲学》"><a href="#title-《软件设计的哲学》" class="headerlink" title="title: 《软件设计的哲学》"></a>title: 《软件设计的哲学》</h1><p>复杂性来自于依赖性和模糊性的积累。</p>
+<p>连续进行大量的小额投资 。我建议您将总开发时间的 10% 到 20% 用于投资。该额度足够小，不会对您的日程安排产生重大影响，但又足够大，可以随着时间的推移产生重大收益。</p>
+<p>模块分为两个部分：接口和 实现。接口包含了开发人员在使用这个模块时必须知道的所有内容。通常，接口描述模块做什么，而不描述模块如何做；而实现则包含了接口如何做的代码。在特定模块中工作的开发人员必须了解该模块的接口和实现，以及由该模块调用的任何其他模块的接口。</p>
+<p>深模块原则 (Deep Module)：<strong>简单</strong>的接口（小“周长”），但能实现<strong>强大</strong>的功能（大“面积”）。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
+  </entry>
 </search>
