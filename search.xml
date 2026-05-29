@@ -3573,32 +3573,11 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git add -A</span><br><span class="line">git commit -m <span class="string">&quot;add an application of git&quot;</span></span><br><span class="line">git status</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
-<h3 id="不同账号使用同一仓库"><a href="#不同账号使用同一仓库" class="headerlink" title="不同账号使用同一仓库"></a>不同账号使用同一仓库</h3><h4 id="场景一：参加开源项目-使用Fork"><a href="#场景一：参加开源项目-使用Fork" class="headerlink" title="场景一：参加开源项目( 使用Fork )"></a>场景一：参加开源项目( 使用Fork )</h4><p>​	当你想参与不属于你的开源项目时，通常使用Fork。你没有直接对原始仓库的写权限，但可以通过Fork和Pull Request来贡献代码。</p>
-<h5 id="使用流程："><a href="#使用流程：" class="headerlink" title="使用流程："></a>使用流程：</h5><ol>
-<li><strong>Fork仓库</strong>：将原始仓库复制到你自己的GitHub账户中。</li>
-<li><strong>克隆仓库</strong>：将Fork后的仓库克隆到本地进行开发。</li>
-<li><strong>开发和提交</strong>：在本地开发，提交代码到你Fork的仓库。</li>
-<li><strong>推送分支</strong>：将代码推送到你Fork的GitHub仓库。</li>
-<li><strong>Pull Request</strong>：创建Pull Request，请求将你的修改合并到原始仓库。</li>
-</ol>
-<h5 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h5><ul>
-<li><strong>隔离开发</strong>：你的改动不会直接影响原始仓库，确保了独立开发的安全性。</li>
-<li><strong>贡献流程</strong>：通过Pull Request进行代码评审，确保代码质量和一致性。</li>
-</ul>
-<h4 id="场景二：团队开发项目-使用SSH密钥"><a href="#场景二：团队开发项目-使用SSH密钥" class="headerlink" title="场景二：团队开发项目 ( 使用SSH密钥 )"></a>场景二：团队开发项目 ( 使用SSH密钥 )</h4><p>​	<strong>私有项目</strong>：当你与团队成员协作开发私有项目时，使用SSH密钥来管理对远程仓库的访问权限。</p>
-<p>​	<strong>团队协作</strong>：在团队内部，每个成员都有对仓库的读写权限，可以直接推送代码到远程仓库。</p>
-<h5 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h5><ol>
-<li><strong>生成SSH密钥</strong>：每个团队成员生成SSH密钥。</li>
-<li><strong>添加SSH密钥</strong>：将生成的公钥添加到自己的GitHub账户中。</li>
-<li><strong>邀请协作者</strong>：仓库管理员邀请团队成员成为协作者，并分配适当的权限。</li>
-<li><strong>克隆仓库</strong>：团队成员使用SSH克隆仓库到本地进行开发。</li>
-<li><strong>开发和提交</strong>：在本地开发，提交代码。</li>
-<li><strong>推送分支</strong>：将代码直接推送到远程仓库。</li>
-</ol>
-<h5 id="优点-1"><a href="#优点-1" class="headerlink" title="优点"></a>优点</h5><ul>
-<li><strong>直接协作</strong>：团队成员可以直接推送和拉取代码，适合高效的团队协作。</li>
-<li><strong>安全性</strong>：SSH密钥提供了安全的身份验证机制。</li>
-</ul>
+
+
+<h3 id="同一个仓库开新分支以实现代码复用"><a href="#同一个仓库开新分支以实现代码复用" class="headerlink" title="同一个仓库开新分支以实现代码复用"></a>同一个仓库开新分支以实现代码复用</h3><p>先编辑好.gitignore</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;update&quot;</span><br><span class="line">git remote add origin git@github.com:regen/test.git</span><br><span class="line">git checkout -b branchname</span><br><span class="line">git push -u origin branchname</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -8992,12 +8971,7 @@
 <p>如果是无线网卡则是：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.1.100/24</span><br><span class="line">static routers=192.168.1.1</span><br><span class="line">static domain_name_servers=114.114.114.114 8.8.8.8</span><br></pre></td></tr></table></figure>
 
-
-
-
-
-
-
+<p>如果需要开机自启动生效的话必须要配合 raspi-config，网络设置给为dhcpcd</p>
 <h1 id="作为硬件加速器"><a href="#作为硬件加速器" class="headerlink" title="作为硬件加速器"></a>作为硬件加速器</h1><ul>
 <li>硬件加速器</li>
 </ul>
@@ -18322,38 +18296,6 @@ to breathe, to sense another, and to wait.<br>
         <tag>linux</tag>
         <tag>k8s</tag>
         <tag>系统运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电子电路基础</title>
-    <url>/2024/11/07/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<p>随手记下一些不清楚的电子电路知识点</p>
-<h1 id="反应性原件"><a href="#反应性原件" class="headerlink" title="反应性原件"></a>反应性原件</h1><h2 id="L-R时间常数"><a href="#L-R时间常数" class="headerlink" title="L&#x2F;R时间常数"></a>L&#x2F;R时间常数</h2><blockquote>
-<p>描述电感电路（RL电路）中的一个重要参数，它表示电流达到其最终值的63.2%所需的时间。</p>
-<p>L代表电感量（以亨利H为单位），R代表电阻值（以欧姆Ω为单位），因此L&#x2F;R时间常数的单位是秒（s）。</p>
-<p>在RL电路中，当施加一个电压时，电流不会立刻达到最大值，而是逐渐增加，达到最终稳定值。电流随时间的变化可以用指数函数描述，公式为：<br>$$<br>I(t)&#x3D;Imax×(1−e^{-τ&#x2F;t})<br>$$<br>其中：</p>
-<ul>
-<li><p>I(t)I(t)I(t) 是时间 ttt 时刻的电流，</p>
-</li>
-<li><p>ImaxI_{\text{max}}Imax 是最终的最大电流值，</p>
-</li>
-<li><p>eee 是自然对数的底，</p>
-</li>
-<li><p>τ&#x3D;LR\tau &#x3D; \frac{L}{R}τ&#x3D;RL 是时间常数。</p>
-</li>
-</ul>
-<p>当时间 t&#x3D;τt &#x3D; \taut&#x3D;τ 时，电流 I(t)I(t)I(t) 达到最大值的约63.2%。在工程应用中，这个时间常数描述了电路响应的速度——L&#x2F;R越大，电流建立的速度越慢。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>硬件技术</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>模电</tag>
-        <tag>电子元件</tag>
-        <tag>模拟电路</tag>
-        <tag>电路基础</tag>
       </tags>
   </entry>
   <entry>
@@ -28953,7 +28895,28 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
   <entry>
     <title>《少年维特的烦恼》</title>
     <url>/2026/03/27/%E3%80%8A%E5%B0%91%E5%B9%B4%E7%BB%B4%E7%89%B9%E7%9A%84%E7%83%A6%E6%81%BC%E3%80%8B/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<h1 id="title-《少年维特的烦恼》"><a href="#title-《少年维特的烦恼》" class="headerlink" title="title: 《少年维特的烦恼》"></a>title: 《少年维特的烦恼》</h1><blockquote>
+<p>自此日夜星辰尽可以安安静静地升起又落下，我却再也分不清白天和黑夜，周围的整个世界全给抛到了脑后。</p>
+</blockquote>
+<p>Your wishful eyes hunts my dreams like the rain at midnight.</p>
+<blockquote>
+<p>可是对于一个受着慢性病摧残而一步一步走向死亡的人，难道你能要求他拿起刀来，一下子结束自己的痛苦么？病魔在耗尽他的精力的同时，不也摧毁了他自我解脱的勇气吗？</p>
+</blockquote>
+<blockquote>
+<p>我对自己的处境一致看得清清楚楚，可行动却像个小孩子似的；现在也仍然看得十分清楚。但就是丝毫没有悔改之意。</p>
+</blockquote>
+<p>痛苦的不是坠落，而是坠落时我的头脑是清醒的。</p>
+<blockquote>
+<p>这冷漠的，死的文字，怎能表达那灵智的精髓啊。 </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
   </entry>
   <entry>
     <title>安卓开发：WebAPK打包</title>
@@ -29019,5 +28982,55 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>随手记</tag>
         <tag>读书</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>《第一性原理》</title>
+    <url>/2026/04/16/%E3%80%8A%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86%E3%80%8B/</url>
+    <content><![CDATA[<p>《第一性原理_21堂科学通识课 – 【英】马库斯·乔恩 – 101 – www_huibooks_com – bc27b46f0f8cd18422d640789f865bab – Anna’s Archive》</p>
+<p>《第一性原理(混沌大学创新必修教科书)(精) – 李善友著 – 2020 – 人民邮电出版社 – isbn13 9787115542649 – 4c91de42476fb74a1011030204ac1033 – Anna’s Archive》</p>
+<p>傻逼书</p>
+<p>找到终极问题，拆解问题。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《世界的逻辑》</title>
+    <url>/2026/04/16/%E3%80%8A%E4%B8%96%E7%95%8C%E7%9A%84%E9%80%BB%E8%BE%91%E3%80%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>不确定性构成了人类认知的边界。只有当我们不断探索和理解这种不确定性，并将其转化为相对确定的知识时，我们的认知才能得到扩展。这一过程不仅推动了现代科学的发展，也深化了我们对世界本质的理解。接受并探索这种自然内容的不确定性，是我们拓宽知识视野、增进对世界认识的必经之路。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《资本论》</title>
+    <url>/2026/04/16/%E3%80%8A%E8%B5%84%E6%9C%AC%E8%AE%BA%E3%80%8B/</url>
+    <content><![CDATA[<p>资本的最终目的：利润。</p>
+<p>社会原子化</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>随手记</tag>
+        <tag>读书</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一性原理</title>
+    <url>/2026/04/16/%E7%AC%AC%E4%B8%80%E6%80%A7%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
