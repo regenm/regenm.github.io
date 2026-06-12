@@ -5294,7 +5294,7 @@
 
 <h2 id="3-查看adb设备"><a href="#3-查看adb设备" class="headerlink" title="3. 查看adb设备"></a>3. 查看adb设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect IP:5555</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-连接设备"><a href="#4-连接设备" class="headerlink" title="4. 连接设备"></a>4. 连接设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 192.168.110.17:5555g</span><br></pre></td></tr></table></figure>
+<h2 id="4-连接设备"><a href="#4-连接设备" class="headerlink" title="4. 连接设备"></a>4. 连接设备</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 192.168.110.17:5555</span><br></pre></td></tr></table></figure>
 
 <p><img src="/../images/android/image-20260320121527920.png" alt="image-20260320121527920"></p>
 <h2 id="5-进入shell"><a href="#5-进入shell" class="headerlink" title="5. 进入shell"></a>5. 进入shell</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure>
@@ -11109,6 +11109,8 @@
 <h1 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy run --config /path/to/your/Caddyfile</span><br></pre></td></tr></table></figure>
 
 <h1 id="生产"><a href="#生产" class="headerlink" title="生产"></a>生产</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy start --config Caddyfile</span><br></pre></td></tr></table></figure>
+
+<h2 id="一般使用流程"><a href="#一般使用流程" class="headerlink" title="一般使用流程"></a>一般使用流程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 移动 Caddy 到系统路径</span><br><span class="line">sudo mv caddy_linux_arm64 /usr/local/bin/caddy</span><br><span class="line">sudo chmod 755 /usr/local/bin/caddy</span><br><span class="line"></span><br><span class="line"># 创建 Caddy 用户</span><br><span class="line">sudo useradd -r -d /var/lib/caddy -s /usr/sbin/nologin caddy</span><br><span class="line"></span><br><span class="line"># 创建必要的目录</span><br><span class="line">sudo mkdir -p /etc/caddy /var/lib/caddy /var/log/caddy</span><br><span class="line">sudo chown -R caddy:caddy /var/lib/caddy /var/log/caddy</span><br><span class="line"></span><br><span class="line"># 创建 systemd 服务文件</span><br><span class="line">sudo tee /etc/systemd/system/caddy.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Caddy Web Server</span><br><span class="line">Documentation=https://caddyserver.com/docs/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=caddy</span><br><span class="line">Group=caddy</span><br><span class="line">ExecStart=/usr/local/bin/caddy run --config /etc/caddy/Caddyfile</span><br><span class="line">ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile</span><br><span class="line">TimeoutStopSec=5s</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">LimitNPROC=512</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line">AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建简单配置</span><br><span class="line">sudo tee /etc/caddy/Caddyfile &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">:80 &#123;</span><br><span class="line">    root * /var/www/html</span><br><span class="line">    file_server</span><br><span class="line">    log &#123;</span><br><span class="line">        output file /var/log/caddy/access.log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建测试页面</span><br><span class="line">sudo mkdir -p /var/www/html</span><br><span class="line">echo &quot;Caddy on ARM64 H313&quot; | sudo tee /var/www/html/index.html</span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable caddy</span><br><span class="line">sudo systemctl start caddy</span><br><span class="line"></span><br><span class="line"># 检查状态</span><br><span class="line">sudo systemctl status caddy</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -29142,6 +29144,52 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>笔记</tag>
         <tag>复习</tag>
         <tag>高级程序设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>frp内网穿透</title>
+    <url>/2026/06/12/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</url>
+    <content><![CDATA[<hr>
+<h1 id="FRP-内网穿透"><a href="#FRP-内网穿透" class="headerlink" title="FRP 内网穿透"></a>FRP 内网穿透</h1><blockquote>
+<p>外网访问vpsIP:8080转发到本地:80</p>
+</blockquote>
+<h2 id="一、服务端配置（Ubuntu-云服务器）"><a href="#一、服务端配置（Ubuntu-云服务器）" class="headerlink" title="一、服务端配置（Ubuntu 云服务器）"></a>一、服务端配置（Ubuntu 云服务器）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载 FRP</span></span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.61.2/frp_0.61.2_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.61.2_linux_amd64.tar.gz</span><br><span class="line"><span class="built_in">mv</span> frp_0.61.2_linux_amd64 /opt/frp</span><br><span class="line"><span class="built_in">cd</span> /opt/frp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置服务端</span></span><br><span class="line"><span class="built_in">cat</span> &gt; frps.toml &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">bindPort = 7000</span><br><span class="line">auth.method = <span class="string">&quot;token&quot;</span></span><br><span class="line">auth.token = <span class="string">&quot;dsjahdjkahkk&quot;</span></span><br><span class="line">vhostHTTPPort = 8080</span><br><span class="line">log.to = <span class="string">&quot;console&quot;</span></span><br><span class="line">log.level = <span class="string">&quot;info&quot;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 放行防火墙</span></span><br><span class="line"><span class="built_in">sudo</span> ufw allow 7000/tcp</span><br><span class="line"><span class="built_in">sudo</span> ufw allow 8080/tcp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 systemd 服务</span></span><br><span class="line"><span class="built_in">cat</span> &gt; /etc/systemd/system/frps.service &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Frp Server Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line">ExecStart=/opt/frp/frps -c /opt/frp/frps.toml</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动服务端</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start frps</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> frps</span><br><span class="line"><span class="built_in">sudo</span> systemctl status frps</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、客户端配置（Anolis-本地机器）"><a href="#二、客户端配置（Anolis-本地机器）" class="headerlink" title="二、客户端配置（Anolis 本地机器）"></a>二、客户端配置（Anolis 本地机器）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 下载 FRP</span></span><br><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.61.2/frp_0.61.2_linux_amd64.tar.gz</span><br><span class="line">tar -zxvf frp_0.61.2_linux_amd64.tar.gz</span><br><span class="line"><span class="built_in">mv</span> frp_0.61.2_linux_amd64 /opt/frp</span><br><span class="line"><span class="built_in">cd</span> /opt/frp</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置客户端</span></span><br><span class="line"><span class="built_in">cat</span> &gt; frpc.toml &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">serverAddr = <span class="string">&quot;12.34.56.78&quot;</span></span><br><span class="line">serverPort = 7000</span><br><span class="line">auth.token = <span class="string">&quot;dsjahdjkahkk&quot;</span></span><br><span class="line"></span><br><span class="line">[[proxies]]</span><br><span class="line">name = <span class="string">&quot;web&quot;</span></span><br><span class="line"><span class="built_in">type</span> = <span class="string">&quot;http&quot;</span></span><br><span class="line">localPort = 80</span><br><span class="line">customDomains = [<span class="string">&quot;12.34.56.78&quot;</span>]</span><br><span class="line">httpUser = <span class="string">&quot;username&quot;</span></span><br><span class="line">httpPassword = <span class="string">&quot;password&quot;</span></span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试连接</span></span><br><span class="line">./frpc -c frpc.toml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 systemd 服务</span></span><br><span class="line"><span class="built_in">cat</span> &gt; /etc/systemd/system/frpc.service &lt;&lt; <span class="string">&#x27;EOF&#x27;</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Frp Client Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line">ExecStart=/opt/frp/frpc -c /opt/frp/frpc.toml</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动客户端</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl start frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl status frpc</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、云服务商安全组配置"><a href="#三、云服务商安全组配置" class="headerlink" title="三、云服务商安全组配置"></a>三、云服务商安全组配置</h2><p>登录云控制台，添加入方向规则：</p>
+<table>
+<thead>
+<tr>
+<th>协议</th>
+<th>端口</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TCP</td>
+<td>7000</td>
+<td>0.0.0.0&#x2F;0</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>8080</td>
+<td>0.0.0.0&#x2F;0</td>
+</tr>
+</tbody></table>
+<h2 id="四、验证访问"><a href="#四、验证访问" class="headerlink" title="四、验证访问"></a>四、验证访问</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查服务状态</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status frps  <span class="comment"># 服务端</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status frpc  <span class="comment"># 客户端</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frps -f</span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frpc -f</span><br></pre></td></tr></table></figure>
+
+<p>浏览器访问：<code>http://68.64.178.45:8080</code>（输入 HTTP Basic Auth 用户名密码）</p>
+<h2 id="五、常用管理命令"><a href="#五、常用管理命令" class="headerlink" title="五、常用管理命令"></a>五、常用管理命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 服务管理</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl stop frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl status frps/frpc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frps/frpc -f</span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frps/frpc -n 50</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart frps/frpc</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>frp</tag>
+        <tag>内网穿透</tag>
       </tags>
   </entry>
 </search>
