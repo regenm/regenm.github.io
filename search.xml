@@ -6357,7 +6357,7 @@
 <td>类似 dig</td>
 </tr>
 </tbody></table>
-<h1 id="一、文件位置"><a href="#一、文件位置" class="headerlink" title="一、文件位置"></a><strong>一、文件位置</strong></h1><p>通常在：</p>
+<h1 id="一、文件位置"><a href="#一、文件位置" class="headerlink" title="一、文件位置"></a><strong>一、文件位置</strong></h1><p>Anolis通常在：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/etc/sysconfig/network-scripts/ifcfg-&lt;网卡名&gt;</span><br></pre></td></tr></table></figure>
 
 <p>比如：</p>
@@ -6441,6 +6441,9 @@
 <p>如果没有<code>default via</code>则增加：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> ip route add default via 192.168.1.1</span><br></pre></td></tr></table></figure>
 
+
+
+<h1 id="nmcli"><a href="#nmcli" class="headerlink" title="nmcli"></a>nmcli</h1><h2 id="修改现有连接为固定IP"><a href="#修改现有连接为固定IP" class="headerlink" title="修改现有连接为固定IP"></a>修改现有连接为固定IP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 先删除刚才创建的有问题的连接</span><br><span class="line">nmcli connection delete end0-static</span><br><span class="line"></span><br><span class="line"># 2. 重新创建</span><br><span class="line">nmcli connection add type ethernet ifname end0 con-name end0-static</span><br><span class="line"></span><br><span class="line"># 3. 先设置IP地址和网关（然后再改方法）</span><br><span class="line">nmcli connection modify end0-static ipv4.addresses 192.168.10.100/24</span><br><span class="line">nmcli connection modify end0-static ipv4.gateway 192.168.10.1</span><br><span class="line">nmcli connection modify end0-static ipv4.dns &quot;192.168.10.1 114.114.114.114&quot;</span><br><span class="line"></span><br><span class="line"># 4. 最后设置方法为 manual</span><br><span class="line">nmcli connection modify end0-static ipv4.method manual</span><br><span class="line"></span><br><span class="line"># 5. 启用自动连接</span><br><span class="line">nmcli connection modify end0-static connection.autoconnect yes</span><br><span class="line"></span><br><span class="line"># 6. 确保 NetworkManager 接管 end0</span><br><span class="line">nmcli device set end0 managed yes</span><br><span class="line"></span><br><span class="line"># 7. 启动连接</span><br><span class="line">nmcli connection up end0-static</span><br><span class="line"></span><br><span class="line"># 8. 验证</span><br><span class="line">ip addr show end0</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -29230,6 +29233,32 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>vue</tag>
         <tag>前端</tag>
         <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>tabby terminal sftp问题</title>
+    <url>/2026/06/22/tabby-terminal-sftp%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="tabby-terminal-sftp问题"><a href="#tabby-terminal-sftp问题" class="headerlink" title="tabby terminal sftp问题"></a>tabby terminal sftp问题</h1><p>实现点击sftp，目录跟随</p>
+<h2 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h2><p>vim ~&#x2F;.bash_profile</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PS1=&quot;$PS1\[\e]1337;CurrentDir=&quot;&#x27;$(pwd)\a\]&#x27;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="ZSH"><a href="#ZSH" class="headerlink" title="ZSH"></a>ZSH</h2><p>vim ~&#x2F;.zshrc</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">precmd () &#123; echo -n &quot;\x1b]1337;CurrentDir=$(pwd)\x07&quot; &#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>软件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>linux</tag>
+        <tag>shell</tag>
       </tags>
   </entry>
 </search>
