@@ -5979,6 +5979,10 @@
 
 
 <h1 id="nmcli"><a href="#nmcli" class="headerlink" title="nmcli"></a>nmcli</h1><h2 id="修改现有连接为固定IP"><a href="#修改现有连接为固定IP" class="headerlink" title="修改现有连接为固定IP"></a>修改现有连接为固定IP</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 先删除刚才创建的有问题的连接</span><br><span class="line">nmcli connection delete end0-static</span><br><span class="line"></span><br><span class="line"># 2. 重新创建</span><br><span class="line">nmcli connection add type ethernet ifname end0 con-name end0-static</span><br><span class="line"></span><br><span class="line"># 3. 先设置IP地址和网关（然后再改方法）</span><br><span class="line">nmcli connection modify end0-static ipv4.addresses 192.168.10.100/24</span><br><span class="line">nmcli connection modify end0-static ipv4.gateway 192.168.10.1</span><br><span class="line">nmcli connection modify end0-static ipv4.dns &quot;192.168.10.1 114.114.114.114&quot;</span><br><span class="line"></span><br><span class="line"># 4. 最后设置方法为 manual</span><br><span class="line">nmcli connection modify end0-static ipv4.method manual</span><br><span class="line"></span><br><span class="line"># 5. 启用自动连接</span><br><span class="line">nmcli connection modify end0-static connection.autoconnect yes</span><br><span class="line"></span><br><span class="line"># 6. 确保 NetworkManager 接管 end0</span><br><span class="line">nmcli device set end0 managed yes</span><br><span class="line"></span><br><span class="line"># 7. 启动连接</span><br><span class="line">nmcli connection up end0-static</span><br><span class="line"></span><br><span class="line"># 8. 验证</span><br><span class="line">ip addr show end0</span><br></pre></td></tr></table></figure>
+
+<p>nmcli connection modify end0-static ipv4.addresses 192.168.0.71&#x2F;24<br>nmcli connection modify end0-static ipv4.gateway 192.168.0.1<br>nmcli connection modify end0-static ipv4.dns “192.168.0.1 114.114.114.114”</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 1. 先删除刚才创建的错误连接</span><br><span class="line">nmcli connection delete end0-static</span><br><span class="line"></span><br><span class="line"># 2. 用正确的网卡名称创建连接（用 ens33 替换 end0）</span><br><span class="line">nmcli connection add type ethernet ifname ens33 con-name ens33-static</span><br><span class="line"></span><br><span class="line"># 3. 设置 IP 地址、网关和 DNS</span><br><span class="line">nmcli connection modify ens33-static ipv4.addresses 192.168.71.100/24</span><br><span class="line">nmcli connection modify ens33-static ipv4.gateway 192.168.71.1</span><br><span class="line">nmcli connection modify ens33-static ipv4.dns &quot;192.168.71.1 114.114.114.114&quot;</span><br><span class="line"></span><br><span class="line"># 4. 设置为静态 IP（manual）</span><br><span class="line">nmcli connection modify ens33-static ipv4.method manual</span><br><span class="line"></span><br><span class="line"># 5. 启用自动连接</span><br><span class="line">nmcli connection modify ens33-static connection.autoconnect yes</span><br><span class="line"></span><br><span class="line"># 6. 确保 NetworkManager 接管 ens33（这一步很重要）</span><br><span class="line">nmcli device set ens33 managed yes</span><br><span class="line"></span><br><span class="line"># 7. 启动连接</span><br><span class="line">nmcli connection up ens33-static</span><br><span class="line"></span><br><span class="line"># 8. 验证配置</span><br><span class="line">ip addr show ens33</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -10894,23 +10898,46 @@
     <title>caddy托管工具</title>
     <url>/2026/06/01/caddy%E6%89%98%E7%AE%A1%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<p>​	这个工具只需要拿到对应架构的二进制文件就能部署，比较简单。</p>
-<h1 id="简单安装"><a href="#简单安装" class="headerlink" title="简单安装"></a>简单安装</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 请将链接替换为你在官网生成的链接</span><br><span class="line">curl -L https://caddyserver.com/api/download?os=linux&amp;arch=amd64 -o caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 1. 解压文件</span><br><span class="line">tar xzf caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 2. 移动到 /usr/local/bin 目录（需要 sudo 权限）</span><br><span class="line">sudo mv caddy /usr/local/bin/</span><br><span class="line"></span><br><span class="line"># 3. 验证安装是否成功</span><br><span class="line">caddy version</span><br></pre></td></tr></table></figure>
+<h1 id="简单安装"><a href="#简单安装" class="headerlink" title="简单安装"></a>简单安装</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 请将链接替换为你在官网生成的链接</span><br><span class="line">curl -L https://caddyserver.com/api/download?os=linux&amp;arch=amd64 -o caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 1. 解压文件</span><br><span class="line">tar xzf caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 2. 移动到 /usr/local/bin 目录（需要 sudo 权限）</span><br><span class="line">sudo mv caddy /usr/local/bin/</span><br><span class="line"></span><br><span class="line"># 3. 验证安装是否成功</span><br><span class="line">caddy version</span><br></pre></td></tr></table></figure>
 
 
 
-<h1 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/systemd/system/caddy.service </span><br><span class="line">[Unit]</span><br><span class="line">Description=Caddy Web Server</span><br><span class="line">Documentation=https://caddyserver.com/docs/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=notify</span><br><span class="line">User=caddy</span><br><span class="line">Group=caddy</span><br><span class="line">ExecStart=/usr/local/bin/caddy run --config /etc/caddy/Caddyfile</span><br><span class="line">ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile</span><br><span class="line">TimeoutStopSec=5s</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<h2 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim /etc/systemd/system/caddy.service </span><br><span class="line">[Unit]</span><br><span class="line">Description=Caddy Web Server</span><br><span class="line">Documentation=https://caddyserver.com/docs/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=notify</span><br><span class="line">User=caddy</span><br><span class="line">Group=caddy</span><br><span class="line">ExecStart=/usr/local/bin/caddy run --config /etc/caddy/Caddyfile</span><br><span class="line">ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile</span><br><span class="line">TimeoutStopSec=5s</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
 
 
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 重新加载 systemd 配置</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"># 设置开机自启并立即启动</span><br><span class="line">sudo systemctl enable --now caddy</span><br><span class="line"></span><br><span class="line"># 查看服务状态</span><br><span class="line">sudo systemctl status caddy</span><br></pre></td></tr></table></figure>
 
-<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim Caddyfile</span><br><span class="line"># 监听本地 80 端口（也可以写 localhost）</span><br><span class="line">:80 &#123;</span><br><span class="line"></span><br><span class="line">    # 重要：将所有 /api/* 的请求转发到后端 Node.js 服务</span><br><span class="line">    handle_path /api/* &#123;</span><br><span class="line">        reverse_proxy localhost:8080</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 其他所有请求，提供静态文件服务</span><br><span class="line">    root * ./frontend/dist</span><br><span class="line">    file_server</span><br><span class="line">    # 开启 gzip 压缩</span><br><span class="line">    encode gzip</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim Caddyfile</span><br><span class="line"># 监听本地 80 端口（也可以写 localhost）</span><br><span class="line">:80 &#123;</span><br><span class="line"></span><br><span class="line">    # 重要：将所有 /api/* 的请求转发到后端 Node.js 服务</span><br><span class="line">    handle_path /api/* &#123;</span><br><span class="line">        reverse_proxy localhost:8080</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 其他所有请求，提供静态文件服务</span><br><span class="line">    root * ./frontend/dist</span><br><span class="line">    file_server</span><br><span class="line">    # 开启 gzip 压缩</span><br><span class="line">    encode gzip</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h1 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy run --config /path/to/your/Caddyfile</span><br></pre></td></tr></table></figure>
+<h2 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy run --config /path/to/your/Caddyfile</span><br></pre></td></tr></table></figure>
 
-<h1 id="生产"><a href="#生产" class="headerlink" title="生产"></a>生产</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy start --config Caddyfile</span><br></pre></td></tr></table></figure>
+<h2 id="生产"><a href="#生产" class="headerlink" title="生产"></a>生产</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">caddy start --config Caddyfile</span><br></pre></td></tr></table></figure>
 
-<h2 id="一般使用流程"><a href="#一般使用流程" class="headerlink" title="一般使用流程"></a>一般使用流程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 移动 Caddy 到系统路径</span><br><span class="line">sudo mv caddy_linux_arm64 /usr/local/bin/caddy</span><br><span class="line">sudo chmod 755 /usr/local/bin/caddy</span><br><span class="line"></span><br><span class="line"># 创建 Caddy 用户</span><br><span class="line">sudo useradd -r -d /var/lib/caddy -s /usr/sbin/nologin caddy</span><br><span class="line"></span><br><span class="line"># 创建必要的目录</span><br><span class="line">sudo mkdir -p /etc/caddy /var/lib/caddy /var/log/caddy</span><br><span class="line">sudo chown -R caddy:caddy /var/lib/caddy /var/log/caddy</span><br><span class="line"></span><br><span class="line"># 创建 systemd 服务文件</span><br><span class="line">sudo tee /etc/systemd/system/caddy.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Caddy Web Server</span><br><span class="line">Documentation=https://caddyserver.com/docs/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=caddy</span><br><span class="line">Group=caddy</span><br><span class="line">ExecStart=/usr/local/bin/caddy run --config /etc/caddy/Caddyfile</span><br><span class="line">ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile</span><br><span class="line">TimeoutStopSec=5s</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">LimitNPROC=512</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line">AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建简单配置</span><br><span class="line">sudo tee /etc/caddy/Caddyfile &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">:80 &#123;</span><br><span class="line">    root * /var/www/html</span><br><span class="line">    file_server</span><br><span class="line">    log &#123;</span><br><span class="line">        output file /var/log/caddy/access.log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建测试页面</span><br><span class="line">sudo mkdir -p /var/www/html</span><br><span class="line">echo &quot;Caddy on ARM64 H313&quot; | sudo tee /var/www/html/index.html</span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable caddy</span><br><span class="line">sudo systemctl start caddy</span><br><span class="line"></span><br><span class="line"># 检查状态</span><br><span class="line">sudo systemctl status caddy</span><br></pre></td></tr></table></figure>
+<h1 id="一般使用流程"><a href="#一般使用流程" class="headerlink" title="一般使用流程"></a>一般使用流程</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 移动 Caddy 到系统路径</span><br><span class="line">sudo mv caddy_linux_arm64 /usr/local/bin/caddy</span><br><span class="line">sudo chmod 755 /usr/local/bin/caddy</span><br><span class="line"></span><br><span class="line"># 创建 Caddy 用户</span><br><span class="line">sudo useradd -r -d /var/lib/caddy -s /usr/sbin/nologin caddy</span><br><span class="line"></span><br><span class="line"># 创建必要的目录</span><br><span class="line">sudo mkdir -p /etc/caddy /var/lib/caddy /var/log/caddy</span><br><span class="line">sudo chown -R caddy:caddy /var/lib/caddy /var/log/caddy</span><br><span class="line"></span><br><span class="line"># 创建 systemd 服务文件</span><br><span class="line">sudo tee /etc/systemd/system/caddy.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Caddy Web Server</span><br><span class="line">Documentation=https://caddyserver.com/docs/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=caddy</span><br><span class="line">Group=caddy</span><br><span class="line">ExecStart=/usr/local/bin/caddy run --config /etc/caddy/Caddyfile</span><br><span class="line">ExecReload=/usr/local/bin/caddy reload --config /etc/caddy/Caddyfile</span><br><span class="line">TimeoutStopSec=5s</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">LimitNPROC=512</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line">AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建简单配置</span><br><span class="line">sudo tee /etc/caddy/Caddyfile &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">:80 &#123;</span><br><span class="line">    root * /var/www/html</span><br><span class="line">    file_server</span><br><span class="line">    log &#123;</span><br><span class="line">        output file /var/log/caddy/access.log</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line"># 创建测试页面</span><br><span class="line">sudo mkdir -p /var/www/html</span><br><span class="line">echo &quot;Caddy on ARM64 H313&quot; | sudo tee /var/www/html/index.html</span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl enable caddy</span><br><span class="line">sudo systemctl start caddy</span><br><span class="line"></span><br><span class="line"># 检查状态</span><br><span class="line">sudo systemctl status caddy</span><br></pre></td></tr></table></figure>
+
+<h1 id="最长前缀优先"><a href="#最长前缀优先" class="headerlink" title="最长前缀优先"></a><strong>最长前缀优先</strong></h1><p><strong>一个前端入口</strong>（同一个域名&#x2F;IP），所有 API 请求都需要通过 Caddy 反向代理到后端服务：</p>
+<table>
+<thead>
+<tr>
+<th align="left">请求路径</th>
+<th align="left">目标后端</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>/api/tcp/*</code></td>
+<td align="left"><code>IP2:5002</code></td>
+</tr>
+<tr>
+<td align="left"><code>/api/udp/*</code></td>
+<td align="left"><code>IP2:5002</code></td>
+</tr>
+<tr>
+<td align="left"><code>/api/*</code>（其他）</td>
+<td align="left"><code>IP1:5001</code></td>
+</tr>
+</tbody></table>
+<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">your-domain.com &#123;</span><br><span class="line">    # 1. 最具体：/api/tcp 和 /api/udp → IP2:5002</span><br><span class="line">    handle /api/tcp* &#123;</span><br><span class="line">        reverse_proxy IP2:5002</span><br><span class="line">    &#125;</span><br><span class="line">    handle /api/udp* &#123;</span><br><span class="line">        reverse_proxy IP2:5002</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 2. 通用：其他 /api/* → IP1:5001</span><br><span class="line">    handle /api* &#123;</span><br><span class="line">        reverse_proxy IP1:5001</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # 3. 兜底：前端静态资源</span><br><span class="line">    handle &#123;</span><br><span class="line">        root * /var/www/frontend</span><br><span class="line">        file_server</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -18248,7 +18275,7 @@
     <title>《资本论》</title>
     <url>/2026/04/16/%E3%80%8A%E8%B5%84%E6%9C%AC%E8%AE%BA%E3%80%8B/</url>
     <content><![CDATA[<p>资本的最终目的：利润。</p>
-<p>社会原子化、单身经济、单人行、奖励自己等均为资本创造的消费工具。</p>
+<p>社会原子化、单身经济、单人行、奖励自己等均为资本创造的消费工具。消费、商品异化人生价值。</p>
 <p>看到第二卷时有点跟不上了。看《深海》时候流眼泪我能理解，看《献给阿尔吉侬的花束》我也能理解，怎么看资本论也能流眼泪呢。</p>
 <blockquote>
 <p>所以，劳动力的再生产实际上是资本本身再生产的一个因素。因此，资本的积累就是无产阶级的增加。</p>
@@ -28734,13 +28761,23 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 
 
-<h2 id="python-fast-api"><a href="#python-fast-api" class="headerlink" title="python fast api"></a>python fast api</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/uvicorn-app.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Uvicorn ASGI Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/opt/myapp/venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line">WorkingDirectory=/opt/myapp</span><br><span class="line">StandardOutput=journal</span><br><span class="line">StandardError=journal</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart uvicorn-app</span><br><span class="line">systemctl status uvicorn-app</span><br></pre></td></tr></table></figure>
+<h2 id="python-fast-api"><a href="#python-fast-api" class="headerlink" title="python fast api"></a>python fast api</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/wiap.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=Uvicorn ASGI Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/opt/myapp/venv/bin/uvicorn app:app --host 0.0.0.0 --port 8000</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line">WorkingDirectory=/opt/myapp</span><br><span class="line">StandardOutput=journal</span><br><span class="line">StandardError=journal</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br><span class="line"></span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart wiap</span><br><span class="line">systemctl status wiap</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="python-flask"><a href="#python-flask" class="headerlink" title="python flask"></a>python flask</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cat &gt; /etc/systemd/system/wiap.service &lt;&lt; &#x27;EOF&#x27;</span><br><span class="line">[Unit]</span><br><span class="line">Description=WIAP Python Application</span><br><span class="line">Documentation=https://flask.palletsprojects.com/</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">WorkingDirectory=/root/wiap</span><br><span class="line">ExecStart=/usr/bin/python3 /root/wiap/app.py</span><br><span class="line">ExecReload=/bin/kill -HUP $MAINPID</span><br><span class="line">Restart=on-failure</span><br><span class="line">RestartSec=10s</span><br><span class="line">TimeoutStopSec=10s</span><br><span class="line">StandardOutput=append:/root/wiap/app.log</span><br><span class="line">StandardError=append:/root/wiap/app_error.log</span><br><span class="line">LimitNOFILE=1048576</span><br><span class="line">PrivateTmp=true</span><br><span class="line">ProtectSystem=full</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 重新加载 systemd 配置</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line"></span><br><span class="line"># 启用开机自启</span><br><span class="line">sudo systemctl enable wiap.service</span><br><span class="line"></span><br><span class="line"># 启动服务</span><br><span class="line">sudo systemctl start wiap.service</span><br><span class="line"></span><br><span class="line"># 查看状态</span><br><span class="line">sudo systemctl status wiap.service</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 <h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2> <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart service</span><br><span class="line">systemctl status service</span><br></pre></td></tr></table></figure>
+
+<h1 id="查看实时日志"><a href="#查看实时日志" class="headerlink" title="查看实时日志"></a>查看实时日志</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo journalctl -u wiap.service -f</span><br><span class="line">sudo journalctl -u wiap.service -n 100</span><br></pre></td></tr></table></figure>
+
+
+
+
 
 ]]></content>
       <categories>
@@ -28791,6 +28828,129 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
       <tags>
         <tag>笔记</tag>
         <tag>结构设计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>歌曲架构</title>
+    <url>/2026/07/09/%E6%AD%8C%E6%9B%B2%E6%9E%B6%E6%9E%84/</url>
+    <content><![CDATA[<h1 id="歌曲架构"><a href="#歌曲架构" class="headerlink" title="歌曲架构"></a>歌曲架构</h1><ul>
+<li>pop</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">段落</th>
+<th align="left">功能定义</th>
+<th align="left">编曲配器密度策略</th>
+<th align="left">和声&#x2F;旋律策略</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Intro</strong></td>
+<td align="left">建立调性与律动认知，限时≤8 Bars</td>
+<td align="left">通常切除Sub-bass（≤60Hz），仅保留Top-end（高频）或Mid频信息</td>
+<td align="left">避免显式旋律陈述，多用动机碎片</td>
+</tr>
+<tr>
+<td align="left"><strong>Verse</strong></td>
+<td align="left">主题材料呈示，歌词叙事载体</td>
+<td align="left">低频能量受限，打击组通常仅保留Kick（底鼓）与Hi-hat（踩镲）</td>
+<td align="left">旋律音域控制在e1-g2区间</td>
+</tr>
+<tr>
+<td align="left"><strong>Pre-Chorus</strong></td>
+<td align="left"><strong>过渡与升压（Build-up）</strong>，属和弦持续或调式交替</td>
+<td align="left">引入Pad（铺底音色）或弦乐长音，增加Reverb（混响）的Pre-delay（预延迟）值制造“推开”感</td>
+<td align="left">旋律上行或节奏紧缩（如八分转十六分）</td>
+</tr>
+<tr>
+<td align="left"><strong>Chorus</strong></td>
+<td align="left">全局Hook（记忆点）陈述，最高能量层级</td>
+<td align="left"><strong>全频段填充</strong>：低频（Bass）+中频（Guitar&#x2F;Synth）+高频（Cymbal&#x2F;Overhead）均达到密度峰值</td>
+<td align="left">旋律达到全曲最高音区，乐句落点稳定在主和弦</td>
+</tr>
+<tr>
+<td align="left"><strong>Bridge</strong></td>
+<td align="left"><strong>差异性中段（Middle 8）</strong>，用于打破前两段副歌的惯性</td>
+<td align="left">执行“减法”（Drop-out）：切除Kick与Bass，仅留钢琴&#x2F;人声&#x2F;风琴类音色</td>
+<td align="left">转调（Modulation）或功能和声远离主调（如bVI-bVII）</td>
+</tr>
+<tr>
+<td align="left"><strong>Outro</strong></td>
+<td align="left">能量释放与终止确认</td>
+<td align="left">常采用Fade-out（淡出）或Filter Cutoff（滤波器截止频率）低切处理</td>
+<td align="left">倾向于结束在属和弦（悬置感）或主和弦的弱拍位置</td>
+</tr>
+</tbody></table>
+<ul>
+<li>后摇滚</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">幕次</th>
+<th align="left">专业术语</th>
+<th align="left">功能定义</th>
+<th align="left">配器&#x2F;演奏特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Act I</strong></td>
+<td align="left"><strong>Exposition（呈示部）</strong></td>
+<td align="left">建立静态和声场域，通常持续 2-4 分钟</td>
+<td align="left">清音吉他（Clean）或Piano做<strong>单音&#x2F;双音动机（Motif）</strong>，空间类效果器（Reverb &#x2F; Delay）干湿比极高（≥40%）。无打击组，或仅用Brushed Snare（刷奏军鼓）做微弱律动</td>
+</tr>
+<tr>
+<td align="left"><strong>Act II</strong></td>
+<td align="left"><strong>Development（展开部 &#x2F; Build-up）</strong></td>
+<td align="left">通过<strong>重复动机 + 叠加音色层</strong>制造张力堆积，持续时间极长</td>
+<td align="left">引入Fuzz &#x2F; Overdrive失真吉他做长音背景（Drone），Bass从“根音保持”转为“推动性八分音符”，打击组开始引入<strong>渐强滚奏（Crescendo Roll）</strong>，且多使用半开镲（Half-open Hi-hat）增加噪声</td>
+</tr>
+<tr>
+<td align="left"><strong>Act III</strong></td>
+<td align="left"><strong>Climax &amp; Resolution（高潮与消解）</strong></td>
+<td align="left">能量峰值通常在歌曲后 1&#x2F;3 处爆发，随后通过<strong>频段剥离</strong>进行释放</td>
+<td align="left"><strong>全频段阻塞（Wall of Sound）</strong>：多把失真吉他做密集和声对位，鼓组使用密集的Tom（通鼓）加花。高潮结束后，不回归主歌，而是直接做<strong>低频切除（High-pass Filter）</strong>与<strong>混响尾音延续（Reverb Tail）</strong>，直至静默</td>
+</tr>
+</tbody></table>
+<ul>
+<li><h4 id="典型轻音乐-新古典"><a href="#典型轻音乐-新古典" class="headerlink" title="典型轻音乐&#x2F;新古典"></a>典型轻音乐&#x2F;新古典</h4></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">段落</th>
+<th align="left">专业术语</th>
+<th align="left">功能定义</th>
+<th align="left">演奏&#x2F;编曲特征</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Section A</strong></td>
+<td align="left"><strong>Theme Exposition（主题呈示）</strong></td>
+<td align="left">建立核心旋律动机（Motif），通常为 4 或 8 小节乐句</td>
+<td align="left">单一乐器（Piano 或 Guitar）在中高音区（A3 - C6）做单音旋律线，左手或低音区做极简的根音五度（Power Chord）铺垫，无任何打击组</td>
+</tr>
+<tr>
+<td align="left"><strong>Section B</strong></td>
+<td align="left"><strong>Development with Embellishment（加花展开）</strong></td>
+<td align="left">重复主题，但通过<strong>和弦重配（Reharmonization）</strong>或<strong>织体加密</strong>增加情绪厚度</td>
+<td align="left">引入第二和声层（如 Cello 或 Pad 做长音和声），钢琴从“单音旋律”变为“三度&#x2F;六度双音旋律”，或加入琶音（Arpeggio）分解和弦作为内声部运动</td>
+</tr>
+<tr>
+<td align="left"><strong>Section A’</strong></td>
+<td align="left"><strong>Recapitulation（主题回归&#x2F;消解）</strong></td>
+<td align="left">主题再现，但能量低于或等于呈示部，形成“闭环”</td>
+<td align="left">撤出 B 段的叠加乐器，回归单乐器，但使用 <strong>Rubato（自由节拍）</strong> 处理尾句，并在最后两小节做 <strong>Fermata（延长记号）</strong> 直至泛音自然消散</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>歌曲架构</tag>
       </tags>
   </entry>
 </search>
