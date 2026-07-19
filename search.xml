@@ -10898,7 +10898,7 @@
     <title>caddy托管工具</title>
     <url>/2026/06/01/caddy%E6%89%98%E7%AE%A1%E5%B7%A5%E5%85%B7/</url>
     <content><![CDATA[<p>​	这个工具只需要拿到对应架构的二进制文件就能部署，比较简单。</p>
-<h1 id="简单安装"><a href="#简单安装" class="headerlink" title="简单安装"></a>简单安装</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 请将链接替换为你在官网生成的链接</span><br><span class="line">curl -L https://caddyserver.com/api/download?os=linux&amp;arch=amd64 -o caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 1. 解压文件</span><br><span class="line">tar xzf caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 2. 移动到 /usr/local/bin 目录（需要 sudo 权限）</span><br><span class="line">sudo mv caddy /usr/local/bin/</span><br><span class="line"></span><br><span class="line"># 3. 验证安装是否成功</span><br><span class="line">caddy version</span><br></pre></td></tr></table></figure>
+<h1 id="简单安装"><a href="#简单安装" class="headerlink" title="简单安装"></a>简单安装</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">curl -L https://caddyserver.com/api/download?os=linux&amp;arch=amd64 -o caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 1. 解压文件</span><br><span class="line">tar xzf caddy.tar.gz</span><br><span class="line"></span><br><span class="line"># 2. 移动到 /usr/local/bin 目录（需要 sudo 权限）</span><br><span class="line">sudo mv caddy /usr/local/bin/</span><br><span class="line"></span><br><span class="line"># 3. 验证安装是否成功</span><br><span class="line">caddy version</span><br></pre></td></tr></table></figure>
 
 
 
@@ -15827,7 +15827,7 @@
   <entry>
     <title>windows tips</title>
     <url>/2025/09/22/windows-tips/</url>
-    <content><![CDATA[<h1 id="创建本地账户"><a href="#创建本地账户" class="headerlink" title="创建本地账户"></a>创建本地账户</h1><p>​	win11安装系统的时候按下 <code>shift+F10</code> 。</p>
+    <content><![CDATA[<h1 id="创建本地账户"><a href="#创建本地账户" class="headerlink" title="创建本地账户"></a>创建本地账户</h1><p>​	断网，win11安装系统的时候按下 <code>shift+F10</code> 。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">oobe\bypassnro</span><br></pre></td></tr></table></figure>
 
 <h1 id="快速删除"><a href="#快速删除" class="headerlink" title="快速删除"></a>快速删除</h1><p>​	单线程</p>
@@ -15842,6 +15842,20 @@
 <h1 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">irm https://get.activated.win | iex</span><br></pre></td></tr></table></figure>
 
 <h1 id="查看wifi密码"><a href="#查看wifi密码" class="headerlink" title="查看wifi密码"></a>查看wifi密码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;CJXX-5GHz&quot; key=clear</span><br></pre></td></tr></table></figure>
+
+<h1 id="修改Shell-Launcher"><a href="#修改Shell-Launcher" class="headerlink" title="修改Shell Launcher"></a>修改Shell Launcher</h1><p>WIN+R输入<code>regedit</code></p>
+<p>定位路径</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</span><br></pre></td></tr></table></figure>
+
+<p>右侧窗口定位<code>Shell</code>,改为默认启动的Launcher 应用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;C:\Users\123\Desktop\win-unpacked\Yuxuansys AVS Launcher.exe&quot;</span><br></pre></td></tr></table></figure>
+
+<h1 id="注册后台服务"><a href="#注册后台服务" class="headerlink" title="注册后台服务"></a>注册后台服务</h1><p>下载解压NSSM：<a href="https://nssm.cc/release/nssm-2.24.zip">NSSM Download</a></p>
+<p>管理员权限打开cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd D:\Backup\Downloads\nssm-2.24\nssm-2.24\win64</span><br><span class="line">NSSM install myService</span><br><span class="line">NSSM start myService</span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -28946,11 +28960,134 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tbody></table>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>软件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
         <tag>歌曲架构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>音频解码</title>
+    <url>/2026/07/19/%E9%9F%B3%E9%A2%91%E8%A7%A3%E7%A0%81/</url>
+    <content><![CDATA[<h1 id="音频解码"><a href="#音频解码" class="headerlink" title="音频解码"></a>音频解码</h1><h2 id="概念扫盲"><a href="#概念扫盲" class="headerlink" title="概念扫盲"></a>概念扫盲</h2><h3 id="一、音频格式与编码类（文件-协议层面）"><a href="#一、音频格式与编码类（文件-协议层面）" class="headerlink" title="一、音频格式与编码类（文件&#x2F;协议层面）"></a>一、音频格式与编码类（文件&#x2F;协议层面）</h3><ol>
+<li><strong>PCM</strong>（脉冲编码调制）—— 最原始的数字音频数据格式</li>
+<li><strong>MP3</strong> —— 有损压缩音频格式</li>
+<li><strong>AAC</strong> —— 有损压缩音频格式（MP3的升级版）</li>
+<li><strong>OGG</strong> —— 有损压缩音频格式（开源）</li>
+<li><strong>FLAC</strong> —— 无损压缩音频格式（开源）</li>
+<li><strong>APE</strong> —— 无损压缩音频格式（国产）</li>
+<li><strong>WAV</strong> —— 无压缩的无损音频格式（微软标准）</li>
+<li><strong>DSD</strong> —— 高码率音频格式（1比特直流）</li>
+<li><strong>SACD</strong> —— DSD格式的物理光盘载体</li>
+<li><strong>有损压缩</strong> —— 丢弃部分音频信息以缩小体积</li>
+<li><strong>无损压缩</strong> —— 保留全部信息，解压后与源文件完全一致</li>
+</ol>
+<hr>
+<h3 id="二、硬件芯片与方案类（物理部件）"><a href="#二、硬件芯片与方案类（物理部件）" class="headerlink" title="二、硬件芯片与方案类（物理部件）"></a>二、硬件芯片与方案类（物理部件）</h3><ol start="12">
+<li><strong>DAC</strong>（数模转换器）—— 把数字信号转成模拟信号的芯片</li>
+</ol>
+<blockquote>
+<p>ES9038Q2M 和 ES9039Q2M、<strong>ES9038PRO</strong></p>
+</blockquote>
+<ol start="12">
+<li><strong>XMOS</strong> —— USB接收&#x2F;界面方案（整理USB数据流，重整时钟）</li>
+</ol>
+<blockquote>
+<p><strong>XU316</strong>：<strong>解码耳放、USB界面里负责“数据接收和核心处理”的主控芯片</strong></p>
+</blockquote>
+<ol start="12">
+<li><strong>DSP</strong>（数字信号处理器）—— 专门处理数字音频算法的芯片</li>
+<li><strong>耳放</strong>（耳机功率放大器）—— 把模拟信号放大到足以驱动耳机的设备</li>
+<li><strong>解码耳放一体机</strong> —— DAC + 耳放合并在一个设备里</li>
+<li><strong>纯耳放</strong> —— 只有放大功能，不含DAC</li>
+<li><strong>胆机</strong>（电子管放大器）—— 用玻璃电子管放大的耳放</li>
+<li><strong>石机</strong>（晶体管放大器）—— 用半导体放大的耳放</li>
+<li><strong>甲类（A类）</strong> —— 放大管始终满负荷工作的工作状态</li>
+<li><strong>甲乙类（AB类）</strong> —— 甲类和乙类的混合工作状态</li>
+<li><strong>D类</strong> —— 用PWM脉冲方式放大，高效率的工作状态</li>
+<li><strong>模拟电位器</strong> —— 机械旋转式音量调节器</li>
+<li><strong>继电器阵列</strong> —— 用继电器切换电阻网络的音量控制方式</li>
+<li><strong>电子音量（如MUSES芯片）</strong> —— 用芯片控制的精密电子音量方案</li>
+<li><strong>数字音量</strong> —— 在DAC内部直接衰减数字信号的音量方式</li>
+</ol>
+<hr>
+<h3 id="三、传输与接口协议类（连接层面）"><a href="#三、传输与接口协议类（连接层面）" class="headerlink" title="三、传输与接口协议类（连接层面）"></a>三、传输与接口协议类（连接层面）</h3><ol start="27">
+<li><strong>LDAC</strong> —— 索尼开发的蓝牙高码率传输协议</li>
+<li><strong>SBC</strong> —— 蓝牙最基础的默认音频传输协议</li>
+<li><strong>硬解</strong> —— 用专用硬件芯片进行解码</li>
+<li><strong>软解</strong> —— 用CPU通用计算能力进行解码</li>
+<li><strong>源码输出</strong> —— 不解码，直接把原始压缩数据流传给外部设备</li>
+<li><strong>升频（Upsampling）</strong> —— 解码后把采样率人为拔高的处理</li>
+<li><strong>蓝牙</strong> —— 短距离无线传输技术</li>
+<li><strong>USB界面</strong> —— 处理USB数字音频信号输入的模块</li>
+<li><strong>RCA</strong> —— 莲花头模拟音频接口</li>
+<li><strong>XLR（卡侬）</strong> —— 三针平衡模拟接口</li>
+<li><strong>USB-B</strong> —— 方口USB数字输入接口</li>
+<li><strong>Type-C</strong> —— 手机&#x2F;电脑通用的USB数字接口</li>
+<li><strong>光纤</strong> —— 光信号数字音频接口</li>
+<li><strong>同轴</strong> —— 电信号数字音频接口（RCA头或BNC头）</li>
+<li><strong>3.5mm单端</strong> —— 小尺寸非平衡耳机口</li>
+<li><strong>6.35mm单端</strong> —— 大尺寸非平衡耳机口（台式机标准）</li>
+<li><strong>4.4mm平衡</strong> —— 日系推行的五极平衡耳机口</li>
+<li><strong>2.5mm平衡</strong> —— 早期四极平衡耳机口（逐渐淘汰）</li>
+<li><strong>XLR四芯平衡</strong> —— 四针卡侬平衡耳机口（台式机标准）</li>
+<li><strong>平衡放大</strong> —— 信号分成正负两半分别放大的电路架构</li>
+<li><strong>假平衡</strong> —— 只换了平衡接口，内部电路并非真平衡</li>
+</ol>
+<hr>
+<h3 id="四、音质描述与参数概念类（评价-指标层面）"><a href="#四、音质描述与参数概念类（评价-指标层面）" class="headerlink" title="四、音质描述与参数概念类（评价&#x2F;指标层面）"></a>四、音质描述与参数概念类（评价&#x2F;指标层面）</h3><ol start="48">
+<li><strong>信噪比（SNR）</strong> —— 信号与底噪的比值，越高越干净</li>
+<li><strong>输出阻抗</strong> —— 耳放内阻，越低越适合低阻耳机</li>
+<li><strong>阻抗（耳机）</strong> —— 耳机的交流电阻值，单位Ω</li>
+<li><strong>灵敏度</strong> —— 耳机给1mW功率能发出多大声，越高越容易推</li>
+<li><strong>输出功率</strong> —— 耳放能提供的电功率，单位mW</li>
+<li><strong>阻尼系数</strong> —— 耳放输出阻抗与耳机阻抗的比值，影响控制力</li>
+<li><strong>抖动（Jitter）</strong> —— 时钟信号的时间偏移，影响声音精准度</li>
+<li><strong>失真</strong> —— 输出信号与输入信号的偏差程度</li>
+<li><strong>偶次谐波失真</strong> —— 电子管特有的失真类型，听感上偏暖</li>
+<li><strong>频响</strong> —— 不同频率的增益&#x2F;衰减曲线</li>
+<li><strong>声道分离度</strong> —— 左右声道互相串扰的程度</li>
+<li><strong>底噪</strong> —— 无信号时的本底噪声</li>
+<li><strong>偏音</strong> —— 左右声道音量不一致</li>
+<li><strong>延迟（算法延迟&#x2F;传输延迟）</strong> —— 从输入到输出的时间差，单位ms</li>
+<li><strong>控制力</strong> —— 耳放对耳机振膜刹停&#x2F;制动的能力（非量化主观词）</li>
+<li><strong>声场</strong> —— 耳机营造的空间感宽窄（非量化主观词）</li>
+<li><strong>推力</strong> —— 口语化指驱动能力，可指功率也可指听感饱满度（非量化）</li>
+<li><strong>暖 &#x2F; 冷</strong> —— 形容声音风格走向（非量化主观词）</li>
+<li><strong>空气感</strong> —— 形容高频延展和空间残响（非量化主观词）</li>
+<li><strong>数码声</strong> —— 贬义，指冷硬刺、不自然的听感（非量化）</li>
+<li><strong>模拟味</strong> —— 褒义，指顺滑自然、接近真实的听感（非量化）</li>
+</ol>
+<hr>
+<h2 id="台机、耳放、小尾巴链路"><a href="#台机、耳放、小尾巴链路" class="headerlink" title="台机、耳放、小尾巴链路"></a>台机、耳放、小尾巴链路</h2><h3 id="小尾巴链路"><a href="#小尾巴链路" class="headerlink" title="小尾巴链路"></a>小尾巴链路</h3><blockquote>
+<p><strong>手机APP读取FLAC文件 → 系统音频API → USB控制器 → USB-C引脚 → USB线 → 小尾巴USB-C座 → XMOS芯片 → I2S总线 → DAC芯片 → 模拟差分输出 → 耳放电路 → 3.5mm&#x2F;4.4mm插座 → 耳机线 → 耳机单元 → 耳朵</strong></p>
+</blockquote>
+<h3 id="一体式台机耳放"><a href="#一体式台机耳放" class="headerlink" title="一体式台机耳放"></a>一体式台机耳放</h3><blockquote>
+<p><strong>电脑播放软件 → USB控制器 → USB-A口 → USB线 → 一体机USB-B口 → XMOS芯片 → I2S → DAC芯片 → 模拟差分输出 → 前级&#x2F;耳放电路 → 6.35mm&#x2F;4.4mm&#x2F;XLR插座 → 耳机</strong></p>
+</blockquote>
+<h3 id="分体式"><a href="#分体式" class="headerlink" title="分体式"></a>分体式</h3><blockquote>
+<p><strong>数播&#x2F;电脑USB → USB线 → 独立DAC的USB口 → XMOS芯片 → I2S → DAC芯片 → 模拟差分输出 → DAC的XLR&#x2F;RCA输出座 → 模拟信号线 → 独立耳放的XLR&#x2F;RCA输入座 → 运放输入引脚 → 耳放放大电路 → 耳放输出座 → 耳机线 → 耳机</strong></p>
+</blockquote>
+<h2 id="耳放、台机市场分析"><a href="#耳放、台机市场分析" class="headerlink" title="耳放、台机市场分析"></a>耳放、台机市场分析</h2><p>一台1000-5000元的解码耳放：</p>
+<ul>
+<li><strong>DAC芯片</strong>：ES9038Q2M批发价约 <strong>20-40元&#x2F;颗</strong>（批量更便宜）</li>
+<li><strong>XMOS XU316</strong>：约 <strong>30-50元&#x2F;颗</strong></li>
+<li><strong>运放（如OPA1612）</strong>：约 <strong>10-20元&#x2F;颗</strong></li>
+<li><strong>环形变压器</strong>：中低端用的是批量国产货，约 <strong>50-100元</strong></li>
+<li><strong>电容电阻等被动元件</strong>：整机加起来 <strong>20-50元</strong></li>
+<li><strong>外壳+接插件</strong>：公模铝合金壳+国产插座，约 <strong>50-100元</strong></li>
+</ul>
+<p><strong>整机BOM（物料成本）算下来：200-400元，撑死500元。</strong></p>
+<p>售价1000-5000元，**毛利 50%-80%+**。</p>
+<p>国内不做任何认证：<strong>FCC&#x2F;CE&#x2F;3C等强制认证</strong>、<strong>USB-IF认证</strong>、</p>
+]]></content>
+      <categories>
+        <category>硬件技术</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>音视频</tag>
       </tags>
   </entry>
 </search>
