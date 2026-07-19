@@ -29080,14 +29080,18 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 <p><strong>整机BOM（物料成本）算下来：200-400元，撑死500元。</strong></p>
 <p>售价1000-5000元，**毛利 50%-80%+**。</p>
-<p>国内不做任何认证：<strong>FCC&#x2F;CE&#x2F;3C等强制认证</strong>、<strong>USB-IF认证</strong>、</p>
+<p>国内不做任何认证：<strong>FCC&#x2F;CE&#x2F;3C等强制认证</strong>、<strong>USB-IF认证</strong>，做了只要没出口也是假的</p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
       </categories>
       <tags>
         <tag>笔记</tag>
-        <tag>音视频</tag>
+        <tag>音频</tag>
+        <tag>dac</tag>
+        <tag>ldac</tag>
+        <tag>xmos</tag>
+        <tag>运放</tag>
       </tags>
   </entry>
 </search>
