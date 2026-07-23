@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>DSP音频处理 | Regen</title><meta name="author" content="Regen"><meta name="copyright" content="Regen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="概念扫盲 1. 延时器 (Delay) 一句话定义：将输入信号复制一份，延迟一段时间后再与原信号混合，制造空间感和层次感。 核心要点： 延迟时间：决定回声的快慢（从几毫秒的镶边效果到几百毫秒的明显回声）。 反馈：决定回声重复的次数和衰减速度。 混合比：决定原始声与效果声的比例。   举例：你在山谷里大喊一声“你好”，几秒后听到“你好…你好…你好…”逐渐消失的回声，这就是最自然的延时效果。   2.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DSP音频处理">
+<meta property="og:url" content="http://example.com/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="Regen">
+<meta property="og:description" content="概念扫盲 1. 延时器 (Delay) 一句话定义：将输入信号复制一份，延迟一段时间后再与原信号混合，制造空间感和层次感。 核心要点： 延迟时间：决定回声的快慢（从几毫秒的镶边效果到几百毫秒的明显回声）。 反馈：决定回声重复的次数和衰减速度。 混合比：决定原始声与效果声的比例。   举例：你在山谷里大喊一声“你好”，几秒后听到“你好…你好…你好…”逐渐消失的回声，这就是最自然的延时效果。   2.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/touxiang.jpg">
+<meta property="article:published_time" content="2026-07-23T07:45:04.000Z">
+<meta property="article:modified_time" content="2026-07-23T09:06:13.182Z">
+<meta property="article:author" content="Regen">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="音频">
+<meta property="article:tag" content="dante">
+<meta property="article:tag" content="dsp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/touxiang.jpg"><link rel="shortcut icon" href="/images/touxiang.png"><link rel="canonical" href="http://example.com/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'DSP音频处理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-07-23 17:06:13'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/touxiang.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">206</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/images/cover/cover1.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Regen"><span class="site-name">Regen</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/tags/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">DSP音频处理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2026-07-23T07:45:04.000Z" title="Created 2026-07-23 15:45:04">2026-07-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2026-07-23T09:06:13.182Z" title="Updated 2026-07-23 17:06:13">2026-07-23</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A1%AC%E4%BB%B6%E6%8A%80%E6%9C%AF/">硬件技术</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="leancloud_visitors" id="/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" data-flag-title="DSP音频处理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span class="leancloud-visitors-count"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="概念扫盲"><a href="#概念扫盲" class="headerlink" title="概念扫盲"></a>概念扫盲</h1><hr>
+<h3 id="1-延时器-Delay"><a href="#1-延时器-Delay" class="headerlink" title="1. 延时器 (Delay)"></a>1. 延时器 (Delay)</h3><ul>
+<li><strong>一句话定义</strong>：将输入信号复制一份，延迟一段时间后再与原信号混合，制造空间感和层次感。</li>
+<li><strong>核心要点</strong>：<ul>
+<li><strong>延迟时间</strong>：决定回声的快慢（从几毫秒的镶边效果到几百毫秒的明显回声）。</li>
+<li><strong>反馈</strong>：决定回声重复的次数和衰减速度。</li>
+<li><strong>混合比</strong>：决定原始声与效果声的比例。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：你在山谷里大喊一声“你好”，几秒后听到“你好…你好…你好…”逐渐消失的回声，这就是最自然的延时效果。</li>
+</ul>
+<hr>
+<h3 id="2-噪声门-Noise-Gate"><a href="#2-噪声门-Noise-Gate" class="headerlink" title="2. 噪声门 (Noise Gate)"></a>2. 噪声门 (Noise Gate)</h3><ul>
+<li><strong>一句话定义</strong>：信号音量低于设定“门槛”时，直接静音或大幅衰减；高于门槛时正常通过。</li>
+<li><strong>核心要点</strong>：<ul>
+<li><strong>门限</strong>：触发开关的音量临界点。</li>
+<li><strong>启动&#x2F;释放时间</strong>：决定门开合的快慢，避免生硬。</li>
+<li><strong>作用</strong>：主要用于消除无声段的底噪、话筒串音。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：直播时你停止说话，话筒会把空调呼呼声收进去。噪声门设置好后，你一停嘴，背景噪音就被“关在门外”了，直播间瞬间安静。</li>
+</ul>
+<hr>
+<h3 id="3-上行扩展器-Upward-Expander"><a href="#3-上行扩展器-Upward-Expander" class="headerlink" title="3. 上行扩展器 (Upward Expander)"></a>3. 上行扩展器 (Upward Expander)</h3><ul>
+<li><strong>一句话定义</strong>：让声音中<strong>较弱</strong>的部分变得更响，而较强的部分变化不大，从而提升细节。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>与压缩器相反，它不是压大补小，而是“把小推大”。</li>
+<li>能让微弱的声音细节（如唇齿音、指尖摩擦琴弦声）变得清晰。</li>
+<li>使用不当会放大底噪。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：录制一段轻声耳语，回放时觉得太弱听不清。用上行扩展器后，耳语声被放大到正常音量，但正常说话声没有明显变化，细节就出来了。</li>
+</ul>
+<hr>
+<h3 id="4-下行扩展器-Downward-Expander"><a href="#4-下行扩展器-Downward-Expander" class="headerlink" title="4. 下行扩展器 (Downward Expander)"></a>4. 下行扩展器 (Downward Expander)</h3><ul>
+<li><strong>一句话定义</strong>：让声音中<strong>较弱</strong>的部分变得更弱，拉开强弱差距，恢复动态对比。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>噪声门是它的极端形式（比率极大）。</li>
+<li>作用不是消除噪音，而是让“本该弱的声音”更弱，增强冲击感。</li>
+<li>常用于鼓组，让军鼓的尾音收得更快更干净。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：打军鼓时，鼓槌敲下去那一下很响（主音），但鼓皮余震较弱。用下行扩展器后，余震声被压得更低，主音就显得更突出、更有力量感。</li>
+</ul>
+<hr>
+<h3 id="5-上行压缩器-Upward-Compressor"><a href="#5-上行压缩器-Upward-Compressor" class="headerlink" title="5. 上行压缩器 (Upward Compressor)"></a>5. 上行压缩器 (Upward Compressor)</h3><ul>
+<li><strong>一句话定义</strong>：让声音中<strong>较弱</strong>的部分变响，同时保持强音不变，缩小整体动态范围。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>不压强音，只“提升弱音”。</li>
+<li>使安静段落听起来更接近正常段落，避免听感忽大忽小。</li>
+<li>常见于“夜间模式”或环境嘈杂时的听力辅助。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：晚上戴着耳机看电影，爆炸声（强音）震耳，但人物对话（弱音）像蚊子叫。打开“夜间模式”（上行压缩），对话被单独放大，爆炸声不变，就不用反复调音量了。</li>
+</ul>
+<hr>
+<h3 id="6-下行压缩器-Downward-Compressor-（日常简称“压缩器”）"><a href="#6-下行压缩器-Downward-Compressor-（日常简称“压缩器”）" class="headerlink" title="6. 下行压缩器 (Downward Compressor)（日常简称“压缩器”）"></a>6. 下行压缩器 (Downward Compressor)（日常简称“压缩器”）</h3><ul>
+<li><strong>一句话定义</strong>：让声音中<strong>较强</strong>的部分变弱，从而让整体音量更平稳。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>核心参数：阈值（多强开始压）、压缩比（压多狠）、启动&#x2F;释放时间。</li>
+<li>让演唱更“贴耳”，乐器更融合。</li>
+<li>是音频处理中最常用的动态工具。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：歌手唱副歌时突然飙高音，差点把音响震破。压缩器介入，高音一冒头就被“按住”，整体音量就平滑了，听众不会觉得刺耳。</li>
+</ul>
+<hr>
+<h3 id="7-门限限幅器-Threshold-Limiter"><a href="#7-门限限幅器-Threshold-Limiter" class="headerlink" title="7. 门限限幅器 (Threshold Limiter)"></a>7. 门限限幅器 (Threshold Limiter)</h3><ul>
+<li><strong>一句话定义</strong>：设定一个绝对不可逾越的电平“天花板”，信号一旦触及，立即被强硬削平。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>压缩比极高（通常≥10:1），动作极其迅速。</li>
+<li>主要目的不是美化声音，而是<strong>硬性保护</strong>后级设备（音箱、功放）。</li>
+<li>“门限”指触发值，“限幅”指动作。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：舞台调音师在主音箱前加了一台限幅器，设定上限为0dB。无论歌手吼得多用力，信号到0dB就“一刀切”，确保功放和喇叭绝对不会烧毁。</li>
+</ul>
+<hr>
+<h3 id="8-包络限幅器-Envelope-Limiter"><a href="#8-包络限幅器-Envelope-Limiter" class="headerlink" title="8. 包络限幅器 (Envelope Limiter)"></a>8. 包络限幅器 (Envelope Limiter)</h3><ul>
+<li><strong>一句话定义</strong>：不是按瞬间峰值去限制，而是按声音“包络”（音量随时间变化的轮廓）的走势来平滑地限制。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>更“智能”和“音乐化”，不破坏声音的起音和尾音的形态。</li>
+<li>常用于母带处理，让整体响度提升但不损失动态感。</li>
+<li>可以理解为“温柔的限幅器”。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：一段钢琴独奏，强音和弱音跨度极大。包络限幅器不会在最强音出现时生硬地削平它，而是顺着音符自然衰减的“包络曲线”轻轻压一下，让整段钢琴听起来既饱满又自然，不像门限限幅那样有“被拍扁”的感觉。</li>
+</ul>
+<hr>
+<h3 id="9-闪避器-Ducker"><a href="#9-闪避器-Ducker" class="headerlink" title="9. 闪避器 (Ducker)"></a>9. 闪避器 (Ducker)</h3><ul>
+<li><strong>一句话定义</strong>：当主信号（A）出现时，自动降低次要信号（B）的音量；主信号消失后，B恢复。</li>
+<li><strong>核心要点</strong>：<ul>
+<li>依赖<strong>侧链</strong>输入，即用A信号去控制B信号的音量。</li>
+<li>释放时间决定B恢复的快慢。</li>
+<li>核心用途是“制造主次空间”。</li>
+</ul>
+</li>
+<li><strong>举例</strong>：在视频里，你一开始说话（A），背景音乐（B）就自动变小声；你一句话说完，背景音乐又慢慢恢复正常音量。这就是最常见的“人声闪避”效果。</li>
+</ul>
+<hr>
+<h3 id="10-高通滤波器-High-pass-Filter-11-低通滤波器-Low-pass-Filter"><a href="#10-高通滤波器-High-pass-Filter-11-低通滤波器-Low-pass-Filter" class="headerlink" title="10. 高通滤波器 (High-pass Filter) &amp; 11. 低通滤波器 (Low-pass Filter)"></a>10. 高通滤波器 (High-pass Filter) &amp; 11. 低通滤波器 (Low-pass Filter)</h3><ul>
+<li><strong>一句话定义</strong>：高通让高频过、挡低频；低通让低频过、挡高频。两者是频率的“筛选门”。</li>
+<li><strong>核心要点</strong>：<ul>
+<li><strong>高通</strong>：切除低频嗡嗡声（如风噪、脚步震动），让声音变干净。</li>
+<li><strong>低通</strong>：切除高频嘶嘶声（如齿音、电路噪音），让声音变温暖。</li>
+<li>都有一个“截止频率”旋钮，决定从哪里开始切。</li>
+</ul>
+</li>
+<li><strong>举例（高通）</strong>：录制人声时，房间里空调低频轰鸣。打开高通滤波器，旋到80Hz，所有低于80Hz的低频噪音被滤除，人声立刻变得清晰干净。</li>
+<li><strong>举例（低通）</strong>：电吉他声音太“炸”、刺耳。打开低通滤波器，旋到8000Hz，刺耳的高频泛音被切掉，声音立刻变得圆润厚实。</li>
+</ul>
+<h1 id="ASIO和WDM"><a href="#ASIO和WDM" class="headerlink" title="ASIO和WDM"></a>ASIO和WDM</h1><table>
+<thead>
+<tr>
+<th align="left">对比维度</th>
+<th align="left"><strong>ASIO</strong></th>
+<th align="left"><strong>WDM</strong> (以DirectSound &#x2F; WASAPI为例)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>延迟 (Latency)</strong></td>
+<td align="left"><strong>极低</strong>，可以做到 2ms - 10ms，人耳几乎无感知。</td>
+<td align="left"><strong>较高</strong>，通常 30ms - 200ms，能明显感觉到滞后。</td>
+</tr>
+<tr>
+<td align="left"><strong>多任务支持</strong></td>
+<td align="left"><strong>独占模式</strong>。一个软件（如Cubase）使用时，其他软件（如浏览器）无法同时发声。</td>
+<td align="left"><strong>共享模式</strong>。多个软件可以同时发声（系统会混音），比如你边听歌边看视频。</td>
+</tr>
+<tr>
+<td align="left"><strong>采样率&#x2F;位深</strong></td>
+<td align="left"><strong>固定且精准</strong>，完全按工程设置输出，不强制转换。</td>
+<td align="left"><strong>系统统一管理</strong>，经常会被Windows强制重采样到同一格式（如48kHz），可能损失音质。</td>
+</tr>
+<tr>
+<td align="left"><strong>稳定性</strong></td>
+<td align="left"><strong>极稳定</strong>，只要驱动过关，基本不掉链子。</td>
+<td align="left">容易受系统负载和其他驱动影响，偶尔出现爆音或卡顿。</td>
+</tr>
+<tr>
+<td align="left"><strong>硬件要求</strong></td>
+<td align="left"><strong>必须搭配专业声卡</strong>（如Focusrite、RME、Audient等），板载声卡通常不支持。</td>
+<td align="left"><strong>任何声卡都支持</strong>，包括电脑自带的板载声卡。</td>
+</tr>
+</tbody></table>
+<h1 id="Dante虚拟声卡-asio"><a href="#Dante虚拟声卡-asio" class="headerlink" title="Dante虚拟声卡 asio"></a>Dante虚拟声卡 asio</h1><hr>
+<h3 id="1-Buffer-Size（缓冲区大小）"><a href="#1-Buffer-Size（缓冲区大小）" class="headerlink" title="1. Buffer Size（缓冲区大小）"></a>1. Buffer Size（缓冲区大小）</h3><ul>
+<li><strong>一句话定义</strong>：电脑CPU一次性处理音频数据包的大小（以采样点数量为单位，如64、128、256、512 samples）。</li>
+<li><strong>比喻</strong>：工厂传送带上的<strong>托盘大小</strong>。托盘越小（Buffer小），每次运送的原料越少，但运送频率极高（反应快）；托盘越大（Buffer大），每次运送原料多，但传送带动起来有惯性（反应慢）。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">设置</th>
+<th align="left">效果</th>
+<th align="left">适合场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>小Buffer（64-128 samples）</strong></td>
+<td align="left"><strong>延迟极低</strong>，实时响应快，但CPU负载剧增，容易爆音、卡顿。</td>
+<td align="left"><strong>实时演奏</strong>（MIDI键盘弹软音源）、<strong>录音监听</strong>（听湿录干）。</td>
+</tr>
+<tr>
+<td align="left"><strong>大Buffer（512-1024 samples及以上）</strong></td>
+<td align="left"><strong>延迟明显</strong>，但CPU压力小，系统稳定，几乎不会爆音。</td>
+<td align="left"><strong>后期混音</strong>（不涉及实时输入）、<strong>母线处理</strong>、<strong>导出音频</strong>。</td>
+</tr>
+</tbody></table>
+<p><strong>操作铁律</strong>：录音&#x2F;演奏时用<strong>小Buffer</strong>，混音&#x2F;导出时用<strong>大Buffer</strong>。</p>
+<hr>
+<h3 id="2-ASIO-Latency（ASIO延迟）"><a href="#2-ASIO-Latency（ASIO延迟）" class="headerlink" title="2. ASIO Latency（ASIO延迟）"></a>2. ASIO Latency（ASIO延迟）</h3><ul>
+<li><strong>一句话定义</strong>：音频信号从“进入声卡”到“经过电脑处理”再到“从声卡输出”所花费的总时间（单位：毫秒 ms）。</li>
+<li><strong>比喻</strong>：工厂传送带从你<strong>下单（弹下一个琴键）</strong> 到<strong>拿到成品（听到声音从耳机发出）</strong> 的<strong>总耗时</strong>。</li>
+</ul>
+<p>这个总延迟由两部分组成：</p>
+<ul>
+<li><strong>输入延迟</strong>（Input Latency）：话筒&#x2F;乐器 → 电脑DAW。</li>
+<li><strong>输出延迟</strong>（Output Latency）：电脑DAW → 耳机&#x2F;音箱。</li>
+<li><strong>往返延迟</strong>（Round-Trip Latency，RTL） &#x3D; 输入延迟 + 输出延迟。这是对人耳感知最关键的数值。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">延迟数值</th>
+<th align="left">人耳感知</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>&lt; 6 ms</strong></td>
+<td align="left">几乎感觉不到，顶尖专业声卡水平。</td>
+</tr>
+<tr>
+<td align="left"><strong>6 - 10 ms</strong></td>
+<td align="left">优秀，大多数音乐人可以接受。</td>
+</tr>
+<tr>
+<td align="left"><strong>10 - 20 ms</strong></td>
+<td align="left">可察觉，但尚可接受（尤其对键盘手）。</td>
+</tr>
+<tr>
+<td align="left"><strong>&gt; 20 ms</strong></td>
+<td align="left">明显滞后，会影响演奏和录音节奏。</td>
+</tr>
+</tbody></table>
+<p><strong>为什么Buffer Size和ASIO Latency是“绑定”的？</strong></p>
+<blockquote>
+<p><strong>Buffer Size越小，ASIO Latency越低；Buffer Size越大，ASIO Latency越高。</strong> 但ASIO Latency还受<strong>采样率</strong>影响（采样率越高，相同Buffer下延迟越低）。</p>
+</blockquote>
+<hr>
+<h3 id="3-Encoding（编码-位深）"><a href="#3-Encoding（编码-位深）" class="headerlink" title="3. Encoding（编码&#x2F;位深）"></a>3. Encoding（编码&#x2F;位深）</h3><ul>
+<li><strong>一句话定义</strong>：音频信号在数字化时，用多少“bit”（比特）来记录每一个采样点的动态范围（音量精细度）。</li>
+<li><strong>比喻</strong>：工厂里测量原料重量的<strong>量尺精度</strong>。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">位深</th>
+<th align="left">动态范围</th>
+<th align="left">特点</th>
+<th align="left">典型场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>16-bit</strong></td>
+<td align="left">约 96 dB</td>
+<td align="left">CD音质标准，文件较小，但处理余地有限。</td>
+<td align="left">最终导出成品（CD、MP3、流媒体）。</td>
+</tr>
+<tr>
+<td align="left"><strong>24-bit</strong></td>
+<td align="left">约 144 dB</td>
+<td align="left"><strong>录音&#x2F;混音首选</strong>。动态余量巨大，允许录音时留出很大空间（-18dBFS左右），后期拉升音量也不会产生明显底噪。</td>
+<td align="left">所有专业录音、DAW内部处理。</td>
+</tr>
+<tr>
+<td align="left"><strong>32-bit float</strong></td>
+<td align="left">约 1528 dB</td>
+<td align="left">理论上无削波风险（可记录超过0dB的信号），文件体积巨大，主要在高阶录音机或特殊插件中使用。</td>
+<td align="left">特殊高动态场景（如野外录音）、科学计算。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>注意</strong>：Encoding通常指<strong>采样位深</strong>，与<strong>采样率</strong>（44.1kHz、48kHz、96kHz）是两个独立参数。采样率决定“频率范围上限”，位深决定“音量精细度”。</p>
+</blockquote>
+<hr>
+<h3 id="三者关系总览表"><a href="#三者关系总览表" class="headerlink" title="三者关系总览表"></a>三者关系总览表</h3><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">单位</th>
+<th align="left">控制什么</th>
+<th align="left">调小后效果</th>
+<th align="left">调大后效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Buffer Size</strong></td>
+<td align="left">samples（采样点）</td>
+<td align="left">CPU一次处理的包大小</td>
+<td align="left">延迟降低，CPU压力增大</td>
+<td align="left">延迟升高，CPU压力减小</td>
+</tr>
+<tr>
+<td align="left"><strong>ASIO Latency</strong></td>
+<td align="left">ms（毫秒）</td>
+<td align="left">信号往返总耗时</td>
+<td align="left">实时反应更快，但系统易爆音</td>
+<td align="left">实时反应更慢，但系统更稳定</td>
+</tr>
+<tr>
+<td align="left"><strong>Encoding</strong></td>
+<td align="left">bit（比特）</td>
+<td align="left">音量记录的精细度</td>
+<td align="left">动态范围小，文件小</td>
+<td align="left">动态范围大，文件大</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="实战场景：你的参数该怎么调？"><a href="#实战场景：你的参数该怎么调？" class="headerlink" title="实战场景：你的参数该怎么调？"></a>实战场景：你的参数该怎么调？</h3><table>
+<thead>
+<tr>
+<th align="left">你正在做的事</th>
+<th align="left">Buffer Size</th>
+<th align="left">Encoding</th>
+<th align="left">原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>用电容麦录人声，需要实时听效果</strong></td>
+<td align="left">64 - 128 samples</td>
+<td align="left">24-bit</td>
+<td align="left">保证低延迟不抢拍，保留最大后期空间。</td>
+</tr>
+<tr>
+<td align="left"><strong>用MIDI键盘弹奏管弦乐音源</strong></td>
+<td align="left">128 - 256 samples</td>
+<td align="left">24-bit</td>
+<td align="left">键盘手感要求响应迅速，256以下可接受。</td>
+</tr>
+<tr>
+<td align="left"><strong>混音、调EQ&#x2F;压缩、做母带</strong></td>
+<td align="left">512 - 1024 samples</td>
+<td align="left">24-bit 或 32-bit float</td>
+<td align="left">不录音，不担心延迟，优先保证稳定不爆音。</td>
+</tr>
+<tr>
+<td align="left"><strong>最终导出MP3给客户</strong></td>
+<td align="left">不关键（不影响音质）</td>
+<td align="left">16-bit</td>
+<td align="left">导出的最终成品用16-bit即可。</td>
+</tr>
+</tbody></table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Regen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/">http://example.com/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E9%9F%B3%E9%A2%91/">音频</a><a class="post-meta__tags" href="/tags/dante/">dante</a><a class="post-meta__tags" href="/tags/dsp/">dsp</a></div><div class="post_share"><div class="social-share" data-image="/images/touxiang.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2026/07/19/%E9%9F%B3%E9%A2%91%E8%A7%A3%E7%A0%81/" title="音频解码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">音频解码</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2025/10/31/dante%E6%89%AB%E7%9B%B2/" title="dante扫盲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-10-31</div><div class="title">dante扫盲</div></div></a></div><div><a href="/2026/07/19/%E9%9F%B3%E9%A2%91%E8%A7%A3%E7%A0%81/" title="音频解码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-19</div><div class="title">音频解码</div></div></a></div><div><a href="/2024/05/14/0-96OLED%E7%8E%A9%E6%B3%95/" title="0.96OLED玩法"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-05-14</div><div class="title">0.96OLED玩法</div></div></a></div><div><a href="/2023/10/26/51%E5%8D%95%E7%89%87%E6%9C%BA%E7%AC%94%E8%AE%B0/" title="51单片机笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-26</div><div class="title">51单片机笔记</div></div></a></div><div><a href="/2025/06/30/AD%E5%9F%9F%E6%8E%A7%E5%92%8CLDAP/" title="AD域控和LDAP"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-30</div><div class="title">AD域控和LDAP</div></div></a></div><div><a href="/2025/07/01/AD%E5%9F%9F%E6%8E%A7%E7%BB%93%E5%90%88Self-Password-Services%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A9%E6%94%B9%E5%AF%86%E7%A0%81/" title="AD域控结合Self-Password-Services实现自助改密码"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-01</div><div class="title">AD域控结合Self-Password-Services实现自助改密码</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/touxiang.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Regen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">206</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">215</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/regenm"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/regenm" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">Hola ! This is my Blog!</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5%E6%89%AB%E7%9B%B2"><span class="toc-number">1.</span> <span class="toc-text">概念扫盲</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BB%B6%E6%97%B6%E5%99%A8-Delay"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 延时器 (Delay)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%99%AA%E5%A3%B0%E9%97%A8-Noise-Gate"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 噪声门 (Noise Gate)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%B8%8A%E8%A1%8C%E6%89%A9%E5%B1%95%E5%99%A8-Upward-Expander"><span class="toc-number">1.0.3.</span> <span class="toc-text">3. 上行扩展器 (Upward Expander)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E4%B8%8B%E8%A1%8C%E6%89%A9%E5%B1%95%E5%99%A8-Downward-Expander"><span class="toc-number">1.0.4.</span> <span class="toc-text">4. 下行扩展器 (Downward Expander)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E4%B8%8A%E8%A1%8C%E5%8E%8B%E7%BC%A9%E5%99%A8-Upward-Compressor"><span class="toc-number">1.0.5.</span> <span class="toc-text">5. 上行压缩器 (Upward Compressor)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E4%B8%8B%E8%A1%8C%E5%8E%8B%E7%BC%A9%E5%99%A8-Downward-Compressor-%EF%BC%88%E6%97%A5%E5%B8%B8%E7%AE%80%E7%A7%B0%E2%80%9C%E5%8E%8B%E7%BC%A9%E5%99%A8%E2%80%9D%EF%BC%89"><span class="toc-number">1.0.6.</span> <span class="toc-text">6. 下行压缩器 (Downward Compressor)（日常简称“压缩器”）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E9%97%A8%E9%99%90%E9%99%90%E5%B9%85%E5%99%A8-Threshold-Limiter"><span class="toc-number">1.0.7.</span> <span class="toc-text">7. 门限限幅器 (Threshold Limiter)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%8C%85%E7%BB%9C%E9%99%90%E5%B9%85%E5%99%A8-Envelope-Limiter"><span class="toc-number">1.0.8.</span> <span class="toc-text">8. 包络限幅器 (Envelope Limiter)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E9%97%AA%E9%81%BF%E5%99%A8-Ducker"><span class="toc-number">1.0.9.</span> <span class="toc-text">9. 闪避器 (Ducker)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E9%AB%98%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8-High-pass-Filter-11-%E4%BD%8E%E9%80%9A%E6%BB%A4%E6%B3%A2%E5%99%A8-Low-pass-Filter"><span class="toc-number">1.0.10.</span> <span class="toc-text">10. 高通滤波器 (High-pass Filter) &amp; 11. 低通滤波器 (Low-pass Filter)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ASIO%E5%92%8CWDM"><span class="toc-number">2.</span> <span class="toc-text">ASIO和WDM</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Dante%E8%99%9A%E6%8B%9F%E5%A3%B0%E5%8D%A1-asio"><span class="toc-number">3.</span> <span class="toc-text">Dante虚拟声卡 asio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Buffer-Size%EF%BC%88%E7%BC%93%E5%86%B2%E5%8C%BA%E5%A4%A7%E5%B0%8F%EF%BC%89"><span class="toc-number">3.0.1.</span> <span class="toc-text">1. Buffer Size（缓冲区大小）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-ASIO-Latency%EF%BC%88ASIO%E5%BB%B6%E8%BF%9F%EF%BC%89"><span class="toc-number">3.0.2.</span> <span class="toc-text">2. ASIO Latency（ASIO延迟）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Encoding%EF%BC%88%E7%BC%96%E7%A0%81-%E4%BD%8D%E6%B7%B1%EF%BC%89"><span class="toc-number">3.0.3.</span> <span class="toc-text">3. Encoding（编码&#x2F;位深）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E8%80%85%E5%85%B3%E7%B3%BB%E6%80%BB%E8%A7%88%E8%A1%A8"><span class="toc-number">3.0.4.</span> <span class="toc-text">三者关系总览表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E6%88%98%E5%9C%BA%E6%99%AF%EF%BC%9A%E4%BD%A0%E7%9A%84%E5%8F%82%E6%95%B0%E8%AF%A5%E6%80%8E%E4%B9%88%E8%B0%83%EF%BC%9F"><span class="toc-number">3.0.5.</span> <span class="toc-text">实战场景：你的参数该怎么调？</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/23/DSP%E9%9F%B3%E9%A2%91%E5%A4%84%E7%90%86/" title="DSP音频处理">DSP音频处理</a><time datetime="2026-07-23T07:45:04.000Z" title="Created 2026-07-23 15:45:04">2026-07-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/19/%E9%9F%B3%E9%A2%91%E8%A7%A3%E7%A0%81/" title="音频解码">音频解码</a><time datetime="2026-07-19T11:49:32.000Z" title="Created 2026-07-19 19:49:32">2026-07-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/09/%E6%AD%8C%E6%9B%B2%E6%9E%B6%E6%9E%84/" title="歌曲架构">歌曲架构</a><time datetime="2026-07-09T15:14:21.000Z" title="Created 2026-07-09 23:14:21">2026-07-09</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/22/%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%AC%94%E8%AE%B0/" title="结构设计笔记">结构设计笔记</a><time datetime="2026-06-22T13:56:27.000Z" title="Created 2026-06-22 21:56:27">2026-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/22/systemd%E7%AE%A1%E7%90%86%E6%9C%8D%E5%8A%A1/" title="systemd管理服务">systemd管理服务</a><time datetime="2026-06-22T02:43:44.000Z" title="Created 2026-06-22 10:43:44">2026-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/22/tabby-terminal-sftp%E9%97%AE%E9%A2%98/" title="tabby terminal sftp问题">tabby terminal sftp问题</a><time datetime="2026-06-22T02:31:54.000Z" title="Created 2026-06-22 10:31:54">2026-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/17/%E3%80%8A%E7%8C%AE%E7%BB%99%E9%98%BF%E5%B0%94%E5%90%89%E4%BE%AC%E7%9A%84%E8%8A%B1%E6%9D%9F%E3%80%8B/" title="《献给阿尔吉侬的花束》">《献给阿尔吉侬的花束》</a><time datetime="2026-06-17T06:37:34.000Z" title="Created 2026-06-17 14:37:34">2026-06-17</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/12/frp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" title="frp内网穿透">frp内网穿透</a><time datetime="2026-06-12T06:49:53.000Z" title="Created 2026-06-12 14:49:53">2026-06-12</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/02/%E3%80%8A%E5%85%8B%E6%9E%97%E7%B4%A2%E5%B0%94%E7%9A%84%E6%9C%80%E5%90%8E%E5%A4%8F%E5%A4%A9%E3%80%8B/" title="《克林索尔的最后夏天》">《克林索尔的最后夏天》</a><time datetime="2026-06-02T11:31:48.000Z" title="Created 2026-06-02 19:31:48">2026-06-02</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/06/01/caddy%E6%89%98%E7%AE%A1%E5%B7%A5%E5%85%B7/" title="caddy托管工具">caddy托管工具</a><time datetime="2026-06-01T04:27:06.000Z" title="Created 2026-06-01 12:27:06">2026-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2022 - 2026 By Regen</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'lJFN2cyOh63wpxIlrVeeMDO8-gzGzoHsz',
+      appKey: 'd4GM27zPASnZH5cgTbXF2JJY',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
