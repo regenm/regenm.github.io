@@ -1190,6 +1190,16 @@
 
 <h2 id="9-远程"><a href="#9-远程" class="headerlink" title="9. 远程"></a>9. 远程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">scrcpy -s 192.168.110.140:5555</span><br></pre></td></tr></table></figure>
 
+<h2 id="10-adb-pair"><a href="#10-adb-pair" class="headerlink" title="10. adb pair"></a>10. adb pair</h2><p> 无线调试开启</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb pair 192.168.110.164:32909</span><br></pre></td></tr></table></figure>
+
+<p>pair完之后需要执行connect</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 192.168.110.164:无线调试端口</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-导出apk"><a href="#11-导出apk" class="headerlink" title="11 导出apk"></a>11 导出apk</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell pm list packages</span><br><span class="line">adb shell pm list packages | grep &quot;wechat&quot;</span><br><span class="line">adb shell pm path package:com.yuxuansys.apklauncher</span><br><span class="line">adb pull /data/app/com.tencent.mm-xxx/base.apk ./wechat.apk</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">D:\c8\test&gt;adb shell pm path com.dsada.dsadas</span><br><span class="line">package:/data/app/~~PqD-ZtkMG6MS6pxokmohOw==/com.dsadsa.dasdsadsadas-M4OMNN1HmcGdbMOh_0Q1yA==/base.apk</span><br><span class="line"></span><br><span class="line">D:\c8\test&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="远程屏幕控制（win）"><a href="#远程屏幕控制（win）" class="headerlink" title="远程屏幕控制（win）"></a>远程屏幕控制（win）</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb connect 192.168.110.112:46673</span><br><span class="line">scrcpy</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <tags>
         <tag>笔记</tag>
@@ -15847,19 +15857,69 @@
 
 <h1 id="查看wifi密码"><a href="#查看wifi密码" class="headerlink" title="查看wifi密码"></a>查看wifi密码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">netsh wlan show profile name=&quot;CJXX-5GHz&quot; key=clear</span><br></pre></td></tr></table></figure>
 
-<h1 id="修改Shell-Launcher"><a href="#修改Shell-Launcher" class="headerlink" title="修改Shell Launcher"></a>修改Shell Launcher</h1><p>WIN+R输入<code>regedit</code></p>
-<p>定位路径</p>
+<h1 id="修改Shell-Launcher"><a href="#修改Shell-Launcher" class="headerlink" title="修改Shell Launcher"></a>修改Shell Launcher</h1><p><code>regedit</code></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon</span><br></pre></td></tr></table></figure>
 
-<p>右侧窗口定位<code>Shell</code>,改为默认启动的Launcher 应用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;C:\Users\123\Desktop\win-unpacked\Yuxuansys AVS Launcher.exe&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;C:\Users\123\Desktop\win-unpacked\MyLauncher.exe&quot;</span><br></pre></td></tr></table></figure>
 
-<h1 id="注册后台服务"><a href="#注册后台服务" class="headerlink" title="注册后台服务"></a>注册后台服务</h1><p>下载解压NSSM：<a href="https://nssm.cc/release/nssm-2.24.zip">NSSM Download</a></p>
-<p>管理员权限打开cmd</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd D:\Backup\Downloads\nssm-2.24\nssm-2.24\win64</span><br><span class="line">NSSM install myService</span><br><span class="line">NSSM start myService</span><br></pre></td></tr></table></figure>
+<h1 id="注册后台服务"><a href="#注册后台服务" class="headerlink" title="注册后台服务"></a>注册后台服务</h1><p>管理员权限打开cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd D:\Backup\Downloads\nssm\nssm\win64</span><br><span class="line">NSSM install myService</span><br><span class="line">NSSM start myService</span><br></pre></td></tr></table></figure>
 
 
 
+<h1 id="查看事件"><a href="#查看事件" class="headerlink" title="查看事件"></a>查看事件</h1><p>win+R</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows 日志` -&gt; `系统</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">eventvwr.msc</span><br></pre></td></tr></table></figure>
+
+<h1 id="任务计划程序"><a href="#任务计划程序" class="headerlink" title="任务计划程序"></a>任务计划程序</h1><p>win+R</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">taskschd.msc</span><br></pre></td></tr></table></figure>
+
+<h1 id="允许远程空密码"><a href="#允许远程空密码" class="headerlink" title="允许远程空密码"></a>允许远程空密码</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gpedit.msc</span><br></pre></td></tr></table></figure>
+
+<h1 id="打包二进制"><a href="#打包二进制" class="headerlink" title="打包二进制"></a>打包二进制</h1><p><strong>Enigma Virtual Box</strong></p>
+<h1 id="右键菜单"><a href="#右键菜单" class="headerlink" title="右键菜单"></a>右键菜单</h1><p>cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\cmdhere]</span><br><span class="line">@=&quot;cmd&quot;      // 改成英文</span><br><span class="line">&quot;Icon&quot;=&quot;cmd.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\cmdhere\command]</span><br><span class="line">@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\cmdhere]</span><br><span class="line">@=&quot;cmd&quot;      //</span><br><span class="line">&quot;Icon&quot;=&quot;cmd.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\cmdhere\command]</span><br><span class="line">@=&quot;cmd.exe /s /k pushd \&quot;%V\&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>wsl</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\WSL]</span><br><span class="line">@=&quot;wsl&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;wsl.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\Background\shell\WSL\command]</span><br><span class="line">@=&quot;wsl.exe --cd \&quot;%V\&quot;&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\WSL]</span><br><span class="line">@=&quot;wsl&quot;</span><br><span class="line">&quot;Icon&quot;=&quot;wsl.exe&quot;</span><br><span class="line"></span><br><span class="line">[HKEY_CLASSES_ROOT\Directory\shell\WSL\command]</span><br><span class="line">@=&quot;wsl.exe --cd \&quot;%V\&quot;&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="监听http抓包"><a href="#监听http抓包" class="headerlink" title="监听http抓包"></a>监听http抓包</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npx @cmer/localhook</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<ol>
+<li><p>安卓定制的开发板+扫码枪</p>
+</li>
+<li><p>对接扫码枪，读取信息，解信息，</p>
+</li>
+<li><p>推送到屏幕（屏幕驱动）</p>
+</li>
+<li><p>给出信息接口</p>
+</li>
+<li><p>可能不支持某些服务</p>
+</li>
+<li><p>apk</p>
+</li>
+<li><p>底层虽然是linux，app</p>
+</li>
+</ol>
+<hr>
+<ol>
+<li><strong>扫码枪</strong></li>
+<li><strong>win客户端（最后还有第三方接口）</strong></li>
+</ol>
+<hr>
+<ol>
+<li>扫码枪有输出（网络、串口）</li>
+<li><strong>小linux盒子（一两百）</strong>（中控）</li>
+</ol>
 ]]></content>
       <categories>
         <category>软件技术</category>
@@ -29085,6 +29145,8 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p><strong>整机BOM（物料成本）算下来：200-400元，撑死500元。</strong></p>
 <p>售价1000-5000元，**毛利 50%-80%+**。</p>
 <p>国内不做任何认证：<strong>FCC&#x2F;CE&#x2F;3C等强制认证</strong>、<strong>USB-IF认证</strong>，做了只要没出口也是假的</p>
+<h1 id="实战搭积木"><a href="#实战搭积木" class="headerlink" title="# 实战搭积木"></a># 实战搭积木</h1><p> 分体式解码</p>
+<p>意大利声卡-9038q2m解码板-solo耳放板（仿）+12VAC电源</p>
 ]]></content>
       <categories>
         <category>硬件技术</category>
@@ -29423,6 +29485,22 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
         <tag>音频</tag>
         <tag>dante</tag>
         <tag>dsp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>技术无意义-AI时代的自我思考</title>
+    <url>/2026/08/17/%E6%8A%80%E6%9C%AF%E6%97%A0%E6%84%8F%E4%B9%89-AI%E6%97%B6%E4%BB%A3%E7%9A%84%E8%87%AA%E6%88%91%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="技术无意义-AI时代的自我思考"><a href="#技术无意义-AI时代的自我思考" class="headerlink" title="技术无意义-AI时代的自我思考"></a>技术无意义-AI时代的自我思考</h1><p>​	当我手握了grok heavy，cursor ultra plan之后，我明白了一件事。对于像我这种对各种技术都是一知半解的人来说，学习技术已经毫无意义了。只需掌握最基本的调试技能以及打字即可从零搭建任何软件、甚至底层驱动、架构设计、硬件开发。但是我并不感到自卑以及痛苦，相反我十分开心。接下来的生活，我将全身心完全投入艺术、音乐、运动、书籍、世界运转的逻辑之中，探索这个世界的本质与真正令人着迷的地方。</p>
+<p>​	有时我深深感知到自己对世界的运转以及社会的发展的路径的了解之浅，稍微读了一点资本论以及刷过一些长视频之后我才发觉自己早已被卷入这个世界最恐怖的漩涡之中-资本剥削。开始实习之后注意力、耐心、思维的下降速度极为恐怖，在毕业之前，我曾在几天内连续读完陀斯妥耶夫斯基的《卡拉马佐夫兄弟》和《罪与罚》，以及各类书籍，并能够稍微挤出几个字的读书笔记。那时我还未接触抖音，唯一的视频平台就是b站，而我只沉迷于书籍博主、露营、以及旅行类，我知道了自己进入了信息茧房，但是这种信息茧房对于那时的我来说无疑是优质的，它扩展的我的精神世界，治愈了我的枯燥。然而在开始实习之后，我下载了抖音，同时B站的算法也开始进行收割了，我被算法无情地打上了低质量牛马的标签，开始被推送各类毫无意义的短视频、商品广告、食物团券。而那时的我却清醒地沉沦了下去。</p>
+<p>​	那时的我之所以会陷入这种陷阱，是因为我纯在手写代码（累），与傻逼沟通，被傻逼管理，导致脑力消耗极大、情绪内耗其严重，没做好情绪分离、课题分离。但是现在不一样了，我将所有的代码全部交给AI，拒绝思考任何与技术有关的内容，我的脑力恢复了。我将无视任何影响自己情绪事件，我不内耗了。我的大部分时间将全部用于兴趣爱好的扩展，以及对世界运转的学习。接下来这个博客将用于记录我的兴趣爱好。感谢AI。</p>
+]]></content>
+      <categories>
+        <category>读书</category>
+      </categories>
+      <tags>
+        <tag>读书</tag>
+        <tag>笔记</tag>
+        <tag>自我思考</tag>
       </tags>
   </entry>
 </search>
