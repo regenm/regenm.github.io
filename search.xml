@@ -15844,7 +15844,7 @@
     <title>windows tips</title>
     <url>/2025/09/22/windows-tips/</url>
     <content><![CDATA[<h1 id="创建本地账户"><a href="#创建本地账户" class="headerlink" title="创建本地账户"></a>创建本地账户</h1><p>​	断网，win11安装系统的时候按下 <code>shift+F10</code> 。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">oobe\bypassnro</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">net user administrator /active:yes</span><br><span class="line">cd oobe</span><br><span class="line">msoobe &amp;&amp; shutdown -r</span><br></pre></td></tr></table></figure>
 
 <h1 id="快速删除"><a href="#快速删除" class="headerlink" title="快速删除"></a>快速删除</h1><p>​	单线程</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rd /s /q &quot;E:\test&quot;</span><br></pre></td></tr></table></figure>
