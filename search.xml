@@ -85,7 +85,7 @@
 </ol>
 <h1 id="玩法"><a href="#玩法" class="headerlink" title="玩法"></a>玩法</h1><h2 id="1-显示基本ASCII"><a href="#1-显示基本ASCII" class="headerlink" title="1.显示基本ASCII"></a>1.显示基本ASCII</h2><h2 id="2-显示中文"><a href="#2-显示中文" class="headerlink" title="2.显示中文"></a>2.显示中文</h2><h2 id="3-显示BMP位图"><a href="#3-显示BMP位图" class="headerlink" title="3.显示BMP位图"></a>3.显示BMP位图</h2>]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>project</tag>
@@ -335,7 +335,7 @@
 <p>Good luck .</p>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -377,7 +377,7 @@
 </ul>
 <h2 id="AD-域控的核心价值是“集中管理身份与设备”"><a href="#AD-域控的核心价值是“集中管理身份与设备”" class="headerlink" title="AD 域控的核心价值是“集中管理身份与设备”"></a><strong>AD 域控的核心价值是“集中管理身份与设备”</strong></h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -702,6 +702,9 @@
 </ol>
 <p>旋钮的敏感度太大</p>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>音频</tag>
         <tag>音响</tag>
@@ -1026,7 +1029,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/ssp/image-20250709145027704.png" alt="image-20250709145027704"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1072,7 +1075,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1153,7 +1156,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1203,6 +1206,9 @@
 <h1 id="录屏"><a href="#录屏" class="headerlink" title="录屏"></a>录屏</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">adb shell screenrecord /sdcard/demo.mp4</span><br><span class="line">adb pull /sdcard/demo.mp4</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>adb</tag>
@@ -1524,7 +1530,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -1799,7 +1805,7 @@
 <p><img src="/../images/Linux/arch/install/image-20250717175154184.png" alt="image-20250717175154184"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -2012,7 +2018,7 @@
 <h1 id="排版与格式"><a href="#排版与格式" class="headerlink" title="排版与格式"></a>排版与格式</h1><p><strong>to be continued</strong></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>c/c++</tag>
@@ -2092,7 +2098,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>stm32</tag>
@@ -2251,7 +2257,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -2625,7 +2631,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -2651,7 +2657,7 @@
 <h2 id="3-收尾。"><a href="#3-收尾。" class="headerlink" title="3.收尾。"></a>3.收尾。</h2><p>​		简单的实现栈这个数据结构其实不一定需要用到二级指针，只是我把问题复杂化了。带来了意向不到的难题。不过至少让我将二级指针收入囊中。不得不感叹一下任重道远啊。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3018,7 +3024,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3308,7 +3314,7 @@
 <h3 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h3><h3 id="关系代数表达式的优化"><a href="#关系代数表达式的优化" class="headerlink" title="关系代数表达式的优化"></a>关系代数表达式的优化</h3><p>​	</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3695,7 +3701,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3719,7 +3725,7 @@
 
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3740,7 +3746,7 @@
 <p><strong>错了已经错了，悟已往之不谏，知来者之可追。</strong></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -3818,7 +3824,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4024,7 +4030,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4167,7 +4173,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4239,7 +4245,7 @@
 <p>然后就可以通过自己的github域名+仓库访问了<a href="https://regenm.github.io/Vuefarm">regenm.github.io&#x2F;Vuefarm</a>。（大小写敏感），如果之前用过githubpages可能会有冲突，例如博客等等。因为域名只有一个，url路径相同的话就会有冲突，这里暂时还没遇到。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4344,7 +4350,7 @@
 <p>需要针对某类具体问题（技术调试&#x2F;人际沟通&#x2F;决策分析）进一步展开时，可以随时提出细化需求。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4381,7 +4387,7 @@
 <p>然后<code>docker restart jenkins</code>即可。</p>
 <h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4572,7 +4578,7 @@
 <p>kubectl apply -f <a href="https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml">https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml</a></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4645,7 +4651,7 @@
 <p><img src="/..%5Cimages%5CLinux%5C%E8%BF%90%E7%BB%B4%5Ck8s%5Cimage-20250804173743514.png" alt="image-20250804173743514"></p>
 <h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h2 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4683,7 +4689,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/dns/image-20250916090824119.png" alt="image-20250916090824119"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -4963,7 +4969,7 @@
 <p>​                                </p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5202,7 +5208,7 @@
 </ol>
 <h3 id="日志管理与分析"><a href="#日志管理与分析" class="headerlink" title="日志管理与分析"></a>日志管理与分析</h3>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5384,7 +5390,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5657,7 +5663,7 @@
 <p>然后就可以挂上了，可能是第一次没操作好，乱挂之后更挂不上了。新技巧：<strong>取消残留的 systemd 挂载单元</strong></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -5803,7 +5809,7 @@
 <p>如果想，我也能帮你把这篇文章配上图表或流程图，让博客看起来更美观～ 🌿</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6001,7 +6007,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6240,7 +6246,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6254,7 +6260,7 @@
 <h1 id="3-COVER3"><a href="#3-COVER3" class="headerlink" title="3.COVER3"></a>3.COVER3</h1><p><img src="/../images/cover1.jpg">	</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6302,7 +6308,7 @@
 
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>project</tag>
@@ -6418,7 +6424,7 @@
 <p>看看这个esp8266连接mqtt服务器的项目吗？(<a href="https://regenm.github.io/2024/02/09/esp8266%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E5%9F%BA%E4%BA%8Emosquitto%E7%9A%84mqtt-server%EF%BC%89/">esp8266连接服务器（基于mosquitto的mqtt server） | Regen (github.io)</a></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6463,6 +6469,9 @@
 <h2 id="信噪比"><a href="#信噪比" class="headerlink" title="信噪比"></a><strong>信噪比</strong></h2><p><strong>77 dB (1 kHz at 1 Pa)</strong></p>
 <p>在标准测试音（94 dB SPL）下，有用信号与麦克风自身固有噪声的比值。<strong>数值越大，噪音越小，音质越干净。</strong></p>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>音频</tag>
         <tag>音响</tag>
@@ -6493,7 +6502,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6678,7 +6687,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6800,7 +6809,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/day02/12.png"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6870,7 +6879,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -6931,7 +6940,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -7036,7 +7045,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -7325,51 +7334,12 @@
 <p>​    </p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
         <tag>PCB</tag>
         <tag>电路设计</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHOTO</title>
-    <url>/2024/02/27/PHOTO/</url>
-    <content><![CDATA[<h1 id="说走就走（南昌）"><a href="#说走就走（南昌）" class="headerlink" title="说走就走（南昌）"></a>说走就走（南昌）</h1><p>​	去完南昌回来之后几天。想了想，果然还是想记下来当时间胶囊。</p>
-<p>​	回家那一刻我就知道了2024的寒假注定是灰色的，看到最近天气15日阴天，以及温度逐渐下降甚至出现下雪的时候，我心情是复杂的。</p>
-<p>​	上学期因荒废暑假后在学期中越想越痛，于是就发誓要好好利用寒假出去逛一逛，看看不同城市的风景。看到这天气后就有点挫伤。</p>
-<p>​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。</p>
-<p>​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！</p>
-<p>​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）</p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1163.jpg"></p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1164.jpg"></p>
-<p>​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。</p>
-<blockquote>
-<p><strong>我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东西。她是我见过的最勇敢的人。</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>“ I wanted you to see what real courage is, instead of getting the idea that courage is a man with a gun in his hand. It’s when you know you’re licked before you begin but you begin anyway and you see it through no matter what. You rarely win, but sometimes you do. Mrs. Dubose won, all ninety-eight pounds of her. According to her views, she died beholden to nothing and nobody. She was the bravest person I ever knew. “</strong></p>
-</blockquote>
-<p>​	第二天早上，大雨，开始后悔。</p>
-<p>​	在滕王阁附近的洪都大拇指奶茶店点了一杯推荐，坐在墙角的小板凳上，看着越下越大的雨，耳边Ólafur Arnalds的《1440》更增加了凄惨的氛围。 能够稍微安慰我的也就只有 手上的 “雪顶幽兰”逐渐散去的余热了。</p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1165.jpg" alt="路上"></p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1166.jpg"></p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1170.jpg" alt="远处"></p>
-<p>​	走近看才发现滕王阁原来这么大 ，虽然古人上滕王阁是用爬的，但是时代不一样了，有电梯了。 但是迁客骚人的览物之情却没怎么变化（古今对比），从最顶楼的许愿牌便可得出此结论。</p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1172.jpg" alt="顶"></p>
-<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1168.jpg" alt="檐"></p>
-<p>​	越下越大的雨好像放大了览物之情，让我突然想念起了坐在电炉前乱弹吉他的温暖。于是便回家了······</p>
-<hr>
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>旅行</tag>
-        <tag>摄影</tag>
-        <tag>photo</tag>
       </tags>
   </entry>
   <entry>
@@ -9002,61 +8972,11 @@
 </ol>
 <h2 id="DIsk"><a href="#DIsk" class="headerlink" title="DIsk"></a>DIsk</h2><h1 id="7-文件系统管理"><a href="#7-文件系统管理" class="headerlink" title="7. *文件系统管理"></a>7. *文件系统管理</h1><h1 id="8-操作系统安全"><a href="#8-操作系统安全" class="headerlink" title="8. 操作系统安全"></a>8. 操作系统安全</h1>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
         <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PHOTOGRAPHY!</title>
-    <url>/2023/09/20/PHOTOGRAPHY/</url>
-    <content><![CDATA[<h1 id="星空拍摄笔记"><a href="#星空拍摄笔记" class="headerlink" title="星空拍摄笔记"></a>星空拍摄笔记</h1><p><strong>一定要带快门线！</strong></p>
-<h2 id="参数的选择"><a href="#参数的选择" class="headerlink" title="参数的选择"></a>参数的选择</h2><h3 id="一，焦段："><a href="#一，焦段：" class="headerlink" title="一，焦段："></a>一，焦段：</h3><p>​	一般常见焦段为12-40，使用广角&amp;超广角镜头最佳。</p>
-<h3 id="二，光圈："><a href="#二，光圈：" class="headerlink" title="二，光圈："></a>二，光圈：</h3><p>​	直接拉到最大，不过有一些镜头西需要收一收获得更好的成像。</p>
-<h3 id="三，对焦："><a href="#三，对焦：" class="headerlink" title="三，对焦："></a>三，对焦：</h3><p>​	手动直接拉到无穷远，但是可能不够准确，可以打开屏幕，放大一颗比较亮的星星进行微调。</p>
-<h3 id="四，曝光："><a href="#四，曝光：" class="headerlink" title="四，曝光："></a>四，曝光：</h3><p>​	“500”法则：500除以镜头的焦段（全画幅焦段），得到的数字便是你可以使用的最长快门时间。</p>
-<p>​	例如：</p>
-<p>200mm（全画幅）：理想快门速度约为2.5秒（500除以200mm）</p>
-<p>24mm（全画幅）：理想快门速度约为20秒（500除以24mm）</p>
-<p>16mm（全画幅）：理想快门速度约为31秒（500除以16mm）</p>
-<p>14mm（全画幅）：理想快门速度约为35秒（500除以14mm）</p>
-<h3 id="五，感光度："><a href="#五，感光度：" class="headerlink" title="五，感光度："></a>五，感光度：</h3><p>​	常用2000-6400的感光度拍摄银河（偶尔1600）<br>​	如果是拍摄星轨的话建议直接100，拉长曝光时间。</p>
-<h3 id="六，白平衡："><a href="#六，白平衡：" class="headerlink" title="六，白平衡："></a>六，白平衡：</h3><p>（相机内的色温值越低，拍摄的照片色调越冷，颜色越蓝；反之，色调越暖，颜色越黄）</p>
-<h1 id="烟花拍摄笔记"><a href="#烟花拍摄笔记" class="headerlink" title="烟花拍摄笔记"></a>烟花拍摄笔记</h1><h2 id="1-准备"><a href="#1-准备" class="headerlink" title="1. 准备"></a>1. 准备</h2><ul>
-<li>注意风向，别去下风处</li>
-<li>采用长曝光，需要三脚架，快门线</li>
-</ul>
-<h2 id="2-参数的选择"><a href="#2-参数的选择" class="headerlink" title="2.参数的选择"></a>2.参数的选择</h2><ul>
-<li>iso 最低</li>
-<li>小光圈 f&#x2F;8 到 f&#x2F;16</li>
-</ul>
-<blockquote>
-<p><em>光圈越大，烟火的线条越粗；光圈越小，烟火的线条越细</em></p>
-<p><em>距离施放点越<strong>近</strong>、亮度越<strong>高</strong>→ 使用f&#x2F;13-18的小光圈，减少进光量、并可使烟火线条较细</em></p>
-<p><em>距离施放点越<strong>远</strong>、亮度越<strong>低</strong>→ 使用f&#x2F;8-11的大光圈，增加进光量、并可使烟火线条较明显</em></p>
-</blockquote>
-<blockquote>
-<p>快门速度需要根据<strong>拍摄远近</strong>和<strong>光圈大小</strong>来微调，但秒数至少要大于「烟火从升空到完整爆开」的时间，如此才能拍出一个完整的烟火形状；若时间太短，只会拍出部分绽放的烟火；时间太长则可能会过曝。</p>
-</blockquote>
-<h1 id="2023-8-28"><a href="#2023-8-28" class="headerlink" title="2023.8.28"></a>2023.8.28</h1><img src=" /images/2023828.jpg" width="400" height="400" alt="With Guitar In The Rain">
-
-<p>​	小雨，很喜欢下雨的时候路灯下的氛围感。于是就拿起三脚架背上吉他就出发咯。要是有灯就好了qwq.hexo</p>
-<h1 id="2023-10-2"><a href="#2023-10-2" class="headerlink" title="2023.10.2"></a>2023.10.2</h1><p><img src="../images/bookintheleaves.jpg" width="400" height="400" alt="bookInTheLeaves"/><br/></p>
-<p>​	这本书的名字是《杀死一只知更鸟》，那天下午阳光正好，所以我就踩着脚踏车愉快地出门了。带着我的小单反，不过过几天我应该就能换新镜头了。希望那时可以拍出更好看的照片。不过同时，还得好好学摄影，毕竟打铁还需自身硬。</p>
-<h1 id="2023-10-28"><a href="#2023-10-28" class="headerlink" title="2023.10.28"></a>2023.10.28</h1><p><img src="/../images/202310281.jpg" alt="gentle sunlight cheers me up"></p>
-<p><img src="/../images/202310282.jpg" alt="one building&#39;s glow"></p>
-<p>​	阳台外面就是一个小湖，每天都能看到日落。中午时光练练吉他，看看书，简单的快乐。</p>
-<h1 id="2023-11-11"><a href="#2023-11-11" class="headerlink" title="2023.11.11"></a>2023.11.11</h1><img src=" ../images/202311111.jpg"  alt="NIKON GUYS">
-]]></content>
-      <categories>
-        <category>生活</category>
-        <category>摄影</category>
-      </categories>
-      <tags>
-        <tag>旅行</tag>
-        <tag>摄影</tag>
       </tags>
   </entry>
   <entry>
@@ -9200,7 +9120,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9230,7 +9150,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/postgres/image-20251009162706286.png" alt="image-20251009162706286"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9309,7 +9229,7 @@
 
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9351,7 +9271,7 @@
 </blockquote>
 <h1 id="RUST-启动！"><a href="#RUST-启动！" class="headerlink" title="RUST 启动！"></a>RUST 启动！</h1><h2 id="1-变量类型"><a href="#1-变量类型" class="headerlink" title="1.变量类型"></a>1.变量类型</h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9558,7 +9478,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9597,7 +9517,7 @@
 <p><img src="/../images/oldBlog/2.png" alt="2"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>关于我</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -9706,7 +9626,7 @@
 </blockquote>
 <h1 id="STM32-实现"><a href="#STM32-实现" class="headerlink" title="STM32 实现"></a>STM32 实现</h1><h2 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a>标准库</h2><h2 id="hal库"><a href="#hal库" class="headerlink" title="hal库"></a>hal库</h2>]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>project</tag>
@@ -9746,7 +9666,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>project</tag>
@@ -10040,7 +9960,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>stm32</tag>
@@ -10084,7 +10004,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10102,7 +10022,7 @@
 <h1 id="一次点亮！！"><a href="#一次点亮！！" class="headerlink" title="一次点亮！！"></a>一次点亮！！</h1><p>​	以后引脚还是选择排针吧，排母不太稳定，烧录的时候可能会出现问题。</p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>stm32</tag>
@@ -10367,6 +10287,9 @@
 <p>Speaker Terminal（接线柱）香蕉头</p>
 <p>Phoenix</p>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>音频</tag>
         <tag>音响</tag>
@@ -10666,7 +10589,7 @@
 <p>通过这种方式，Vue.js前端通过HTTP请求与Spring Boot后端进行通信，实现数据的获取、提交和展示，完成了前后端的分离和协作。这种架构不仅能够提高开发效率，还能够使得前端和后端团队能够独立开发、测试和部署各自的功能模块。</p>
 <h1 id="MySql-数据库部分"><a href="#MySql-数据库部分" class="headerlink" title="MySql( 数据库部分 )"></a>MySql( 数据库部分 )</h1>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10698,7 +10621,7 @@
 <h1 id="AXIOS"><a href="#AXIOS" class="headerlink" title="AXIOS"></a>AXIOS</h1><p>​	基于 Promise 的 HTTP 客户端，可以用在浏览器和 Node.js 中。适合用于 Vue 项目中进行 API 请求。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10779,7 +10702,7 @@
 <h1 id="问题总结："><a href="#问题总结：" class="headerlink" title="问题总结："></a>问题总结：</h1><h2 id="拆tar过程会重新打包一遍整个tar"><a href="#拆tar过程会重新打包一遍整个tar" class="headerlink" title="拆tar过程会重新打包一遍整个tar"></a>拆tar过程会重新打包一遍整个tar</h2><p>​	拆tar过程中生成的file_lists文件需要删除第一行，因为第一行是文件夹的根，使用命令&#96;tar -cvf “${list}.tar” -C “&#x2F;“ -T “$list”会重新打包一遍根</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10803,7 +10726,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10883,7 +10806,7 @@
 <h3 id="2-2-3-运行RPA"><a href="#2-2-3-运行RPA" class="headerlink" title="2.2.3 运行RPA"></a>2.2.3 运行RPA</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/bitbucketRestApi/image-20250828165821017.png" alt="image-20250828165821017"></p>
 <h3 id="2-2-4-结束"><a href="#2-2-4-结束" class="headerlink" title="2.2.4 结束"></a>2.2.4 结束</h3>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10898,13 +10821,14 @@
   <entry>
     <title>About me</title>
     <url>/2023/09/20/about-me/</url>
-    <content><![CDATA[<h1 id="Regen-m-smile"><a href="#Regen-m-smile" class="headerlink" title="Regen_m	:smile:"></a>Regen_m	:smile:</h1><p>​	这是我的cyber name。这一页就用来介绍介绍我自己吧！</p>
-<h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影，看书，乒乓球，游泳，爬山等等。</p>
-<h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		不知道有谁会看到这个网页，但我打算在接下来的大学生活（也许这辈子？）中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</p>
-<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		自我介绍就到这里啦！晚安。</p>
+    <content><![CDATA[<h1 id="Regen-m-smile"><a href="#Regen-m-smile" class="headerlink" title="Regen_m	:smile:"></a>Regen_m	:smile:</h1><p>​	同性交友平台id：<a href="https://github.com/regenm">regenm</a></p>
+<p>​	这是我的cyber name。这一页就用来介绍介绍我自己吧！</p>
+<h1 id="首先，"><a href="#首先，" class="headerlink" title="首先，"></a>首先，</h1><p>​		<del>我是个热血到爆炸的中二傻呗同时也是乐观到极致的麻瓜。兴趣比较广泛，喜欢DIY设计 ,电子设计，手工制作，弹吉他，摄影，看书，乒乓球，游泳，爬山等等。</del>已工作。</p>
+<h1 id="虽然，"><a href="#虽然，" class="headerlink" title="虽然，"></a>虽然，</h1><p>​		<del>不知道有谁会看到这个网页，但我打算在接下来的大学生活（也许这辈子？）中利用这个博客记录记录自己的学习，生活历程。这个博客既能记录我的学习笔记，还可以分享我的所见所闻，让我的分享欲有地方释放哈哈哈哈。</del>已停止。</p>
+<h1 id="总之，"><a href="#总之，" class="headerlink" title="总之，"></a>总之，</h1><p>​		<del>自我介绍就到这里啦！晚安。</del>再见。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>关于我</category>
       </categories>
       <tags>
         <tag>about</tag>
@@ -10957,7 +10881,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -10978,7 +10902,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11016,7 +10940,7 @@
 
 <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11242,7 +11166,7 @@
 <h4 id="3-设备找不到或者设备信息NA"><a href="#3-设备找不到或者设备信息NA" class="headerlink" title="3. 设备找不到或者设备信息NA"></a>3. 设备找不到或者设备信息NA</h4><p>可用其他软件例如aes软件进行测试，</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11433,7 +11357,7 @@
 </code></pre>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11469,7 +11393,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11643,7 +11567,7 @@
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><p>Docker 容器本质是 <strong>通过 Linux 内核的 Namespaces 和 Cgroups 实现的隔离进程</strong>，配合联合文件系统提供轻量级、高性能的虚拟化环境。其效率远高于传统虚拟机，但隔离性较弱（共享内核）。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11671,7 +11595,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11754,7 +11678,7 @@
 <p><img src="/images/esp8266_mqtt/success3.png" alt="success"></p>
 ]]></content>
       <categories>
-        <category>软硬件结合</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11783,7 +11707,7 @@
 <h3 id="docker-compose-yml"><a href="#docker-compose-yml" class="headerlink" title="docker-compose.yml"></a>docker-compose.yml</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">version: <span class="string">&#x27;3.8&#x27;</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  es_snapshot_sync:</span><br><span class="line">    container_name: es_snapshot_sync</span><br><span class="line">    build: ./es-backup</span><br><span class="line">    image: es_bakcup:1.0</span><br><span class="line">    environment:</span><br><span class="line">      - REMOTE_ES_IP=<span class="variable">$&#123;REMOTE_ES_IP&#125;</span></span><br><span class="line">      - REMOTE_ES_PORT=<span class="variable">$&#123;REMOTE_ES_PORT&#125;</span></span><br><span class="line">      - ES_USER=<span class="variable">$&#123;ES_USER&#125;</span></span><br><span class="line">      - ES_PASSWORD=<span class="variable">$&#123;ES_PASSWORD&#125;</span></span><br><span class="line">      - REPO_NAME=<span class="variable">$&#123;REPO_NAME&#125;</span></span><br><span class="line">      - REMOTE_SNAPSHOT_USER=<span class="variable">$&#123;REMOTE_SNAPSHOT_USER&#125;</span></span><br><span class="line">      - SSH_PASSWORD=<span class="variable">$&#123;SSH_PASSWORD&#125;</span></span><br><span class="line">      - REMOTE_BACKUP_PATH=<span class="variable">$&#123;REMOTE_BACKUP_PATH&#125;</span></span><br><span class="line">      - LOCAL_BACKUP_PATH=<span class="variable">$&#123;LOCAL_BACKUP_PATH&#125;</span></span><br><span class="line">      - CRON_SCHEDULE=<span class="variable">$&#123;CRON_SCHEDULE&#125;</span></span><br><span class="line">      - RETENTION_DAYS=<span class="variable">$&#123;RETENTION_DAYS&#125;</span></span><br><span class="line">      - TZ=<span class="variable">$&#123;TZ&#125;</span></span><br><span class="line">    volumes:</span><br><span class="line">      - ./backup-data:<span class="variable">$&#123;LOCAL_BACKUP_PATH&#125;</span></span><br><span class="line">    restart: always</span><br><span class="line">    healthcheck:</span><br><span class="line">      <span class="built_in">test</span>: &gt;</span><br><span class="line">        curl -fsu <span class="variable">$&#123;ES_USER&#125;</span>:<span class="variable">$&#123;ES_PASSWORD&#125;</span> http://<span class="variable">$&#123;REMOTE_ES_IP&#125;</span>:<span class="variable">$&#123;REMOTE_ES_PORT&#125;</span>/_cluster/health &amp;&amp;</span><br><span class="line">        pgrep -x cron &amp;&amp;</span><br><span class="line">        rsync --version</span><br><span class="line">      interval: 1m</span><br><span class="line">      <span class="built_in">timeout</span>: 10s</span><br><span class="line">      retries: 3</span><br><span class="line">    networks:</span><br><span class="line">      - es_network</span><br><span class="line"></span><br><span class="line">networks:</span><br><span class="line">  es_network:</span><br><span class="line">    driver: bridge</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11828,7 +11752,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/es/image-20251014105159136.png" alt="image-20251014105159136"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11877,7 +11801,7 @@
 <h2 id="五、常用管理命令"><a href="#五、常用管理命令" class="headerlink" title="五、常用管理命令"></a>五、常用管理命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 服务管理</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl stop frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart frps/frpc</span><br><span class="line"><span class="built_in">sudo</span> systemctl status frps/frpc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frps/frpc -f</span><br><span class="line"><span class="built_in">sudo</span> journalctl -u frps/frpc -n 50</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl restart frps/frpc</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -11930,7 +11854,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/grafana/image-20250916172251985.png" alt="image-20250916172251985"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -12241,7 +12165,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -12326,7 +12250,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/influxdb/image-20250904141421745.png" alt="image-20250904141421745"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -12402,7 +12326,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/influxdb/image-20250902144843326.png" alt="image-20250902144843326"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -12652,7 +12576,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -12990,7 +12914,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -13230,7 +13154,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -13244,7 +13168,7 @@
     <url>/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81crowd%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB/</url>
     <content><![CDATA[]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -13444,7 +13368,7 @@
 <p>即可生成license，填入即可正常使用。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -13739,7 +13663,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14135,7 +14059,7 @@
 <h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>见<a href="https://regenm.github.io/2025/07/18/jira%E3%80%81confluence%E3%80%81bitbucket%E3%80%81%E5%9F%BA%E4%BA%8Ecrowd%E5%AE%9E%E7%8E%B0sso/">jira、confluence、bitbucket、基于crowd实现sso | Regen</a></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14235,7 +14159,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14260,6 +14184,9 @@
 <h2 id="生效规则"><a href="#生效规则" class="headerlink" title="生效规则"></a>生效规则</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">udevadm control --reload-rules</span><br><span class="line">udevadm trigger</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>linux</tag>
@@ -14333,7 +14260,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14413,7 +14340,7 @@
 <h3 id="检查数据-1"><a href="#检查数据-1" class="headerlink" title="检查数据"></a>检查数据</h3><p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/mongo/image-20250822103721941.png" alt="image-20250822103721941"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14486,7 +14413,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14776,7 +14703,7 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -14995,7 +14922,7 @@
 </blockquote>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15077,7 +15004,7 @@
 <p>至此已完成迁移</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15120,7 +15047,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/nexus/image-20251016164057094.png" alt="image-20251016164057094"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15160,7 +15087,7 @@
 <h2 id="以上就是python-Turtle模组的基本语法"><a href="#以上就是python-Turtle模组的基本语法" class="headerlink" title="以上就是python Turtle模组的基本语法"></a>以上就是python Turtle模组的基本语法</h2><p>​	但是光会这些基本知识也不行，你还得有亿点点艺术细胞。毕竟它作为画画工具有一点简朴了。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15188,7 +15115,7 @@
 <p>​	<img src="/../images/wenjianzhuanyi.PNG" alt="result"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15323,7 +15250,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15480,7 +15407,7 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">os.environ[<span class="string">&quot;SW_AGENT_NAME&quot;</span>] = <span class="string">&quot;python-test-service-2&quot;</span></span><br><span class="line">os.environ[<span class="string">&quot;SW_AGENT_COLLECTOR_BACKEND_SERVICES&quot;</span>] = <span class="string">&quot;127.0.0.1:11800&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skywalking <span class="keyword">import</span> agent, config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Agent</span></span><br><span class="line">agent.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 Trace 的业务函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">do_work</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># requests 会被 Agent 自动 patch，生成 Span</span></span><br><span class="line">        r = requests.get(<span class="string">&quot;http://httpbin.org/get&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;[Trace] Request status: <span class="subst">&#123;r.status_code&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[Trace] Request failed:&quot;</span>, e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;SkyWalking Python agent test started&quot;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        do_work()</span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15531,7 +15458,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/telegraf/image-20250917165809620.png" alt="image-20250917165809620"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15550,7 +15477,7 @@
 <p><img src="/../images/games/undertale/1.png"><img src="/../images/games/undertale/2.jpg"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>读书</category>
       </categories>
       <tags>
         <tag>随手记</tag>
@@ -15627,7 +15554,7 @@
 
 <h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><h2 id="Procedures"><a href="#Procedures" class="headerlink" title="Procedures"></a>Procedures</h2><h2 id="Other-features"><a href="#Other-features" class="headerlink" title="Other features"></a>Other features</h2>]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15829,7 +15756,7 @@
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -15924,7 +15851,7 @@
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -16370,7 +16297,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -16479,7 +16406,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/pigz/image-20250725150208510.png" alt="image-20250725150208510"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -16558,7 +16485,7 @@
 <h2 id="7-确定"><a href="#7-确定" class="headerlink" title="7. 确定"></a>7. 确定</h2><p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250903113833144.png" alt="image-20250903113833144"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -16653,7 +16580,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -16824,7 +16751,7 @@
 <p><img src="/../images/Linux/%E8%BF%90%E7%BB%B4/zabbix/image-20250810131350190.png" alt="image-20250810131350190"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -18600,7 +18527,7 @@ to breathe, to sense another, and to wait.<br>
 <h3 id="然后就可以愉快的使用了！"><a href="#然后就可以愉快的使用了！" class="headerlink" title="然后就可以愉快的使用了！"></a>然后就可以愉快的使用了！</h3><p><img src="/../images/Linux/samba/4.png"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -18698,7 +18625,7 @@ to breathe, to sense another, and to wait.<br>
 <h2 id="区块链"><a href="#区块链" class="headerlink" title="区块链"></a>区块链</h2><p>​	Bitcoin、Ethereum、Hyperledger Fabric、Polkadot。构建去中心化系统，支持加密货币交易、智能合约、数据安全和隐私保护。采用分布式账本、共识算法、加密技术，数据公开透明且难以篡改，适用于去中心化应用（DApp）和数据溯源等。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -18716,7 +18643,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/guitar/35.png" alt="4"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>音乐</category>
       </categories>
       <tags>
         <tag>吉他</tag>
@@ -18741,7 +18668,7 @@ to breathe, to sense another, and to wait.<br>
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -18764,7 +18691,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/Linux/interesting/image-20250821151757753.png" alt="image-20250821151757753"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -19061,7 +18988,7 @@ to breathe, to sense another, and to wait.<br>
 <p>我的架构是tlc，是不是都无所谓了，写入量比较少，虽然不安全关机多，但是个人感觉无所谓，可能是当移动硬盘用的多。看着心烦的话不看就行了qwq</p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -19098,7 +19025,7 @@ to breathe, to sense another, and to wait.<br>
 <p><a href="https://regenm.github.io/2024/04/27/mqttSender/">mqttSender | Regen (regenm.github.io)</a></p>
 <h2 id="外扩系统"><a href="#外扩系统" class="headerlink" title="外扩系统"></a>外扩系统</h2><h3 id="3D打印"><a href="#3D打印" class="headerlink" title="3D打印"></a>3D打印</h3><h3 id="外扩系统构成"><a href="#外扩系统构成" class="headerlink" title="外扩系统构成"></a>外扩系统构成</h3><h4 id="1-独立MCU"><a href="#1-独立MCU" class="headerlink" title="1. 独立MCU"></a>1. 独立MCU</h4><h4 id="2-模块化设计"><a href="#2-模块化设计" class="headerlink" title="2. 模块化设计"></a>2. 模块化设计</h4>]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>项目</tag>
@@ -19116,6 +19043,9 @@ to breathe, to sense another, and to wait.<br>
     <content><![CDATA[<h1 id="安卓开发：WebAPK打包"><a href="#安卓开发：WebAPK打包" class="headerlink" title="安卓开发：WebAPK打包"></a>安卓开发：WebAPK打包</h1><p><a href="https://github.com/regenm/Androidweb2apk">Repo Link : regenm&#x2F;Androidweb2apk</a></p>
 <p>修改链接、图标志、app名字即可。</p>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>安卓开发</tag>
@@ -19139,7 +19069,6 @@ to breathe, to sense another, and to wait.<br>
 <p>这应该就是治愈内耗的良药了吧。</p>
 ]]></content>
       <categories>
-        <category>生活</category>
         <category>摄影</category>
       </categories>
       <tags>
@@ -19167,7 +19096,7 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 <h2 id="220v–-12v"><a href="#220v–-12v" class="headerlink" title="220v–&gt;12v"></a>220v–&gt;12v</h2><h1 id="DC-DC"><a href="#DC-DC" class="headerlink" title="DC-DC"></a>DC-DC</h1>]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -19370,7 +19299,7 @@ to breathe, to sense another, and to wait.<br>
 </blockquote>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>stm32</tag>
@@ -19863,7 +19792,7 @@ to breathe, to sense another, and to wait.<br>
 </blockquote>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -19883,7 +19812,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/motorcycle/image-20251001191139543.png" alt="image-20251001191139543"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -19928,7 +19857,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/fontend/vuetravelpoint/image-20250830011331507.png" alt="image-20250830011331507"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -20113,7 +20042,7 @@ to breathe, to sense another, and to wait.<br>
 </blockquote>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -20200,7 +20129,6 @@ to breathe, to sense another, and to wait.<br>
 </ol>
 ]]></content>
       <categories>
-        <category>生活</category>
         <category>音乐</category>
       </categories>
       <tags>
@@ -20309,7 +20237,7 @@ to breathe, to sense another, and to wait.<br>
 <p><a href="">to be continued</a></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>stm32</tag>
@@ -20387,7 +20315,7 @@ to breathe, to sense another, and to wait.<br>
 <h2 id="PCB"><a href="#PCB" class="headerlink" title="PCB"></a>PCB</h2><p><img src="/../images/iotwaterpump/hardware/pcb.png"></p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -20413,7 +20341,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/app/obsidian/image-20250905153258418.png" alt="image-20250905153258418"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -20623,7 +20551,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/iotWaterPump/v3/4.png" alt="v3"></p>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -20640,7 +20568,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/OperationsAndMaintenanceEngineer/1.png"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -24271,7 +24199,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="C:\Users\Regen\AppData\Roaming\Typora\typora-user-images\image-20250724103656188.png" alt="image-20250724103656188"></p>
 ]]></content>
       <categories>
-        <category>英语学习</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -24291,7 +24219,7 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/nc/2.png" alt="2"></p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -24311,7 +24239,6 @@ to breathe, to sense another, and to wait.<br>
 <p><img src="/../images/suzhou_trip/1.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/2.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/3.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/4.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/5.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/6.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/7.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/8.jpg" alt="lonely chair"><img src="/../images/suzhou_trip/9.jpg" alt="lonely chair"><img src="/images/suzhou_trip/10.jpg" alt="lonely chair"></p>
 ]]></content>
       <categories>
-        <category>生活</category>
         <category>摄影</category>
       </categories>
       <tags>
@@ -24468,7 +24395,7 @@ to breathe, to sense another, and to wait.<br>
 </blockquote>
 ]]></content>
       <categories>
-        <category>英语学习</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>英文</tag>
@@ -24618,7 +24545,7 @@ to breathe, to sense another, and to wait.<br>
 </ol>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -25639,7 +25566,7 @@ to breathe, to sense another, and to wait.<br>
 </ol>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -25724,7 +25651,7 @@ to breathe, to sense another, and to wait.<br>
 <p>可以看到连接成功了，说明<code>192.168.72.128:45690</code>有udp服务存在并且端口已经开放。</p>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -25868,7 +25795,7 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -26131,7 +26058,7 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 ]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -27119,7 +27046,7 @@ to breathe, to sense another, and to wait.<br>
 </ul>
 <h2 id="IPv64-7-IP-多播"><a href="#IPv64-7-IP-多播" class="headerlink" title="IPv64.7  IP 多播"></a>IPv64.7  IP 多播</h2><h2 id="虚拟专用网-VPN-和网络地址转换-NAT"><a href="#虚拟专用网-VPN-和网络地址转换-NAT" class="headerlink" title="虚拟专用网 VPN 和网络地址转换 NAT"></a>虚拟专用网 VPN 和网络地址转换 NAT</h2><h2 id="多协议标记交换-MPLS"><a href="#多协议标记交换-MPLS" class="headerlink" title="多协议标记交换 MPLS"></a>多协议标记交换 MPLS</h2><h1 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h1><h1 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h1>]]></content>
       <categories>
-        <category>软硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -27734,25 +27661,13 @@ to breathe, to sense another, and to wait.<br>
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>软件工程</tag>
         <tag>考试</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>随手记</title>
-    <url>/2023/10/09/%E9%9A%8F%E6%89%8B%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="困饿累睡不着"><a href="#困饿累睡不着" class="headerlink" title="困饿累睡不着"></a>困饿累睡不着</h1><p><img src="/../images/myPoems/1.jpg" alt="myPoems_1.jpg"></p>
-<p>​	上课的时候随便乱写的&lt;3,没想到我还是这么中二</p>
-<p>续集</p>
-<p><img src="/../images/myPoems/2.jpg" alt="myPoems_1.jpg"></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>随手记</tag>
       </tags>
   </entry>
   <entry>
@@ -27783,6 +27698,9 @@ to breathe, to sense another, and to wait.<br>
 </tr>
 </tbody></table>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
       <tags>
         <tag>笔记</tag>
         <tag>音频基础</tag>
@@ -28714,7 +28632,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tbody></table>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -28794,7 +28712,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -28823,7 +28741,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -28861,7 +28779,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -28903,7 +28821,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </ul>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -29026,7 +28944,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tbody></table>
 ]]></content>
       <categories>
-        <category>软件技术</category>
+        <category>音乐</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -29158,7 +29076,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>攒钱买大耳在测试看看。</p>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -29487,7 +29405,7 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 </tbody></table>
 ]]></content>
       <categories>
-        <category>硬件技术</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
@@ -29575,6 +29493,44 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
       <tags>
         <tag>读书</tag>
         <tag>随手记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>南昌solotrip</title>
+    <url>/2024/02/27/%E5%8D%97%E6%98%8Csolotrip/</url>
+    <content><![CDATA[<h1 id="说走就走（南昌）"><a href="#说走就走（南昌）" class="headerlink" title="说走就走（南昌）"></a>说走就走（南昌）</h1><p>​	去完南昌回来之后几天。想了想，果然还是想记下来当时间胶囊。</p>
+<p>​	回家那一刻我就知道了2024的寒假注定是灰色的，看到最近天气15日阴天，以及温度逐渐下降甚至出现下雪的时候，我心情是复杂的。</p>
+<p>​	上学期因荒废暑假后在学期中越想越痛，于是就发誓要好好利用寒假出去逛一逛，看看不同城市的风景。看到这天气后就有点挫伤。</p>
+<p>​	于是就怀着这越来越渺茫的希望，打了把又一把游戏。</p>
+<p>​	时机已到！那天下午，澡后我感到十分清爽，应该是内啡肽的作用。恰巧温度回升，下午的太阳也很舒服，就是现在！出发！</p>
+<p>​	然而刚到市里就开始下雨了。。。。。。我还没带伞，包里就一个没电的相机和一本书。（《杀死一只知更鸟》英文原著）</p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1163.jpg"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1164.jpg"></p>
+<p>​	好在火车上比较舒服，看看书，打了个盹就到了。刚好看完前半部分。看到了高中时期最喜欢的一段。</p>
+<blockquote>
+<p><strong>我想让你见识一下什么是真正的勇敢，而不要错误地认为一个人手握枪支就是勇敢。勇敢是：当你还未开始就已知道自己会输，可你依然要去做，而且无论如何都要把它坚持到底。你很少能贏，但有时也会。杜博斯太太赢了，用她那仅仅九十八磅重的身躯。按照她的观点，她死得无怨无悔，不欠任何人，也不依赖任何东西。她是我见过的最勇敢的人。</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>“ I wanted you to see what real courage is, instead of getting the idea that courage is a man with a gun in his hand. It’s when you know you’re licked before you begin but you begin anyway and you see it through no matter what. You rarely win, but sometimes you do. Mrs. Dubose won, all ninety-eight pounds of her. According to her views, she died beholden to nothing and nobody. She was the bravest person I ever knew. “</strong></p>
+</blockquote>
+<p>​	第二天早上，大雨，开始后悔。</p>
+<p>​	在滕王阁附近的洪都大拇指奶茶店点了一杯推荐，坐在墙角的小板凳上，看着越下越大的雨，耳边Ólafur Arnalds的《1440》更增加了凄惨的氛围。 能够稍微安慰我的也就只有 手上的 “雪顶幽兰”逐渐散去的余热了。</p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1165.jpg" alt="路上"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1166.jpg"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1170.jpg" alt="远处"></p>
+<p>​	走近看才发现滕王阁原来这么大 ，虽然古人上滕王阁是用爬的，但是时代不一样了，有电梯了。 但是迁客骚人的览物之情却没怎么变化（古今对比），从最顶楼的许愿牌便可得出此结论。</p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1172.jpg" alt="顶"></p>
+<p><img src="/../images/nanchang/Nikon2023_5_3_332023_6_1168.jpg" alt="檐"></p>
+<p>​	越下越大的雨好像放大了览物之情，让我突然想念起了坐在电炉前乱弹吉他的温暖。于是便回家了······</p>
+<hr>
+]]></content>
+      <categories>
+        <category>摄影</category>
+      </categories>
+      <tags>
+        <tag>旅行</tag>
+        <tag>摄影</tag>
+        <tag>photo</tag>
       </tags>
   </entry>
 </search>
