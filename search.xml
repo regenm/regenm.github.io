@@ -18156,27 +18156,6 @@
       </tags>
   </entry>
   <entry>
-    <title>系统学</title>
-    <url>/2026/04/11/%E3%80%8A%E7%B3%BB%E7%BB%9F%E5%AD%A6%E3%80%8B/</url>
-    <content><![CDATA[<h1 id="title-《系统之美》"><a href="#title-《系统之美》" class="headerlink" title="title: 《系统之美》"></a>title: 《系统之美》</h1><h2 id="系统的四元素"><a href="#系统的四元素" class="headerlink" title="系统的四元素"></a>系统的四元素</h2><ol>
-<li>组分（Constituents）</li>
-<li>结构（Structure）</li>
-<li>环境（Environment）</li>
-<li><strong>系统功能是系统组分、结构、环境的函数，从而系统的四元素可约减为三个</strong></li>
-</ol>
-<p><strong>整体大于部分之和</strong></p>
-<p><strong>反馈循环</strong>：系统内部存在相互影响。</p>
-<p><strong>存量与流量</strong>：</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
-        <tag>随手记</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>《西线无战事》</title>
     <url>/2024/07/09/%E3%80%8A%E8%A5%BF%E7%BA%BF%E6%97%A0%E6%88%98%E4%BA%8B%E3%80%8B/</url>
     <content><![CDATA[<h1 id="《西线无战事》"><a href="#《西线无战事》" class="headerlink" title="《西线无战事》"></a>《西线无战事》</h1><ul>
@@ -29422,40 +29401,9 @@ wndclass.hIcon = LoadIcon(NULL, IDI_APPLICATION);
 <p>​	那时的我之所以会陷入这种陷阱，是因为我纯在手写代码（累），与傻逼沟通，被傻逼管理，导致脑力消耗极大、情绪内耗其严重，没做好情绪分离、课题分离。但是现在不一样了，我将所有的代码全部交给AI，拒绝思考任何与技术有关的内容，我的脑力恢复了。我将无视任何影响自己情绪事件，我不内耗了。我的大部分时间将全部用于兴趣爱好的扩展，以及对世界运转的学习。接下来这个博客将用于记录我的兴趣爱好。感谢AI。</p>
 ]]></content>
       <categories>
-        <category>读书</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>读书</tag>
-        <tag>笔记</tag>
-        <tag>自我思考</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2026-8-17</title>
-    <url>/2026/08/17/2026-8-17/</url>
-    <content><![CDATA[<ol>
-<li>矛盾个人化</li>
-</ol>
-<p>​	<strong>个体不再把矛盾视为需要被解决的“问题”，而是将其吸收为自我认同的一部分</strong>。</p>
-<p>​	在传统社会，矛盾是外部的（如阶级矛盾、敌我矛盾）。但在现代社会，宏大的叙事瓦解了，矛盾被“下放”给个人。你不再是某个集体斗争的参与者，而是成为了自己内心诸多冲突的唯一裁决者。</p>
-<ol start="2">
-<li>存量博弈</li>
-</ol>
-<p>市场总资金或总需求不再增长，参与者只能互相抢夺对方手里的份额</p>
-<ol start="3">
-<li>缩量下降</li>
-</ol>
-<p>在博弈过程中，总交易额或总成交量持续萎缩，同时价格或主要指标在走下坡路</p>
-<ol start="4">
-<li>零和博弈</li>
-</ol>
-<p>在博弈过程中，总交易额或总成交量持续萎缩，同时价格或主要指标在走下坡路</p>
-]]></content>
-      <categories>
-        <category>读书</category>
-      </categories>
-      <tags>
-        <tag>读书</tag>
         <tag>笔记</tag>
         <tag>自我思考</tag>
       </tags>
